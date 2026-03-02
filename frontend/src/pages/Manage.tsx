@@ -119,13 +119,13 @@ export default function Manage() {
   }
 
   /* ─── Projects ─── */
-  const emptyProject = {
+  const emptyProject: Omit<Project, "id" | "created_at"> = {
     name: "",
     description: "",
     tech_stack: [],
     github_url: "",
     live_url: "",
-    status: "active" as const,
+    status: "active",
   };
   const [newProject, setNewProject] = useState(emptyProject);
   const [techInput, setTechInput] = useState("");
@@ -157,10 +157,10 @@ export default function Manage() {
   }
 
   /* ─── Stats ─── */
-  const emptyStat = {
+  const emptyStat: Omit<Stat, "id"> = {
     label: "",
     value: "",
-    category: "metric" as const,
+    category: "metric",
     sort_order: 0,
   };
   const [newStat, setNewStat] = useState(emptyStat);
