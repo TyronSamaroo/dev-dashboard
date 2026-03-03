@@ -4,6 +4,7 @@ const BASE = (import.meta.env.VITE_API_URL || "") + "/api";
 const CACHE_PREFIX = "dd_cache_";
 const CACHE_TS_KEY = "dd_cache_ts";
 const TIMEOUT_MS = 6000; // 6s timeout — fast enough for UX, enough for cold starts
+const SESSION_KEY = "dd_admin_key";
 
 /* ─── Cache helpers ─── */
 function cacheSet<T>(key: string, data: T) {
@@ -31,6 +32,19 @@ export function getCacheAge(): number | null {
 
 export function isCached(): boolean {
   return localStorage.getItem(CACHE_TS_KEY) !== null;
+}
+
+/* ─── Admin key helpers (sessionStorage — cleared on tab close) ─── */
+export function getAdminKey(): string | null {
+  return sessionStorage.getItem(SESSION_KEY);
+}
+
+export function setAdminKey(key: string) {
+  sessionStorage.setItem(SESSION_KEY, key);
+}
+
+export function clearAdminKey() {
+  sessionStorage.removeItem(SESSION_KEY);
 }
 
 /* ─── Track backend status so UI can show indicator ─── */
@@ -79,10 +93,23 @@ async function fetchJSON<T>(
   const cacheKey = url;
 
   try {
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+
+    // Attach admin key for write requests
+    if (!isGet) {
+      const key = getAdminKey();
+      if (key) headers["X-API-Key"] = key;
+    }
+
     const res = await fetchWithTimeout(`${BASE}${url}`, {
-      headers: { "Content-Type": "application/json" },
       ...options,
+      headers: { ...headers, ...options?.headers },
     });
+
+    if (res.status === 403) {
+      clearAdminKey();
+      throw new Error("AUTH_REQUIRED");
+    }
 
     if (!res.ok) throw new Error(`API error: ${res.status}`);
 

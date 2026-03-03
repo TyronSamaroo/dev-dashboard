@@ -1,9 +1,10 @@
 import uuid
 from typing import List, Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
+from app.auth import require_api_key
 from app.db import get_connection
 
 router = APIRouter()
@@ -39,7 +40,7 @@ def list_stats():
     return [dict(r) for r in rows]
 
 
-@router.post("/api/stats", response_model=StatOut, status_code=201)
+@router.post("/api/stats", response_model=StatOut, status_code=201, dependencies=[Depends(require_api_key)])
 def create_stat(stat: StatCreate):
     conn = get_connection()
     stat_id = str(uuid.uuid4())
@@ -55,7 +56,7 @@ def create_stat(stat: StatCreate):
     return data
 
 
-@router.put("/api/stats/{stat_id}", response_model=StatOut)
+@router.put("/api/stats/{stat_id}", response_model=StatOut, dependencies=[Depends(require_api_key)])
 def update_stat(stat_id: str, stat: StatUpdate):
     conn = get_connection()
     row = conn.execute("SELECT * FROM stats WHERE id = ?", (stat_id,)).fetchone()
@@ -77,7 +78,7 @@ def update_stat(stat_id: str, stat: StatUpdate):
     return existing
 
 
-@router.delete("/api/stats/{stat_id}", status_code=204)
+@router.delete("/api/stats/{stat_id}", status_code=204, dependencies=[Depends(require_api_key)])
 def delete_stat(stat_id: str):
     conn = get_connection()
     row = conn.execute("SELECT id FROM stats WHERE id = ?", (stat_id,)).fetchone()

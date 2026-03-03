@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { LayoutDashboard, Settings, WifiOff, Wifi } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
 import Manage from "./pages/Manage";
+import AdminGate from "./components/AdminGate";
 import { isBackendOnline, onBackendStatusChange, getCacheAge } from "./api";
 
 function formatAge(ms: number): string {
@@ -94,7 +95,7 @@ export default function App() {
       <main className="max-w-6xl mx-auto px-4 py-8">
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/manage" element={<Manage />} />
+          <Route path="/manage" element={<AdminGate><Manage /></AdminGate>} />
         </Routes>
       </main>
     </div>

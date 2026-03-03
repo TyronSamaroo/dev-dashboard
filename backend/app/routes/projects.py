@@ -3,9 +3,10 @@ import uuid
 from datetime import datetime, timezone
 from typing import List, Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
+from app.auth import require_api_key
 from app.db import get_connection
 
 router = APIRouter()
@@ -54,7 +55,7 @@ def list_projects():
     return [_row_to_project(r) for r in rows]
 
 
-@router.post("/api/projects", response_model=ProjectOut, status_code=201)
+@router.post("/api/projects", response_model=ProjectOut, status_code=201, dependencies=[Depends(require_api_key)])
 def create_project(project: ProjectCreate):
     conn = get_connection()
     project_id = str(uuid.uuid4())
@@ -74,7 +75,7 @@ def create_project(project: ProjectCreate):
     return data
 
 
-@router.put("/api/projects/{project_id}", response_model=ProjectOut)
+@router.put("/api/projects/{project_id}", response_model=ProjectOut, dependencies=[Depends(require_api_key)])
 def update_project(project_id: str, project: ProjectUpdate):
     conn = get_connection()
     row = conn.execute("SELECT * FROM projects WHERE id = ?", (project_id,)).fetchone()
@@ -99,7 +100,7 @@ def update_project(project_id: str, project: ProjectUpdate):
     return existing
 
 
-@router.delete("/api/projects/{project_id}", status_code=204)
+@router.delete("/api/projects/{project_id}", status_code=204, dependencies=[Depends(require_api_key)])
 def delete_project(project_id: str):
     conn = get_connection()
     row = conn.execute("SELECT id FROM projects WHERE id = ?", (project_id,)).fetchone()

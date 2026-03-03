@@ -1,9 +1,10 @@
 import json
 from typing import List, Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
+from app.auth import require_api_key
 from app.db import get_connection
 
 router = APIRouter()
@@ -41,7 +42,7 @@ def get_profile():
     return _row_to_profile(row)
 
 
-@router.put("/api/me", response_model=ProfileOut)
+@router.put("/api/me", response_model=ProfileOut, dependencies=[Depends(require_api_key)])
 def upsert_profile(profile: ProfileIn):
     conn = get_connection()
     data = profile.model_dump()
