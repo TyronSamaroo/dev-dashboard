@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { LayoutDashboard, Settings, WifiOff, Wifi } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
 import Manage from "./pages/Manage";
 import AdminGate from "./components/AdminGate";
 import { isBackendOnline, onBackendStatusChange, getCacheAge } from "./api";
+
+const sectionLinks = ["About", "Skills", "Experience", "Education", "Projects"];
 
 function formatAge(ms: number): string {
   const sec = Math.floor(ms / 1000);
@@ -71,6 +73,9 @@ function OnlineIndicator() {
 }
 
 export default function App() {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
       <StatusBanner />
@@ -82,7 +87,21 @@ export default function App() {
             </Link>
             <OnlineIndicator />
           </div>
-          <div className="flex gap-1">
+          <div className="flex items-center gap-1">
+            {/* Section anchors — visible only on home page, md+ screens */}
+            {isHome && (
+              <div className="hidden md:flex items-center gap-0.5 mr-2">
+                {sectionLinks.map((s) => (
+                  <a
+                    key={s}
+                    href={`#${s.toLowerCase()}`}
+                    className="px-2 py-1 rounded text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50 transition-colors"
+                  >
+                    {s}
+                  </a>
+                ))}
+              </div>
+            )}
             <Link to="/" className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-zinc-800 transition-colors">
               <LayoutDashboard size={16} /> Dashboard
             </Link>

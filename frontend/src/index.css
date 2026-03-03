@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   background-color: #09090b;
+}
+
+/* Timeline pulse glow for "current" role dot */
+@keyframes timeline-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(139, 92, 246, 0); }
+}
+
+.timeline-dot-current {
+  animation: timeline-pulse 2s ease-in-out infinite;
 }
