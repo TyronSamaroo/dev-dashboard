@@ -13,6 +13,10 @@ import {
 } from "lucide-react";
 import { api } from "../api";
 import type { Profile, Project, Stat } from "../types";
+import SectionHeader from "../components/SectionHeader";
+import ExperienceTimeline from "../components/ExperienceTimeline";
+import EducationSection from "../components/EducationSection";
+import { workExperience, education, certifications } from "../data/resume";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   language: <Code2 size={14} />,
@@ -78,7 +82,7 @@ export default function Dashboard() {
     <div className="space-y-8">
       {/* Profile Hero */}
       {profile && (
-        <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 md:p-8">
+        <section id="about" className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 md:p-8">
           <div className="flex flex-col md:flex-row md:items-start gap-6">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-2xl font-bold shrink-0">
               {profile.name
@@ -153,11 +157,8 @@ export default function Dashboard() {
 
       {/* Stats Grid */}
       {stats.length > 0 && (
-        <section>
-          <div className="flex items-center gap-2 mb-4">
-            <BarChart3 size={20} className="text-violet-400" />
-            <h2 className="text-lg font-semibold">Stats & Skills</h2>
-          </div>
+        <section id="skills">
+          <SectionHeader icon={BarChart3} title="Stats & Skills" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {Object.entries(grouped).map(([category, items]) => (
               <div
@@ -184,14 +185,16 @@ export default function Dashboard() {
         </section>
       )}
 
+      {/* Experience Timeline */}
+      <ExperienceTimeline experience={workExperience} />
+
+      {/* Education & Certifications */}
+      <EducationSection education={education} certifications={certifications} />
+
       {/* Projects */}
       {projects.length > 0 && (
-        <section>
-          <div className="flex items-center gap-2 mb-4">
-            <Code2 size={20} className="text-violet-400" />
-            <h2 className="text-lg font-semibold">Projects</h2>
-            <span className="text-sm text-zinc-500">({projects.length})</span>
-          </div>
+        <section id="projects">
+          <SectionHeader icon={Code2} title="Projects" count={projects.length} />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {projects.map((project) => (
               <div
@@ -277,7 +280,7 @@ export default function Dashboard() {
 
       {/* Footer */}
       <footer className="text-center text-xs text-zinc-600 pb-8">
-        Built with React + FastAPI + AWS
+        Built with React + FastAPI + SQLite &middot; Deployed on Vercel + Render
       </footer>
     </div>
   );
