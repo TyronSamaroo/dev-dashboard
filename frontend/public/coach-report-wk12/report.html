@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coach Report — Week 12 (Mid-Week)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #e0e0e0; padding: 0; line-height: 1.5; }
+    
+    .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 32px 24px; border-bottom: 3px solid #e94560; }
+    .header h1 { font-size: 32px; color: #fff; margin: 0; font-weight: 700; }
+    .header .subtitle { color: #a0a0a0; margin-top: 8px; font-size: 15px; }
+    
+    .content { padding: 24px; max-width: 1600px; margin: 0 auto; }
+    h2 { color: #e94560; font-size: 18px; margin: 28px 0 16px; border-bottom: 2px solid #e94560; padding-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+    h3 { color: #fff; font-size: 14px; margin: 20px 0 8px; }
+    
+    /* Summary metrics grid */
+    .summary-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0; }
+    .metric-card { background: #1e1e2e; border: 1px solid #333; border-radius: 8px; padding: 16px; }
+    .metric-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+    .metric-value { font-size: 26px; font-weight: 700; margin: 8px 0 4px; }
+    .metric-value.good { color: #00e676; }
+    .metric-value.warning { color: #ffab40; }
+    .metric-value.bad { color: #ff5252; }
+    .metric-detail { font-size: 12px; color: #aaa; }
+    .metric-detail.good { color: #00e676; }
+    .metric-detail.bad { color: #ff5252; }
+    
+    /* Weight trend chart */
+    .chart-container { background: #1e1e2e; border: 1px solid #333; border-radius: 8px; padding: 20px; margin: 16px 0; }
+    .chart-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+    .trend-chart { display: flex; align-items: flex-end; gap: 8px; height: 200px; margin-bottom: 12px; }
+    .trend-bar { flex: 1; background: #16213e; border-radius: 4px 4px 0 0; position: relative; display: flex; align-items: flex-end; justify-content: center; }
+    .trend-bar.current { background: linear-gradient(180deg, #e94560, #ff5252); }
+    .trend-bar-label { position: absolute; bottom: -24px; font-size: 11px; color: #888; white-space: nowrap; }
+    .trend-value { position: absolute; top: -24px; font-size: 11px; font-weight: 600; color: #fff; }
+    .trend-highlight { color: #00e676; font-weight: 700; }
+    .chart-axis { font-size: 11px; color: #666; text-align: center; margin-top: 8px; }
+    
+    /* Daily grid */
+    .week-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0; }
+    .day-col { background: #1e1e2e; border: 1px solid #333; border-radius: 8px; overflow: hidden; }
+    .day-col.train-day { border-color: #e94560; border-width: 2px; }
+    
+    .day-hdr { padding: 12px; background: #252540; border-bottom: 1px solid #333; }
+    .day-name { font-size: 15px; font-weight: 700; color: #fff; }
+    .day-date { font-size: 12px; color: #888; margin-top: 2px; }
+    .day-wt { font-size: 13px; color: #ffab40; font-weight: 600; margin-top: 4px; }
+    
+    .day-content { padding: 12px; }
+    .macro-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; font-size: 12px; }
+    .macro-item { display: flex; justify-content: space-between; padding: 6px; background: #1a1a2e; border-radius: 4px; }
+    .macro-label { color: #888; }
+    .macro-value { font-weight: 600; }
+    
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; font-size: 11px; }
+    .stat-item { padding: 6px; background: #1a1a2e; border-radius: 4px; display: flex; justify-content: space-between; }
+    .stat-label { color: #888; }
+    .stat-value { font-weight: 600; }
+    
+    .sodium-badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-top: 6px; }
+    .sodium-normal { background: #1a2e1a; color: #00e676; }
+    .sodium-warning { background: #2e2a1a; color: #ffab40; }
+    .sodium-critical { background: #2e1a1a; color: #ff5252; }
+    
+    .top-foods { font-size: 10px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #333; }
+    .top-foods-label { color: #888; text-transform: uppercase; font-size: 9px; margin-bottom: 6px; }
+    .top-food { color: #ccc; margin-bottom: 3px; }
+    .food-na { color: #ea80fc; font-weight: 600; }
+    
+    .training-section { background: #1a1a2e; border-top: 1px solid #333; padding: 8px; margin-top: 8px; }
+    .training-label { font-size: 9px; color: #e94560; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+    .training-detail { font-size: 10px; color: #ccc; line-height: 1.4; }
+    
+    /* Sodium deep dive table */
+    .sodium-table { width: 100%; border-collapse: collapse; background: #1e1e2e; border-radius: 8px; overflow: hidden; font-size: 12px; margin: 16px 0; }
+    .sodium-table th { background: #252540; color: #888; padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .sodium-table th.r { text-align: right; }
+    .sodium-table td { padding: 8px 12px; border-top: 1px solid #2a2a3a; }
+    .sodium-table td.r { text-align: right; }
+    .sodium-table tr:hover { background: #252540; }
+    .sodium-table .food-name { color: #fff; font-weight: 500; }
+    .sodium-table .na-amount { color: #ea80fc; font-weight: 600; }
+    .sodium-table .na-total { color: #ff5252; font-weight: 600; }
+    
+    /* Narrative sections */
+    .insight-box { background: #1e1e2e; border: 1px solid #333; border-radius: 8px; padding: 16px; margin: 16px 0; }
+    .insight-box h4 { color: #e94560; margin-bottom: 8px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    .insight-box ul { margin-left: 20px; }
+    .insight-box li { margin-bottom: 8px; font-size: 12px; line-height: 1.5; }
+    .insight-box li strong { color: #e94560; }
+    
+    /* Comparison table */
+    .comparison-table { width: 100%; border-collapse: collapse; background: #1e1e2e; border-radius: 8px; overflow: hidden; font-size: 12px; margin: 16px 0; }
+    .comparison-table th { background: #252540; color: #888; padding: 10px 12px; text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .comparison-table th:first-child { text-align: left; }
+    .comparison-table td { padding: 8px 12px; border-top: 1px solid #2a2a3a; text-align: center; }
+    .comparison-table td:first-child { text-align: left; color: #fff; font-weight: 500; }
+    .comparison-table tr:hover { background: #252540; }
+    .comparison-table .metric { color: #ccc; }
+    .comparison-table .highlight { color: #00e676; font-weight: 600; }
+    .comparison-table .down { color: #ff5252; font-weight: 600; }
+    .comparison-table .up { color: #00e676; font-weight: 600; }
+    
+    /* Action items */
+    .action-items { background: #1e1e2e; border: 1px solid #333; border-radius: 8px; padding: 16px; margin: 16px 0; }
+    .action-items h4 { color: #e94560; margin-bottom: 12px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    .action-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #2a2a3a; }
+    .action-item:last-child { border-bottom: none; margin-bottom: 0; }
+    .action-num { display: inline-block; background: #e94560; color: #fff; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; font-weight: 700; margin-right: 8px; font-size: 12px; }
+    .action-text { display: inline-block; font-size: 12px; line-height: 1.5; }
+    .action-text strong { color: #e94560; }
+    
+    /* Bottom line */
+    .bottom-line { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 1px solid #e94560; border-radius: 8px; padding: 20px; margin: 24px 0; border-left: 4px solid #e94560; }
+    .bottom-line h4 { color: #e94560; margin-bottom: 12px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+    .bottom-line p { font-size: 13px; line-height: 1.6; color: #ccc; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header { padding: 20px 16px; }
+      .header h1 { font-size: 24px; }
+      .content { padding: 16px; }
+      .summary-metrics { grid-template-columns: 1fr; }
+      .week-grid { grid-template-columns: 1fr; }
+      .macro-row { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      .comparison-table { font-size: 11px; }
+      .comparison-table th, .comparison-table td { padding: 6px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Coach Report — Week 12 (Mid-Week)</h1>
+  <div class="subtitle">Mar 16–20, 2026 • OCB Contest Prep • 24 weeks out</div>
+</div>
+
+<div class="content">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <h2>Executive Summary</h2>
+  <div class="summary-metrics">
+    <div class="metric-card">
+      <div class="metric-label">Trend Weight</div>
+      <div class="metric-value good">153.8 lbs</div>
+      <div class="metric-detail good">↓ 0.5 from last week (154.3)</div>
+      <div class="metric-detail">Finally breaking the plateau</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Calories</div>
+      <div class="metric-value">1,698/day</div>
+      <div class="metric-detail">Mon–Thu, excl. today's incomplete</div>
+      <div class="metric-detail good">On track</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Protein</div>
+      <div class="metric-value warning">168g/day</div>
+      <div class="metric-detail">Target: 180g</div>
+      <div class="metric-detail bad">12g short</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Sodium</div>
+      <div class="metric-value bad">3,685mg/day</div>
+      <div class="metric-detail">Target: ≤2,000mg</div>
+      <div class="metric-detail bad">1.8× over target</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Fiber</div>
+      <div class="metric-value good">33g/day</div>
+      <div class="metric-detail">Target: 30–40g</div>
+      <div class="metric-detail good">Dialed in</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Avg Steps</div>
+      <div class="metric-value good">13,113/day</div>
+      <div class="metric-detail">Mon–Thu average</div>
+      <div class="metric-detail good">Consistent activity</div>
+    </div>
+  </div>
+
+  <!-- WEIGHT TREND CHART -->
+  <div class="chart-container">
+    <div class="chart-title">Weight Trend — Last 4 Weeks</div>
+    <div class="trend-chart">
+      <div class="trend-bar" style="height: 85%;">
+        <span class="trend-value">154.0</span>
+        <span class="trend-bar-label">Wk 9</span>
+      </div>
+      <div class="trend-bar" style="height: 86%;">
+        <span class="trend-value">154.1</span>
+        <span class="trend-bar-label">Wk 10</span>
+      </div>
+      <div class="trend-bar" style="height: 92%;">
+        <span class="trend-value">154.5</span>
+        <span class="trend-bar-label">Wk 11</span>
+      </div>
+      <div class="trend-bar" style="height: 91%;">
+        <span class="trend-value">154.3</span>
+        <span class="trend-bar-label">Wk 11.5</span>
+      </div>
+      <div class="trend-bar current" style="height: 80%;">
+        <span class="trend-value trend-highlight">153.8 ↓</span>
+        <span class="trend-bar-label">Wk 12</span>
+      </div>
+    </div>
+    <div class="chart-axis">The plateau that held for 5 weeks has finally broken. 153.8 is the lowest since early February.</div>
+  </div>
+
+  <!-- DAILY GRID -->
+  <h2>Daily Breakdown (Mon–Fri)</h2>
+  <div class="week-grid">
+    
+    <!-- MONDAY -->
+    <div class="day-col train-day">
+      <div class="day-hdr">
+        <div class="day-name">Monday</div>
+        <div class="day-date">Mar 16 • Legs</div>
+        <div class="day-wt">153.02 lbs</div>
+      </div>
+      <div class="day-content">
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Calories</span><span class="macro-value">1,846</span></div>
+          <div class="macro-item"><span class="macro-label">Protein</span><span class="macro-value">171g</span></div>
+        </div>
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Fat</span><span class="macro-value">59g</span></div>
+          <div class="macro-item"><span class="macro-label">Carbs</span><span class="macro-value">172g</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-label">Sodium</span><span class="stat-value">2,722mg</span></div>
+          <div class="stat-item"><span class="stat-label">Fiber</span><span class="stat-value">41g ✓</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item" style="grid-column: 1 / -1;"><span class="stat-label">Steps</span><span class="stat-value">13,362</span></div>
+        </div>
+        <div class="sodium-badge sodium-warning">⚠️ Warning</div>
+        <div class="top-foods">
+          <div class="top-foods-label">Top Sodium Foods</div>
+          <div class="top-food">Turkey Bacon <span class="food-na">400mg</span></div>
+          <div class="top-food">Sourdough <span class="food-na">275mg</span></div>
+          <div class="top-food">Seed Bread <span class="food-na">280mg</span></div>
+        </div>
+        <div class="training-section">
+          <div class="training-label">Legs — 51 Sets</div>
+          <div class="training-detail" style="color: #ff5252;">⚠️ HIGH VOLUME FLAG</div>
+          <div class="training-detail" style="font-size: 10px; color: #aaa; margin-top: 4px;">Cap was 23 sets. Excessive volume causes inflammation &amp; water retention (2–3 day scale impact).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUESDAY -->
+    <div class="day-col">
+      <div class="day-hdr">
+        <div class="day-name">Tuesday</div>
+        <div class="day-date">Mar 17 • Rest</div>
+        <div class="day-wt">153.60 lbs</div>
+      </div>
+      <div class="day-content">
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Calories</span><span class="macro-value">1,527</span></div>
+          <div class="macro-item"><span class="macro-label">Protein</span><span class="macro-value">168g</span></div>
+        </div>
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Fat</span><span class="macro-value">50g</span></div>
+          <div class="macro-item"><span class="macro-label">Carbs</span><span class="macro-value">123g</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-label">Sodium</span><span class="stat-value">2,992mg</span></div>
+          <div class="stat-item"><span class="stat-label">Fiber</span><span class="stat-value">37g ✓</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item" style="grid-column: 1 / -1;"><span class="stat-label">Steps</span><span class="stat-value">12,306</span></div>
+        </div>
+        <div class="sodium-badge sodium-critical">🔴 Critical</div>
+        <div class="top-foods">
+          <div class="top-foods-label">Top Sodium Foods</div>
+          <div class="top-food">Ninja Creami <span class="food-na">958mg (!)</span></div>
+          <div class="top-food">Teriyaki Sauce <span class="food-na">280mg</span></div>
+          <div class="top-food">Seed Bread <span class="food-na">280mg</span></div>
+        </div>
+        <div class="training-section">
+          <div class="training-label">Rest Day</div>
+          <div class="training-detail">Recovery focus</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEDNESDAY -->
+    <div class="day-col">
+      <div class="day-hdr">
+        <div class="day-name">Wednesday</div>
+        <div class="day-date">Mar 18</div>
+        <div class="day-wt">153.02 lbs</div>
+      </div>
+      <div class="day-content">
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Calories</span><span class="macro-value">1,734</span></div>
+          <div class="macro-item"><span class="macro-label">Protein</span><span class="macro-value">164g</span></div>
+        </div>
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Fat</span><span class="macro-value">55g</span></div>
+          <div class="macro-item"><span class="macro-label">Carbs</span><span class="macro-value">155g</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-label">Sodium</span><span class="stat-value">5,036mg</span></div>
+          <div class="stat-item"><span class="stat-label">Fiber</span><span class="stat-value">36g ✓</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item" style="grid-column: 1 / -1;"><span class="stat-label">Steps</span><span class="stat-value">13,663</span></div>
+        </div>
+        <div class="sodium-badge sodium-critical">🔴🔴🔴 WORST DAY</div>
+        <div class="top-foods">
+          <div class="top-foods-label">Top Sodium Foods</div>
+          <div class="top-food">Himalayan Pink Salt <span class="food-na">1,260mg</span></div>
+          <div class="top-food">Lean Whey Protein <span class="food-na">510mg</span></div>
+          <div class="top-food">Flash IV Electrolyte <span class="food-na">500mg</span></div>
+          <div class="top-food">Turkey Bacon <span class="food-na">400mg</span></div>
+        </div>
+        <div class="training-section">
+          <div class="training-label">Training Status</div>
+          <div class="training-detail">Logged activities unclear</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THURSDAY -->
+    <div class="day-col">
+      <div class="day-hdr">
+        <div class="day-name">Thursday</div>
+        <div class="day-date">Mar 19</div>
+        <div class="day-wt">153.96 lbs</div>
+      </div>
+      <div class="day-content">
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Calories</span><span class="macro-value">1,684</span></div>
+          <div class="macro-item"><span class="macro-label">Protein</span><span class="macro-value">167g</span></div>
+        </div>
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Fat</span><span class="macro-value">44g</span></div>
+          <div class="macro-item"><span class="macro-label">Carbs</span><span class="macro-value">153g</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-label">Sodium</span><span class="stat-value">3,987mg</span></div>
+          <div class="stat-item"><span class="stat-label">Fiber</span><span class="stat-value">19g ⚠️</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item" style="grid-column: 1 / -1;"><span class="stat-label">Steps</span><span class="stat-value">13,119</span></div>
+        </div>
+        <div class="sodium-badge sodium-critical">🔴🔴 Critical</div>
+        <div class="top-foods">
+          <div class="top-foods-label">Top Sodium Foods</div>
+          <div class="top-food">Chipotle Chicken <span class="food-na">981mg (!)</span></div>
+          <div class="top-food">BBQ Sauce <span class="food-na">560mg</span></div>
+          <div class="top-food">Flash IV <span class="food-na">500mg</span></div>
+          <div class="top-food">Turkey Bacon <span class="food-na">400mg</span></div>
+          <div class="top-food">Caramel Shake <span class="food-na">350mg</span></div>
+        </div>
+        <div class="training-section">
+          <div class="training-label">Note</div>
+          <div class="training-detail">Fiber crashed — no seed bread logged?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIDAY (IN PROGRESS) -->
+    <div class="day-col">
+      <div class="day-hdr">
+        <div class="day-name">Friday</div>
+        <div class="day-date">Mar 20 • In Progress</div>
+        <div class="day-wt">— Not weighed</div>
+      </div>
+      <div class="day-content">
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Calories</span><span class="macro-value">433 so far</span></div>
+          <div class="macro-item"><span class="macro-label">Protein</span><span class="macro-value">29g</span></div>
+        </div>
+        <div class="macro-row">
+          <div class="macro-item"><span class="macro-label">Logged</span><span class="macro-value">Avocado Toast</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><span class="stat-label">Sodium</span><span class="stat-value">1,461mg</span></div>
+          <div class="stat-item"><span class="stat-label">Fiber</span><span class="stat-value">—</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item" style="grid-column: 1 / -1;"><span class="stat-label">Steps</span><span class="stat-value">— tracking</span></div>
+        </div>
+        <div class="sodium-badge sodium-normal">✓ On Track</div>
+        <div class="top-foods">
+          <div class="top-foods-label">Day Not Complete</div>
+          <div class="top-food" style="color: #888;">Monitoring in real-time</div>
+        </div>
+        <div class="training-section">
+          <div class="training-label">Status</div>
+          <div class="training-detail">Friday in progress — awaiting full-day data</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SODIUM DEEP DIVE -->
+  <h2>🔴 Sodium Deep Dive — The #1 Problem</h2>
+  
+  <div class="insight-box">
+    <h4>Overview</h4>
+    <ul>
+      <li>This week averaged <strong>3,685mg/day</strong> — nearly <strong>1.8× the 2,000mg target</strong>.</li>
+      <li>That's an <strong>increase from last week's 3,318mg</strong>, not a decrease.</li>
+      <li>Three items account for over 2,700mg of excess sodium this week: Himalayan Pink Salt (1,260mg), Flash IV electrolytes (1,500mg total across 3 uses), and Chipotle Chicken (981mg in one serving).</li>
+    </ul>
+  </div>
+
+  <table class="sodium-table">
+    <thead>
+      <tr>
+        <th>Food Item</th>
+        <th class="r">Sodium per Serving</th>
+        <th class="r">Times This Week</th>
+        <th class="r">Total Contribution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="food-name">Himalayan Pink Salt</td>
+        <td class="r na-amount">1,260mg</td>
+        <td class="r">1×</td>
+        <td class="r na-total">1,260mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">Chipotle Chicken (HummusFit?)</td>
+        <td class="r na-amount">981mg</td>
+        <td class="r">1×</td>
+        <td class="r na-total">981mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">Ninja Creami Shake</td>
+        <td class="r na-amount">958mg</td>
+        <td class="r">1×</td>
+        <td class="r na-total">958mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">Flash IV Electrolyte</td>
+        <td class="r na-amount">500mg</td>
+        <td class="r">3×</td>
+        <td class="r na-total">1,500mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">BBQ Sauce</td>
+        <td class="r na-amount">560mg</td>
+        <td class="r">1×</td>
+        <td class="r na-total">560mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">Turkey Bacon</td>
+        <td class="r na-amount">400mg</td>
+        <td class="r">4×</td>
+        <td class="r na-total">1,600mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">Caramel Protein Shake</td>
+        <td class="r na-amount">350mg</td>
+        <td class="r">1×</td>
+        <td class="r na-total">350mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">Sourdough</td>
+        <td class="r na-amount">211–275mg</td>
+        <td class="r">4×</td>
+        <td class="r na-total">~950mg</td>
+      </tr>
+      <tr>
+        <td class="food-name">Seed Bread</td>
+        <td class="r na-amount">140–280mg</td>
+        <td class="r">4×</td>
+        <td class="r na-total">~840mg</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight-box">
+    <h4>Critical Commentary</h4>
+    <ul>
+      <li><strong>Himalayan Pink Salt (Wednesday):</strong> 1,260mg in a single shot (Brian's pre-workout recommendation). That one item alone puts you at 63% of your daily 2,000mg sodium target. The performance benefit isn't worth the water retention it masks on the scale.</li>
+      <li><strong>Flash IV Electrolyte:</strong> 500mg per serving × 3 uses = 1,500mg this week. That's nearly the entire daily target from electrolytes alone. Consider a low-sodium alternative (LMNT, plain water + potassium, or just rest-day hydration).</li>
+      <li><strong>Chipotle Chicken (981mg):</strong> This is almost certainly third-party (HummusFit or similar). Self-cooked chicken breast is ~70mg sodium for 6oz. That's a 900mg difference per serving. Switching to self-cooked saves nearly 1,000mg per week if you use it again.</li>
+      <li><strong>Turkey Bacon (400mg × 4 days = 1,600mg):</strong> It's in the Avocado Toast staple, so it hits every day. Even reducing to 1 slice (~200mg) cuts this in half. This is your most frequent high-sodium item.</li>
+    </ul>
+  </div>
+
+  <!-- TRAINING VOLUME FLAG -->
+  <h2>Training Volume Review</h2>
+  
+  <div class="insight-box">
+    <h4>Monday Leg Session — 51 Sets (⚠️ EXCESSIVE)</h4>
+    <ul>
+      <li>Recommended cap: 23 sets for leg days</li>
+      <li>Actual: 51 sets — more than double the limit</li>
+      <li><strong>Why this matters:</strong> Excessive volume causes systemic inflammation and temporary water retention for 2–3 days post-workout. This masks fat loss on the scale and inflates body weight artificially.</li>
+      <li><strong>Your lift data:</strong> Pendulum Squat (7 sets, 540 lbs), Cybex Squat Press (6 sets, 450 lbs), DB Romanian DL (5 sets, 180 lbs), Seated Hamstring Curl (8 sets, 160 lbs), Leg Extension (5 sets, 145 lbs), Calf Raise (7 sets), Hip Abductor (3 sets), Hip Adductor (4 sets), Hanging Knee Raise (2 sets), Cable Crunch (4 sets).</li>
+      <li><strong>Action:</strong> Respect the volume caps. Quality over quantity. The 51-set session may actually slow your progress by inflating water weight.</li>
+    </ul>
+  </div>
+
+  <!-- WEEKLY COMPARISON -->
+  <h2>Week 12 vs. Previous Weeks</h2>
+  
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Wk 9</th>
+        <th>Wk 10</th>
+        <th>Wk 11</th>
+        <th>Wk 11.5</th>
+        <th>Wk 12*</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Trend Weight</td>
+        <td class="metric">154.0</td>
+        <td class="metric">154.1</td>
+        <td class="metric">154.5</td>
+        <td class="metric">154.3</td>
+        <td class="highlight">153.8 ↓</td>
+      </tr>
+      <tr>
+        <td>Avg Calories</td>
+        <td class="metric">1,676</td>
+        <td class="metric">1,822</td>
+        <td class="metric">1,641</td>
+        <td class="metric">1,622</td>
+        <td class="metric">1,698*</td>
+      </tr>
+      <tr>
+        <td>Avg Protein</td>
+        <td class="metric">170g</td>
+        <td class="metric">180g</td>
+        <td class="metric">164g</td>
+        <td class="metric">166g</td>
+        <td class="metric">168g*</td>
+      </tr>
+      <tr>
+        <td>Avg Sodium</td>
+        <td class="metric">2,330</td>
+        <td class="metric">2,331</td>
+        <td class="metric">3,318</td>
+        <td class="metric">3,144</td>
+        <td class="down">3,685* ↑</td>
+      </tr>
+      <tr>
+        <td>Avg Fiber</td>
+        <td class="metric">26g</td>
+        <td class="metric">25g</td>
+        <td class="metric">29g</td>
+        <td class="metric">27g</td>
+        <td class="highlight">33g* ↑</td>
+      </tr>
+      <tr>
+        <td>Avg Steps</td>
+        <td class="metric">14,795</td>
+        <td class="metric">13,089</td>
+        <td class="metric">13,014</td>
+        <td class="metric">14,074</td>
+        <td class="metric">13,113*</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size: 11px; color: #888; margin-top: 8px;">* = Mon–Thu only</div>
+
+  <!-- ACTION ITEMS -->
+  <h2>Action Items</h2>
+  
+  <div class="action-items">
+    <h4>Priority Changes for Next Week</h4>
+    
+    <div class="action-item">
+      <span class="action-num">1</span>
+      <span class="action-text"><strong>DROP the Himalayan Pink Salt</strong> — 1,260mg in one shot is not worth the pre-workout benefit. The water retention it creates negates any performance gain. Use a low-sodium electrolyte or just water instead.</span>
+    </div>
+    
+    <div class="action-item">
+      <span class="action-num">2</span>
+      <span class="action-text"><strong>Replace Flash IV → low-Na electrolyte or water.</strong> 500mg per serving × 3 uses = 1,500mg this week. Try LMNT (zero sodium, potassium-based), or just plain water + a potassium supplement on training days.</span>
+    </div>
+    
+    <div class="action-item">
+      <span class="action-num">3</span>
+      <span class="action-text"><strong>Replace Chipotle Chicken with self-cooked breast.</strong> Third-party = 981mg sodium. Self-cooked = ~70mg. That single swap saves 900mg per serving, or ~4,500mg per week if used 5 days a week.</span>
+    </div>
+    
+    <div class="action-item">
+      <span class="action-num">4</span>
+      <span class="action-text"><strong>Turkey Bacon: reduce to 1 slice or swap entirely.</strong> At 400mg per day it's adding ~2,800mg per week. One slice = 200mg = more manageable. Or switch to low-sodium bacon (e.g., Butterball or home-cooked pork belly).</span>
+    </div>
+    
+    <div class="action-item">
+      <span class="action-num">5</span>
+      <span class="action-text"><strong>Push protein to 180g.</strong> Currently averaging 168g, 12g short of target. Add half a scoop of protein powder to one meal. This also helps preserve muscle during the deficit.</span>
+    </div>
+    
+    <div class="action-item">
+      <span class="action-num">6</span>
+      <span class="action-text"><strong>Respect training volume caps.</strong> 51 sets on legs inflates scale weight for days. Stay under 23 sets for legs, 50 total per session. Quality over quantity — progressive overload wins contests, not volume.</span>
+    </div>
+  </div>
+
+  <!-- BOTTOM LINE -->
+  <div class="bottom-line">
+    <h4>Bottom Line</h4>
+    <p>The trend weight finally broke the 5-week plateau — 153.8 is the lowest since early February. Calories and fiber are dialed in. But sodium is <strong>WORSE</strong> this week, not better — averaging 3,685mg vs the 3,318mg that was already flagged as the primary problem last week. The new self-prep meal plan is the right move, but the added Himalayan salt, Flash IV electrolytes, and continued third-party chicken are undermining it. Fix those three things and you'll see the scale respond within days. You're 24 weeks out — discipline now compounds into a stage-ready physique.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
