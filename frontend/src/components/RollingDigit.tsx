@@ -9,10 +9,12 @@ export function RollingCounter({
   value,
   suffix = "",
   delay = 0,
+  growing = false,
 }: {
   value: number;
   suffix?: string;
   delay?: number;
+  growing?: boolean;
 }) {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const [rolling, setRolling] = useState(false);
@@ -33,10 +35,10 @@ export function RollingCounter({
   }, [inView, delay]);
 
   return (
-    <span ref={ref} className="rolling-counter">
-      <span className="rolling-digit-wrapper">
+    <span ref={ref} className={`rolling-counter ${growing ? "rolling-growing" : ""}`}>
+      <span className={`rolling-digit-wrapper ${growing && rolling && !landed ? "growing-overflow" : ""}`}>
         <span
-          className={`rolling-digit-strip ${rolling ? "rolling" : ""} ${landed ? "landed" : ""}`}
+          className={`rolling-digit-strip ${rolling ? "rolling" : ""} ${landed ? "landed" : ""} ${growing && rolling && !landed ? "growing-scale" : ""}`}
           style={{
             "--target": value,
           } as React.CSSProperties}
