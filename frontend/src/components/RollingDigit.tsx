@@ -28,7 +28,11 @@ export function RollingCounter({
 
   // Spring for the number slam: high stiffness, low damping = physical thud
   const slamSpring = useSpring(1, { stiffness: 600, damping: 12, mass: 0.8 });
-  const numberScale = useTransform(slamSpring, (v) => `scale(${v})`);
+  // Compose translateY (to hold the digit in place) + scale (for the slam)
+  const slamTransform = useTransform(
+    slamSpring,
+    (s) => `translateY(calc(${value} * -1.2em)) scale(${s})`
+  );
 
   const triggerSlam = useCallback(() => {
     setLanded(true);
@@ -65,10 +69,10 @@ export function RollingCounter({
         className={`rolling-digit-wrapper ${growing && rolling && !landed ? "wrapper-growing" : ""} ${growing && landed ? "wrapper-slam-back" : ""}`}
       >
         <motion.span
-          className={`rolling-digit-strip ${rolling ? "rolling" : ""}`}
+          className={`rolling-digit-strip ${rolling && !landed ? "rolling" : ""}`}
           style={{
             "--target": value,
-            transform: landed ? numberScale : undefined,
+            ...(landed ? { transform: slamTransform } : {}),
           } as React.CSSProperties}
         >
           {Array.from({ length: 10 }, (_, i) => (
