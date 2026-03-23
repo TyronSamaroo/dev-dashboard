@@ -9,10 +9,12 @@ export function RollingCounter({
   value,
   suffix = "",
   delay = 0,
+  growing = false,
 }: {
   value: number;
   suffix?: string;
   delay?: number;
+  growing?: boolean;
 }) {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const [rolling, setRolling] = useState(false);
@@ -34,7 +36,7 @@ export function RollingCounter({
 
   return (
     <span ref={ref} className="rolling-counter">
-      <span className="rolling-digit-wrapper">
+      <span className={`rolling-digit-wrapper ${growing && rolling && !landed ? "wrapper-growing" : ""} ${growing && landed ? "wrapper-slam-back" : ""}`}>
         <span
           className={`rolling-digit-strip ${rolling ? "rolling" : ""} ${landed ? "landed" : ""}`}
           style={{

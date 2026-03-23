@@ -98,11 +98,13 @@ function MetricCard({
   label,
   icon: Icon,
   delay,
+  growing = false,
 }: {
   value: string;
   label: string;
   icon: React.ElementType;
   delay: number;
+  growing?: boolean;
 }) {
   const numMatch = value.match(/^(\d+)/);
   const target = numMatch ? parseInt(numMatch[1], 10) : 0;
@@ -114,7 +116,7 @@ function MetricCard({
       <Icon size={16} className="text-violet-400" />
       <div className="text-2xl font-bold counter-number">
         {hasNumber ? (
-          <RollingCounter value={target} suffix={suffix} delay={delay} />
+          <RollingCounter value={target} suffix={suffix} delay={delay} growing={growing} />
         ) : (
           value
         )}
@@ -273,12 +275,12 @@ export default function Dashboard() {
 
           <div className="hero-reveal hero-reveal-4 grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
             {[
-              { value: "6+", label: "Years Experience", icon: Zap },
+              { value: "6+", label: "Years Experience", icon: Zap, growing: true },
               { value: "MS", label: "Data Science", icon: Award },
               { value: "AWS", label: "Certified Dev", icon: Activity },
               { value: "8+", label: "Projects Shipped", icon: Code2 },
             ].map((m, i) => (
-              <MetricCard key={m.label} value={m.value} label={m.label} icon={m.icon} delay={i * 200} />
+              <MetricCard key={m.label} value={m.value} label={m.label} icon={m.icon} delay={i * 200} growing={"growing" in m} />
             ))}
           </div>
 

@@ -190,6 +190,31 @@ html, body {
   align-items: center;
 }
 
+/* Growing mode: the clipped wrapper scales up while digits roll */
+.wrapper-growing {
+  animation: wrapperGrow 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  transform-origin: bottom left;
+}
+
+@keyframes wrapperGrow {
+  0%   { transform: scale(1); }
+  100% { transform: scale(2.8); }
+}
+
+/* Wrapper slams back from big to normal */
+.wrapper-slam-back {
+  transform-origin: bottom left;
+  animation: wrapperSlamBack 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes wrapperSlamBack {
+  0%   { transform: scale(2.8); }
+  30%  { transform: scale(0.85); }
+  50%  { transform: scale(1.1); }
+  70%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
 .rolling-suffix {
   opacity: 0;
   transform: translateX(-4px);
