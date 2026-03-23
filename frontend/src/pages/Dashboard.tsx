@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import {
   Github,
   Linkedin,
@@ -17,6 +17,7 @@ import {
   Award,
   ArrowDown,
 } from "lucide-react";
+import { motion, useSpring, useTransform } from "framer-motion";
 import type { Stat } from "../types";
 import SectionHeader from "../components/SectionHeader";
 import UptimeBadge from "../components/UptimeBadge";
@@ -92,7 +93,7 @@ function StatCard({
   );
 }
 
-/* ─── Animated Metric Card ─── */
+/* ─── Animated Metric Card with Impact Slam ─── */
 function MetricCard({
   value,
   label,
@@ -111,12 +112,44 @@ function MetricCard({
   const suffix = numMatch ? value.slice(numMatch[1].length) : "";
   const hasNumber = target > 0;
 
+  // Card swell spring: brief 1.03x scale on impact
+  const cardSpring = useSpring(1, { stiffness: 500, damping: 15, mass: 0.6 });
+  const cardScale = useTransform(cardSpring, (v) => v);
+
+  // Shadow pulse spring: drives box-shadow spread
+  const shadowSpring = useSpring(0, { stiffness: 400, damping: 20 });
+  const shadowSpread = useTransform(shadowSpring, (v) => v);
+  const boxShadow = useTransform(
+    shadowSpread,
+    (s) =>
+      `0 ${4 + s * 8}px ${12 + s * 24}px rgba(139, 92, 246, ${0.05 + s * 0.3}), 0 0 ${s * 30}px rgba(139, 92, 246, ${s * 0.15})`
+  );
+
+  const handleSlam = useCallback(() => {
+    // Card swell: snap to 1.03x then spring back
+    cardSpring.set(1.03);
+    requestAnimationFrame(() => cardSpring.set(1));
+
+    // Shadow pulse: flash then fade
+    shadowSpring.set(1);
+    requestAnimationFrame(() => shadowSpring.set(0));
+  }, [cardSpring, shadowSpring]);
+
   return (
-    <div className="hero-metric rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2">
+    <motion.div
+      className="hero-metric impact-card rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2"
+      style={{ scale: cardScale, boxShadow }}
+    >
       <Icon size={16} className="text-violet-400" />
       <div className="text-2xl font-bold counter-number">
         {hasNumber ? (
-          <RollingCounter value={target} suffix={suffix} delay={delay} growing={growing} />
+          <RollingCounter
+            value={target}
+            suffix={suffix}
+            delay={delay}
+            growing={growing}
+            onSlam={handleSlam}
+          />
         ) : (
           value
         )}
@@ -124,7 +157,7 @@ function MetricCard({
       <div className="text-[11px] text-zinc-500 uppercase tracking-wide">
         {label}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

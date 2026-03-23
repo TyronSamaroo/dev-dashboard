@@ -2,14 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 /**
- * Animates a number from 0 to target when the element enters the viewport.
- * 1-3 increment quickly, 4-5 slow down, 6 slams down dramatically.
+ * Animates a number from 0 to target with variable speed:
+ * fast at first, decelerating before the final "slam" number.
+ * Calls onDone when the counter reaches the target value.
  */
 export function useCountUp(
   target: number,
-  options?: { duration?: number; delay?: number }
+  options?: { duration?: number; delay?: number; onDone?: () => void }
 ) {
-  const { delay = 0 } = options ?? {};
+  const { delay = 0, onDone } = options ?? {};
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const [value, setValue] = useState(0);
   const [done, setDone] = useState(false);
@@ -19,26 +20,37 @@ export function useCountUp(
     if (!inView || hasRun.current) return;
     hasRun.current = true;
 
-    // Per-step delays in ms: 1,2,3 are fast, 4,5 slow down, 6 slams
-    const stepDelays: Record<number, number[]> = {
-      6: [150, 150, 200, 500, 750, 1200],
+    // Variable speed: exponential ease-out per step
+    // Early steps are fast (~80ms), final steps decelerate (~600ms+)
+    const buildDelays = (n: number): number[] => {
+      // Special tuning for known targets
+      const presets: Record<number, number[]> = {
+        6: [80, 100, 140, 280, 500, 900],
+        8: [60, 80, 100, 140, 200, 320, 500, 800],
+      };
+      if (presets[n]) return presets[n];
+
+      // Generic: quadratic ease-out curve
+      return Array.from({ length: n }, (_, i) => {
+        const t = i / Math.max(n - 1, 1);
+        return Math.round(80 + t * t * 700);
+      });
     };
-    const delays = stepDelays[target] ?? Array.from({ length: target }, (_, i) => {
-      const frac = i / (target - 1);
-      return 150 + frac * 750;
-    });
+
+    const delays = buildDelays(target);
 
     const timeout = setTimeout(() => {
-      let currentStep = 0;
+      let step = 0;
 
       const tick = () => {
-        currentStep++;
-        setValue(currentStep);
+        step++;
+        setValue(step);
 
-        if (currentStep < target) {
-          setTimeout(tick, delays[currentStep]);
+        if (step < target) {
+          setTimeout(tick, delays[step]);
         } else {
           setDone(true);
+          onDone?.();
         }
       };
 
@@ -46,7 +58,7 @@ export function useCountUp(
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [inView, target, delay]);
+  }, [inView, target, delay, onDone]);
 
   return { ref, value, done };
 }

@@ -146,7 +146,7 @@ html, body {
   animation: countSlam 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* ─── Rolling digit counter (slot machine style) ─── */
+/* ─── Rolling digit counter (slot machine + Impact Slam) ─── */
 .rolling-counter {
   display: inline-flex;
   align-items: baseline;
@@ -163,25 +163,13 @@ html, body {
   display: flex;
   flex-direction: column;
   transition: none;
+  will-change: transform;
 }
 
+/* Variable speed roll: starts fast, decelerates before the slam */
 .rolling-digit-strip.rolling {
   transform: translateY(calc(var(--target) * -1.2em));
-  transition: transform 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Slam: overshoot then bounce back */
-.rolling-digit-strip.landed {
-  animation: digitSlam 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes digitSlam {
-  0%   { transform: translateY(calc(var(--target) * -1.2em)) scale(1); }
-  15%  { transform: translateY(calc(var(--target) * -1.2em)) scale(1.35); color: rgb(167, 139, 250); text-shadow: 0 0 40px rgba(139, 92, 246, 0.7); }
-  40%  { transform: translateY(calc(var(--target) * -1.2em)) scale(0.92); }
-  60%  { transform: translateY(calc(var(--target) * -1.2em)) scale(1.08); }
-  80%  { transform: translateY(calc(var(--target) * -1.2em)) scale(0.98); }
-  100% { transform: translateY(calc(var(--target) * -1.2em)) scale(1); text-shadow: none; }
+  transition: transform 2s cubic-bezier(0.12, 0.8, 0.3, 1);
 }
 
 .rolling-digit-cell {
@@ -201,29 +189,32 @@ html, body {
   100% { transform: scale(2.8); }
 }
 
-/* Wrapper slams back from big to normal */
+/* Wrapper slams back from big to normal — uses overshoot bounce */
 .wrapper-slam-back {
   transform-origin: bottom left;
-  animation: wrapperSlamBack 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: wrapperSlamBack 0.28s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards;
 }
 
 @keyframes wrapperSlamBack {
   0%   { transform: scale(2.8); }
-  30%  { transform: scale(0.85); }
-  50%  { transform: scale(1.1); }
-  70%  { transform: scale(0.95); }
   100% { transform: scale(1); }
 }
 
 .rolling-suffix {
   opacity: 0;
   transform: translateX(-4px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.17, 0.89, 0.32, 1.49);
 }
 
 .rolling-suffix.suffix-visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* ─── Impact Card: the card absorbing the slam ─── */
+.impact-card {
+  will-change: transform, box-shadow;
+  transform-origin: center center;
 }
 
 /* ─── Hero gradient line ─── */
@@ -234,11 +225,10 @@ html, body {
 
 /* ─── Hero metric card ─── */
 .hero-metric {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 .hero-metric:hover {
-  transform: translateY(-2px);
   border-color: rgba(139, 92, 246, 0.3);
 }
 
