@@ -1,3 +1,4 @@
+import { useCallback, useState, type MouseEvent } from "react";
 import { Briefcase } from "lucide-react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import SectionHeader from "./SectionHeader";
@@ -5,11 +6,39 @@ import type { WorkExperience } from "../data/resume";
 
 interface Props {
   experience: WorkExperience[];
+  gameMode?: boolean;
 }
 
-function TimelineEntry({ job, index }: { job: WorkExperience; index: number }) {
+function TimelineEntry({
+  job,
+  index,
+  gameMode,
+}: {
+  job: WorkExperience;
+  index: number;
+  gameMode: boolean;
+}) {
   const { ref, style, inView } = useScrollReveal({ variant: "slide-right", delay: index * 120 });
   const isCurrent = job.endDate === null;
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    if (!gameMode) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setTilt({ x: y * -6, y: x * 6 });
+    setSpotlight({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
+  }, [gameMode]);
+
+  const handleMouseLeave = useCallback(() => {
+    setTilt({ x: 0, y: 0 });
+    setSpotlight({ x: 50, y: 50 });
+  }, []);
 
   return (
     <div ref={ref} style={style} className="relative pl-10 pb-10 last:pb-0">
@@ -22,7 +51,22 @@ function TimelineEntry({ job, index }: { job: WorkExperience; index: number }) {
       />
 
       {/* Card */}
-      <div className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 hover:border-zinc-700 transition-colors">
+      <div
+        onMouseMove={gameMode ? handleMouseMove : undefined}
+        onMouseLeave={gameMode ? handleMouseLeave : undefined}
+        className={`${gameMode ? "experience-card-3d group" : ""} relative overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 transition-colors hover:border-zinc-700`}
+        style={gameMode ? { transform: `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)` } : undefined}
+      >
+        {gameMode && (
+          <div
+            className="experience-card-spotlight"
+            style={{
+              background: `radial-gradient(circle at ${spotlight.x}% ${spotlight.y}%, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.1) 22%, transparent 58%)`,
+            }}
+          />
+        )}
+
+        <div className="relative">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
           <div>
@@ -65,12 +109,13 @@ function TimelineEntry({ job, index }: { job: WorkExperience; index: number }) {
             </span>
           ))}
         </div>
+        </div>
       </div>
     </div>
   );
 }
 
-export default function ExperienceTimeline({ experience }: Props) {
+export default function ExperienceTimeline({ experience, gameMode = false }: Props) {
   return (
     <section id="experience" className="space-y-0">
       {/* Sticky section header */}
@@ -83,7 +128,7 @@ export default function ExperienceTimeline({ experience }: Props) {
         <div className="absolute left-[13px] top-2 bottom-0 w-px bg-gradient-to-b from-violet-500/50 via-violet-500/20 to-transparent" />
 
         {experience.map((job, index) => (
-          <TimelineEntry key={job.id} job={job} index={index} />
+          <TimelineEntry key={job.id} job={job} index={index} gameMode={gameMode} />
         ))}
       </div>
     </section>

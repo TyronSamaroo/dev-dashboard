@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Settings, WifiOff, Wifi, Sun, Moon } from "lucide-react";
+import { LayoutDashboard, Settings, WifiOff, Wifi, Sun, Moon, Sparkles } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
 import Manage from "./pages/Manage";
 import AdminGate from "./components/AdminGate";
@@ -75,8 +75,10 @@ function ThemeToggle() {
 
 function AppContent() {
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const isGameMode = location.pathname === "/game-on";
+  const isDashboardRoute = location.pathname === "/" || isGameMode;
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const modePath = isGameMode ? "/" : "/game-on";
 
   useHotkey("k", () => setPaletteOpen((o) => !o));
 
@@ -86,26 +88,44 @@ function AppContent() {
       <nav className="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link to="/" className="text-lg font-semibold tracking-tight">
+            <Link to={isGameMode ? "/game-on" : "/"} className="text-lg font-semibold tracking-tight">
               dev<span className="text-violet-400">.dashboard</span>
             </Link>
             <OnlineIndicator />
           </div>
           <div className="flex items-center gap-1">
-            {isHome && (
+            {isDashboardRoute && (
               <div className="hidden md:flex items-center gap-0.5 mr-2">
                 {sectionLinks.map((s) => (
                   <a key={s} href={`#${s.toLowerCase()}`} className="px-2 py-1 rounded text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50 transition-colors">{s}</a>
                 ))}
               </div>
             )}
-            <button onClick={() => setPaletteOpen(true)} className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50 transition-colors border border-zinc-800">
-              <kbd className="text-[10px]">⌘K</kbd>
-            </button>
+            {isDashboardRoute && (
+              <button onClick={() => setPaletteOpen(true)} className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50 transition-colors border border-zinc-800">
+                <kbd className="text-[10px]">⌘K</kbd>
+              </button>
+            )}
+            {isDashboardRoute && (
+              <Link
+                to={modePath}
+                className={`flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-full text-xs sm:text-sm border transition-colors ${
+                  isGameMode
+                    ? "border-violet-500/30 bg-violet-500/12 text-violet-200 hover:bg-violet-500/18"
+                    : "border-zinc-800 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-800/60"
+                }`}
+              >
+                <Sparkles size={14} />
+                <span className="sm:hidden">{isGameMode ? "Classic" : "Game On"}</span>
+                <span className="hidden sm:inline">{isGameMode ? "Classic View" : "Mission Mode"}</span>
+              </Link>
+            )}
+            {!isDashboardRoute && (
+              <Link to="/" className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-zinc-800 transition-colors">
+                <LayoutDashboard size={16} /> Dashboard
+              </Link>
+            )}
             <ThemeToggle />
-            <Link to="/" className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-zinc-800 transition-colors">
-              <LayoutDashboard size={16} /> Dashboard
-            </Link>
             <Link to="/manage" className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-zinc-800 transition-colors">
               <Settings size={16} /> Manage
             </Link>
@@ -114,7 +134,8 @@ function AppContent() {
       </nav>
       <main className="max-w-6xl mx-auto overflow-x-hidden px-4 py-8">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard gameMode={false} />} />
+          <Route path="/game-on" element={<Dashboard gameMode />} />
           <Route path="/manage" element={<AdminGate><Manage /></AdminGate>} />
         </Routes>
       </main>

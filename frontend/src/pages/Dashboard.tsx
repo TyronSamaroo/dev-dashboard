@@ -105,6 +105,8 @@ const explorationMissions = [
   },
 ] as const;
 
+const inactiveMissions: readonly (typeof explorationMissions)[number][] = [];
+
 const signalTape = [
   "Cloud-native systems",
   "Event-driven architecture",
@@ -164,11 +166,13 @@ function MetricCard({
   label,
   icon: Icon,
   delay,
+  explosive = false,
 }: {
   value: string;
   label: string;
   icon: React.ElementType;
   delay: number;
+  explosive?: boolean;
 }) {
   const numMatch = value.match(/^(\d+)/);
   const target = numMatch ? parseInt(numMatch[1], 10) : 0;
@@ -180,11 +184,13 @@ function MetricCard({
   return (
     <div
       ref={hasNumber ? ref : undefined}
-      className={`hero-metric rounded-[22px] border border-zinc-800 bg-zinc-900/50 px-4 py-4 sm:p-4 flex min-w-0 flex-col gap-2 ${done && hasNumber ? "metric-burst-active" : ""}`}
+      className={`hero-metric rounded-[22px] border border-zinc-800 bg-zinc-900/50 px-4 py-4 sm:p-4 flex min-w-0 flex-col gap-2 ${
+        explosive && done && hasNumber ? "metric-burst-active" : ""
+      }`}
     >
-      <span className="metric-flare" aria-hidden="true" />
+      {explosive && <span className="metric-flare" aria-hidden="true" />}
       <Icon size={16} className="text-violet-400" />
-      <div className={`text-[1.95rem] font-bold leading-none counter-number ${done && hasNumber ? "stat-highlight" : ""}`}>
+      <div className={`text-[1.95rem] font-bold leading-none counter-number ${explosive && done && hasNumber ? "stat-highlight" : ""}`}>
         {hasNumber ? `${count}${suffix}` : value}
       </div>
       <div className="text-[10px] sm:text-[11px] text-zinc-500 uppercase tracking-[0.24em]">
@@ -525,9 +531,10 @@ function ApiDocsSection() {
 /* ═══════════════════════════════════════
    MAIN DASHBOARD
    ═══════════════════════════════════════ */
-export default function Dashboard() {
+export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) {
   const projects = staticProjects;
   const stats = staticStats;
+  const activeMissions = gameMode ? explorationMissions : inactiveMissions;
 
   const { ref: heroRef, progress: heroProgress } = useScrollProgress();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -538,7 +545,7 @@ export default function Dashboard() {
     level,
     visited,
     xp,
-  } = useMissionProgress(explorationMissions);
+  } = useMissionProgress(activeMissions);
   const [activeUnlock, setActiveUnlock] = useState<(typeof explorationMissions)[number] | null>(null);
 
   const grouped = stats.reduce(
@@ -555,7 +562,7 @@ export default function Dashboard() {
   const orbitLift = heroProgress * 18;
 
   useEffect(() => {
-    if (!lastUnlocked) {
+    if (!gameMode || !lastUnlocked) {
       return;
     }
 
@@ -572,13 +579,14 @@ export default function Dashboard() {
   useEffect(() => {
     const renderState = () =>
       JSON.stringify({
-        page: "dashboard",
+        page: gameMode ? "dashboard-game-on" : "dashboard",
         coordinates: "origin top-left; x increases right; y increases down; scrollY increases downward",
+        game_mode: gameMode,
         exploration: {
-          completed: explorationMissions.filter((mission) => visited[mission.id]).map((mission) => mission.id),
+          completed: activeMissions.filter((mission) => visited[mission.id]).map((mission) => mission.id),
           completion_percent: Math.round(completion * 100),
-          level,
-          xp,
+          level: gameMode ? level : 0,
+          xp: gameMode ? xp : 0,
         },
         hero: {
           progress: Number(heroProgress.toFixed(2)),
@@ -603,7 +611,7 @@ export default function Dashboard() {
         delete window.advanceTime;
       }
     };
-  }, [completion, heroProgress, level, projects, visited, xp]);
+  }, [activeMissions, completion, gameMode, heroProgress, level, projects, visited, xp]);
 
   return (
     <div className="space-y-12">
@@ -628,8 +636,17 @@ export default function Dashboard() {
             </div>
 
             <h1 className="hero-title text-[clamp(4rem,20vw,7.5rem)] font-bold leading-[0.84] tracking-[-0.06em] md:text-7xl lg:text-8xl">
-              <HeroNameLine text="Tyron" lineClassName="hero-name-line-1" />
-              <HeroNameLine text="Samaroo" lineClassName="hero-name-line-2" tone="hot" />
+              {gameMode ? (
+                <>
+                  <HeroNameLine text="Tyron" lineClassName="hero-name-line-1" />
+                  <HeroNameLine text="Samaroo" lineClassName="hero-name-line-2" tone="hot" />
+                </>
+              ) : (
+                <>
+                  <span className="block hero-name-soft-reveal hero-name-soft-reveal-1">Tyron</span>
+                  <span className="block hero-name-soft-reveal hero-name-soft-reveal-2 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">Samaroo</span>
+                </>
+              )}
             </h1>
 
             <p className="hero-reveal hero-reveal-3 mt-5 max-w-[19ch] text-base leading-relaxed text-zinc-400 sm:max-w-xl sm:text-lg md:text-xl">
@@ -644,7 +661,7 @@ export default function Dashboard() {
                 { value: "AWS", label: "Certified Dev", icon: Activity },
                 { value: `${projects.length}+`, label: "Projects Shipped", icon: Code2 },
               ].map((m, i) => (
-                <MetricCard key={m.label} value={m.value} label={m.label} icon={m.icon} delay={i * 200} />
+                <MetricCard key={m.label} value={m.value} label={m.label} icon={m.icon} delay={i * 200} explosive={gameMode} />
               ))}
             </div>
 
@@ -666,25 +683,29 @@ export default function Dashboard() {
               ))}
             </div>
 
-            <div className="hero-reveal hero-reveal-7 mt-5 flex flex-wrap gap-2 md:hidden">
-              {signalTape.slice(0, 3).map((item) => (
-                <span key={item} className="inline-flex items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-zinc-400">
-                  <Sparkles size={10} />
-                  {item}
-                </span>
-              ))}
-            </div>
+            {gameMode && (
+              <>
+                <div className="hero-reveal hero-reveal-7 mt-5 flex flex-wrap gap-2 md:hidden">
+                  {signalTape.slice(0, 3).map((item) => (
+                    <span key={item} className="inline-flex items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-zinc-400">
+                      <Sparkles size={10} />
+                      {item}
+                    </span>
+                  ))}
+                </div>
 
-            <div className="hero-reveal hero-reveal-7 hero-signal-tape mt-6 hidden md:block">
-              <div className="hero-signal-tape-track">
-                {[...signalTape, ...signalTape].map((item, index) => (
-                  <span key={`${item}-${index}`} className="hero-signal-pill">
-                    <Sparkles size={12} />
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+                <div className="hero-reveal hero-reveal-7 hero-signal-tape mt-6 hidden md:block">
+                  <div className="hero-signal-tape-track">
+                    {[...signalTape, ...signalTape].map((item, index) => (
+                      <span key={`${item}-${index}`} className="hero-signal-pill">
+                        <Sparkles size={12} />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
 
             <div className="hero-reveal hero-reveal-8 mt-8 flex justify-start sm:mt-12">
               <button onClick={() => contentRef.current?.scrollIntoView({ behavior: "smooth" })} className="flex flex-col items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-400 animate-bounce">
@@ -694,28 +715,34 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="hidden lg:block" style={{ transform: `translateY(-${orbitLift}px)` }}>
-            <HeroOrbit
-              missions={explorationMissions}
-              visited={visited}
-              level={level}
-              xp={xp}
-              completion={completion}
-            />
-          </div>
+          {gameMode && (
+            <div className="hidden lg:block" style={{ transform: `translateY(-${orbitLift}px)` }}>
+              <HeroOrbit
+                missions={explorationMissions}
+                visited={visited}
+                level={level}
+                xp={xp}
+                completion={completion}
+              />
+            </div>
+          )}
         </div>
       </section>
 
       <div ref={contentRef} />
-      <ExplorationRun
-        missions={explorationMissions}
-        visited={visited}
-        completion={completion}
-        completedCount={completedCount}
-        level={level}
-        xp={xp}
-      />
-      <ScrollDivider />
+      {gameMode && (
+        <>
+          <ExplorationRun
+            missions={explorationMissions}
+            visited={visited}
+            completion={completion}
+            completedCount={completedCount}
+            level={level}
+            xp={xp}
+          />
+          <ScrollDivider />
+        </>
+      )}
 
       {/* ─── Stats Grid with Skill Bars ─── */}
       {stats.length > 0 && (
@@ -730,12 +757,12 @@ export default function Dashboard() {
       )}
 
       <ScrollDivider />
-      <ExperienceTimeline experience={workExperience} />
+      <ExperienceTimeline experience={workExperience} gameMode={gameMode} />
       <ScrollDivider />
       <EducationSection education={education} certifications={certifications} />
       <ScrollDivider />
 
-      {projects.length > 0 && <ProjectShowcase projects={projects} />}
+      {projects.length > 0 && <ProjectShowcase projects={projects} gameMode={gameMode} />}
 
       <ScrollDivider />
 
@@ -748,7 +775,7 @@ export default function Dashboard() {
         <VisitorCounter />
       </footer>
 
-      {activeUnlock && (
+      {gameMode && activeUnlock && (
         <div className="mission-toast pointer-events-none fixed bottom-4 right-4 z-40 max-w-xs rounded-2xl border border-emerald-500/25 bg-zinc-900/90 px-4 py-3 text-sm shadow-2xl shadow-black/40">
           <div className="flex items-start gap-3">
             <div className="mt-0.5 rounded-full bg-emerald-500/10 p-2 text-emerald-300">

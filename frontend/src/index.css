@@ -232,6 +232,25 @@ html, body {
 .text-clip-reveal-1 { animation-delay: 0.3s; }
 .text-clip-reveal-2 { animation-delay: 0.7s; }
 
+@keyframes heroNameSoftReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-name-soft-reveal {
+  opacity: 0;
+  animation: heroNameSoftReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-name-soft-reveal-1 { animation-delay: 0.16s; }
+.hero-name-soft-reveal-2 { animation-delay: 0.28s; }
+
 /* ─── Counter numbers ─── */
 .counter-number {
   font-variant-numeric: tabular-nums;
@@ -567,7 +586,8 @@ html, body {
 }
 
 /* ─── Enhanced project card with 3D tilt ─── */
-.project-card-3d {
+.project-card-3d,
+.experience-card-3d {
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.5s ease;
@@ -575,12 +595,14 @@ html, body {
   will-change: transform;
 }
 
-.project-card-3d:hover {
+.project-card-3d:hover,
+.experience-card-3d:hover {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
               0 0 0 1px rgba(139, 92, 246, 0.2);
 }
 
-.project-card-spotlight {
+.project-card-spotlight,
+.experience-card-spotlight {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -588,7 +610,8 @@ html, body {
   transition: opacity 0.25s ease;
 }
 
-.project-card-3d:hover .project-card-spotlight {
+.project-card-3d:hover .project-card-spotlight,
+.experience-card-3d:hover .experience-card-spotlight {
   opacity: 1;
 }
 
@@ -767,6 +790,7 @@ html, body {
   .timeline-dot-current,
   .dot-pop,
   .hero-reveal,
+  .hero-name-soft-reveal,
   .hero-name-line,
   .hero-name-shell::after,
   .text-clip-reveal,

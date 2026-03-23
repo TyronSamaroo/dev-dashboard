@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Search, Hash, Terminal, Sun, Moon, BookOpen, Copy } from "lucide-react";
+import { Search, Hash, Terminal, Sun, Moon, BookOpen, Copy, Sparkles } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
 
 const API_BASE = "https://dev-dashboard-api.onrender.com";
@@ -22,6 +23,9 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
   const [selected, setSelected] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const { theme, toggle } = useTheme();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isGameMode = location.pathname === "/game-on";
 
   const items: PaletteItem[] = [
     { id: "about", label: "About / Profile", category: "section", icon: <Hash size={14} />, action: () => { document.getElementById("about")?.scrollIntoView({ behavior: "smooth" }); onClose(); } },
@@ -33,6 +37,7 @@ export default function CommandPalette({ open, onClose }: CommandPaletteProps) {
     { id: "api-projects", label: "GET /api/projects", category: "api", icon: <Terminal size={14} />, action: () => { window.open(`${API_BASE}/api/projects`, "_blank"); onClose(); } },
     { id: "api-stats", label: "GET /api/stats", category: "api", icon: <Terminal size={14} />, action: () => { window.open(`${API_BASE}/api/stats`, "_blank"); onClose(); } },
     { id: "swagger", label: "Open Swagger Docs", category: "action", icon: <BookOpen size={14} />, action: () => { window.open(`${API_BASE}/docs`, "_blank"); onClose(); } },
+    { id: "mode-toggle", label: isGameMode ? "Switch to Classic View" : "Open Mission Mode", category: "action", icon: <Sparkles size={14} />, action: () => { navigate(isGameMode ? "/" : "/game-on"); onClose(); } },
     { id: "theme", label: `Switch to ${theme === "dark" ? "Light" : "Dark"} Mode`, category: "action", icon: theme === "dark" ? <Sun size={14} /> : <Moon size={14} />, action: () => { toggle(); onClose(); } },
     { id: "copy-api", label: "Copy API Base URL", category: "action", icon: <Copy size={14} />, action: () => { navigator.clipboard.writeText(API_BASE); onClose(); } },
   ];

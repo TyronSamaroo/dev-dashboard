@@ -49,3 +49,24 @@ Remaining notes
   - `npm run build` passed after the mobile/motion changes
   - Playwright confirmed the mobile page width no longer overflows: `innerWidth=393`, `scrollWidth=393`
   - inspected refreshed phone and desktop screenshots after the patch
+
+2026-03-23
+- Split the dashboard into two intentional modes instead of forcing the gamified layer onto the default route:
+  - `/` stays the cleaner classic portfolio view
+  - `/game-on` becomes the opt-in gamified route
+  - top nav and command palette now expose the mode switch directly
+- Extended the interactive card treatment so experience entries match the project showcase when game mode is enabled:
+  - added tilt + spotlight motion to the experience timeline cards
+  - kept the classic route calmer by gating the stronger interaction styles behind `gameMode`
+- Softened the default-route hero name entrance after visual review so the classic landing experience feels cleaner on first paint.
+- Verification:
+  - `npm run build` passed after the route split and classic hero adjustment
+  - required Playwright game client confirmed route state split:
+    - classic route reports `"page":"dashboard","game_mode":false`
+    - game route reports `"page":"dashboard-game-on","game_mode":true`
+  - game-mode verification still advances mission progress after the split
+  - refreshed phone captures at `393x852` confirmed both routes still hold `scrollWidth=393`
+  - inspected screenshots:
+    - `output/classic-verify/shot-0.png`
+    - `output/classic-mobile-20260323b.png`
+    - `output/gameon-mobile-20260323b.png`
