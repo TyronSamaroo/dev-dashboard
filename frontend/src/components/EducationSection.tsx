@@ -9,7 +9,7 @@ interface Props {
 }
 
 function EducationCard({ edu, index }: { edu: Education; index: number }) {
-  const { ref, style } = useScrollReveal({ delay: index * 150 });
+  const { ref, style } = useScrollReveal({ variant: "slide-left", delay: index * 150 });
   return (
     <div
       ref={ref}
@@ -31,7 +31,7 @@ function EducationCard({ edu, index }: { edu: Education; index: number }) {
 }
 
 function CertificationCard({ cert, index }: { cert: Certification; index: number }) {
-  const { ref, style } = useScrollReveal({ delay: index * 150 + 200 });
+  const { ref, style } = useScrollReveal({ variant: "slide-right", delay: index * 150 + 200 });
   return (
     <div
       ref={ref}
@@ -68,7 +68,7 @@ export default function EducationSection({ education, certifications }: Props) {
   return (
     <section id="education" className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Education column */}
+        {/* Education column — slides from left */}
         <div>
           <SectionHeader icon={GraduationCap} title="Education" />
           <div className="space-y-3">
@@ -78,7 +78,7 @@ export default function EducationSection({ education, certifications }: Props) {
           </div>
         </div>
 
-        {/* Certifications column */}
+        {/* Certifications column — slides from right */}
         <div>
           <SectionHeader icon={Award} title="Certifications" />
           <div className="space-y-3">

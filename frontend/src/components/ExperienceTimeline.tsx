@@ -8,15 +8,17 @@ interface Props {
 }
 
 function TimelineEntry({ job, index }: { job: WorkExperience; index: number }) {
-  const { ref, style } = useScrollReveal({ delay: index * 150 });
+  const { ref, style, inView } = useScrollReveal({ variant: "slide-right", delay: index * 120 });
   const isCurrent = job.endDate === null;
 
   return (
     <div ref={ref} style={style} className="relative pl-10 pb-10 last:pb-0">
-      {/* Dot on the timeline */}
+      {/* Dot on the timeline — pops in when card reveals */}
       <div
         className={`absolute left-[7px] top-1 w-3.5 h-3.5 rounded-full border-[3px] border-zinc-950 z-10
-          ${isCurrent ? "bg-violet-400 timeline-dot-current" : "bg-zinc-600"}`}
+          ${isCurrent ? "bg-violet-400 timeline-dot-current" : "bg-zinc-600"}
+          ${inView ? "dot-pop" : "opacity-0 scale-0"}`}
+        style={{ animationDelay: `${index * 120 + 200}ms` }}
       />
 
       {/* Card */}
@@ -47,12 +49,17 @@ function TimelineEntry({ job, index }: { job: WorkExperience; index: number }) {
           ))}
         </ul>
 
-        {/* Tech tags */}
+        {/* Tech tags — staggered fade */}
         <div className="flex flex-wrap gap-1.5">
-          {job.techTags.map((tag) => (
+          {job.techTags.map((tag, i) => (
             <span
               key={tag}
-              className="px-2 py-0.5 text-xs rounded bg-violet-500/10 text-violet-300 border border-violet-500/20"
+              className="px-2 py-0.5 text-xs rounded bg-violet-500/10 text-violet-300 border border-violet-500/20 transition-opacity"
+              style={{
+                opacity: inView ? 1 : 0,
+                transitionDelay: `${index * 120 + 400 + i * 50}ms`,
+                transitionDuration: "0.4s",
+              }}
             >
               {tag}
             </span>
@@ -65,8 +72,11 @@ function TimelineEntry({ job, index }: { job: WorkExperience; index: number }) {
 
 export default function ExperienceTimeline({ experience }: Props) {
   return (
-    <section id="experience" className="space-y-6">
-      <SectionHeader icon={Briefcase} title="Experience" />
+    <section id="experience" className="space-y-0">
+      {/* Sticky section header */}
+      <div className="sticky-section-header">
+        <SectionHeader icon={Briefcase} title="Experience" />
+      </div>
 
       <div className="relative">
         {/* Vertical timeline line */}
