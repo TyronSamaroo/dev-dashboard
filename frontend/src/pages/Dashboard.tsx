@@ -30,7 +30,7 @@ import { workExperience, education, certifications } from "../data/resume";
 import { profile as staticProfile, projects as staticProjects, stats as staticStats } from "../data/static";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useScrollProgress } from "../hooks/useScrollProgress";
-import { useCountUp } from "../hooks/useCountUp";
+import { RollingCounter } from "../components/RollingDigit";
 
 const API_BASE = "https://dev-dashboard-api.onrender.com";
 
@@ -98,27 +98,28 @@ function MetricCard({
   label,
   icon: Icon,
   delay,
+  growing = false,
 }: {
   value: string;
   label: string;
   icon: React.ElementType;
   delay: number;
+  growing?: boolean;
 }) {
   const numMatch = value.match(/^(\d+)/);
   const target = numMatch ? parseInt(numMatch[1], 10) : 0;
   const suffix = numMatch ? value.slice(numMatch[1].length) : "";
   const hasNumber = target > 0;
 
-  const { ref, value: count, done } = useCountUp(target, { duration: 2500, delay });
-
   return (
-    <div
-      ref={hasNumber ? ref : undefined}
-      className="hero-metric rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2"
-    >
+    <div className="hero-metric rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2">
       <Icon size={16} className="text-violet-400" />
-      <div className={`text-2xl font-bold counter-number ${done && hasNumber ? "stat-highlight" : ""}`}>
-        {hasNumber ? `${count}${suffix}` : value}
+      <div className="text-2xl font-bold counter-number">
+        {hasNumber ? (
+          <RollingCounter value={target} suffix={suffix} delay={delay} growing={growing} />
+        ) : (
+          value
+        )}
       </div>
       <div className="text-[11px] text-zinc-500 uppercase tracking-wide">
         {label}
@@ -274,12 +275,12 @@ export default function Dashboard() {
 
           <div className="hero-reveal hero-reveal-4 grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
             {[
-              { value: "6+", label: "Years Experience", icon: Zap },
+              { value: "6+", label: "Years Experience", icon: Zap, growing: true },
               { value: "MS", label: "Data Science", icon: Award },
               { value: "AWS", label: "Certified Dev", icon: Activity },
               { value: "8+", label: "Projects Shipped", icon: Code2 },
             ].map((m, i) => (
-              <MetricCard key={m.label} value={m.value} label={m.label} icon={m.icon} delay={i * 200} />
+              <MetricCard key={m.label} value={m.value} label={m.label} icon={m.icon} delay={i * 200} growing={"growing" in m} />
             ))}
           </div>
 
