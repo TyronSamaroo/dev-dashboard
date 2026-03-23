@@ -21,7 +21,7 @@ export function useCountUp(
 
     // Per-step delays in ms: 1,2,3 are fast, 4,5 slow down, 6 slams
     const stepDelays: Record<number, number[]> = {
-      6: [150, 150, 200, 450, 650, 900],
+      6: [150, 150, 200, 500, 750, 1200],
     };
     const delays = stepDelays[target] ?? Array.from({ length: target }, (_, i) => {
       const frac = i / (target - 1);
