@@ -9,9 +9,10 @@ export function useCountUp(
   target: number,
   options?: { duration?: number; delay?: number }
 ) {
-  const { duration = 1500, delay = 0 } = options ?? {};
+  const { duration = 2500, delay = 0 } = options ?? {};
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const [value, setValue] = useState(0);
+  const [done, setDone] = useState(false);
   const hasRun = useRef(false);
 
   useEffect(() => {
@@ -24,12 +25,14 @@ export function useCountUp(
         if (!start) start = timestamp;
         const elapsed = timestamp - start;
         const progress = Math.min(elapsed / duration, 1);
-        // ease-out-cubic
-        const eased = 1 - Math.pow(1 - progress, 3);
+        // ease-out-quart — slower deceleration, more dramatic
+        const eased = 1 - Math.pow(1 - progress, 4);
         setValue(Math.round(eased * target));
 
         if (progress < 1) {
           requestAnimationFrame(step);
+        } else {
+          setDone(true);
         }
       };
       requestAnimationFrame(step);
@@ -38,5 +41,5 @@ export function useCountUp(
     return () => clearTimeout(timeout);
   }, [inView, target, duration, delay]);
 
-  return { ref, value };
+  return { ref, value, done };
 }

@@ -51,5 +51,10 @@ def init_db():
             category TEXT NOT NULL DEFAULT 'metric',
             sort_order INTEGER NOT NULL DEFAULT 0
         );
+
+        CREATE TABLE IF NOT EXISTS page_views (
+            id INTEGER PRIMARY KEY CHECK (id = 1),
+            count INTEGER NOT NULL DEFAULT 0
+        );
     """)
     conn.close()
