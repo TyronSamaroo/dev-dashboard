@@ -55,21 +55,40 @@ function hashCode(s) {
   }
   return h;
 }
-const EXPECTED = -508879382;
+const EXPECTED = -2056149904;
+const CACHE_KEY = 'cr_auth';
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
+
+function showReport() {
+  document.getElementById('gate').style.display = 'none';
+  var frame = document.getElementById('report-frame');
+  frame.style.display = 'block';
+  frame.src = '/coach-report/report.html';
+  document.body.style.display = 'block';
+  document.body.style.margin = '0';
+  document.body.style.padding = '0';
+}
+
+(function() {
+  try {
+    var cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      var data = JSON.parse(cached);
+      if (Date.now() - data.ts < CACHE_DURATION) { showReport(); return; }
+      localStorage.removeItem(CACHE_KEY);
+    }
+  } catch(e) {}
+})();
+
 function checkCode() {
-  const input = document.getElementById('code').value;
+  var input = document.getElementById('code').value;
   if (hashCode(input) === EXPECTED) {
-    document.getElementById('gate').style.display = 'none';
-    const frame = document.getElementById('report-frame');
-    frame.style.display = 'block';
-    frame.src = '/coach-report/report.html';
-    document.body.style.display = 'block';
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now() })); } catch(e) {}
+    showReport();
   } else {
     document.getElementById('code').classList.add('error');
     document.getElementById('err').textContent = 'Incorrect passcode';
-    setTimeout(() => {
+    setTimeout(function() {
       document.getElementById('code').classList.remove('error');
     }, 500);
   }
