@@ -146,6 +146,61 @@ html, body {
   animation: countSlam 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* ─── Rolling digit counter (slot machine style) ─── */
+.rolling-counter {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.rolling-digit-wrapper {
+  display: inline-block;
+  height: 1.2em;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+.rolling-digit-strip {
+  display: flex;
+  flex-direction: column;
+  transition: none;
+}
+
+.rolling-digit-strip.rolling {
+  transform: translateY(calc(var(--target) * -1.2em));
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Slam: overshoot then bounce back */
+.rolling-digit-strip.landed {
+  animation: digitSlam 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes digitSlam {
+  0%   { transform: translateY(calc(var(--target) * -1.2em)) scale(1); }
+  15%  { transform: translateY(calc(var(--target) * -1.2em)) scale(1.35); color: rgb(167, 139, 250); text-shadow: 0 0 40px rgba(139, 92, 246, 0.7); }
+  40%  { transform: translateY(calc(var(--target) * -1.2em)) scale(0.92); }
+  60%  { transform: translateY(calc(var(--target) * -1.2em)) scale(1.08); }
+  80%  { transform: translateY(calc(var(--target) * -1.2em)) scale(0.98); }
+  100% { transform: translateY(calc(var(--target) * -1.2em)) scale(1); text-shadow: none; }
+}
+
+.rolling-digit-cell {
+  height: 1.2em;
+  display: flex;
+  align-items: center;
+}
+
+.rolling-suffix {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.rolling-suffix.suffix-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ─── Hero gradient line ─── */
 .hero-gradient-line {
   height: 2px;
