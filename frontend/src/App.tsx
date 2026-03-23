@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Settings, WifiOff, Wifi, Sun, Moon, Sparkles } from "lucide-react";
+import { LayoutDashboard, Settings, WifiOff, Wifi, Sun, Moon, Sparkles, Gamepad2 } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
 import Manage from "./pages/Manage";
+import Arcade from "./pages/Arcade";
 import AdminGate from "./components/AdminGate";
 import CommandPalette from "./components/CommandPalette";
 import { isBackendOnline, onBackendStatusChange, getCacheAge } from "./api";
@@ -76,7 +77,9 @@ function ThemeToggle() {
 function AppContent() {
   const location = useLocation();
   const isGameMode = location.pathname === "/game-on";
+  const isArcadeRoute = location.pathname === "/arcade";
   const isDashboardRoute = location.pathname === "/" || isGameMode;
+  const isPrimaryExperience = isDashboardRoute || isArcadeRoute;
   const [paletteOpen, setPaletteOpen] = useState(false);
   const modePath = isGameMode ? "/" : "/game-on";
 
@@ -101,7 +104,7 @@ function AppContent() {
                 ))}
               </div>
             )}
-            {isDashboardRoute && (
+            {isPrimaryExperience && (
               <button onClick={() => setPaletteOpen(true)} className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded text-xs text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50 transition-colors border border-zinc-800">
                 <kbd className="text-[10px]">⌘K</kbd>
               </button>
@@ -116,11 +119,22 @@ function AppContent() {
                 }`}
               >
                 <Sparkles size={14} />
-                <span className="sm:hidden">{isGameMode ? "Classic" : "Game On"}</span>
-                <span className="hidden sm:inline">{isGameMode ? "Classic View" : "Mission Mode"}</span>
+                <span className="sm:hidden">{isGameMode ? "Classic" : "Overdrive"}</span>
+                <span className="hidden sm:inline">{isGameMode ? "Classic View" : "Enter Overdrive"}</span>
               </Link>
             )}
-            {!isDashboardRoute && (
+            <Link
+              to="/arcade"
+              className={`flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-full text-xs sm:text-sm border transition-colors ${
+                isArcadeRoute
+                  ? "border-cyan-400/35 bg-cyan-400/12 text-cyan-100 hover:bg-cyan-400/18"
+                  : "border-zinc-800 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-800/60"
+              }`}
+            >
+              <Gamepad2 size={14} />
+              <span>Arcade</span>
+            </Link>
+            {!isDashboardRoute && !isArcadeRoute && (
               <Link to="/" className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-zinc-800 transition-colors">
                 <LayoutDashboard size={16} /> Dashboard
               </Link>
@@ -132,10 +146,11 @@ function AppContent() {
           </div>
         </div>
       </nav>
-      <main className="max-w-6xl mx-auto overflow-x-hidden px-4 py-8">
+      <main className={isArcadeRoute ? "overflow-x-hidden" : "max-w-6xl mx-auto overflow-x-hidden px-4 py-8"}>
         <Routes>
           <Route path="/" element={<Dashboard gameMode={false} />} />
           <Route path="/game-on" element={<Dashboard gameMode />} />
+          <Route path="/arcade" element={<Arcade />} />
           <Route path="/manage" element={<AdminGate><Manage /></AdminGate>} />
         </Routes>
       </main>

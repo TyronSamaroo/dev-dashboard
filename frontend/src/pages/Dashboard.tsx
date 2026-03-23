@@ -3,6 +3,10 @@ import {
   Github,
   Linkedin,
   Mail,
+  Gamepad2,
+  Gauge,
+  Shield,
+  Maximize2,
   Code2,
   BarChart3,
   Wrench,
@@ -105,6 +109,8 @@ const explorationMissions = [
   },
 ] as const;
 
+type ExplorationMission = (typeof explorationMissions)[number];
+
 const inactiveMissions: readonly (typeof explorationMissions)[number][] = [];
 
 const signalTape = [
@@ -118,6 +124,51 @@ const signalTape = [
 ];
 
 const rankLabels = ["Cold Start", "Scout", "Operator", "Builder", "Architect", "Launch Ready"];
+
+const sectorProfiles: Record<
+  ExplorationMission["id"],
+  {
+    code: string;
+    title: string;
+    threat: string;
+    briefing: string;
+  }
+> = {
+  skills: {
+    code: "Sector 01",
+    title: "Skill Matrix Breach",
+    threat: "Adaptive",
+    briefing: "Sweep the stack matrix, light the capability rails, and extract the core toolkit.",
+  },
+  experience: {
+    code: "Sector 02",
+    title: "Systems Timeline Raid",
+    threat: "Escalating",
+    briefing: "Traverse the production arc, tag the wins, and chain the strongest engineering moments.",
+  },
+  education: {
+    code: "Sector 03",
+    title: "Training Vault Unlock",
+    threat: "Guarded",
+    briefing: "Crack open the academic and certification vault before the route cools off.",
+  },
+  projects: {
+    code: "Sector 04",
+    title: "Build Bay Inspection",
+    threat: "High Value",
+    briefing: "Sweep the shipped builds, inspect active payloads, and bank the delivery score.",
+  },
+  api: {
+    code: "Sector 05",
+    title: "Public Interface Boss",
+    threat: "Critical",
+    briefing: "Hit the public API surface, expose the docs, and finish the run at full sync.",
+  },
+};
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
 
 function getRankLabel(level: number) {
   return rankLabels[Math.min(Math.max(level - 1, 0), rankLabels.length - 1)];
@@ -179,7 +230,11 @@ function MetricCard({
   const suffix = numMatch ? value.slice(numMatch[1].length) : "";
   const hasNumber = target > 0;
 
-  const { ref, value: count, done } = useCountUp(target, { duration: 2500, delay });
+  const { ref, value: count, done } = useCountUp(target, {
+    duration: 2500,
+    delay,
+    allowOvershoot: explosive,
+  });
 
   return (
     <div
@@ -291,6 +346,213 @@ function HeroOrbit({
   );
 }
 
+function GameControlDeck({
+  nextMission,
+  completionPercent,
+  completedCount,
+  comboMultiplier,
+  runScore,
+  heat,
+  shield,
+  threat,
+  overdriveActive,
+  overdriveBursts,
+  isFullscreen,
+  achievements,
+  onTriggerOverdrive,
+  onJumpToNext,
+  onToggleFullscreen,
+}: {
+  nextMission: ExplorationMission | null;
+  completionPercent: number;
+  completedCount: number;
+  comboMultiplier: number;
+  runScore: number;
+  heat: number;
+  shield: number;
+  threat: number;
+  overdriveActive: boolean;
+  overdriveBursts: number;
+  isFullscreen: boolean;
+  achievements: string[];
+  onTriggerOverdrive: () => void;
+  onJumpToNext: () => void;
+  onToggleFullscreen: () => void;
+}) {
+  return (
+    <div className="game-control-deck relative overflow-hidden rounded-[30px] border border-violet-500/20 px-5 py-5">
+      <div className="game-control-deck-grid" />
+      <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(260px,0.85fr)]">
+        <div className="min-w-0">
+          <div className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.28em] text-violet-300/90">
+            <Gamepad2 size={14} />
+            Operator HUD
+          </div>
+
+          <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.26em] text-zinc-500">Run score</p>
+              <p className="mt-2 text-4xl font-semibold tracking-[-0.05em] text-zinc-100 sm:text-5xl">
+                {runScore.toLocaleString()}
+              </p>
+            </div>
+            <div className={`game-status-badge ${overdriveActive ? "is-live" : ""}`}>
+              {overdriveActive ? "Overdrive Live" : "Reactor Primed"}
+            </div>
+          </div>
+
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400">
+            Press <span className="text-zinc-200">Space</span> to detonate the route,{" "}
+            <span className="text-zinc-200">Enter</span> to snap to the next sector, and{" "}
+            <span className="text-zinc-200">F</span> to go full screen.
+          </p>
+
+          <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+            {[
+              { label: "Combo", value: `x${comboMultiplier.toFixed(1)}` },
+              { label: "Sync", value: `${completionPercent}%` },
+              { label: "Cleared", value: `${completedCount}/5` },
+              { label: "Bursts", value: overdriveBursts.toString().padStart(2, "0") },
+            ].map((item) => (
+              <div key={item.label} className="rounded-2xl border border-zinc-800/80 bg-zinc-950/65 px-4 py-3">
+                <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-500">{item.label}</p>
+                <p className="mt-2 text-xl font-semibold text-zinc-100">{item.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {achievements.map((achievement) => (
+              <span
+                key={achievement}
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-950/70 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-zinc-300"
+              >
+                <Sparkles size={12} />
+                {achievement}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <div className="game-control-panel">
+            <div className="flex items-center justify-between gap-3">
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-zinc-100">
+                <Gauge size={15} className="text-violet-300" />
+                Threat Envelope
+              </div>
+              <span className="text-sm font-semibold text-zinc-100">{threat}%</span>
+            </div>
+            <div className="game-meter mt-3">
+              <span className="game-meter-threat" style={{ transform: `scaleX(${threat / 100})` }} />
+            </div>
+            <p className="mt-3 text-sm text-zinc-500">
+              {nextMission
+                ? `${sectorProfiles[nextMission.id].title} is the next live target.`
+                : "Boss phase complete. Every route segment is fully synced."}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div className="game-control-panel">
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-zinc-100">
+                <Shield size={15} className="text-emerald-300" />
+                Shield
+              </div>
+              <div className="game-meter mt-3">
+                <span className="game-meter-shield" style={{ transform: `scaleX(${shield / 100})` }} />
+              </div>
+              <p className="mt-3 text-lg font-semibold text-zinc-100">{shield}%</p>
+            </div>
+
+            <div className="game-control-panel">
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-zinc-100">
+                <Zap size={15} className="text-amber-300" />
+                Heat
+              </div>
+              <div className="game-meter mt-3">
+                <span className="game-meter-heat" style={{ transform: `scaleX(${heat / 100})` }} />
+              </div>
+              <p className="mt-3 text-lg font-semibold text-zinc-100">{heat}%</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <button type="button" onClick={onTriggerOverdrive} className="game-control-button game-control-button-primary">
+              <Zap size={15} />
+              {overdriveActive ? "Pulse Again" : "Trigger Pulse"}
+            </button>
+            <button type="button" onClick={onJumpToNext} className="game-control-button">
+              <Target size={15} />
+              {nextMission ? `Jump ${nextMission.short}` : "Replay Route"}
+            </button>
+            <button type="button" onClick={onToggleFullscreen} className="game-control-button">
+              <Maximize2 size={15} />
+              {isFullscreen ? "Exit Full" : "Full Screen"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SectorBanner({
+  mission,
+  index,
+  unlocked,
+  isNext,
+  overdriveActive,
+  comboMultiplier,
+}: {
+  mission: ExplorationMission;
+  index: number;
+  unlocked: boolean;
+  isNext: boolean;
+  overdriveActive: boolean;
+  comboMultiplier: number;
+}) {
+  const profile = sectorProfiles[mission.id];
+  const status = unlocked ? "Cleared" : isNext ? "Prime Target" : "Standby";
+
+  return (
+    <a
+      href={`#${mission.id}`}
+      className={`sector-banner group relative block overflow-hidden rounded-[28px] border border-zinc-800/90 px-5 py-5 ${
+        unlocked ? "is-cleared" : isNext ? "is-next" : ""
+      } ${overdriveActive ? "is-overdrive" : ""}`}
+    >
+      <div className="sector-banner-grid" />
+      <div className="relative flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="sector-banner-code">{profile.code}</span>
+            <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
+              Sequence {String(index + 1).padStart(2, "0")}
+            </span>
+          </div>
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-100">{profile.title}</h3>
+          <p className="mt-2 max-w-3xl text-sm leading-7 text-zinc-400">{profile.briefing}</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 xl:min-w-[420px]">
+          {[
+            { label: "Status", value: status },
+            { label: "Threat", value: profile.threat },
+            { label: "Reward", value: `+${mission.xp} XP` },
+            { label: "Combo", value: `x${comboMultiplier.toFixed(1)}` },
+          ].map((item) => (
+            <div key={item.label} className="rounded-2xl border border-zinc-800/80 bg-zinc-950/65 px-4 py-3">
+              <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-500">{item.label}</p>
+              <p className="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-zinc-100">{item.value}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </a>
+  );
+}
+
 function ExplorationRun({
   missions,
   visited,
@@ -298,6 +560,9 @@ function ExplorationRun({
   completedCount,
   level,
   xp,
+  comboMultiplier,
+  runScore,
+  overdriveBursts,
 }: {
   missions: typeof explorationMissions;
   visited: Record<string, boolean>;
@@ -305,6 +570,9 @@ function ExplorationRun({
   completedCount: number;
   level: number;
   xp: number;
+  comboMultiplier: number;
+  runScore: number;
+  overdriveBursts: number;
 }) {
   const nextMission = missions.find((mission) => !visited[mission.id]) ?? null;
   const completionPercent = Math.round(completion * 100);
@@ -316,23 +584,23 @@ function ExplorationRun({
         <div className="min-w-0">
           <div className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.28em] text-violet-300/90">
             <Target size={14} />
-            Exploration Run
+            Mission Board
           </div>
 
           <h2 className="mt-4 max-w-[15ch] text-2xl font-semibold tracking-tight text-zinc-100 sm:max-w-3xl sm:text-3xl md:text-4xl">
-            Complete the dashboard like a systems pass, not a passive scroll.
+            Run the portfolio like a boss fight, not a brochure.
           </h2>
 
           <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400 md:text-base">
-            Each major section awards XP, lights the orbit, and pushes the page toward full sync.
+            Every sector you clear pumps score, stacks multiplier, and drives the dashboard toward full system sync.
           </p>
 
           <div className="mt-7 grid grid-cols-2 gap-4 xl:grid-cols-4">
             {[
-              { label: "Completion", value: `${completionPercent}%` },
-              { label: "Unlocked", value: `${completedCount}/${missions.length}` },
+              { label: "Run score", value: runScore.toLocaleString() },
+              { label: "Combo", value: `x${comboMultiplier.toFixed(1)}` },
               { label: "Rank", value: getRankLabel(level) },
-              { label: "Hotkey", value: "Cmd/Ctrl + K" },
+              { label: "Pulse count", value: overdriveBursts.toString().padStart(2, "0") },
             ].map((item) => (
               <div key={item.label} className="border-l border-zinc-700/80 pl-4">
                 <p className="text-[10px] uppercase tracking-[0.26em] text-zinc-500">{item.label}</p>
@@ -360,7 +628,7 @@ function ExplorationRun({
             <p className="text-[10px] uppercase tracking-[0.26em] text-zinc-500">Next checkpoint</p>
             <p className="mt-2 text-lg font-semibold tracking-tight text-zinc-100">{nextMission?.label ?? "Run complete"}</p>
             <p className="mt-1 text-sm text-zinc-500">
-              {nextMission ? `Worth +${nextMission.xp} XP.` : "Every checkpoint is active."}
+              {nextMission ? `Worth +${nextMission.xp} XP and pushes the combo higher.` : "Every checkpoint is active."}
             </p>
           </div>
 
@@ -405,7 +673,7 @@ function ExplorationRun({
               href={`#${nextMission?.id ?? "about"}`}
               className="inline-flex items-center gap-2 rounded-full border border-violet-500/25 bg-violet-500/10 px-4 py-2 text-sm font-medium text-violet-200 transition-colors hover:border-violet-400/40 hover:bg-violet-500/15"
             >
-              {nextMission ? `Next unlock: ${nextMission.short}` : "Run complete"}
+              {nextMission ? `Engage next sector: ${nextMission.short}` : "Run complete"}
               <ArrowUpRight size={14} />
             </a>
           </div>
@@ -415,7 +683,7 @@ function ExplorationRun({
             <p className="mt-2 text-3xl font-semibold tracking-tight text-zinc-100">{xp}</p>
             <p className="mt-2 text-sm text-zinc-500">
               {nextMission
-                ? "Keep moving to unlock the next checkpoint."
+                ? `Completion is ${completionPercent}% with ${completedCount}/${missions.length} sectors cleared.`
                 : "Every checkpoint is active. The orbit is fully synced."}
             </p>
           </div>
@@ -546,7 +814,12 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
     visited,
     xp,
   } = useMissionProgress(activeMissions);
-  const [activeUnlock, setActiveUnlock] = useState<(typeof explorationMissions)[number] | null>(null);
+  const [activeUnlock, setActiveUnlock] = useState<ExplorationMission | null>(null);
+  const [xpBurst, setXpBurst] = useState<ExplorationMission | null>(null);
+  const [overdriveActive, setOverdriveActive] = useState(false);
+  const [overdriveBursts, setOverdriveBursts] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const overdriveTimeoutRef = useRef<number | null>(null);
 
   const grouped = stats.reduce(
     (acc, s) => {
@@ -560,6 +833,65 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
   const orb1Shift = heroProgress * 60;
   const orb2Shift = heroProgress * 35;
   const orbitLift = heroProgress * 18;
+  const nextMission = activeMissions.find((mission) => !visited[mission.id]) ?? null;
+  const completionPercent = Math.round(completion * 100);
+  const comboMultiplier = gameMode
+    ? Number((1 + completedCount * 0.65 + Math.min(overdriveBursts, 5) * 0.2 + (overdriveActive ? 1.35 : 0)).toFixed(1))
+    : 1;
+  const runScore = gameMode ? Math.round(xp * 125 * comboMultiplier + completedCount * 220 + overdriveBursts * 180) : 0;
+  const threat = gameMode ? (nextMission ? clamp(84 - completedCount * 12 + (overdriveActive ? 10 : 0), 18, 96) : 5) : 0;
+  const shield = gameMode ? clamp(58 + completedCount * 8 + completion * 28 + (overdriveActive ? 14 : 0), 36, 100) : 0;
+  const heat = gameMode ? clamp(24 + overdriveBursts * 8 + (overdriveActive ? 24 : 0), 18, 100) : 0;
+  const achievementRack = gameMode
+    ? [
+        completedCount > 0 ? "Sector chain online" : "Prime the route",
+        overdriveBursts > 0 ? `Pulse x${overdriveBursts}` : "Charge the reactor",
+        nextMission ? `${sectorProfiles[nextMission.id].code} armed` : "Boss clear confirmed",
+      ]
+    : [];
+
+  const triggerOverdrive = () => {
+    if (!gameMode) {
+      return;
+    }
+
+    setOverdriveBursts((current) => current + 1);
+    setOverdriveActive(true);
+
+    if (overdriveTimeoutRef.current) {
+      window.clearTimeout(overdriveTimeoutRef.current);
+    }
+
+    overdriveTimeoutRef.current = window.setTimeout(() => {
+      setOverdriveActive(false);
+      overdriveTimeoutRef.current = null;
+    }, 2200);
+  };
+
+  const jumpToNextMission = () => {
+    if (!gameMode) {
+      return;
+    }
+
+    const targetId = nextMission?.id ?? "about";
+    document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const toggleFullscreen = async () => {
+    if (!gameMode || typeof document === "undefined") {
+      return;
+    }
+
+    try {
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+      } else {
+        await document.documentElement.requestFullscreen();
+      }
+    } catch {
+      /* Fullscreen requires a user gesture and may be rejected on some browsers. */
+    }
+  };
 
   useEffect(() => {
     if (!gameMode || !lastUnlocked) {
@@ -572,9 +904,74 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
     }
 
     setActiveUnlock(unlock);
-    const timeout = window.setTimeout(() => setActiveUnlock(null), 2400);
-    return () => window.clearTimeout(timeout);
+    setXpBurst(unlock);
+    const unlockTimeout = window.setTimeout(() => setActiveUnlock(null), 2400);
+    const burstTimeout = window.setTimeout(() => setXpBurst(null), 1350);
+    return () => {
+      window.clearTimeout(unlockTimeout);
+      window.clearTimeout(burstTimeout);
+    };
   }, [lastUnlocked]);
+
+  useEffect(() => {
+    if (!gameMode) {
+      setIsFullscreen(false);
+      setOverdriveActive(false);
+      return;
+    }
+
+    const handleFullscreenChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement));
+    };
+
+    handleFullscreenChange();
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, [gameMode]);
+
+  useEffect(() => {
+    if (!gameMode) {
+      return;
+    }
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      const target = event.target;
+      if (
+        target instanceof HTMLElement &&
+        target.closest("input, textarea, select, [contenteditable='true']")
+      ) {
+        return;
+      }
+
+      if (event.code === "Space") {
+        event.preventDefault();
+        triggerOverdrive();
+        return;
+      }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        jumpToNextMission();
+        return;
+      }
+
+      if (event.key.toLowerCase() === "f") {
+        event.preventDefault();
+        void toggleFullscreen();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeydown);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  }, [gameMode, nextMission, overdriveBursts, overdriveActive]);
+
+  useEffect(() => {
+    return () => {
+      if (overdriveTimeoutRef.current) {
+        window.clearTimeout(overdriveTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const renderState = () =>
@@ -582,9 +979,22 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
         page: gameMode ? "dashboard-game-on" : "dashboard",
         coordinates: "origin top-left; x increases right; y increases down; scrollY increases downward",
         game_mode: gameMode,
+        game: {
+          mode: gameMode ? "overdrive" : "classic",
+          controls: gameMode ? ["space=overdrive", "enter=next-sector", "f=fullscreen"] : [],
+          overdrive_active: overdriveActive,
+          overdrive_bursts: overdriveBursts,
+          combo_multiplier: comboMultiplier,
+          score: runScore,
+          heat,
+          shield,
+          threat,
+          fullscreen: isFullscreen,
+          next_target: nextMission?.id ?? null,
+        },
         exploration: {
           completed: activeMissions.filter((mission) => visited[mission.id]).map((mission) => mission.id),
-          completion_percent: Math.round(completion * 100),
+          completion_percent: completionPercent,
           level: gameMode ? level : 0,
           xp: gameMode ? xp : 0,
         },
@@ -611,10 +1021,42 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
         delete window.advanceTime;
       }
     };
-  }, [activeMissions, completion, gameMode, heroProgress, level, projects, visited, xp]);
+  }, [
+    activeMissions,
+    comboMultiplier,
+    completionPercent,
+    gameMode,
+    heat,
+    heroProgress,
+    isFullscreen,
+    level,
+    nextMission,
+    overdriveActive,
+    overdriveBursts,
+    projects,
+    runScore,
+    shield,
+    threat,
+    visited,
+    xp,
+  ]);
 
   return (
-    <div className="space-y-12">
+    <div className={`relative space-y-12 ${gameMode ? `game-mode-shell${overdriveActive ? " is-overdrive" : ""}` : ""}`}>
+      {gameMode && (
+        <>
+          <div className="game-shell-ambience" aria-hidden="true" />
+          <div className="game-shell-noise" aria-hidden="true" />
+          {overdriveActive && (
+            <div className="game-overdrive-wave" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+          )}
+        </>
+      )}
+
       {/* ═══ ABOUT ME HERO — Staggered Apple-style Reveal ═══ */}
       <section id="about" ref={heroRef} className="hero-shell relative isolate -mx-4 min-h-[calc(100svh-7rem)] overflow-hidden px-4 py-8 sm:min-h-[85vh] sm:py-12">
         <div className="hero-grid-overlay absolute inset-0" />
@@ -665,6 +1107,30 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
               ))}
             </div>
 
+            {gameMode && (
+              <div className="hero-reveal hero-reveal-5 mt-4 grid grid-cols-[minmax(0,1fr)_auto] gap-2 md:hidden">
+                <div className="rounded-[24px] border border-zinc-800/90 bg-zinc-950/70 px-4 py-3">
+                  <p className="text-[10px] uppercase tracking-[0.24em] text-zinc-500">Mobile HUD</p>
+                  <div className="mt-2 flex items-center gap-3">
+                    <p className="text-xl font-semibold tracking-tight text-zinc-100">{runScore.toLocaleString()}</p>
+                    <span className="text-[10px] uppercase tracking-[0.22em] text-violet-300">x{comboMultiplier.toFixed(1)}</span>
+                  </div>
+                  <p className="mt-2 text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+                    {nextMission ? `Next ${nextMission.short}` : "Route Complete"}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={triggerOverdrive}
+                  className="game-control-button game-control-button-primary h-full px-4"
+                >
+                  <Zap size={15} />
+                  Pulse
+                </button>
+              </div>
+            )}
+
             <div className="hero-reveal hero-reveal-5 mt-5 grid grid-cols-3 gap-2 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
               {[
                 { href: "https://github.com/tyronsamaroo", icon: Github, label: "GitHub" },
@@ -707,7 +1173,29 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
               </>
             )}
 
-            <div className="hero-reveal hero-reveal-8 mt-8 flex justify-start sm:mt-12">
+            {gameMode && (
+              <div className="hero-reveal hero-reveal-8 mt-6">
+                <GameControlDeck
+                  nextMission={nextMission}
+                  completionPercent={completionPercent}
+                  completedCount={completedCount}
+                  comboMultiplier={comboMultiplier}
+                  runScore={runScore}
+                  heat={heat}
+                  shield={shield}
+                  threat={threat}
+                  overdriveActive={overdriveActive}
+                  overdriveBursts={overdriveBursts}
+                  isFullscreen={isFullscreen}
+                  achievements={achievementRack}
+                  onTriggerOverdrive={triggerOverdrive}
+                  onJumpToNext={jumpToNextMission}
+                  onToggleFullscreen={toggleFullscreen}
+                />
+              </div>
+            )}
+
+            <div className={`hero-reveal ${gameMode ? "hero-reveal-9" : "hero-reveal-8"} mt-8 flex justify-start sm:mt-12`}>
               <button onClick={() => contentRef.current?.scrollIntoView({ behavior: "smooth" })} className="flex flex-col items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-400 animate-bounce">
                 <span className="text-[10px] uppercase tracking-widest">Scroll</span>
                 <ArrowDown size={16} />
@@ -739,12 +1227,25 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
             completedCount={completedCount}
             level={level}
             xp={xp}
+            comboMultiplier={comboMultiplier}
+            runScore={runScore}
+            overdriveBursts={overdriveBursts}
           />
           <ScrollDivider />
         </>
       )}
 
       {/* ─── Stats Grid with Skill Bars ─── */}
+      {gameMode && (
+        <SectorBanner
+          mission={explorationMissions[0]}
+          index={0}
+          unlocked={Boolean(visited.skills)}
+          isNext={nextMission?.id === "skills"}
+          overdriveActive={overdriveActive}
+          comboMultiplier={comboMultiplier}
+        />
+      )}
       {stats.length > 0 && (
         <section id="skills">
           <SectionHeader icon={BarChart3} title="Stats & Skills" />
@@ -757,16 +1258,56 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
       )}
 
       <ScrollDivider />
+      {gameMode && (
+        <SectorBanner
+          mission={explorationMissions[1]}
+          index={1}
+          unlocked={Boolean(visited.experience)}
+          isNext={nextMission?.id === "experience"}
+          overdriveActive={overdriveActive}
+          comboMultiplier={comboMultiplier}
+        />
+      )}
       <ExperienceTimeline experience={workExperience} gameMode={gameMode} />
       <ScrollDivider />
+      {gameMode && (
+        <SectorBanner
+          mission={explorationMissions[2]}
+          index={2}
+          unlocked={Boolean(visited.education)}
+          isNext={nextMission?.id === "education"}
+          overdriveActive={overdriveActive}
+          comboMultiplier={comboMultiplier}
+        />
+      )}
       <EducationSection education={education} certifications={certifications} />
       <ScrollDivider />
 
+      {gameMode && (
+        <SectorBanner
+          mission={explorationMissions[3]}
+          index={3}
+          unlocked={Boolean(visited.projects)}
+          isNext={nextMission?.id === "projects"}
+          overdriveActive={overdriveActive}
+          comboMultiplier={comboMultiplier}
+        />
+      )}
       {projects.length > 0 && <ProjectShowcase projects={projects} gameMode={gameMode} />}
 
       <ScrollDivider />
 
       {/* ─── API Docs ─── */}
+      {gameMode && (
+        <SectorBanner
+          mission={explorationMissions[4]}
+          index={4}
+          unlocked={Boolean(visited.api)}
+          isNext={nextMission?.id === "api"}
+          overdriveActive={overdriveActive}
+          comboMultiplier={comboMultiplier}
+        />
+      )}
       <ApiDocsSection />
 
       {/* ─── Footer ─── */}
@@ -786,6 +1327,16 @@ export default function Dashboard({ gameMode = false }: { gameMode?: boolean }) 
               <p className="mt-1 font-medium text-zinc-100">{activeUnlock.label}</p>
               <p className="mt-1 text-zinc-400">+{activeUnlock.xp} XP added to the run.</p>
             </div>
+          </div>
+        </div>
+      )}
+
+      {gameMode && xpBurst && (
+        <div className="xp-burst pointer-events-none fixed inset-0 z-40 flex items-center justify-center">
+          <div className="xp-burst-core">
+            <p className="xp-burst-kicker">{sectorProfiles[xpBurst.id].code} Cleared</p>
+            <strong>+{xpBurst.xp} XP</strong>
+            <span>{xpBurst.label}</span>
           </div>
         </div>
       )}

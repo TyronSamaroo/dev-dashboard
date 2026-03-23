@@ -70,3 +70,81 @@ Remaining notes
     - `output/classic-verify/shot-0.png`
     - `output/classic-mobile-20260323b.png`
     - `output/gameon-mobile-20260323b.png`
+
+2026-03-23
+- Escalated `/game-on` from a light mission skin into a much heavier arcade-style run:
+  - added an "Operator HUD" control deck in the hero with score, combo, threat, shield, heat, and direct action buttons
+  - added keyboard interactions for game mode:
+    - `Space` triggers overdrive
+    - `Enter` jumps to the next live sector
+    - `F` toggles fullscreen
+  - added sector banners before each major section so the route reads like a staged run instead of a standard content stack
+  - added an overdrive ambience layer and a large XP burst overlay for section clears
+  - added a compact mobile HUD so the phone hero exposes game state and a pulse button above the fold
+- Fixed a classic-route regression:
+  - count-up overshoot is now gated behind the explosive/game-mode path so the default route no longer flashes incorrect values like `7+` for experience
+- Verification:
+  - `npm run build` passed after the overdrive pass and again after the mobile HUD follow-up
+  - required Playwright game client confirmed the new interactions and state wiring:
+    - classic regression run reports `game.mode = "classic"` with zero overdrive state
+    - game run reports `game.mode = "overdrive"` with controls metadata, score, multiplier, heat, shield, threat, and next target
+    - repeated `Space` + `Enter` actions advanced the route from `skills` to `projects`, ending at:
+      - `overdrive_bursts = 4`
+      - `combo_multiplier = 4.4`
+      - `next_target = "api"`
+  - fullscreen button works in browser automation and is reflected by `render_game_to_text`
+  - refreshed mobile capture still holds `innerWidth=393`, `scrollWidth=393`
+  - inspected screenshots:
+    - `output/classic-overdrive-regression/shot-0.png`
+    - `output/gameon-overdrive-hero.png`
+    - `output/gameon-overdrive-mobile-2.png`
+    - `output/gameon-overdrive-fullscreen.png`
+    - `output/gameon-overdrive-verify/shot-0.png`
+    - `output/gameon-overdrive-verify/shot-3.png`
+
+2026-03-23
+- Added a dedicated `/arcade` tab instead of expanding the existing dashboard variants again.
+- First implementation shipped:
+  - top nav now exposes an `Arcade` entry and the command palette can jump directly to it
+  - new `frontend/src/pages/Arcade.tsx` adds a standalone full-canvas runner called `Neon Skyline Rush`
+  - game supports keyboard + touch controls, local best score, pause/restart, fullscreen toggle, `window.render_game_to_text`, and deterministic `window.advanceTime`
+  - page framing follows the existing dark palette but pushes a more deliberate arcade-poster look with a full-width stage and restrained support copy
+
+TODO
+- Run `npm run build` and fix any type/runtime issues from the new route.
+- Run the required Playwright game client on `/arcade`, inspect screenshots and state JSON, then tune any gameplay or mobile readability issues it reveals.
+
+2026-03-23
+- Verification and refinement completed for the new `/arcade` route.
+- Fixes after first test pass:
+  - aligned the `window.advanceTime` type with the existing dashboard declaration so TypeScript builds cleanly
+  - stopped a low-value render churn loop from constantly re-rendering the idle arcade shell
+  - widened fullscreen canvas sizing and moved the hero fact strip below the stage so the live game appears much earlier on mobile
+- Verification:
+  - `npm run build` passed after the final mobile/arcade adjustments
+  - required Playwright game client run succeeded against `http://127.0.0.1:4174/arcade` with state + screenshot artifacts at:
+    - `output/arcade-verify-3/shot-0.png`
+    - `output/arcade-verify-3/shot-1.png`
+    - `output/arcade-verify-3/shot-2.png`
+    - `output/arcade-verify-3/shot-3.png`
+    - `output/arcade-verify-3/state-0.json`
+    - `output/arcade-verify-3/state-1.json`
+    - `output/arcade-verify-3/state-2.json`
+    - `output/arcade-verify-3/state-3.json`
+  - automated run confirmed:
+    - lane movement changes player lane from 1 to 2
+    - score and combo advance across the run
+    - shields decrement on barrier impacts
+    - final state reaches `mode = "gameover"` with `best_score = 1569`
+  - mobile viewport check completed with Playwright CLI at `393x852`; refreshed screenshot:
+    - `output/playwright/arcade-mobile-20260323.png`
+
+Gotcha
+- The skill client’s initial `--click-selector '#start-arcade-run'` path still reports a stability timeout even though the route resolves, responds to keyboard input immediately, and the run verifies correctly once the action burst begins. Core gameplay and route rendering are otherwise clean.
+
+2026-03-23
+- This week's highlights:
+  - shipped the protected coach report flow and follow-up route/static-path fixes for the new report pages
+  - merged Apple-style scroll animations and static-data/project-section upgrades via [PR #2](https://github.com/TyronSamaroo/dev-dashboard/pull/2)
+  - merged the interactive dashboard pass with the API try-it panel, skill bars, theme toggle, command palette, uptime badge, and visitor counter via [PR #3](https://github.com/TyronSamaroo/dev-dashboard/pull/3)
+  - followed up with a hero redesign, mobile overflow fix, and the new `/game-on` mission-mode route

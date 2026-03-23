@@ -7,9 +7,9 @@ import { useInView } from "react-intersection-observer";
  */
 export function useCountUp(
   target: number,
-  options?: { duration?: number; delay?: number }
+  options?: { duration?: number; delay?: number; allowOvershoot?: boolean }
 ) {
-  const { duration = 2500, delay = 0 } = options ?? {};
+  const { duration = 2500, delay = 0, allowOvershoot = false } = options ?? {};
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const [value, setValue] = useState(0);
   const [done, setDone] = useState(false);
@@ -39,7 +39,8 @@ export function useCountUp(
           nextValue = peak + (target - peak) * eased;
         }
 
-        setValue(Math.max(0, Math.round(nextValue)));
+        const clampedValue = allowOvershoot ? nextValue : Math.min(target, nextValue);
+        setValue(Math.max(0, Math.round(clampedValue)));
 
         if (progress < 1) {
           requestAnimationFrame(step);
@@ -52,7 +53,7 @@ export function useCountUp(
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [inView, target, duration, delay]);
+  }, [allowOvershoot, inView, target, duration, delay]);
 
   return { ref, value, done };
 }
