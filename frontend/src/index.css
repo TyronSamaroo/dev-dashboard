@@ -251,3 +251,14 @@ html, body {
   transition: none;
   pointer-events: none;
 }
+
+/* ─── Skill bar fill ─── */
+.skill-bar-fill {
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ─── Command palette backdrop ─── */
+.palette-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}

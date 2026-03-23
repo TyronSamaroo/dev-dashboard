@@ -12,6 +12,7 @@ from app.limiter import limiter
 from app.routes.profile import router as profile_router
 from app.routes.projects import router as projects_router
 from app.routes.stats import router as stats_router
+from app.routes.views import router as views_router
 
 app = FastAPI(
     title="Dev Dashboard API",
@@ -43,6 +44,7 @@ app.add_middleware(
 app.include_router(profile_router)
 app.include_router(projects_router)
 app.include_router(stats_router)
+app.include_router(views_router)
 
 # Create tables on startup and auto-seed if empty
 init_db()
