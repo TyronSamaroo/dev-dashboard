@@ -190,39 +190,6 @@ html, body {
   align-items: center;
 }
 
-/* Growing mode: digit scales up while rolling, overflows its box */
-.growing-overflow {
-  overflow: visible;
-}
-
-.rolling-digit-strip.growing-scale {
-  animation: growWhileRolling 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-@keyframes growWhileRolling {
-  0%   { scale: 1; }
-  20%  { scale: 1.3; }
-  40%  { scale: 1.6; }
-  60%  { scale: 2.0; }
-  80%  { scale: 2.4; }
-  95%  { scale: 2.6; }
-  100% { scale: 2.8; }
-}
-
-/* Override the slam for growing mode: start big and crash back to 1 */
-.rolling-growing .rolling-digit-strip.landed {
-  animation: digitSlamFromBig 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes digitSlamFromBig {
-  0%   { transform: translateY(calc(var(--target) * -1.2em)); scale: 2.8; color: rgb(167, 139, 250); text-shadow: 0 0 50px rgba(139, 92, 246, 0.8); }
-  25%  { transform: translateY(calc(var(--target) * -1.2em)); scale: 0.85; }
-  45%  { transform: translateY(calc(var(--target) * -1.2em)); scale: 1.15; }
-  65%  { transform: translateY(calc(var(--target) * -1.2em)); scale: 0.95; }
-  85%  { transform: translateY(calc(var(--target) * -1.2em)); scale: 1.03; }
-  100% { transform: translateY(calc(var(--target) * -1.2em)); scale: 1; text-shadow: none; }
-}
-
 .rolling-suffix {
   opacity: 0;
   transform: translateX(-4px);
