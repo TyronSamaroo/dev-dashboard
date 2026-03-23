@@ -167,12 +167,12 @@ html, body {
 
 .rolling-digit-strip.rolling {
   transform: translateY(calc(var(--target) * -1.2em));
-  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* Slam: overshoot then bounce back */
 .rolling-digit-strip.landed {
-  animation: digitSlam 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: digitSlam 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes digitSlam {

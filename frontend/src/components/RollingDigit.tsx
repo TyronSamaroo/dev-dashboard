@@ -25,8 +25,8 @@ export function RollingCounter({
 
     const timeout = setTimeout(() => {
       setRolling(true);
-      // Total roll duration matches CSS transition
-      setTimeout(() => setLanded(true), 1800);
+      // Total roll duration matches CSS transition (3.5s roll + buffer)
+      setTimeout(() => setLanded(true), 3800);
     }, delay);
 
     return () => clearTimeout(timeout);
