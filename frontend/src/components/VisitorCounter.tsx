@@ -7,6 +7,10 @@ export default function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
+    if (import.meta.env.DEV) {
+      return;
+    }
+
     fetch(`${API_BASE}/api/views`, { method: "POST" })
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => { if (data?.count != null) setCount(data.count); })
@@ -18,6 +22,7 @@ export default function VisitorCounter() {
       });
   }, []);
 
+  if (import.meta.env.DEV) return null;
   if (count === null) return null;
 
   return (

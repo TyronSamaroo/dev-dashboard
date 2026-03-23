@@ -8,6 +8,36 @@ html, body {
   background-color: #09090b;
 }
 
+.hero-shell {
+  background:
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(139, 92, 246, 0.12), transparent 36%);
+}
+
+.hero-grid-overlay {
+  pointer-events: none;
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 92%);
+}
+
+@keyframes scanlineSweep {
+  0% { transform: translateX(-16%) scaleX(0.75); opacity: 0; }
+  18% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+  100% { transform: translateX(16%) scaleX(1.1); opacity: 0; }
+}
+
+.hero-scanline {
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.7), rgba(96, 165, 250, 0.55), transparent);
+  filter: blur(0.4px);
+  animation: scanlineSweep 6s linear infinite;
+}
+
 /* ─── Timeline pulse glow for "current" role dot ─── */
 @keyframes timeline-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
@@ -130,6 +160,7 @@ html, body {
 .hero-reveal-5 { animation-delay: 1.1s; }
 .hero-reveal-6 { animation-delay: 1.35s; }
 .hero-reveal-7 { animation-delay: 1.6s; }
+.hero-reveal-8 { animation-delay: 1.85s; }
 
 /* ─── Stat counter pop on finish ─── */
 @keyframes countPop {
@@ -182,6 +213,237 @@ html, body {
   display: inline-block;
 }
 
+@keyframes marqueeFlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hero-signal-tape {
+  overflow: hidden;
+  border: 1px solid rgba(63, 63, 70, 0.75);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(24, 24, 27, 0.92), rgba(9, 9, 11, 0.8));
+}
+
+.hero-signal-tape-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  animation: marqueeFlow 20s linear infinite;
+}
+
+.hero-signal-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  color: rgb(212, 212, 216);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes orbitSpin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitPulse {
+  0%, 100% { opacity: 0.65; box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.18); }
+  50% { opacity: 1; box-shadow: 0 0 0 12px rgba(139, 92, 246, 0); }
+}
+
+@keyframes orbitBeam {
+  0% { transform: rotate(0deg); opacity: 0.2; }
+  50% { opacity: 0.5; }
+  100% { transform: rotate(360deg); opacity: 0.2; }
+}
+
+.hero-orbit-shell {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin-inline: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 36px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(99, 102, 241, 0.12), transparent 45%),
+    linear-gradient(180deg, rgba(24, 24, 27, 0.72), rgba(9, 9, 11, 0.42));
+  border: 1px solid rgba(63, 63, 70, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(24, 24, 27, 0.7), 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.hero-orbit-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.45;
+}
+
+.hero-orbit-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  transform: translate(-50%, -50%);
+}
+
+.hero-orbit-ring-1 {
+  width: 330px;
+  height: 330px;
+  animation: orbitSpin 26s linear infinite;
+}
+
+.hero-orbit-ring-2 {
+  width: 250px;
+  height: 250px;
+  border-color: rgba(96, 165, 250, 0.15);
+  animation: orbitSpin 18s linear infinite reverse;
+}
+
+.hero-orbit-ring-3 {
+  width: 160px;
+  height: 160px;
+  border-color: rgba(139, 92, 246, 0.2);
+  animation: orbitSpin 14s linear infinite;
+}
+
+.hero-orbit-beam {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 340px;
+  transform-origin: center;
+  background: linear-gradient(180deg, transparent, rgba(96, 165, 250, 0.35), transparent);
+  animation: orbitBeam 10s linear infinite;
+}
+
+.hero-orbit-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 160px;
+  height: 160px;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(circle at top, rgba(39, 39, 42, 0.98), rgba(9, 9, 11, 0.92));
+  border: 1px solid rgba(82, 82, 91, 0.9);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+}
+
+.hero-orbit-kicker {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: rgb(161, 161, 170);
+}
+
+.hero-orbit-level {
+  font-size: 2.9rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: rgb(244, 244, 245);
+}
+
+.hero-orbit-label {
+  font-size: 0.85rem;
+  color: rgb(196, 181, 253);
+}
+
+.hero-orbit-meter {
+  width: 90px;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(39, 39, 42, 0.95);
+}
+
+.hero-orbit-meter span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.95), rgba(96, 165, 250, 0.85));
+}
+
+.hero-orbit-node {
+  position: absolute;
+  min-width: 70px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(63, 63, 70, 0.85);
+  background: rgba(24, 24, 27, 0.92);
+  text-align: center;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-orbit-node.is-active {
+  border-color: rgba(52, 211, 153, 0.45);
+  background: rgba(6, 78, 59, 0.22);
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.15);
+  animation: orbitPulse 2.2s ease-in-out infinite;
+}
+
+.hero-orbit-node-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(244, 244, 245);
+}
+
+.hero-orbit-node-xp {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgb(161, 161, 170);
+}
+
+.hero-orbit-footer {
+  position: absolute;
+  inset-inline: 1.25rem;
+  bottom: 1.15rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hero-orbit-footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero-orbit-footer span {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgb(113, 113, 122);
+}
+
+.hero-orbit-footer strong {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(244, 244, 245);
+}
+
 /* ─── Enhanced project card with 3D tilt ─── */
 .project-card-3d {
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
@@ -194,6 +456,18 @@ html, body {
 .project-card-3d:hover {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
               0 0 0 1px rgba(139, 92, 246, 0.2);
+}
+
+.project-card-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.25s ease;
+}
+
+.project-card-3d:hover .project-card-spotlight {
+  opacity: 1;
 }
 
 /* ─── Status accent bar ─── */
@@ -248,6 +522,70 @@ html, body {
   will-change: transform;
 }
 
+.exploration-run {
+  background:
+    radial-gradient(circle at top left, rgba(139, 92, 246, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(24, 24, 27, 0.94), rgba(9, 9, 11, 0.96));
+  box-shadow: inset 0 0 0 1px rgba(24, 24, 27, 0.7), 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+.exploration-run-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, black, transparent 90%);
+}
+
+.exploration-track {
+  position: relative;
+}
+
+.exploration-track-base,
+.exploration-track-fill {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 15px;
+  height: 2px;
+  transform-origin: left;
+}
+
+.exploration-track-base {
+  background: rgba(63, 63, 70, 0.9);
+}
+
+.exploration-track-fill {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.95), rgba(52, 211, 153, 0.9));
+}
+
+.exploration-track-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.exploration-track-node {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(82, 82, 91, 0.95);
+  background: rgb(24, 24, 27);
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exploration-track-node.is-complete {
+  transform: scale(1.1);
+  border-color: rgba(52, 211, 153, 0.95);
+  background: rgba(52, 211, 153, 0.9);
+  box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.1);
+}
+
 /* ─── Parallax background orbs ─── */
 .parallax-orb {
   will-change: transform;
@@ -264,4 +602,36 @@ html, body {
 .palette-backdrop {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+@keyframes missionToastIn {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mission-toast {
+  animation: missionToastIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-dot-current,
+  .dot-pop,
+  .hero-reveal,
+  .text-clip-reveal,
+  .hero-scanline,
+  .hero-signal-tape-track,
+  .hero-orbit-ring-1,
+  .hero-orbit-ring-2,
+  .hero-orbit-ring-3,
+  .hero-orbit-beam,
+  .hero-orbit-node.is-active,
+  .mission-toast {
+    animation: none !important;
+  }
 }

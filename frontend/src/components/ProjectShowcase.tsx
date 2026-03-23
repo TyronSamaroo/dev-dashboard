@@ -30,16 +30,22 @@ function ProjectCard3D({ project, index }: { project: Project; index: number }) 
   const { ref, style } = useScrollReveal({ variant: "scale-in", delay: index * 100 });
   const sc = statusColors[project.status] ?? statusColors.active;
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
 
   const handleMouseMove = useCallback((e: MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     setTilt({ x: y * -8, y: x * 8 });
+    setSpotlight({
+      x: ((e.clientX - rect.left) / rect.width) * 100,
+      y: ((e.clientY - rect.top) / rect.height) * 100,
+    });
   }, []);
 
   const handleMouseLeave = useCallback(() => {
     setTilt({ x: 0, y: 0 });
+    setSpotlight({ x: 50, y: 50 });
   }, []);
 
   return (
@@ -51,12 +57,24 @@ function ProjectCard3D({ project, index }: { project: Project; index: number }) 
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="project-card-3d rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden"
+      className="project-card-3d group relative rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden"
     >
+      <div
+        className="project-card-spotlight"
+        style={{
+          background: `radial-gradient(circle at ${spotlight.x}% ${spotlight.y}%, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.12) 20%, transparent 55%)`,
+        }}
+      />
+
       {/* Status accent bar */}
       <div className={`h-0.5 ${sc.bar}`} />
 
-      <div className="p-5">
+      <div className="relative p-5">
+        <div className="mb-4 flex items-center justify-between gap-3 text-[10px] uppercase tracking-[0.22em] text-zinc-500">
+          <span>Build {String(index + 1).padStart(2, "0")}</span>
+          <span className="transition-colors group-hover:text-violet-300">Inspect</span>
+        </div>
+
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-semibold text-lg">{project.name}</h3>
           <span
@@ -117,14 +135,15 @@ function ProjectCard3D({ project, index }: { project: Project; index: number }) 
 export default function ProjectShowcase({ projects }: { projects: Project[] }) {
   return (
     <section id="projects">
-      {/* Header */}
-      <div className="flex items-center gap-3 mb-6">
-        <Code2 size={20} className="text-violet-400" />
-        <h2 className="text-xl font-semibold">Projects</h2>
-        <span className="text-sm text-zinc-500">{projects.length}</span>
+      <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div className="flex items-center gap-3">
+          <Code2 size={20} className="text-violet-400" />
+          <h2 className="text-xl font-semibold">Projects</h2>
+          <span className="text-sm text-zinc-500">{projects.length}</span>
+        </div>
+        <p className="text-sm text-zinc-500">Tilt, sweep, and inspect the build vault.</p>
       </div>
 
-      {/* All projects in a grid — no filters, just scroll reveals */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projects.map((project, i) => (
           <ProjectCard3D key={project.id} project={project} index={i} />

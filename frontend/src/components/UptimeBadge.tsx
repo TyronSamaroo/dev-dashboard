@@ -11,6 +11,10 @@ export default function UptimeBadge() {
   const [ping, setPing] = useState<PingResult>({ online: true, ms: null });
 
   useEffect(() => {
+    if (import.meta.env.DEV) {
+      return;
+    }
+
     let mounted = true;
 
     async function check() {
@@ -32,6 +36,8 @@ export default function UptimeBadge() {
     const id = setInterval(check, 30_000);
     return () => { mounted = false; clearInterval(id); };
   }, []);
+
+  if (import.meta.env.DEV) return null;
 
   return (
     <span
