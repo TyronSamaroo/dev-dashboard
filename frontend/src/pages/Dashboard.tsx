@@ -109,7 +109,7 @@ function MetricCard({
   const suffix = numMatch ? value.slice(numMatch[1].length) : "";
   const hasNumber = target > 0;
 
-  const { ref, value: count } = useCountUp(target, { duration: 1500, delay });
+  const { ref, value: count, done } = useCountUp(target, { duration: 2500, delay });
 
   return (
     <div
@@ -117,7 +117,7 @@ function MetricCard({
       className="hero-metric rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2"
     >
       <Icon size={16} className="text-violet-400" />
-      <div className="text-2xl font-bold counter-number">
+      <div className={`text-2xl font-bold counter-number ${done && hasNumber ? "stat-highlight" : ""}`}>
         {hasNumber ? `${count}${suffix}` : value}
       </div>
       <div className="text-[11px] text-zinc-500 uppercase tracking-wide">
