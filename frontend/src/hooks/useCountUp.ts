@@ -25,13 +25,26 @@ export function useCountUp(
         if (!start) start = timestamp;
         const elapsed = timestamp - start;
         const progress = Math.min(elapsed / duration, 1);
-        // ease-out-quart — slower deceleration, more dramatic
-        const eased = 1 - Math.pow(1 - progress, 4);
-        setValue(Math.round(eased * target));
+        const overshootScale = target <= 10 ? 1.18 : 1.1;
+
+        let nextValue = target;
+        if (progress < 0.78) {
+          const charge = progress / 0.78;
+          const eased = 1 - Math.pow(1 - charge, 4);
+          nextValue = eased * target * overshootScale;
+        } else {
+          const settle = (progress - 0.78) / 0.22;
+          const eased = 1 - Math.pow(1 - settle, 3);
+          const peak = target * overshootScale;
+          nextValue = peak + (target - peak) * eased;
+        }
+
+        setValue(Math.max(0, Math.round(nextValue)));
 
         if (progress < 1) {
           requestAnimationFrame(step);
         } else {
+          setValue(target);
           setDone(true);
         }
       };

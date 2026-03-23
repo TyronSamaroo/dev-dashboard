@@ -32,3 +32,20 @@ TODO
 Remaining notes
 - Automated verification covered load and scroll/unlock flow through the API section.
 - Project hover tilt/spotlight is implemented, but the scripted verification did not simulate hover over those cards.
+
+2026-03-23
+- Reproduced the reported mobile regression on a 393x852 viewport with Playwright.
+- Root cause identified: the hero container used a grid without an explicit mobile column track, so it sized to max-content and created horizontal overflow.
+- Mobile-specific refinements shipped:
+  - hero grid now uses an explicit one-column mobile layout with overflow guards
+  - hero copy is shorter on mobile so the first screen reads as a poster, not a paragraph stack
+  - social/actions and signal chips are compressed for phones
+  - exploration run details are simplified on mobile
+- Motion refinements shipped:
+  - hero name now uses a stronger charge/blast/echo sequence
+  - count-up animation now overshoots and settles
+  - metric cards now emit a flare/shockwave when the number lands
+- Verification:
+  - `npm run build` passed after the mobile/motion changes
+  - Playwright confirmed the mobile page width no longer overflows: `innerWidth=393`, `scrollWidth=393`
+  - inspected refreshed phone and desktop screenshots after the patch

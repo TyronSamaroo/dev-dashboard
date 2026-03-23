@@ -6,6 +6,7 @@ html {
 
 html, body {
   background-color: #09090b;
+  overflow-x: hidden;
 }
 
 .hero-shell {
@@ -138,7 +139,7 @@ html, body {
 @keyframes heroReveal {
   0% {
     opacity: 0;
-    transform: translateY(40px) scale(0.97);
+    transform: translateY(36px) scale(0.975);
     filter: blur(6px);
   }
   100% {
@@ -164,16 +165,16 @@ html, body {
 
 /* ─── Stat counter pop on finish ─── */
 @keyframes countPop {
-  0%   { transform: scale(1); }
-  30%  { transform: scale(1.25); color: rgb(167, 139, 250); text-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
-  60%  { transform: scale(0.95); }
-  80%  { transform: scale(1.05); }
-  100% { transform: scale(1); text-shadow: none; }
+  0%   { transform: scale(1); filter: brightness(1); }
+  22%  { transform: scale(1.42) rotate(-2deg); color: rgb(196, 181, 253); text-shadow: 0 0 34px rgba(139, 92, 246, 0.85), 0 0 70px rgba(96, 165, 250, 0.3); filter: brightness(1.35); }
+  48%  { transform: scale(0.9) rotate(1deg); }
+  72%  { transform: scale(1.12); }
+  100% { transform: scale(1); text-shadow: none; filter: brightness(1); }
 }
 
 .stat-highlight {
   display: inline-block;
-  animation: countPop 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: countPop 0.82s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ─── Hero gradient line ─── */
@@ -184,12 +185,36 @@ html, body {
 
 /* ─── Hero metric card ─── */
 .hero-metric {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
 .hero-metric:hover {
   transform: translateY(-2px);
   border-color: rgba(139, 92, 246, 0.3);
+}
+
+.metric-flare {
+  position: absolute;
+  inset: -35%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.22);
+  background:
+    radial-gradient(circle, rgba(139, 92, 246, 0.42) 0%, rgba(96, 165, 250, 0.18) 28%, transparent 62%);
+}
+
+@keyframes metricDetonation {
+  0% { opacity: 0.92; transform: scale(0.16); }
+  55% { opacity: 0.36; }
+  100% { opacity: 0; transform: scale(1.38); }
+}
+
+.metric-burst-active .metric-flare {
+  animation: metricDetonation 0.88s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ─── Apple-style text clip-path reveal — slow & cinematic ─── */
@@ -211,6 +236,103 @@ html, body {
 .counter-number {
   font-variant-numeric: tabular-nums;
   display: inline-block;
+}
+
+.hero-title {
+  max-width: 8ch;
+}
+
+@keyframes heroNameBlast {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0) scale(0.84) skewX(-8deg);
+    filter: blur(16px);
+    letter-spacing: 0.03em;
+  }
+  24% {
+    opacity: 1;
+  }
+  56% {
+    transform: translate3d(0, -8px, 0) scale(1.08) skewX(0deg);
+    filter: blur(0);
+    letter-spacing: -0.01em;
+  }
+  76% {
+    transform: translate3d(0, 2px, 0) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+    letter-spacing: 0;
+  }
+}
+
+@keyframes heroNameEcho {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) translateY(28px);
+    filter: blur(30px);
+  }
+  22% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.12) translateY(0);
+    filter: blur(20px);
+  }
+}
+
+.hero-name-shell {
+  position: relative;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+}
+
+.hero-name-shell::after {
+  content: attr(data-echo);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.hero-name-shell-cool::after {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.hero-name-shell-hot::after {
+  color: rgba(139, 92, 246, 0.95);
+}
+
+.hero-name-line {
+  display: block;
+  position: relative;
+  width: max-content;
+  max-width: 100%;
+  transform-origin: left center;
+  opacity: 0;
+  will-change: transform, filter, opacity;
+  animation: heroNameBlast 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-name-line-1 {
+  animation-delay: 0.18s;
+}
+
+.hero-name-line-2 {
+  animation-delay: 0.46s;
+}
+
+.hero-name-shell-cool::after {
+  animation: heroNameEcho 1.08s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
+}
+
+.hero-name-shell-hot::after {
+  animation: heroNameEcho 1.15s cubic-bezier(0.16, 1, 0.3, 1) 0.56s forwards;
 }
 
 @keyframes marqueeFlow {
@@ -619,10 +741,34 @@ html, body {
   animation: missionToastIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@media (max-width: 767px) {
+  .hero-shell {
+    background:
+      radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 38%),
+      radial-gradient(circle at left center, rgba(139, 92, 246, 0.14), transparent 42%);
+  }
+
+  .hero-grid-overlay {
+    opacity: 0.18;
+    background-size: 52px 52px;
+  }
+
+  .hero-scanline {
+    top: 56%;
+    opacity: 0.55;
+  }
+
+  .exploration-track-stop {
+    gap: 0.65rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .timeline-dot-current,
   .dot-pop,
   .hero-reveal,
+  .hero-name-line,
+  .hero-name-shell::after,
   .text-clip-reveal,
   .hero-scanline,
   .hero-signal-tape-track,

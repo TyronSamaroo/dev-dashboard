@@ -180,16 +180,40 @@ function MetricCard({
   return (
     <div
       ref={hasNumber ? ref : undefined}
-      className="hero-metric rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2"
+      className={`hero-metric rounded-[22px] border border-zinc-800 bg-zinc-900/50 px-4 py-4 sm:p-4 flex min-w-0 flex-col gap-2 ${done && hasNumber ? "metric-burst-active" : ""}`}
     >
+      <span className="metric-flare" aria-hidden="true" />
       <Icon size={16} className="text-violet-400" />
-      <div className={`text-2xl font-bold counter-number ${done && hasNumber ? "stat-highlight" : ""}`}>
+      <div className={`text-[1.95rem] font-bold leading-none counter-number ${done && hasNumber ? "stat-highlight" : ""}`}>
         {hasNumber ? `${count}${suffix}` : value}
       </div>
-      <div className="text-[11px] text-zinc-500 uppercase tracking-wide">
+      <div className="text-[10px] sm:text-[11px] text-zinc-500 uppercase tracking-[0.24em]">
         {label}
       </div>
     </div>
+  );
+}
+
+function HeroNameLine({
+  text,
+  lineClassName,
+  tone = "cool",
+}: {
+  text: string;
+  lineClassName: string;
+  tone?: "cool" | "hot";
+}) {
+  return (
+    <span
+      data-echo={text}
+      className={`hero-name-shell ${tone === "hot" ? "hero-name-shell-hot" : "hero-name-shell-cool"}`}
+    >
+      <span
+        className={`hero-name-line ${lineClassName} ${tone === "hot" ? "bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent" : "text-zinc-50"}`}
+      >
+        {text}
+      </span>
+    </span>
   );
 }
 
@@ -282,14 +306,14 @@ function ExplorationRun({
   return (
     <section className="exploration-run relative overflow-hidden rounded-[30px] border border-zinc-800/80 px-6 py-8 md:px-8 md:py-10">
       <div className="exploration-run-grid" />
-      <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.95fr)] lg:items-start">
-        <div>
+      <div className="relative grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.95fr)] lg:items-start">
+        <div className="min-w-0">
           <div className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.28em] text-violet-300/90">
             <Target size={14} />
             Exploration Run
           </div>
 
-          <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-zinc-100 md:text-4xl">
+          <h2 className="mt-4 max-w-[15ch] text-2xl font-semibold tracking-tight text-zinc-100 sm:max-w-3xl sm:text-3xl md:text-4xl">
             Complete the dashboard like a systems pass, not a passive scroll.
           </h2>
 
@@ -297,7 +321,7 @@ function ExplorationRun({
             Each major section awards XP, lights the orbit, and pushes the page toward full sync.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-7 grid grid-cols-2 gap-4 xl:grid-cols-4">
             {[
               { label: "Completion", value: `${completionPercent}%` },
               { label: "Unlocked", value: `${completedCount}/${missions.length}` },
@@ -326,6 +350,15 @@ function ExplorationRun({
         </div>
 
         <div className="space-y-3 lg:border-l lg:border-zinc-800/80 lg:pl-8">
+          <div className="rounded-2xl border border-zinc-800/80 bg-zinc-950/70 px-4 py-3 md:hidden">
+            <p className="text-[10px] uppercase tracking-[0.26em] text-zinc-500">Next checkpoint</p>
+            <p className="mt-2 text-lg font-semibold tracking-tight text-zinc-100">{nextMission?.label ?? "Run complete"}</p>
+            <p className="mt-1 text-sm text-zinc-500">
+              {nextMission ? `Worth +${nextMission.xp} XP.` : "Every checkpoint is active."}
+            </p>
+          </div>
+
+          <div className="hidden md:block space-y-3">
           {missions.map((mission) => {
             const unlocked = visited[mission.id];
             return (
@@ -359,6 +392,7 @@ function ExplorationRun({
               </a>
             );
           })}
+          </div>
 
           <div className="pt-2">
             <a
@@ -574,30 +608,36 @@ export default function Dashboard() {
   return (
     <div className="space-y-12">
       {/* ═══ ABOUT ME HERO — Staggered Apple-style Reveal ═══ */}
-      <section id="about" ref={heroRef} className="hero-shell relative min-h-[85vh] overflow-hidden py-12">
+      <section id="about" ref={heroRef} className="hero-shell relative isolate -mx-4 min-h-[calc(100svh-7rem)] overflow-hidden px-4 py-8 sm:min-h-[85vh] sm:py-12">
         <div className="hero-grid-overlay absolute inset-0" />
         <div className="hero-scanline absolute inset-x-[-8%] top-1/2 h-px" />
         <div className="parallax-orb absolute top-1/4 -left-32 w-96 h-96 bg-violet-500/8 rounded-full blur-[120px]" style={{ transform: `translateY(-${orb1Shift}px)` }} />
         <div className="parallax-orb absolute bottom-1/4 -right-32 w-80 h-80 bg-blue-500/6 rounded-full blur-[100px]" style={{ transform: `translateY(${orb2Shift}px)` }} />
 
         <div
-          className="relative grid min-h-[85vh] items-center gap-12 lg:grid-cols-[minmax(0,1fr)_420px]"
+          className="relative grid min-h-[calc(100svh-7rem)] min-w-0 grid-cols-1 items-center gap-10 sm:min-h-[85vh] lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-12"
           style={{ transform: `translateY(-${heroShift}px)`, transition: "none" }}
         >
-          <div className="max-w-3xl">
-            <div className="hero-reveal hero-reveal-1 flex items-center gap-3 mb-6">
+          <div className="min-w-0 max-w-[19.5rem] sm:max-w-xl lg:max-w-3xl">
+            <div className="hero-reveal hero-reveal-1 mb-5 flex items-center gap-3 sm:mb-6">
               <div className="w-10 h-px bg-violet-500/60" />
-              <span className="text-xs font-medium tracking-widest uppercase text-violet-400">Software Engineer &middot; ML Engineer</span>
+              <span className="text-[10px] font-medium uppercase text-violet-400 tracking-[0.24em] sm:text-xs sm:tracking-widest">
+                <span className="sm:hidden">Software + ML Engineer</span>
+                <span className="hidden sm:inline">Software Engineer &middot; ML Engineer</span>
+              </span>
             </div>
 
-            <h1 className="text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-              <span className="block text-clip-reveal text-clip-reveal-1">Tyron</span>
-              <span className="block text-clip-reveal text-clip-reveal-2 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">Samaroo</span>
+            <h1 className="hero-title text-[clamp(4rem,20vw,7.5rem)] font-bold leading-[0.84] tracking-[-0.06em] md:text-7xl lg:text-8xl">
+              <HeroNameLine text="Tyron" lineClassName="hero-name-line-1" />
+              <HeroNameLine text="Samaroo" lineClassName="hero-name-line-2" tone="hot" />
             </h1>
 
-            <p className="hero-reveal hero-reveal-3 mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl">{staticProfile.bio}</p>
+            <p className="hero-reveal hero-reveal-3 mt-5 max-w-[19ch] text-base leading-relaxed text-zinc-400 sm:max-w-xl sm:text-lg md:text-xl">
+              Builds cloud-native systems, ML pipelines, and polished web products.
+              <span className="hidden md:inline"> Focused on reliability, event-driven architecture, and shipping real projects.</span>
+            </p>
 
-            <div className="hero-reveal hero-reveal-4 mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+            <div className="hero-reveal hero-reveal-4 mt-7 grid min-w-0 grid-cols-2 gap-2.5 sm:gap-3 md:grid-cols-4">
               {[
                 { value: "6+", label: "Years Experience", icon: Zap },
                 { value: "MS", label: "Data Science", icon: Award },
@@ -608,25 +648,34 @@ export default function Dashboard() {
               ))}
             </div>
 
-            <div className="hero-reveal hero-reveal-5 mt-8 flex flex-wrap items-center gap-4">
+            <div className="hero-reveal hero-reveal-5 mt-5 grid grid-cols-3 gap-2 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
               {[
                 { href: "https://github.com/tyronsamaroo", icon: Github, label: "GitHub" },
                 { href: "https://linkedin.com/in/tyronsamaroo", icon: Linkedin, label: "LinkedIn" },
                 { href: "mailto:tyronsamaroo828@gmail.com", icon: Mail, label: "Email" },
               ].map((link) => (
-                <a key={link.label} href={link.href} target={link.href.startsWith("mailto:") ? undefined : "_blank"} rel="noopener noreferrer" className="flex items-center gap-2 rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm text-zinc-400 transition-all hover:border-zinc-700 hover:text-zinc-100">
+                <a key={link.label} href={link.href} target={link.href.startsWith("mailto:") ? undefined : "_blank"} rel="noopener noreferrer" className="flex min-w-0 items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/50 px-3 py-2 text-xs text-zinc-400 transition-all hover:border-zinc-700 hover:text-zinc-100 sm:justify-start sm:px-4 sm:text-sm">
                   <link.icon size={16} /> {link.label}
                 </a>
               ))}
             </div>
 
-            <div className="hero-reveal hero-reveal-6 mt-6 flex flex-wrap gap-2">
+            <div className="hero-reveal hero-reveal-6 mt-6 hidden flex-wrap gap-2 md:flex">
               {staticProfile.skills.map((skill) => (
                 <span key={skill} className="rounded-full border border-zinc-700 bg-zinc-800 px-2.5 py-1 text-xs font-medium text-zinc-300">{skill}</span>
               ))}
             </div>
 
-            <div className="hero-reveal hero-reveal-7 hero-signal-tape mt-6">
+            <div className="hero-reveal hero-reveal-7 mt-5 flex flex-wrap gap-2 md:hidden">
+              {signalTape.slice(0, 3).map((item) => (
+                <span key={item} className="inline-flex items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-zinc-400">
+                  <Sparkles size={10} />
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="hero-reveal hero-reveal-7 hero-signal-tape mt-6 hidden md:block">
               <div className="hero-signal-tape-track">
                 {[...signalTape, ...signalTape].map((item, index) => (
                   <span key={`${item}-${index}`} className="hero-signal-pill">
@@ -637,7 +686,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="hero-reveal hero-reveal-8 mt-12 flex justify-center lg:justify-start">
+            <div className="hero-reveal hero-reveal-8 mt-8 flex justify-start sm:mt-12">
               <button onClick={() => contentRef.current?.scrollIntoView({ behavior: "smooth" })} className="flex flex-col items-center gap-2 text-zinc-600 transition-colors hover:text-zinc-400 animate-bounce">
                 <span className="text-[10px] uppercase tracking-widest">Scroll</span>
                 <ArrowDown size={16} />
@@ -645,7 +694,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div style={{ transform: `translateY(-${orbitLift}px)` }}>
+          <div className="hidden lg:block" style={{ transform: `translateY(-${orbitLift}px)` }}>
             <HeroOrbit
               missions={explorationMissions}
               visited={visited}

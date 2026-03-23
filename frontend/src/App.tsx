@@ -81,7 +81,7 @@ function AppContent() {
   useHotkey("k", () => setPaletteOpen((o) => !o));
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+    <div className="min-h-screen overflow-x-hidden bg-zinc-950 text-zinc-100">
       <StatusBanner />
       <nav className="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
@@ -112,7 +112,7 @@ function AppContent() {
           </div>
         </div>
       </nav>
-      <main className="max-w-6xl mx-auto px-4 py-8">
+      <main className="max-w-6xl mx-auto overflow-x-hidden px-4 py-8">
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/manage" element={<AdminGate><Manage /></AdminGate>} />
