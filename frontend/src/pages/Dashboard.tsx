@@ -1,22 +1,27 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import {
   Github,
   Linkedin,
   Mail,
-  Globe,
-  ExternalLink,
   Code2,
   BarChart3,
   Wrench,
   Layers,
   Activity,
+  Zap,
+  Award,
+  ArrowDown,
 } from "lucide-react";
-import { api } from "../api";
-import type { Profile, Project, Stat } from "../types";
+import type { Stat } from "../types";
 import SectionHeader from "../components/SectionHeader";
 import ExperienceTimeline from "../components/ExperienceTimeline";
 import EducationSection from "../components/EducationSection";
+import ProjectShowcase from "../components/ProjectShowcase";
 import { workExperience, education, certifications } from "../data/resume";
+import { profile as staticProfile, projects as staticProjects, stats as staticStats } from "../data/static";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+import { useScrollProgress } from "../hooks/useScrollProgress";
+import { useCountUp } from "../hooks/useCountUp";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   language: <Code2 size={14} />,
@@ -32,43 +37,108 @@ const categoryColors: Record<string, string> = {
   metric: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
 };
 
-const statusColors: Record<string, string> = {
-  active: "bg-emerald-500/10 text-emerald-400",
-  completed: "bg-blue-500/10 text-blue-400",
-  archived: "bg-zinc-500/10 text-zinc-400",
-};
-
-export default function Dashboard() {
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [stats, setStats] = useState<Stat[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function load() {
-      try {
-        const [p, proj, s] = await Promise.all([
-          api.getProfile().catch(() => null),
-          api.getProjects().catch(() => []),
-          api.getStats().catch(() => []),
-        ]);
-        setProfile(p);
-        setProjects(proj);
-        setStats(s);
-      } finally {
-        setLoading(false);
-      }
-    }
-    load();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <div className="w-6 h-6 border-2 border-violet-400 border-t-transparent rounded-full animate-spin" />
+/* ─── Stat Card with scale-in ─── */
+function StatCard({
+  category,
+  items,
+  index,
+}: {
+  category: string;
+  items: Stat[];
+  index: number;
+}) {
+  const { ref, style } = useScrollReveal({ variant: "scale-in", delay: index * 80 });
+  return (
+    <div
+      ref={ref}
+      style={style}
+      className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4 hover:border-zinc-700 transition-colors"
+    >
+      <div
+        className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium border mb-3 ${categoryColors[category] ?? ""}`}
+      >
+        {categoryIcons[category]}
+        {category.charAt(0).toUpperCase() + category.slice(1)}s
       </div>
-    );
-  }
+      <div className="space-y-2">
+        {items.map((stat) => (
+          <div key={stat.id} className="flex justify-between text-sm">
+            <span className="text-zinc-400">{stat.label}</span>
+            <span className="font-medium">{stat.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Animated Metric Card ─── */
+function MetricCard({
+  value,
+  label,
+  icon: Icon,
+  delay,
+}: {
+  value: string;
+  label: string;
+  icon: React.ElementType;
+  delay: number;
+}) {
+  // Parse leading number for count-up (e.g. "3+" → 3, "6+" → 6)
+  const numMatch = value.match(/^(\d+)/);
+  const target = numMatch ? parseInt(numMatch[1], 10) : 0;
+  const suffix = numMatch ? value.slice(numMatch[1].length) : "";
+  const hasNumber = target > 0;
+
+  const { ref, value: count } = useCountUp(target, { duration: 1500, delay });
+
+  return (
+    <div
+      ref={hasNumber ? ref : undefined}
+      className="hero-metric rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2"
+    >
+      <Icon size={16} className="text-violet-400" />
+      <div className="text-2xl font-bold counter-number">
+        {hasNumber ? `${count}${suffix}` : value}
+      </div>
+      <div className="text-[11px] text-zinc-500 uppercase tracking-wide">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+/* ─── Scroll Divider ─── */
+function ScrollDivider() {
+  const { ref, clampedProgress } = useScrollProgress();
+  const width = clampedProgress(0.2, 0.8);
+
+  return (
+    <div ref={ref} className="py-2">
+      <div
+        className="scroll-divider"
+        style={{ transform: `scaleX(${width})` }}
+      />
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════
+   MAIN DASHBOARD
+   ═══════════════════════════════════════ */
+export default function Dashboard() {
+  // Static data — loads instantly, no backend needed
+  const projects = staticProjects;
+  const stats = staticStats;
+
+  // Parallax for hero
+  const { ref: heroRef, progress: heroProgress } = useScrollProgress();
+
+  // Scale-in for API docs
+  const { ref: apiRef, style: apiStyle } = useScrollReveal({ variant: "scale-in" });
+
+  // Scroll anchor ref
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const grouped = stats.reduce(
     (acc, s) => {
@@ -78,180 +148,157 @@ export default function Dashboard() {
     {} as Record<string, Stat[]>
   );
 
-  return (
-    <div className="space-y-8">
-      {/* Profile Hero */}
-      {profile && (
-        <section id="about" className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 md:p-8">
-          <div className="flex flex-col md:flex-row md:items-start gap-6">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-2xl font-bold shrink-0">
-              {profile.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </div>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-2xl font-bold">{profile.name}</h1>
-              <p className="text-violet-400 font-medium mt-0.5">
-                {profile.title}
-              </p>
-              <p className="text-zinc-400 mt-2 max-w-2xl leading-relaxed">
-                {profile.bio}
-              </p>
-              <div className="flex flex-wrap gap-3 mt-4">
-                {profile.github_url && (
-                  <a
-                    href={profile.github_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-                  >
-                    <Github size={16} /> GitHub
-                  </a>
-                )}
-                {profile.linkedin_url && (
-                  <a
-                    href={profile.linkedin_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-                  >
-                    <Linkedin size={16} /> LinkedIn
-                  </a>
-                )}
-                {profile.email && (
-                  <a
-                    href={`mailto:${profile.email}`}
-                    className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-                  >
-                    <Mail size={16} /> Email
-                  </a>
-                )}
-                {profile.portfolio_url && (
-                  <a
-                    href={profile.portfolio_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-100 transition-colors"
-                  >
-                    <Globe size={16} /> Portfolio
-                  </a>
-                )}
-              </div>
-              {profile.skills.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {profile.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2.5 py-1 text-xs font-medium rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
+  // Hero parallax — gentle shift only, no opacity fade
+  const heroShift = Math.max(0, heroProgress - 0.15) * 30;
 
-      {/* Stats Grid */}
+  // Parallax orbs at different rates
+  const orb1Shift = heroProgress * 60;
+  const orb2Shift = heroProgress * 35;
+
+  return (
+    <div className="space-y-12">
+      {/* ═══ ABOUT ME HERO — Staggered Apple-style Reveal ═══ */}
+      <section id="about" ref={heroRef} className="relative min-h-[85vh] flex flex-col justify-center py-12 overflow-hidden">
+        {/* Background gradient orbs with parallax */}
+        <div
+          className="parallax-orb absolute top-1/4 -left-32 w-96 h-96 bg-violet-500/8 rounded-full blur-[120px]"
+          style={{ transform: `translateY(-${orb1Shift}px)` }}
+        />
+        <div
+          className="parallax-orb absolute bottom-1/4 -right-32 w-80 h-80 bg-blue-500/6 rounded-full blur-[100px]"
+          style={{ transform: `translateY(${orb2Shift}px)` }}
+        />
+
+        <div
+          style={{
+            transform: `translateY(-${heroShift}px)`,
+            transition: "none",
+          }}
+        >
+          {/* Eyebrow */}
+          <div className="hero-reveal hero-reveal-1 flex items-center gap-3 mb-6">
+            <div className="w-10 h-px bg-violet-500/60" />
+            <span className="text-xs font-medium tracking-widest uppercase text-violet-400">
+              Software Engineer &middot; ML Engineer
+            </span>
+          </div>
+
+          {/* Name — clip-path text reveal */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
+            <span className="block text-clip-reveal text-clip-reveal-1">Tyron</span>
+            <span className="block text-clip-reveal text-clip-reveal-2 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">
+              Samaroo
+            </span>
+          </h1>
+
+          {/* Bio */}
+          <p className="hero-reveal hero-reveal-3 text-lg md:text-xl text-zinc-400 mt-6 max-w-2xl leading-relaxed">
+            {staticProfile.bio}
+          </p>
+
+          {/* Metric cards with count-up animation */}
+          <div className="hero-reveal hero-reveal-4 grid grid-cols-2 md:grid-cols-4 gap-3 mt-8">
+            {[
+              { value: "6+", label: "Years Experience", icon: Zap },
+              { value: "MS", label: "Data Science", icon: Award },
+              { value: "AWS", label: "Certified Dev", icon: Activity },
+              { value: "8+", label: "Projects Shipped", icon: Code2 },
+            ].map((m, i) => (
+              <MetricCard
+                key={m.label}
+                value={m.value}
+                label={m.label}
+                icon={m.icon}
+                delay={i * 200}
+              />
+            ))}
+          </div>
+
+          {/* Social links */}
+          <div className="hero-reveal hero-reveal-5 flex flex-wrap items-center gap-4 mt-8">
+            {[
+              { href: "https://github.com/tyronsamaroo", icon: Github, label: "GitHub" },
+              { href: "https://linkedin.com/in/tyronsamaroo", icon: Linkedin, label: "LinkedIn" },
+              { href: "mailto:tyronsamaroo828@gmail.com", icon: Mail, label: "Email" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-zinc-400 hover:text-zinc-100 bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-all"
+              >
+                <link.icon size={16} /> {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Skills */}
+          <div className="hero-reveal hero-reveal-6 flex flex-wrap gap-2 mt-6">
+            {staticProfile.skills.map((skill) => (
+              <span
+                key={skill}
+                className="px-2.5 py-1 text-xs font-medium rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="hero-reveal hero-reveal-7 flex justify-center mt-12">
+            <button
+              onClick={() => contentRef.current?.scrollIntoView({ behavior: "smooth" })}
+              className="flex flex-col items-center gap-2 text-zinc-600 hover:text-zinc-400 transition-colors animate-bounce"
+            >
+              <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+              <ArrowDown size={16} />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Scroll anchor for "below hero" */}
+      <div ref={contentRef} />
+
+      {/* ─── Animated scroll divider ─── */}
+      <ScrollDivider />
+
+      {/* ─── Stats Grid (Scale-in cascade) ─── */}
       {stats.length > 0 && (
         <section id="skills">
           <SectionHeader icon={BarChart3} title="Stats & Skills" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {Object.entries(grouped).map(([category, items]) => (
-              <div
-                key={category}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4"
-              >
-                <div
-                  className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium border mb-3 ${categoryColors[category] ?? ""}`}
-                >
-                  {categoryIcons[category]}
-                  {category.charAt(0).toUpperCase() + category.slice(1)}s
-                </div>
-                <div className="space-y-2">
-                  {items.map((stat) => (
-                    <div key={stat.id} className="flex justify-between text-sm">
-                      <span className="text-zinc-400">{stat.label}</span>
-                      <span className="font-medium">{stat.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            {Object.entries(grouped).map(([category, items], index) => (
+              <StatCard key={category} category={category} items={items} index={index} />
             ))}
           </div>
         </section>
       )}
 
-      {/* Experience Timeline */}
+      <ScrollDivider />
+
+      {/* ─── Experience Timeline ─── */}
       <ExperienceTimeline experience={workExperience} />
 
-      {/* Education & Certifications */}
+      <ScrollDivider />
+
+      {/* ─── Education & Certifications ─── */}
       <EducationSection education={education} certifications={certifications} />
 
-      {/* Projects */}
-      {projects.length > 0 && (
-        <section id="projects">
-          <SectionHeader icon={Code2} title="Projects" count={projects.length} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 hover:border-zinc-700 transition-colors"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-semibold">{project.name}</h3>
-                  <span
-                    className={`px-2 py-0.5 text-xs font-medium rounded-full shrink-0 ${statusColors[project.status] ?? ""}`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-                <p className="text-sm text-zinc-400 mt-1.5 line-clamp-2">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  {project.tech_stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-0.5 text-xs rounded bg-zinc-800 text-zinc-400"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-3 mt-4 pt-3 border-t border-zinc-800">
-                  {project.github_url && (
-                    <a
-                      href={project.github_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-100 transition-colors"
-                    >
-                      <Github size={14} /> Source
-                    </a>
-                  )}
-                  {project.live_url && (
-                    <a
-                      href={project.live_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-zinc-400 hover:text-zinc-100 transition-colors"
-                    >
-                      <ExternalLink size={14} /> Live
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      <ScrollDivider />
 
-      {/* API Docs */}
-      <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
+      {/* ─── Projects (Apple-style Showcase) ─── */}
+      {projects.length > 0 && <ProjectShowcase projects={projects} />}
+
+      <ScrollDivider />
+
+      {/* ─── API Docs (Scale-in) ─── */}
+      <section
+        ref={apiRef}
+        style={apiStyle}
+        className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6"
+      >
         <h2 className="text-lg font-semibold mb-3">Public API</h2>
         <p className="text-sm text-zinc-400 mb-4">
           Access this dashboard data programmatically.
@@ -278,7 +325,7 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ─── Footer ─── */}
       <footer className="text-center text-xs text-zinc-600 pb-8">
         Built with React + FastAPI + SQLite &middot; Deployed on Vercel + Render
       </footer>

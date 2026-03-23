@@ -35,13 +35,13 @@ export const workExperience: WorkExperience[] = [
     startDate: "Jan 2022",
     endDate: null,
     bullets: [
-      "Built real-time event-driven microservices with Go and Python on AWS",
-      "Designed REST APIs (API Gateway + Lambda) handling 10K+ daily requests",
-      "Implemented CI/CD pipelines with GitHub Actions, CloudFormation, and Docker",
-      "Leveraged Kafka & SQS for async messaging; Redis for caching layer",
+      "Engineered high-scale backend services on AWS powering millions of monthly requests",
+      "Owned production reliability and 24x7 on-call support; cut MTTR from ~2h to <30min",
+      "Replatformed legacy batch processes into event-driven pipelines (Lambda, Step Functions, SNS/SQS)",
+      "Led infrastructure migration across 100+ repositories as sole SME with zero outages",
       "Wrote 300+ unit/integration tests achieving 85%+ code coverage",
     ],
-    techTags: ["Go", "Python", "AWS", "Kafka", "Redis", "Docker"],
+    techTags: ["Go", "Python", "AWS", "Kafka", "Redis", "Docker", "Terraform"],
   },
   {
     id: "picoportal",

@@ -8,7 +8,7 @@ html, body {
   background-color: #09090b;
 }
 
-/* Timeline pulse glow for "current" role dot */
+/* ─── Timeline pulse glow for "current" role dot ─── */
 @keyframes timeline-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
   50% { box-shadow: 0 0 0 8px rgba(139, 92, 246, 0); }
@@ -16,4 +16,238 @@ html, body {
 
 .timeline-dot-current {
   animation: timeline-pulse 2s ease-in-out infinite;
+}
+
+/* ─── Timeline dot pop on reveal ─── */
+@keyframes dot-pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.4); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.dot-pop {
+  animation: dot-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Project card hover lift ─── */
+.project-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(139, 92, 246, 0.1);
+  border-color: rgba(82, 82, 91, 0.8);
+}
+
+/* ─── Filter pill ─── */
+.filter-pill {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-pill:hover {
+  background: rgba(63, 63, 70, 0.5);
+}
+
+.filter-pill.active {
+  background: rgba(139, 92, 246, 0.15);
+  color: rgb(167, 139, 250);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* ─── Featured project gradient border ─── */
+.featured-project {
+  position: relative;
+}
+
+.featured-project::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(59, 130, 246, 0.2) 50%, transparent 80%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Sticky section header ─── */
+.sticky-section-header {
+  position: sticky;
+  top: 72px; /* below nav (h-14 = 56px + 16px padding) */
+  z-index: 10;
+  background: linear-gradient(180deg, #09090b 0%, #09090b 70%, transparent 100%);
+  padding-bottom: 1rem;
+}
+
+/* ─── Project card link reveal ─── */
+.project-links {
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
+}
+
+.project-card:hover .project-links {
+  opacity: 1;
+}
+
+/* ─── Fade transition for filtered items ─── */
+.project-grid-enter {
+  animation: fadeScaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Hero Staggered Reveal ─── */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.hero-reveal {
+  opacity: 0;
+  animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-reveal-1 { animation-delay: 0.1s; }
+.hero-reveal-2 { animation-delay: 0.25s; }
+.hero-reveal-3 { animation-delay: 0.4s; }
+.hero-reveal-4 { animation-delay: 0.55s; }
+.hero-reveal-5 { animation-delay: 0.7s; }
+.hero-reveal-6 { animation-delay: 0.85s; }
+.hero-reveal-7 { animation-delay: 1.0s; }
+
+/* ─── Stat counter animate ─── */
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); color: rgb(167, 139, 250); }
+  100% { transform: scale(1); }
+}
+
+.stat-highlight {
+  display: inline-block;
+  animation: countPulse 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Hero gradient line ─── */
+.hero-gradient-line {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.6), rgba(59, 130, 246, 0.4), transparent 70%);
+}
+
+/* ─── Hero metric card ─── */
+.hero-metric {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.hero-metric:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* ─── Apple-style text clip-path reveal ─── */
+@keyframes textClipReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+.text-clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  animation: textClipReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-clip-reveal-1 { animation-delay: 0.2s; }
+.text-clip-reveal-2 { animation-delay: 0.4s; }
+
+/* ─── Counter numbers ─── */
+.counter-number {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+}
+
+/* ─── Enhanced project card with 3D tilt ─── */
+.project-card-3d {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.5s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-card-3d:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(139, 92, 246, 0.2);
+}
+
+/* ─── Status accent bar ─── */
+.status-bar-active {
+  background: linear-gradient(90deg, #8b5cf6, #6366f1);
+}
+
+.status-bar-completed {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.status-bar-archived {
+  background: linear-gradient(90deg, #71717a, #52525b);
+}
+
+/* ─── Sticky scroll featured project ─── */
+.sticky-project-container {
+  position: relative;
+}
+
+.sticky-project-content {
+  position: sticky;
+  top: 80px;
+  will-change: transform, opacity;
+}
+
+/* ─── Horizontal scroll carousel ─── */
+.project-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 1rem;
+}
+
+.project-carousel::-webkit-scrollbar { display: none; }
+
+.project-carousel-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  min-width: 320px;
+  max-width: 400px;
+}
+
+/* ─── Scroll divider animation ─── */
+.scroll-divider {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.6), rgba(59, 130, 246, 0.4), transparent);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* ─── Parallax background orbs ─── */
+.parallax-orb {
+  will-change: transform;
+  transition: none;
+  pointer-events: none;
 }
