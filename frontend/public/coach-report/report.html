@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>Coach Report — Weeks 6-12 v4</title>
+<html><head><meta charset="utf-8"><title>Coach Report — Weeks 6-13 v4</title>
+<script>function scrollToWk(id){const el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}}</script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #e0e0e0; padding: 0; }
@@ -15,6 +16,10 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 .summary-table tr:hover { background: #252540; }
 .flag { background: #3a1a1a; color: #ff5252; padding: 1px 5px; border-radius: 3px; font-weight: bold; font-size: 10px; }
 
+.week-nav { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0; position:sticky; top:0; z-index:50; background:#0f0f1a; padding:10px 0; }
+.week-nav a { display:inline-block; padding:8px 16px; background:linear-gradient(135deg,#1a1a2e,#16213e); color:#e94560; border:1px solid #333; border-radius:8px; text-decoration:none; font-weight:bold; font-size:13px; transition:all 0.2s; }
+.week-nav a:hover { background:#e94560; color:#fff; border-color:#e94560; }
+html { scroll-behavior: smooth; scroll-padding-top: 60px; }
 .week-banner { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 16px 20px; border-radius: 12px; margin: 28px 0 12px; border-left: 4px solid #e94560; border: 1px solid #333; border-left: 4px solid #e94560; }
 .week-banner .wt { font-size: 20px; color: #fff; font-weight: bold; }
 .week-banner .meta { font-size: 12px; color: #aaa; margin-top: 4px; }
@@ -217,8 +222,8 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 </style></head><body>
 
 <div class="header">
-<h1>Coach Report — Weeks 6-12</h1>
-<div class="subtitle">Tyron Samaroo &nbsp;|&nbsp; OCB Contest Prep &nbsp;|&nbsp; Feb 2 – Mar 22, 2026</div>
+<h1>Coach Report — Weeks 6-13</h1>
+<div class="subtitle">Tyron Samaroo &nbsp;|&nbsp; OCB Contest Prep &nbsp;|&nbsp; Feb 2 – Mar 29, 2026</div>
 </div>
 
 <div class="main-tabs">
@@ -240,18 +245,33 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 <tr><td><b>Wk 10</b></td><td>03-02 – 03-08</td><td>154.83</td><td style="color:#ff5252;font-weight:bold">+0.47</td><td>1,565</td><td>3,366</td><td>13,007</td><td>44</td><td>221,602</td><td>44,320</td></tr>
 <tr><td><b>Wk 11</b></td><td>03-09 – 03-15</td><td>153.76</td><td style="color:#00e676;font-weight:bold">-1.07</td><td>1,622</td><td>3,224</td><td>13,806</td><td>37</td><td>223,828</td><td>44,766</td></tr>
 <tr><td><b>Wk 12</b></td><td>03-16 – 03-22</td><td>153.63</td><td style="color:#00e676;font-weight:bold">-0.13</td><td>1,721</td><td>3,331</td><td>12,317</td><td>43</td><td>291,295</td><td>58,259</td></tr>
+<tr><td><b>Wk 13</b></td><td>03-23 – 03-29</td><td>153.83</td><td style="color:#ff5252;font-weight:bold">+0.20</td><td>2,029</td><td>1,821</td><td>10,868</td><td>43</td><td>0</td><td>0</td></tr>
 </table>
+<div class="week-nav">
+<a href="#wk6">Wk 6</a>
+<a href="#wk7">Wk 7</a>
+<a href="#wk8">Wk 8</a>
+<a href="#wk9">Wk 9</a>
+<a href="#wk10">Wk 10</a>
+<a href="#wk11">Wk 11</a>
+<a href="#wk12">Wk 12</a>
+<a href="#wk13">Wk 13</a>
+</div>
 <h2>🍽️ FOOD CONSISTENCY ANALYSIS</h2>
 <div class="insight-box">
-<h4>Diet Stability — 122 unique foods across 6 weeks</h4>
-<p style="font-size:12px;color:#aaa;margin-bottom:10px"><span style="color:#00e676;font-weight:bold">5 staples</span> (5-6 wks) · <span style="color:#42a5f5;font-weight:bold">26 regulars</span> (3-4 wks) · <span style="color:#ffab40;font-weight:bold">91 occasional</span> (1-2 wks)</p>
+<h4>Diet Stability — 145 unique foods across 6 weeks</h4>
+<p style="font-size:12px;color:#aaa;margin-bottom:10px"><span style="color:#00e676;font-weight:bold">9 staples</span> (5-6 wks) · <span style="color:#42a5f5;font-weight:bold">23 regulars</span> (3-4 wks) · <span style="color:#ffab40;font-weight:bold">113 occasional</span> (1-2 wks)</p>
 <table class="consistency-table">
 <tr><th>Staple Foods (5+ weeks)</th><th>Wk6</th><th>Wk7</th><th>Wk8</th><th>Wk9</th><th>Wk10</th><th>Wk11</th><th>Wk12</th><th>Avg Cal</th></tr>
-<tr><td style="color:#ccc">Caramel Protein Shake</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">1x</td><td style="text-align:center;color:#ffab40">158</td></tr>
-<tr><td style="color:#ccc">Fairlife 2% Milk</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">9x</td><td style="color:#00e676;text-align:center">9x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="text-align:center;color:#ffab40">50</td></tr>
-<tr><td style="color:#ccc">Peanut Butter And Jelly Overnight Oats</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">8x</td><td style="color:#00e676;text-align:center">7x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="text-align:center;color:#ffab40">390</td></tr>
-<tr><td style="color:#ccc">Protein Powder</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">8x</td><td style="color:#333;text-align:center">—</td><td style="text-align:center;color:#ffab40">127</td></tr>
-<tr><td style="color:#ccc">Seeded Bread</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">5x</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">4x</td><td style="text-align:center;color:#ffab40">89</td></tr>
+<tr><td style="color:#ccc">Caramel Protein Shake</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="text-align:center;color:#ffab40">158</td></tr>
+<tr><td style="color:#ccc">Cream of Rice</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">5x</td><td style="color:#00e676;text-align:center">5x</td><td style="color:#00e676;text-align:center">1x</td><td style="text-align:center;color:#ffab40">89</td></tr>
+<tr><td style="color:#ccc">Fairlife 2% Milk</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">9x</td><td style="color:#00e676;text-align:center">9x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="text-align:center;color:#ffab40">50</td></tr>
+<tr><td style="color:#ccc">Organic Avocado Mash</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">6x</td><td style="color:#00e676;text-align:center">6x</td><td style="color:#00e676;text-align:center">7x</td><td style="text-align:center;color:#ffab40">90</td></tr>
+<tr><td style="color:#ccc">Peanut Butter</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">2x</td><td style="text-align:center;color:#ffab40">93</td></tr>
+<tr><td style="color:#ccc">Peanut Butter And Jelly Overnight Oats</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">8x</td><td style="color:#00e676;text-align:center">7x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="text-align:center;color:#ffab40">390</td></tr>
+<tr><td style="color:#ccc">Protein Powder</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">8x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="text-align:center;color:#ffab40">127</td></tr>
+<tr><td style="color:#ccc">Quick Add</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">3x</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">1x</td><td style="text-align:center;color:#ffab40">346</td></tr>
+<tr><td style="color:#ccc">Seeded Bread</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">1x</td><td style="color:#333;text-align:center">—</td><td style="color:#00e676;text-align:center">5x</td><td style="color:#00e676;text-align:center">2x</td><td style="color:#00e676;text-align:center">4x</td><td style="color:#00e676;text-align:center">5x</td><td style="text-align:center;color:#ffab40">84</td></tr>
 </table>
 <h4 style="margin-top:16px">Week-over-Week Changes</h4>
 <table class="consistency-table">
@@ -263,11 +283,12 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 <tr><td><b>Wk 10</b></td><td style="text-align:center">44</td><td><span style="color:#00e676">+24</span> <span style="font-size:9px;color:#666">(Almond Breeze Almondmilk Unsweetened Van, Apple Pie Filling or Topping, Cheesecake, Chicken Burger, Chocolate Nutrition Shake +19 more)</span></td><td><span style="color:#ff5252">-10</span> <span style="font-size:9px;color:#666">(Apple COR OAT, Buffin Muffin, Fage 2% Greek Yogurt, Guacamole, Hot Honey Sriracha Wing & Dipping Sauce +5 more)</span></td></tr>
 <tr><td><b>Wk 11</b></td><td style="text-align:center">37</td><td><span style="color:#00e676">+9</span> <span style="font-size:9px;color:#666">(100% Pure Avocado Oil, CBUM Energy Drink, Flank Steak, Organic Chai Seed, Organic Mixed Veg +4 more)</span></td><td><span style="color:#ff5252">-19</span> <span style="font-size:9px;color:#666">(Apple Pie Filling or Topping, Caramel Protein Shake, Cheesecake, Cherry Smoked BBQ Grilling & Dipping Sau, Chicken Burger +14 more)</span></td></tr>
 <tr><td><b>Wk 12</b></td><td style="text-align:center">43</td><td><span style="color:#00e676">+20</span> <span style="font-size:9px;color:#666">(Almond Breeze Almondmilk Unsweetened Vanilla, Buff Roll Buffin Muffin , Cherry Smoked BBQ Grilling & Dipping Sauce, Chocolate Cake Buffin Muffin, Cinn Blast Buffin Muffin +15 more)</span></td><td><span style="color:#ff5252">-16</span> <span style="font-size:9px;color:#666">(Almond Breeze Almondmilk Unsweetened Van, Buffin Muffin, CBUM Energy Drink, Cottage Cheese, Fage 0% Greek Yogurt +11 more)</span></td></tr>
+<tr><td><b>Wk 13</b></td><td style="text-align:center">43</td><td><span style="color:#00e676">+23</span> <span style="font-size:9px;color:#666">( Dark Chocolate Cookie Butter,  Double Fudge Brownie,  Peanut Butter Fudge, Buffin Muffin German Chocolate Cake , Crumbl  +18 more)</span></td><td><span style="color:#ff5252">-26</span> <span style="font-size:9px;color:#666">(100% Pure Avocado Oil, Buff Roll Buffin Muffin , Caramel Protein Shake, Chocolate Cake Buffin Muffin, Cinn Blast Buffin Muffin +21 more)</span></td></tr>
 </table>
 </div>
 <h2>📋 DAILY MEALS — SIDE BY SIDE</h2>
 <div class="legend">Columns: <span style="color:#69f0ae;background:#0d1a0d">Cal</span> <span style="color:#82b1ff;background:#0d0d1a">P</span> <span style="color:#ffd740;background:#1a150d">F</span> <span style="color:#80deea;background:#0d151a">C</span> &nbsp;|&nbsp; <span style="color:#ff5252">Red</span> = 500+ cal item &nbsp;|&nbsp; <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#ea80fc;vertical-align:middle"></span> = 500+ mg sodium &nbsp;|&nbsp; Foods within 1hr grouped as one meal</div>
-<div class="week-banner"><span class="wt">WEEK 6</span> — 02-02 – 02-08<div class="meta">Avg: 154.54 lbs (—) | Cal: 1,791 | Na: 1,921 | Steps: 13,465 | Vol: 151,960 (5s, 30,392/s) | 27 unique foods</div></div>
+<div class="week-banner" id="wk6"><span class="wt">WEEK 6</span> — 02-02 – 02-08<div class="meta">Avg: 154.54 lbs (—) | Cal: 1,791 | Na: 1,921 | Steps: 13,465 | Vol: 151,960 (5s, 30,392/s) | 27 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
 <div class="day-hdr"><div class="day-name">Mon 02</div>
@@ -514,7 +535,7 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 </div>
 </div>
 </div>
-<div class="week-banner"><span class="wt">WEEK 7</span> — 02-09 – 02-15<div class="meta">Avg: 153.54 lbs (-1.00) | Cal: 1,647 | Na: 1,693 | Steps: 14,881 | Vol: 194,425 (5s, 38,885/s) | 25 unique foods</div></div>
+<div class="week-banner" id="wk7"><span class="wt">WEEK 7</span> — 02-09 – 02-15<div class="meta">Avg: 153.54 lbs (-1.00) | Cal: 1,647 | Na: 1,693 | Steps: 14,881 | Vol: 194,425 (5s, 38,885/s) | 25 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
 <div class="day-hdr"><div class="day-name">Mon 09</div>
@@ -789,7 +810,7 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 </div>
 </div>
 </div>
-<div class="week-banner"><span class="wt">WEEK 8</span> — 02-16 – 02-22<div class="meta">Avg: 153.69 lbs (+0.15) | Cal: 1,673 | Na: 2,282 | Steps: 15,025 | Vol: 204,685 (5s, 40,937/s) | 27 unique foods</div></div>
+<div class="week-banner" id="wk8"><span class="wt">WEEK 8</span> — 02-16 – 02-22<div class="meta">Avg: 153.69 lbs (+0.15) | Cal: 1,673 | Na: 2,282 | Steps: 15,025 | Vol: 204,685 (5s, 40,937/s) | 27 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
 <div class="day-hdr"><div class="day-name">Mon 16</div>
@@ -1064,7 +1085,7 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 </div>
 </div>
 </div>
-<div class="week-banner"><span class="wt">WEEK 9</span> — 02-23 – 03-01<div class="meta">Avg: 154.36 lbs (+0.67) | Cal: 1,813 | Na: 2,221 | Steps: 12,864 | Vol: 161,398 (4s, 40,349/s) | 22 unique foods</div></div>
+<div class="week-banner" id="wk9"><span class="wt">WEEK 9</span> — 02-23 – 03-01<div class="meta">Avg: 154.36 lbs (+0.67) | Cal: 1,813 | Na: 2,221 | Steps: 12,864 | Vol: 161,398 (4s, 40,349/s) | 22 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
 <div class="day-hdr"><div class="day-name">Mon 23</div>
@@ -1330,7 +1351,7 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 </div>
 </div>
 </div>
-<div class="week-banner"><span class="wt">WEEK 10</span> — 03-02 – 03-08<div class="meta">Avg: 154.83 lbs (+0.47) | Cal: 1,565 | Na: 3,366 | Steps: 13,007 | Vol: 221,602 (5s, 44,320/s) | 44 unique foods</div></div>
+<div class="week-banner" id="wk10"><span class="wt">WEEK 10</span> — 03-02 – 03-08<div class="meta">Avg: 154.83 lbs (+0.47) | Cal: 1,565 | Na: 3,366 | Steps: 13,007 | Vol: 221,602 (5s, 44,320/s) | 44 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
 <div class="day-hdr"><div class="day-name">Mon 02</div>
@@ -1649,7 +1670,7 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 <div class="day-total"><div class="dt-label">17 items · 4 meals</div><div class="dt-cal">1643</div><div class="dt-p">168</div><div class="dt-f">47</div><div class="dt-c">146</div></div>
 </div>
 </div>
-<div class="week-banner"><span class="wt">WEEK 11</span> — 03-09 – 03-15<div class="meta">Avg: 153.76 lbs (-1.07) | Cal: 1,622 | Na: 3,224 | Steps: 13,806 | Vol: 223,828 (5s, 44,766/s) | 37 unique foods</div></div>
+<div class="week-banner" id="wk11"><span class="wt">WEEK 11</span> — 03-09 – 03-15<div class="meta">Avg: 153.76 lbs (-1.07) | Cal: 1,622 | Na: 3,224 | Steps: 13,806 | Vol: 223,828 (5s, 44,766/s) | 37 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
 <div class="day-hdr"><div class="day-name">Mon 09</div>
@@ -2006,7 +2027,7 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 </div>
 </div>
 </div>
-<div class="week-banner"><span class="wt">WEEK 12</span> — 03-16 – 03-22<div class="meta">Avg: 153.63 lbs (-0.13) | Cal: 1,721 | Na: 3,331 | Steps: 12,317 | Vol: 291,295 (5s, 58,259/s) | 43 unique foods</div></div>
+<div class="week-banner" id="wk12"><span class="wt">WEEK 12</span> — 03-16 – 03-22<div class="meta">Avg: 153.63 lbs (-0.13) | Cal: 1,721 | Na: 3,331 | Steps: 12,317 | Vol: 291,295 (5s, 58,259/s) | 43 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
 <div class="day-hdr"><div class="day-name">Mon 16</div>
@@ -2347,10 +2368,235 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 <div class="day-total"><div class="dt-label">11 items · 2 meals</div><div class="dt-cal">1460</div><div class="dt-p">152</div><div class="dt-f">54</div><div class="dt-c">138</div></div>
 </div>
 </div>
+<div class="week-banner" id="wk13"><span class="wt">WEEK 13</span> — 03-23 – 03-29<div class="meta">Avg: 153.83 lbs (+0.20) | Cal: 2,029 | Na: 1,821 | Steps: 10,868 | Vol: 0 (0s, 0/s) | 43 unique foods</div></div>
+<div class="week-grid">
+<div class="day-col ">
+<div class="day-hdr"><div class="day-name">Mon 23</div>
+<div class="day-wt">154.2 lbs</div>
+</div>
+<div class="macro-bar"><div class="mb mb-cal">580</div><div class="mb mb-pro">55P</div><div class="mb mb-fat">23F</div><div class="mb mb-carb">31C</div></div>
+<div class="stat-strip"><div class="ss ss-na">1383Na</div><div class="ss ss-steps">694st</div><div class="ss ss-vol zero">0v</div></div>
+<div class="food-col-hdr"><div>Food</div><div class="fch-r">Cal</div><div class="fch-r">P</div><div class="fch-r">F</div><div class="fch-r">C</div></div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 1 · 1:30 PM</span><span class="meal-totals"><span class="mt-c">580</span> · <span class="mt-p">55p</span> · <span class="mt-f">23f</span> · <span class="mt-cb">31c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Classic Sourdough Sliced Loaf">Classic Sourdough Sliced Loaf</div><div class="fr-cal">108</div><div class="fr-p">4</div><div class="fr-f">1</div><div class="fr-c">21</div></div>
+<div class="food-row"><div class="fr-name" title="Egg Whites">Egg Whites</div><div class="fr-cal">125</div><div class="fr-p">25</div><div class="fr-f">0</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Hickory Smoked Uncured Turkey Bacon">Hickory Smoked Uncured Turkey Bacon</div><div class="fr-cal">90</div><div class="fr-p">12</div><div class="fr-f">4</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Avocado Mash">Organic Avocado Mash</div><div class="fr-cal">90</div><div class="fr-p">1</div><div class="fr-f">8</div><div class="fr-c">5</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Eggs Grade Aa Large">Organic Eggs Grade Aa Large</div><div class="fr-cal">140</div><div class="fr-p">12</div><div class="fr-f">10</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Sam’s Baby Spinach">Sam’s Baby Spinach</div><div class="fr-cal">10</div><div class="fr-p">1</div><div class="fr-f">0</div><div class="fr-c">1</div></div>
+<div class="food-row"><div class="fr-name" title="Wild Blueberries">Wild Blueberries</div><div class="fr-cal">17</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">4</div></div>
+</div>
+<div class="day-total"><div class="dt-label">7 items · 1 meals</div><div class="dt-cal">580</div><div class="dt-p">55</div><div class="dt-f">23</div><div class="dt-c">31</div></div>
+</div>
+<div class="day-col ">
+<div class="day-hdr"><div class="day-name">Tue 24</div>
+<div class="day-wt">154.5 lbs</div>
+</div>
+<div class="macro-bar"><div class="mb mb-cal over">4630</div><div class="mb mb-pro">123P</div><div class="mb mb-fat">219F</div><div class="mb mb-carb">554C</div></div>
+<div class="stat-strip"><div class="ss ss-na">2183Na</div><div class="ss ss-steps">8,948st</div><div class="ss ss-vol zero">0v</div></div>
+<div class="food-col-hdr"><div>Food</div><div class="fch-r">Cal</div><div class="fch-r">P</div><div class="fch-r">F</div><div class="fch-r">C</div></div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 1 · 12:18 PM</span><span class="meal-totals"><span class="mt-c">595</span> · <span class="mt-p">55p</span> · <span class="mt-f">23f</span> · <span class="mt-cb">34c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Classic Sourdough Sliced Loaf">Classic Sourdough Sliced Loaf</div><div class="fr-cal">123</div><div class="fr-p">4</div><div class="fr-f">1</div><div class="fr-c">24</div></div>
+<div class="food-row"><div class="fr-name" title="Egg Whites">Egg Whites</div><div class="fr-cal">125</div><div class="fr-p">25</div><div class="fr-f">0</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Hickory Smoked Uncured Turkey Bacon">Hickory Smoked Uncured Turkey Bacon</div><div class="fr-cal">90</div><div class="fr-p">12</div><div class="fr-f">4</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Avocado Mash">Organic Avocado Mash</div><div class="fr-cal">90</div><div class="fr-p">1</div><div class="fr-f">8</div><div class="fr-c">5</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Eggs Grade Aa Large">Organic Eggs Grade Aa Large</div><div class="fr-cal">140</div><div class="fr-p">12</div><div class="fr-f">10</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Sam’s Baby Spinach">Sam’s Baby Spinach</div><div class="fr-cal">10</div><div class="fr-p">1</div><div class="fr-f">0</div><div class="fr-c">1</div></div>
+<div class="food-row"><div class="fr-name" title="Wild Blueberries">Wild Blueberries</div><div class="fr-cal">17</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">4</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 2 · 5:00 PM</span><span class="meal-totals"><span class="mt-c">3705</span> · <span class="mt-p">38p</span> · <span class="mt-f">191f</span> · <span class="mt-cb">482c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Crumbl ">Crumbl </div><div class="fr-cal">359</div><div class="fr-p">4</div><div class="fr-f">19</div><div class="fr-c">43</div></div>
+<div class="food-row hi-cal"><div class="fr-name" title="Crumbl ">Crumbl </div><div class="fr-cal">1924</div><div class="fr-p">18</div><div class="fr-f">92</div><div class="fr-c">256</div></div>
+<div class="food-row"><div class="fr-name" title="Quick Add">Quick Add</div><div class="fr-cal">447</div><div class="fr-p">5</div><div class="fr-f">23</div><div class="fr-c">55</div></div>
+<div class="food-row"><div class="fr-name" title="Oreo Thins Chocolate Sandwich Cookies">Oreo Thins Chocolate Sandwich Cookies</div><div class="fr-cal">140</div><div class="fr-p">1</div><div class="fr-f">6</div><div class="fr-c">21</div></div>
+<div class="food-row"><div class="fr-name" title="Squares Dark Chocolate Raspberry">Squares Dark Chocolate Raspberry</div><div class="fr-cal">210</div><div class="fr-p">3</div><div class="fr-f">12</div><div class="fr-c">30</div></div>
+<div class="food-row"><div class="fr-name" title="Dark Chocolate Caramel Peanut Nougat Bars">Dark Chocolate Caramel Peanut Nougat Bars</div><div class="fr-cal">180</div><div class="fr-p">4</div><div class="fr-f">9</div><div class="fr-c">22</div></div>
+<div class="food-row"><div class="fr-name" title="Dark Chocolate Peanut Butter Cups">Dark Chocolate Peanut Butter Cups</div><div class="fr-cal">80</div><div class="fr-p">1</div><div class="fr-f">6</div><div class="fr-c">8</div></div>
+<div class="food-row"><div class="fr-name" title="Miniature Cups">Miniature Cups</div><div class="fr-cal">85</div><div class="fr-p">0</div><div class="fr-f">5</div><div class="fr-c">11</div></div>
+<div class="food-row"><div class="fr-name" title="Lava Cake Dark Chocolate Squares">Lava Cake Dark Chocolate Squares</div><div class="fr-cal">70</div><div class="fr-p">1</div><div class="fr-f">5</div><div class="fr-c">9</div></div>
+<div class="food-row"><div class="fr-name" title="Dark Chocolate Peanut Gems">Dark Chocolate Peanut Gems</div><div class="fr-cal">50</div><div class="fr-p">0</div><div class="fr-f">4</div><div class="fr-c">6</div></div>
+<div class="food-row"><div class="fr-name" title="Sea Salt Caramel Dark Chocolate">Sea Salt Caramel Dark Chocolate</div><div class="fr-cal">160</div><div class="fr-p">1</div><div class="fr-f">10</div><div class="fr-c">21</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 3 · 7:18 PM</span><span class="meal-totals"><span class="mt-c">180</span> · <span class="mt-p">0p</span> · <span class="mt-f">4f</span> · <span class="mt-cb">34c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Rice Krispies Treats Original">Rice Krispies Treats Original</div><div class="fr-cal">180</div><div class="fr-p">0</div><div class="fr-f">4</div><div class="fr-c">34</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 4 · 11:14 PM</span><span class="meal-totals"><span class="mt-c">150</span> · <span class="mt-p">30p</span> · <span class="mt-f">3f</span> · <span class="mt-cb">4c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+</div>
+<div class="day-total"><div class="dt-label">20 items · 4 meals</div><div class="dt-cal">4630</div><div class="dt-p">123</div><div class="dt-f">221</div><div class="dt-c">554</div></div>
+</div>
+<div class="day-col ">
+<div class="day-hdr"><div class="day-name">Wed 25</div>
+<div class="day-wt">155.2 lbs</div>
+</div>
+<div class="macro-bar"><div class="mb mb-cal">1060</div><div class="mb mb-pro">161P</div><div class="mb mb-fat">38F</div><div class="mb mb-carb">39C</div></div>
+<div class="stat-strip"><div class="ss ss-na">1835Na</div><div class="ss ss-steps">13,521st</div><div class="ss ss-vol zero">0v</div></div>
+<div class="food-col-hdr"><div>Food</div><div class="fch-r">Cal</div><div class="fch-r">P</div><div class="fch-r">F</div><div class="fch-r">C</div></div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 1 · 11:54 AM</span><span class="meal-totals"><span class="mt-c">150</span> · <span class="mt-p">30p</span> · <span class="mt-f">3f</span> · <span class="mt-cb">4c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 2 · 5:13 PM</span><span class="meal-totals"><span class="mt-c">490</span> · <span class="mt-p">70p</span> · <span class="mt-f">20f</span> · <span class="mt-cb">11c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Plain Grilled Chicken">Plain Grilled Chicken</div><div class="fr-cal">240</div><div class="fr-p">52</div><div class="fr-f">2</div><div class="fr-c">4</div></div>
+<div class="food-row"><div class="fr-name" title="Sam’s Baby Spinach">Sam’s Baby Spinach</div><div class="fr-cal">20</div><div class="fr-p">2</div><div class="fr-f">0</div><div class="fr-c">3</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Eggs Grade Aa Large">Organic Eggs Grade Aa Large</div><div class="fr-cal">140</div><div class="fr-p">12</div><div class="fr-f">10</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Creamy Peanut Butter">Organic Creamy Peanut Butter</div><div class="fr-cal">90</div><div class="fr-p">4</div><div class="fr-f">8</div><div class="fr-c">4</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 3 · 8:00 PM</span><span class="meal-totals"><span class="mt-c">420</span> · <span class="mt-p">61p</span> · <span class="mt-f">16f</span> · <span class="mt-cb">24c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Deliciously Seeded Soft White Bread">Deliciously Seeded Soft White Bread</div><div class="fr-cal">80</div><div class="fr-p">8</div><div class="fr-f">3</div><div class="fr-c">18</div></div>
+<div class="food-row"><div class="fr-name" title="Ground Beef Patties">Ground Beef Patties</div><div class="fr-cal">160</div><div class="fr-p">21</div><div class="fr-f">9</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="The Laughing Cow Light Spreadable Cheese Wedges">The Laughing Cow Light Spreadable Cheese Wedges</div><div class="fr-cal">25</div><div class="fr-p">2</div><div class="fr-f">1</div><div class="fr-c">1</div></div>
+<div class="food-row"><div class="fr-name" title="Cherry Smoked BBQ Grilling & Dipping Sauce">Cherry Smoked BBQ Grilling & Dipping Sauce</div><div class="fr-cal">5</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">1</div></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+</div>
+<div class="day-total"><div class="dt-label">10 items · 3 meals</div><div class="dt-cal">1060</div><div class="dt-p">161</div><div class="dt-f">39</div><div class="dt-c">39</div></div>
+</div>
+<div class="day-col ">
+<div class="day-hdr"><div class="day-name">Thu 26</div>
+<div class="day-wt">153.9 lbs</div>
+</div>
+<div class="macro-bar"><div class="mb mb-cal">1111</div><div class="mb mb-pro">163P</div><div class="mb mb-fat">38F</div><div class="mb mb-carb">42C</div></div>
+<div class="stat-strip"><div class="ss ss-na">2242Na</div><div class="ss ss-steps">13,644st</div><div class="ss ss-vol zero">0v</div></div>
+<div class="food-col-hdr"><div>Food</div><div class="fch-r">Cal</div><div class="fch-r">P</div><div class="fch-r">F</div><div class="fch-r">C</div></div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 1 · 11:26 AM</span><span class="meal-totals"><span class="mt-c">366</span> · <span class="mt-p">39p</span> · <span class="mt-f">18f</span> · <span class="mt-cb">7c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Egg Whites">Egg Whites</div><div class="fr-cal">125</div><div class="fr-p">25</div><div class="fr-f">0</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Avocado Mash">Organic Avocado Mash</div><div class="fr-cal">90</div><div class="fr-p">1</div><div class="fr-f">8</div><div class="fr-c">5</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Eggs Grade Aa Large">Organic Eggs Grade Aa Large</div><div class="fr-cal">140</div><div class="fr-p">12</div><div class="fr-f">10</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Sam’s Baby Spinach">Sam’s Baby Spinach</div><div class="fr-cal">11</div><div class="fr-p">1</div><div class="fr-f">0</div><div class="fr-c">2</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 2 · 5:04 PM</span><span class="meal-totals"><span class="mt-c">375</span> · <span class="mt-p">66p</span> · <span class="mt-f">9f</span> · <span class="mt-cb">23c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+<div class="food-row"><div class="fr-name" title="Thin Slices Chicken Breast">Thin Slices Chicken Breast</div><div class="fr-cal">120</div><div class="fr-p">26</div><div class="fr-f">2</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Deliciously Seeded Soft White Bread">Deliciously Seeded Soft White Bread</div><div class="fr-cal">80</div><div class="fr-p">8</div><div class="fr-f">3</div><div class="fr-c">18</div></div>
+<div class="food-row"><div class="fr-name" title="The Laughing Cow Light Spreadable Cheese Wedges">The Laughing Cow Light Spreadable Cheese Wedges</div><div class="fr-cal">25</div><div class="fr-p">2</div><div class="fr-f">1</div><div class="fr-c">1</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 3 · 7:00 PM</span><span class="meal-totals"><span class="mt-c">371</span> · <span class="mt-p">58p</span> · <span class="mt-f">12f</span> · <span class="mt-cb">13c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Organic Avocado Mash">Organic Avocado Mash</div><div class="fr-cal">90</div><div class="fr-p">1</div><div class="fr-f">8</div><div class="fr-c">5</div></div>
+<div class="food-row"><div class="fr-name" title="Plain Grilled Chicken">Plain Grilled Chicken</div><div class="fr-cal">120</div><div class="fr-p">26</div><div class="fr-f">1</div><div class="fr-c">2</div></div>
+<div class="food-row"><div class="fr-name" title="Sam’s Baby Spinach">Sam’s Baby Spinach</div><div class="fr-cal">11</div><div class="fr-p">1</div><div class="fr-f">0</div><div class="fr-c">2</div></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+</div>
+<div class="day-total"><div class="dt-label">12 items · 3 meals</div><div class="dt-cal">1112</div><div class="dt-p">163</div><div class="dt-f">39</div><div class="dt-c">43</div></div>
+</div>
+<div class="day-col ">
+<div class="day-hdr"><div class="day-name">Fri 27</div>
+<div class="day-wt">153.4 lbs</div>
+</div>
+<div class="macro-bar"><div class="mb mb-cal">1183</div><div class="mb mb-pro">167P</div><div class="mb mb-fat">43F</div><div class="mb mb-carb">46C</div></div>
+<div class="stat-strip"><div class="ss ss-na high">2791Na</div><div class="ss ss-steps">13,669st</div><div class="ss ss-vol zero">0v</div></div>
+<div class="food-col-hdr"><div>Food</div><div class="fch-r">Cal</div><div class="fch-r">P</div><div class="fch-r">F</div><div class="fch-r">C</div></div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 1 · 12:00 PM</span><span class="meal-totals"><span class="mt-c">366</span> · <span class="mt-p">39p</span> · <span class="mt-f">18f</span> · <span class="mt-cb">7c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Egg Whites">Egg Whites</div><div class="fr-cal">125</div><div class="fr-p">25</div><div class="fr-f">0</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Avocado Mash">Organic Avocado Mash</div><div class="fr-cal">90</div><div class="fr-p">1</div><div class="fr-f">8</div><div class="fr-c">5</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Eggs Grade Aa Large">Organic Eggs Grade Aa Large</div><div class="fr-cal">140</div><div class="fr-p">12</div><div class="fr-f">10</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Sam’s Baby Spinach">Sam’s Baby Spinach</div><div class="fr-cal">11</div><div class="fr-p">1</div><div class="fr-f">0</div><div class="fr-c">2</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 2 · 5:49 PM</span><span class="meal-totals"><span class="mt-c">465</span> · <span class="mt-p">67p</span> · <span class="mt-f">17f</span> · <span class="mt-cb">28c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+<div class="food-row"><div class="fr-name" title="Deliciously Seeded Soft White Bread">Deliciously Seeded Soft White Bread</div><div class="fr-cal">80</div><div class="fr-p">8</div><div class="fr-f">3</div><div class="fr-c">18</div></div>
+<div class="food-row"><div class="fr-name" title="The Laughing Cow Light Spreadable Cheese Wedges">The Laughing Cow Light Spreadable Cheese Wedges</div><div class="fr-cal">25</div><div class="fr-p">2</div><div class="fr-f">1</div><div class="fr-c">1</div></div>
+<div class="food-row"><div class="fr-name" title="Thin Slices Chicken Breast">Thin Slices Chicken Breast</div><div class="fr-cal">120</div><div class="fr-p">26</div><div class="fr-f">2</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Avocado Mash">Organic Avocado Mash</div><div class="fr-cal">90</div><div class="fr-p">1</div><div class="fr-f">8</div><div class="fr-c">5</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 3 · 8:00 PM</span><span class="meal-totals"><span class="mt-c">352</span> · <span class="mt-p">61p</span> · <span class="mt-f">9f</span> · <span class="mt-cb">11c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Almond Breeze Almondmilk Unsweetened Vanilla">Almond Breeze Almondmilk Unsweetened Vanilla</div><div class="fr-cal">45</div><div class="fr-p">2</div><div class="fr-f">4</div><div class="fr-c">2</div></div>
+<div class="food-row"><div class="fr-name" title="Lean whey White Chocolate Peanut Butter"><span class="na-dot"></span>Lean whey White Chocolate Peanut Butter</div><div class="fr-cal">307</div><div class="fr-p">59</div><div class="fr-f">5</div><div class="fr-c">9</div></div>
+</div>
+<div class="day-total"><div class="dt-label">11 items · 3 meals</div><div class="dt-cal">1183</div><div class="dt-p">167</div><div class="dt-f">44</div><div class="dt-c">46</div></div>
+</div>
+<div class="day-col ">
+<div class="day-hdr"><div class="day-name">Sat 28</div>
+<div class="day-wt">153.3 lbs</div>
+</div>
+<div class="macro-bar"><div class="mb mb-cal">1532</div><div class="mb mb-pro">165P</div><div class="mb mb-fat">43F</div><div class="mb mb-carb">144C</div></div>
+<div class="stat-strip"><div class="ss ss-na">2083Na</div><div class="ss ss-steps">12,851st</div><div class="ss ss-vol zero">0v</div></div>
+<div class="food-col-hdr"><div>Food</div><div class="fch-r">Cal</div><div class="fch-r">P</div><div class="fch-r">F</div><div class="fch-r">C</div></div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 1 · 9:21 AM</span><span class="meal-totals"><span class="mt-c">448</span> · <span class="mt-p">29p</span> · <span class="mt-f">4f</span> · <span class="mt-cb">72c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Almond Breeze Almondmilk Unsweetened Vanilla">Almond Breeze Almondmilk Unsweetened Vanilla</div><div class="fr-cal">3</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">0</div></div>
+<div class="food-row"><div class="fr-name" title="Cinnamon Roll Cream Of Rice">Cinnamon Roll Cream Of Rice</div><div class="fr-cal">86</div><div class="fr-p">1</div><div class="fr-f">0</div><div class="fr-c">19</div></div>
+<div class="food-row"><div class="fr-name" title="Quick 1-Minute Oats">Quick 1-Minute Oats</div><div class="fr-cal">94</div><div class="fr-p">3</div><div class="fr-f">2</div><div class="fr-c">17</div></div>
+<div class="food-row"><div class="fr-name" title="Roasted Peanut Powder">Roasted Peanut Powder</div><div class="fr-cal">90</div><div class="fr-p">12</div><div class="fr-f">0</div><div class="fr-c">9</div></div>
+<div class="food-row"><div class="fr-name" title="Ryse Loaded Protein - Skippy Peanut Butter">Ryse Loaded Protein - Skippy Peanut Butter</div><div class="fr-cal">75</div><div class="fr-p">13</div><div class="fr-f">2</div><div class="fr-c">3</div></div>
+<div class="food-row"><div class="fr-name" title="Strawberry Jam">Strawberry Jam</div><div class="fr-cal">20</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">4</div></div>
+<div class="food-row"><div class="fr-name" title="Panda Glycerol 2 tbsp">Panda Glycerol 2 tbsp</div><div class="fr-cal">80</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">20</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 2 · 2:23 PM</span><span class="meal-totals"><span class="mt-c">428</span> · <span class="mt-p">44p</span> · <span class="mt-f">21f</span> · <span class="mt-cb">37c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Deliciously Seeded Soft White Bread">Deliciously Seeded Soft White Bread</div><div class="fr-cal">40</div><div class="fr-p">4</div><div class="fr-f">1</div><div class="fr-c">9</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Creamy Peanut Butter">Organic Creamy Peanut Butter</div><div class="fr-cal">68</div><div class="fr-p">3</div><div class="fr-f">6</div><div class="fr-c">3</div></div>
+<div class="food-row"><div class="fr-name" title="Strawberry Jam">Strawberry Jam</div><div class="fr-cal">5</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">1</div></div>
+<div class="food-row"><div class="fr-name" title="Deliciously Seeded Soft White Bread">Deliciously Seeded Soft White Bread</div><div class="fr-cal">80</div><div class="fr-p">8</div><div class="fr-f">3</div><div class="fr-c">18</div></div>
+<div class="food-row"><div class="fr-name" title="Organic Avocado Mash">Organic Avocado Mash</div><div class="fr-cal">90</div><div class="fr-p">1</div><div class="fr-f">8</div><div class="fr-c">5</div></div>
+<div class="food-row"><div class="fr-name" title="The Laughing Cow Light Spreadable Cheese Wedges">The Laughing Cow Light Spreadable Cheese Wedges</div><div class="fr-cal">25</div><div class="fr-p">2</div><div class="fr-f">1</div><div class="fr-c">1</div></div>
+<div class="food-row"><div class="fr-name" title="Thin Slices Chicken Breast">Thin Slices Chicken Breast</div><div class="fr-cal">120</div><div class="fr-p">26</div><div class="fr-f">2</div><div class="fr-c">0</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 3 · 4:12 PM</span><span class="meal-totals"><span class="mt-c">474</span> · <span class="mt-p">52p</span> · <span class="mt-f">15f</span> · <span class="mt-cb">36c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+<div class="food-row"><div class="fr-name" title="TwistBar ">TwistBar </div><div class="fr-cal">324</div><div class="fr-p">22</div><div class="fr-f">12</div><div class="fr-c">32</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 4 · 5:40 PM</span><span class="meal-totals"><span class="mt-c">0</span> · <span class="mt-p">0p</span> · <span class="mt-f">0f</span> · <span class="mt-cb">0c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Electrolit Zero Strawberry Banana">Electrolit Zero Strawberry Banana</div><div class="fr-cal">0</div><div class="fr-p">0</div><div class="fr-f">0</div><div class="fr-c">0</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 5 · 8:20 PM</span><span class="meal-totals"><span class="mt-c">182</span> · <span class="mt-p">39p</span> · <span class="mt-f">3f</span> · <span class="mt-cb">0c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Thin Slices Chicken Breast">Thin Slices Chicken Breast</div><div class="fr-cal">182</div><div class="fr-p">39</div><div class="fr-f">3</div><div class="fr-c">0</div></div>
+</div>
+<div class="day-total"><div class="dt-label">18 items · 5 meals</div><div class="dt-cal">1532</div><div class="dt-p">164</div><div class="dt-f">43</div><div class="dt-c">145</div></div>
+</div>
+<div class="day-col ">
+<div class="day-hdr"><div class="day-name">Sun 29</div>
+<div class="day-wt">152.4 lbs</div>
+</div>
+<div class="macro-bar"><div class="mb mb-cal over">4106</div><div class="mb mb-pro">324P</div><div class="mb mb-fat">193F</div><div class="mb mb-carb">271C</div></div>
+<div class="stat-strip"><div class="ss ss-na">230Na</div><div class="ss ss-steps">12,747st</div><div class="ss ss-vol zero">0v</div></div>
+<div class="food-col-hdr"><div>Food</div><div class="fch-r">Cal</div><div class="fch-r">P</div><div class="fch-r">F</div><div class="fch-r">C</div></div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 1 · 9:43 AM</span><span class="meal-totals"><span class="mt-c">441</span> · <span class="mt-p">53p</span> · <span class="mt-f">17f</span> · <span class="mt-cb">24c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div><div class="fr-cal">150</div><div class="fr-p">30</div><div class="fr-f">3</div><div class="fr-c">4</div></div>
+<div class="food-row"><div class="fr-name" title="Buffin Muffin German Chocolate Cake ">Buffin Muffin German Chocolate Cake </div><div class="fr-cal">291</div><div class="fr-p">23</div><div class="fr-f">14</div><div class="fr-c">20</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 2 · 2:27 PM</span><span class="meal-totals"><span class="mt-c">807</span> · <span class="mt-p">62p</span> · <span class="mt-f">35f</span> · <span class="mt-cb">61c</span></span></div>
+<div class="food-row"><div class="fr-name" title=" Peanut Butter Fudge"> Peanut Butter Fudge</div><div class="fr-cal">282</div><div class="fr-p">21</div><div class="fr-f">14</div><div class="fr-c">18</div></div>
+<div class="food-row"><div class="fr-name" title=" Double Fudge Brownie"> Double Fudge Brownie</div><div class="fr-cal">249</div><div class="fr-p">20</div><div class="fr-f">9</div><div class="fr-c">22</div></div>
+<div class="food-row"><div class="fr-name" title=" Dark Chocolate Cookie Butter"> Dark Chocolate Cookie Butter</div><div class="fr-cal">276</div><div class="fr-p">21</div><div class="fr-f">12</div><div class="fr-c">21</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 3 · 6:00 PM</span><span class="meal-totals"><span class="mt-c">1203</span> · <span class="mt-p">107p</span> · <span class="mt-f">65f</span> · <span class="mt-cb">47c</span></span></div>
+<div class="food-row hi-cal"><div class="fr-name" title="Wedding Food">Wedding Food</div><div class="fr-cal">1203</div><div class="fr-p">107</div><div class="fr-f">65</div><div class="fr-c">47</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 4 · 8:00 PM</span><span class="meal-totals"><span class="mt-c">1023</span> · <span class="mt-p">97p</span> · <span class="mt-f">57f</span> · <span class="mt-cb">31c</span></span></div>
+<div class="food-row"><div class="fr-name" title="Steak ">Steak </div><div class="fr-cal">221</div><div class="fr-p">26</div><div class="fr-f">13</div><div class="fr-c">0</div></div>
+<div class="food-row hi-cal"><div class="fr-name" title="Wedding Food">Wedding Food</div><div class="fr-cal">802</div><div class="fr-p">71</div><div class="fr-f">44</div><div class="fr-c">31</div></div>
+</div>
+<div class="meal-group">
+<div class="meal-hdr"><span class="meal-label">Meal 5 · 9:19 PM</span><span class="meal-totals"><span class="mt-c">632</span> · <span class="mt-p">5p</span> · <span class="mt-f">20f</span> · <span class="mt-cb">108c</span></span></div>
+<div class="food-row hi-cal"><div class="fr-name" title="Peach Cobbler ">Peach Cobbler </div><div class="fr-cal">632</div><div class="fr-p">5</div><div class="fr-f">20</div><div class="fr-c">108</div></div>
+</div>
+<div class="day-total"><div class="dt-label">9 items · 5 meals</div><div class="dt-cal">4106</div><div class="dt-p">324</div><div class="dt-f">194</div><div class="dt-c">271</div></div>
+</div>
+</div>
 <h2>🔑 KEY FINDINGS</h2>
 <div class="insight-box">
 <h4>Weight Trend</h4>
-<p style="font-size:12px;margin:4px 0">Wk6→Wk12: 154.54 → 153.63 lbs (<span style="color:#00e676;font-weight:bold">-0.91</span>). 
+<p style="font-size:12px;margin:4px 0">Wk6→Wk12: 154.54 → 153.83 lbs (<span style="color:#00e676;font-weight:bold">-0.71</span>). 
 Lowest: Wk7 at 153.54 lbs.</p>
 <h4 style="margin-top:12px">Sodium Trend</h4>
 <p style="font-size:12px;margin:4px 0">
@@ -2361,6 +2607,7 @@ Wk9: <span style="color:#ffab40;font-weight:bold">2,221mg</span> ·
 Wk10: <span style="color:#ff5252;font-weight:bold">3,366mg</span> · 
 Wk11: <span style="color:#ff5252;font-weight:bold">3,224mg</span> · 
 Wk12: <span style="color:#ff5252;font-weight:bold">3,331mg</span> · 
+Wk13: <span style="color:#00e676;font-weight:bold">1,821mg</span> · 
 </p>
 <p style="font-size:12px;color:#ff5252;margin:4px 0">⚠️ Weeks 10, 11, 12 exceeded 3,000mg avg sodium</p>
 <h4 style="margin-top:12px">Training Volume</h4>
@@ -2372,9 +2619,10 @@ Wk9: <span style="color:#ffab40;font-weight:bold">161,398</span> (4s) ·
 Wk10: <span style="color:#ffab40;font-weight:bold">221,602</span> (5s) · 
 Wk11: <span style="color:#ffab40;font-weight:bold">223,828</span> (5s) · 
 Wk12: <span style="color:#ffab40;font-weight:bold">291,295</span> (5s) · 
+Wk13: <span style="color:#ffab40;font-weight:bold">0</span> (0s) · 
 </p>
 <h4 style="margin-top:12px">Diet Consistency</h4>
-<p style="font-size:12px;margin:4px 0">5 of 122 foods are staples (present 5+ weeks) = <span style="color:#42a5f5;font-weight:bold">4% stability score</span>. 
+<p style="font-size:12px;margin:4px 0">9 of 145 foods are staples (present 5+ weeks) = <span style="color:#42a5f5;font-weight:bold">6% stability score</span>. 
 Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 </div>
 </div>
@@ -2389,6 +2637,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="food-tab" onclick="showMealPatternTab(10)">Wk 10</div>
 <div class="food-tab active" onclick="showMealPatternTab(11)">Wk 11</div>
 <div class="food-tab" onclick="showMealPatternTab(12)">Wk 12</div>
+<div class="food-tab" onclick="showMealPatternTab(13)">Wk 13</div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp6">
 <div class="mp-template-box" style="border-color:#ff5252">
@@ -7450,6 +7699,714 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 </div>
 </div>
 </div>
+<div class="food-panel meal-pattern-panel" id="mpp13">
+<div class="mp-template-box">
+<h4>Detected Meal Templates — Wk 13</h4>
+<p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
+<div style="margin:8px 0"><span style="color:#e94560;font-weight:bold;font-size:11px">Template 1:</span> 
+<span class="mp-template-tag core">Egg Whites</span>
+<span class="mp-template-tag core">Organic Avocado Mash</span>
+<span class="mp-template-tag core">Organic Eggs Grade Aa Large</span>
+<span class="mp-template-tag core">Sam’s Baby Spinach</span>
+<span class="mp-template-tag core">Seeded Bread</span>
+<span class="mp-freq">(5 days)</span></div>
+<div style="margin:8px 0"><span style="color:#e94560;font-weight:bold;font-size:11px">Template 2:</span> 
+<span class="mp-template-tag core">Chocolate Nutrition Shake</span>
+<span class="mp-template-tag core">Organic Avocado Mash</span>
+<span class="mp-template-tag core">Seeded Bread</span>
+<span class="mp-template-tag core">The Laughing Cow Light Spreadable Cheese Wedges</span>
+<span class="mp-template-tag">Thin Slices Chicken Breast</span>
+<span class="mp-freq">(5 days)</span></div>
+</div>
+<div class="mp-template-box" style="border-color:#ff5252">
+<h4 style="color:#ff5252">🆕 New This Week (23)</h4>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252"> Dark Chocolate Cookie Butter</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252"> Double Fudge Brownie</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252"> Peanut Butter Fudge</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Buffin Muffin German Chocolate Cake </span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Crumbl </span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Dark Chocolate Caramel Peanut Nougat Bars</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Dark Chocolate Peanut Butter Cups</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Dark Chocolate Peanut Gems</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Egg Whites</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Electrolit Zero Strawberry Banana</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Lava Cake Dark Chocolate Squares</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Miniature Cups</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Oreo Thins Chocolate Sandwich Cookies</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Organic Eggs Grade Aa Large</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Panda Glycerol 2 tbsp</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Peach Cobbler </span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Sam’s Baby Spinach</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Sea Salt Caramel Dark Chocolate</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Squares Dark Chocolate Raspberry</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Steak </span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Thin Slices Chicken Breast</span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">TwistBar </span>
+<span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Wedding Food</span>
+</div>
+<div class="mp-grid">
+<div></div>
+<div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-23</span></div>
+<div class="mp-day-hdr">Tue<br><span style="font-size:10px;color:#888">03-24</span></div>
+<div class="mp-day-hdr">Wed<br><span style="font-size:10px;color:#888">03-25</span></div>
+<div class="mp-day-hdr">Thu<br><span style="font-size:10px;color:#888">03-26</span></div>
+<div class="mp-day-hdr">Fri<br><span style="font-size:10px;color:#888">03-27</span></div>
+<div class="mp-day-hdr">Sat<br><span style="font-size:10px;color:#888">03-28</span></div>
+<div class="mp-day-hdr">Sun<br><span style="font-size:10px;color:#888">03-29</span></div>
+<div class="mp-meal-label">Meal 1</div>
+<div class="mp-cell">
+<div class="mp-time">1:30 PM</div>
+<div class="mp-food" title="Sourdough Bread (108 cal)">Sourdough Bread</div>
+<div class="mp-food new-food" title="Egg Whites (125 cal)"><span class="new-badge">NEW</span>Egg Whites</div>
+<div class="mp-food" title="Turkey Bacon (90 cal)">Turkey Bacon</div>
+<div class="mp-food repeat" title="Organic Avocado Mash (90 cal)"><span class="repeat-dot"></span>Organic Avocado Mash</div>
+<div class="mp-food new-food" title="Organic Eggs Grade Aa Large (140 cal)"><span class="new-badge">NEW</span>Organic Eggs Grade Aa Large</div>
+<div class="mp-food new-food" title="Sam’s Baby Spinach (10 cal)"><span class="new-badge">NEW</span>Sam’s Baby Spinach</div>
+<div class="mp-food" title="Wild Blueberries (17 cal)">Wild Blueberries</div>
+<div class="mp-cal">580 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">12:18 PM</div>
+<div class="mp-food" title="Sourdough Bread (123 cal)">Sourdough Bread</div>
+<div class="mp-food new-food" title="Egg Whites (125 cal)"><span class="new-badge">NEW</span>Egg Whites</div>
+<div class="mp-food" title="Turkey Bacon (90 cal)">Turkey Bacon</div>
+<div class="mp-food repeat" title="Organic Avocado Mash (90 cal)"><span class="repeat-dot"></span>Organic Avocado Mash</div>
+<div class="mp-food new-food" title="Organic Eggs Grade Aa Large (140 cal)"><span class="new-badge">NEW</span>Organic Eggs Grade Aa Large</div>
+<div class="mp-food new-food" title="Sam’s Baby Spinach (10 cal)"><span class="new-badge">NEW</span>Sam’s Baby Spinach</div>
+<div class="mp-food" title="Wild Blueberries (17 cal)">Wild Blueberries</div>
+<div class="mp-cal">595 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">11:54 AM</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-cal">150 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">11:26 AM</div>
+<div class="mp-food new-food" title="Egg Whites (125 cal)"><span class="new-badge">NEW</span>Egg Whites</div>
+<div class="mp-food repeat" title="Organic Avocado Mash (90 cal)"><span class="repeat-dot"></span>Organic Avocado Mash</div>
+<div class="mp-food new-food" title="Organic Eggs Grade Aa Large (140 cal)"><span class="new-badge">NEW</span>Organic Eggs Grade Aa Large</div>
+<div class="mp-food new-food" title="Sam’s Baby Spinach (11 cal)"><span class="new-badge">NEW</span>Sam’s Baby Spinach</div>
+<div class="mp-cal">366 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">12:00 PM</div>
+<div class="mp-food new-food" title="Egg Whites (125 cal)"><span class="new-badge">NEW</span>Egg Whites</div>
+<div class="mp-food repeat" title="Organic Avocado Mash (90 cal)"><span class="repeat-dot"></span>Organic Avocado Mash</div>
+<div class="mp-food new-food" title="Organic Eggs Grade Aa Large (140 cal)"><span class="new-badge">NEW</span>Organic Eggs Grade Aa Large</div>
+<div class="mp-food new-food" title="Sam’s Baby Spinach (11 cal)"><span class="new-badge">NEW</span>Sam’s Baby Spinach</div>
+<div class="mp-cal">366 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">9:21 AM</div>
+<div class="mp-food" title="Almond Breeze Almondmilk Unsweetened Vanilla (3 cal)">Almond Breeze Almondmilk Unsweetened Vanilla</div>
+<div class="mp-food" title="Cream of Rice (86 cal)">Cream of Rice</div>
+<div class="mp-food" title="Quick 1-Minute Oats (94 cal)">Quick 1-Minute Oats</div>
+<div class="mp-food" title="Roasted Peanut Powder (90 cal)">Roasted Peanut Powder</div>
+<div class="mp-food" title="Ryse Loaded Protein - Skippy Peanut Butter (75 cal)">Ryse Loaded Protein - Skippy Peanut Butter</div>
+<div class="mp-food" title="Jam / Jelly (20 cal)">Jam / Jelly</div>
+<div class="mp-food new-food" title="Panda Glycerol 2 tbsp (80 cal)"><span class="new-badge">NEW</span>Panda Glycerol 2 tbsp</div>
+<div class="mp-cal">448 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">9:43 AM</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-food new-food" title="Buffin Muffin German Chocolate Cake  (291 cal)"><span class="new-badge">NEW</span>Buffin Muffin German Chocolate Cake </div>
+<div class="mp-cal">441 cal</div>
+</div>
+<div class="mp-meal-label">Meal 2</div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell">
+<div class="mp-time">5:00 PM</div>
+<div class="mp-food new-food" title="Crumbl  (359 cal)"><span class="new-badge">NEW</span>Crumbl </div>
+<div class="mp-food new-food" title="Crumbl  (1924 cal)"><span class="new-badge">NEW</span>Crumbl </div>
+<div class="mp-food" title="Quick Add (447 cal)">Quick Add</div>
+<div class="mp-food new-food" title="Oreo Thins Chocolate Sandwich Cookies (140 cal)"><span class="new-badge">NEW</span>Oreo Thins Chocolate Sandwich Cookies</div>
+<div class="mp-food new-food" title="Squares Dark Chocolate Raspberry (210 cal)"><span class="new-badge">NEW</span>Squares Dark Chocolate Raspberry</div>
+<div class="mp-food new-food" title="Dark Chocolate Caramel Peanut Nougat Bars (180 cal)"><span class="new-badge">NEW</span>Dark Chocolate Caramel Peanut Nougat Bars</div>
+<div class="mp-food new-food" title="Dark Chocolate Peanut Butter Cups (80 cal)"><span class="new-badge">NEW</span>Dark Chocolate Peanut Butter Cups</div>
+<div class="mp-food new-food" title="Miniature Cups (85 cal)"><span class="new-badge">NEW</span>Miniature Cups</div>
+<div class="mp-food new-food" title="Lava Cake Dark Chocolate Squares (70 cal)"><span class="new-badge">NEW</span>Lava Cake Dark Chocolate Squares</div>
+<div class="mp-food new-food" title="Dark Chocolate Peanut Gems (50 cal)"><span class="new-badge">NEW</span>Dark Chocolate Peanut Gems</div>
+<div class="mp-food new-food" title="Sea Salt Caramel Dark Chocolate (160 cal)"><span class="new-badge">NEW</span>Sea Salt Caramel Dark Chocolate</div>
+<div class="mp-cal">3705 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">5:13 PM</div>
+<div class="mp-food" title="Plain Grilled Chicken (240 cal)">Plain Grilled Chicken</div>
+<div class="mp-food new-food" title="Sam’s Baby Spinach (20 cal)"><span class="new-badge">NEW</span>Sam’s Baby Spinach</div>
+<div class="mp-food new-food" title="Organic Eggs Grade Aa Large (140 cal)"><span class="new-badge">NEW</span>Organic Eggs Grade Aa Large</div>
+<div class="mp-food" title="Peanut Butter (90 cal)">Peanut Butter</div>
+<div class="mp-cal">490 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">5:04 PM</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-food new-food" title="Thin Slices Chicken Breast (120 cal)"><span class="new-badge">NEW</span>Thin Slices Chicken Breast</div>
+<div class="mp-food repeat" title="Seeded Bread (80 cal)"><span class="repeat-dot"></span>Seeded Bread</div>
+<div class="mp-food repeat" title="The Laughing Cow Light Spreadable Cheese Wedges (25 cal)"><span class="repeat-dot"></span>The Laughing Cow Light Spreadable Cheese Wedges</div>
+<div class="mp-cal">375 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">5:49 PM</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-food repeat" title="Seeded Bread (80 cal)"><span class="repeat-dot"></span>Seeded Bread</div>
+<div class="mp-food repeat" title="The Laughing Cow Light Spreadable Cheese Wedges (25 cal)"><span class="repeat-dot"></span>The Laughing Cow Light Spreadable Cheese Wedges</div>
+<div class="mp-food new-food" title="Thin Slices Chicken Breast (120 cal)"><span class="new-badge">NEW</span>Thin Slices Chicken Breast</div>
+<div class="mp-food repeat" title="Organic Avocado Mash (90 cal)"><span class="repeat-dot"></span>Organic Avocado Mash</div>
+<div class="mp-cal">465 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">2:23 PM</div>
+<div class="mp-food repeat" title="Seeded Bread (40 cal)"><span class="repeat-dot"></span>Seeded Bread</div>
+<div class="mp-food" title="Peanut Butter (68 cal)">Peanut Butter</div>
+<div class="mp-food" title="Jam / Jelly (5 cal)">Jam / Jelly</div>
+<div class="mp-food repeat" title="Seeded Bread (80 cal)"><span class="repeat-dot"></span>Seeded Bread</div>
+<div class="mp-food repeat" title="Organic Avocado Mash (90 cal)"><span class="repeat-dot"></span>Organic Avocado Mash</div>
+<div class="mp-food repeat" title="The Laughing Cow Light Spreadable Cheese Wedges (25 cal)"><span class="repeat-dot"></span>The Laughing Cow Light Spreadable Cheese Wedges</div>
+<div class="mp-food new-food" title="Thin Slices Chicken Breast (120 cal)"><span class="new-badge">NEW</span>Thin Slices Chicken Breast</div>
+<div class="mp-cal">428 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">2:27 PM</div>
+<div class="mp-food new-food" title=" Peanut Butter Fudge (282 cal)"><span class="new-badge">NEW</span> Peanut Butter Fudge</div>
+<div class="mp-food new-food" title=" Double Fudge Brownie (249 cal)"><span class="new-badge">NEW</span> Double Fudge Brownie</div>
+<div class="mp-food new-food" title=" Dark Chocolate Cookie Butter (276 cal)"><span class="new-badge">NEW</span> Dark Chocolate Cookie Butter</div>
+<div class="mp-cal">807 cal</div>
+</div>
+<div class="mp-meal-label">Meal 3</div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell">
+<div class="mp-time">7:18 PM</div>
+<div class="mp-food" title="Rice Krispies Treats Original (180 cal)">Rice Krispies Treats Original</div>
+<div class="mp-cal">180 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">8:00 PM</div>
+<div class="mp-food repeat" title="Seeded Bread (80 cal)"><span class="repeat-dot"></span>Seeded Bread</div>
+<div class="mp-food" title="Ground Beef (160 cal)">Ground Beef</div>
+<div class="mp-food repeat" title="The Laughing Cow Light Spreadable Cheese Wedges (25 cal)"><span class="repeat-dot"></span>The Laughing Cow Light Spreadable Cheese Wedges</div>
+<div class="mp-food" title="Cherry Smoked BBQ Grilling & Dipping Sauce (5 cal)">Cherry Smoked BBQ Grilling & Dipping Sauce</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-cal">420 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">7:00 PM</div>
+<div class="mp-food repeat" title="Organic Avocado Mash (90 cal)"><span class="repeat-dot"></span>Organic Avocado Mash</div>
+<div class="mp-food" title="Plain Grilled Chicken (120 cal)">Plain Grilled Chicken</div>
+<div class="mp-food new-food" title="Sam’s Baby Spinach (11 cal)"><span class="new-badge">NEW</span>Sam’s Baby Spinach</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-cal">371 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">8:00 PM</div>
+<div class="mp-food" title="Almond Breeze Almondmilk Unsweetened Vanilla (45 cal)">Almond Breeze Almondmilk Unsweetened Vanilla</div>
+<div class="mp-food" title="White Choc PB (307 cal)">White Choc PB</div>
+<div class="mp-cal">352 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">4:12 PM</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-food new-food" title="TwistBar  (324 cal)"><span class="new-badge">NEW</span>TwistBar </div>
+<div class="mp-cal">474 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">6:00 PM</div>
+<div class="mp-food new-food" title="Wedding Food (1203 cal)"><span class="new-badge">NEW</span>Wedding Food</div>
+<div class="mp-cal">1203 cal</div>
+</div>
+<div class="mp-meal-label">Meal 4</div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell">
+<div class="mp-time">11:14 PM</div>
+<div class="mp-food repeat" title="Chocolate Nutrition Shake (150 cal)"><span class="repeat-dot"></span>Chocolate Nutrition Shake</div>
+<div class="mp-cal">150 cal</div>
+</div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell">
+<div class="mp-time">5:40 PM</div>
+<div class="mp-food new-food" title="Electrolit Zero Strawberry Banana (0 cal)"><span class="new-badge">NEW</span>Electrolit Zero Strawberry Banana</div>
+<div class="mp-cal">0 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">8:00 PM</div>
+<div class="mp-food new-food" title="Steak  (221 cal)"><span class="new-badge">NEW</span>Steak </div>
+<div class="mp-food new-food" title="Wedding Food (802 cal)"><span class="new-badge">NEW</span>Wedding Food</div>
+<div class="mp-cal">1023 cal</div>
+</div>
+<div class="mp-meal-label">Meal 5</div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell"><div class="mp-empty">—</div></div>
+<div class="mp-cell">
+<div class="mp-time">8:20 PM</div>
+<div class="mp-food new-food" title="Thin Slices Chicken Breast (182 cal)"><span class="new-badge">NEW</span>Thin Slices Chicken Breast</div>
+<div class="mp-cal">182 cal</div>
+</div>
+<div class="mp-cell">
+<div class="mp-time">9:19 PM</div>
+<div class="mp-food new-food" title="Peach Cobbler  (632 cal)"><span class="new-badge">NEW</span>Peach Cobbler </div>
+<div class="mp-cal">632 cal</div>
+</div>
+</div>
+<div class="mp-views">
+<div class="mp-view-btn active" onclick="showMPView('v13','heatmap')">🔥 Calorie Heatmap</div>
+<div class="mp-view-btn" onclick="showMPView('v13','timing')">⏰ Meal Timing</div>
+<div class="mp-view-btn" onclick="showMPView('v13','protein')">💪 Protein Split</div>
+</div>
+<div class="mp-view-panel active" id="v13_heatmap">
+<div class="mp-grid">
+<div></div>
+<div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-23</span></div>
+<div class="mp-day-hdr">Tue<br><span style="font-size:10px;color:#888">03-24</span></div>
+<div class="mp-day-hdr">Wed<br><span style="font-size:10px;color:#888">03-25</span></div>
+<div class="mp-day-hdr">Thu<br><span style="font-size:10px;color:#888">03-26</span></div>
+<div class="mp-day-hdr">Fri<br><span style="font-size:10px;color:#888">03-27</span></div>
+<div class="mp-day-hdr">Sat<br><span style="font-size:10px;color:#888">03-28</span></div>
+<div class="mp-day-hdr">Sun<br><span style="font-size:10px;color:#888">03-29</span></div>
+<div class="mp-meal-label">Meal 1</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">580</div>
+<div class="hm-macros">7 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">595</div>
+<div class="hm-macros">7 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">150</div>
+<div class="hm-macros">1 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">366</div>
+<div class="hm-macros">4 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">366</div>
+<div class="hm-macros">4 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">448</div>
+<div class="hm-macros">7 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">441</div>
+<div class="hm-macros">2 items</div>
+</div>
+<div class="mp-meal-label">Meal 2</div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell" style="background:#2e1a1a;border-color:#2e1a1a">
+<div class="hm-cal" style="color:#ff5252">3705</div>
+<div class="hm-macros">11 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">490</div>
+<div class="hm-macros">4 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">375</div>
+<div class="hm-macros">4 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">465</div>
+<div class="hm-macros">5 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">428</div>
+<div class="hm-macros">7 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">807</div>
+<div class="hm-macros">3 items</div>
+</div>
+<div class="mp-meal-label">Meal 3</div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">180</div>
+<div class="hm-macros">1 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">420</div>
+<div class="hm-macros">5 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">371</div>
+<div class="hm-macros">4 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">352</div>
+<div class="hm-macros">2 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">474</div>
+<div class="hm-macros">2 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">1203</div>
+<div class="hm-macros">1 items</div>
+</div>
+<div class="mp-meal-label">Meal 4</div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">150</div>
+<div class="hm-macros">1 items</div>
+</div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">0</div>
+<div class="hm-macros">1 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">1023</div>
+<div class="hm-macros">2 items</div>
+</div>
+<div class="mp-meal-label">Meal 5</div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">182</div>
+<div class="hm-macros">1 items</div>
+</div>
+<div class="hm-cell" style="background:#0d1a0d;border-color:#0d1a0d">
+<div class="hm-cal" style="color:#00e676">632</div>
+<div class="hm-macros">1 items</div>
+</div>
+<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell" style="border-color:#e94560">
+<div class="hm-cal" style="color:#00e676;font-size:16px">580</div>
+<div class="hm-macros">day total</div></div>
+<div class="hm-cell" style="border-color:#e94560">
+<div class="hm-cal" style="color:#ff5252;font-size:16px">4630</div>
+<div class="hm-macros">day total</div></div>
+<div class="hm-cell" style="border-color:#e94560">
+<div class="hm-cal" style="color:#00e676;font-size:16px">1060</div>
+<div class="hm-macros">day total</div></div>
+<div class="hm-cell" style="border-color:#e94560">
+<div class="hm-cal" style="color:#00e676;font-size:16px">1112</div>
+<div class="hm-macros">day total</div></div>
+<div class="hm-cell" style="border-color:#e94560">
+<div class="hm-cal" style="color:#00e676;font-size:16px">1183</div>
+<div class="hm-macros">day total</div></div>
+<div class="hm-cell" style="border-color:#e94560">
+<div class="hm-cal" style="color:#00e676;font-size:16px">1532</div>
+<div class="hm-macros">day total</div></div>
+<div class="hm-cell" style="border-color:#e94560">
+<div class="hm-cal" style="color:#ff5252;font-size:16px">4106</div>
+<div class="hm-macros">day total</div></div>
+</div>
+</div>
+<div class="mp-view-panel" id="v13_timing">
+<div class="mp-grid">
+<div></div>
+<div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-23</span></div>
+<div class="mp-day-hdr">Tue<br><span style="font-size:10px;color:#888">03-24</span></div>
+<div class="mp-day-hdr">Wed<br><span style="font-size:10px;color:#888">03-25</span></div>
+<div class="mp-day-hdr">Thu<br><span style="font-size:10px;color:#888">03-26</span></div>
+<div class="mp-day-hdr">Fri<br><span style="font-size:10px;color:#888">03-27</span></div>
+<div class="mp-day-hdr">Sat<br><span style="font-size:10px;color:#888">03-28</span></div>
+<div class="mp-day-hdr">Sun<br><span style="font-size:10px;color:#888">03-29</span></div>
+<div class="mp-meal-label">Meal 1</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">1:30 PM</div>
+<div class="tm-drift" style="color:#ff5252">+122m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">12:18 PM</div>
+<div class="tm-drift" style="color:#ffab40">+50m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#00e676">11:54 AM</div>
+<div class="tm-drift" style="color:#00e676">on time</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#00e676">11:26 AM</div>
+<div class="tm-drift" style="color:#00e676">on time</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">12:00 PM</div>
+<div class="tm-drift" style="color:#ffab40">+32m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">9:21 AM</div>
+<div class="tm-drift" style="color:#ff5252">-126m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">9:43 AM</div>
+<div class="tm-drift" style="color:#ff5252">-104m</div>
+</div>
+<div class="mp-meal-label">Meal 2</div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">5:00 PM</div>
+<div class="tm-drift" style="color:#ffab40">+40m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">5:13 PM</div>
+<div class="tm-drift" style="color:#ffab40">+53m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">5:04 PM</div>
+<div class="tm-drift" style="color:#ffab40">+44m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">5:49 PM</div>
+<div class="tm-drift" style="color:#ffab40">+89m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">2:23 PM</div>
+<div class="tm-drift" style="color:#ff5252">-116m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">2:27 PM</div>
+<div class="tm-drift" style="color:#ff5252">-112m</div>
+</div>
+<div class="mp-meal-label">Meal 3</div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">7:18 PM</div>
+<div class="tm-drift" style="color:#ffab40">+33m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">8:00 PM</div>
+<div class="tm-drift" style="color:#ffab40">+75m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#00e676">7:00 PM</div>
+<div class="tm-drift" style="color:#00e676">on time</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">8:00 PM</div>
+<div class="tm-drift" style="color:#ffab40">+75m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">4:12 PM</div>
+<div class="tm-drift" style="color:#ff5252">-153m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ffab40">6:00 PM</div>
+<div class="tm-drift" style="color:#ffab40">-45m</div>
+</div>
+<div class="mp-meal-label">Meal 4</div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">11:14 PM</div>
+<div class="tm-drift" style="color:#ff5252">+176m</div>
+</div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#ff5252">5:40 PM</div>
+<div class="tm-drift" style="color:#ff5252">-158m</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#00e676">8:00 PM</div>
+<div class="tm-drift" style="color:#00e676">on time</div>
+</div>
+<div class="mp-meal-label">Meal 5</div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#00e676">8:20 PM</div>
+<div class="tm-drift" style="color:#00e676">on time</div>
+</div>
+<div class="tm-cell">
+<div class="tm-time" style="color:#00e676">9:19 PM</div>
+<div class="tm-drift" style="color:#00e676">on time</div>
+</div>
+<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">1 meals</div><div class="tm-drift" style="color:#888">0.0hr window</div></div>
+<div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">10.9hr window</div></div>
+<div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">8.1hr window</div></div>
+<div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">7.6hr window</div></div>
+<div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">8.0hr window</div></div>
+<div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">5 meals</div><div class="tm-drift" style="color:#888">11.0hr window</div></div>
+<div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">5 meals</div><div class="tm-drift" style="color:#888">11.6hr window</div></div>
+</div>
+</div>
+<div class="mp-view-panel" id="v13_protein">
+<div class="mp-grid">
+<div></div>
+<div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-23</span></div>
+<div class="mp-day-hdr">Tue<br><span style="font-size:10px;color:#888">03-24</span></div>
+<div class="mp-day-hdr">Wed<br><span style="font-size:10px;color:#888">03-25</span></div>
+<div class="mp-day-hdr">Thu<br><span style="font-size:10px;color:#888">03-26</span></div>
+<div class="mp-day-hdr">Fri<br><span style="font-size:10px;color:#888">03-27</span></div>
+<div class="mp-day-hdr">Sat<br><span style="font-size:10px;color:#888">03-28</span></div>
+<div class="mp-day-hdr">Sun<br><span style="font-size:10px;color:#888">03-29</span></div>
+<div class="mp-meal-label">Meal 1</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">55g</div>
+<div class="pd-bar" style="width:51%;background:#00e676"></div>
+<div class="pd-pct">100% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">55g</div>
+<div class="pd-bar" style="width:51%;background:#00e676"></div>
+<div class="pd-pct">45% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#42a5f5">30g</div>
+<div class="pd-bar" style="width:28%;background:#42a5f5"></div>
+<div class="pd-pct">19% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#42a5f5">39g</div>
+<div class="pd-bar" style="width:36%;background:#42a5f5"></div>
+<div class="pd-pct">24% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#42a5f5">39g</div>
+<div class="pd-bar" style="width:36%;background:#42a5f5"></div>
+<div class="pd-pct">23% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#42a5f5">29g</div>
+<div class="pd-bar" style="width:27%;background:#42a5f5"></div>
+<div class="pd-pct">18% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">53g</div>
+<div class="pd-bar" style="width:50%;background:#00e676"></div>
+<div class="pd-pct">16% of day</div>
+</div>
+<div class="mp-meal-label">Meal 2</div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#42a5f5">38g</div>
+<div class="pd-bar" style="width:36%;background:#42a5f5"></div>
+<div class="pd-pct">31% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">70g</div>
+<div class="pd-bar" style="width:65%;background:#00e676"></div>
+<div class="pd-pct">43% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">66g</div>
+<div class="pd-bar" style="width:62%;background:#00e676"></div>
+<div class="pd-pct">40% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">67g</div>
+<div class="pd-bar" style="width:63%;background:#00e676"></div>
+<div class="pd-pct">40% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">44g</div>
+<div class="pd-bar" style="width:41%;background:#00e676"></div>
+<div class="pd-pct">27% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">62g</div>
+<div class="pd-bar" style="width:58%;background:#00e676"></div>
+<div class="pd-pct">19% of day</div>
+</div>
+<div class="mp-meal-label">Meal 3</div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#ff5252">0g</div>
+<div class="pd-bar" style="width:0%;background:#ff5252"></div>
+<div class="pd-pct">0% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">61g</div>
+<div class="pd-bar" style="width:57%;background:#00e676"></div>
+<div class="pd-pct">38% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">58g</div>
+<div class="pd-bar" style="width:54%;background:#00e676"></div>
+<div class="pd-pct">36% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">61g</div>
+<div class="pd-bar" style="width:57%;background:#00e676"></div>
+<div class="pd-pct">37% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">52g</div>
+<div class="pd-bar" style="width:49%;background:#00e676"></div>
+<div class="pd-pct">32% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">107g</div>
+<div class="pd-bar" style="width:100%;background:#00e676"></div>
+<div class="pd-pct">33% of day</div>
+</div>
+<div class="mp-meal-label">Meal 4</div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#42a5f5">30g</div>
+<div class="pd-bar" style="width:28%;background:#42a5f5"></div>
+<div class="pd-pct">24% of day</div>
+</div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#ff5252">0g</div>
+<div class="pd-bar" style="width:0%;background:#ff5252"></div>
+<div class="pd-pct">0% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#00e676">97g</div>
+<div class="pd-bar" style="width:91%;background:#00e676"></div>
+<div class="pd-pct">30% of day</div>
+</div>
+<div class="mp-meal-label">Meal 5</div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#42a5f5">39g</div>
+<div class="pd-bar" style="width:36%;background:#42a5f5"></div>
+<div class="pd-pct">24% of day</div>
+</div>
+<div class="pd-cell">
+<div class="pd-val" style="color:#ff5252">5g</div>
+<div class="pd-bar" style="width:5%;background:#ff5252"></div>
+<div class="pd-pct">2% of day</div>
+</div>
+<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="pd-cell" style="border-color:#42a5f5">
+<div class="pd-val" style="color:#ff5252;font-size:16px">55g</div>
+<div class="pd-pct">target: 165g</div></div>
+<div class="pd-cell" style="border-color:#42a5f5">
+<div class="pd-val" style="color:#ff5252;font-size:16px">123g</div>
+<div class="pd-pct">target: 165g</div></div>
+<div class="pd-cell" style="border-color:#42a5f5">
+<div class="pd-val" style="color:#ff5252;font-size:16px">161g</div>
+<div class="pd-pct">target: 165g</div></div>
+<div class="pd-cell" style="border-color:#42a5f5">
+<div class="pd-val" style="color:#ff5252;font-size:16px">163g</div>
+<div class="pd-pct">target: 165g</div></div>
+<div class="pd-cell" style="border-color:#42a5f5">
+<div class="pd-val" style="color:#00e676;font-size:16px">167g</div>
+<div class="pd-pct">target: 165g</div></div>
+<div class="pd-cell" style="border-color:#42a5f5">
+<div class="pd-val" style="color:#ff5252;font-size:16px">164g</div>
+<div class="pd-pct">target: 165g</div></div>
+<div class="pd-cell" style="border-color:#42a5f5">
+<div class="pd-val" style="color:#00e676;font-size:16px">324g</div>
+<div class="pd-pct">target: 165g</div></div>
+</div>
+</div>
+</div>
 <div style="margin-top:20px">
 <h3 style="color:#e94560;font-size:14px;margin-bottom:12px">📈 Template Evolution — Across All Weeks</h3>
 <p style="font-size:11px;color:#888;margin-bottom:12px">How your most common foods tracked week over week. Green = present, dark = absent.</p>
@@ -7462,6 +8419,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-wk-hdr">Wk 10</div>
 <div class="te-wk-hdr">Wk 11</div>
 <div class="te-wk-hdr">Wk 12</div>
+<div class="te-wk-hdr">Wk 13</div>
 <div class="te-food" title="Fairlife 2% Milk">Fairlife 2% Milk</div>
 <div class="te-dot present">2x</div>
 <div class="te-dot present">3x</div>
@@ -7469,6 +8427,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">9x</div>
 <div class="te-dot present">4x</div>
 <div class="te-dot present">1x</div>
+<div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
 <div class="te-food" title="Peanut Butter And Jelly Overnight Oats">Peanut Butter And Jelly Overnight Oats</div>
 <div class="te-dot present">2x</div>
@@ -7478,22 +8437,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">4x</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
-<div class="te-food" title="Protein Powder">Protein Powder</div>
-<div class="te-dot present">1x</div>
-<div class="te-dot present">2x</div>
-<div class="te-dot present">1x</div>
-<div class="te-dot present">4x</div>
-<div class="te-dot present">3x</div>
-<div class="te-dot present">8x</div>
 <div class="te-dot absent">—</div>
-<div class="te-food" title="Organic Avocado Mash">Organic Avocado Mash</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">1x</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">4x</div>
-<div class="te-dot present">6x</div>
-<div class="te-dot present">6x</div>
 <div class="te-food" title="Chocolate Nutrition Shake">Chocolate Nutrition Shake</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
@@ -7502,14 +8446,25 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">1x</div>
 <div class="te-dot present">10x</div>
 <div class="te-dot present">6x</div>
-<div class="te-food" title="Caramel Protein Shake">Caramel Protein Shake</div>
-<div class="te-dot present">2x</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">3x</div>
-<div class="te-dot present">4x</div>
-<div class="te-dot present">4x</div>
+<div class="te-dot present">8x</div>
+<div class="te-food" title="Organic Avocado Mash">Organic Avocado Mash</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot present">1x</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">4x</div>
+<div class="te-dot present">6x</div>
+<div class="te-dot present">6x</div>
+<div class="te-dot present">7x</div>
+<div class="te-food" title="Protein Powder">Protein Powder</div>
+<div class="te-dot present">1x</div>
+<div class="te-dot present">2x</div>
+<div class="te-dot present">1x</div>
+<div class="te-dot present">4x</div>
+<div class="te-dot present">3x</div>
+<div class="te-dot present">8x</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
 <div class="te-food" title="Seeded Bread">Seeded Bread</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot present">2x</div>
@@ -7518,29 +8473,6 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">5x</div>
 <div class="te-dot present">2x</div>
 <div class="te-dot present">4x</div>
-<div class="te-food" title="Flash I.V.">Flash I.V.</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">4x</div>
-<div class="te-dot present">6x</div>
-<div class="te-dot present">4x</div>
-<div class="te-food" title="Eggs">Eggs</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">4x</div>
-<div class="te-dot present">6x</div>
-<div class="te-dot present">4x</div>
-<div class="te-food" title="Cream of Rice">Cream of Rice</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">1x</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">2x</div>
-<div class="te-dot present">5x</div>
 <div class="te-dot present">5x</div>
 <div class="te-food" title="Turkey Bacon">Turkey Bacon</div>
 <div class="te-dot absent">—</div>
@@ -7550,14 +8482,43 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">4x</div>
 <div class="te-dot present">5x</div>
 <div class="te-dot present">4x</div>
-<div class="te-food" title="Quick 1-Minute Oats">Quick 1-Minute Oats</div>
+<div class="te-dot present">2x</div>
+<div class="te-food" title="Caramel Protein Shake">Caramel Protein Shake</div>
+<div class="te-dot present">2x</div>
 <div class="te-dot absent">—</div>
+<div class="te-dot present">3x</div>
+<div class="te-dot present">4x</div>
+<div class="te-dot present">4x</div>
 <div class="te-dot absent">—</div>
+<div class="te-dot present">1x</div>
+<div class="te-dot absent">—</div>
+<div class="te-food" title="Cream of Rice">Cream of Rice</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">1x</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot present">2x</div>
+<div class="te-dot present">5x</div>
+<div class="te-dot present">5x</div>
+<div class="te-dot present">1x</div>
+<div class="te-food" title="Flash I.V.">Flash I.V.</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">4x</div>
 <div class="te-dot present">6x</div>
 <div class="te-dot present">4x</div>
+<div class="te-dot absent">—</div>
+<div class="te-food" title="Eggs">Eggs</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">4x</div>
+<div class="te-dot present">6x</div>
+<div class="te-dot present">4x</div>
+<div class="te-dot absent">—</div>
 <div class="te-food" title="Sourdough Bread">Sourdough Bread</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
@@ -7566,22 +8527,16 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">3x</div>
 <div class="te-dot present">5x</div>
 <div class="te-dot present">4x</div>
-<div class="te-food" title="Grilled Chipotle Chicken">Grilled Chipotle Chicken</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">5x</div>
-<div class="te-dot present">3x</div>
-<div class="te-dot present">3x</div>
-<div class="te-food" title="Almond Breeze Almondmilk Unsweetened Van">Almond Breeze Almondmilk Unsweetened Van</div>
+<div class="te-dot present">2x</div>
+<div class="te-food" title="Quick 1-Minute Oats">Quick 1-Minute Oats</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot present">2x</div>
-<div class="te-dot present">9x</div>
-<div class="te-dot absent">—</div>
+<div class="te-dot present">6x</div>
+<div class="te-dot present">4x</div>
+<div class="te-dot present">1x</div>
 <div class="te-food" title="Jam / Jelly">Jam / Jelly</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
@@ -7590,14 +8545,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">1x</div>
 <div class="te-dot present">6x</div>
 <div class="te-dot present">4x</div>
-<div class="te-food" title="Roasted Peanut Powder">Roasted Peanut Powder</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">1x</div>
-<div class="te-dot present">6x</div>
-<div class="te-dot present">4x</div>
+<div class="te-dot present">2x</div>
 <div class="te-food" title="Almond Breeze Almondmilk Unsweetened Vanilla">Almond Breeze Almondmilk Unsweetened Vanilla</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
@@ -7606,14 +8554,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot absent">—</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot present">11x</div>
-<div class="te-food" title="Spiced Chicken Fold">Spiced Chicken Fold</div>
 <div class="te-dot present">2x</div>
-<div class="te-dot present">2x</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot present">5x</div>
-<div class="te-dot present">1x</div>
-<div class="te-dot absent">—</div>
-<div class="te-dot absent">—</div>
 <div class="te-food" title="Peanut Butter">Peanut Butter</div>
 <div class="te-dot absent">—</div>
 <div class="te-dot present">1x</div>
@@ -7622,6 +8563,43 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="te-dot present">2x</div>
 <div class="te-dot present">4x</div>
 <div class="te-dot present">3x</div>
+<div class="te-dot present">2x</div>
+<div class="te-food" title="Roasted Peanut Powder">Roasted Peanut Powder</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">1x</div>
+<div class="te-dot present">6x</div>
+<div class="te-dot present">4x</div>
+<div class="te-dot present">1x</div>
+<div class="te-food" title="Grilled Chipotle Chicken">Grilled Chipotle Chicken</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">5x</div>
+<div class="te-dot present">3x</div>
+<div class="te-dot present">3x</div>
+<div class="te-dot absent">—</div>
+<div class="te-food" title="Almond Breeze Almondmilk Unsweetened Van">Almond Breeze Almondmilk Unsweetened Van</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">2x</div>
+<div class="te-dot present">9x</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-food" title="Spiced Chicken Fold">Spiced Chicken Fold</div>
+<div class="te-dot present">2x</div>
+<div class="te-dot present">2x</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot present">5x</div>
+<div class="te-dot present">1x</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
+<div class="te-dot absent">—</div>
 </div>
 </div>
 </div>
@@ -7635,6 +8613,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="food-tab" onclick="showFoodTab(10)">Wk 10 (44)</div>
 <div class="food-tab active" onclick="showFoodTab(11)">Wk 11 (37)</div>
 <div class="food-tab" onclick="showFoodTab(12)">Wk 12 (43)</div>
+<div class="food-tab" onclick="showFoodTab(13)">Wk 13 (43)</div>
 </div>
 <div class="food-panel" id="fp6">
 <table class="food-review-table">
@@ -7941,6 +8920,61 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <tr><td>White Chocolate Instant Reduced Calorie Pudding & Pie Filling</td><td class="r">1x</td><td class="r">14</td><td class="r">0</td><td class="r">0</td><td class="r">4</td><td class="r">200</td><td></td></tr>
 <tr><td>Fiery Mango Habanero</td><td class="r">1x</td><td class="r">10</td><td class="r">0</td><td class="r">0</td><td class="r">2</td><td class="r">130</td><td></td></tr>
 </table></div>
+<div class="food-panel" id="fp13">
+<table class="food-review-table">
+<tr><th>Food</th><th class="r">Freq</th><th class="r">Avg Cal</th><th class="r">Avg P</th><th class="r">Avg F</th><th class="r">Avg C</th><th class="r">Avg Na</th><th>Verify</th></tr>
+<tr class="cat-header"><td colspan="8">Protein Sources (7)</td></tr>
+<tr><td>Organic Eggs Grade Aa Large</td><td class="r">5x</td><td class="r">140</td><td class="r">12</td><td class="r">10</td><td class="r">0</td><td class="r">140</td><td></td></tr>
+<tr><td>Egg Whites</td><td class="r">4x</td><td class="r">125</td><td class="r">25</td><td class="r">0</td><td class="r">0</td><td class="r">375</td><td></td></tr>
+<tr><td>Thin Slices Chicken Breast</td><td class="r">4x</td><td class="r">136</td><td class="r">29</td><td class="r">2</td><td class="r">0</td><td class="r">85</td><td></td></tr>
+<tr><td><span class="merged">Turkey Bacon</span><br><span class="raw-names">← Hickory Smoked Uncured Turkey Bacon</span></td><td class="r">2x</td><td class="r">90</td><td class="r">12</td><td class="r">4</td><td class="r">0</td><td class="r">400</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td>Plain Grilled Chicken</td><td class="r">2x</td><td class="r">180</td><td class="r">39</td><td class="r">2</td><td class="r">3</td><td class="r">366</td><td></td></tr>
+<tr><td><span class="merged">Ground Beef</span><br><span class="raw-names">← Ground Beef Patties</span></td><td class="r">1x</td><td class="r">160</td><td class="r">21</td><td class="r">9</td><td class="r">0</td><td class="r">70</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td>Steak </td><td class="r">1x</td><td class="r">221</td><td class="r">26</td><td class="r">13</td><td class="r">0</td><td class="r">0</td><td></td></tr>
+<tr class="cat-header"><td colspan="8">Protein Shakes / Bars (3)</td></tr>
+<tr><td>Chocolate Nutrition Shake</td><td class="r">8x</td><td class="r">150</td><td class="r">30</td><td class="r">3</td><td class="r">4</td><td class="r">230</td><td></td></tr>
+<tr><td><span class="merged">White Choc PB</span><br><span class="raw-names">← Lean whey White Chocolate Peanut Butter</span></td><td class="r">1x</td><td class="r">307</td><td class="r">59</td><td class="r">5</td><td class="r">9</td><td class="r">802</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td>Ryse Loaded Protein - Skippy Peanut Butter</td><td class="r">1x</td><td class="r">75</td><td class="r">13</td><td class="r">2</td><td class="r">3</td><td class="r">140</td><td></td></tr>
+<tr class="cat-header"><td colspan="8">Dairy (2)</td></tr>
+<tr><td>The Laughing Cow Light Spreadable Cheese Wedges</td><td class="r">4x</td><td class="r">25</td><td class="r">2</td><td class="r">1</td><td class="r">1</td><td class="r">160</td><td></td></tr>
+<tr><td>Almond Breeze Almondmilk Unsweetened Vanilla</td><td class="r">2x</td><td class="r">24</td><td class="r">1</td><td class="r">2</td><td class="r">1</td><td class="r">136</td><td></td></tr>
+<tr class="cat-header"><td colspan="8">Carb Sources (5)</td></tr>
+<tr><td><span class="merged">Seeded Bread</span><br><span class="raw-names">← Deliciously Seeded Soft White Bread</span></td><td class="r">5x</td><td class="r">72</td><td class="r">7</td><td class="r">3</td><td class="r">16</td><td class="r">252</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td><span class="merged">Sourdough Bread</span><br><span class="raw-names">← Classic Sourdough Sliced Loaf</span></td><td class="r">2x</td><td class="r">116</td><td class="r">4</td><td class="r">1</td><td class="r">22</td><td class="r">231</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td>Rice Krispies Treats Original</td><td class="r">1x</td><td class="r">180</td><td class="r">0</td><td class="r">4</td><td class="r">34</td><td class="r">210</td><td></td></tr>
+<tr><td><span class="merged">Cream of Rice</span><br><span class="raw-names">← Cinnamon Roll Cream Of Rice</span></td><td class="r">1x</td><td class="r">86</td><td class="r">1</td><td class="r">0</td><td class="r">19</td><td class="r">40</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td>Quick 1-Minute Oats</td><td class="r">1x</td><td class="r">94</td><td class="r">3</td><td class="r">2</td><td class="r">17</td><td class="r">0</td><td></td></tr>
+<tr class="cat-header"><td colspan="8">Fats / Oils (4)</td></tr>
+<tr><td>Organic Avocado Mash</td><td class="r">7x</td><td class="r">90</td><td class="r">1</td><td class="r">8</td><td class="r">5</td><td class="r">220</td><td></td></tr>
+<tr><td><span class="merged">Peanut Butter</span><br><span class="raw-names">← Organic Creamy Peanut Butter</span></td><td class="r">2x</td><td class="r">79</td><td class="r">4</td><td class="r">7</td><td class="r">4</td><td class="r">28</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td>Dark Chocolate Peanut Butter Cups</td><td class="r">1x</td><td class="r">80</td><td class="r">1</td><td class="r">6</td><td class="r">8</td><td class="r">40</td><td></td></tr>
+<tr><td> Peanut Butter Fudge</td><td class="r">1x</td><td class="r">282</td><td class="r">21</td><td class="r">14</td><td class="r">18</td><td class="r">0</td><td></td></tr>
+<tr class="cat-header"><td colspan="8">Fruits / Veggies (2)</td></tr>
+<tr><td>Wild Blueberries</td><td class="r">2x</td><td class="r">17</td><td class="r">0</td><td class="r">0</td><td class="r">4</td><td class="r">0</td><td></td></tr>
+<tr><td>Electrolit Zero Strawberry Banana</td><td class="r">1x</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td class="r">0</td><td class="r">500</td><td></td></tr>
+<tr class="cat-header"><td colspan="8">Snacks / Toppings (6)</td></tr>
+<tr><td><span class="merged">Jam / Jelly</span><br><span class="raw-names">← Strawberry Jam</span></td><td class="r">2x</td><td class="r">12</td><td class="r">0</td><td class="r">0</td><td class="r">2</td><td class="r">0</td><td><span class="verify-yes">✓</span></td></tr>
+<tr><td>Oreo Thins Chocolate Sandwich Cookies</td><td class="r">1x</td><td class="r">140</td><td class="r">1</td><td class="r">6</td><td class="r">21</td><td class="r">95</td><td></td></tr>
+<tr><td>Roasted Peanut Powder</td><td class="r">1x</td><td class="r">90</td><td class="r">12</td><td class="r">0</td><td class="r">9</td><td class="r">142</td><td></td></tr>
+<tr><td>Buffin Muffin German Chocolate Cake </td><td class="r">1x</td><td class="r">291</td><td class="r">23</td><td class="r">14</td><td class="r">20</td><td class="r">0</td><td></td></tr>
+<tr><td> Double Fudge Brownie</td><td class="r">1x</td><td class="r">249</td><td class="r">20</td><td class="r">9</td><td class="r">22</td><td class="r">0</td><td></td></tr>
+<tr><td> Dark Chocolate Cookie Butter</td><td class="r">1x</td><td class="r">276</td><td class="r">21</td><td class="r">12</td><td class="r">21</td><td class="r">0</td><td></td></tr>
+<tr class="cat-header"><td colspan="8">Prepared Meals (14)</td></tr>
+<tr><td>Sam’s Baby Spinach</td><td class="r">6x</td><td class="r">12</td><td class="r">1</td><td class="r">0</td><td class="r">2</td><td class="r">39</td><td></td></tr>
+<tr><td>Crumbl </td><td class="r">2x</td><td class="r">1142</td><td class="r">11</td><td class="r">56</td><td class="r">150</td><td class="r">0</td><td></td></tr>
+<tr><td>Wedding Food</td><td class="r">2x</td><td class="r">1002</td><td class="r">89</td><td class="r">54</td><td class="r">39</td><td class="r">0</td><td></td></tr>
+<tr><td>Quick Add</td><td class="r">1x</td><td class="r">447</td><td class="r">5</td><td class="r">23</td><td class="r">55</td><td class="r">0</td><td></td></tr>
+<tr><td>Squares Dark Chocolate Raspberry</td><td class="r">1x</td><td class="r">210</td><td class="r">3</td><td class="r">12</td><td class="r">30</td><td class="r">0</td><td></td></tr>
+<tr><td>Dark Chocolate Caramel Peanut Nougat Bars</td><td class="r">1x</td><td class="r">180</td><td class="r">4</td><td class="r">9</td><td class="r">22</td><td class="r">70</td><td></td></tr>
+<tr><td>Miniature Cups</td><td class="r">1x</td><td class="r">85</td><td class="r">0</td><td class="r">5</td><td class="r">11</td><td class="r">45</td><td></td></tr>
+<tr><td>Lava Cake Dark Chocolate Squares</td><td class="r">1x</td><td class="r">70</td><td class="r">1</td><td class="r">5</td><td class="r">9</td><td class="r">15</td><td></td></tr>
+<tr><td>Dark Chocolate Peanut Gems</td><td class="r">1x</td><td class="r">50</td><td class="r">0</td><td class="r">4</td><td class="r">6</td><td class="r">0</td><td></td></tr>
+<tr><td>Sea Salt Caramel Dark Chocolate</td><td class="r">1x</td><td class="r">160</td><td class="r">1</td><td class="r">10</td><td class="r">21</td><td class="r">65</td><td></td></tr>
+<tr><td>Cherry Smoked BBQ Grilling & Dipping Sauce</td><td class="r">1x</td><td class="r">5</td><td class="r">0</td><td class="r">0</td><td class="r">1</td><td class="r">140</td><td></td></tr>
+<tr><td>Panda Glycerol 2 tbsp</td><td class="r">1x</td><td class="r">80</td><td class="r">0</td><td class="r">0</td><td class="r">20</td><td class="r">0</td><td></td></tr>
+<tr><td>TwistBar </td><td class="r">1x</td><td class="r">324</td><td class="r">22</td><td class="r">12</td><td class="r">32</td><td class="r">0</td><td></td></tr>
+<tr><td>Peach Cobbler </td><td class="r">1x</td><td class="r">632</td><td class="r">5</td><td class="r">20</td><td class="r">108</td><td class="r">0</td><td></td></tr>
+</table></div>
 </div>
 <div class="main-panel" id="workouts">
 <h2>🏋️ WORKOUT REVIEW — BY WEEK</h2>
@@ -7952,6 +8986,7 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <div class="food-tab" onclick="showWorkoutTab(10)">Wk 10 (5s)</div>
 <div class="food-tab active" onclick="showWorkoutTab(11)">Wk 11 (5s)</div>
 <div class="food-tab" onclick="showWorkoutTab(12)">Wk 12 (5s)</div>
+<div class="food-tab" onclick="showWorkoutTab(13)">Wk 13 (0s)</div>
 </div>
 <div class="food-panel workout-panel" id="wp6">
 <div class="wk-summary-grid">
@@ -8907,6 +9942,16 @@ Food variety expanding: Wk6 had 27 unique foods, Wk12 has 43.</p>
 <tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Cable Straight Bar Triceps Pushdown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">35×10</span><span class="set-pill">42×10</span><span class="set-pill">42×8</span><span class="set-pill">50×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,415</td></tr>
 <tr><td style="color:#42a5f5;font-weight:600">Low Pulley Cable Rope Overhead Triceps Extension</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">20×10</span><span class="set-pill">35×7</span><span class="set-pill">35×8</span><span class="set-pill">42×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,065</td></tr>
 </table>
+</div>
+<div class="food-panel workout-panel" id="wp13">
+<div class="wk-summary-grid">
+<div class="wk-summary-card"><div class="label">Sessions</div><div class="value">0</div><div class="sub">training days</div></div>
+<div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">0</div><div class="sub">lbs moved</div></div>
+<div class="wk-summary-card"><div class="label">Avg Vol/Session</div><div class="value" style="color:#42a5f5">0</div><div class="sub">lbs per workout</div></div>
+<div class="wk-summary-card"><div class="label">Total Sets</div><div class="value" style="color:#00e676">0</div><div class="sub">working sets</div></div>
+<div class="wk-summary-card"><div class="label">Exercises</div><div class="value">0</div><div class="sub">unique movements</div></div>
+</div>
+<div style="text-align:center;color:#555;padding:40px;font-size:14px">No workout data for this week</div>
 </div>
 </div>
 <script>
