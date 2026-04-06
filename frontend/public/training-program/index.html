@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tyron's Training Program — OCB Prep</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e0e0e0;padding:0}
+.header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:24px 32px;border-bottom:3px solid #e94560}
+.header h1{font-size:26px;color:#fff}
+.header .subtitle{color:#a0a0a0;margin-top:4px;font-size:14px}
+.content{padding:24px;max-width:1000px;margin:0 auto}
+h2{color:#e94560;font-size:18px;margin:28px 0 10px;border-bottom:2px solid #e94560;padding-bottom:4px}
+.week-nav{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.week-nav a{background:#252540;color:#e0e0e0;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;transition:all .2s}
+.week-nav a:hover,.week-nav a.active{background:#e94560;color:#fff}
+.week-nav a.rest{background:#1a1a2e;color:#666;border:1px solid #2a2a3a}
+.day-card{background:#1e1e2e;border-radius:12px;padding:20px;margin:16px 0;display:none}
+.day-card.active{display:block}
+.day-title{font-size:20px;font-weight:700;color:#e94560;margin-bottom:4px}
+.day-subtitle{color:#888;font-size:13px;margin-bottom:16px}
+.day-meta{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.day-meta .tag{background:#252540;padding:6px 12px;border-radius:6px;font-size:12px;color:#aaa}
+.day-meta .tag b{color:#e0e0e0}
+.exercise-table{width:100%;border-collapse:collapse;margin:8px 0}
+.exercise-table th{text-align:left;padding:10px 12px;background:#252540;color:#888;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.exercise-table td{padding:10px 12px;border-top:1px solid #2a2a3a;font-size:14px}
+.exercise-table tr:hover{background:#252540}
+.exercise-name{font-weight:600;color:#fff}
+.exercise-note{color:#888;font-size:12px;font-style:italic}
+.ss-badge{background:#e94560;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:600}
+.warmup-badge{background:#1a3a2a;color:#00e676;font-size:10px;padding:2px 6px;border-radius:4px;margin-left:6px}
+.sets-col{color:#00e676;font-weight:600}
+.weight-col{color:#e0e0e0}
+.rir-col{color:#ffab40;font-weight:600}
+.section-label{color:#e94560;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:12px 12px 4px;border-top:2px solid #2a2a3a}
+.summary-box{background:#1a2a1a;border-left:3px solid #00e676;border-radius:8px;padding:14px;margin:16px 0;font-size:13px;color:#ccc}
+.summary-box b{color:#00e676}
+.notes-box{background:#2a2a1a;border-left:3px solid #ffab40;border-radius:8px;padding:14px;margin:16px 0;font-size:13px;color:#ccc}
+.notes-box b{color:#ffab40}
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:16px 0}
+.overview-card{background:#1e1e2e;border-radius:10px;padding:16px;border-left:3px solid #e94560}
+.overview-card h3{color:#e94560;font-size:14px;margin-bottom:8px}
+.overview-card .stat{font-size:24px;font-weight:700;color:#fff}
+.overview-card .detail{color:#888;font-size:12px;margin-top:4px}
+</style>
+</head><body>
+<div class="header">
+<h1>Training Program — OCB Prep</h1>
+<div class="subtitle">Tyron Samaroo &nbsp;|&nbsp; Optimized from 9 weeks of training data &nbsp;|&nbsp; Updated Apr 2026</div>
+</div>
+<div class="content">
+
+<h2>Weekly Split</h2>
+<div class="week-nav">
+<a href="#" onclick="showDay('mon')" class="active" id="nav-mon">MON — Legs (Quad)</a>
+<a href="#" onclick="showDay('tue')" id="nav-tue">TUE — Push + Delts</a>
+<a href="#" onclick="showDay('wed')" class="rest" id="nav-wed">WED — Rest / Posing</a>
+<a href="#" onclick="showDay('thu')" id="nav-thu">THU — Pull + Biceps</a>
+<a href="#" onclick="showDay('fri')" id="nav-fri">FRI — Legs (Posterior)</a>
+<a href="#" onclick="showDay('sat')" id="nav-sat">SAT — PT + Posing</a>
+<a href="#" onclick="showDay('sun')" class="rest" id="nav-sun">SUN — Rest</a>
+</div>
+
+<!-- MONDAY -->
+<div class="day-card active" id="day-mon">
+<div class="day-title">Monday — Legs (Quad Focus)</div>
+<div class="day-subtitle">Primary leg session — heavy compounds first, quad emphasis</div>
+<div class="day-meta">
+<div class="tag"><b>~19</b> working sets + warmups</div>
+<div class="tag"><b>~65,000</b> target volume</div>
+<div class="tag">Est. <b>75-90 min</b></div>
+</div>
+<table class="exercise-table">
+<tr><th>Exercise</th><th>Sets</th><th>Reps</th><th>Working Weight</th><th>RIR</th></tr>
+<tr><td colspan="5" class="section-label">WARMUP / CALVES</td></tr>
+<tr><td class="exercise-name">Pin-Loaded Leg Press Calf Raise <span class="warmup-badge">WARMUP</span></td><td>2</td><td>15</td><td class="weight-col">50–110 lbs</td><td>—</td></tr>
+<tr><td class="exercise-name">Pin-Loaded Leg Press Calf Raise</td><td class="sets-col">5</td><td>6–10</td><td class="weight-col">130 → 190 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">HAMSTRINGS (pre-exhaust)</td></tr>
+<tr><td class="exercise-name">Seated Machine Hamstring Curl <span class="warmup-badge">WARMUP</span></td><td>1</td><td>15</td><td class="weight-col">100 lbs</td><td>—</td></tr>
+<tr><td class="exercise-name">Seated Machine Hamstring Curl</td><td class="sets-col">4</td><td>5–12</td><td class="weight-col">115 → 160 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">QUADS — COMPOUNDS</td></tr>
+<tr><td class="exercise-name">Pendulum Squat Machine <span class="warmup-badge">WARMUP</span></td><td>3</td><td>3–8</td><td class="weight-col">90 → 270 lbs</td><td>—</td></tr>
+<tr><td class="exercise-name">Pendulum Squat Machine</td><td class="sets-col">4</td><td>5–8</td><td class="weight-col">450 → 540 lbs</td><td class="rir-col">1–0</td></tr>
+<tr><td class="exercise-name">Cybex Plate Loaded Squad Press <span class="warmup-badge">WARMUP</span></td><td>1</td><td>10</td><td class="weight-col">180 lbs</td><td>—</td></tr>
+<tr><td class="exercise-name">Cybex Plate Loaded Squad Press</td><td class="sets-col">4</td><td>6–10</td><td class="weight-col">270 → 450 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">QUAD ISOLATION</td></tr>
+<tr><td class="exercise-name">Pin-Loaded Machine Leg Extension</td><td class="sets-col">4</td><td>4–10</td><td class="weight-col">100 → 145 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">ABS</td></tr>
+<tr><td class="exercise-name">Hanging Straight Leg Raise</td><td class="sets-col">3</td><td>8–10</td><td class="weight-col">BW</td><td class="rir-col">2–1</td></tr>
+</table>
+<div class="summary-box"><b>Key lifts to track:</b> Pendulum Squat 540×5 and Cybex Press 450×6 are your benchmarks. If these slip, flag it — that's the deficit talking, not programming.</div>
+</div>
+
+<!-- TUESDAY -->
+<div class="day-card" id="day-tue">
+<div class="day-title">Tuesday — Push + Side/Rear Delts</div>
+<div class="day-subtitle">Chest from multiple angles, shoulders superset at the end</div>
+<div class="day-meta">
+<div class="tag"><b>~25</b> working sets + warmups</div>
+<div class="tag"><b>~38,000</b> target volume</div>
+<div class="tag">Est. <b>70-85 min</b></div>
+</div>
+<table class="exercise-table">
+<tr><th>Exercise</th><th>Sets</th><th>Reps</th><th>Working Weight</th><th>RIR</th></tr>
+<tr><td colspan="5" class="section-label">CHEST — COMPOUNDS</td></tr>
+<tr><td class="exercise-name">Bodyweight Chest Dip</td><td class="sets-col">3</td><td>8–10</td><td class="weight-col">BW</td><td class="rir-col">2–1</td></tr>
+<tr><td class="exercise-name">Iso Lateral Incline Press (Hammer Strength)</td><td class="sets-col">4</td><td>3–10</td><td class="weight-col">90 → 220 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td class="exercise-name">Low Incline Dumbbell Press</td><td class="sets-col">3</td><td>5–10</td><td class="weight-col">100 → 150 lbs</td><td class="rir-col">1–0</td></tr>
+<tr><td colspan="5" class="section-label">CHEST — ISOLATION</td></tr>
+<tr><td class="exercise-name">Seated Cable Fly</td><td class="sets-col">4</td><td>8–15</td><td class="weight-col">30 → 70 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">SHOULDERS</td></tr>
+<tr><td class="exercise-name">Seated Dumbbell Overhead Press</td><td class="sets-col">3</td><td>4–10</td><td class="weight-col">90 → 140 lbs</td><td class="rir-col">1–0</td></tr>
+<tr><td colspan="5" class="section-label">DELTS — SUPERSET</td></tr>
+<tr><td class="exercise-name">Standing Machine Lateral Raise <span class="ss-badge">SS</span></td><td class="sets-col">4</td><td>8–15</td><td class="weight-col">40 → 60 lbs</td><td class="rir-col">1–0</td></tr>
+<tr><td class="exercise-name">Neutral Grip Cable Rear Delt Fly <span class="ss-badge">SS</span></td><td class="sets-col">4</td><td>8–12</td><td class="weight-col">110 → 200 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">TRICEPS (optional — cut if gassed)</td></tr>
+<tr><td class="exercise-name">Cable Rope Triceps Pushdown</td><td class="sets-col">3</td><td>8–12</td><td class="weight-col">20 → 30 lbs</td><td class="rir-col">2–0</td></tr>
+</table>
+<div class="notes-box"><b>Note:</b> Triceps are already getting hit hard from dips, incline press, and overhead press. The pushdowns are optional — if you're running low on time or energy, skip them. They're insurance, not essential.</div>
+</div>
+
+<!-- WEDNESDAY -->
+<div class="day-card" id="day-wed">
+<div class="day-title">Wednesday — Rest / Posing Practice</div>
+<div class="day-subtitle">Recovery day — dedicate time to posing if energy allows</div>
+<div class="day-meta">
+<div class="tag"><b>No lifting</b></div>
+<div class="tag">Posing practice <b>20-30 min</b></div>
+<div class="tag"><b>Steps target:</b> 12,000+</div>
+</div>
+<div class="summary-box"><b>Why rest here:</b> You just did heavy legs Monday and a full push session Tuesday. Thursday is a big pull day. This rest day protects your back and grip recovery so you can hit pull-ups and rows fresh.</div>
+<div class="notes-box"><b>Posing focus:</b> Front double bicep, front lat spread, and transitions. Record yourself — check the Posing Progress album after.</div>
+</div>
+
+<!-- THURSDAY -->
+<div class="day-card" id="day-thu">
+<div class="day-title">Thursday — Pull + Biceps</div>
+<div class="day-subtitle">Back from every angle — vertical pulls first, horizontal second, curls to finish</div>
+<div class="day-meta">
+<div class="tag"><b>~27</b> working sets + warmups</div>
+<div class="tag"><b>~40,000</b> target volume</div>
+<div class="tag">Est. <b>75-90 min</b></div>
+</div>
+<table class="exercise-table">
+<tr><th>Exercise</th><th>Sets</th><th>Reps</th><th>Working Weight</th><th>RIR</th></tr>
+<tr><td colspan="5" class="section-label">VERTICAL PULL</td></tr>
+<tr><td class="exercise-name">Overhand Grip Pull-Up</td><td class="sets-col">4</td><td>6–7</td><td class="weight-col">BW</td><td class="rir-col">2–1</td></tr>
+<tr><td class="exercise-name">Neutral Grip Cable Lat Pulldown</td><td class="sets-col">4</td><td>6–15</td><td class="weight-col">85 → 140 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td class="exercise-name">Nautilus XPLOAD Lat Pulldown</td><td class="sets-col">4</td><td>6–10</td><td class="weight-col">90 → 190 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">HORIZONTAL PULL</td></tr>
+<tr><td class="exercise-name">Chest-Supported Neutral Grip Machine Row</td><td class="sets-col">4</td><td>6–10</td><td class="weight-col">85 → 175 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td class="exercise-name">Bent-Over Overhand Grip Barbell Row</td><td class="sets-col">3</td><td>7–12</td><td class="weight-col">95 → 145 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">STRETCH / ISOLATION</td></tr>
+<tr><td class="exercise-name">Cable Straight Bar Straight Arm Lat Pulldown</td><td class="sets-col">3</td><td>8–10</td><td class="weight-col">35 → 50 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td class="exercise-name">Cable Face Pull</td><td class="sets-col">3</td><td>10–12</td><td class="weight-col">25 lbs</td><td class="rir-col">2</td></tr>
+<tr><td colspan="5" class="section-label">BICEPS</td></tr>
+<tr><td class="exercise-name">Cable Straight Bar Biceps Curl</td><td class="sets-col">3</td><td>7–10</td><td class="weight-col">35 → 58 lbs</td><td class="rir-col">1–0</td></tr>
+<tr><td class="exercise-name">Standing Dumbbell Biceps Curl</td><td class="sets-col">3</td><td>10</td><td class="weight-col">40 → 50 lbs</td><td class="rir-col">2–1</td></tr>
+</table>
+<div class="summary-box"><b>Streamlined from your 63-set pull day.</b> Same exercises you love — dropped the redundant close-grip pulldown, wide-grip row, and T-bar. You're still hitting vertical (3 exercises), horizontal (2 exercises), stretch work, and curls. Everything has a purpose.</div>
+</div>
+
+<!-- FRIDAY -->
+<div class="day-card" id="day-fri">
+<div class="day-title">Friday — Legs (Posterior / Hamstring Focus)</div>
+<div class="day-subtitle">Lead with hamstrings and posterior chain, lighter quad work to finish</div>
+<div class="day-meta">
+<div class="tag"><b>~18</b> working sets + warmups</div>
+<div class="tag"><b>~50,000</b> target volume</div>
+<div class="tag">Est. <b>60-75 min</b></div>
+</div>
+<table class="exercise-table">
+<tr><th>Exercise</th><th>Sets</th><th>Reps</th><th>Working Weight</th><th>RIR</th></tr>
+<tr><td colspan="5" class="section-label">POSTERIOR CHAIN</td></tr>
+<tr><td class="exercise-name">Dumbbell Romanian Deadlift <span class="warmup-badge">WARMUP</span></td><td>1</td><td>10</td><td class="weight-col">100 lbs</td><td>—</td></tr>
+<tr><td class="exercise-name">Dumbbell Romanian Deadlift</td><td class="sets-col">4</td><td>5–10</td><td class="weight-col">130 → 180 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td class="exercise-name">Seated Machine Hamstring Curl</td><td class="sets-col">4</td><td>5–12</td><td class="weight-col">115 → 160 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td colspan="5" class="section-label">QUADS (lighter / higher rep)</td></tr>
+<tr><td class="exercise-name">Pendulum Squat Machine <span class="warmup-badge">WARMUP</span></td><td>2</td><td>8–10</td><td class="weight-col">90–180 lbs</td><td>—</td></tr>
+<tr><td class="exercise-name">Pendulum Squat Machine</td><td class="sets-col">3</td><td>6–8</td><td class="weight-col">360 → 450 lbs</td><td class="rir-col">2–1</td></tr>
+<tr><td colspan="5" class="section-label">ADDUCTORS / CALVES</td></tr>
+<tr><td class="exercise-name">Seated Machine Hip Adduction</td><td class="sets-col">4</td><td>6–12</td><td class="weight-col">50 → 190 lbs</td><td class="rir-col">2–0</td></tr>
+<tr><td class="exercise-name">Pin-Loaded Leg Press Calf Raise</td><td class="sets-col">4</td><td>6–10</td><td class="weight-col">130 → 190 lbs</td><td class="rir-col">2–0</td></tr>
+</table>
+<div class="notes-box"><b>Key difference from Monday:</b> No leg extensions, no abs, and Pendulum Squat stays at 450 max (not 540). This is about hamstrings and posterior chain, not testing your quad max. Save the heavy squat numbers for Monday.</div>
+</div>
+
+<!-- SATURDAY -->
+<div class="day-card" id="day-sat">
+<div class="day-title">Saturday — Personal Training w/ Bryan + Posing</div>
+<div class="day-subtitle">Coach-led session — abs, weak points, and stage practice</div>
+<div class="day-meta">
+<div class="tag"><b>Bryan-led</b></div>
+<div class="tag">Abs + weak points</div>
+<div class="tag">Posing session</div>
+</div>
+<div class="summary-box"><b>Let Bryan call the shots here.</b> Recent sessions have focused on Abs + Chest & Shoulders. This is your chance to hit anything that needs extra attention and get direct posing feedback. Log the session in MacroFactor when you can so we can track volume.</div>
+</div>
+
+<!-- SUNDAY -->
+<div class="day-card" id="day-sun">
+<div class="day-title">Sunday — Rest</div>
+<div class="day-subtitle">Full recovery day</div>
+<div class="day-meta">
+<div class="tag"><b>No lifting</b></div>
+<div class="tag"><b>Steps target:</b> 10,000+</div>
+<div class="tag">Meal prep for the week</div>
+</div>
+<div class="summary-box"><b>You earned it.</b> 5 lifting sessions + posing this week. Hit your step target and stay on your macros — 1,800 cal / 165P / 60F / 150C. Use the evening for meal prep.</div>
+</div>
+
+<h2>Program Overview</h2>
+<div class="overview-grid">
+<div class="overview-card"><h3>Weekly Volume</h3><div class="stat">~160-170</div><div class="detail">working sets (down from ~245)</div></div>
+<div class="overview-card"><h3>Training Days</h3><div class="stat">5 + PT</div><div class="detail">2 legs, 1 push, 1 pull, 1 coach session</div></div>
+<div class="overview-card"><h3>Recovery Days</h3><div class="stat">2</div><div class="detail">Wed (mid-week) + Sun (end-of-week)</div></div>
+<div class="overview-card"><h3>Target Calories</h3><div class="stat">1,800</div><div class="detail">165P / 60F / 150C — hit this, especially on leg days</div></div>
+</div>
+
+<h2>Design Principles</h2>
+<div class="notes-box" style="border-left-color:#e94560">
+<b>Built from your data, not theory.</b> Every exercise in this program is one you've been doing and progressing on. Nothing is random.<br><br>
+<b>1. Compounds are king.</b> Pendulum Squat 540, Cybex Press 450, DB RDL 180, HS Incline 220 — these are your money lifts. They stay.<br><br>
+<b>2. Redundancy cut, not variety.</b> You were doing 4 pulldown variations on pull day. Now it's 2 — the ones where you're strongest. Same stimulus, less fatigue.<br><br>
+<b>3. Arms absorbed.</b> Triceps get hit from all the pressing. Biceps get hit from all the pulling. Dedicated arm work is built into push/pull days instead of a separate session.<br><br>
+<b>4. Prep-aware.</b> As calories stay low, recovery is the bottleneck. Every set should be intentional. If you planned 19 sets and crushed them all, that's better than planning 48 and fading on the last 10.<br><br>
+<b>5. Leg split is intentional.</b> Monday = quad-heavy with Pendulum Squat at 540. Friday = hamstring-led with DB RDL at 180, Pendulum stays lighter at 450. Different stimulus, better recovery.
+</div>
+
+</div>
+
+<script>
+function showDay(day) {
+  document.querySelectorAll('.day-card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.week-nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById('day-' + day).classList.add('active');
+  document.getElementById('nav-' + day).classList.add('active');
+  return false;
+}
+</script>
+</body></html>
