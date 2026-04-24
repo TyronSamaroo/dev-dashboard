@@ -46,6 +46,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   75% { transform: translateX(-4px); }
 }
 #report-frame { display: none; width: 100%; height: 100vh; border: none; position: fixed; top: 0; left: 0; z-index: 100; }
+#signout-float { display: none; position: fixed; top: 16px; right: 16px; z-index: 200; background: rgba(15,15,15,0.85); color: #fff; border: 1px solid #333; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; transition: all 0.2s; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+#signout-float:hover { background: #e94560; border-color: #e94560; }
 </style>
 </head><body>
 <div class="gate" id="gate">
@@ -64,6 +66,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <div class="err-msg" id="err"></div>
 </div>
 <iframe id="report-frame"></iframe>
+<button id="signout-float" onclick="signOutAll()">Sign out</button>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -76,6 +79,7 @@ const firebaseConfig = {
 const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com", "tiffanysamaroo721@gmail.com"];
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+window.__firebaseAuth = auth;
 const provider = new GoogleAuthProvider();
 document.getElementById('google-signin-btn').addEventListener('click', async () => {
   document.getElementById('err').textContent = '';
@@ -118,9 +122,19 @@ function showReport() {
   var frame = document.getElementById('report-frame');
   frame.style.display = 'block';
   frame.src = '/coach-report/report.html';
+  document.getElementById('signout-float').style.display = 'block';
   document.body.style.display = 'block';
   document.body.style.margin = '0';
   document.body.style.padding = '0';
+}
+
+function signOutAll() {
+  try { localStorage.removeItem('cr_auth'); } catch(e) {}
+  if (window.__firebaseAuth) {
+    window.__firebaseAuth.signOut().finally(function() { location.reload(); });
+  } else {
+    location.reload();
+  }
 }
 
 (function() {
