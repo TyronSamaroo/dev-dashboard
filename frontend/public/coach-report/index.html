@@ -27,6 +27,18 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .gate button:hover { background: #d63851; }
 .gate .err-msg { color: #ff5252; font-size: 12px; margin-top: 10px; min-height: 18px; }
 .lock-icon { font-size: 36px; margin-bottom: 16px; }
+.google-btn {
+  width: 100%; padding: 12px; margin-bottom: 16px;
+  background: #fff !important; color: #1a1a1a !important;
+  border: none; border-radius: 10px; cursor: pointer;
+  font-size: 14px; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background 0.2s;
+}
+.google-btn:hover { background: #f0f0f0 !important; }
+.google-btn svg { width: 18px; height: 18px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 4px 0 18px; color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #333; }
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-8px); }
@@ -40,13 +52,55 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <div class="lock-icon">🔒</div>
   <h1>Coach Report</h1>
   <div class="sub">OCB Contest Prep — Weeks 6-16</div>
+  <button class="google-btn" id="google-signin-btn" type="button">
+    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+    Sign in with Google
+  </button>
+  <div class="divider">or</div>
   <form onsubmit="return checkCode()">
-    <input type="password" id="code" placeholder="Enter passcode" autocomplete="off" autofocus>
+    <input type="password" id="code" placeholder="Enter passcode" autocomplete="off">
     <button type="submit">Access Report</button>
   </form>
   <div class="err-msg" id="err"></div>
 </div>
-<iframe id="report-frame"></iframe><script>
+<iframe id="report-frame"></iframe>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+  authDomain: "tyron-personal.firebaseapp.com",
+  projectId: "tyron-personal",
+  appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+};
+const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com", "tiffanysamaroo721@gmail.com"];
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+document.getElementById('google-signin-btn').addEventListener('click', async () => {
+  document.getElementById('err').textContent = '';
+  try {
+    const result = await signInWithPopup(auth, provider);
+    if (ALLOWED_EMAILS.includes(result.user.email)) {
+      try { localStorage.setItem('cr_auth', JSON.stringify({ ts: Date.now() })); } catch(e) {}
+      window.showReport();
+    } else {
+      document.getElementById('err').textContent = result.user.email + ' is not authorized';
+    }
+  } catch (e) {
+    if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') {
+      document.getElementById('err').textContent = 'Sign-in failed: ' + (e.message || e.code);
+    }
+  }
+});
+onAuthStateChanged(auth, (user) => {
+  if (user && ALLOWED_EMAILS.includes(user.email)) {
+    try { localStorage.setItem('cr_auth', JSON.stringify({ ts: Date.now() })); } catch(e) {}
+    window.showReport();
+  }
+});
+</script>
+<script>
 function hashCode(s) {
   let h = 0;
   for (let i = 0; i < s.length; i++) {
