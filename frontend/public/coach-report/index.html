@@ -149,7 +149,7 @@ function signOutAll() {
 })();
 
 function checkCode() {
-  var input = document.getElementById('code').value;
+  var input = document.getElementById('code').value.toUpperCase();
   if (hashCode(input) === EXPECTED) {
     try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now() })); } catch(e) {}
     showReport();
