@@ -222,11 +222,12 @@
 
   document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
 
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, async (user) => {
     if (user && ALLOWED_EMAILS.includes(user.email)) {
       loginGate.style.display = 'none';
       dashboard.style.display = 'block';
       userEmailEl.textContent = user.email;
+      await loadData();
       renderDashboard();
     } else if (user) {
       loginErr.textContent = `${user.email} is not authorized. Signing out.`;
@@ -237,14 +238,42 @@
     }
   });
 
-  // ===== Dashboard data (will move to data.json later) =====
-  const trips = [
-    { date: '2026-03-02', store: 'Stop & Shop', food: 71.89, hh: 0, total: 71.89 },
-    { date: '2026-03-08', store: 'Costco',      food: 294.37, hh: 78.64, total: 373.01 },
-    { date: '2026-04-04', store: 'Stop & Shop', food: 89.15, hh: 0, total: 89.15 },
-    { date: '2026-04-17', store: "BJ's",        food: 96.19, hh: 32.98, total: 130.51 },
-    { date: '2026-04-17', store: 'Costco',      food: 175.82, hh: 63.46, total: 245.14 },
-  ];
+  // ===== Dashboard data (fetched from data.json; built by Finance/Groceries/build-data.py) =====
+  let trips = [];
+  let dashboardData = null;
+  async function loadData() {
+    try {
+      const res = await fetch('./data.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('data.json fetch failed ' + res.status);
+      dashboardData = await res.json();
+      trips = dashboardData.trips || [];
+      renderWinnersAndWatch();
+      renderMeta();
+    } catch (e) {
+      console.warn('data.json unavailable, using empty dataset:', e);
+      trips = [];
+    }
+  }
+
+  function renderWinnersAndWatch() {
+    if (!dashboardData) return;
+    if (dashboardData.watch) {
+      const watchEl = document.querySelector('.watch');
+      if (watchEl) {
+        const strong = watchEl.querySelector('strong') ? watchEl.querySelector('strong').outerHTML : '<strong>Watch</strong>';
+        watchEl.innerHTML = strong + '\n    ' + dashboardData.watch;
+      }
+    }
+  }
+
+  function renderMeta() {
+    if (!dashboardData?.generatedAt) return;
+    const footer = document.querySelector('.footer');
+    if (footer) {
+      const d = new Date(dashboardData.generatedAt);
+      footer.textContent = 'Last updated ' + d.toLocaleString() + ' · ' + dashboardData.totals.itemCount + ' items · ' + dashboardData.totals.tripCount + ' trips';
+    }
+  }
 
   function filterTrips(range) {
     const now = new Date('2026-04-24');

@@ -1,0 +1,867 @@
+{
+  "generatedAt": "2026-04-24T18:48:57.736872Z",
+  "targetMonthly": 900,
+  "trips": [
+    {
+      "date": "2026-03-02",
+      "store": "Stop & Shop",
+      "food": 71.89,
+      "hh": 0,
+      "total": 71.89,
+      "itemCount": 10
+    },
+    {
+      "date": "2026-03-08",
+      "store": "Costco",
+      "food": 294.37,
+      "hh": 89.63,
+      "total": 384.0,
+      "itemCount": 25
+    },
+    {
+      "date": "2026-04-17",
+      "store": "BJ's",
+      "food": 96.19,
+      "hh": 32.98,
+      "total": 129.17,
+      "itemCount": 13
+    },
+    {
+      "date": "2026-04-17",
+      "store": "Costco",
+      "food": 175.79,
+      "hh": 63.46,
+      "total": 239.25,
+      "itemCount": 15
+    }
+  ],
+  "items": [
+    {
+      "date": "2026-03-08",
+      "itemCode": "1352242",
+      "store": "Costco",
+      "item": "Febreze Variety",
+      "category": "Household",
+      "type": "Household",
+      "cost": 9.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1009982",
+      "store": "Costco",
+      "item": "Water 40pk (0.5L)",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 8.99,
+      "servings": 40,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1485984",
+      "store": "Costco",
+      "item": "Fairlife Chocolate Milk",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 39.99,
+      "servings": 18,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "891742",
+      "store": "Costco",
+      "item": "Coke Zero 35pk",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 23.04,
+      "servings": 35,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1652707",
+      "store": "Costco",
+      "item": "Dr Pepper Zero",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 16.89,
+      "servings": 24,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1068080",
+      "store": "Costco",
+      "item": "Pasture Raised Eggs",
+      "category": "Dairy",
+      "type": "Food",
+      "cost": 7.99,
+      "servings": 24,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "3006152",
+      "store": "Costco",
+      "item": "Bounce Dryer Sheets 400ct",
+      "category": "Household",
+      "type": "Household",
+      "cost": 8.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "$2.50 instant savings"
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1133387",
+      "store": "Costco",
+      "item": "Essentia Water",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 22.49,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1027877",
+      "store": "Costco",
+      "item": "Fairlife Complete Protein Choc",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 30.99,
+      "servings": 10,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1967484",
+      "store": "Costco",
+      "item": "ACE Bakery Sourdough Bistro Bread",
+      "category": "Bakery",
+      "type": "Food",
+      "cost": 5.69,
+      "servings": 22,
+      "costPerServing": null,
+      "notes": "40.6 oz loaf"
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1865858",
+      "store": "Costco",
+      "item": "Scrub Bubbles",
+      "category": "Household",
+      "type": "Household",
+      "cost": 10.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "$3.00 instant savings"
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "7445",
+      "store": "Costco",
+      "item": "10 LB Baking Potatoes",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 5.29,
+      "servings": 26,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1814790",
+      "store": "Costco",
+      "item": "Zena Greens",
+      "category": "Other",
+      "type": "Food",
+      "cost": 27.99,
+      "servings": 45,
+      "costPerServing": null,
+      "notes": "$7.00 instant savings"
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1948305",
+      "store": "Costco",
+      "item": "Manuka Honey",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 18.59,
+      "servings": 24,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1215098",
+      "store": "Costco",
+      "item": "KS Organic Vegetables",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 8.79,
+      "servings": 27,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "61576",
+      "store": "Costco",
+      "item": "Sweet Potato",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 4.99,
+      "servings": 10,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1217608",
+      "store": "Costco",
+      "item": "KS Organic Broccoli",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 9.99,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "5161251",
+      "store": "Costco",
+      "item": "Unstopables Fresh",
+      "category": "Household",
+      "type": "Household",
+      "cost": 19.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "975416",
+      "store": "Costco",
+      "item": "San Pellegrino Mineral Water",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 24.89,
+      "servings": 24,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1368591",
+      "store": "Costco",
+      "item": "Always Overnight",
+      "category": "Other",
+      "type": "Personal Care",
+      "cost": 10.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "$4.00 instant savings"
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "2189436",
+      "store": "Costco",
+      "item": "Clorox Wipes",
+      "category": "Household",
+      "type": "Household",
+      "cost": 14.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "$4.00 instant savings"
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "625994",
+      "store": "Costco",
+      "item": "Clorox Wand",
+      "category": "Household",
+      "type": "Household",
+      "cost": 13.69,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "$4.00 instant savings"
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1446716",
+      "store": "Costco",
+      "item": "Chipotle Chicken",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 11.99,
+      "servings": 8,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "555000",
+      "store": "Costco",
+      "item": "KS Peanut Butter",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 9.79,
+      "servings": 50,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-08",
+      "itemCode": "1363689",
+      "store": "Costco",
+      "item": "Turkey Bacon",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 15.99,
+      "servings": 20,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Rustik Sourdough Bread 16oz",
+      "category": "Bakery",
+      "type": "Food",
+      "cost": 5.49,
+      "servings": 16,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Fage Total 0% Plain Yogurt 32oz",
+      "category": "Dairy",
+      "type": "Food",
+      "cost": 8.79,
+      "servings": 5,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Daisy Cottage Cheese 2% 24oz",
+      "category": "Dairy",
+      "type": "Food",
+      "cost": 5.79,
+      "servings": 6,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Potatoes Bulk Red",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 7.99,
+      "servings": 15,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Mission Zero Carb Orig 8.89oz",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 4.29,
+      "servings": 14,
+      "costPerServing": null,
+      "notes": "Tortillas"
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Laura's Lean Patties",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 10.99,
+      "servings": 4,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Laura's 92 Ground Beef 1lb",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 10.29,
+      "servings": 4,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "BA Flash IV Cucumber Lime 6pk 25oz",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 7.99,
+      "servings": 6,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "EB GDA Brown Cage Free Eggs 12ct",
+      "category": "Dairy",
+      "type": "Food",
+      "cost": 6.29,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-03-02",
+      "itemCode": null,
+      "store": "Stop & Shop",
+      "item": "Fage Total 0% Plain Yogurt 5.3oz (x2)",
+      "category": "Dairy",
+      "type": "Food",
+      "cost": 3.98,
+      "servings": 2,
+      "costPerServing": null,
+      "notes": "2 x $1.99"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "891742",
+      "store": "Costco",
+      "item": "Coke Zero 35pk",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 21.29,
+      "servings": 35,
+      "costPerServing": 0.6082857142857142,
+      "notes": "Was 23.04 on 3/8 - dropped"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "NY-DEP",
+      "store": "Costco",
+      "item": "NY Bottle Deposit",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 1.75,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "685586",
+      "store": "Costco",
+      "item": "Mouthwash",
+      "category": "Personal Care",
+      "type": "Personal Care",
+      "cost": 9.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "$4.00 coupon applied"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "1485984",
+      "store": "Costco",
+      "item": "Fairlife Chocolate Milk",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 39.99,
+      "servings": 18,
+      "costPerServing": 2.221666666666667,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "1928295",
+      "store": "Costco",
+      "item": "Dove Body Wash",
+      "category": "Personal Care",
+      "type": "Personal Care",
+      "cost": 14.49,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "$3.50 coupon applied"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "2023246",
+      "store": "Costco",
+      "item": "Hormel Lean Minis",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 14.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "New item"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "7367",
+      "store": "Costco",
+      "item": "Lolli Peppers",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 5.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "60357",
+      "store": "Costco",
+      "item": "Mixed Peppers",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 7.49,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "7552",
+      "store": "Costco",
+      "item": "Kirkland Wild Albacore Tuna",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 17.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "2011048",
+      "store": "Costco",
+      "item": "Teriyaki Rub",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 4.97,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "824383",
+      "store": "Costco",
+      "item": "Fage Greek Yogurt 48oz",
+      "category": "Dairy",
+      "type": "Food",
+      "cost": 7.79,
+      "servings": 48,
+      "costPerServing": 0.1622916666666667,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "11331",
+      "store": "Costco",
+      "item": "Beef Round",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 37.55,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Swap candidate vs Laura Lean"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "1992022",
+      "store": "Costco",
+      "item": "Heinz Sauce Gift Pack",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 15.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "66287",
+      "store": "Costco",
+      "item": "Aleve 320ct",
+      "category": "Personal Care",
+      "type": "Personal Care",
+      "cost": 17.49,
+      "servings": 320,
+      "costPerServing": 0.05465625,
+      "notes": "$4.50 coupon. FSA eligible"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "504882",
+      "store": "Costco",
+      "item": "Tylenol RR 290ct",
+      "category": "Personal Care",
+      "type": "Personal Care",
+      "cost": 21.49,
+      "servings": 290,
+      "costPerServing": 0.07410344827586206,
+      "notes": "FSA eligible"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "348116",
+      "store": "BJ's",
+      "item": "Perdue Short Cuts All Nat 3lb",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 13.99,
+      "servings": 3,
+      "costPerServing": 4.663333333333333,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "313267",
+      "store": "BJ's",
+      "item": "Quest Tortilla Protein Chips 14ct",
+      "category": "Snacks",
+      "type": "Food",
+      "cost": 29.99,
+      "servings": 14,
+      "costPerServing": 2.142142857142857,
+      "notes": "Biggest line item"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "21123",
+      "store": "BJ's",
+      "item": "ReaLemon Juice 2ct 48oz",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 6.99,
+      "servings": 2,
+      "costPerServing": 3.495,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "20242",
+      "store": "BJ's",
+      "item": "Vlasic Whole Baby Dill Pickles 46oz",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 4.79,
+      "servings": 46,
+      "costPerServing": 0.1041304347826087,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "340750",
+      "store": "BJ's",
+      "item": "Fresh Cut Watermelon Chunks 22oz",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 4.99,
+      "servings": 22,
+      "costPerServing": 0.2268181818181818,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "242390",
+      "store": "BJ's",
+      "item": "Iceberg Lettuce",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 1.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "71307",
+      "store": "BJ's",
+      "item": "Wellsley Farms Organic Super Greens 16oz",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 4.49,
+      "servings": 16,
+      "costPerServing": 0.280625,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "71303",
+      "store": "BJ's",
+      "item": "Wellsley Farms Organic Baby Spinach 16oz",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 4.49,
+      "servings": 16,
+      "costPerServing": 0.280625,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "226128",
+      "store": "BJ's",
+      "item": "Blue Diamond Almond Breeze Unsweet Vanilla 96oz",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 4.69,
+      "servings": 96,
+      "costPerServing": 0.04885416666666667,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "21328",
+      "store": "BJ's",
+      "item": "Breakstones 2% Cottage Cheese 32oz",
+      "category": "Dairy",
+      "type": "Food",
+      "cost": 5.79,
+      "servings": 32,
+      "costPerServing": 0.1809375,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "18468",
+      "store": "BJ's",
+      "item": "Wymans Frozen Wild Blueberries 4lb",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 13.99,
+      "servings": 4,
+      "costPerServing": 3.4975,
+      "notes": "$1.50 coupon applied; net $12.49"
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "339858",
+      "store": "BJ's",
+      "item": "Vaseline Body Lotion 2pk",
+      "category": "Personal Care",
+      "type": "Personal Care",
+      "cost": 14.99,
+      "servings": 2,
+      "costPerServing": 7.495,
+      "notes": null
+    },
+    {
+      "date": "2026-04-17",
+      "itemCode": "30315",
+      "store": "BJ's",
+      "item": "Berkley Jensen Cold Cups 260ct",
+      "category": "Household",
+      "type": "Household",
+      "cost": 17.99,
+      "servings": 260,
+      "costPerServing": 0.06919230769230769,
+      "notes": null
+    }
+  ],
+  "winners": [
+    {
+      "store": "Costco",
+      "badge": "costco",
+      "wins": [
+        {
+          "item": "Fage Yogurt 48oz",
+          "detail": "$0.16/oz vs $0.27/oz",
+          "savings": "40% cheaper"
+        },
+        {
+          "item": "Pasture eggs 24ct",
+          "detail": "$0.33/egg vs $0.52/egg",
+          "savings": "36% cheaper"
+        },
+        {
+          "item": "Coke Zero 35pk",
+          "detail": "$21.29 \u2014 dropped $1.75 since 3/8",
+          "savings": null
+        }
+      ]
+    },
+    {
+      "store": "BJ's",
+      "badge": "bjs",
+      "wins": [
+        {
+          "item": "Breakstone cottage 32oz",
+          "detail": "$0.18/oz vs $0.24/oz",
+          "savings": "25% cheaper"
+        },
+        {
+          "item": "Wild Blueberries 4lb",
+          "detail": "$3.50/lb after $1.50 coupon",
+          "savings": null
+        },
+        {
+          "item": "Perdue Short Cuts 3lb",
+          "detail": "$4.66/lb",
+          "savings": null
+        }
+      ]
+    },
+    {
+      "store": "Stop & Shop",
+      "badge": "ss",
+      "wins": [
+        {
+          "item": "Laura's Lean ground",
+          "detail": "$10.79/lb \u2014 only source",
+          "savings": null
+        },
+        {
+          "item": "Sola bread varieties",
+          "detail": "$6.99 \u2014 keto staple",
+          "savings": null
+        },
+        {
+          "item": "Mission Zero tortillas",
+          "detail": "$4.29",
+          "savings": null
+        }
+      ]
+    }
+  ],
+  "watch": "Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.",
+  "totals": {
+    "itemCount": 63,
+    "tripCount": 4,
+    "monthlyEstimate": 412.15
+  }
+}
