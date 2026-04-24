@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery — Tyron & Tiffany</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface-hover: #1a1a26;
+    --border: #2a2a3a;
+    --text: #e8e8f0;
+    --text-muted: #8888a0;
+    --accent-green: #34d399;
+    --accent-blue: #4f8fff;
+    --accent-purple: #9d6fff;
+    --accent-orange: #f59e0b;
+    --accent-pink: #f472b6;
+    --accent-red: #e94560;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  a { color: var(--accent-blue); text-decoration: none; }
+
+  /* Login gate */
+  #login-gate {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 24px;
+  }
+  .login-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 40px 32px; max-width: 360px; text-align: center;
+  }
+  .login-card h1 {
+    font-size: 22px; font-weight: 700; margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff, var(--accent-green));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .login-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+  .google-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: #1a1a1a;
+    padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;
+    font-size: 14px; font-weight: 600; font-family: inherit;
+  }
+  .google-btn:hover { background: #f0f0f0; }
+  .google-btn svg { width: 18px; height: 18px; }
+  .err { color: var(--accent-red); font-size: 13px; margin-top: 16px; }
+
+  /* Dashboard */
+  #dashboard { display: none; max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .topbar h1 { font-size: 22px; font-weight: 700; background: linear-gradient(135deg, #fff, var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .user-menu { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); }
+  .user-menu button { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-family: inherit; }
+  .user-menu button:hover { color: var(--text); border-color: var(--text-muted); }
+
+  .tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tab { padding: 8px 16px; border-radius: 8px; background: var(--surface); color: var(--text-muted); cursor: pointer; font-size: 13px; font-weight: 500; border: 1px solid var(--border); }
+  .tab.active { background: var(--accent-green); color: #0a0a0f; border-color: var(--accent-green); }
+  .tab:hover:not(.active) { background: var(--surface-hover); color: var(--text); }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+  .metric { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .metric-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .metric-value { font-size: 22px; font-weight: 700; }
+  .metric-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  .section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 16px; }
+  .section h2 { font-size: 14px; font-weight: 600; margin-bottom: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .chart-wrap { position: relative; width: 100%; height: 240px; }
+
+  .wins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .win-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+  .win-badge { display: inline-block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
+  .win-badge.costco { background: rgba(79,143,255,0.15); color: var(--accent-blue); }
+  .win-badge.bjs { background: rgba(157,111,255,0.15); color: var(--accent-purple); }
+  .win-badge.ss { background: rgba(245,158,11,0.15); color: var(--accent-orange); }
+  .win-item { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+  .win-item strong { color: var(--text); display: block; font-weight: 500; font-size: 13px; }
+  .win-save { color: var(--accent-green); font-weight: 600; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; color: var(--text-muted); font-weight: 500; border-bottom: 1px solid var(--border); padding: 10px 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  td { padding: 10px 8px; border-bottom: 1px solid var(--border); }
+  tr:last-child td { border-bottom: none; }
+  .right { text-align: right; }
+
+  .watch { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: var(--text); line-height: 1.6; }
+  .watch strong { color: var(--accent-orange); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+
+  .footer { text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 12px; }
+
+  @media (max-width: 680px) {
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    .wins { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN GATE -->
+<div id="login-gate">
+  <div class="login-card">
+    <h1>Grocery Dashboard</h1>
+    <p>Tyron &amp; Tiffany only.<br>Sign in with your Google account.</p>
+    <button class="google-btn" id="signin-btn">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Sign in with Google
+    </button>
+    <div class="err" id="login-err"></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="topbar">
+    <h1>Grocery Dashboard</h1>
+    <div class="user-menu">
+      <span id="user-email"></span>
+      <button id="signout-btn">Sign out</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-range="month">This Month</div>
+    <div class="tab" data-range="lastmonth">Last Month</div>
+    <div class="tab" data-range="quarter">Quarter</div>
+    <div class="tab" data-range="year">Year</div>
+    <div class="tab" data-range="all">All Time</div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-label">Range spend</div><div class="metric-value" id="m-total">$375.65</div><div class="metric-sub" id="m-total-sub">2 trips in Apr</div></div>
+    <div class="metric"><div class="metric-label">Target</div><div class="metric-value">$900</div><div class="metric-sub">per month</div></div>
+    <div class="metric"><div class="metric-label">Items</div><div class="metric-value" id="m-items">28</div><div class="metric-sub">in range</div></div>
+    <div class="metric"><div class="metric-label">Trips</div><div class="metric-value" id="m-trips">2</div><div class="metric-sub">in range</div></div>
+  </div>
+
+  <div class="section">
+    <h2>Spending by trip</h2>
+    <div class="chart-wrap"><canvas id="tripChart"></canvas></div>
+  </div>
+
+  <div class="section">
+    <h2>Cross-store winners</h2>
+    <div class="wins">
+      <div class="win-card">
+        <span class="win-badge costco">Costco wins</span>
+        <div class="win-item"><strong>Fage Yogurt 48oz</strong>$0.16/oz vs $0.27/oz — <span class="win-save">40% cheaper</span></div>
+        <div class="win-item"><strong>Pasture eggs 24ct</strong>$0.33/egg vs $0.52/egg — <span class="win-save">36% cheaper</span></div>
+        <div class="win-item"><strong>Coke Zero 35pk</strong>$21.29 — dropped $1.75 since 3/8</div>
+      </div>
+      <div class="win-card">
+        <span class="win-badge bjs">BJ's wins</span>
+        <div class="win-item"><strong>Breakstone cottage 32oz</strong>$0.18/oz vs $0.24/oz — <span class="win-save">25% cheaper</span></div>
+        <div class="win-item"><strong>Wild Blueberries 4lb</strong>$3.50/lb after $1.50 coupon</div>
+        <div class="win-item"><strong>Perdue Short Cuts 3lb</strong>$4.66/lb</div>
+      </div>
+      <div class="win-card">
+        <span class="win-badge ss">Stop &amp; Shop wins</span>
+        <div class="win-item"><strong>Laura's Lean ground</strong>$10.79/lb — only source</div>
+        <div class="win-item"><strong>Sola bread varieties</strong>$6.99 — keto staple</div>
+        <div class="win-item"><strong>Mission Zero tortillas</strong>$4.29</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Trip log</h2>
+    <table>
+      <thead><tr><th>Date</th><th>Store</th><th class="right">Food</th><th class="right">Household</th><th class="right">Total</th></tr></thead>
+      <tbody id="trip-tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="watch">
+    <strong>Watch</strong>
+    Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.
+  </div>
+
+  <div class="footer">Last updated 2026-04-24 · Data from Grocery_Tracker.xlsx</div>
+</div>
+
+<!-- Firebase v10 (modular, from CDN) -->
+<script type="module">
+  // ====== FIREBASE CONFIG (paste your keys here after Firebase setup) ======
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+    authDomain: "tyron-personal.firebaseapp.com",
+    projectId: "tyron-personal",
+    appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+  };
+  // ====== ALLOWLIST ======
+  const ALLOWED_EMAILS = [
+    "tyronsamaroo828@gmail.com",
+    "tiffanysamaroo721@gmail.com"
+  ];
+  // ========================================================================
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const loginGate = document.getElementById('login-gate');
+  const dashboard = document.getElementById('dashboard');
+  const loginErr = document.getElementById('login-err');
+  const userEmailEl = document.getElementById('user-email');
+
+  document.getElementById('signin-btn').addEventListener('click', async () => {
+    loginErr.textContent = '';
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (e) {
+      loginErr.textContent = 'Sign-in failed: ' + (e.message || e.code);
+    }
+  });
+
+  document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
+
+  onAuthStateChanged(auth, (user) => {
+    if (user && ALLOWED_EMAILS.includes(user.email)) {
+      loginGate.style.display = 'none';
+      dashboard.style.display = 'block';
+      userEmailEl.textContent = user.email;
+      renderDashboard();
+    } else if (user) {
+      loginErr.textContent = `${user.email} is not authorized. Signing out.`;
+      setTimeout(() => signOut(auth), 2000);
+    } else {
+      loginGate.style.display = 'flex';
+      dashboard.style.display = 'none';
+    }
+  });
+
+  // ===== Dashboard data (will move to data.json later) =====
+  const trips = [
+    { date: '2026-03-02', store: 'Stop & Shop', food: 71.89, hh: 0, total: 71.89 },
+    { date: '2026-03-08', store: 'Costco',      food: 294.37, hh: 78.64, total: 373.01 },
+    { date: '2026-04-04', store: 'Stop & Shop', food: 89.15, hh: 0, total: 89.15 },
+    { date: '2026-04-17', store: "BJ's",        food: 96.19, hh: 32.98, total: 130.51 },
+    { date: '2026-04-17', store: 'Costco',      food: 175.82, hh: 63.46, total: 245.14 },
+  ];
+
+  function filterTrips(range) {
+    const now = new Date('2026-04-24');
+    const thisYear = now.getFullYear(), thisMonth = now.getMonth();
+    return trips.filter(t => {
+      const d = new Date(t.date);
+      if (range === 'all') return true;
+      if (range === 'year') return d.getFullYear() === thisYear;
+      if (range === 'quarter') return d.getFullYear() === thisYear && Math.floor(d.getMonth()/3) === Math.floor(thisMonth/3);
+      if (range === 'month') return d.getFullYear() === thisYear && d.getMonth() === thisMonth;
+      if (range === 'lastmonth') {
+        const lm = new Date(now); lm.setMonth(lm.getMonth() - 1);
+        return d.getFullYear() === lm.getFullYear() && d.getMonth() === lm.getMonth();
+      }
+      return true;
+    });
+  }
+
+  let chart;
+  function renderDashboard(range = 'month') {
+    const filtered = filterTrips(range);
+    const total = filtered.reduce((s,t) => s + t.total, 0);
+    document.getElementById('m-total').textContent = '$' + total.toFixed(2);
+    document.getElementById('m-trips').textContent = filtered.length;
+    document.getElementById('m-total-sub').textContent = `${range === 'month' ? 'this month' : range === 'lastmonth' ? 'last month' : range === 'quarter' ? 'Q' + (Math.floor(new Date('2026-04-24').getMonth()/3) + 1) : range === 'year' ? '2026 YTD' : 'all time'}`;
+
+    const tbody = document.getElementById('trip-tbody');
+    tbody.innerHTML = filtered.map(t => `<tr><td>${t.date}</td><td>${t.store}</td><td class="right">$${t.food.toFixed(2)}</td><td class="right">${t.hh ? '$'+t.hh.toFixed(2) : '—'}</td><td class="right"><strong>$${t.total.toFixed(2)}</strong></td></tr>`).join('');
+
+    if (chart) chart.destroy();
+    const colors = { 'Costco': '#4f8fff', "BJ's": '#9d6fff', 'Stop & Shop': '#f59e0b' };
+    chart = new Chart(document.getElementById('tripChart'), {
+      type: 'bar',
+      data: {
+        labels: filtered.map(t => t.date.slice(5) + ' ' + t.store.replace(' & ','&').substr(0,7)),
+        datasets: [{ data: filtered.map(t => t.total), backgroundColor: filtered.map(t => colors[t.store] || '#34d399'), borderRadius: 4 }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => '$' + c.parsed.y.toFixed(2) } } },
+        scales: {
+          y: { beginAtZero: true, ticks: { color: '#8888a0', callback: v => '$' + v }, grid: { color: '#2a2a3a' } },
+          x: { ticks: { color: '#8888a0', font: { size: 11 } }, grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderDashboard(tab.dataset.range);
+    });
+  });
+
+  window.renderDashboard = renderDashboard;
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</body>
+</html>

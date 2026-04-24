@@ -4,8 +4,21 @@
   "outputDirectory": "frontend/dist",
   "installCommand": "cd frontend && npm install",
   "rewrites": [
-    { "source": "/coach-report/:path*", "destination": "/coach-report/:path*" },
-    { "source": "/coach-report-wk12/:path*", "destination": "/coach-report-wk12/:path*" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/coach-report/:path*",
+      "destination": "/coach-report/:path*"
+    },
+    {
+      "source": "/coach-report-wk12/:path*",
+      "destination": "/coach-report-wk12/:path*"
+    },
+    {
+      "source": "/grocery/:path*",
+      "destination": "/grocery/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
