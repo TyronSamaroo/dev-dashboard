@@ -4,158 +4,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grocery — Tyron & Tiffany</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
-  :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface-hover: #1a1a26;
-    --border: #2a2a3a;
-    --text: #e8e8f0;
-    --text-muted: #8888a0;
-    --chart-grid: #2a2a3a;
-    --chart-tick: #8888a0;
-    --accent-green: #34d399;
-    --accent-blue: #4f8fff;
-    --accent-purple: #9d6fff;
-    --accent-orange: #f59e0b;
-    --accent-pink: #f472b6;
-    --accent-red: #e94560;
-  }
-  [data-theme="light"] {
-    --bg: #f7f7f8;
-    --surface: #ffffff;
-    --surface-hover: #f3f3f5;
-    --border: #e2e2e6;
-    --text: #1a1a1a;
-    --text-muted: #5a5a66;
-    --chart-grid: #e8e8ec;
-    --chart-tick: #5a5a66;
-    --accent-green: #059669;
-    --accent-blue: #2563eb;
-    --accent-purple: #7c3aed;
-    --accent-orange: #d97706;
-    --accent-pink: #db2777;
-    --accent-red: #dc2626;
-  }
-  [data-theme="light"] .login-card { background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%); }
-  [data-theme="light"] .google-btn { border: 1px solid #d1d5db; }
-  [data-theme="light"] .google-btn:hover { background: #f3f4f6; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-  a { color: var(--accent-blue); text-decoration: none; }
+:root {
+  --bg: #fafafa; --surface: #ffffff; --surface-alt: #f3f4f6; --border: #e5e7eb;
+  --text: #111827; --text-muted: #6b7280; --text-faint: #9ca3af;
+  --accent: #059669; --accent-bg: #d1fae5;
+  --c-costco: #2563eb; --c-bjs: #7c3aed; --c-ss: #d97706; --c-online: #0891b2;
+  --warn-bg: #fef3c7; --warn-border: #fcd34d; --warn-text: #92400e;
+  --danger: #dc2626; --shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+[data-theme="dark"] {
+  --bg: #0a0a0f; --surface: #12121a; --surface-alt: #1a1a26; --border: #2a2a3a;
+  --text: #e8e8f0; --text-muted: #8888a0; --text-faint: #6b6b80;
+  --accent: #34d399; --accent-bg: rgba(52,211,153,0.15);
+  --c-costco: #4f8fff; --c-bjs: #9d6fff; --c-ss: #f59e0b; --c-online: #22d3ee;
+  --warn-bg: rgba(245,158,11,0.1); --warn-border: rgba(245,158,11,0.4); --warn-text: #f59e0b;
+  --danger: #f87171; --shadow: none;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
 
-  /* Login gate */
-  #login-gate {
-    display: flex; align-items: center; justify-content: center;
-    min-height: 100vh; padding: 24px;
-  }
-  .login-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 40px 32px; max-width: 360px; text-align: center;
-  }
-  .login-card h1 {
-    font-size: 22px; font-weight: 700; margin-bottom: 8px;
-    background: linear-gradient(135deg, #fff, var(--accent-green));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .login-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
-  .google-btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: #fff; color: #1a1a1a;
-    padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;
-    font-size: 14px; font-weight: 600; font-family: inherit;
-  }
-  .google-btn:hover { background: #f0f0f0; }
-  .google-btn svg { width: 18px; height: 18px; }
-  .err { color: var(--accent-red); font-size: 13px; margin-top: 16px; }
+/* Login */
+#gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+.gate-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; max-width: 360px; width: 100%; text-align: center; box-shadow: var(--shadow); }
+.gate-card h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.gate-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+.google-btn { width: 100%; padding: 12px; background: #fff; color: #1f2937; border: 1px solid #d1d5db; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: inherit; }
+.google-btn:hover { background: #f9fafb; }
+.google-btn svg { width: 18px; height: 18px; }
+.err { color: var(--danger); font-size: 13px; margin-top: 14px; min-height: 18px; }
 
-  /* Dashboard */
-  #dashboard { display: none; max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
-  .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
-  .topbar h1 { font-size: 22px; font-weight: 700; background: linear-gradient(135deg, #fff, var(--accent-green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .user-menu { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); }
-  .user-menu button { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-family: inherit; }
-  .user-menu button:hover { color: var(--text); border-color: var(--text-muted); }
-  .theme-toggle { background: transparent; border: 1px solid var(--border); color: var(--text-muted); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
-  .theme-toggle:hover { color: var(--text); border-color: var(--text-muted); }
-  .theme-toggle svg { width: 14px; height: 14px; }
+/* Dashboard */
+#app { display: none; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.topbar h1 { font-size: 22px; font-weight: 700; }
+.user-row { display: flex; align-items: center; gap: 8px; }
+.user-row span { font-size: 12px; color: var(--text-muted); }
+.icon-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+.icon-btn:hover { color: var(--text); border-color: var(--text-muted); }
+.icon-btn svg { width: 14px; height: 14px; }
+.text-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; }
+.text-btn:hover { color: var(--text); border-color: var(--text-muted); }
 
-  .tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
-  .tab { padding: 8px 16px; border-radius: 8px; background: var(--surface); color: var(--text-muted); cursor: pointer; font-size: 13px; font-weight: 500; border: 1px solid var(--border); }
-  .tab.active { background: var(--accent-green); color: #0a0a0f; border-color: var(--accent-green); }
-  .tab:hover:not(.active) { background: var(--surface-hover); color: var(--text); }
+.tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+.tab { padding: 8px 16px; border-radius: 8px; background: var(--surface); color: var(--text-muted); cursor: pointer; font-size: 13px; font-weight: 500; border: 1px solid var(--border); }
+.tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.tab:hover:not(.active) { background: var(--surface-alt); color: var(--text); }
 
-  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
-  .metric { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
-  .metric-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .metric-value { font-size: 22px; font-weight: 700; }
-  .metric-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
+.metric { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
+.metric-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; font-weight: 600; }
+.metric-value { font-size: 24px; font-weight: 700; line-height: 1.1; }
+.metric-sub { font-size: 12px; color: var(--text-faint); margin-top: 4px; }
 
-  .section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 16px; }
-  .section h2 { font-size: 14px; font-weight: 600; margin-bottom: 14px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .chart-wrap { position: relative; width: 100%; height: 240px; }
+.section { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; margin-bottom: 16px; box-shadow: var(--shadow); }
+.section h2 { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 14px; }
+.chart-wrap { position: relative; width: 100%; height: 260px; }
 
-  .wins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .win-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
-  .win-badge { display: inline-block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
-  .win-badge.costco { background: rgba(79,143,255,0.15); color: var(--accent-blue); }
-  .win-badge.bjs { background: rgba(157,111,255,0.15); color: var(--accent-purple); }
-  .win-badge.ss { background: rgba(245,158,11,0.15); color: var(--accent-orange); }
-  .win-item { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
-  .win-item strong { color: var(--text); display: block; font-weight: 500; font-size: 13px; }
-  .win-save { color: var(--accent-green); font-weight: 600; }
+.wins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px; box-shadow: var(--shadow); }
+.win-badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; padding: 3px 8px; border-radius: 4px; margin-bottom: 12px; color: #fff; }
+.win-badge.costco { background: var(--c-costco); }
+.win-badge.bjs { background: var(--c-bjs); }
+.win-badge.ss { background: var(--c-ss); }
+.win-item { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+.win-item:last-child { margin-bottom: 0; }
+.win-item strong { color: var(--text); display: block; font-weight: 600; font-size: 13px; margin-bottom: 2px; }
+.win-save { color: var(--accent); font-weight: 600; }
 
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { text-align: left; color: var(--text-muted); font-weight: 500; border-bottom: 1px solid var(--border); padding: 10px 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-  td { padding: 10px 8px; border-bottom: 1px solid var(--border); }
-  tr:last-child td { border-bottom: none; }
-  .right { text-align: right; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); padding: 10px 8px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; }
+td { padding: 12px 8px; border-bottom: 1px solid var(--border); color: var(--text); }
+tr:last-child td { border-bottom: none; }
+.right { text-align: right; }
+.store-pill { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; color: #fff; }
+.store-pill.costco { background: var(--c-costco); }
+.store-pill.bjs { background: var(--c-bjs); }
+.store-pill.ss { background: var(--c-ss); }
 
-  .watch { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: var(--text); line-height: 1.6; }
-  .watch strong { color: var(--accent-orange); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.watch { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 12px; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: var(--warn-text); }
+.watch strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; font-weight: 700; }
 
-  .footer { text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 12px; }
+.footer { text-align: center; margin-top: 32px; color: var(--text-faint); font-size: 12px; }
+.footer a { color: var(--accent); text-decoration: none; }
 
-  .view-toggle { display: flex; gap: 8px; margin-bottom: 20px; }
-  .view-btn { padding: 10px 20px; border-radius: 8px; background: var(--surface); color: var(--text-muted); cursor: pointer; font-size: 14px; font-weight: 500; border: 1px solid var(--border); font-family: inherit; }
-  .view-btn.active { background: var(--accent-green); color: #0a0a0f; border-color: var(--accent-green); }
-  .view-btn:hover:not(.active) { background: var(--surface-hover); color: var(--text); }
-  .shopping-store { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 22px; margin-bottom: 14px; }
-  .shopping-store h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--accent-green); }
-  .shopping-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-  .shopping-item:last-child { border-bottom: none; }
-  .shopping-item input[type="checkbox"] { margin-top: 3px; cursor: pointer; accent-color: var(--accent-green); width: 16px; height: 16px; flex-shrink: 0; }
-  .shopping-item label { flex: 1; cursor: pointer; line-height: 1.5; }
-  .shopping-item.done label { text-decoration: line-through; color: var(--text-muted); }
-  .trip-block { margin-bottom: 18px; }
-  .trip-block:last-child { margin-bottom: 0; }
-  .trip-block h4 { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
-  .trip-list { list-style: none; padding: 0; }
-  .trip-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text); display: flex; gap: 10px; align-items: flex-start; }
-  .trip-list li:last-child { border-bottom: none; }
-  .trip-list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-green); margin-top: 8px; flex-shrink: 0; }
-  .trip-route { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; font-size: 13px; line-height: 1.7; color: var(--text); }
-  .trip-est-table { width: 100%; font-size: 13px; }
-  .trip-est-table td { padding: 8px 0; border-bottom: 1px solid var(--border); }
-  .trip-est-table td:last-child { text-align: right; color: var(--text); font-weight: 500; }
-  .trip-est-table tr:last-child td { border-bottom: none; }
-  .trip-total { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding: 12px 14px; background: var(--bg); border: 1px solid var(--accent-green); border-radius: 8px; }
-  .trip-total .label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-  .trip-total .value { font-size: 16px; font-weight: 600; color: var(--accent-green); }
-  .trip-note-card { background: var(--bg); border-left: 3px solid var(--accent-orange); padding: 10px 14px; font-size: 13px; line-height: 1.6; color: var(--text-muted); margin-top: 8px; border-radius: 0 8px 8px 0; }
-  @media (max-width: 680px) {
-    .metrics { grid-template-columns: repeat(2, 1fr); }
-    .wins { grid-template-columns: 1fr; }
-  }
+@media (max-width: 680px) {
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .wins { grid-template-columns: 1fr; }
+  .topbar h1 { font-size: 18px; }
+}
 </style>
 </head>
-<body>
+<body data-theme="light">
 
-<!-- LOGIN GATE -->
-<div id="login-gate">
-  <div class="login-card">
+<div id="gate">
+  <div class="gate-card">
     <h1>Grocery Dashboard</h1>
-    <p>Tyron &amp; Tiffany only.<br>Sign in with your Google account.</p>
+    <p>Tyron &amp; Tiffany only — sign in with your Google account.</p>
     <button class="google-btn" id="signin-btn">
       <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
       Sign in with Google
@@ -164,341 +111,229 @@
   </div>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard">
-  <div class="topbar">
-    <h1>Grocery Dashboard</h1>
-    <div class="user-menu">
-      <span id="user-email"></span>
-      <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
-        <svg id="theme-icon" viewBox="0 0 24 24" fill="currentColor"></svg>
-      </button>
-      <button id="signout-btn">Sign out</button>
-    </div>
-  </div>
-
-  <div class="view-toggle">
-    <button class="view-btn active" data-view="spending">Spending</button>
-    <button class="view-btn" data-view="shopping">Shopping list</button>
-  </div>
-
-  <div id="view-spending">
-  <div class="tabs">
-    <div class="tab active" data-range="month">This Month</div>
-    <div class="tab" data-range="lastmonth">Last Month</div>
-    <div class="tab" data-range="quarter">Quarter</div>
-    <div class="tab" data-range="year">Year</div>
-    <div class="tab" data-range="all">All Time</div>
-  </div>
-
-  <div class="metrics">
-    <div class="metric"><div class="metric-label">Range spend</div><div class="metric-value" id="m-total">$375.65</div><div class="metric-sub" id="m-total-sub">2 trips in Apr</div></div>
-    <div class="metric"><div class="metric-label">Target</div><div class="metric-value">$900</div><div class="metric-sub">per month</div></div>
-    <div class="metric"><div class="metric-label">Items</div><div class="metric-value" id="m-items">28</div><div class="metric-sub">in range</div></div>
-    <div class="metric"><div class="metric-label">Trips</div><div class="metric-value" id="m-trips">2</div><div class="metric-sub">in range</div></div>
-  </div>
-
-  <div class="section">
-    <h2>Spending by trip</h2>
-    <div class="chart-wrap"><canvas id="tripChart"></canvas></div>
-  </div>
-
-  <div class="section">
-    <h2>Cross-store winners</h2>
-    <div class="wins">
-      <div class="win-card">
-        <span class="win-badge costco">Costco wins</span>
-        <div class="win-item"><strong>Fage Yogurt 48oz</strong>$0.16/oz vs $0.27/oz — <span class="win-save">40% cheaper</span></div>
-        <div class="win-item"><strong>Pasture eggs 24ct</strong>$0.33/egg vs $0.52/egg — <span class="win-save">36% cheaper</span></div>
-        <div class="win-item"><strong>Coke Zero 35pk</strong>$21.29 — dropped $1.75 since 3/8</div>
-      </div>
-      <div class="win-card">
-        <span class="win-badge bjs">BJ's wins</span>
-        <div class="win-item"><strong>Breakstone cottage 32oz</strong>$0.18/oz vs $0.24/oz — <span class="win-save">25% cheaper</span></div>
-        <div class="win-item"><strong>Wild Blueberries 4lb</strong>$3.50/lb after $1.50 coupon</div>
-        <div class="win-item"><strong>Perdue Short Cuts 3lb</strong>$4.66/lb</div>
-      </div>
-      <div class="win-card">
-        <span class="win-badge ss">Stop &amp; Shop wins</span>
-        <div class="win-item"><strong>Laura's Lean ground</strong>$10.79/lb — only source</div>
-        <div class="win-item"><strong>Sola bread varieties</strong>$6.99 — keto staple</div>
-        <div class="win-item"><strong>Mission Zero tortillas</strong>$4.29</div>
+<div id="app">
+  <div class="container">
+    <div class="topbar">
+      <h1>Grocery Dashboard</h1>
+      <div class="user-row">
+        <span id="user-email"></span>
+        <button class="icon-btn" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24" fill="currentColor"></svg></button>
+        <button class="text-btn" id="signout-btn">Sign out</button>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Trip log</h2>
-    <table>
-      <thead><tr><th>Date</th><th>Store</th><th class="right">Food</th><th class="right">Household</th><th class="right">Total</th></tr></thead>
-      <tbody id="trip-tbody"></tbody>
-    </table>
-  </div>
-
-  <div class="watch">
-    <strong>Watch</strong>
-    Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.
-  </div>
-
-  <div class="footer">Last updated 2026-04-24 · Data from Grocery_Tracker.xlsx</div>
-  </div><!-- /view-spending -->
-
-  <div id="view-shopping" style="display:none;">
-    <div class="section">
-      <h2>Need now</h2>
-      <div id="shopping-need-now"></div>
+    <div class="tabs">
+      <div class="tab active" data-range="month">This Month</div>
+      <div class="tab" data-range="lastmonth">Last Month</div>
+      <div class="tab" data-range="quarter">Quarter</div>
+      <div class="tab" data-range="year">Year</div>
+      <div class="tab" data-range="all">All Time</div>
     </div>
-    <div class="section">
-      <h2>Restock soon</h2>
-      <div id="shopping-restock"></div>
+
+    <div class="metrics">
+      <div class="metric"><div class="metric-label">Range spend</div><div class="metric-value" id="m-total">—</div><div class="metric-sub" id="m-total-sub"></div></div>
+      <div class="metric"><div class="metric-label">Target</div><div class="metric-value">$900</div><div class="metric-sub">per month</div></div>
+      <div class="metric"><div class="metric-label">Items</div><div class="metric-value" id="m-items">—</div><div class="metric-sub">in range</div></div>
+      <div class="metric"><div class="metric-label">Trips</div><div class="metric-value" id="m-trips">—</div><div class="metric-sub">in range</div></div>
     </div>
+
+    <div class="section"><h2>Spending by trip</h2><div class="chart-wrap"><canvas id="tripChart"></canvas></div></div>
+
     <div class="section">
-      <h2>Trip planning</h2>
-      <div id="shopping-trip"></div>
+      <h2>Cross-store winners</h2>
+      <div class="wins" id="wins"></div>
     </div>
-  </div><!-- /view-shopping -->
+
+    <div class="section">
+      <h2>Trip log</h2>
+      <table><thead><tr><th>Date</th><th>Store</th><th class="right">Food</th><th class="right">Household</th><th class="right">Total</th></tr></thead><tbody id="trip-tbody"></tbody></table>
+    </div>
+
+    <div class="watch" id="watch-box"><strong>Watch</strong><span id="watch-text"></span></div>
+
+    <div class="footer">
+      Active shopping list at <a href="/grocery/shopping-list/">tyronsamaroo.dev/grocery/shopping-list</a> · Data refreshes when receipts are processed
+      <div id="last-updated" style="margin-top:6px;"></div>
+    </div>
+  </div>
 </div>
 
-<!-- Firebase v10 (modular, from CDN) -->
 <script type="module">
-  // ====== FIREBASE CONFIG (paste your keys here after Firebase setup) ======
-  const firebaseConfig = {
-    apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
-    authDomain: "tyron-personal.firebaseapp.com",
-    projectId: "tyron-personal",
-    appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
-  };
-  // ====== ALLOWLIST ======
-  const ALLOWED_EMAILS = [
-    "tyronsamaroo828@gmail.com",
-    "tiffanysamaroo721@gmail.com"
-  ];
-  // ========================================================================
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+  authDomain: "tyron-personal.firebaseapp.com",
+  projectId: "tyron-personal",
+  appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+};
+const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com", "tiffanysamaroo721@gmail.com"];
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-  const loginGate = document.getElementById('login-gate');
-  const dashboard = document.getElementById('dashboard');
-  const loginErr = document.getElementById('login-err');
-  const userEmailEl = document.getElementById('user-email');
+const gate = document.getElementById('gate');
+const appEl = document.getElementById('app');
+const errEl = document.getElementById('login-err');
+const userEmailEl = document.getElementById('user-email');
 
-  document.getElementById('signin-btn').addEventListener('click', async () => {
-    loginErr.textContent = '';
-    try {
-      await signInWithPopup(auth, provider);
-    } catch (e) {
-      loginErr.textContent = 'Sign-in failed: ' + (e.message || e.code);
+// ===== Theme (light is default; one-time reset to clear stale dark from old version) =====
+const SUN_PATH = '<path d="M12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>';
+const MOON_PATH = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  document.getElementById('theme-icon').innerHTML = theme === 'light' ? MOON_PATH : SUN_PATH;
+  try { localStorage.setItem('grocery_theme', theme); } catch(e) {}
+  if (chart && data) renderRange(currentRange);
+}
+let savedTheme = 'light';
+try {
+  if (localStorage.getItem('grocery_theme_v') !== '2') {
+    localStorage.removeItem('grocery_theme');
+    localStorage.setItem('grocery_theme_v', '2');
+  }
+  savedTheme = localStorage.getItem('grocery_theme') || 'light';
+} catch(e) {}
+applyTheme(savedTheme);
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  applyTheme(document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+});
+
+// ===== Auth =====
+document.getElementById('signin-btn').addEventListener('click', async () => {
+  errEl.textContent = '';
+  try { await signInWithPopup(auth, provider); }
+  catch (e) { errEl.textContent = 'Sign-in failed: ' + (e.message || e.code); }
+});
+document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
+
+onAuthStateChanged(auth, async (user) => {
+  if (user && ALLOWED_EMAILS.includes(user.email)) {
+    gate.style.display = 'none';
+    appEl.style.display = 'block';
+    userEmailEl.textContent = user.email;
+    await loadData();
+    renderRange('month');
+  } else if (user) {
+    errEl.textContent = `${user.email} is not authorized`;
+    setTimeout(() => signOut(auth), 1500);
+  } else {
+    gate.style.display = 'flex';
+    appEl.style.display = 'none';
+  }
+});
+
+// ===== Data + render =====
+let data = null;
+let chart = null;
+let currentRange = 'month';
+const escapeHtml = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const storeColor = s => s === 'Costco' ? '--c-costco' : s === "BJ's" ? '--c-bjs' : s === 'Stop & Shop' ? '--c-ss' : '--c-online';
+const storeClass = s => s === 'Costco' ? 'costco' : s === "BJ's" ? 'bjs' : 'ss';
+function cssVar(name) { return getComputedStyle(document.body).getPropertyValue(name).trim(); }
+
+async function loadData() {
+  try {
+    const res = await fetch('/grocery/data.json', { cache: 'no-cache' });
+    data = await res.json();
+    renderWins();
+    renderWatch();
+    renderFooter();
+  } catch (e) {
+    console.error('data.json load failed', e);
+  }
+}
+
+function filterTrips(range) {
+  if (!data?.trips) return [];
+  const now = new Date(data.generatedAt || Date.now());
+  const y = now.getFullYear(), m = now.getMonth();
+  return data.trips.filter(t => {
+    const d = new Date(t.date);
+    if (range === 'all') return true;
+    if (range === 'year') return d.getFullYear() === y;
+    if (range === 'quarter') return d.getFullYear() === y && Math.floor(d.getMonth()/3) === Math.floor(m/3);
+    if (range === 'month') return d.getFullYear() === y && d.getMonth() === m;
+    if (range === 'lastmonth') {
+      const lm = new Date(now); lm.setMonth(lm.getMonth() - 1);
+      return d.getFullYear() === lm.getFullYear() && d.getMonth() === lm.getMonth();
     }
+    return true;
   });
+}
 
-  document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
-
-  function detectInitialView() {
-    const path = window.location.pathname.toLowerCase();
-    const search = window.location.search.toLowerCase();
-    const hash = window.location.hash.toLowerCase();
-    if (path.includes('shopping') || search.includes('view=shopping') || hash.includes('shopping')) return 'shopping';
-    return 'spending';
-  }
-
-  onAuthStateChanged(auth, async (user) => {
-    if (user && ALLOWED_EMAILS.includes(user.email)) {
-      loginGate.style.display = 'none';
-      dashboard.style.display = 'block';
-      userEmailEl.textContent = user.email;
-      await loadData();
-      renderDashboard();
-      const initialView = detectInitialView();
-      if (initialView === 'shopping') setView('shopping');
-    } else if (user) {
-      loginErr.textContent = `${user.email} is not authorized. Signing out.`;
-      setTimeout(() => signOut(auth), 2000);
-    } else {
-      loginGate.style.display = 'flex';
-      dashboard.style.display = 'none';
-    }
-  });
-
-  // ===== Dashboard data (fetched from data.json; built by Finance/Groceries/build-data.py) =====
-  let trips = [];
-  let dashboardData = null;
-  async function loadData() {
-    try {
-      const res = await fetch('./data.json', { cache: 'no-cache' });
-      if (!res.ok) throw new Error('data.json fetch failed ' + res.status);
-      dashboardData = await res.json();
-      trips = dashboardData.trips || [];
-      renderWinnersAndWatch();
-      renderMeta();
-    } catch (e) {
-      console.warn('data.json unavailable, using empty dataset:', e);
-      trips = [];
-    }
-  }
-
-  function renderShoppingList() {
-    if (!dashboardData?.shoppingList) return;
-    const sl = dashboardData.shoppingList;
-    const needEl = document.getElementById('shopping-need-now');
-    needEl.innerHTML = (sl.needNow || []).map(store => `
-      <div class="shopping-store">
-        <h3>${store.store}</h3>
-        ${store.items.map((it, i) => `
-          <div class="shopping-item${it.done ? ' done' : ''}">
-            <input type="checkbox" id="sn-${store.store.replace(/\W/g,'')}-${i}" ${it.done ? 'checked' : ''} onchange="this.closest('.shopping-item').classList.toggle('done', this.checked)">
-            <label for="sn-${store.store.replace(/\W/g,'')}-${i}">${it.name}</label>
-          </div>
-        `).join('')}
-      </div>
-    `).join('') || '<p style="color: var(--text-muted); font-size: 13px;">No active items.</p>';
-
-    const restockEl = document.getElementById('shopping-restock');
-    restockEl.innerHTML = (sl.restockSoon || []).length ? `
-      <div class="shopping-store">
-        ${sl.restockSoon.map((it, i) => `
-          <div class="shopping-item${it.done ? ' done' : ''}">
-            <input type="checkbox" id="sr-${i}" ${it.done ? 'checked' : ''} onchange="this.closest('.shopping-item').classList.toggle('done', this.checked)">
-            <label for="sr-${i}">${it.name}</label>
-          </div>
-        `).join('')}
-      </div>
-    ` : '<p style="color: var(--text-muted); font-size: 13px;">Nothing flagged for restock.</p>';
-
-    const tripEl = document.getElementById('shopping-trip');
-    const t = sl.trip || {};
-    let html = '';
-    if (t.stops && t.stops.length) {
-      html += `<div class="trip-block"><h4>Stops</h4><ul class="trip-list">${t.stops.map(s => `<li>${s.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</li>`).join('')}</ul></div>`;
-    }
-    if (t.route && t.route.length) {
-      html += `<div class="trip-block"><h4>Route</h4><div class="trip-route">${t.route.map(r => r.replace(/&/g, '&amp;').replace(/</g, '&lt;')).join('<br>')}</div></div>`;
-    }
-    if (t.estimates && t.estimates.length) {
-      html += `<div class="trip-block"><h4>Estimated spend</h4><table class="trip-est-table"><tbody>${t.estimates.map(e => {
-        const m = e.match(/^(.+?):\s*(.+)$/);
-        return m ? `<tr><td>${m[1]}</td><td>${m[2]}</td></tr>` : `<tr><td colspan="2">${e}</td></tr>`;
-      }).join('')}</tbody></table>`;
-      if (t.totalEstimate) {
-        html += `<div class="trip-total"><span class="label">Total estimate</span><span class="value">${t.totalEstimate}</span></div>`;
-      }
-      html += `</div>`;
-    }
-    if (t.notes && t.notes.length) {
-      html += `<div class="trip-block"><h4>Heads up</h4>${t.notes.map(n => `<div class="trip-note-card">${n.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</div>`).join('')}</div>`;
-    }
-    if (!html) html = '<p style="color: var(--text-muted); font-size: 13px;">No trip planning notes yet.</p>';
-    tripEl.innerHTML = html;
-  }
-
-  function setView(view) {
-    document.getElementById('view-spending').style.display = view === 'spending' ? 'block' : 'none';
-    document.getElementById('view-shopping').style.display = view === 'shopping' ? 'block' : 'none';
-    document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
-    if (view === 'shopping') renderShoppingList();
-  }
-  document.querySelectorAll('.view-btn').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
-
-  // ===== Theme toggle =====
-  let currentRange = 'month';
-  const SUN_PATH = '<path d="M12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>';
-  const MOON_PATH = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
-  function applyTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    document.getElementById('theme-icon').innerHTML = theme === 'light' ? MOON_PATH : SUN_PATH;
-    try { localStorage.setItem('grocery_theme', theme); } catch(e) {}
-    if (chart && dashboardData) renderDashboard(currentRange);
-  }
-  document.getElementById('theme-toggle').addEventListener('click', () => {
-    const next = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    applyTheme(next);
-  });
-  let savedTheme = 'light';
-  try { savedTheme = localStorage.getItem('grocery_theme') || 'light'; } catch(e) {}
-  applyTheme(savedTheme);
-
-  function renderWinnersAndWatch() {
-    if (!dashboardData) return;
-    if (dashboardData.watch) {
-      const watchEl = document.querySelector('.watch');
-      if (watchEl) {
-        const strong = watchEl.querySelector('strong') ? watchEl.querySelector('strong').outerHTML : '<strong>Watch</strong>';
-        watchEl.innerHTML = strong + '\n    ' + dashboardData.watch;
+function renderRange(range) {
+  currentRange = range;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.range === range));
+  const trips = filterTrips(range);
+  const total = trips.reduce((s,t) => s + t.total, 0);
+  document.getElementById('m-total').textContent = '$' + total.toFixed(2);
+  document.getElementById('m-trips').textContent = trips.length;
+  document.getElementById('m-items').textContent = trips.reduce((s,t) => s + (t.itemCount || 0), 0);
+  const labels = { month: 'this month', lastmonth: 'last month', quarter: 'this quarter', year: 'this year', all: 'all time' };
+  document.getElementById('m-total-sub').textContent = labels[range] || '';
+  // table
+  const tbody = document.getElementById('trip-tbody');
+  tbody.innerHTML = trips.length ? trips.map(t => `
+    <tr>
+      <td>${t.date}</td>
+      <td><span class="store-pill ${storeClass(t.store)}">${escapeHtml(t.store)}</span></td>
+      <td class="right">$${t.food.toFixed(2)}</td>
+      <td class="right">${t.hh ? '$'+t.hh.toFixed(2) : '—'}</td>
+      <td class="right"><strong>$${t.total.toFixed(2)}</strong></td>
+    </tr>
+  `).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-faint);padding:20px;">No trips in this range</td></tr>';
+  // chart
+  if (chart) chart.destroy();
+  if (typeof Chart === 'undefined') { console.warn('Chart.js not loaded'); return; }
+  chart = new Chart(document.getElementById('tripChart'), {
+    type: 'bar',
+    data: {
+      labels: trips.map(t => t.date.slice(5) + ' ' + t.store.replace(' & ','&').slice(0,7)),
+      datasets: [{ data: trips.map(t => t.total), backgroundColor: trips.map(t => cssVar(storeColor(t.store))), borderRadius: 6, borderWidth: 0 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => '$' + c.parsed.y.toFixed(2) } } },
+      scales: {
+        y: { beginAtZero: true, ticks: { color: cssVar('--text-muted'), callback: v => '$' + v }, grid: { color: cssVar('--border') } },
+        x: { ticks: { color: cssVar('--text-muted'), font: { size: 11 } }, grid: { display: false } }
       }
     }
-  }
-
-  function renderMeta() {
-    if (!dashboardData?.generatedAt) return;
-    const footer = document.querySelector('.footer');
-    if (footer) {
-      const d = new Date(dashboardData.generatedAt);
-      footer.textContent = 'Last updated ' + d.toLocaleString() + ' · ' + dashboardData.totals.itemCount + ' items · ' + dashboardData.totals.tripCount + ' trips';
-    }
-  }
-
-  function filterTrips(range) {
-    const now = new Date('2026-04-24');
-    const thisYear = now.getFullYear(), thisMonth = now.getMonth();
-    return trips.filter(t => {
-      const d = new Date(t.date);
-      if (range === 'all') return true;
-      if (range === 'year') return d.getFullYear() === thisYear;
-      if (range === 'quarter') return d.getFullYear() === thisYear && Math.floor(d.getMonth()/3) === Math.floor(thisMonth/3);
-      if (range === 'month') return d.getFullYear() === thisYear && d.getMonth() === thisMonth;
-      if (range === 'lastmonth') {
-        const lm = new Date(now); lm.setMonth(lm.getMonth() - 1);
-        return d.getFullYear() === lm.getFullYear() && d.getMonth() === lm.getMonth();
-      }
-      return true;
-    });
-  }
-
-  let chart;
-  function renderDashboard(range = 'month') {
-    currentRange = range;
-    const filtered = filterTrips(range);
-    const total = filtered.reduce((s,t) => s + t.total, 0);
-    document.getElementById('m-total').textContent = '$' + total.toFixed(2);
-    document.getElementById('m-trips').textContent = filtered.length;
-    document.getElementById('m-total-sub').textContent = `${range === 'month' ? 'this month' : range === 'lastmonth' ? 'last month' : range === 'quarter' ? 'Q' + (Math.floor(new Date('2026-04-24').getMonth()/3) + 1) : range === 'year' ? '2026 YTD' : 'all time'}`;
-
-    const tbody = document.getElementById('trip-tbody');
-    tbody.innerHTML = filtered.map(t => `<tr><td>${t.date}</td><td>${t.store}</td><td class="right">$${t.food.toFixed(2)}</td><td class="right">${t.hh ? '$'+t.hh.toFixed(2) : '—'}</td><td class="right"><strong>$${t.total.toFixed(2)}</strong></td></tr>`).join('');
-
-    if (chart) chart.destroy();
-    const colors = { 'Costco': '#4f8fff', "BJ's": '#9d6fff', 'Stop & Shop': '#f59e0b' };
-    chart = new Chart(document.getElementById('tripChart'), {
-      type: 'bar',
-      data: {
-        labels: filtered.map(t => t.date.slice(5) + ' ' + t.store.replace(' & ','&').substr(0,7)),
-        datasets: [{ data: filtered.map(t => t.total), backgroundColor: filtered.map(t => colors[t.store] || '#34d399'), borderRadius: 4 }]
-      },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => '$' + c.parsed.y.toFixed(2) } } },
-        scales: {
-          y: { beginAtZero: true, ticks: { color: getComputedStyle(document.body).getPropertyValue('--chart-tick').trim(), callback: v => '$' + v }, grid: { color: getComputedStyle(document.body).getPropertyValue('--chart-grid').trim() } },
-          x: { ticks: { color: getComputedStyle(document.body).getPropertyValue('--chart-tick').trim(), font: { size: 11 } }, grid: { display: false } }
-        }
-      }
-    });
-  }
-
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      renderDashboard(tab.dataset.range);
-    });
   });
+}
 
-  window.renderDashboard = renderDashboard;
+function renderWins() {
+  const winsEl = document.getElementById('wins');
+  if (!data?.winners) return;
+  winsEl.innerHTML = data.winners.map(w => `
+    <div class="win-card">
+      <span class="win-badge ${w.badge}">${escapeHtml(w.store)} wins</span>
+      ${w.wins.map(it => `
+        <div class="win-item">
+          <strong>${escapeHtml(it.item)}</strong>
+          ${escapeHtml(it.detail)}${it.savings ? ' — <span class="win-save">' + escapeHtml(it.savings) + '</span>' : ''}
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function renderWatch() {
+  if (!data?.watch) { document.getElementById('watch-box').style.display = 'none'; return; }
+  document.getElementById('watch-text').textContent = data.watch;
+}
+
+function renderFooter() {
+  if (data?.generatedAt) {
+    const d = new Date(data.generatedAt);
+    document.getElementById('last-updated').textContent = 'Last updated ' + d.toLocaleString();
+  }
+}
+
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => renderRange(t.dataset.range)));
 </script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </body>
 </html>
