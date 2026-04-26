@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T18:14:37.941417Z",
+  "generatedAt": "2026-04-26T18:17:03.503668Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -904,6 +904,14 @@
           },
           {
             "name": "Sourdough bread (ACE Bakery Bistro Sourdough \u2014 last bought 3/8 @ $5.69)",
+            "done": false
+          },
+          {
+            "name": "Baking potatoes 10lb bag \u2014 meal prep with ground beef this week ($5.29 last buy)",
+            "done": false
+          },
+          {
+            "name": "Sweet potatoes \u2014 meal prep this week ($4.99 last buy)",
             "done": false
           }
         ]
