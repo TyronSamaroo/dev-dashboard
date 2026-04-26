@@ -179,6 +179,11 @@ const appEl = document.getElementById('app');
 const errEl = document.getElementById('login-err');
 const userEmailEl = document.getElementById('user-email');
 
+// ===== State (declare BEFORE applyTheme references them) =====
+let data = null;
+let chart = null;
+let currentRange = 'month';
+
 // ===== Theme (light is default; one-time reset to clear stale dark from old version) =====
 const SUN_PATH = '<path d="M12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>';
 const MOON_PATH = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
@@ -226,9 +231,6 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 // ===== Data + render =====
-let data = null;
-let chart = null;
-let currentRange = 'month';
 const escapeHtml = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const storeColor = s => s === 'Costco' ? '--c-costco' : s === "BJ's" ? '--c-bjs' : s === 'Stop & Shop' ? '--c-ss' : '--c-online';
 const storeClass = s => s === 'Costco' ? 'costco' : s === "BJ's" ? 'bjs' : 'ss';
