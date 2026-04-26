@@ -298,6 +298,14 @@
 
   document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
 
+  function detectInitialView() {
+    const path = window.location.pathname.toLowerCase();
+    const search = window.location.search.toLowerCase();
+    const hash = window.location.hash.toLowerCase();
+    if (path.includes('shopping') || search.includes('view=shopping') || hash.includes('shopping')) return 'shopping';
+    return 'spending';
+  }
+
   onAuthStateChanged(auth, async (user) => {
     if (user && ALLOWED_EMAILS.includes(user.email)) {
       loginGate.style.display = 'none';
@@ -305,6 +313,8 @@
       userEmailEl.textContent = user.email;
       await loadData();
       renderDashboard();
+      const initialView = detectInitialView();
+      if (initialView === 'shopping') setView('shopping');
     } else if (user) {
       loginErr.textContent = `${user.email} is not authorized. Signing out.`;
       setTimeout(() => signOut(auth), 2000);
@@ -406,8 +416,8 @@
     const next = document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     applyTheme(next);
   });
-  let savedTheme = 'dark';
-  try { savedTheme = localStorage.getItem('grocery_theme') || 'dark'; } catch(e) {}
+  let savedTheme = 'light';
+  try { savedTheme = localStorage.getItem('grocery_theme') || 'light'; } catch(e) {}
   applyTheme(savedTheme);
 
   let currentRange = 'month';

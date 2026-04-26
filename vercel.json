@@ -13,6 +13,14 @@
       "destination": "/coach-report-wk12/:path*"
     },
     {
+      "source": "/grocery/shopping-list",
+      "destination": "/grocery/index.html"
+    },
+    {
+      "source": "/grocery/shopping",
+      "destination": "/grocery/index.html"
+    },
+    {
       "source": "/grocery/:path*",
       "destination": "/grocery/:path*"
     },
