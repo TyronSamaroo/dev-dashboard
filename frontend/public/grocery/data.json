@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T22:31:05.055312Z",
+  "generatedAt": "2026-04-26T23:44:27.245715Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -1122,8 +1122,24 @@
             "done": true
           },
           {
-            "name": "Blue Diamond Almond Breeze Unsweet Vanilla 96oz \u2014 Tiffany's pick ($4.69 last buy)",
-            "done": false
+            "name": "Blue Diamond Almond Breeze Unsweet Vanilla 96oz \u2014 Tiffany's pick \u2705 Bought 4/26 @ $4.69",
+            "done": true
+          },
+          {
+            "name": "Butterball Lean Turkey 48oz \u2705 Bought 4/26 @ $15.99 (impulse \u2014 protein for prep)",
+            "done": true
+          },
+          {
+            "name": "Chobani 20g Protein Drinks 8ct \u2705 Bought 4/26 @ $13.99 (impulse \u2014 Tiffany)",
+            "done": true
+          },
+          {
+            "name": "Angel Sweet Grape Tomatoes 2lbs \u2705 Bought 4/26 @ $6.99 (impulse \u2014 salad)",
+            "done": true
+          },
+          {
+            "name": "Dash 16-Pc Egg Cooker \u2705 Bought 4/26 @ $19.98 (household)",
+            "done": true
           }
         ]
       },
@@ -1131,28 +1147,32 @@
         "store": "Costco",
         "items": [
           {
-            "name": "Avocados (6-pack bag) \u2014 not on 4/26 receipt; still needed?",
-            "done": false
+            "name": "Avocados (6-pack bag) \u2192 swapped for **KS Guacamole Singles** $11.99 \u2705 Bought 4/26 (better $/serving, portioned)",
+            "done": true
           },
           {
             "name": "Egg whites (Kirkland liquid egg whites \u2014 6\u00d716oz pack) \u2705 Bought 4/26 @ $11.99",
             "done": true
           },
           {
-            "name": "Sourdough bread (ACE Bakery Bistro Sourdough \u2014 last bought 3/8 @ $5.69) \u2705 Bought 4/26 @ $5.69 (same price)",
+            "name": "Sourdough bread (ACE Bakery Bistro Sourdough) \u2705 Bought 4/26 @ $5.69 (same as 3/8)",
             "done": true
           },
           {
-            "name": "Baking potatoes 10lb bag \u2014 meal prep with ground beef this week ($5.29 last buy) \u2014 bought Russet Potatoes 10lb @ BJ's $5.29 instead",
+            "name": "Baking potatoes \u2014 bought Russet 10lb @ BJ's instead $5.29",
+            "done": true
+          },
+          {
+            "name": "Sweet potatoes \u2014 bought 3lb @ BJ's instead $2.99",
+            "done": true
+          },
+          {
+            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy) \u2014 **still needed** (Chobani protein drinks bought instead, but yogurt itself missed)",
             "done": false
           },
           {
-            "name": "Sweet potatoes \u2014 meal prep this week ($4.99 last buy) \u2014 bought 3lb @ BJ's $2.99 instead",
-            "done": false
-          },
-          {
-            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy)",
-            "done": false
+            "name": "Green Onions \u2705 Bought 4/26 @ $5.99 (impulse \u2014 meal prep)",
+            "done": true
           }
         ]
       }
@@ -1171,7 +1191,16 @@
         "done": false
       }
     ],
-    "momList": [],
+    "momList": [
+      {
+        "name": "Kiwi Fruit 3lbs \u2705 Bought 4/26 @ BJ's $6.99",
+        "done": true
+      },
+      {
+        "name": "Gayo Azul Red Wax Gouda 16oz \u2705 Bought 4/26 @ BJ's $6.99",
+        "done": true
+      }
+    ],
     "trip": {
       "stops": [
         "Natural Body \u2014 Hicksville (~15 min from East Rockaway)",
