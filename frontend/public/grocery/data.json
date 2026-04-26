@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T18:17:03.503668Z",
+  "generatedAt": "2026-04-26T18:28:15.296099Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -887,6 +887,14 @@
         "items": [
           {
             "name": "Ground beef (Tiffany's pick \u2014 confirm pack size: 3lb? family pack?)",
+            "done": false
+          },
+          {
+            "name": "Iceberg lettuce ($1.99 last buy)",
+            "done": false
+          },
+          {
+            "name": "Wellsley Farms Organic Baby Spinach 16oz \u2014 out, restock ($4.49 last buy)",
             "done": false
           }
         ]
