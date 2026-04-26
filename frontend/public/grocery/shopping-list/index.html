@@ -119,6 +119,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
     <div class="section-title">Restock soon</div>
     <div id="restock"></div>
 
+    <div class="section-title" id="mom-title" style="display:none;">For Tiffany's mom <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint, #9ca3af);">— separate from your budget</span></div>
+    <div id="mom-list"></div>
+
     <div class="section-title">Trip planning</div>
     <div class="trip-grid" id="trip"></div>
 
@@ -231,6 +234,24 @@ async function loadAndRender() {
           <label for="r-${i}" onclick="event.stopPropagation()">${escapeHtml(it.name)}</label>
         </div>`).join('')}
       </div>` : '<div class="empty">Nothing flagged for restock.</div>';
+
+    // Mom's care package — only show section if there are items
+    const mom = sl.momList || [];
+    const momTitleEl = document.getElementById('mom-title');
+    const momListEl = document.getElementById('mom-list');
+    if (mom.length) {
+      momTitleEl.style.display = 'block';
+      momListEl.innerHTML = `
+        <div class="store-card" style="border-left: 3px solid #db2777;">
+          ${mom.map((it, i) => `<div class="item${it.done ? ' done' : ''}" onclick="document.getElementById('mom-${i}').click()">
+            <input type="checkbox" id="mom-${i}" ${it.done ? 'checked' : ''} onclick="event.stopPropagation();this.closest('.item').classList.toggle('done', this.checked)" style="accent-color: #db2777;">
+            <label for="mom-${i}" onclick="event.stopPropagation()">${escapeHtml(it.name)}</label>
+          </div>`).join('')}
+        </div>`;
+    } else {
+      momTitleEl.style.display = 'none';
+      momListEl.innerHTML = '';
+    }
 
     const t = sl.trip || {};
     const tripEl = document.getElementById('trip');

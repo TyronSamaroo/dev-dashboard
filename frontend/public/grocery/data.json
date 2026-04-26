@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T17:19:47.712634Z",
+  "generatedAt": "2026-04-26T18:14:37.941417Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -7,32 +7,40 @@
       "store": "Stop & Shop",
       "food": 71.89,
       "hh": 0,
+      "mom": 0,
       "total": 71.89,
-      "itemCount": 10
+      "itemCount": 10,
+      "momCount": 0
     },
     {
       "date": "2026-03-08",
       "store": "Costco",
       "food": 294.37,
       "hh": 89.63,
+      "mom": 0,
       "total": 384.0,
-      "itemCount": 25
+      "itemCount": 25,
+      "momCount": 0
     },
     {
       "date": "2026-04-17",
       "store": "BJ's",
       "food": 96.19,
       "hh": 32.98,
+      "mom": 0,
       "total": 129.17,
-      "itemCount": 13
+      "itemCount": 13,
+      "momCount": 0
     },
     {
       "date": "2026-04-17",
       "store": "Costco",
       "food": 175.79,
       "hh": 63.46,
+      "mom": 0,
       "total": 239.25,
-      "itemCount": 15
+      "itemCount": 15,
+      "momCount": 0
     }
   ],
   "items": [
@@ -915,6 +923,7 @@
         "done": false
       }
     ],
+    "momList": [],
     "trip": {
       "stops": [
         "Natural Body \u2014 Hicksville (~15 min from East Rockaway)",
