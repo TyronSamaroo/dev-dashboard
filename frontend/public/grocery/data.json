@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T17:15:07.623988Z",
+  "generatedAt": "2026-04-26T17:19:47.712634Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -915,7 +915,27 @@
         "done": false
       }
     ],
-    "tripNotes": "**Stores in play:** 3 destinations\n- **Natural Body** \u2014 Hicksville (~15 min from East Rockaway)\n- **BJ's** \u2014 Garden City Store #0212 (~10 min)\n- **Costco** \u2014 Westbury #226 (~15 min)\n**Suggested route (most efficient, single day):**\nEast Rockaway \u2192 BJ's (Garden City) \u2192 Costco (Westbury) \u2192 Natural Body (Hicksville) \u2192 home\nAll 3 stops cluster on the same Nassau loop. ~1.5 hr total drive + shopping.\n**Estimated spend (based on baselines):**\n- Natural Body: ~$80 (supplement + Ghost case ~$30/12pk)\n- BJ's ground beef: ~$15-20 (3lb Perdue or similar)\n- Costco: ~$30-40 (avocados $8 + egg whites $13 + sourdough $6 + tax)\n- **Total: ~$125-140**\nThat's well below the 4/17 single-day spend of $375 \u2014 small focused run, not a big restock.\n**Heads up:** if you're planning to refill the bulk staples (Fairlife Protein, Coke Zero, Quest Chips), that's another ~$120 at Costco/BJ's. Either roll it into this trip or save for next."
+    "trip": {
+      "stops": [
+        "Natural Body \u2014 Hicksville (~15 min from East Rockaway)",
+        "BJ's \u2014 Garden City Store #0212 (~10 min)",
+        "Costco \u2014 Westbury #226 (~15 min)"
+      ],
+      "route": [
+        "East Rockaway \u2192 BJ's (Garden City) \u2192 Costco (Westbury) \u2192 Natural Body (Hicksville) \u2192 home",
+        "All 3 stops cluster on the same Nassau loop. ~1.5 hr total drive + shopping."
+      ],
+      "estimates": [
+        "Natural Body: ~$80 (supplement + Ghost case ~$30/12pk)",
+        "BJ's ground beef: ~$15-20 (3lb Perdue or similar)",
+        "Costco: ~$30-40 (avocados $8 + egg whites $13 + sourdough $6 + tax)"
+      ],
+      "totalEstimate": "~$125-140",
+      "notes": [
+        "That's well below the 4/17 single-day spend of $375 \u2014 small focused run, not a big restock.",
+        "** if you're planning to refill the bulk staples (Fairlife Protein, Coke Zero, Quest Chips), that's another ~$120 at Costco/BJ's. Either roll it into this trip or save for next."
+      ]
+    }
   },
   "totals": {
     "itemCount": 63,
