@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T18:28:15.296099Z",
+  "generatedAt": "2026-04-26T22:31:05.055312Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -40,6 +40,26 @@
       "mom": 0,
       "total": 239.25,
       "itemCount": 15,
+      "momCount": 0
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "store": "BJ's",
+      "food": 99.9,
+      "hh": 19.98,
+      "mom": 13.98,
+      "total": 119.88,
+      "itemCount": 11,
+      "momCount": 2
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "store": "Costco",
+      "food": 35.66,
+      "hh": 0,
+      "mom": 0,
+      "total": 35.66,
+      "itemCount": 4,
       "momCount": 0
     }
   ],
@@ -799,6 +819,210 @@
       "servings": 260,
       "costPerServing": 0.06919230769230769,
       "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "253607",
+      "store": "BJ's",
+      "item": "93 Lean Ground Beef 4 lbs",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 26.99,
+      "servings": 4,
+      "costPerServing": 6.7475,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "264203",
+      "store": "BJ's",
+      "item": "Farm To Table Fresh 96 Lean Ground Beef Sirloin 2 lbs",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 15.99,
+      "servings": 2,
+      "costPerServing": 7.995,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "343916",
+      "store": "BJ's",
+      "item": "Butterball Extra Lean Turkey Breast Tenderloins 48 oz",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 15.99,
+      "servings": 48,
+      "costPerServing": 0.333125,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "240850",
+      "store": "BJ's",
+      "item": "Kiwi Fruit 3 lbs",
+      "category": "Produce",
+      "type": "Mom",
+      "cost": 6.99,
+      "servings": 3,
+      "costPerServing": 2.33,
+      "notes": "Mom care pkg"
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "60748",
+      "store": "BJ's",
+      "item": "Wellsley Farms Russet Potatoes 10 lbs",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 5.29,
+      "servings": 10,
+      "costPerServing": 0.529,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "242390",
+      "store": "BJ's",
+      "item": "Iceberg Lettuce 1 ct",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 2.49,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Was $1.99 on 4/17 \u2014 +25% price increase"
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "328741",
+      "store": "BJ's",
+      "item": "Angel Sweet Grape Tomatoes 2 lbs",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 6.99,
+      "servings": 2,
+      "costPerServing": 3.495,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "244767",
+      "store": "BJ's",
+      "item": "Wellsley Farms Sweet Potatoes 3 lbs",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 2.99,
+      "servings": 3,
+      "costPerServing": 0.9967,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "71303",
+      "store": "BJ's",
+      "item": "Wellsley Farms Organic Baby Spinach 16 oz",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 4.49,
+      "servings": 16,
+      "costPerServing": 0.280625,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "226128",
+      "store": "BJ's",
+      "item": "Blue Diamond Almond Breeze Unsweet Vanilla Almondmilk 96 oz",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 4.69,
+      "servings": 96,
+      "costPerServing": 0.048854,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "342100",
+      "store": "BJ's",
+      "item": "Chobani 20g Protein Drinks Variety Pack 8ct 10oz",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 13.99,
+      "servings": 8,
+      "costPerServing": 1.74875,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "322231",
+      "store": "BJ's",
+      "item": "Gayo Azul Red Wax Gouda 16 oz",
+      "category": "Dairy",
+      "type": "Mom",
+      "cost": 6.99,
+      "servings": 16,
+      "costPerServing": 0.436875,
+      "notes": "Mom care pkg"
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "345754",
+      "store": "BJ's",
+      "item": "Dash 16Pc AllInOne Egg Cooker",
+      "category": "Household",
+      "type": "Household",
+      "cost": 19.98,
+      "servings": 1,
+      "costPerServing": 19.98,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "1967484",
+      "store": "Costco",
+      "item": "ACE Sourdough Bistro",
+      "category": "Bakery",
+      "type": "Food",
+      "cost": 5.69,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "123614",
+      "store": "Costco",
+      "item": "Green Onions",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 5.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "1063232",
+      "store": "Costco",
+      "item": "KS Egg Whites",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 11.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
+    },
+    {
+      "date": "2026-04-26 00:00:00",
+      "itemCode": "1285362",
+      "store": "Costco",
+      "item": "KS Guacamole Singles",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 11.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": null
     }
   ],
   "winners": [
@@ -886,15 +1110,19 @@
         "store": "BJ's",
         "items": [
           {
-            "name": "Ground beef (Tiffany's pick \u2014 confirm pack size: 3lb? family pack?)",
-            "done": false
+            "name": "Ground beef (Tiffany's pick \u2014 confirm pack size: 3lb? family pack?) \u2705 Bought 4 lb 93% lean ($26.99) + 2 lb 96% sirloin ($15.99) on 4/26",
+            "done": true
           },
           {
-            "name": "Iceberg lettuce ($1.99 last buy)",
-            "done": false
+            "name": "Iceberg lettuce ($1.99 last buy) \u2705 Bought 4/26 @ $2.49 (price up 25%)",
+            "done": true
           },
           {
-            "name": "Wellsley Farms Organic Baby Spinach 16oz \u2014 out, restock ($4.49 last buy)",
+            "name": "Wellsley Farms Organic Baby Spinach 16oz \u2014 out, restock ($4.49 last buy) \u2705 Bought 4/26 @ $4.49",
+            "done": true
+          },
+          {
+            "name": "Blue Diamond Almond Breeze Unsweet Vanilla 96oz \u2014 Tiffany's pick ($4.69 last buy)",
             "done": false
           }
         ]
@@ -903,23 +1131,27 @@
         "store": "Costco",
         "items": [
           {
-            "name": "Avocados (6-pack bag)",
+            "name": "Avocados (6-pack bag) \u2014 not on 4/26 receipt; still needed?",
             "done": false
           },
           {
-            "name": "Egg whites (Kirkland liquid egg whites \u2014 6\u00d716oz pack)",
+            "name": "Egg whites (Kirkland liquid egg whites \u2014 6\u00d716oz pack) \u2705 Bought 4/26 @ $11.99",
+            "done": true
+          },
+          {
+            "name": "Sourdough bread (ACE Bakery Bistro Sourdough \u2014 last bought 3/8 @ $5.69) \u2705 Bought 4/26 @ $5.69 (same price)",
+            "done": true
+          },
+          {
+            "name": "Baking potatoes 10lb bag \u2014 meal prep with ground beef this week ($5.29 last buy) \u2014 bought Russet Potatoes 10lb @ BJ's $5.29 instead",
             "done": false
           },
           {
-            "name": "Sourdough bread (ACE Bakery Bistro Sourdough \u2014 last bought 3/8 @ $5.69)",
+            "name": "Sweet potatoes \u2014 meal prep this week ($4.99 last buy) \u2014 bought 3lb @ BJ's $2.99 instead",
             "done": false
           },
           {
-            "name": "Baking potatoes 10lb bag \u2014 meal prep with ground beef this week ($5.29 last buy)",
-            "done": false
-          },
-          {
-            "name": "Sweet potatoes \u2014 meal prep this week ($4.99 last buy)",
+            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy)",
             "done": false
           }
         ]
@@ -963,8 +1195,8 @@
     }
   },
   "totals": {
-    "itemCount": 63,
-    "tripCount": 4,
-    "monthlyEstimate": 412.15
+    "itemCount": 80,
+    "tripCount": 6,
+    "monthlyEstimate": 489.92
   }
 }
