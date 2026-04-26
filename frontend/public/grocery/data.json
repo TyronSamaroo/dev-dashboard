@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T18:48:57.736872Z",
+  "generatedAt": "2026-04-26T17:15:07.623988Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -859,6 +859,64 @@
     }
   ],
   "watch": "Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.",
+  "shoppingList": {
+    "needNow": [
+      {
+        "store": "Natural Body \u2014 Hicksville",
+        "items": [
+          {
+            "name": "Fiducia supplement (Tyron's specific brand)",
+            "done": false
+          },
+          {
+            "name": "Ghost energy drinks (verify which flavors)",
+            "done": false
+          }
+        ]
+      },
+      {
+        "store": "BJ's",
+        "items": [
+          {
+            "name": "Ground beef (Tiffany's pick \u2014 confirm pack size: 3lb? family pack?)",
+            "done": false
+          }
+        ]
+      },
+      {
+        "store": "Costco",
+        "items": [
+          {
+            "name": "Avocados (6-pack bag)",
+            "done": false
+          },
+          {
+            "name": "Egg whites (Kirkland liquid egg whites \u2014 6\u00d716oz pack)",
+            "done": false
+          },
+          {
+            "name": "Sourdough bread (ACE Bakery Bistro Sourdough \u2014 last bought 3/8 @ $5.69)",
+            "done": false
+          }
+        ]
+      }
+    ],
+    "restockSoon": [
+      {
+        "name": "Fairlife Chocolate Milk 18pk \u2014 last bought 4/17, ~3-4wk supply",
+        "done": false
+      },
+      {
+        "name": "Fage Greek Yogurt 48oz \u2014 weekly cadence, may already be out",
+        "done": false
+      },
+      {
+        "name": "Coke Zero 35pk \u2014 last bought 4/17 ($21.29, dropped from $23.04)",
+        "done": false
+      }
+    ],
+    "tripNotes": "**Stores in play:** 3 destinations\n- **Natural Body** \u2014 Hicksville (~15 min from East Rockaway)\n- **BJ's** \u2014 Garden City Store #0212 (~10 min)\n- **Costco** \u2014 Westbury #226 (~15 min)\n**Suggested route (most efficient, single day):**\nEast Rockaway \u2192 BJ's (Garden City) \u2192 Costco (Westbury) \u2192 Natural Body (Hicksville) \u2192 home\nAll 3 stops cluster on the same Nassau loop. ~1.5 hr total drive + shopping.\n**Estimated spend (based on baselines):**\n- Natural Body: ~$80 (supplement + Ghost case ~$30/12pk)\n- BJ's ground beef: ~$15-20 (3lb Perdue or similar)\n- Costco: ~$30-40 (avocados $8 + egg whites $13 + sourdough $6 + tax)\n- **Total: ~$125-140**\nThat's well below the 4/17 single-day spend of $375 \u2014 small focused run, not a big restock.\n**Heads up:** if you're planning to refill the bulk staples (Fairlife Protein, Coke Zero, Quest Chips), that's another ~$120 at Costco/BJ's. Either roll it into this trip or save for next."
+  },
   "totals": {
     "itemCount": 63,
     "tripCount": 4,
