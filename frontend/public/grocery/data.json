@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T23:44:27.245715Z",
+  "generatedAt": "2026-04-27T00:01:35.071812Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -40,6 +40,16 @@
       "mom": 0,
       "total": 239.25,
       "itemCount": 15,
+      "momCount": 0
+    },
+    {
+      "date": "2026-04-26",
+      "store": "The Vitamin Shoppe",
+      "food": 22.31,
+      "hh": 0,
+      "mom": 0,
+      "total": 22.31,
+      "itemCount": 7,
       "momCount": 0
     },
     {
@@ -1023,6 +1033,90 @@
       "servings": null,
       "costPerServing": null,
       "notes": null
+    },
+    {
+      "date": "2026-04-26",
+      "itemCode": "2288686",
+      "store": "The Vitamin Shoppe",
+      "item": "Bum Energy Root Beer",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 3.29,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Energy drink, qty 1 of 2"
+    },
+    {
+      "date": "2026-04-26",
+      "itemCode": "2288686",
+      "store": "The Vitamin Shoppe",
+      "item": "Bum Energy Root Beer",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 3.29,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Energy drink, qty 2 of 2"
+    },
+    {
+      "date": "2026-04-26",
+      "itemCode": "2705317",
+      "store": "The Vitamin Shoppe",
+      "item": "Ghost Energy Grape Cream",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 3.49,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Energy drink, qty 1 of 2"
+    },
+    {
+      "date": "2026-04-26",
+      "itemCode": "2705317",
+      "store": "The Vitamin Shoppe",
+      "item": "Ghost Energy Grape Cream",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 3.49,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Energy drink, qty 2 of 2"
+    },
+    {
+      "date": "2026-04-26",
+      "itemCode": "2703031",
+      "store": "The Vitamin Shoppe",
+      "item": "Ghost Energy Raspberry",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 3.49,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Energy drink, qty 1 of 2"
+    },
+    {
+      "date": "2026-04-26",
+      "itemCode": "2703031",
+      "store": "The Vitamin Shoppe",
+      "item": "Ghost Energy Raspberry",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 3.49,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Energy drink, qty 2 of 2"
+    },
+    {
+      "date": "2026-04-26",
+      "itemCode": "TAX",
+      "store": "The Vitamin Shoppe",
+      "item": "Tax (4% S + 0.375% MCT + 4.25% Local)",
+      "category": "Other",
+      "type": "Food",
+      "cost": 1.77,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Sales tax - Trans 68417, Visa **4368"
     }
   ],
   "winners": [
@@ -1097,12 +1191,12 @@
         "store": "Natural Body \u2014 Hicksville",
         "items": [
           {
-            "name": "Fiducia supplement (Tyron's specific brand)",
+            "name": "Fiducia supplement (Tyron's specific brand) \u2014 **still pending** (didn't make it to Hicksville)",
             "done": false
           },
           {
-            "name": "Ghost energy drinks (verify which flavors)",
-            "done": false
+            "name": "Ghost energy drinks \u2705 Bought 4/26 @ The Vitamin Shoppe (Oceanside) instead \u2014 2\u00d7 Grape Cream + 2\u00d7 Raspberry @ $3.49 ea + 2\u00d7 Bum Root Beer @ $3.29 ea = $22.31 incl. tax",
+            "done": true
           }
         ]
       },
@@ -1224,8 +1318,8 @@
     }
   },
   "totals": {
-    "itemCount": 80,
-    "tripCount": 6,
-    "monthlyEstimate": 489.92
+    "itemCount": 87,
+    "tripCount": 7,
+    "monthlyEstimate": 501.08
   }
 }
