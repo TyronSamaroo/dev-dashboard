@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip History — Tyron & Tiffany</title>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+:root {
+  --bg: #fafafa; --surface: #ffffff; --surface-alt: #f3f4f6; --border: #e5e7eb;
+  --text: #111827; --text-muted: #6b7280; --text-faint: #9ca3af;
+  --accent: #059669; --accent-bg: #d1fae5;
+  --c-costco: #2563eb; --c-bjs: #7c3aed; --c-ss: #d97706;
+  --warn-bg: #fef3c7; --warn-border: #fcd34d; --warn-text: #92400e;
+  --danger: #dc2626; --shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+[data-theme="dark"] {
+  --bg: #0a0a0f; --surface: #12121a; --surface-alt: #1a1a26; --border: #2a2a3a;
+  --text: #e8e8f0; --text-muted: #8888a0; --text-faint: #6b6b80;
+  --accent: #34d399; --accent-bg: rgba(52,211,153,0.15);
+  --c-costco: #4f8fff; --c-bjs: #9d6fff; --c-ss: #f59e0b;
+  --warn-bg: rgba(245,158,11,0.1); --warn-border: rgba(245,158,11,0.4); --warn-text: #f59e0b;
+  --danger: #f87171; --shadow: none;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.container { max-width: 800px; margin: 0 auto; padding: 32px 20px 80px; }
+
+#gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+.gate-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; max-width: 360px; width: 100%; text-align: center; box-shadow: var(--shadow); }
+.gate-card h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.gate-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+.google-btn { width: 100%; padding: 12px; background: #fff; color: #1f2937; border: 1px solid #d1d5db; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: inherit; }
+.google-btn:hover { background: #f9fafb; }
+.google-btn svg { width: 18px; height: 18px; }
+.err { color: var(--danger); font-size: 13px; margin-top: 14px; min-height: 18px; }
+
+#app { display: none; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.topbar h1 { font-size: 22px; font-weight: 700; }
+.user-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); }
+.icon-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+.icon-btn:hover { color: var(--text); border-color: var(--text-muted); }
+.icon-btn svg { width: 14px; height: 14px; }
+.text-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; }
+.text-btn:hover { color: var(--text); border-color: var(--text-muted); }
+
+.nav { display: inline-flex; gap: 4px; background: var(--surface-alt); padding: 4px; border-radius: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+.nav-link { padding: 8px 16px; border-radius: 8px; color: var(--text-muted); font-size: 13px; font-weight: 500; text-decoration: none; }
+.nav-link:hover:not(.active) { color: var(--text); }
+.nav-link.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+
+.trip-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 0; margin-bottom: 16px; box-shadow: var(--shadow); overflow: hidden; }
+.trip-card:hover { border-color: var(--text-muted); }
+.trip-header { padding: 18px 22px 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.trip-header h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+.trip-meta { font-size: 12px; color: var(--text-muted); }
+.trip-stats { text-align: right; flex-shrink: 0; }
+.trip-spend { font-size: 18px; font-weight: 700; }
+.trip-stores { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+.trip-body { display: none; padding: 0 22px 22px; border-top: 1px solid var(--border); }
+.trip-card.open .trip-body { display: block; padding-top: 16px; }
+.chevron { transition: transform 0.2s; flex-shrink: 0; color: var(--text-muted); }
+.trip-card.open .chevron { transform: rotate(90deg); }
+
+.markdown { font-size: 14px; line-height: 1.7; color: var(--text); }
+.markdown h1 { display: none; }
+.markdown h2 { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 10px; }
+.markdown h2:first-child { margin-top: 0; }
+.markdown h3 { font-size: 14px; font-weight: 600; margin: 14px 0 8px; }
+.markdown p { margin-bottom: 10px; color: var(--text); }
+.markdown ul, .markdown ol { margin: 6px 0 12px 22px; }
+.markdown li { margin-bottom: 4px; }
+.markdown table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 10px 0; }
+.markdown th { text-align: left; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); padding: 8px 6px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.markdown td { padding: 8px 6px; border-bottom: 1px solid var(--border); }
+.markdown tr:last-child td { border-bottom: none; }
+.markdown strong { font-weight: 600; }
+.markdown code { background: var(--surface-alt); padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+.markdown blockquote { border-left: 3px solid var(--accent); padding: 4px 12px; color: var(--text-muted); margin: 10px 0; }
+
+.empty { color: var(--text-muted); font-size: 14px; padding: 40px 16px; text-align: center; }
+.footer { text-align: center; margin-top: 32px; color: var(--text-faint); font-size: 12px; }
+.footer code { background: var(--surface-alt); padding: 1px 6px; border-radius: 4px; }
+</style>
+</head>
+<body data-theme="light">
+
+<div id="gate">
+  <div class="gate-card">
+    <h1>Trip History</h1>
+    <p>Tyron &amp; Tiffany only — sign in with your Google account.</p>
+    <button class="google-btn" id="signin-btn">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Sign in with Google
+    </button>
+    <div class="err" id="login-err"></div>
+  </div>
+</div>
+
+<div id="app">
+  <div class="container">
+    <div class="topbar">
+      <h1>Trip history</h1>
+      <div class="user-row">
+        <span id="user-email"></span>
+        <button class="icon-btn" id="theme-toggle" title="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24" fill="currentColor"></svg></button>
+        <button class="text-btn" id="signout-btn">Sign out</button>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="/grocery/" class="nav-link">Spending</a>
+      <a href="/grocery/shopping-list/" class="nav-link">Shopping list</a>
+      <a href="/grocery/trips/" class="nav-link active">Trips</a>
+      <a href="/grocery/prices/" class="nav-link">Prices</a>
+    </nav>
+
+    <div id="trips-list"></div>
+
+    <div class="footer">Each trip is a snapshot saved when the trip was closed. Markdown lives in <code>Finance/Groceries/trip-history/</code></div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+  authDomain: "tyron-personal.firebaseapp.com",
+  projectId: "tyron-personal",
+  appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+};
+const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com", "tiffanysamaroo721@gmail.com"];
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const SUN_PATH = '<path d="M12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>';
+const MOON_PATH = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  document.getElementById('theme-icon').innerHTML = theme === 'light' ? MOON_PATH : SUN_PATH;
+  try { localStorage.setItem('grocery_theme', theme); } catch(e) {}
+}
+let savedTheme = 'light';
+try { savedTheme = localStorage.getItem('grocery_theme') || 'light'; } catch(e) {}
+applyTheme(savedTheme);
+document.getElementById('theme-toggle').addEventListener('click', () => applyTheme(document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+
+document.getElementById('signin-btn').addEventListener('click', async () => {
+  document.getElementById('login-err').textContent = '';
+  try { await signInWithPopup(auth, provider); }
+  catch (e) { document.getElementById('login-err').textContent = 'Sign-in failed: ' + (e.message || e.code); }
+});
+document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
+
+onAuthStateChanged(auth, async (user) => {
+  if (user && ALLOWED_EMAILS.includes(user.email)) {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    document.getElementById('user-email').textContent = user.email;
+    await loadAndRender();
+  } else if (user) {
+    document.getElementById('login-err').textContent = `${user.email} is not authorized`;
+    setTimeout(() => signOut(auth), 1500);
+  } else {
+    document.getElementById('gate').style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+  }
+});
+
+function escape(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+async function loadAndRender() {
+  const res = await fetch('/grocery/data.json', { cache: 'no-cache' });
+  const data = await res.json();
+  const list = document.getElementById('trips-list');
+  const trips = data.tripHistory || [];
+  if (!trips.length) {
+    list.innerHTML = '<div class="empty">No closed trips yet.</div>';
+    return;
+  }
+  list.innerHTML = trips.map((t, i) => {
+    const stores = Array.isArray(t.stores) ? t.stores.join(', ') : '';
+    const spend = t.actualSpend != null ? '$' + Number(t.actualSpend).toFixed(2) : '—';
+    const itemsLine = t.itemsBought ? `${t.itemsBought} items` : '';
+    return `
+      <div class="trip-card" data-i="${i}">
+        <div class="trip-header" onclick="this.parentElement.classList.toggle('open')">
+          <div style="flex:1;">
+            <h3>${escape(t.title || t.date)}</h3>
+            <div class="trip-meta">${escape(t.date)} · ${escape(stores)}</div>
+          </div>
+          <div class="trip-stats">
+            <div class="trip-spend">${spend}</div>
+            ${itemsLine ? `<div class="trip-stores">${itemsLine}</div>` : ''}
+          </div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="trip-body"><div class="markdown">${marked.parse(t.body || '')}</div></div>
+      </div>
+    `;
+  }).join('');
+  const first = list.querySelector('.trip-card');
+  if (first) first.classList.add('open');
+}
+</script>
+</body>
+</html>

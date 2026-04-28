@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T16:53:08.562445Z",
+  "generatedAt": "2026-04-28T17:01:25.267493Z",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -1683,139 +1683,77 @@
   "shoppingList": {
     "needNow": [
       {
-        "store": "Natural Body \u2014 Hicksville",
-        "items": [
-          {
-            "name": "Fiducia supplement \u2014 still pending (not at Ozone Park trip on 4/27)",
-            "done": false
-          },
-          {
-            "name": "Ghost energy drinks \u2705 Bought across 2 trips: 4/26 Vitamin Shoppe Oceanside ($22.31 / 6 cans) + 4/27 Natural Body Ozone Park (12 cans / 6 flavors / $31 incl Welch's Grape full price)",
-            "done": true
-          },
-          {
-            "name": "Big supplement restock \u2705 4/27 Natural Body Ozone Park \u2014 3\u00d7 Musclesport Lean Whey ($135), 2\u00d7 Enhanced Labs Top T ($120), Core Pump Black ($45), Core Fury Black ($48), Musclesport CarniShred ($30) = $378 list, paid $321.87 after promos + $56.13 loyalty = **$352.87 total trip**",
-            "done": true
-          }
-        ]
-      },
-      {
-        "store": "BJ's",
-        "items": [
-          {
-            "name": "Ground beef (Tiffany's pick \u2014 confirm pack size: 3lb? family pack?) \u2705 Bought 4 lb 93% lean ($26.99) + 2 lb 96% sirloin ($15.99) on 4/26",
-            "done": true
-          },
-          {
-            "name": "Iceberg lettuce ($1.99 last buy) \u2705 Bought 4/26 @ $2.49 (price up 25%)",
-            "done": true
-          },
-          {
-            "name": "Wellsley Farms Organic Baby Spinach 16oz \u2014 out, restock ($4.49 last buy) \u2705 Bought 4/26 @ $4.49",
-            "done": true
-          },
-          {
-            "name": "Blue Diamond Almond Breeze Unsweet Vanilla 96oz \u2014 Tiffany's pick \u2705 Bought 4/26 @ $4.69",
-            "done": true
-          },
-          {
-            "name": "Butterball Lean Turkey 48oz \u2705 Bought 4/26 @ $15.99 (impulse \u2014 protein for prep)",
-            "done": true
-          },
-          {
-            "name": "Chobani 20g Protein Drinks 8ct \u2705 Bought 4/26 @ $13.99 (impulse \u2014 Tiffany)",
-            "done": true
-          },
-          {
-            "name": "Angel Sweet Grape Tomatoes 2lbs \u2705 Bought 4/26 @ $6.99 (impulse \u2014 salad)",
-            "done": true
-          },
-          {
-            "name": "Dash 16-Pc Egg Cooker \u2705 Bought 4/26 @ $19.98 (household)",
-            "done": true
-          }
-        ]
-      },
-      {
         "store": "Costco",
         "items": [
           {
-            "name": "Avocados (6-pack bag) \u2192 swapped for **KS Guacamole Singles** $11.99 \u2705 Bought 4/26 (better $/serving, portioned)",
-            "done": true
-          },
-          {
-            "name": "Egg whites (Kirkland liquid egg whites \u2014 6\u00d716oz pack) \u2705 Bought 4/26 @ $11.99",
-            "done": true
-          },
-          {
-            "name": "Sourdough bread (ACE Bakery Bistro Sourdough) \u2705 Bought 4/26 @ $5.69 (same as 3/8)",
-            "done": true
-          },
-          {
-            "name": "Baking potatoes \u2014 bought Russet 10lb @ BJ's instead $5.29",
-            "done": true
-          },
-          {
-            "name": "Sweet potatoes \u2014 bought 3lb @ BJ's instead $2.99",
-            "done": true
-          },
-          {
-            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy) \u2014 **still needed** (Chobani protein drinks bought instead, but yogurt itself missed)",
+            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy) \u2014 carried over from 4/26 (we got Chobani drinks instead)",
             "done": false
-          },
+          }
+        ]
+      },
+      {
+        "store": "Natural Body \u2014 Ozone Park *(Hicksville was closed last time \u2014 try OZP)*",
+        "items": [
           {
-            "name": "Green Onions \u2705 Bought 4/26 @ $5.99 (impulse \u2014 meal prep)",
-            "done": true
+            "name": "Fiducia supplement \u2014 carried over from 4/26",
+            "done": false
           }
         ]
       }
     ],
     "restockSoon": [
       {
-        "name": "Fairlife Chocolate Milk 18pk \u2014 last bought 4/17, ~3-4wk supply",
+        "name": "Fairlife Chocolate Milk 18pk \u2014 last bought 4/17 ($39.99)",
         "done": false
       },
       {
-        "name": "Fage Greek Yogurt 48oz \u2014 weekly cadence, may already be out",
-        "done": false
-      },
-      {
-        "name": "Coke Zero 35pk \u2014 last bought 4/17 ($21.29, dropped from $23.04)",
+        "name": "Coke Zero 35pk \u2014 last bought 4/17 ($21.29)",
         "done": false
       }
     ],
-    "momList": [
-      {
-        "name": "Kiwi Fruit 3lbs \u2705 Bought 4/26 @ BJ's $6.99",
-        "done": true
-      },
-      {
-        "name": "Gayo Azul Red Wax Gouda 16oz \u2705 Bought 4/26 @ BJ's $6.99",
-        "done": true
-      }
-    ],
+    "momList": [],
     "trip": {
-      "stops": [
-        "Natural Body \u2014 Hicksville (~15 min from East Rockaway)",
-        "BJ's \u2014 Garden City Store #0212 (~10 min)",
-        "Costco \u2014 Westbury #226 (~15 min)"
-      ],
-      "route": [
-        "East Rockaway \u2192 BJ's (Garden City) \u2192 Costco (Westbury) \u2192 Natural Body (Hicksville) \u2192 home",
-        "All 3 stops cluster on the same Nassau loop. ~1.5 hr total drive + shopping."
-      ],
-      "estimates": [
-        "Natural Body: ~$80 (supplement + Ghost case ~$30/12pk)",
-        "BJ's ground beef: ~$15-20 (3lb Perdue or similar)",
-        "Costco: ~$30-40 (avocados $8 + egg whites $13 + sourdough $6 + tax)"
-      ],
-      "totalEstimate": "~$125-140",
-      "notes": [
-        "That's well below the 4/17 single-day spend of $375 \u2014 small focused run, not a big restock.",
-        "** if you're planning to refill the bulk staples (Fairlife Protein, Coke Zero, Quest Chips), that's another ~$120 at Costco/BJ's. Either roll it into this trip or save for next."
-      ]
+      "stops": [],
+      "route": [],
+      "estimates": [],
+      "totalEstimate": "",
+      "notes": []
     }
   },
+  "tripHistory": [
+    {
+      "date": "2026-04-27",
+      "title": "Natural Body Ozone Park \u2014 bulk supplement restock",
+      "stores": [
+        "Natural Body Ozone Park"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 352.87,
+      "supplementActual": 352.87,
+      "status": "closed",
+      "body": "# 2026-04-27 \u2014 Natural Body Ozone Park bulk restock\n\n## How it went\n\nMade up for the closed-store miss from 4/26 by going to **Ozone Park** instead of Hicksville. Sumaiya served you. Big planned restock \u2014 6-10 weeks of supplement supply locked in. Total **$352.87 paid** ($409 list, saved $56.13 loyalty + $55.92 promos = **$112 in savings**).\n\n## What was bought\n\n**Whey \u00d7 3 ($135)** \u2014 Musclesport Lean Whey Gourmet\n- Strawberry Banana Royale\n- Peanut Butter Cookies & Cream\n- Chocolate Chocolate Chip\n- 25 servings each = **75 servings total** \u2248 10-12 weeks of post-workout\n\n**Test booster \u00d7 2 ($120)** \u2014 Enhanced Labs Top T (120 caps each = 240 caps total)\n\n**Pre-workouts ($93)**\n- Core Pump Black \u2014 Red Alert (20 servings)\n- Core Fury Black \u2014 Tropical Storm (20 servings)\n- = 40 sessions\n\n**Fat burner ($30)** \u2014 Musclesport CarniShred + Mitoburn (Baja Splash, 31 servings)\n\n**Energy drinks ($31, 12 cans)** \u2014 Ghost RTD variety: 7UP Lemon Lime, Sour Patch Kids Redberry, Raspberry Cream, Swedish Fish, Welch's Grape Cran, Welch's Grape\n\n## Best-price find \ud83c\udfc6\n\n**Ghost Energy at Natural Body \u2014 $2.50/can on the 2-for-$5 promo** (vs $3.42/can singles at Vitamin Shoppe = 27% less). Plus full 12-pack cases at $2.25/can on prior trips.\n\n## Carry forward to next trip\n\n- **Fiducia supplement** \u2014 still pending from 4/26",
+      "filename": "2026-04-27_natural-body-bulk-restock.md"
+    },
+    {
+      "date": "2026-04-26",
+      "title": "Two-store run + Vitamin Shoppe stop",
+      "stores": [
+        "BJ's",
+        "Costco",
+        "The Vitamin Shoppe"
+      ],
+      "plannedSpend": 135,
+      "actualSpend": 177.85,
+      "groceryActual": 155.54,
+      "supplementActual": 22.31,
+      "momActual": 13.98,
+      "itemsPlanned": 11,
+      "itemsBought": 17,
+      "status": "closed",
+      "body": "# 2026-04-26 \u2014 Two-store run + Vitamin Shoppe stop\n\n## How it went\n\nSolid trip, bigger than planned. Hit BJ's and Costco in the wrong order from the planned route, then made a side stop at Vitamin Shoppe Oceanside for some Ghost flavors not at Natural Body's Costco-friendly variety. **Natural Body Hicksville was the last stop on the original plan \u2014 but it was closed by the time we got there.** Fiducia supplement carries forward.\n\n## Route \u2014 actual vs planned\n\n| | Planned | Actual |\n|---|---|---|\n| 1st stop | BJ's (Garden City) | **Costco (Westbury)** |\n| 2nd stop | Costco (Westbury) | **BJ's (Garden City)** |\n| 3rd stop | Natural Body (Hicksville) | **Natural Body (Hicksville) \u2014 CLOSED** |\n| Side stop | \u2014 | The Vitamin Shoppe (Oceanside) |\n\n**Lesson:** check Natural Body Hicksville hours before next trip. Or default to Ozone Park location, which has been the reliable one (4/27 worked fine).\n\n## Spend \u2014 planned vs actual\n\n| | Planned | Actual | Delta |\n|---|---:|---:|---:|\n| Natural Body | $80 | $0 (closed) | \u2212$80 |\n| BJ's | $15-20 | $119.88 | +$100 |\n| Costco | $30-40 | $35.66 | even |\n| Vitamin Shoppe | \u2014 | $22.31 | new |\n| Mom care package | \u2014 | $13.98 | new (separate) |\n| **Your total** | **~$135** | **$177.85** | **+$43** |\n\nBJ's overshot because of impulse adds (turkey, Chobani drinks, tomatoes, Dash cooker). Costco came in under because we skipped avocados and bought potatoes at BJ's instead. Net: still well under monthly budget.\n\n## What went well \u2705\n\n- **Avocados \u2192 KS Guacamole Singles ($11.99) swap** \u2014 better $/serving and pre-portioned. Smart.\n- **Got the Dash 16-Pc Egg Cooker ($19.98)** \u2014 already in heavy rotation by Tuesday.\n- **Spinach restock + iceberg lettuce** \u2014 caught the price bump on lettuce ($1.99 \u2192 $2.49) so we know about it now.\n- **Mom's care package handled cleanly** ($13.98 kept separate from your budget).\n\n## What got missed \u274c \u2014 carry forward\n\n- **Fage Greek Yogurt 48oz** ($7.79 at Costco) \u2014 Tiffany asked for actual yogurt, we came home with Chobani protein drinks instead. Not the same thing.\n- **Fiducia supplement** \u2014 Natural Body Hicksville closed. Carries to next supplement run.\n\n## Impulse / off-list buys \ud83d\udcb0\n\n| Item | Cost | Verdict |\n|------|-----:|---------|\n| Butterball Lean Turkey 48oz | $15.99 | Good \u2014 protein for prep |\n| Chobani 20g Protein Drinks 8ct | $13.99 | Misalignment \u2014 meant to get yogurt |\n| Angel Sweet Grape Tomatoes 2lbs | $6.99 | Good \u2014 salad base |\n| Green Onions (Costco) | $5.99 | Good \u2014 meal prep |\n| Dash 16-Pc Egg Cooker | $19.98 | Best impulse buy \u2014 actively using it |\n\n## Price moves caught \ud83d\udd0d\n\n- **Iceberg Lettuce: $1.99 \u2192 $2.49 at BJ's** (+25%) \u2014 flagged\n- **ACE Sourdough Bistro: $5.69** \u2014 stable since 3/8\n- **Almond Breeze Vanilla 96oz: $4.69** \u2014 same as baseline\n\n## For next trip\n\n- Add **Fage Greek Yogurt 48oz** (Costco) to Need Now\n- Add **Fiducia supplement** to Natural Body list \u2014 verify Ozone Park hours\n- Bryan/Tiffany check: confirm whether Chobani drinks vs Fage yogurt was the actual ask",
+      "filename": "2026-04-26_two-store-run.md"
+    }
+  ],
   "totals": {
     "itemCount": 122,
     "tripCount": 11,

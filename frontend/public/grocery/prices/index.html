@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prices — Tyron & Tiffany</title>
+<style>
+:root {
+  --bg: #fafafa; --surface: #ffffff; --surface-alt: #f3f4f6; --border: #e5e7eb;
+  --text: #111827; --text-muted: #6b7280; --text-faint: #9ca3af;
+  --accent: #059669; --accent-bg: #d1fae5;
+  --c-costco: #2563eb; --c-bjs: #7c3aed; --c-ss: #d97706; --c-vs: #0891b2; --c-nb: #db2777;
+  --shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+[data-theme="dark"] {
+  --bg: #0a0a0f; --surface: #12121a; --surface-alt: #1a1a26; --border: #2a2a3a;
+  --text: #e8e8f0; --text-muted: #8888a0; --text-faint: #6b6b80;
+  --accent: #34d399; --accent-bg: rgba(52,211,153,0.15);
+  --c-costco: #4f8fff; --c-bjs: #9d6fff; --c-ss: #f59e0b; --c-vs: #22d3ee; --c-nb: #f472b6;
+  --shadow: none;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+#gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+.gate-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; max-width: 360px; width: 100%; text-align: center; box-shadow: var(--shadow); }
+.gate-card h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.gate-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+.google-btn { width: 100%; padding: 12px; background: #fff; color: #1f2937; border: 1px solid #d1d5db; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: inherit; }
+.google-btn:hover { background: #f9fafb; }
+.google-btn svg { width: 18px; height: 18px; }
+.err { color: #dc2626; font-size: 13px; margin-top: 14px; min-height: 18px; }
+
+#app { display: none; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.topbar h1 { font-size: 22px; font-weight: 700; }
+.user-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); }
+.icon-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+.icon-btn:hover { color: var(--text); border-color: var(--text-muted); }
+.icon-btn svg { width: 14px; height: 14px; }
+.text-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; }
+.text-btn:hover { color: var(--text); border-color: var(--text-muted); }
+
+.nav { display: inline-flex; gap: 4px; background: var(--surface-alt); padding: 4px; border-radius: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+.nav-link { padding: 8px 16px; border-radius: 8px; color: var(--text-muted); font-size: 13px; font-weight: 500; text-decoration: none; }
+.nav-link:hover:not(.active) { color: var(--text); }
+.nav-link.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+
+.section-title { font-size: 13px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; margin: 24px 0 12px; }
+.section-title:first-of-type { margin-top: 0; }
+
+.wins { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 28px; }
+.win-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); }
+.win-badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; padding: 3px 8px; border-radius: 4px; margin-bottom: 12px; color: #fff; }
+.win-badge.costco { background: var(--c-costco); }
+.win-badge.bjs { background: var(--c-bjs); }
+.win-badge.ss { background: var(--c-ss); }
+.win-item { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+.win-item:last-child { margin-bottom: 0; }
+.win-item strong { color: var(--text); display: block; font-weight: 600; font-size: 13px; margin-bottom: 2px; }
+.win-save { color: var(--accent); font-weight: 600; }
+
+.controls { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; align-items: center; }
+.search-input { flex: 1; min-width: 200px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font-size: 13px; font-family: inherit; }
+.search-input:focus { outline: none; border-color: var(--accent); }
+.filter-pill { padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); font-size: 12px; font-weight: 500; cursor: pointer; font-family: inherit; }
+.filter-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.filter-pill:hover:not(.active) { color: var(--text); }
+
+.items-table { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); padding: 12px 14px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; cursor: pointer; user-select: none; background: var(--surface-alt); }
+th:hover { color: var(--text); }
+th.sort-asc::after { content: " ↑"; color: var(--accent); }
+th.sort-desc::after { content: " ↓"; color: var(--accent); }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface-alt); }
+.right { text-align: right; }
+.store-pill { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; color: #fff; }
+.store-pill.costco { background: var(--c-costco); }
+.store-pill.bjs { background: var(--c-bjs); }
+.store-pill.ss { background: var(--c-ss); }
+.store-pill.vs { background: var(--c-vs); }
+.store-pill.nb { background: var(--c-nb); }
+.results-meta { font-size: 12px; color: var(--text-faint); margin-top: 12px; text-align: right; }
+.empty { color: var(--text-muted); font-size: 14px; padding: 40px 16px; text-align: center; }
+.footer { text-align: center; margin-top: 32px; color: var(--text-faint); font-size: 12px; }
+</style>
+</head>
+<body data-theme="light">
+
+<div id="gate">
+  <div class="gate-card">
+    <h1>Prices</h1>
+    <p>Tyron &amp; Tiffany only — sign in with your Google account.</p>
+    <button class="google-btn" id="signin-btn">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Sign in with Google
+    </button>
+    <div class="err" id="login-err"></div>
+  </div>
+</div>
+
+<div id="app">
+  <div class="container">
+    <div class="topbar">
+      <h1>Prices</h1>
+      <div class="user-row">
+        <span id="user-email"></span>
+        <button class="icon-btn" id="theme-toggle" title="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24" fill="currentColor"></svg></button>
+        <button class="text-btn" id="signout-btn">Sign out</button>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="/grocery/" class="nav-link">Spending</a>
+      <a href="/grocery/shopping-list/" class="nav-link">Shopping list</a>
+      <a href="/grocery/trips/" class="nav-link">Trips</a>
+      <a href="/grocery/prices/" class="nav-link active">Prices</a>
+    </nav>
+
+    <div class="section-title">Cross-store winners</div>
+    <div class="wins" id="wins"></div>
+
+    <div class="section-title">All items</div>
+    <div class="controls">
+      <input class="search-input" id="search" placeholder="Search items, brands, categories…">
+      <button class="filter-pill active" data-store="all">All stores</button>
+      <button class="filter-pill" data-store="Costco">Costco</button>
+      <button class="filter-pill" data-store="BJ's">BJ's</button>
+      <button class="filter-pill" data-store="Stop & Shop">S&amp;S</button>
+      <button class="filter-pill" data-store="The Vitamin Shoppe">Vitamin Shoppe</button>
+      <button class="filter-pill" data-store="Natural Body">Natural Body</button>
+    </div>
+    <div class="items-table">
+      <table>
+        <thead><tr><th data-sort="date">Date</th><th data-sort="store">Store</th><th data-sort="item">Item</th><th data-sort="category">Category</th><th class="right" data-sort="cost">Cost</th><th class="right" data-sort="costPerServing">$/Srv</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="results-meta" id="meta"></div>
+
+    <div class="footer">122 line items across 11 trips since January</div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+  authDomain: "tyron-personal.firebaseapp.com",
+  projectId: "tyron-personal",
+  appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+};
+const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com", "tiffanysamaroo721@gmail.com"];
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const SUN_PATH = '<path d="M12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>';
+const MOON_PATH = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  document.getElementById('theme-icon').innerHTML = theme === 'light' ? MOON_PATH : SUN_PATH;
+  try { localStorage.setItem('grocery_theme', theme); } catch(e) {}
+}
+let savedTheme = 'light';
+try { savedTheme = localStorage.getItem('grocery_theme') || 'light'; } catch(e) {}
+applyTheme(savedTheme);
+document.getElementById('theme-toggle').addEventListener('click', () => applyTheme(document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+
+document.getElementById('signin-btn').addEventListener('click', async () => {
+  document.getElementById('login-err').textContent = '';
+  try { await signInWithPopup(auth, provider); }
+  catch (e) { document.getElementById('login-err').textContent = 'Sign-in failed: ' + (e.message || e.code); }
+});
+document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
+
+let allItems = [];
+let winners = [];
+let filterStore = 'all';
+let searchQ = '';
+let sortKey = 'date';
+let sortDir = -1;
+
+const escape = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const storeClass = s => {
+  if (s === 'Costco') return 'costco';
+  if (s === "BJ's") return 'bjs';
+  if (s === 'Stop & Shop') return 'ss';
+  if (s === 'The Vitamin Shoppe') return 'vs';
+  if (typeof s === 'string' && s.startsWith('Natural Body')) return 'nb';
+  return '';
+};
+
+onAuthStateChanged(auth, async (user) => {
+  if (user && ALLOWED_EMAILS.includes(user.email)) {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    document.getElementById('user-email').textContent = user.email;
+    await loadAndRender();
+  } else if (user) {
+    document.getElementById('login-err').textContent = `${user.email} is not authorized`;
+    setTimeout(() => signOut(auth), 1500);
+  } else {
+    document.getElementById('gate').style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+  }
+});
+
+async function loadAndRender() {
+  const res = await fetch('/grocery/data.json', { cache: 'no-cache' });
+  const data = await res.json();
+  allItems = (data.items || []).filter(i => i.itemCode !== 'LOYALTY' && i.itemCode !== 'TAX');
+  winners = data.winners || [];
+  renderWinners();
+  renderTable();
+}
+
+function renderWinners() {
+  const el = document.getElementById('wins');
+  el.innerHTML = winners.map(w => `
+    <div class="win-card">
+      <span class="win-badge ${w.badge}">${escape(w.store)} wins</span>
+      ${w.wins.map(it => `
+        <div class="win-item">
+          <strong>${escape(it.item)}</strong>
+          ${escape(it.detail)}${it.savings ? ' — <span class="win-save">' + escape(it.savings) + '</span>' : ''}
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function renderTable() {
+  const q = searchQ.toLowerCase();
+  let rows = allItems.filter(it => {
+    if (filterStore !== 'all') {
+      if (filterStore === 'Natural Body') {
+        if (!String(it.store).startsWith('Natural Body')) return false;
+      } else if (it.store !== filterStore) return false;
+    }
+    if (q) {
+      const hay = (it.item + ' ' + it.category + ' ' + it.store).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  rows.sort((a, b) => {
+    let av = a[sortKey] ?? '';
+    let bv = b[sortKey] ?? '';
+    if (typeof av === 'string') av = av.toLowerCase();
+    if (typeof bv === 'string') bv = bv.toLowerCase();
+    if (av < bv) return -1 * sortDir;
+    if (av > bv) return 1 * sortDir;
+    return 0;
+  });
+  document.getElementById('rows').innerHTML = rows.length ? rows.map(it => {
+    const date = String(it.date).slice(0, 10);
+    const cps = it.costPerServing != null ? '$' + Number(it.costPerServing).toFixed(2) : '—';
+    return `<tr>
+      <td style="white-space:nowrap;color:var(--text-muted);">${date}</td>
+      <td><span class="store-pill ${storeClass(it.store)}">${escape(it.store).replace('Natural Body ','NB ').replace('The Vitamin Shoppe','VS').replace('Stop & Shop','S&S')}</span></td>
+      <td>${escape(it.item)}</td>
+      <td style="color:var(--text-muted);font-size:12px;">${escape(it.category)}</td>
+      <td class="right">$${Number(it.cost).toFixed(2)}</td>
+      <td class="right" style="color:var(--text-muted);">${cps}</td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="6" class="empty">No matches</td></tr>';
+  document.getElementById('meta').textContent = `Showing ${rows.length} of ${allItems.length} items`;
+  document.querySelectorAll('th').forEach(th => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (th.dataset.sort === sortKey) th.classList.add(sortDir > 0 ? 'sort-asc' : 'sort-desc');
+  });
+}
+
+document.getElementById('search').addEventListener('input', e => { searchQ = e.target.value; renderTable(); });
+document.querySelectorAll('.filter-pill').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filter-pill').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  filterStore = b.dataset.store;
+  renderTable();
+}));
+document.querySelectorAll('th').forEach(th => th.addEventListener('click', () => {
+  const k = th.dataset.sort;
+  if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = 1; }
+  renderTable();
+}));
+</script>
+</body>
+</html>
