@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T00:01:35.071812Z",
+  "generatedAt": "2026-04-28T16:43:01.391871Z",
   "targetMonthly": 900,
   "trips": [
     {
@@ -70,6 +70,16 @@
       "mom": 0,
       "total": 35.66,
       "itemCount": 4,
+      "momCount": 0
+    },
+    {
+      "date": "2026-04-27",
+      "store": "Natural Body Ozone Park",
+      "food": 352.87,
+      "hh": 0,
+      "mom": 0,
+      "total": 352.87,
+      "itemCount": 14,
       "momCount": 0
     }
   ],
@@ -1117,6 +1127,174 @@
       "servings": null,
       "costPerServing": null,
       "notes": "Sales tax - Trans 68417, Visa **4368"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink 7UP Lemon Lime",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 5.0,
+      "servings": 2,
+      "costPerServing": 2.5,
+      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink Sour Patch Kids Redberry",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 5.0,
+      "servings": 2,
+      "costPerServing": 2.5,
+      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink Raspberry Cream",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 5.0,
+      "servings": 2,
+      "costPerServing": 2.5,
+      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink Swedish Fish",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 5.0,
+      "servings": 2,
+      "costPerServing": 2.5,
+      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink Welch's Grape Cran",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 5.0,
+      "servings": 2,
+      "costPerServing": 2.5,
+      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink Welch's Grape",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 6.0,
+      "servings": 2,
+      "costPerServing": 3.0,
+      "notes": "Full price (no promo) - 16oz"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Musclesport Lean Whey - Strawberry Banana",
+      "category": "Supplement",
+      "type": "Food",
+      "cost": 45.0,
+      "servings": 25,
+      "costPerServing": 1.8,
+      "notes": "List $52.99, saved $7.99 (15.08%)"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Musclesport Lean Whey - PB Cookies & Cream",
+      "category": "Supplement",
+      "type": "Food",
+      "cost": 45.0,
+      "servings": 25,
+      "costPerServing": 1.8,
+      "notes": "List $52.99, saved $7.99 (15.08%)"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Musclesport Lean Whey - Choc Choc Chip",
+      "category": "Supplement",
+      "type": "Food",
+      "cost": 45.0,
+      "servings": 25,
+      "costPerServing": 1.8,
+      "notes": "List $52.99, saved $7.99 (15.08%)"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Enhanced Labs Top T (120 caps)",
+      "category": "Supplement",
+      "type": "Food",
+      "cost": 120.0,
+      "servings": 2,
+      "costPerServing": 60.0,
+      "notes": "Qty 2 @ $60 each, list $64.99 ea, saved $4.99 ea (7.68%)"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Core Nutritionals Pump Black - Red Alert",
+      "category": "Supplement",
+      "type": "Food",
+      "cost": 45.0,
+      "servings": 20,
+      "costPerServing": 2.25,
+      "notes": "List $49.99, saved $4.99 (9.98%)"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Core Nutritionals Fury Black Pre-Workout",
+      "category": "Supplement",
+      "type": "Food",
+      "cost": 48.0,
+      "servings": 20,
+      "costPerServing": 2.4,
+      "notes": "List $54.99, saved $6.99 (12.71%)"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Musclesport CarniShred + Mitoburn Liquid",
+      "category": "Supplement",
+      "type": "Food",
+      "cost": 30.0,
+      "servings": 31,
+      "costPerServing": 0.97,
+      "notes": "List $34.99, saved $4.99 (14.26%) - Baja Splash"
+    },
+    {
+      "date": "2026-04-27",
+      "itemCode": "LOYALTY",
+      "store": "Natural Body Ozone Park",
+      "item": "Loyalty Redemption Credit",
+      "category": "Other",
+      "type": "Food",
+      "cost": -56.13,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Loyalty applied at checkout - Trans pi_3TQyfAFfuIutquDb139yAcP8"
     }
   ],
   "winners": [
@@ -1191,11 +1369,15 @@
         "store": "Natural Body \u2014 Hicksville",
         "items": [
           {
-            "name": "Fiducia supplement (Tyron's specific brand) \u2014 **still pending** (didn't make it to Hicksville)",
+            "name": "Fiducia supplement \u2014 still pending (not at Ozone Park trip on 4/27)",
             "done": false
           },
           {
-            "name": "Ghost energy drinks \u2705 Bought 4/26 @ The Vitamin Shoppe (Oceanside) instead \u2014 2\u00d7 Grape Cream + 2\u00d7 Raspberry @ $3.49 ea + 2\u00d7 Bum Root Beer @ $3.29 ea = $22.31 incl. tax",
+            "name": "Ghost energy drinks \u2705 Bought across 2 trips: 4/26 Vitamin Shoppe Oceanside ($22.31 / 6 cans) + 4/27 Natural Body Ozone Park (12 cans / 6 flavors / $31 incl Welch's Grape full price)",
+            "done": true
+          },
+          {
+            "name": "Big supplement restock \u2705 4/27 Natural Body Ozone Park \u2014 3\u00d7 Musclesport Lean Whey ($135), 2\u00d7 Enhanced Labs Top T ($120), Core Pump Black ($45), Core Fury Black ($48), Musclesport CarniShred ($30) = $378 list, paid $321.87 after promos + $56.13 loyalty = **$352.87 total trip**",
             "done": true
           }
         ]
@@ -1318,8 +1500,8 @@
     }
   },
   "totals": {
-    "itemCount": 87,
-    "tripCount": 7,
-    "monthlyEstimate": 501.08
+    "itemCount": 101,
+    "tripCount": 8,
+    "monthlyEstimate": 677.51
   }
 }
