@@ -127,6 +127,14 @@ tr:hover td { background: var(--surface-alt); }
     <div class="section-title">Supplement winners</div>
     <div class="wins" id="wins-supplement"></div>
 
+    <div class="section-title">Where to buy <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint);font-size:11px;">— items you've bought 2+ times, with best store</span></div>
+    <div class="items-table" style="margin-bottom:24px;">
+      <table>
+        <thead><tr><th>Item</th><th>Best store</th><th class="right">Best price</th><th>Trend</th><th class="right" style="cursor:default;">Times bought</th></tr></thead>
+        <tbody id="catalog-rows"></tbody>
+      </table>
+    </div>
+
     <div class="section-title">All items</div>
     <div class="controls">
       <input class="search-input" id="search" placeholder="Search items, brands, categories…">
@@ -221,6 +229,7 @@ async function loadAndRender() {
   allItems = (data.items || []).filter(i => i.itemCode !== 'LOYALTY' && i.itemCode !== 'TAX');
   winners = data.winners || [];
   renderWinners();
+  renderCatalog();
   renderTable();
 }
 
@@ -244,6 +253,72 @@ function renderWinners() {
   } else {
     suppEl.innerHTML = '<div class="empty">No supplement winners yet.</div>';
   }
+}
+
+function normalizeName(name) {
+  // strip trailing flavor/size variants for grouping
+  return String(name)
+    .toLowerCase()
+    .replace(/\s+(strawberry|chocolate|vanilla|cookies|peanut butter|raspberry|grape|cream|swedish fish|sour patch|warheads|red alert|tropical|pink venom|squirrelly|brown sugar|toaster pastry|baja splash|cherry peach|lemon lime|cookie butter|cheesecake|original).*/g, '')
+    .replace(/\s+\([^)]*\)/g, '')
+    .replace(/\s+\d+oz|\s+\d+ oz|\s+\d+\s*lbs?|\s+\d+pk|\s+\d+\s*pack|\s+\d+\s*ct/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function renderCatalog() {
+  // group items by normalized name
+  const groups = new Map();
+  for (const it of allItems) {
+    const key = normalizeName(it.item);
+    if (!key) continue;
+    if (!groups.has(key)) groups.set(key, { display: it.item, rows: [] });
+    groups.get(key).rows.push(it);
+  }
+  // only items with 2+ purchases
+  const rows = [...groups.entries()]
+    .filter(([_, g]) => g.rows.length >= 2)
+    .map(([_, g]) => {
+      // best store = lowest cost (among rows; fallback to costPerServing if cost varies a lot)
+      const sorted = [...g.rows].sort((a, b) => (a.cost || 0) - (b.cost || 0));
+      const best = sorted[0];
+      // unique stores
+      const stores = [...new Set(g.rows.map(r => r.store))];
+      // price trend within best store
+      const sameStore = g.rows.filter(r => r.store === best.store).sort((a,b) => String(a.date).localeCompare(String(b.date)));
+      let trend = '';
+      if (sameStore.length >= 2 && sameStore[0].cost !== sameStore[sameStore.length-1].cost) {
+        const first = sameStore[0], last = sameStore[sameStore.length-1];
+        const diff = last.cost - first.cost;
+        const pct = (diff / first.cost * 100).toFixed(0);
+        const arrow = diff > 0 ? '↑' : '↓';
+        const color = diff > 0 ? '#dc2626' : '#059669';
+        trend = `<span style="color:${color}">${arrow} ${Math.abs(pct)}%</span> ($${first.cost.toFixed(2)} → $${last.cost.toFixed(2)})`;
+      } else if (stores.length > 1) {
+        // multi-store comparison
+        const others = sorted.filter(r => r.store !== best.store);
+        if (others.length) {
+          const next = others[0];
+          const pct = ((next.cost - best.cost) / best.cost * 100).toFixed(0);
+          trend = `<span style="color:var(--text-muted)">vs ${escape(next.store)} $${next.cost.toFixed(2)} <span style="color:#059669">(+${pct}%)</span></span>`;
+        }
+      } else {
+        trend = '<span style="color:var(--text-faint)">stable</span>';
+      }
+      return { display: g.display, best, count: g.rows.length, stores: stores.length, trend };
+    })
+    .sort((a, b) => b.count - a.count);
+
+  const tbody = document.getElementById('catalog-rows');
+  tbody.innerHTML = rows.length ? rows.map(r => `
+    <tr>
+      <td>${escape(r.display)}</td>
+      <td><span class="store-pill ${storeClass(r.best.store)}">${escape(r.best.store).replace('Natural Body ','NB ').replace('The Vitamin Shoppe','VS').replace('Stop & Shop','S&S')}</span></td>
+      <td class="right" style="font-weight:600;">$${r.best.cost.toFixed(2)}</td>
+      <td style="font-size:12px;color:var(--text-muted);">${r.trend}</td>
+      <td class="right" style="color:var(--text-muted);font-size:12px;">${r.count}× ${r.stores > 1 ? `· ${r.stores} stores` : ''}</td>
+    </tr>
+  `).join('') : '<tr><td colspan="5" class="empty">No items bought 2+ times yet — log more trips to populate.</td></tr>';
 }
 
 function renderTable() {
