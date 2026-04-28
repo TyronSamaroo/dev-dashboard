@@ -90,6 +90,24 @@ tr:last-child td { border-bottom: none; }
 
 .watch { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 12px; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: var(--warn-text); }
 .watch strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; font-weight: 700; }
+.insights { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.insight { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; border-radius: 10px; font-size: 13px; line-height: 1.5; border: 1px solid transparent; }
+.insight-pill { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; white-space: nowrap; }
+.insight.red    { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+.insight.red    .insight-pill { background: #dc2626; color: #fff; }
+.insight.green  { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+.insight.green  .insight-pill { background: #059669; color: #fff; }
+.insight.blue   { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+.insight.blue   .insight-pill { background: #2563eb; color: #fff; }
+.insight.amber  { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.insight.amber  .insight-pill { background: #d97706; color: #fff; }
+.insight.purple { background: #faf5ff; border-color: #e9d5ff; color: #6b21a8; }
+.insight.purple .insight-pill { background: #7c3aed; color: #fff; }
+[data-theme="dark"] .insight.red    { background: rgba(220,38,38,0.1);  border-color: rgba(220,38,38,0.3);  color: #f87171; }
+[data-theme="dark"] .insight.green  { background: rgba(5,150,105,0.1);  border-color: rgba(5,150,105,0.3);  color: #34d399; }
+[data-theme="dark"] .insight.blue   { background: rgba(37,99,235,0.1);  border-color: rgba(37,99,235,0.3);  color: #60a5fa; }
+[data-theme="dark"] .insight.amber  { background: rgba(217,119,6,0.1);  border-color: rgba(217,119,6,0.3);  color: #fbbf24; }
+[data-theme="dark"] .insight.purple { background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.3); color: #a78bfa; }
 
 .footer { text-align: center; margin-top: 32px; color: var(--text-faint); font-size: 12px; }
 .footer a { color: var(--accent); text-decoration: none; }
@@ -161,6 +179,11 @@ tr:last-child td { border-bottom: none; }
     <div class="section">
       <h2>Trip log</h2>
       <table><thead><tr><th>Date</th><th>Store</th><th class="right">Grocery</th><th class="right">Supplement</th><th class="right">Mom</th><th class="right">Total</th></tr></thead><tbody id="trip-tbody"></tbody></table>
+    </div>
+
+    <div class="section">
+      <h2>Insights</h2>
+      <div class="insights" id="insights"></div>
     </div>
 
     <div class="watch" id="watch-box"><strong>Watch</strong><span id="watch-text"></span></div>
@@ -256,6 +279,7 @@ async function loadData() {
     data = await res.json();
     renderWins();
     renderWatch();
+    renderInsights();
     renderFooter();
   } catch (e) {
     console.error('data.json load failed', e);
@@ -334,7 +358,9 @@ function renderRange(range) {
 function renderWins() {
   const winsEl = document.getElementById('wins');
   if (!data?.winners) return;
-  winsEl.innerHTML = data.winners.map(w => `
+  // Backwards-compat: winners may be array (old) or object {grocery, supplement, online} (new)
+  const groceryWins = Array.isArray(data.winners) ? data.winners : (data.winners.grocery || []);
+  winsEl.innerHTML = groceryWins.map(w => `
     <div class="win-card">
       <span class="win-badge ${w.badge}">${escapeHtml(w.store)} wins</span>
       ${w.wins.map(it => `
@@ -343,6 +369,17 @@ function renderWins() {
           ${escapeHtml(it.detail)}${it.savings ? ' — <span class="win-save">' + escapeHtml(it.savings) + '</span>' : ''}
         </div>
       `).join('')}
+    </div>
+  `).join('');
+}
+
+function renderInsights() {
+  const el = document.getElementById('insights');
+  if (!el || !data?.insights?.length) { if (el) el.parentElement.style.display = 'none'; return; }
+  el.innerHTML = data.insights.map(i => `
+    <div class="insight ${i.color}">
+      <span class="insight-pill">${escapeHtml(i.label)}</span>
+      <span>${escapeHtml(i.text)}</span>
     </div>
   `).join('');
 }

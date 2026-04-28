@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T17:01:25.267493Z",
+  "generatedAt": "2026-04-28T17:13:13.131274Z",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -15,7 +15,8 @@
       "total": 214.96,
       "itemCount": 0,
       "supplementCount": 11,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -28,7 +29,8 @@
       "total": 239.93,
       "itemCount": 0,
       "supplementCount": 7,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "supplement"
     },
     {
       "date": "2026-03-02",
@@ -41,7 +43,8 @@
       "total": 71.89,
       "itemCount": 10,
       "supplementCount": 0,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -54,7 +57,8 @@
       "total": 384.0,
       "itemCount": 25,
       "supplementCount": 0,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-24",
@@ -67,7 +71,8 @@
       "total": 100.0,
       "itemCount": 0,
       "supplementCount": 3,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-17",
@@ -80,7 +85,8 @@
       "total": 129.17,
       "itemCount": 13,
       "supplementCount": 0,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -93,7 +99,8 @@
       "total": 239.25,
       "itemCount": 15,
       "supplementCount": 0,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26",
@@ -106,7 +113,8 @@
       "total": 22.31,
       "itemCount": 0,
       "supplementCount": 7,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -119,7 +127,8 @@
       "total": 119.88,
       "itemCount": 11,
       "supplementCount": 0,
-      "momCount": 2
+      "momCount": 2,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -132,7 +141,8 @@
       "total": 35.66,
       "itemCount": 4,
       "supplementCount": 0,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-27",
@@ -145,7 +155,8 @@
       "total": 352.87,
       "itemCount": 0,
       "supplementCount": 14,
-      "momCount": 0
+      "momCount": 0,
+      "storeType": "supplement"
     }
   ],
   "items": [
@@ -159,7 +170,8 @@
       "cost": 9.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -171,7 +183,8 @@
       "cost": 8.99,
       "servings": 40,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -183,7 +196,8 @@
       "cost": 39.99,
       "servings": 18,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -195,7 +209,8 @@
       "cost": 23.04,
       "servings": 35,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -207,7 +222,8 @@
       "cost": 16.89,
       "servings": 24,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -219,7 +235,8 @@
       "cost": 7.99,
       "servings": 24,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -231,7 +248,8 @@
       "cost": 8.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "$2.50 instant savings"
+      "notes": "$2.50 instant savings",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -243,7 +261,8 @@
       "cost": 22.49,
       "servings": 12,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -255,7 +274,8 @@
       "cost": 30.99,
       "servings": 10,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -267,7 +287,8 @@
       "cost": 5.69,
       "servings": 22,
       "costPerServing": null,
-      "notes": "40.6 oz loaf"
+      "notes": "40.6 oz loaf",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -279,7 +300,8 @@
       "cost": 10.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "$3.00 instant savings"
+      "notes": "$3.00 instant savings",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -291,7 +313,8 @@
       "cost": 5.29,
       "servings": 26,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -303,7 +326,8 @@
       "cost": 27.99,
       "servings": 45,
       "costPerServing": null,
-      "notes": "$7.00 instant savings"
+      "notes": "$7.00 instant savings",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -315,7 +339,8 @@
       "cost": 18.59,
       "servings": 24,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -327,7 +352,8 @@
       "cost": 8.79,
       "servings": 27,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -339,7 +365,8 @@
       "cost": 4.99,
       "servings": 10,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -351,7 +378,8 @@
       "cost": 9.99,
       "servings": 12,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -363,7 +391,8 @@
       "cost": 19.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -375,7 +404,8 @@
       "cost": 24.89,
       "servings": 24,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -387,7 +417,8 @@
       "cost": 10.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "$4.00 instant savings"
+      "notes": "$4.00 instant savings",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -399,7 +430,8 @@
       "cost": 14.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "$4.00 instant savings"
+      "notes": "$4.00 instant savings",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -411,7 +443,8 @@
       "cost": 13.69,
       "servings": null,
       "costPerServing": null,
-      "notes": "$4.00 instant savings"
+      "notes": "$4.00 instant savings",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -423,7 +456,8 @@
       "cost": 11.99,
       "servings": 8,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -435,7 +469,8 @@
       "cost": 9.79,
       "servings": 50,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-08",
@@ -447,7 +482,8 @@
       "cost": 15.99,
       "servings": 20,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -459,7 +495,8 @@
       "cost": 5.49,
       "servings": 16,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -471,7 +508,8 @@
       "cost": 8.79,
       "servings": 5,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -483,7 +521,8 @@
       "cost": 5.79,
       "servings": 6,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -495,7 +534,8 @@
       "cost": 7.99,
       "servings": 15,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -507,7 +547,8 @@
       "cost": 4.29,
       "servings": 14,
       "costPerServing": null,
-      "notes": "Tortillas"
+      "notes": "Tortillas",
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -519,7 +560,8 @@
       "cost": 10.99,
       "servings": 4,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -531,7 +573,8 @@
       "cost": 10.29,
       "servings": 4,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -543,7 +586,8 @@
       "cost": 7.99,
       "servings": 6,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -555,7 +599,8 @@
       "cost": 6.29,
       "servings": 12,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-03-02",
@@ -567,7 +612,8 @@
       "cost": 3.98,
       "servings": 2,
       "costPerServing": null,
-      "notes": "2 x $1.99"
+      "notes": "2 x $1.99",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -579,7 +625,8 @@
       "cost": 21.29,
       "servings": 35,
       "costPerServing": 0.6082857142857142,
-      "notes": "Was 23.04 on 3/8 - dropped"
+      "notes": "Was 23.04 on 3/8 - dropped",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -591,7 +638,8 @@
       "cost": 1.75,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -603,7 +651,8 @@
       "cost": 9.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "$4.00 coupon applied"
+      "notes": "$4.00 coupon applied",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -615,7 +664,8 @@
       "cost": 39.99,
       "servings": 18,
       "costPerServing": 2.221666666666667,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -627,7 +677,8 @@
       "cost": 14.49,
       "servings": null,
       "costPerServing": null,
-      "notes": "$3.50 coupon applied"
+      "notes": "$3.50 coupon applied",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -639,7 +690,8 @@
       "cost": 14.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "New item"
+      "notes": "New item",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -651,7 +703,8 @@
       "cost": 5.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -663,7 +716,8 @@
       "cost": 7.49,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -675,7 +729,8 @@
       "cost": 17.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -687,7 +742,8 @@
       "cost": 4.97,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -699,7 +755,8 @@
       "cost": 7.79,
       "servings": 48,
       "costPerServing": 0.1622916666666667,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -711,7 +768,8 @@
       "cost": 37.55,
       "servings": null,
       "costPerServing": null,
-      "notes": "Swap candidate vs Laura Lean"
+      "notes": "Swap candidate vs Laura Lean",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -723,7 +781,8 @@
       "cost": 15.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -735,7 +794,8 @@
       "cost": 17.49,
       "servings": 320,
       "costPerServing": 0.05465625,
-      "notes": "$4.50 coupon. FSA eligible"
+      "notes": "$4.50 coupon. FSA eligible",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -747,7 +807,8 @@
       "cost": 21.49,
       "servings": 290,
       "costPerServing": 0.07410344827586206,
-      "notes": "FSA eligible"
+      "notes": "FSA eligible",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -759,7 +820,8 @@
       "cost": 13.99,
       "servings": 3,
       "costPerServing": 4.663333333333333,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -771,7 +833,8 @@
       "cost": 29.99,
       "servings": 14,
       "costPerServing": 2.142142857142857,
-      "notes": "Biggest line item"
+      "notes": "Biggest line item",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -783,7 +846,8 @@
       "cost": 6.99,
       "servings": 2,
       "costPerServing": 3.495,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -795,7 +859,8 @@
       "cost": 4.79,
       "servings": 46,
       "costPerServing": 0.1041304347826087,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -807,7 +872,8 @@
       "cost": 4.99,
       "servings": 22,
       "costPerServing": 0.2268181818181818,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -819,7 +885,8 @@
       "cost": 1.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -831,7 +898,8 @@
       "cost": 4.49,
       "servings": 16,
       "costPerServing": 0.280625,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -843,7 +911,8 @@
       "cost": 4.49,
       "servings": 16,
       "costPerServing": 0.280625,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -855,7 +924,8 @@
       "cost": 4.69,
       "servings": 96,
       "costPerServing": 0.04885416666666667,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -867,7 +937,8 @@
       "cost": 5.79,
       "servings": 32,
       "costPerServing": 0.1809375,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -879,7 +950,8 @@
       "cost": 13.99,
       "servings": 4,
       "costPerServing": 3.4975,
-      "notes": "$1.50 coupon applied; net $12.49"
+      "notes": "$1.50 coupon applied; net $12.49",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -891,7 +963,8 @@
       "cost": 14.99,
       "servings": 2,
       "costPerServing": 7.495,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-17",
@@ -903,7 +976,8 @@
       "cost": 17.99,
       "servings": 260,
       "costPerServing": 0.06919230769230769,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -915,7 +989,8 @@
       "cost": 26.99,
       "servings": 4,
       "costPerServing": 6.7475,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -927,7 +1002,8 @@
       "cost": 15.99,
       "servings": 2,
       "costPerServing": 7.995,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -939,7 +1015,8 @@
       "cost": 15.99,
       "servings": 48,
       "costPerServing": 0.333125,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -951,7 +1028,8 @@
       "cost": 6.99,
       "servings": 3,
       "costPerServing": 2.33,
-      "notes": "Mom care pkg"
+      "notes": "Mom care pkg",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -963,7 +1041,8 @@
       "cost": 5.29,
       "servings": 10,
       "costPerServing": 0.529,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -975,7 +1054,8 @@
       "cost": 2.49,
       "servings": null,
       "costPerServing": null,
-      "notes": "Was $1.99 on 4/17 \u2014 +25% price increase"
+      "notes": "Was $1.99 on 4/17 \u2014 +25% price increase",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -987,7 +1067,8 @@
       "cost": 6.99,
       "servings": 2,
       "costPerServing": 3.495,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -999,7 +1080,8 @@
       "cost": 2.99,
       "servings": 3,
       "costPerServing": 0.9967,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1011,7 +1093,8 @@
       "cost": 4.49,
       "servings": 16,
       "costPerServing": 0.280625,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1023,7 +1106,8 @@
       "cost": 4.69,
       "servings": 96,
       "costPerServing": 0.048854,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1035,7 +1119,8 @@
       "cost": 13.99,
       "servings": 8,
       "costPerServing": 1.74875,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1047,7 +1132,8 @@
       "cost": 6.99,
       "servings": 16,
       "costPerServing": 0.436875,
-      "notes": "Mom care pkg"
+      "notes": "Mom care pkg",
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1059,7 +1145,8 @@
       "cost": 19.98,
       "servings": 1,
       "costPerServing": 19.98,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1071,7 +1158,8 @@
       "cost": 5.69,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1083,7 +1171,8 @@
       "cost": 5.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1095,7 +1184,8 @@
       "cost": 11.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26 00:00:00",
@@ -1107,7 +1197,8 @@
       "cost": 11.99,
       "servings": null,
       "costPerServing": null,
-      "notes": null
+      "notes": null,
+      "storeType": "grocery"
     },
     {
       "date": "2026-04-26",
@@ -1119,7 +1210,8 @@
       "cost": 3.29,
       "servings": 1,
       "costPerServing": null,
-      "notes": "Energy drink, qty 1 of 2"
+      "notes": "Energy drink, qty 1 of 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-26",
@@ -1131,7 +1223,8 @@
       "cost": 3.29,
       "servings": 1,
       "costPerServing": null,
-      "notes": "Energy drink, qty 2 of 2"
+      "notes": "Energy drink, qty 2 of 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-26",
@@ -1143,7 +1236,8 @@
       "cost": 3.49,
       "servings": 1,
       "costPerServing": null,
-      "notes": "Energy drink, qty 1 of 2"
+      "notes": "Energy drink, qty 1 of 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-26",
@@ -1155,7 +1249,8 @@
       "cost": 3.49,
       "servings": 1,
       "costPerServing": null,
-      "notes": "Energy drink, qty 2 of 2"
+      "notes": "Energy drink, qty 2 of 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-26",
@@ -1167,7 +1262,8 @@
       "cost": 3.49,
       "servings": 1,
       "costPerServing": null,
-      "notes": "Energy drink, qty 1 of 2"
+      "notes": "Energy drink, qty 1 of 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-26",
@@ -1179,7 +1275,8 @@
       "cost": 3.49,
       "servings": 1,
       "costPerServing": null,
-      "notes": "Energy drink, qty 2 of 2"
+      "notes": "Energy drink, qty 2 of 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-26",
@@ -1191,7 +1288,8 @@
       "cost": 1.77,
       "servings": null,
       "costPerServing": null,
-      "notes": "Sales tax - Trans 68417, Visa **4368"
+      "notes": "Sales tax - Trans 68417, Visa **4368",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1203,7 +1301,8 @@
       "cost": 5.0,
       "servings": 2,
       "costPerServing": 2.5,
-      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+      "notes": "Promo 2 for $5 (saved $1) - 16oz",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1215,7 +1314,8 @@
       "cost": 5.0,
       "servings": 2,
       "costPerServing": 2.5,
-      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+      "notes": "Promo 2 for $5 (saved $1) - 16oz",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1227,7 +1327,8 @@
       "cost": 5.0,
       "servings": 2,
       "costPerServing": 2.5,
-      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+      "notes": "Promo 2 for $5 (saved $1) - 16oz",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1239,7 +1340,8 @@
       "cost": 5.0,
       "servings": 2,
       "costPerServing": 2.5,
-      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+      "notes": "Promo 2 for $5 (saved $1) - 16oz",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1251,7 +1353,8 @@
       "cost": 5.0,
       "servings": 2,
       "costPerServing": 2.5,
-      "notes": "Promo 2 for $5 (saved $1) - 16oz"
+      "notes": "Promo 2 for $5 (saved $1) - 16oz",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1263,7 +1366,8 @@
       "cost": 6.0,
       "servings": 2,
       "costPerServing": 3.0,
-      "notes": "Full price (no promo) - 16oz"
+      "notes": "Full price (no promo) - 16oz",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1275,7 +1379,8 @@
       "cost": 45.0,
       "servings": 25,
       "costPerServing": 1.8,
-      "notes": "List $52.99, saved $7.99 (15.08%)"
+      "notes": "List $52.99, saved $7.99 (15.08%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1287,7 +1392,8 @@
       "cost": 45.0,
       "servings": 25,
       "costPerServing": 1.8,
-      "notes": "List $52.99, saved $7.99 (15.08%)"
+      "notes": "List $52.99, saved $7.99 (15.08%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1299,7 +1405,8 @@
       "cost": 45.0,
       "servings": 25,
       "costPerServing": 1.8,
-      "notes": "List $52.99, saved $7.99 (15.08%)"
+      "notes": "List $52.99, saved $7.99 (15.08%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1311,7 +1418,8 @@
       "cost": 120.0,
       "servings": 2,
       "costPerServing": 60.0,
-      "notes": "Qty 2 @ $60 each, list $64.99 ea, saved $4.99 ea (7.68%)"
+      "notes": "Qty 2 @ $60 each, list $64.99 ea, saved $4.99 ea (7.68%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1323,7 +1431,8 @@
       "cost": 45.0,
       "servings": 20,
       "costPerServing": 2.25,
-      "notes": "List $49.99, saved $4.99 (9.98%)"
+      "notes": "List $49.99, saved $4.99 (9.98%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1335,7 +1444,8 @@
       "cost": 48.0,
       "servings": 20,
       "costPerServing": 2.4,
-      "notes": "List $54.99, saved $6.99 (12.71%)"
+      "notes": "List $54.99, saved $6.99 (12.71%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1347,7 +1457,8 @@
       "cost": 30.0,
       "servings": 31,
       "costPerServing": 0.97,
-      "notes": "List $34.99, saved $4.99 (14.26%) - Baja Splash"
+      "notes": "List $34.99, saved $4.99 (14.26%) - Baja Splash",
+      "storeType": "supplement"
     },
     {
       "date": "2026-04-27",
@@ -1359,7 +1470,8 @@
       "cost": -56.13,
       "servings": null,
       "costPerServing": null,
-      "notes": "Loyalty applied at checkout - Trans pi_3TQyfAFfuIutquDb139yAcP8"
+      "notes": "Loyalty applied at checkout - Trans pi_3TQyfAFfuIutquDb139yAcP8",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1371,7 +1483,8 @@
       "cost": 4.5,
       "servings": 2,
       "costPerServing": 2.25,
-      "notes": "Promo 24.75% off (saved $0.74) - 16oz, qty 2"
+      "notes": "Promo 24.75% off (saved $0.74) - 16oz, qty 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1383,7 +1496,8 @@
       "cost": 9.0,
       "servings": 4,
       "costPerServing": 2.25,
-      "notes": "Promo 24.75% off (saved $0.74/can) - 16oz, qty 4"
+      "notes": "Promo 24.75% off (saved $0.74/can) - 16oz, qty 4",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1395,7 +1509,8 @@
       "cost": 4.5,
       "servings": 2,
       "costPerServing": 2.25,
-      "notes": "Promo 24.75% off - 16oz, qty 2"
+      "notes": "Promo 24.75% off - 16oz, qty 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1407,7 +1522,8 @@
       "cost": 4.5,
       "servings": 2,
       "costPerServing": 2.25,
-      "notes": "Promo 24.75% off - 16oz, qty 2"
+      "notes": "Promo 24.75% off - 16oz, qty 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1419,7 +1535,8 @@
       "cost": 4.5,
       "servings": 2,
       "costPerServing": 2.25,
-      "notes": "Promo 24.75% off - 16oz, qty 2"
+      "notes": "Promo 24.75% off - 16oz, qty 2",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1431,7 +1548,8 @@
       "cost": 24.99,
       "servings": 25,
       "costPerServing": 1.0,
-      "notes": "Hot rice cereal"
+      "notes": "Hot rice cereal",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1443,7 +1561,8 @@
       "cost": 22.99,
       "servings": 25,
       "costPerServing": 0.92,
-      "notes": null
+      "notes": null,
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1455,7 +1574,8 @@
       "cost": 49.99,
       "servings": 30,
       "costPerServing": 1.67,
-      "notes": "List $54.99, saved $5.00 (9.09%)"
+      "notes": "List $54.99, saved $5.00 (9.09%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1467,7 +1587,8 @@
       "cost": 49.99,
       "servings": 20,
       "costPerServing": 2.5,
-      "notes": null
+      "notes": null,
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1479,7 +1600,8 @@
       "cost": 45.0,
       "servings": 62,
       "costPerServing": 0.73,
-      "notes": "Qty 2 @ $22.50 ea, list $34.99 ea, saved $12.49 (35.7%) - Note: short"
+      "notes": "Qty 2 @ $22.50 ea, list $34.99 ea, saved $12.49 (35.7%) - Note: short",
+      "storeType": "supplement"
     },
     {
       "date": "2026-01-08",
@@ -1491,7 +1613,8 @@
       "cost": -5.0,
       "servings": null,
       "costPerServing": null,
-      "notes": "Trans pi_3SnPJHFfuIutquDb1hBjkEx8"
+      "notes": "Trans pi_3SnPJHFfuIutquDb1hBjkEx8",
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -1503,7 +1626,8 @@
       "cost": 53.98,
       "servings": 24,
       "costPerServing": 2.25,
-      "notes": "Qty 2 cases @ $26.99 \u2014 3x Rewards Presidents' Day promo"
+      "notes": "Qty 2 cases @ $26.99 \u2014 3x Rewards Presidents' Day promo",
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -1515,7 +1639,8 @@
       "cost": 49.99,
       "servings": 30,
       "costPerServing": 1.67,
-      "notes": "List $54.99, saved $5.00 (9.09%) - 3x Rewards"
+      "notes": "List $54.99, saved $5.00 (9.09%) - 3x Rewards",
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -1527,7 +1652,8 @@
       "cost": 49.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "2lb tub - 3x Rewards Presidents' Day"
+      "notes": "2lb tub - 3x Rewards Presidents' Day",
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -1539,7 +1665,8 @@
       "cost": 57.99,
       "servings": 140,
       "costPerServing": 0.41,
-      "notes": "3x Rewards Presidents' Day"
+      "notes": "3x Rewards Presidents' Day",
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -1551,7 +1678,8 @@
       "cost": 29.99,
       "servings": 31,
       "costPerServing": 0.97,
-      "notes": "List $34.99, saved $5.00 (14.29%) - 3x Rewards"
+      "notes": "List $34.99, saved $5.00 (14.29%) - 3x Rewards",
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -1563,7 +1691,8 @@
       "cost": 2.99,
       "servings": 1,
       "costPerServing": 2.99,
-      "notes": "1 bar - 3x Rewards"
+      "notes": "1 bar - 3x Rewards",
+      "storeType": "supplement"
     },
     {
       "date": "2026-02-16",
@@ -1575,7 +1704,8 @@
       "cost": -5.0,
       "servings": null,
       "costPerServing": null,
-      "notes": "Paid AmEx ****0043 - Trans pi_3T1XdVFfuIutquDb0AH4A9xn"
+      "notes": "Paid AmEx ****0043 - Trans pi_3T1XdVFfuIutquDb0AH4A9xn",
+      "storeType": "supplement"
     },
     {
       "date": "2026-03-24",
@@ -1587,7 +1717,8 @@
       "cost": 45.0,
       "servings": 20,
       "costPerServing": 2.25,
-      "notes": "List $49.99, saved $4.99 (9.98%)"
+      "notes": "List $49.99, saved $4.99 (9.98%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-03-24",
@@ -1599,7 +1730,8 @@
       "cost": 60.0,
       "servings": 120,
       "costPerServing": 0.5,
-      "notes": "List $64.99, saved $4.99 (7.68%)"
+      "notes": "List $64.99, saved $4.99 (7.68%)",
+      "storeType": "supplement"
     },
     {
       "date": "2026-03-24",
@@ -1611,74 +1743,122 @@
       "cost": -5.0,
       "servings": null,
       "costPerServing": null,
-      "notes": "Trans pi_3TEZB0FfuIutquDb0YvX7vbf"
+      "notes": "Trans pi_3TEZB0FfuIutquDb0YvX7vbf",
+      "storeType": "supplement"
     }
   ],
-  "winners": [
-    {
-      "store": "Costco",
-      "badge": "costco",
-      "wins": [
-        {
-          "item": "Fage Yogurt 48oz",
-          "detail": "$0.16/oz vs $0.27/oz",
-          "savings": "40% cheaper"
-        },
-        {
-          "item": "Pasture eggs 24ct",
-          "detail": "$0.33/egg vs $0.52/egg",
-          "savings": "36% cheaper"
-        },
-        {
-          "item": "Coke Zero 35pk",
-          "detail": "$21.29 \u2014 dropped $1.75 since 3/8",
-          "savings": null
-        }
-      ]
-    },
-    {
-      "store": "BJ's",
-      "badge": "bjs",
-      "wins": [
-        {
-          "item": "Breakstone cottage 32oz",
-          "detail": "$0.18/oz vs $0.24/oz",
-          "savings": "25% cheaper"
-        },
-        {
-          "item": "Wild Blueberries 4lb",
-          "detail": "$3.50/lb after $1.50 coupon",
-          "savings": null
-        },
-        {
-          "item": "Perdue Short Cuts 3lb",
-          "detail": "$4.66/lb",
-          "savings": null
-        }
-      ]
-    },
-    {
-      "store": "Stop & Shop",
-      "badge": "ss",
-      "wins": [
-        {
-          "item": "Laura's Lean ground",
-          "detail": "$10.79/lb \u2014 only source",
-          "savings": null
-        },
-        {
-          "item": "Sola bread varieties",
-          "detail": "$6.99 \u2014 keto staple",
-          "savings": null
-        },
-        {
-          "item": "Mission Zero tortillas",
-          "detail": "$4.29",
-          "savings": null
-        }
-      ]
-    }
-  ],
+  "winners": {
+    "grocery": [
+      {
+        "store": "Costco",
+        "badge": "costco",
+        "wins": [
+          {
+            "item": "Fage Yogurt 48oz",
+            "detail": "$0.16/oz vs $0.27/oz",
+            "savings": "40% cheaper"
+          },
+          {
+            "item": "Pasture eggs 24ct",
+            "detail": "$0.33/egg vs $0.52/egg",
+            "savings": "36% cheaper"
+          },
+          {
+            "item": "Coke Zero 35pk",
+            "detail": "$21.29 \u2014 dropped $1.75 since 3/8",
+            "savings": null
+          }
+        ]
+      },
+      {
+        "store": "BJ's",
+        "badge": "bjs",
+        "wins": [
+          {
+            "item": "Breakstone cottage 32oz",
+            "detail": "$0.18/oz vs $0.24/oz",
+            "savings": "25% cheaper"
+          },
+          {
+            "item": "Wild Blueberries 4lb",
+            "detail": "$3.50/lb after $1.50 coupon",
+            "savings": null
+          },
+          {
+            "item": "Russet Potatoes 10lb",
+            "detail": "$5.29 \u2014 same as Costco",
+            "savings": null
+          }
+        ]
+      },
+      {
+        "store": "Stop & Shop",
+        "badge": "ss",
+        "wins": [
+          {
+            "item": "Laura's Lean ground",
+            "detail": "$10.79/lb \u2014 only source",
+            "savings": null
+          },
+          {
+            "item": "Sola bread varieties",
+            "detail": "$6.99 \u2014 keto staple",
+            "savings": null
+          },
+          {
+            "item": "Mission Zero tortillas",
+            "detail": "$4.29",
+            "savings": null
+          }
+        ]
+      }
+    ],
+    "supplement": [
+      {
+        "store": "Natural Body",
+        "badge": "nb",
+        "wins": [
+          {
+            "item": "Ghost Energy 12pk case",
+            "detail": "$2.25/can in cases",
+            "savings": "35% vs Vitamin Shoppe"
+          },
+          {
+            "item": "Ghost 2-for-$5 promo",
+            "detail": "$2.50/can singles",
+            "savings": "27% vs VS"
+          },
+          {
+            "item": "Bulk supplement promos",
+            "detail": "10\u201315% off whey, pre-workout, test",
+            "savings": null
+          }
+        ]
+      },
+      {
+        "store": "The Vitamin Shoppe",
+        "badge": "vs",
+        "wins": [
+          {
+            "item": "Bum Energy",
+            "detail": "$3.29/can \u2014 limited online dist",
+            "savings": "best source"
+          },
+          {
+            "item": "Niche / single Ghost flavors",
+            "detail": "Pay-per-flavor variety",
+            "savings": null
+          },
+          {
+            "item": "Healthy Awards points",
+            "detail": "100 pts \u2248 $5 off",
+            "savings": null
+          }
+        ]
+      }
+    ],
+    "online": []
+  },
   "watch": "Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.",
   "shoppingList": {
     "needNow": [
@@ -1752,6 +1932,33 @@
       "status": "closed",
       "body": "# 2026-04-26 \u2014 Two-store run + Vitamin Shoppe stop\n\n## How it went\n\nSolid trip, bigger than planned. Hit BJ's and Costco in the wrong order from the planned route, then made a side stop at Vitamin Shoppe Oceanside for some Ghost flavors not at Natural Body's Costco-friendly variety. **Natural Body Hicksville was the last stop on the original plan \u2014 but it was closed by the time we got there.** Fiducia supplement carries forward.\n\n## Route \u2014 actual vs planned\n\n| | Planned | Actual |\n|---|---|---|\n| 1st stop | BJ's (Garden City) | **Costco (Westbury)** |\n| 2nd stop | Costco (Westbury) | **BJ's (Garden City)** |\n| 3rd stop | Natural Body (Hicksville) | **Natural Body (Hicksville) \u2014 CLOSED** |\n| Side stop | \u2014 | The Vitamin Shoppe (Oceanside) |\n\n**Lesson:** check Natural Body Hicksville hours before next trip. Or default to Ozone Park location, which has been the reliable one (4/27 worked fine).\n\n## Spend \u2014 planned vs actual\n\n| | Planned | Actual | Delta |\n|---|---:|---:|---:|\n| Natural Body | $80 | $0 (closed) | \u2212$80 |\n| BJ's | $15-20 | $119.88 | +$100 |\n| Costco | $30-40 | $35.66 | even |\n| Vitamin Shoppe | \u2014 | $22.31 | new |\n| Mom care package | \u2014 | $13.98 | new (separate) |\n| **Your total** | **~$135** | **$177.85** | **+$43** |\n\nBJ's overshot because of impulse adds (turkey, Chobani drinks, tomatoes, Dash cooker). Costco came in under because we skipped avocados and bought potatoes at BJ's instead. Net: still well under monthly budget.\n\n## What went well \u2705\n\n- **Avocados \u2192 KS Guacamole Singles ($11.99) swap** \u2014 better $/serving and pre-portioned. Smart.\n- **Got the Dash 16-Pc Egg Cooker ($19.98)** \u2014 already in heavy rotation by Tuesday.\n- **Spinach restock + iceberg lettuce** \u2014 caught the price bump on lettuce ($1.99 \u2192 $2.49) so we know about it now.\n- **Mom's care package handled cleanly** ($13.98 kept separate from your budget).\n\n## What got missed \u274c \u2014 carry forward\n\n- **Fage Greek Yogurt 48oz** ($7.79 at Costco) \u2014 Tiffany asked for actual yogurt, we came home with Chobani protein drinks instead. Not the same thing.\n- **Fiducia supplement** \u2014 Natural Body Hicksville closed. Carries to next supplement run.\n\n## Impulse / off-list buys \ud83d\udcb0\n\n| Item | Cost | Verdict |\n|------|-----:|---------|\n| Butterball Lean Turkey 48oz | $15.99 | Good \u2014 protein for prep |\n| Chobani 20g Protein Drinks 8ct | $13.99 | Misalignment \u2014 meant to get yogurt |\n| Angel Sweet Grape Tomatoes 2lbs | $6.99 | Good \u2014 salad base |\n| Green Onions (Costco) | $5.99 | Good \u2014 meal prep |\n| Dash 16-Pc Egg Cooker | $19.98 | Best impulse buy \u2014 actively using it |\n\n## Price moves caught \ud83d\udd0d\n\n- **Iceberg Lettuce: $1.99 \u2192 $2.49 at BJ's** (+25%) \u2014 flagged\n- **ACE Sourdough Bistro: $5.69** \u2014 stable since 3/8\n- **Almond Breeze Vanilla 96oz: $4.69** \u2014 same as baseline\n\n## For next trip\n\n- Add **Fage Greek Yogurt 48oz** (Costco) to Need Now\n- Add **Fiducia supplement** to Natural Body list \u2014 verify Ozone Park hours\n- Bryan/Tiffany check: confirm whether Chobani drinks vs Fage yogurt was the actual ask",
       "filename": "2026-04-26_two-store-run.md"
+    }
+  ],
+  "insights": [
+    {
+      "color": "red",
+      "label": "Price up",
+      "text": "Iceberg lettuce at BJ's: $1.99 (4/17) \u2192 $2.49 (4/26) \u2014 +25% in 9 days. Watch this."
+    },
+    {
+      "color": "green",
+      "label": "Price drop",
+      "text": "Coke Zero 35pk at Costco: $23.04 (3/8) \u2192 $21.29 (4/17) \u2014 \u22127.6%. Stock up if you'll go through it."
+    },
+    {
+      "color": "blue",
+      "label": "Best deal found",
+      "text": "Ghost Energy cases at Natural Body: $2.25/can in 12-packs. Beats Vitamin Shoppe singles ($3.49/can) by 35%."
+    },
+    {
+      "color": "amber",
+      "label": "Restock due",
+      "text": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick, missed on 4/26 (came home with Chobani drinks instead). Add to next Costco trip."
+    },
+    {
+      "color": "purple",
+      "label": "Budget pace",
+      "text": "April supplements $429 / $300 target \u2014 first month over. Bulk restocks happen every 2-3 months; expect lower May."
     }
   ],
   "totals": {

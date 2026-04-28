@@ -121,8 +121,11 @@ tr:hover td { background: var(--surface-alt); }
       <a href="/grocery/prices/" class="nav-link active">Prices</a>
     </nav>
 
-    <div class="section-title">Cross-store winners</div>
-    <div class="wins" id="wins"></div>
+    <div class="section-title">Grocery winners</div>
+    <div class="wins" id="wins-grocery"></div>
+
+    <div class="section-title">Supplement winners</div>
+    <div class="wins" id="wins-supplement"></div>
 
     <div class="section-title">All items</div>
     <div class="controls">
@@ -222,8 +225,9 @@ async function loadAndRender() {
 }
 
 function renderWinners() {
-  const el = document.getElementById('wins');
-  el.innerHTML = winners.map(w => `
+  const groceryWins = Array.isArray(winners) ? winners : (winners.grocery || []);
+  const suppWins = Array.isArray(winners) ? [] : (winners.supplement || []);
+  const cardHtml = w => `
     <div class="win-card">
       <span class="win-badge ${w.badge}">${escape(w.store)} wins</span>
       ${w.wins.map(it => `
@@ -232,8 +236,14 @@ function renderWinners() {
           ${escape(it.detail)}${it.savings ? ' — <span class="win-save">' + escape(it.savings) + '</span>' : ''}
         </div>
       `).join('')}
-    </div>
-  `).join('');
+    </div>`;
+  document.getElementById('wins-grocery').innerHTML = groceryWins.map(cardHtml).join('');
+  const suppEl = document.getElementById('wins-supplement');
+  if (suppWins.length) {
+    suppEl.innerHTML = suppWins.map(cardHtml).join('');
+  } else {
+    suppEl.innerHTML = '<div class="empty">No supplement winners yet.</div>';
+  }
 }
 
 function renderTable() {
