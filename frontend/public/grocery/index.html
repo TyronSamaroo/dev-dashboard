@@ -140,10 +140,10 @@ tr:last-child td { border-bottom: none; }
     </div>
 
     <div class="metrics">
-      <div class="metric"><div class="metric-label">Range spend</div><div class="metric-value" id="m-total">—</div><div class="metric-sub" id="m-total-sub"></div></div>
-      <div class="metric"><div class="metric-label">Target</div><div class="metric-value">$900</div><div class="metric-sub">per month</div></div>
-      <div class="metric"><div class="metric-label">Items</div><div class="metric-value" id="m-items">—</div><div class="metric-sub">in range</div></div>
-      <div class="metric"><div class="metric-label">Trips</div><div class="metric-value" id="m-trips">—</div><div class="metric-sub">in range</div></div>
+      <div class="metric"><div class="metric-label">Groceries</div><div class="metric-value" id="m-grocery">—</div><div class="metric-sub" id="m-grocery-sub">/ $900 target</div></div>
+      <div class="metric"><div class="metric-label">Supplements</div><div class="metric-value" id="m-supp">—</div><div class="metric-sub" id="m-supp-sub">/ $300 target</div></div>
+      <div class="metric"><div class="metric-label">Trips</div><div class="metric-value" id="m-trips">—</div><div class="metric-sub" id="m-trips-sub">in range</div></div>
+      <div class="metric"><div class="metric-label">Mom (excl)</div><div class="metric-value" id="m-mom" style="color: var(--c-bjs);">—</div><div class="metric-sub">tracked, not budgeted</div></div>
     </div>
 
     <div class="section"><h2>Spending by trip</h2><div class="chart-wrap"><canvas id="tripChart"></canvas></div></div>
@@ -155,7 +155,7 @@ tr:last-child td { border-bottom: none; }
 
     <div class="section">
       <h2>Trip log</h2>
-      <table><thead><tr><th>Date</th><th>Store</th><th class="right">Food</th><th class="right">Household</th><th class="right">Total</th></tr></thead><tbody id="trip-tbody"></tbody></table>
+      <table><thead><tr><th>Date</th><th>Store</th><th class="right">Grocery</th><th class="right">Supplement</th><th class="right">Mom</th><th class="right">Total</th></tr></thead><tbody id="trip-tbody"></tbody></table>
     </div>
 
     <div class="watch" id="watch-box"><strong>Watch</strong><span id="watch-text"></span></div>
@@ -279,23 +279,33 @@ function renderRange(range) {
   currentRange = range;
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.range === range));
   const trips = filterTrips(range);
-  const total = trips.reduce((s,t) => s + t.total, 0);
-  document.getElementById('m-total').textContent = '$' + total.toFixed(2);
+  const grocery = trips.reduce((s,t) => s + (t.groceryTotal || 0), 0);
+  const supp = trips.reduce((s,t) => s + (t.supplement || 0), 0);
+  const mom = trips.reduce((s,t) => s + (t.mom || 0), 0);
+  const gTarget = data?.targetGroceryMonthly || 900;
+  const sTarget = data?.targetSupplementMonthly || 300;
+  document.getElementById('m-grocery').textContent = '$' + grocery.toFixed(2);
+  document.getElementById('m-supp').textContent = '$' + supp.toFixed(2);
+  document.getElementById('m-mom').textContent = '$' + mom.toFixed(2);
   document.getElementById('m-trips').textContent = trips.length;
-  document.getElementById('m-items').textContent = trips.reduce((s,t) => s + (t.itemCount || 0), 0);
+  const gPct = (grocery / gTarget * 100).toFixed(0);
+  const sPct = (supp / sTarget * 100).toFixed(0);
+  document.getElementById('m-grocery-sub').textContent = `/ $${gTarget} (${gPct}%)`;
+  document.getElementById('m-supp-sub').textContent = `/ $${sTarget} (${sPct}%)`;
   const labels = { month: 'this month', lastmonth: 'last month', quarter: 'this quarter', year: 'this year', all: 'all time' };
-  document.getElementById('m-total-sub').textContent = labels[range] || '';
+  document.getElementById('m-trips-sub').textContent = labels[range] || '';
   // table
   const tbody = document.getElementById('trip-tbody');
   tbody.innerHTML = trips.length ? trips.map(t => `
     <tr>
-      <td>${t.date}</td>
+      <td>${String(t.date).slice(0,10)}</td>
       <td><span class="store-pill ${storeClass(t.store)}">${escapeHtml(t.store)}</span></td>
-      <td class="right">$${t.food.toFixed(2)}</td>
-      <td class="right">${t.hh ? '$'+t.hh.toFixed(2) : '—'}</td>
+      <td class="right">${t.groceryTotal ? '$'+t.groceryTotal.toFixed(2) : '—'}</td>
+      <td class="right">${t.supplement ? '$'+t.supplement.toFixed(2) : '—'}</td>
+      <td class="right" style="color: var(--c-bjs);">${t.mom ? '$'+t.mom.toFixed(2) : '—'}</td>
       <td class="right"><strong>$${t.total.toFixed(2)}</strong></td>
     </tr>
-  `).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-faint);padding:20px;">No trips in this range</td></tr>';
+  `).join('') : '<tr><td colspan="6" style="text-align:center;color:var(--text-faint);padding:20px;">No trips in this range</td></tr>';
   // chart
   if (chart) chart.destroy();
   if (typeof Chart === 'undefined') { console.warn('Chart.js not loaded'); return; }
