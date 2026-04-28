@@ -135,6 +135,14 @@ tr:hover td { background: var(--surface-alt); }
       </table>
     </div>
 
+    <div class="section-title">Supplement value check <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint);font-size:11px;">— $/srv vs verified online benchmarks. Unverified rows show "—"</span></div>
+    <div class="items-table" style="margin-bottom: 24px;">
+      <table>
+        <thead><tr><th>Supplement</th><th class="right">Paid</th><th class="right">$/srv</th><th class="right">Online</th><th>Source</th><th>Verdict</th></tr></thead>
+        <tbody id="supp-rows"></tbody>
+      </table>
+    </div>
+
     <div class="section-title">All items</div>
     <div class="controls">
       <input class="search-input" id="search" placeholder="Search items, brands, categories…">
@@ -229,8 +237,42 @@ async function loadAndRender() {
   allItems = (data.items || []).filter(i => i.itemCode !== 'LOYALTY' && i.itemCode !== 'TAX');
   winners = data.winners || [];
   renderWinners();
+  renderSuppAnalysis(data.supplementAnalysis || []);
   renderCatalog();
   renderTable();
+}
+
+function renderSuppAnalysis(rows) {
+  const tbody = document.getElementById('supp-rows');
+  if (!tbody) return;
+  tbody.innerHTML = rows.length ? rows.map(r => {
+    let onlineCell = '<span style="color:var(--text-faint);">—</span>';
+    let verdictColor = 'var(--text-muted)';
+    if (r.online != null) {
+      const diff = r.paid - r.online;
+      const pct = Math.abs(diff / r.online * 100).toFixed(0);
+      if (diff > 0) {
+        // Paid > online — overpaid
+        onlineCell = `<span style="color:#dc2626;">$${r.online.toFixed(2)} (+${pct}%)</span>`;
+        verdictColor = '#92400e';
+      } else if (diff < 0) {
+        // Paid < online — saved
+        onlineCell = `<span style="color:#059669;">$${r.online.toFixed(2)} (−${pct}%)</span>`;
+        verdictColor = '#059669';
+      } else {
+        onlineCell = `<span>$${r.online.toFixed(2)}</span>`;
+      }
+    }
+    return `
+      <tr>
+        <td>${escape(r.item)}</td>
+        <td class="right">$${r.paid.toFixed(2)}</td>
+        <td class="right" style="color:var(--text-muted);">$${r.perSrv.toFixed(2)}</td>
+        <td class="right">${onlineCell}</td>
+        <td style="font-size:11px;color:var(--text-faint);">${r.onlineSource ? escape(r.onlineSource) : 'pending'}</td>
+        <td style="font-size:12px;color:${verdictColor};">${escape(r.verdict)}</td>
+      </tr>`;
+  }).join('') : '<tr><td colspan="6" class="empty">No supplement data yet.</td></tr>';
 }
 
 function renderWinners() {
