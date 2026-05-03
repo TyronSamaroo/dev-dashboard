@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T17:29:44.800058Z",
+  "generatedAt": "2026-05-03T23:59:22.895346Z",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -155,6 +155,20 @@
       "total": 352.87,
       "itemCount": 0,
       "supplementCount": 14,
+      "momCount": 0,
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-02",
+      "store": "Natural Body Ozone Park",
+      "food": 0,
+      "hh": 0,
+      "supplement": 85.0,
+      "mom": 0,
+      "groceryTotal": 0,
+      "total": 85.0,
+      "itemCount": 0,
+      "supplementCount": 4,
       "momCount": 0,
       "storeType": "supplement"
     }
@@ -1745,6 +1759,58 @@
       "costPerServing": null,
       "notes": "Trans pi_3TEZB0FfuIutquDb0YvX7vbf",
       "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-02",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Musclesport Lean Whey Gourmet - Lemon Raspberry Wedding Cake",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 45.0,
+      "servings": 25,
+      "costPerServing": 1.8,
+      "notes": "List $52.99, saved $7.99 (15.08%)",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-02",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Musclesport Lean Whey Gourmet - Vanilla Waffle Cone",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 45.0,
+      "servings": 25,
+      "costPerServing": 1.8,
+      "notes": "List $52.99, saved $7.99 (15.08%)",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-02",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink Welch's Grape Cran",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 5.0,
+      "servings": 2,
+      "costPerServing": 2.5,
+      "notes": "Promo 2 for $5 (saved $1) - 16oz",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-02",
+      "itemCode": "LOYALTY",
+      "store": "Natural Body Ozone Park",
+      "item": "Loyalty Redemption Credit",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -10.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Trans pi_3TSlwFFfuIutquDb0F6JhGYP, served by Jonathan S.",
+      "storeType": "supplement"
     }
   ],
   "winners": {
@@ -2063,8 +2129,8 @@
     }
   ],
   "totals": {
-    "itemCount": 122,
-    "tripCount": 11,
-    "monthlyEstimate": 477.48
+    "itemCount": 126,
+    "tripCount": 12,
+    "monthlyEstimate": 398.98
   }
 }
