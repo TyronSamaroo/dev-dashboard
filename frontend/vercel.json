@@ -2,6 +2,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
+    { "source": "/coding-review/:path*", "destination": "/coding-review/:path*" },
+    { "source": "/love/:path*", "destination": "/love/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
