@@ -112,6 +112,8 @@ function MetricCard({
   const suffix = numMatch ? value.slice(numMatch[1].length) : "";
   const hasNumber = target > 0;
 
+  const [shockwave, setShockwave] = useState(false);
+
   // Card swell spring: brief 1.03x scale on impact
   const cardSpring = useSpring(1, { stiffness: 500, damping: 15, mass: 0.6 });
   const cardScale = useTransform(cardSpring, (v) => v);
@@ -133,12 +135,16 @@ function MetricCard({
     // Shadow pulse: flash then fade
     shadowSpring.set(1);
     requestAnimationFrame(() => shadowSpring.set(0));
+
+    // Shockwave ripple
+    setShockwave(true);
   }, [cardSpring, shadowSpring]);
 
   return (
     <motion.div
-      className="hero-metric impact-card rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2"
+      className={`hero-metric impact-card rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 flex flex-col gap-2 ${shockwave ? "impact-shockwave" : ""}`}
       style={{ scale: cardScale, boxShadow }}
+      onAnimationEnd={() => setShockwave(false)}
     >
       <Icon size={16} className="text-violet-400" />
       <div className="text-2xl font-bold counter-number">

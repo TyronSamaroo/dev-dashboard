@@ -213,8 +213,36 @@ html, body {
 
 /* ─── Impact Card: the card absorbing the slam ─── */
 .impact-card {
+  position: relative;
   will-change: transform, box-shadow;
   transform-origin: center center;
+}
+
+/* ─── Shockwave ripple ring on slam impact ─── */
+.impact-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(139, 92, 246, 0);
+  pointer-events: none;
+}
+
+.impact-shockwave::after {
+  animation: shockwaveRipple 0.5s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards;
+}
+
+@keyframes shockwaveRipple {
+  0% {
+    inset: 0;
+    border-color: rgba(139, 92, 246, 0.6);
+    opacity: 1;
+  }
+  100% {
+    inset: -14px;
+    border-color: rgba(139, 92, 246, 0);
+    opacity: 0;
+  }
 }
 
 /* ─── Hero gradient line ─── */
