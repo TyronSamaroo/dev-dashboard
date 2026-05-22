@@ -247,9 +247,16 @@
     .prompt{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px}
     .prompt span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
     .prompt p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
+    .update-packet{margin:0 12px 12px;border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
+    .update-packet-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border-bottom:1px solid var(--line)}
+    .update-packet-head span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .update-packet-head strong{display:block;margin-top:3px;color:var(--ink);font-size:16px;letter-spacing:-.02em}
+    .copy-packet{border:1px solid color-mix(in srgb,var(--cyan),transparent 42%);background:color-mix(in srgb,var(--cyan),transparent 88%);color:var(--cyan);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:950;cursor:pointer;white-space:nowrap}
+    .packet-text{margin:0;padding:13px 14px;color:var(--ink);font:12.5px/1.45 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre-wrap;overflow:auto;max-height:260px;background:var(--soft)}
+    .packet-read{padding:10px 14px;color:var(--muted);font-size:12px;line-height:1.35;border-top:1px solid var(--line)}
     .source-note{padding:12px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.4;background:var(--soft)}
     @media(max-width:1160px){.topline{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}.meal-grid{grid-template-columns:repeat(2,1fr)}.anchor-quick-list{grid-template-columns:repeat(3,1fr)}.operating-read{grid-template-columns:1fr}.source-map-grid,.fuel-card-grid,.operating-cards,.prompt-grid,.read-strip,.benchmark-strip,.cardio-answer-grid,.scorecard-grid{grid-template-columns:repeat(2,1fr)}.cardio-visuals{grid-template-columns:1fr 1fr}.cardio-viz-card:last-child{grid-column:span 2}}
-    @media(max-width:760px){main.analysis-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.analysis-hero{padding:18px}.question-shell{display:block}.question-tabs{justify-content:flex-start;margin-top:10px}.question-tab{flex:1 1 auto}.topline,.timeline,.meal-grid,.read-strip,.prompt-grid,.benchmark-strip,.cardio-answer-grid,.cardio-visuals,.food-review-grid,.pattern-grid,.operating-cards,.anchor-quick-list,.fuel-card-grid,.source-map-grid,.scorecard-grid{grid-template-columns:1fr}.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}.preset-strip{grid-template-columns:1fr}.preset-note{grid-column:auto}.pattern-row{grid-template-columns:1fr}.cardio-viz-card:last-child{grid-column:auto}.answer{grid-column:span 12}.section-head{display:block}.section-head p{margin-top:7px}.controls{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}}
+    @media(max-width:760px){main.analysis-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.analysis-hero{padding:18px}.question-shell{display:block}.question-tabs{justify-content:flex-start;margin-top:10px}.question-tab{flex:1 1 auto}.topline,.timeline,.meal-grid,.read-strip,.prompt-grid,.benchmark-strip,.cardio-answer-grid,.cardio-visuals,.food-review-grid,.pattern-grid,.operating-cards,.anchor-quick-list,.fuel-card-grid,.source-map-grid,.scorecard-grid{grid-template-columns:1fr}.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}.preset-strip{grid-template-columns:1fr}.preset-note{grid-column:auto}.pattern-row{grid-template-columns:1fr}.cardio-viz-card:last-child{grid-column:auto}.answer{grid-column:span 12}.section-head{display:block}.section-head p{margin-top:7px}.controls{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}.update-packet-head{display:block}.copy-packet{margin-top:10px;width:100%}}
   </style>
 </head>
 <body>
@@ -653,6 +660,7 @@
         <div class="prompt"><span>Cardio</span><p>StairMaster minutes, kcal, avg HR, max HR, and whether you chased burn or held effort steady.</p></div>
         <div class="prompt"><span>Food</span><p>Meal windows, whole-food vs powder split, and any pre-lift carb/fat you added.</p></div>
       </div>
+      <div class="update-packet" id="update-packet" aria-label="Copyable update packet"></div>
       <div class="source-note">Raw evidence lives in the Data Ledger and MacroFactor export. This page is intentionally opinionated: it shows the answer first, then the evidence pattern.</div>
     </section>
   </main>
@@ -1087,6 +1095,29 @@
       setHtml(".prompt-grid", data.prompts.map(prompt => `
         <div class="prompt"><span>${escapeHtml(prompt.label)}</span><p>${escapeHtml(prompt.text)}</p></div>
       `).join(""));
+
+      const packet = data.checkInPacket;
+      if (packet) {
+        setHtml("#update-packet", `
+          <div class="update-packet-head">
+            <div><span>Copy once</span><strong>${escapeHtml(packet.title || "Prep Runway update packet")}</strong></div>
+            <button class="copy-packet" id="copy-update-packet" type="button">Copy packet</button>
+          </div>
+          <pre class="packet-text" id="packet-text">${escapeHtml(packet.text || "")}</pre>
+          <div class="packet-read">${escapeHtml(packet.read || "")}</div>
+        `);
+        document.getElementById("copy-update-packet")?.addEventListener("click", async () => {
+          const button = document.getElementById("copy-update-packet");
+          const packetText = packet.text || "";
+          try {
+            await navigator.clipboard.writeText(packetText);
+            if (button) button.textContent = "Copied";
+            setTimeout(() => { if (button) button.textContent = "Copy packet"; }, 1600);
+          } catch {
+            window.prompt("Copy this Prep Runway packet:", packetText);
+          }
+        });
+      }
 
       const filters = [...document.querySelectorAll("button.filter[data-filter]")];
       const rangeButtons = [...document.querySelectorAll("button.range-button[data-range]")];

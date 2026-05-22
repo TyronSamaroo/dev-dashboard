@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-22T14:04:00",
+  "generatedAt": "2026-05-22T14:06:41",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -192,6 +192,17 @@ window.PREP_ANALYSIS_DATA = {
         "next": "Log the missing fields once instead of spreading them across chat fragments."
       }
     ]
+  },
+  "checkInPacket": {
+    "title": "Prep Runway update packet — Fri 5/22",
+    "missing": [
+      "macros",
+      "cardio/lift",
+      "GI",
+      "hunger/energy"
+    ],
+    "text": "Prep Runway update packet — Fri 5/22\nAM weight: 158.4 lb\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nHunger / energy: \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
+    "read": "Paste this once with the missing fields filled. It keeps Analysis, Daily Master, and the Data Ledger aligned."
   },
   "topMetrics": [
     {
