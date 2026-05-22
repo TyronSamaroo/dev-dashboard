@@ -47,11 +47,15 @@
     .access-card strong{display:block;margin-top:7px;color:var(--ink);font-size:20px;letter-spacing:-.035em}
     .access-card p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
     .route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px}
-    .route-card{display:block;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:14px;color:inherit;text-decoration:none;min-height:154px}
+    .route-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:14px;color:inherit;min-height:172px}
     .route-card:hover{border-color:color-mix(in srgb,var(--cyan),transparent 45%);transform:translateY(-1px)}
     .route-card strong{display:block;margin-top:7px;color:var(--ink);font-size:18px;letter-spacing:-.025em}
     .route-card p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
     .route-card em{display:block;margin-top:10px;color:var(--muted);font-style:normal;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+    .route-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:12px}
+    .route-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.66);color:var(--ink);text-decoration:none;padding:6px 9px;font-size:11px;font-weight:950}
+    html[data-theme="dark"] .route-link{background:rgba(255,255,255,.05)}
+    .route-link.primary{border-color:color-mix(in srgb,var(--cyan),transparent 42%);background:color-mix(in srgb,var(--cyan),transparent 88%);color:var(--cyan)}
     .source-line{padding:0 18px 14px;color:var(--muted);font-size:12px}
     .source-line strong{color:var(--ink)}
     @media(max-width:980px){.read-grid,.route-grid,.data-access{grid-template-columns:1fr}.read-cards{grid-template-columns:repeat(2,1fr)}}
@@ -124,12 +128,12 @@
         <p>One click to the surface that answers the question. This is the anti-clutter layer.</p>
       </div>
       <div class="route-grid">
-        <a class="route-card" href="report.html"><span>Daily</span><strong>What happened today?</strong><p>Daily Ledger with weight, sleep, macros, cardio boxes, lift, and next lever.</p><em>Daily Master</em></a>
-        <a class="route-card" href="analysis.html?view=overview"><span>Decision</span><strong>Anything off?</strong><p>Operating read, source freshness, current risks, and what to log next.</p><em>Analysis overview</em></a>
-        <a class="route-card" href="meal-patterns.html"><span>Meals</span><strong>When am I eating?</strong><p>Meal timing heat map, protein split, food repeatability, and lift-fuel impact.</p><em>Meal Patterns</em></a>
-        <a class="route-card" href="analysis.html?view=fuel"><span>Training</span><strong>Did food impact the lift?</strong><p>Pre-lift food, lift density, post-cardio, and next-morning scale noise.</p><em>Fuel → lift</em></a>
-        <a class="route-card" href="analysis.html?view=cardio"><span>Cardio</span><strong>Is StairMaster changing?</strong><p>Question presets for StairMaster, walking, HR cost, and suspect HR rows.</p><em>Cardio trend</em></a>
-        <a class="route-card" href="data-ledger.html"><span>Raw</span><strong>Show me every row.</strong><p>Full-width sortable/filterable tables for daily, training, cardio, sleep, and forecast.</p><em>Data Ledger</em></a>
+        <article class="route-card"><span>Daily</span><strong>What happened today?</strong><p>Daily Ledger with weight, sleep, colored macro calories, cardio boxes, lift, and next lever.</p><em>Fast daily scan</em><div class="route-actions"><a class="route-link primary" href="report.html">Daily Master</a><a class="route-link" href="data-ledger.html#daily">Ledger row</a></div></article>
+        <article class="route-card"><span>Decision</span><strong>Anything off?</strong><p>Operating read, source freshness, current risks, and what to log next.</p><em>Question first</em><div class="route-actions"><a class="route-link primary" href="analysis.html?view=overview">Analysis</a><a class="route-link" href="report.html">Daily context</a></div></article>
+        <article class="route-card"><span>Meals</span><strong>When am I eating?</strong><p>Meal timing heat map, protein split, food repeatability, and lift-fuel impact.</p><em>Coach-report style</em><div class="route-actions"><a class="route-link primary" href="meal-patterns.html">Meal Patterns</a><a class="route-link" href="analysis.html?view=meals">Meal read</a></div></article>
+        <article class="route-card"><span>Training</span><strong>Did food impact the lift?</strong><p>Pre-lift food, lift density, post-cardio, and next-morning scale noise.</p><em>Fuel → lift</em><div class="route-actions"><a class="route-link primary" href="analysis.html?view=fuel">Fuel analysis</a><a class="route-link" href="data-ledger.html#training">Training rows</a></div></article>
+        <article class="route-card"><span>Cardio</span><strong>Is StairMaster changing?</strong><p>Use filters for StairMaster vs walking, kcal/min, avg HR, max HR, and suspect HR rows.</p><em>Trend + explorer</em><div class="route-actions"><a class="route-link primary" href="cardio-calibration.html">Cardio Data</a><a class="route-link" href="analysis.html?view=cardio">Cardio read</a></div></article>
+        <article class="route-card"><span>Raw</span><strong>Show me every row.</strong><p>Compact default tables with filters/sorting; audit/source columns are one click away.</p><em>Evidence trail</em><div class="route-actions"><a class="route-link primary" href="data-ledger.html">Data Ledger</a><a class="route-link" href="sheets.html">Google Sheet</a></div></article>
       </div>
     </section>
   </main>
