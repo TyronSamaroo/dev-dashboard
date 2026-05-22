@@ -197,14 +197,17 @@
     .ladder-bar{display:block;height:100%;width:var(--w);border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
     .ladder-row.walk .ladder-bar{background:linear-gradient(90deg,#94a3b8,#67e8f9)}
     .ladder-value{color:var(--ink);font-size:12px;font-weight:950;text-align:right;font-variant-numeric:tabular-nums}
-    .scatter-shell{position:relative;height:170px;margin-top:14px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(4,124,134,.08),rgba(15,23,42,.035));overflow:hidden}
-    html[data-theme="dark"] .scatter-shell{background:linear-gradient(180deg,rgba(70,214,219,.08),rgba(255,255,255,.025))}
-    .scatter-shell::before,.scatter-shell::after{content:"";position:absolute;inset:33% 0 auto;height:1px;background:var(--line)}
-    .scatter-shell::after{inset:auto 0 33%}
-    .scatter-point{position:absolute;left:var(--x);bottom:var(--y);width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px color-mix(in srgb,var(--cyan),transparent 82%);transform:translate(-50%,50%)}
-    .scatter-point.walk{background:#94a3b8;box-shadow:0 0 0 4px rgba(148,163,184,.18)}
-    .scatter-point.suspect{background:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn),transparent 80%)}
-    .scatter-axis{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-top:7px}
+    .efficiency-stack{display:grid;gap:9px;margin-top:12px}
+    .eff-row{border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,var(--surface),color-mix(in srgb,var(--soft),transparent 20%));padding:10px}
+    .eff-row.warn{border-color:color-mix(in srgb,var(--warn),transparent 55%);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .eff-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+    .eff-label span{display:block;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.07em;text-transform:uppercase}
+    .eff-label strong{display:block;margin-top:3px;color:var(--ink);font-size:15px;letter-spacing:-.02em}
+    .eff-metric{color:var(--ink);font-size:17px;font-weight:950;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+    .eff-bar{height:9px;border-radius:999px;background:var(--soft);overflow:hidden;margin-top:9px}
+    .eff-bar i{display:block;height:100%;width:var(--w);border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+    .eff-row.walk .eff-bar i{background:linear-gradient(90deg,#94a3b8,#67e8f9)}
+    .eff-note{margin-top:7px;color:var(--muted);font-size:11px;line-height:1.32}
     .cardio-readout{display:grid;gap:8px;margin-top:12px}
     .readout-line{border-top:1px solid var(--line);padding-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
     .readout-line:first-child{border-top:0;padding-top:0}
@@ -579,10 +582,9 @@
           <div class="cardio-ladder" id="cardio-ladder"></div>
         </article>
         <article class="cardio-viz-card">
-          <h3>HR cost map</h3>
-          <p>Each dot is a session. X = average HR, Y = kcal/min. No labels unless you hover.</p>
-          <div class="scatter-shell" id="cardio-scatter"></div>
-          <div class="scatter-axis"><span>Lower HR</span><span>Higher HR</span></div>
+          <h3>Efficiency bands</h3>
+          <p>Simple read of output per minute and HR cost. Detailed sorting stays in the table below.</p>
+          <div class="efficiency-stack" id="cardio-efficiency"></div>
         </article>
         <article class="cardio-viz-card">
           <h3>Filtered read</h3>
@@ -1071,7 +1073,7 @@
       const sortDir = document.getElementById("sort-dir");
       const summary = document.getElementById("cardio-summary");
       const cardioLadder = document.getElementById("cardio-ladder");
-      const cardioScatter = document.getElementById("cardio-scatter");
+      const cardioEfficiency = document.getElementById("cardio-efficiency");
       const cardioReadout = document.getElementById("cardio-readout");
       let currentFilter = "all";
       let currentRange = "runway";
@@ -1124,7 +1126,7 @@
       }
 
       function renderCardioVisuals(visible) {
-        if (!cardioLadder || !cardioScatter || !cardioReadout) return;
+        if (!cardioLadder || !cardioEfficiency || !cardioReadout) return;
         const maxKpm = Math.max(...visible.map(row => rowMetric(row, "kpm")), 1);
         const ladderRows = visible.slice(0, 9);
         cardioLadder.innerHTML = ladderRows.length ? ladderRows.map(row => {
@@ -1140,29 +1142,36 @@
           `;
         }).join("") : `<p>No sessions match this filter.</p>`;
 
-        const plottable = visible.filter(row => rowMetric(row, "avgHr") > 0 && rowMetric(row, "kpm") > 0).slice(0, 140);
-        const hrValues = plottable.map(row => rowMetric(row, "avgHr"));
-        const kpmValues = plottable.map(row => rowMetric(row, "kpm"));
-        const minHr = Math.min(...hrValues, 70);
-        const maxHr = Math.max(...hrValues, 150);
-        const minPlotKpm = Math.min(...kpmValues, 2);
-        const maxPlotKpm = Math.max(...kpmValues, 11);
-        cardioScatter.innerHTML = plottable.map(row => {
-          const avgHr = rowMetric(row, "avgHr");
-          const kpm = rowMetric(row, "kpm");
-          const x = Math.max(4, Math.min(96, ((avgHr - minHr) / Math.max(1, maxHr - minHr)) * 92 + 4));
-          const y = Math.max(6, Math.min(94, ((kpm - minPlotKpm) / Math.max(1, maxPlotKpm - minPlotKpm)) * 88 + 6));
-          const pointClass = rowKind(row, "suspect") ? "suspect" : rowKind(row, "walk") ? "walk" : "stair";
-          const title = `${row.cells[0]?.textContent || "—"} · ${row.cells[1]?.textContent || "—"} · ${format(kpm, 2)} kcal/min · HR ${format(avgHr)}`;
-          return `<span class="scatter-point ${pointClass}" style="--x:${escapeHtml(x.toFixed(1))}%;--y:${escapeHtml(y.toFixed(1))}%" title="${escapeHtml(title)}"></span>`;
-        }).join("");
-
         const stairRows = visible.filter(row => rowKind(row, "stair"));
         const walkRows = visible.filter(row => rowKind(row, "walk"));
+        const suspectRows = visible.filter(row => rowKind(row, "suspect"));
         const topRow = visible.reduce((best, row) => rowMetric(row, "kpm") > rowMetric(best, "kpm") ? row : best, visible[0] || null);
         const stairKpm = meanMetric(stairRows, "kpm");
         const walkKpm = meanMetric(walkRows, "kpm");
         const averageHr = meanMetric(visible, "avgHr");
+        const maxViewKpm = Math.max(stairKpm, walkKpm, meanMetric(visible, "kpm"), 1);
+        const efficiencyRows = [
+          { label: "Filtered view", detail: `${visible.length} sessions`, rows: visible, kpm: meanMetric(visible, "kpm"), className: "all", note: `Avg HR ${format(averageHr)}. Use this as the quick answer for the current filter.` },
+          { label: "StairMaster", detail: `${stairRows.length} sessions`, rows: stairRows, kpm: stairKpm, className: "stair", note: stairRows.length ? "Time-efficient anchor. Current data does not show adaptation down yet." : "No StairMaster rows in this view." },
+          { label: "Walking", detail: `${walkRows.length} sessions`, rows: walkRows, kpm: walkKpm, className: "walk", note: walkRows.length ? "Useful support volume, but much slower than StairMaster." : "No walking rows in this view." },
+        ];
+        if (suspectRows.length) {
+          efficiencyRows.push({ label: "HR caveat", detail: `${suspectRows.length} suspect rows`, rows: suspectRows, kpm: meanMetric(suspectRows, "kpm"), className: "warn", note: "Sort HR, but do not over-read older impossible HR rows." });
+        }
+        cardioEfficiency.innerHTML = efficiencyRows.map(row => {
+          const hr = meanMetric(row.rows, "avgHr");
+          const width = row.rows.length ? Math.max(6, Math.round((row.kpm / maxViewKpm) * 100)) : 0;
+          return `
+            <div class="eff-row ${escapeHtml(row.className)}">
+              <div class="eff-top">
+                <div class="eff-label"><span>${escapeHtml(row.detail)}</span><strong>${escapeHtml(row.label)}</strong></div>
+                <div class="eff-metric">${escapeHtml(format(row.kpm, 2))}</div>
+              </div>
+              <div class="eff-bar"><i style="--w:${escapeHtml(width)}%"></i></div>
+              <div class="eff-note">${escapeHtml(row.note)}${hr ? ` · HR ${escapeHtml(format(hr))}` : ""}</div>
+            </div>
+          `;
+        }).join("");
         cardioReadout.innerHTML = `
           <div class="readout-line"><strong>${escapeHtml(String(visible.length))}</strong>sessions in this view</div>
           <div class="readout-line"><strong>${escapeHtml(format(stairKpm, 2))}</strong>Stair kcal/min avg${walkRows.length ? ` · walk ${escapeHtml(format(walkKpm, 2))}` : ""}</div>
