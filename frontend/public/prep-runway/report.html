@@ -64,7 +64,7 @@
 	      <a href="148-burn.html">148 Target</a>
 	      <a href="full-runway.html">Full Plan</a>
 	      <a href="cardio-calibration.html">Cardio Data</a>
-	      <a href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw" target="_blank" rel="noopener">Google Sheet</a>
+	      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
 	      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
 	    </nav>
 
@@ -257,7 +257,7 @@
           <summary>Full data ledger — separate non-truncated page</summary>
           <div style="padding:0 16px 16px">
             <p>The dense CSV-style ledger moved to its own wide page so rows/columns wrap instead of getting cut off.</p>
-            <p style="margin-top:10px"><a class="tag blue" href="data-ledger.html">Open Data Ledger</a><a class="tag blue" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw" target="_blank" rel="noopener">Open Google Sheet</a></p>
+            <p style="margin-top:10px"><a class="tag blue" href="data-ledger.html">Open Data Ledger</a><a class="tag blue" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Open Google Sheet</a></p>
           </div>
         </details>
         <details class="reference-drawer" style="margin-top:12px">
@@ -579,7 +579,7 @@
 	      `).join("");
 	      const renderCurrentRead = () => {
 	        if (!currentReadStrip) return;
-	        const operating = data.operatingRead || {};
+	        const operating = data.todayStatus || data.operatingRead || {};
 	        const cards = operating.cards || [];
 	        currentReadStrip.innerHTML = `
 	          <article class="current-read-card lead">

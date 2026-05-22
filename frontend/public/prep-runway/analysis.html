@@ -73,6 +73,21 @@
     .answer h3{display:flex;gap:8px;align-items:center;margin:0 0 8px;color:var(--ink);font-size:16px}
     .answer p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
     .answer strong{color:var(--ink)}
+    .scorecard-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:12px}
+    .scorecard{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:13px;min-height:174px}
+    .scorecard.ok{border-color:color-mix(in srgb,var(--ok),transparent 72%)}
+    .scorecard.warn{border-color:color-mix(in srgb,var(--warn),transparent 65%)}
+    .scorecard.bad{border-color:color-mix(in srgb,var(--bad),transparent 65%)}
+    .scorecard span{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:3px 8px;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .scorecard.ok span{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 60%);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .scorecard.warn span{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .scorecard.bad span{color:var(--bad);border-color:color-mix(in srgb,var(--bad),transparent 58%);background:color-mix(in srgb,var(--bad),transparent 91%)}
+    .scorecard h3{margin:9px 0 0;color:var(--ink);font-size:15px;line-height:1.15;letter-spacing:-.02em}
+    .score-value{margin-top:9px;color:var(--ink);font-size:22px;font-weight:950;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+    .score-metric{margin-top:5px;color:var(--muted);font-size:11px;line-height:1.25}
+    .score-read{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.35}
+    .score-next{margin-top:9px;border-top:1px solid var(--line);padding-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
+    .score-next strong{display:block;color:var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px}
     .badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:3px 8px;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
     .badge.ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 60%);background:color-mix(in srgb,var(--ok),transparent 91%)}
     .badge.warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
@@ -233,8 +248,8 @@
     .prompt span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
     .prompt p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
     .source-note{padding:12px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.4;background:var(--soft)}
-    @media(max-width:1160px){.topline{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}.meal-grid{grid-template-columns:repeat(2,1fr)}.anchor-quick-list{grid-template-columns:repeat(3,1fr)}.operating-read{grid-template-columns:1fr}.source-map-grid,.fuel-card-grid,.operating-cards,.prompt-grid,.read-strip,.benchmark-strip,.cardio-answer-grid{grid-template-columns:repeat(2,1fr)}.cardio-visuals{grid-template-columns:1fr 1fr}.cardio-viz-card:last-child{grid-column:span 2}}
-    @media(max-width:760px){main.analysis-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.analysis-hero{padding:18px}.question-shell{display:block}.question-tabs{justify-content:flex-start;margin-top:10px}.question-tab{flex:1 1 auto}.topline,.timeline,.meal-grid,.read-strip,.prompt-grid,.benchmark-strip,.cardio-answer-grid,.cardio-visuals,.food-review-grid,.pattern-grid,.operating-cards,.anchor-quick-list,.fuel-card-grid,.source-map-grid{grid-template-columns:1fr}.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}.preset-strip{grid-template-columns:1fr}.preset-note{grid-column:auto}.pattern-row{grid-template-columns:1fr}.cardio-viz-card:last-child{grid-column:auto}.answer{grid-column:span 12}.section-head{display:block}.section-head p{margin-top:7px}.controls{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}}
+    @media(max-width:1160px){.topline{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}.meal-grid{grid-template-columns:repeat(2,1fr)}.anchor-quick-list{grid-template-columns:repeat(3,1fr)}.operating-read{grid-template-columns:1fr}.source-map-grid,.fuel-card-grid,.operating-cards,.prompt-grid,.read-strip,.benchmark-strip,.cardio-answer-grid,.scorecard-grid{grid-template-columns:repeat(2,1fr)}.cardio-visuals{grid-template-columns:1fr 1fr}.cardio-viz-card:last-child{grid-column:span 2}}
+    @media(max-width:760px){main.analysis-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.analysis-hero{padding:18px}.question-shell{display:block}.question-tabs{justify-content:flex-start;margin-top:10px}.question-tab{flex:1 1 auto}.topline,.timeline,.meal-grid,.read-strip,.prompt-grid,.benchmark-strip,.cardio-answer-grid,.cardio-visuals,.food-review-grid,.pattern-grid,.operating-cards,.anchor-quick-list,.fuel-card-grid,.source-map-grid,.scorecard-grid{grid-template-columns:1fr}.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}.preset-strip{grid-template-columns:1fr}.preset-note{grid-column:auto}.pattern-row{grid-template-columns:1fr}.cardio-viz-card:last-child{grid-column:auto}.answer{grid-column:span 12}.section-head{display:block}.section-head p{margin-top:7px}.controls{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}}
   </style>
 </head>
 <body>
@@ -250,7 +265,7 @@
       <a href="148-burn.html">148 Target</a>
       <a href="full-runway.html">Full Plan</a>
       <a href="cardio-calibration.html">Cardio Data</a>
-      <a href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw" target="_blank" rel="noopener">Google Sheet</a>
+      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
     </nav>
 
     <section class="analysis-hero">
@@ -321,6 +336,16 @@
           <p>Keep the aggressive setup if markers are good, but make it less fragile: <strong>whole-food protein first, one measured carb around lifting, and no third cardio block just to punish a flat scale</strong>.</p>
         </article>
       </div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="overview meals fuel cardio all">
+      <div class="section-head">
+        <div>
+          <h2>Question Scorecard</h2>
+          <p id="question-scorecard-summary">Direct answer layer for consistency, meal timing, fuel impact, cardio adaptation, and current-day trust.</p>
+        </div>
+      </div>
+      <div class="scorecard-grid" id="question-scorecard"></div>
     </section>
 
     <section class="analysis-section" data-analysis-panel="overview all">
@@ -743,7 +768,21 @@
         </article>
       `).join(""));
 
-      const operatingRead = data.operatingRead;
+      if (data.questionScorecard) {
+        setHtml("#question-scorecard-summary", data.questionScorecard.summary || "Question-first consistency read.");
+        setHtml("#question-scorecard", (data.questionScorecard.cards || []).map(card => `
+          <article class="scorecard ${escapeHtml(card.tone || "warn")}">
+            <span>${escapeHtml(card.tone || "watch")}</span>
+            <h3>${escapeHtml(card.question)}</h3>
+            <div class="score-value">${escapeHtml(card.value)}</div>
+            <div class="score-metric">${escapeHtml(card.metric)}</div>
+            <div class="score-read">${escapeHtml(card.read)}</div>
+            <div class="score-next"><strong>Next</strong>${escapeHtml(card.next)}</div>
+          </article>
+        `).join(""));
+      }
+
+      const operatingRead = data.todayStatus || data.operatingRead;
       if (operatingRead) {
         setHtml("#operating-read", `
           <article class="operating-lead">

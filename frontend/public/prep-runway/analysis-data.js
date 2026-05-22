@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-22T13:49:20",
+  "generatedAt": "2026-05-22T14:04:00",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -8,7 +8,7 @@ window.PREP_ANALYSIS_DATA = {
     "currentMacroFactorExport": "/Users/tyronsamaroo/Downloads/MacroFactor-20260522061435.xlsx",
     "masterFoodLog": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/macrofactor/master/MASTER_food_log.csv",
     "trainingHistory": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json",
-    "googleSheet": "https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw",
+    "googleSheet": "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI",
     "coachReport": "https://tyronsamaroo.dev/coach-report/report.html"
   },
   "sourceMap": [
@@ -50,7 +50,7 @@ window.PREP_ANALYSIS_DATA = {
       "status": "editable",
       "value": "browser first",
       "text": "Use for clean rows, filters, sorting, and quick manual edits. XLSX is only a backup/export.",
-      "path": "https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw"
+      "path": "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI"
     },
     {
       "label": "Feedback loop",
@@ -93,6 +93,103 @@ window.PREP_ANALYSIS_DATA = {
         "value": "4 missing",
         "status": "watch",
         "read": "macros, cardio/lift, GI, hunger/energy"
+      }
+    ]
+  },
+  "todayStatus": {
+    "date": "2026-05-22",
+    "label": "Fri 5/22",
+    "headline": "Marker-led aggressive: keep the work, fix the unstable inputs.",
+    "subhead": "The shared read is the same across Daily Master and Analysis: scale/cardio are working, while food form, meal timing, and missing current-day feedback are the weak links.",
+    "cards": [
+      {
+        "label": "Scale",
+        "tone": "ok",
+        "value": "158.4 lb",
+        "text": "-10.6 lb since Sun 5/17; -0.3 lb vs prior weigh-in."
+      },
+      {
+        "label": "Food form",
+        "tone": "warn",
+        "value": "87%",
+        "text": "Powder/hybrid protein share is high; repeat the Thursday whole-food base before adding more cardio."
+      },
+      {
+        "label": "Meal timing",
+        "tone": "bad",
+        "value": "3h 13m",
+        "text": "First protein meal range is 10:35 AM → 1:45 PM."
+      },
+      {
+        "label": "Cardio",
+        "tone": "ok",
+        "value": "10.76 k/min",
+        "text": "Current StairMaster is 0.5 kcal/min vs YTD Stair."
+      },
+      {
+        "label": "Missing",
+        "tone": "warn",
+        "value": "4 fields",
+        "text": "macros, cardio/lift, GI, hunger/energy"
+      }
+    ],
+    "rules": [
+      {
+        "label": "Adjust first",
+        "text": "Food form and meal timing before more cardio."
+      },
+      {
+        "label": "Trust more",
+        "text": "Current StairMaster rows and complete MacroFactor days."
+      },
+      {
+        "label": "Trust less",
+        "text": "One flat scale after dense lifting, sodium, GI, or poor BM timing."
+      }
+    ]
+  },
+  "questionScorecard": {
+    "summary": "Cardio output is not the weak link. Meal timing, protein form, and current-day feedback are the unstable parts.",
+    "cards": [
+      {
+        "question": "Anything off?",
+        "tone": "warn",
+        "value": "GI / powder",
+        "metric": "87% powder/hybrid protein",
+        "read": "Effort is high and the scale moved. The off signal is digestion after repeated shake-heavy days.",
+        "next": "Repeat the Thursday whole-food base before adding more cardio or cutting lower."
+      },
+      {
+        "question": "Meal timing consistent?",
+        "tone": "bad",
+        "value": "3h 13m",
+        "metric": "10:35 AM → 1:45 PM",
+        "read": "First real protein meal still floats, so meal timing is not yet a stable lever.",
+        "next": "Anchor the first real protein meal after AM cardio or deliberately log why it moved."
+      },
+      {
+        "question": "Workout fuel impact?",
+        "tone": "warn",
+        "value": "1/4 lifts",
+        "metric": "carb-supported pre-lift",
+        "read": "1 dense lift(s) happened low-carb, so output alone does not prove the setup is ideal.",
+        "next": "Keep testing measured banana/rice-cake style carbs around harder lifts."
+      },
+      {
+        "question": "Cardio adapting down?",
+        "tone": "ok",
+        "value": "0.5 kcal/min",
+        "metric": "current vs YTD Stair (10.76 vs 10.31)",
+        "read": "No clear StairMaster efficiency drop yet; current output is still around or above YTD Stair baseline.",
+        "next": "Hold one controlled morning Stair block and compare HR/kcal/min before adding punishment volume."
+      },
+      {
+        "question": "Can I trust today?",
+        "tone": "warn",
+        "value": "4 missing",
+        "metric": "macros, cardio/lift, GI, hunger/energy",
+        "read": "The site can answer trends, but current-day decisions need food, training/cardio, GI, and energy filled.",
+        "next": "Log the missing fields once instead of spreading them across chat fragments."
       }
     ]
   },
