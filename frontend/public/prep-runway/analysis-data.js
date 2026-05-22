@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-22T13:47:08",
+  "generatedAt": "2026-05-22T13:49:20",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -8,7 +8,8 @@ window.PREP_ANALYSIS_DATA = {
     "currentMacroFactorExport": "/Users/tyronsamaroo/Downloads/MacroFactor-20260522061435.xlsx",
     "masterFoodLog": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/macrofactor/master/MASTER_food_log.csv",
     "trainingHistory": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json",
-    "googleSheet": "https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw"
+    "googleSheet": "https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw",
+    "coachReport": "https://tyronsamaroo.dev/coach-report/report.html"
   },
   "sourceMap": [
     {
@@ -26,6 +27,14 @@ window.PREP_ANALYSIS_DATA = {
       "value": "5 days",
       "text": "Feeds meal heat map, protein split, anchors, and food review through Thu 5/21.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-meal-timing-may17-may22-2026.csv"
+    },
+    {
+      "label": "Coach report",
+      "title": "Existing weekly meal-pattern view",
+      "status": "reference",
+      "value": "kept",
+      "text": "This is the older polished weekly report you liked; Prep Runway borrows the meal grouping idea and adds current-day decisions.",
+      "path": "https://tyronsamaroo.dev/coach-report/report.html"
     },
     {
       "label": "Training/cardio",
