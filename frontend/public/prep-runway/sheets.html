@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prep Runway — Sheets</title>
+  <script>
+    (() => {
+      const themeKey = "prep_runway_theme";
+      const requested = new URLSearchParams(location.search).get("theme");
+      const stored = localStorage.getItem(themeKey);
+      document.documentElement.dataset.theme = requested === "dark" || stored === "dark" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+  <style>
+    :root{--surface:rgba(255,255,255,.74);--soft:rgba(15,23,42,.045);--ok:#238636;--warn:#9a6700}
+    html[data-theme="dark"]{--surface:rgba(255,255,255,.04);--soft:rgba(255,255,255,.055);--ok:#51b749;--warn:#fbd75b}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main.sheets-page{width:min(1180px,calc(100vw - 28px))!important;margin:0 auto;padding:34px 0 72px!important}
+    .sheet-hero,.sheet-section,.doc-nav{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.9));box-shadow:0 18px 56px rgba(16,24,40,.12)}
+    html[data-theme="dark"] .sheet-hero,html[data-theme="dark"] .sheet-section,html[data-theme="dark"] .doc-nav{background:linear-gradient(135deg,rgba(16,23,34,.96),rgba(23,32,51,.88));box-shadow:0 22px 70px rgba(0,0,0,.28)}
+    .sheet-hero{border-radius:24px;padding:24px}
+    .sheet-hero h1{margin:8px 0 10px;font-size:clamp(31px,4.4vw,54px);letter-spacing:-.06em;line-height:.96}
+    .sheet-hero p{max-width:820px;margin:0;color:var(--muted);font-size:15px;line-height:1.45}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .action{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;padding:10px 13px;font:inherit;font-size:13px;font-weight:950;cursor:pointer}
+    .action.primary{border-color:color-mix(in srgb,var(--cyan),transparent 40%);background:color-mix(in srgb,var(--cyan),transparent 85%);color:var(--cyan)}
+    .open-note{margin-top:12px;border-left:4px solid var(--cyan);border-radius:14px;background:var(--surface);padding:12px 14px;color:var(--muted);font-size:13px;line-height:1.4}
+    .open-note strong{color:var(--ink)}
+    .open-path{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px;margin-top:14px}
+    .open-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:14px}
+    .open-card.primary{border-color:color-mix(in srgb,var(--cyan),transparent 45%);background:linear-gradient(135deg,color-mix(in srgb,var(--cyan),transparent 86%),var(--surface))}
+    .open-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .open-card strong{display:block;margin-top:7px;color:var(--ink);font-size:19px;letter-spacing:-.03em}
+    .open-card p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+    .tab-jump-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+    .tab-jump{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px;color:var(--ink);text-decoration:none;min-width:0}
+    .tab-jump span{color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .tab-jump strong{font-size:15px;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .tab-jump em{color:var(--muted);font-size:12px;font-style:normal;line-height:1.25}
+    .sheet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    .sheet-section{border-radius:22px;overflow:hidden}
+    .sheet-section.full{grid-column:1 / -1}
+    .section-head{padding:16px 18px;border-bottom:1px solid var(--line)}
+    .section-head h2{margin:0;font-size:21px;letter-spacing:-.03em}
+    .section-head p{margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+    .body{padding:14px 18px}
+    .use-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+    .use-list li{display:grid;grid-template-columns:118px 1fr;gap:12px;border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:13px;line-height:1.4}
+    .use-list li:first-child{border-top:0;padding-top:0}
+    .use-list strong{color:var(--ink)}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .kpi{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px}
+    .kpi span{display:block;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .kpi strong{display:block;margin-top:5px;color:var(--ink);font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+    .tab-table{width:100%;border-collapse:collapse;font-size:13px}
+    .tab-table th,.tab-table td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+    .tab-table th{color:var(--ink);background:var(--soft);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    .tab-table tr:last-child td{border-bottom:0}
+    .tag{display:inline-flex;border:1px solid color-mix(in srgb,var(--ok),transparent 62%);color:var(--ok);background:color-mix(in srgb,var(--ok),transparent 91%);border-radius:999px;padding:3px 8px;font-size:11px;font-weight:950}
+    .tag.warn{border-color:color-mix(in srgb,var(--warn),transparent 62%);color:var(--warn);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .source-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+    .source-card{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px;min-width:0}
+    .source-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .source-card strong{display:block;margin-top:5px;color:var(--ink);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .source-card p{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.35;word-break:break-word}
+    code{color:var(--ink);background:var(--soft);border-radius:7px;padding:2px 5px}
+    @media(max-width:820px){main.sheets-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.sheet-grid,.kpis,.open-path,.source-strip,.tab-jump-grid{grid-template-columns:1fr}.use-list li{grid-template-columns:1fr}.sheet-hero{padding:18px}.actions .action{width:100%}.tab-table{font-size:12px}}
+  </style>
+</head>
+<body>
+  <main class="sheets-page">
+    <nav class="doc-nav" aria-label="Prep documents">
+      <a href="home.html">Home</a>
+      <a href="report.html">Daily Master</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="meal-patterns.html">Meal Patterns</a>
+      <a href="data-ledger.html">Data Ledger</a>
+      <a class="primary" href="sheets.html">Sheets</a>
+      <a href="3-day-cleanup.html">Current Cut</a>
+      <a href="148-burn.html">148 Target</a>
+      <a href="full-runway.html">Full Plan</a>
+      <a href="cardio-calibration.html">Cardio Data</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
+    </nav>
+
+    <section class="sheet-hero">
+      <div class="eyebrow">OCB Prep · Google Sheets handoff</div>
+      <h1>Open the Google Sheet. Skip Excel.</h1>
+      <p>The website is for reading and decisions. Google Sheets is the editable version for clean rows, filters, sorting, and quick manual edits without Excel. The local workbook is only a backup/export.</p>
+      <div class="actions">
+        <a class="action primary" id="open-native-sheet" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit" target="_blank" rel="noopener">Open Native Google Sheet</a>
+        <button class="action" id="copy-sheet-link" type="button">Copy Google Sheet Link</button>
+        <a class="action" href="prep-runway-google-sheets-2026-05-22.xlsx" download>Download Workbook Backup</a>
+        <a class="action" href="data-ledger.html">Open Site Data Ledger</a>
+      </div>
+      <div class="open-note"><strong>Best workflow:</strong> click <code>Open Native Google Sheet</code>. If macOS asks what app should open an <code>.xlsx</code>, ignore that path unless you intentionally want the backup file.</div>
+      <div class="open-path">
+        <div class="open-card primary"><span>Use this first</span><strong>Native Google Sheet</strong><p>Already converted in Drive. Opens in the browser with filters, sortable columns, and manual edit support.</p></div>
+        <div class="open-card"><span>No install needed</span><strong>Skip Excel</strong><p>Excel is optional. You only need it if you want offline local editing; Google Sheets covers this workflow.</p></div>
+        <div class="open-card"><span>Backup role</span><strong>XLSX is portable only</strong><p>The downloaded workbook is a backup/export, not the main place to work day to day.</p></div>
+      </div>
+      <div class="tab-jump-grid" aria-label="Open exact Google Sheet tabs">
+        <a class="tab-jump" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit#gid=134480957" target="_blank" rel="noopener"><span>Primary row view</span><strong>Daily Ledger tab</strong><em>Weight, sleep, macros, cardio, lift, steps.</em></a>
+        <a class="tab-jump" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit#gid=1234840373" target="_blank" rel="noopener"><span>Food timing</span><strong>Meal Timing tab</strong><em>Grouped meals and protein windows.</em></a>
+        <a class="tab-jump" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit#gid=1761865811" target="_blank" rel="noopener"><span>Workout filters</span><strong>Training tab</strong><em>Cardio/lift rows, HR, calories, duration.</em></a>
+      </div>
+      <div class="source-strip" id="source-strip"></div>
+    </section>
+
+    <div class="sheet-grid">
+      <section class="sheet-section full">
+        <div class="section-head">
+          <h2>Which surface should I use?</h2>
+          <p>Use one source for the job at hand instead of bouncing between five messy views.</p>
+        </div>
+        <div class="body">
+          <ul class="use-list">
+            <li><strong>Daily decisions</strong><span>Use <code>Daily Master</code> and <code>Analysis</code>. These answer what is off, whether the plan is still working, and what lever to adjust next.</span></li>
+            <li><strong>Filtering/sorting</strong><span>Use the native Google Sheet or <code>Data Ledger</code>. The sheet is better for quick manual row edits; the site ledger is better for reading training/cardio context.</span></li>
+            <li><strong>Workout/cardio review</strong><span>Use <code>Data Ledger → Cardio Sessions</code> for current cleanup details, then <code>Analysis → Cardio trend</code> for StairMaster vs walking reads.</span></li>
+            <li><strong>Backup/export</strong><span>Use the downloadable workbook only as a portable backup. Upload it to Google Drive and choose “Open with Google Sheets” if you ever need a fresh native copy.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sheet-section">
+        <div class="section-head">
+          <h2>Workbook contents</h2>
+          <p>The generated workbook is shaped for Google Sheets: frozen headers, filters, tables, and separate tabs.</p>
+        </div>
+        <div class="body">
+          <table class="tab-table">
+            <thead><tr><th>Tab</th><th>Use</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Start Here</strong></td><td>Quick read, scale change, food read, how to use the file.</td><td><span class="tag">Read first</span></td></tr>
+              <tr><td><strong>Daily Ledger</strong></td><td>One row per day: weight, sleep, macros, cardio, lift, steps, active burn.</td><td><span class="tag">Primary</span></td></tr>
+              <tr><td><strong>Meal Timing</strong></td><td>Grouped meals from MacroFactor with timing, macros, and food-pattern reads.</td><td><span class="tag">Review</span></td></tr>
+              <tr><td><strong>Training</strong></td><td>Workout/cardio rows with HR, calories, duration, source notes.</td><td><span class="tag">Filter</span></td></tr>
+              <tr><td><strong>Sleep Recovery</strong></td><td>Bed, wake, stages, efficiency, RHR, HRV.</td><td><span class="tag">Guardrail</span></td></tr>
+              <tr><td><strong>Food Log Raw</strong></td><td>MacroFactor detailed food rows from the latest export.</td><td><span class="tag warn">Raw</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="sheet-section">
+        <div class="section-head">
+          <h2>Current read</h2>
+          <p>Short answer from the current data so the sheet has a reason to exist.</p>
+        </div>
+        <div class="body">
+          <div class="kpis">
+            <div class="kpi"><span>Scale</span><strong>169 → 158.4</strong></div>
+            <div class="kpi"><span>Avg intake</span><strong>963 cal</strong></div>
+            <div class="kpi"><span>Protein</span><strong>175g avg</strong></div>
+            <div class="kpi"><span>Main watch</span><strong>GI/water</strong></div>
+          </div>
+          <ul class="use-list" style="margin-top:12px">
+            <li><strong>What looks good</strong><span>Protein is high, StairMaster output is still strong, and Thursday recovery markers were better.</span></li>
+            <li><strong>What is off</strong><span>Powder volume likely contributed to loose stomach. Whole-food protein looked better on Thursday.</span></li>
+            <li><strong>Best next test</strong><span>Repeat the Thursday-style whole-food base before changing calories or adding more cardio.</span></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="analysis-data.js?v=20260522-sheets-source"></script>
+  <script>
+    (() => {
+      const sheetUrl = "https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit";
+      const copyButton = document.getElementById("copy-sheet-link");
+      copyButton?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(sheetUrl);
+          copyButton.textContent = "Copied Google Sheet Link";
+          setTimeout(() => { copyButton.textContent = "Copy Google Sheet Link"; }, 1800);
+        } catch {
+          window.prompt("Copy this Google Sheet link:", sheetUrl);
+        }
+      });
+      const data = window.PREP_ANALYSIS_DATA || {};
+      const escapeHtml = value => String(value ?? "—").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+      const sourceStrip = document.getElementById("source-strip");
+      if (sourceStrip) {
+        sourceStrip.innerHTML = `
+          <div class="source-card"><span>Editable truth</span><strong>Google Sheet</strong><p>${escapeHtml(sheetUrl)}</p></div>
+          <div class="source-card"><span>Latest MacroFactor export</span><strong>${escapeHtml((data.sources?.currentMacroFactorExport || "").split("/").pop() || "MacroFactor XLSX")}</strong><p>Use as import evidence, not the daily editing surface.</p></div>
+          <div class="source-card"><span>Site data bundle</span><strong>analysis-data.js</strong><p>Generated ${escapeHtml(data.generatedAt || "from current prep manual data")} for the clean web views.</p></div>
+        `;
+      }
+    })();
+  </script>
+</body>
+</html>

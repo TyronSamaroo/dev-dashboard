@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prep Runway — Home</title>
+  <script>
+    (() => {
+      const key = "prep_runway_theme";
+      const requested = new URLSearchParams(location.search).get("theme");
+      const saved = localStorage.getItem(key);
+      document.documentElement.dataset.theme = requested === "dark" || saved === "dark" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+  <style>
+    :root{--surface:rgba(255,255,255,.74);--soft:rgba(15,23,42,.045);--ok:#238636;--warn:#9a6700;--bad:#c24141}
+    html[data-theme="dark"]{--surface:rgba(255,255,255,.04);--soft:rgba(255,255,255,.055);--ok:#51b749;--warn:#fbd75b;--bad:#ff6b6b}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main.home-page{width:min(1280px,calc(100vw - 28px))!important;margin:0 auto;padding:34px 0 72px!important}
+    .home-hero,.home-section,.doc-nav{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.9));box-shadow:0 18px 56px rgba(16,24,40,.12)}
+    html[data-theme="dark"] .home-hero,html[data-theme="dark"] .home-section,html[data-theme="dark"] .doc-nav{background:linear-gradient(135deg,rgba(16,23,34,.96),rgba(23,32,51,.88));box-shadow:0 22px 70px rgba(0,0,0,.28)}
+    .home-hero{border-radius:24px;padding:24px}
+    .home-hero h1{margin:8px 0 10px;font-size:clamp(34px,5vw,64px);line-height:.94;letter-spacing:-.065em}
+    .home-hero p{max-width:840px;margin:0;color:var(--muted);font-size:15px;line-height:1.45}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .action{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;padding:10px 13px;font-size:13px;font-weight:950}
+    .action.primary{border-color:color-mix(in srgb,var(--cyan),transparent 40%);background:color-mix(in srgb,var(--cyan),transparent 85%);color:var(--cyan)}
+    .home-section{border-radius:22px;margin-top:14px;overflow:hidden}
+    .section-head{padding:16px 18px;border-bottom:1px solid var(--line)}
+    .section-head h2{margin:0;font-size:22px;letter-spacing:-.035em}
+    .section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}
+    .read-grid{display:grid;grid-template-columns:1.1fr 1.35fr;gap:12px;padding:12px}
+    .lead-read{border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,color-mix(in srgb,var(--cyan),transparent 88%),var(--surface));padding:17px}
+    .lead-read span,.route-card span,.metric-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .lead-read h3{margin:7px 0 8px;color:var(--ink);font-size:26px;line-height:1.05;letter-spacing:-.045em}
+    .lead-read p{margin:0;color:var(--muted);font-size:13px;line-height:1.42}
+    .read-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .metric-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px;min-height:120px}
+    .metric-card strong{display:block;margin-top:8px;color:var(--ink);font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+    .metric-card p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
+    .data-access{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:10px;padding:12px}
+    .access-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:14px;color:inherit;text-decoration:none;min-height:122px}
+    .access-card.primary{border-color:color-mix(in srgb,var(--cyan),transparent 45%);background:linear-gradient(135deg,color-mix(in srgb,var(--cyan),transparent 87%),var(--surface))}
+    .access-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .access-card strong{display:block;margin-top:7px;color:var(--ink);font-size:20px;letter-spacing:-.035em}
+    .access-card p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+    .route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px}
+    .route-card{display:block;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:14px;color:inherit;text-decoration:none;min-height:154px}
+    .route-card:hover{border-color:color-mix(in srgb,var(--cyan),transparent 45%);transform:translateY(-1px)}
+    .route-card strong{display:block;margin-top:7px;color:var(--ink);font-size:18px;letter-spacing:-.025em}
+    .route-card p{margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+    .route-card em{display:block;margin-top:10px;color:var(--muted);font-style:normal;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+    .source-line{padding:0 18px 14px;color:var(--muted);font-size:12px}
+    .source-line strong{color:var(--ink)}
+    @media(max-width:980px){.read-grid,.route-grid,.data-access{grid-template-columns:1fr}.read-cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){main.home-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.home-hero{padding:18px}.hero-actions .action{width:100%}.read-cards{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="home-page">
+    <nav class="doc-nav" aria-label="Prep documents">
+      <a class="primary" href="home.html">Home</a>
+      <a href="report.html">Daily Master</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="meal-patterns.html">Meal Patterns</a>
+      <a href="data-ledger.html">Data Ledger</a>
+      <a href="sheets.html">Sheets</a>
+      <a href="3-day-cleanup.html">Current Cut</a>
+      <a href="148-burn.html">148 Target</a>
+      <a href="full-runway.html">Full Plan</a>
+      <a href="cardio-calibration.html">Cardio Data</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
+    </nav>
+
+    <section class="home-hero">
+      <div class="eyebrow">OCB Prep · Start Here</div>
+      <h1>Prep Runway command center.</h1>
+      <p>Use this page to choose the right surface quickly: daily decision, meal timing, workout fuel, cardio trend, raw data, or Google Sheets.</p>
+      <div class="hero-actions">
+        <a class="action primary" href="analysis.html">Open Today’s Read</a>
+        <a class="action" href="report.html">Open Daily Master</a>
+        <a class="action" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit" target="_blank" rel="noopener">Open Google Sheet</a>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="section-head">
+        <h2>Open the Data</h2>
+        <p>Google Sheets is the editable/filterable version. You do not need Excel installed unless you want offline workbook editing.</p>
+      </div>
+      <div class="data-access">
+        <a class="access-card primary" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit" target="_blank" rel="noopener">
+          <span>Best option</span>
+          <strong>Open Native Google Sheet</strong>
+          <p>Browser-based, sortable/filterable, and already converted into Google Sheets.</p>
+        </a>
+        <a class="access-card" href="sheets.html">
+          <span>Guide</span>
+          <strong>Which sheet should I use?</strong>
+          <p>Shows tab purpose, current read, workbook backup, and when to use the site ledger.</p>
+        </a>
+        <a class="access-card" href="prep-runway-google-sheets-2026-05-22.xlsx" download>
+          <span>Backup</span>
+          <strong>Download XLSX backup</strong>
+          <p>Portable copy only. If downloaded, upload it to Drive to open with Google Sheets.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="section-head">
+        <h2>Current Read</h2>
+        <p>Generated from the same analysis data bundle as the Analysis page.</p>
+      </div>
+      <div class="read-grid" id="read-grid"></div>
+      <div class="source-line" id="source-line"></div>
+    </section>
+
+    <section class="home-section">
+      <div class="section-head">
+        <h2>Choose By Question</h2>
+        <p>One click to the surface that answers the question. This is the anti-clutter layer.</p>
+      </div>
+      <div class="route-grid">
+        <a class="route-card" href="report.html"><span>Daily</span><strong>What happened today?</strong><p>Daily Ledger with weight, sleep, macros, cardio boxes, lift, and next lever.</p><em>Daily Master</em></a>
+        <a class="route-card" href="analysis.html?view=overview"><span>Decision</span><strong>Anything off?</strong><p>Operating read, source freshness, current risks, and what to log next.</p><em>Analysis overview</em></a>
+        <a class="route-card" href="meal-patterns.html"><span>Meals</span><strong>When am I eating?</strong><p>Meal timing heat map, protein split, food repeatability, and lift-fuel impact.</p><em>Meal Patterns</em></a>
+        <a class="route-card" href="analysis.html?view=fuel"><span>Training</span><strong>Did food impact the lift?</strong><p>Pre-lift food, lift density, post-cardio, and next-morning scale noise.</p><em>Fuel → lift</em></a>
+        <a class="route-card" href="analysis.html?view=cardio"><span>Cardio</span><strong>Is StairMaster changing?</strong><p>Question presets for StairMaster, walking, HR cost, and suspect HR rows.</p><em>Cardio trend</em></a>
+        <a class="route-card" href="data-ledger.html"><span>Raw</span><strong>Show me every row.</strong><p>Full-width sortable/filterable tables for daily, training, cardio, sleep, and forecast.</p><em>Data Ledger</em></a>
+      </div>
+    </section>
+  </main>
+
+  <script src="analysis-data.js?v=20260522-home"></script>
+  <script>
+    (() => {
+      const data = window.PREP_ANALYSIS_DATA;
+      if (!data) return;
+      const escapeHtml = value => String(value ?? "—").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+      const readGrid = document.getElementById("read-grid");
+      const operating = data.operatingRead || {};
+      const cards = operating.cards || [];
+      if (readGrid) {
+        readGrid.innerHTML = `
+          <article class="lead-read">
+            <span>Current call</span>
+            <h3>${escapeHtml(operating.headline || "Open Analysis for the current read.")}</h3>
+            <p>${escapeHtml(operating.subhead || "No generated read is available yet.")}</p>
+          </article>
+          <div class="read-cards">
+            ${cards.map(card => `
+              <article class="metric-card">
+                <span>${escapeHtml(card.label)}</span>
+                <strong>${escapeHtml(card.value)}</strong>
+                <p>${escapeHtml(card.text)}</p>
+              </article>
+            `).join("")}
+          </div>
+        `;
+      }
+      const sourceLine = document.getElementById("source-line");
+      if (sourceLine) {
+        sourceLine.innerHTML = `<strong>Generated:</strong> ${escapeHtml(data.generatedAt)} · <strong>Primary sources:</strong> manual cleanup CSVs, MacroFactor export, training history, Google Sheet.`;
+      }
+    })();
+  </script>
+</body>
+</html>

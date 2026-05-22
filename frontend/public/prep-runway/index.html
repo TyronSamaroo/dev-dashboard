@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prep Runway — Access</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(70, 214, 219, 0.18), transparent 34rem),
+    radial-gradient(circle at bottom right, rgba(81, 183, 73, 0.12), transparent 32rem),
+    #070a0f;
+  color: #e8eef8;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gate {
+  width: min(420px, calc(100vw - 32px));
+  padding: 44px 38px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(135deg, rgba(16,23,34,.96), rgba(23,32,51,.9));
+  box-shadow: 0 28px 90px rgba(0,0,0,.46);
+  text-align: center;
+}
+.lock-icon { font-size: 34px; margin-bottom: 16px; }
+h1 { color: #fff; font-size: 26px; letter-spacing: -0.04em; margin-bottom: 7px; }
+.sub { color: #aab7c7; font-size: 13px; line-height: 1.45; margin-bottom: 24px; }
+.google-btn, .gate button[type="submit"] {
+  width: 100%;
+  min-height: 46px;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 750;
+}
+.google-btn {
+  background: #fff;
+  color: #101217;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.google-btn:hover { background: #f0f3f8; }
+.google-btn svg { width: 18px; height: 18px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 18px 0; color: #657184; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.13); }
+input {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(7,10,15,.88);
+  border: 2px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  outline: none;
+}
+input:focus { border-color: #46d6db; }
+input.error { border-color: #ff6b6b; animation: shake .4s ease; }
+.gate button[type="submit"] { margin-top: 14px; background: #46d6db; color: #061014; }
+.gate button[type="submit"]:hover { background: #70edf1; }
+.err-msg { color: #ff8c8c; font-size: 12px; min-height: 18px; margin-top: 10px; }
+.hint { color: #657184; font-size: 11px; margin-top: 16px; line-height: 1.4; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+}
+#report-frame { display: none; width: 100%; height: 100vh; border: none; position: fixed; inset: 0; z-index: 100; background: #070a0f; }
+#signout-float {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 200;
+  background: rgba(7,10,15,.84);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+#signout-float:hover { background: #46d6db; color: #061014; }
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <div class="lock-icon">🔒</div>
+  <h1>Prep Runway</h1>
+  <div class="sub">Command Center · Daily Master · Analysis · Private account access</div>
+  <button class="google-btn" id="google-signin-btn" type="button">
+    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+    Sign in with Google
+  </button>
+  <div class="divider">or</div>
+  <form onsubmit="return checkCode()">
+    <input type="password" id="code" placeholder="Enter passcode" autocomplete="off">
+    <button type="submit">Access Plan</button>
+  </form>
+  <div class="err-msg" id="err"></div>
+  <div class="hint">Uses the same Firebase Google sign-in pattern as your coach report.</div>
+</div>
+<iframe id="report-frame" title="Prep Runway Report"></iframe>
+<button id="signout-float" onclick="signOutAll()">Sign out</button>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+  authDomain: "tyron-personal.firebaseapp.com",
+  projectId: "tyron-personal",
+  appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+};
+const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com"];
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+window.__firebaseAuth = auth;
+const provider = new GoogleAuthProvider();
+document.getElementById("google-signin-btn").addEventListener("click", async () => {
+  document.getElementById("err").textContent = "";
+  try {
+    const result = await signInWithPopup(auth, provider);
+    if (ALLOWED_EMAILS.includes(result.user.email)) {
+      try { localStorage.setItem("prep_runway_auth", JSON.stringify({ ts: Date.now() })); } catch(e) {}
+      window.showReport();
+    } else {
+      document.getElementById("err").textContent = result.user.email + " is not authorized";
+    }
+  } catch (e) {
+    if (e.code !== "auth/popup-closed-by-user" && e.code !== "auth/cancelled-popup-request") {
+      document.getElementById("err").textContent = "Sign-in failed: " + (e.message || e.code);
+    }
+  }
+});
+onAuthStateChanged(auth, (user) => {
+  if (user && ALLOWED_EMAILS.includes(user.email)) {
+    try { localStorage.setItem("prep_runway_auth", JSON.stringify({ ts: Date.now() })); } catch(e) {}
+    window.showReport();
+  }
+});
+</script>
+<script>
+function hashCode(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h) + s.charCodeAt(i);
+    h |= 0;
+  }
+  return h;
+}
+const EXPECTED = -2056149904;
+const CACHE_KEY = "prep_runway_auth";
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
+
+function showReport() {
+  document.getElementById("gate").style.display = "none";
+  var frame = document.getElementById("report-frame");
+  frame.style.display = "block";
+  frame.src = "/prep-runway/home.html" + (location.search || "");
+  document.getElementById("signout-float").style.display = "block";
+  document.body.style.display = "block";
+  document.body.style.margin = "0";
+  document.body.style.padding = "0";
+}
+
+function signOutAll() {
+  try { localStorage.removeItem(CACHE_KEY); } catch(e) {}
+  if (window.__firebaseAuth) {
+    window.__firebaseAuth.signOut().finally(function() { location.reload(); });
+  } else {
+    location.reload();
+  }
+}
+
+(function() {
+  try {
+    var cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      var data = JSON.parse(cached);
+      if (Date.now() - data.ts < CACHE_DURATION) { showReport(); return; }
+      localStorage.removeItem(CACHE_KEY);
+    }
+  } catch(e) {}
+})();
+
+function checkCode() {
+  var input = document.getElementById("code").value.toUpperCase();
+  if (hashCode(input) === EXPECTED) {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now() })); } catch(e) {}
+    showReport();
+  } else {
+    document.getElementById("code").classList.add("error");
+    document.getElementById("err").textContent = "Incorrect passcode";
+    setTimeout(function() {
+      document.getElementById("code").classList.remove("error");
+    }, 500);
+  }
+  return false;
+}
+</script>
+</body>
+</html>

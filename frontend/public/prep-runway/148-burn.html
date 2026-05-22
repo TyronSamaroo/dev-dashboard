@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>148 by June 1 — Calorie Burn + Aggressive Runway</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070a0f;
+      --panel: #101722;
+      --panel2: #172033;
+      --ink: #f6f8fc;
+      --muted: #aab7c7;
+      --line: rgba(255,255,255,.12);
+      --green: #51b749;
+      --cyan: #46d6db;
+      --blue: #5484ed;
+      --amber: #fbd75b;
+      --red: #ff6b6b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 0 0, rgba(70, 214, 219, .18), transparent 36rem),
+        radial-gradient(circle at 100% 10%, rgba(81, 183, 73, .16), transparent 36rem),
+        linear-gradient(180deg, #070a0f, #090d14 44%, #070a0f);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    main {
+      width: min(1220px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 42px 0 72px;
+    }
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 36px;
+      background: linear-gradient(135deg, rgba(16,23,34,.96), rgba(23,32,51,.88));
+      box-shadow: 0 28px 90px rgba(0,0,0,.38);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -45% 40%;
+      height: 220px;
+      background: radial-gradient(circle, rgba(84,132,237,.28), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 10px 0 12px;
+      font-size: clamp(36px, 5.5vw, 72px);
+      line-height: .92;
+      letter-spacing: -.055em;
+      max-width: 900px;
+    }
+    .lead {
+      color: var(--muted);
+      max-width: 880px;
+      font-size: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .doc-nav {
+      border: 1px solid var(--line);
+      background: rgba(16, 23, 34, .88);
+      border-radius: 18px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .doc-nav a {
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 850;
+    }
+    .doc-nav a.primary {
+      background: rgba(70, 214, 219, .14);
+      border-color: rgba(70, 214, 219, .45);
+      color: #c5f9ff;
+    }
+    .card {
+      grid-column: span 12;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(16, 23, 34, .86);
+      padding: 22px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.22);
+    }
+    @media (min-width: 900px) {
+      .span-4 { grid-column: span 4; }
+      .span-5 { grid-column: span 5; }
+      .span-6 { grid-column: span 6; }
+      .span-7 { grid-column: span 7; }
+      .span-8 { grid-column: span 8; }
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: -.025em;
+    }
+    p { margin: 0 0 12px; color: var(--muted); }
+    strong { color: var(--ink); }
+    ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    li { margin: 6px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      font-size: 14px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 11px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: rgba(255,255,255,.06);
+      color: var(--ink);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+    td { color: var(--muted); }
+    tr:last-child td { border-bottom: 0; }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding: 14px;
+    }
+    .label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .value {
+      margin-top: 4px;
+      font-size: 27px;
+      font-weight: 950;
+      letter-spacing: -.035em;
+    }
+    .tag {
+      display: inline-flex;
+      border: 1px solid rgba(81,183,73,.45);
+      color: #c7f6c2;
+      background: rgba(81,183,73,.12);
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 900;
+      margin: 2px 4px 2px 0;
+    }
+    .warn {
+      border-color: rgba(251,215,91,.45);
+      color: #ffec99;
+      background: rgba(251,215,91,.11);
+    }
+    .danger {
+      border-color: rgba(255,107,107,.5);
+      color: #ffc0c0;
+      background: rgba(255,107,107,.11);
+    }
+    .blue {
+      border-color: rgba(84,132,237,.5);
+      color: #c7d6ff;
+      background: rgba(84,132,237,.13);
+    }
+    .callout {
+      border-left: 4px solid var(--amber);
+      background: rgba(251,215,91,.085);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: var(--ink);
+    }
+    .footer {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+</head>
+<body>
+  <main>
+    <nav class="doc-nav" aria-label="Prep documents">
+      <a href="report.html">Daily Master</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="data-ledger.html">Data Ledger</a>
+      <a href="3-day-cleanup.html">Current Cut</a>
+      <a class="primary" href="148-burn.html">148 Target</a>
+      <a href="full-runway.html">Full Runway</a>
+      <a href="cardio-calibration.html">Cardio Calibration</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">OCB Prep · calorie burn calibration · May 18-June 1</div>
+      <h1>148 by June 1: Aggressive Runway + Burn Reality</h1>
+      <p class="lead">The plan is not “trust the Move ring.” The plan is fixed macros, reliable StairMaster, lifting as muscle signal, and HR-based accounting when a lift secretly becomes cardio.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card span-5">
+        <h2>What I Notice</h2>
+        <p><strong>Apple Watch is conditionally useful.</strong> It looks solid for StairMaster, decent for dense/high-HR lifting, and bad for very low-HR lifting.</p>
+        <p><span class="tag">Trust StairMaster</span><span class="tag warn">Discount low-HR lifts</span><span class="tag danger">Do not eat back calories</span></p>
+      </article>
+
+      <article class="card span-7">
+        <h2>Goal Reality</h2>
+        <div class="metrics">
+          <div class="metric"><div class="label">Target</div><div class="value">148 lb</div></div>
+          <div class="metric"><div class="label">Deadline</div><div class="value">Jun 1</div></div>
+          <div class="metric"><div class="label">Protein</div><div class="value">165+ / 170-185</div></div>
+          <div class="metric"><div class="label">Main Cardio</div><div class="value">Morning Stair</div></div>
+        </div>
+        <p style="margin-top:14px">Getting back to 148 is plausible as an AM scale target if the rebound is mostly water/glycogen/gut. It is not 20+ lb of fat loss.</p>
+      </article>
+
+      <article class="card span-12">
+        <h2>Current Anchor</h2>
+        <p><strong>May 21:</strong> 158.7 lb after the completed 3-day cleanup. The active phase is now May 21-25 aggressive/recoverable, not five more near-zero-fat PSMF days.</p>
+        <p><span class="tag">1,150-1,500 cal</span><span class="tag">165-185P</span><span class="tag warn">35-50m easy Stair</span><span class="tag danger">no PM Stair unless recovery + stall justify it</span></p>
+      </article>
+
+      <article class="card span-6">
+        <h2>StairMaster Calibration</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Duration</th><th>Avg HR</th><th>Apple</th><th>Adjusted</th></tr></thead>
+          <tbody>
+            <tr><td>5/3</td><td>60m</td><td>122</td><td>562</td><td>~540</td></tr>
+            <tr><td>5/4</td><td>53m</td><td>126</td><td>514</td><td>~540</td></tr>
+            <tr><td>5/6</td><td>51m</td><td>126</td><td>501</td><td>~540</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:12px"><strong>Planning conversion:</strong> 30m ≈ 270 kcal, 45m ≈ 400 kcal, 50-55m ≈ 500-540 kcal.</p>
+      </article>
+
+      <article class="card span-6">
+        <h2>Lift Calibration</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Dur</th><th>Avg HR</th><th>Apple</th><th>Adjusted</th><th>Read</th></tr></thead>
+          <tbody>
+            <tr><td>5/3</td><td>148m</td><td>98</td><td>603</td><td>500-600</td><td>OK</td></tr>
+            <tr><td>5/4</td><td>150m</td><td>106</td><td>864</td><td>650-800</td><td>High</td></tr>
+            <tr><td>5/6</td><td>100m</td><td>116</td><td>610</td><td>500-625</td><td>OK</td></tr>
+            <tr><td>5/9</td><td>151m</td><td>114</td><td>968</td><td>750-900</td><td>High</td></tr>
+            <tr><td>5/16</td><td>80m</td><td>75</td><td>678</td><td>270-400</td><td>Bad</td></tr>
+            <tr><td>5/17</td><td>56m</td><td>128</td><td>431</td><td>380-430</td><td>OK</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-7">
+        <h2>5/17 Hidden Cardio</h2>
+        <table>
+          <thead><tr><th>Chunk</th><th>Time</th><th>Avg HR</th><th>Max HR</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>3:27-3:41p</td><td>105</td><td>128</td><td>Paced lift</td></tr>
+            <tr><td>2</td><td>3:41-3:55p</td><td>109</td><td>138</td><td>Paced lift</td></tr>
+            <tr><td>3</td><td>3:55-4:09p</td><td>152</td><td>177</td><td>Heavy cardio / finisher</td></tr>
+            <tr><td>4</td><td>4:09-4:24p</td><td>147</td><td>179</td><td>Heavy cardio / finisher</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-5">
+        <h2>Rule From This</h2>
+        <ul>
+          <li>If a lift has 20+ min Z3/Z4, count it as cardio.</li>
+          <li>If a lift avg HR is under 90, treat calories as inflated.</li>
+          <li>Never eat back Apple lifting calories in this cut.</li>
+          <li>Do not double-dose cardio after a conditioning-style lift.</li>
+        </ul>
+      </article>
+
+      <article class="card span-12">
+        <h2>May 18-June 1 Runway</h2>
+        <table>
+          <thead><tr><th>Phase</th><th>Dates</th><th>Macros</th><th>Cardio</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Strict cleanup</strong></td><td>May 18-20</td><td>1,050-1,300 cal · 170-185P · 20-60C · 10-35F</td><td>30-45m StairMaster</td><td>Fast water/glycogen/gut drop</td></tr>
+            <tr><td><strong>5-day aggressive/recoverable</strong></td><td>May 21-25</td><td>1,150-1,500 cal · 165-185P · 30-100C · 20-40F</td><td>35-50m easy cardio</td><td>Keep fat loss moving without repeating overreach</td></tr>
+            <tr><td><strong>Aggressive baseline</strong></td><td>May 26-29</td><td>1,450-1,650 cal · 165-180P · 70-125C · 30-45F</td><td>35-45m easy cardio</td><td>Preserve training and sleep</td></tr>
+            <tr><td><strong>Handoff stabilize</strong></td><td>May 30-Jun 1</td><td>1,650-1,850 cal · 165P+ · 100-160C · 40-55F</td><td>30-40m easy cardio</td><td>Arrive stable for coach</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-6">
+        <h2>Execution Rule</h2>
+        <div class="callout">Morning StairMaster is the fat-loss lever. Evening lift is the muscle-retention lever. If the evening lift becomes cardio, reduce extra cardio rather than stacking stress.</div>
+      </article>
+
+      <article class="card span-6">
+        <h2>Avoid</h2>
+        <p><span class="tag danger">No water pills</span><span class="tag danger">No forced sauna cuts</span><span class="tag danger">No eating back active calories</span><span class="tag warn">No daily finishers</span></p>
+        <p>The target is to get light and stable by June 1, not to create a rebound.</p>
+      </article>
+    </section>
+
+    <p class="footer">Source basis: local MacroFactor/DEXA context plus Claude Apple Health HR-zone analysis pasted on 2026-05-17. This is a planning artifact, not medical advice.</p>
+  </main>
+</body>
+</html>

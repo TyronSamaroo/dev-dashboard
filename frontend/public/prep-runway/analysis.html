@@ -1,0 +1,1256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prep Runway — Analysis Board</title>
+  <link rel="icon" href="data:,">
+  <script>
+    (() => {
+      const key = "prep_runway_theme";
+      const requested = new URLSearchParams(location.search).get("theme");
+      const saved = localStorage.getItem(key);
+      document.documentElement.dataset.theme = requested === "dark" || saved === "dark" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+  <style>
+    :root{--surface:rgba(255,255,255,.72);--soft:rgba(15,23,42,.045);--ok:#238636;--warn:#9a6700;--bad:#c24141}
+    html[data-theme="dark"]{--surface:rgba(255,255,255,.035);--soft:rgba(255,255,255,.055);--ok:#51b749;--warn:#fbd75b;--bad:#ff6b6b}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main.analysis-page{width:min(1480px,calc(100vw - 28px))!important;margin:0 auto;padding:34px 0 72px!important}
+    .analysis-hero,.analysis-section,.question-shell,.doc-nav{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.9));box-shadow:0 18px 56px rgba(16,24,40,.12)}
+    html[data-theme="dark"] .analysis-hero,html[data-theme="dark"] .analysis-section,html[data-theme="dark"] .question-shell,html[data-theme="dark"] .doc-nav{background:linear-gradient(135deg,rgba(16,23,34,.96),rgba(23,32,51,.88));box-shadow:0 22px 70px rgba(0,0,0,.28)}
+    .analysis-hero{border-radius:24px;padding:24px}
+    .analysis-hero h1{max-width:1060px;margin:8px 0 10px;font-size:clamp(31px,4.5vw,54px);letter-spacing:-.06em;line-height:.96}
+    .analysis-hero p{max-width:940px;margin:0;color:var(--muted);font-size:15px}
+    .topline{display:grid;grid-template-columns:1.2fr repeat(4,1fr);gap:10px;margin-top:18px}
+    .top-metric{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:13px 14px}
+    .top-metric span{display:block;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.095em;text-transform:uppercase}
+    .top-metric strong{display:block;margin-top:4px;color:var(--ink);font-size:clamp(20px,2.4vw,31px);line-height:1;font-variant-numeric:tabular-nums}
+    .top-metric em{display:block;margin-top:5px;color:var(--muted);font-style:normal;font-size:12px;line-height:1.3}
+    .question-shell{border-radius:22px;margin-top:14px;padding:13px 14px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .question-copy{color:var(--muted);font-size:13px;line-height:1.35;margin:0;max-width:620px}
+    .question-copy strong{display:block;color:var(--ink);font-size:14px;margin-bottom:2px}
+    .question-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .question-tab{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:950;cursor:pointer}
+    .question-tab.active{border-color:color-mix(in srgb,var(--cyan),transparent 35%);background:color-mix(in srgb,var(--cyan),transparent 84%);color:var(--cyan)}
+    .analysis-section.is-hidden{display:none}
+    .analysis-section{border-radius:22px;margin-top:14px;overflow:hidden}
+    .section-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:17px 18px;border-bottom:1px solid var(--line)}
+    .section-head h2{margin:0;font-size:22px;letter-spacing:-.035em}
+    .section-head p{max-width:860px;margin:3px 0 0;color:var(--muted);font-size:13px}
+    .operating-read{display:grid;grid-template-columns:1.05fr 1.4fr;gap:12px;padding:12px}
+    .operating-lead{border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,color-mix(in srgb,var(--cyan),transparent 88%),var(--surface));padding:17px}
+    .operating-lead span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}
+    .operating-lead h3{margin:7px 0 8px;color:var(--ink);font-size:24px;line-height:1.05;letter-spacing:-.04em}
+    .operating-lead p{margin:0;color:var(--muted);font-size:13px;line-height:1.42}
+    .operating-rules{display:grid;gap:8px;margin-top:14px}
+    .operating-rule{border-top:1px solid var(--line);padding-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
+    .operating-rule strong{display:block;color:var(--ink);font-size:12px}
+    .operating-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .operating-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px;min-height:128px}
+    .operating-card span{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:3px 7px;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .operating-card.ok span{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 60%);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .operating-card.warn span{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .operating-card.bad span{color:var(--bad);border-color:color-mix(in srgb,var(--bad),transparent 58%);background:color-mix(in srgb,var(--bad),transparent 91%)}
+    .operating-card strong{display:block;margin-top:9px;color:var(--ink);font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+    .operating-card p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
+    .source-map-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px}
+    .source-map-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px;min-height:150px}
+    .source-map-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .source-map-card strong{display:block;margin-top:6px;color:var(--ink);font-size:15px;line-height:1.15}
+    .source-map-card p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
+    .source-path{display:block;margin-top:8px;color:var(--muted);font-size:10.5px;line-height:1.3;word-break:break-word}
+    .source-map-footer{padding:0 12px 12px;color:var(--muted);font-size:12px;line-height:1.4}
+    .source-map-footer strong{color:var(--ink)}
+    .answer-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;padding:12px}
+    .answer{grid-column:span 6;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:15px}
+    .answer h3{display:flex;gap:8px;align-items:center;margin:0 0 8px;color:var(--ink);font-size:16px}
+    .answer p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}
+    .answer strong{color:var(--ink)}
+    .badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:3px 8px;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+    .badge.ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 60%);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .badge.warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .badge.bad{color:var(--bad);border-color:color-mix(in srgb,var(--bad),transparent 58%);background:color-mix(in srgb,var(--bad),transparent 91%)}
+    .timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:12px}
+    .day-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px;min-height:144px}
+    .day-card .day{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .weight{margin-top:8px;color:var(--ink);font-size:28px;font-weight:950;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+    .drop{color:var(--ok);font-size:12px;font-weight:950}
+    .drop.flat{color:var(--warn)}
+    .mini-line{margin-top:7px;color:var(--muted);font-size:12px;line-height:1.35}
+    .mini-line strong{color:var(--ink)}
+    .meal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:12px}
+    .meal-day{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px}
+    .meal-day h3{margin:0 0 8px;color:var(--ink);font-size:15px}
+    .meal{border-top:1px solid var(--line);padding:8px 0}
+    .meal:first-of-type{border-top:0}
+    .meal-time{color:var(--cyan);font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.08em}
+    .meal-food{margin-top:2px;color:var(--ink);font-size:13px;font-weight:850;line-height:1.25}
+    .meal-macro{margin-top:3px;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+    .read-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 12px 12px}
+    .read-card{border-left:3px solid var(--cyan);background:var(--soft);border-radius:14px;padding:11px;color:var(--muted);font-size:13px;line-height:1.4}
+    .read-card strong{display:block;color:var(--ink);margin-bottom:3px}
+    .mode-controls{display:flex;gap:7px;flex-wrap:wrap}
+    .mode-button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;cursor:pointer}
+    .mode-button.active{border-color:color-mix(in srgb,var(--cyan),transparent 40%);background:color-mix(in srgb,var(--cyan),transparent 86%);color:var(--cyan)}
+    .meal-map-shell{overflow:auto;padding:12px}
+    .meal-map{display:grid;grid-template-columns:88px repeat(6,minmax(112px,1fr));gap:7px;min-width:880px}
+    .meal-map-header,.meal-map-day,.meal-map-cell{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:9px}
+    .meal-map-header{color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+    .meal-map-day{display:flex;align-items:center;color:var(--ink);font-size:13px;font-weight:950}
+    .meal-map-cell{position:relative;overflow:hidden;min-height:88px;background:linear-gradient(180deg,rgba(4,124,134,var(--heat-alpha,.08)),var(--surface))}
+    html[data-theme="dark"] .meal-map-cell{background:linear-gradient(180deg,rgba(70,214,219,var(--heat-alpha,.10)),var(--surface))}
+    .meal-map-cell.empty{background:var(--soft);color:var(--muted)}
+    .meal-map-cell .slot{position:relative;z-index:1;color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.08em}
+    .meal-map-cell .cell-value{position:relative;z-index:1;margin-top:4px;color:var(--ink);font-size:18px;font-weight:950;line-height:1;font-variant-numeric:tabular-nums}
+    .meal-map-cell .cell-food{position:relative;z-index:1;margin-top:5px;color:var(--muted);font-size:11px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .protein-split-list{display:grid;gap:8px;padding:12px}
+    .protein-split-row{display:grid;grid-template-columns:92px 1fr 170px;gap:10px;align-items:center;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:10px 12px}
+    .protein-day{color:var(--ink);font-size:13px;font-weight:950;white-space:nowrap}
+    .protein-bar{display:flex;height:20px;border-radius:999px;background:var(--soft);overflow:hidden;border:1px solid var(--line)}
+    .protein-segment{display:flex;align-items:center;justify-content:center;min-width:28px;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff;font-size:10px;font-weight:950;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .protein-segment:nth-child(2n){background:linear-gradient(90deg,var(--green),var(--cyan))}
+    .protein-meta{color:var(--muted);font-size:11.5px;line-height:1.3;text-align:right}
+    .protein-meta strong{display:block;color:var(--ink);font-size:13px}
+    .protein-status{display:inline-flex;margin-top:3px;border-radius:999px;padding:2px 7px;background:var(--soft);color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.07em}
+    .protein-status.even{color:var(--ok);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .protein-status.watch{color:var(--warn);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .protein-status.bolus{color:var(--bad);background:color-mix(in srgb,var(--bad),transparent 91%)}
+    .food-review-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:10px;padding:12px}
+    .food-review-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px}
+    .food-review-card h3{margin:0;color:var(--ink);font-size:15px;letter-spacing:-.025em}
+    .source-list,.day-review-list{display:grid;gap:8px;margin-top:12px}
+    .source-row,.day-review-row{border-top:1px solid var(--line);padding-top:8px}
+    .source-row:first-child,.day-review-row:first-child{border-top:0;padding-top:0}
+    .source-head,.day-review-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+    .source-head strong,.day-review-head strong{color:var(--ink);font-size:13px}
+    .source-head span,.day-review-head span{color:var(--muted);font-size:11px;font-weight:900;white-space:nowrap}
+    .source-bar{height:9px;background:var(--soft);border-radius:999px;overflow:hidden;margin:7px 0 5px}
+    .source-bar i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:999px}
+    .source-meta,.day-review-meta{color:var(--muted);font-size:12px;line-height:1.35}
+    .fuel-card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 12px 12px}
+    .fuel-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px;min-height:184px}
+    .fuel-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+    .fuel-card h3{margin:0;color:var(--ink);font-size:14px;line-height:1.18}
+    .fuel-pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:3px 7px;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+    .fuel-pill.carb{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 60%);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .fuel-pill.low{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .fuel-load{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}
+    .fuel-metric{border-top:1px solid var(--line);padding-top:7px;color:var(--muted);font-size:11px;line-height:1.25}
+    .fuel-metric strong{display:block;color:var(--ink);font-size:16px;font-variant-numeric:tabular-nums;line-height:1.05}
+    .fuel-read{margin-top:10px;color:var(--muted);font-size:12px;line-height:1.35}
+    .fuel-read strong{color:var(--ink)}
+    .anchor-status{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:3px 8px;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+    .anchor-status.stable{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 60%);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .anchor-status.loose{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .anchor-status.drifting{color:var(--bad);border-color:color-mix(in srgb,var(--bad),transparent 58%);background:color-mix(in srgb,var(--bad),transparent 91%)}
+    .anchor-quick-list{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:12px}
+    .anchor-quick-card{border:1px solid var(--line);border-radius:17px;background:var(--surface);padding:12px;min-height:132px}
+    .anchor-quick-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .anchor-slot{color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .anchor-time{display:block;margin-top:9px;color:var(--ink);font-size:24px;font-weight:950;letter-spacing:-.045em;font-variant-numeric:tabular-nums;line-height:1}
+    .anchor-range{margin-top:6px;color:var(--muted);font-size:11.5px;line-height:1.3}
+    .anchor-action{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
+    .anchor-action strong{color:var(--ink)}
+    .pattern-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:10px;padding:0 12px 12px}
+    .pattern-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px}
+    .pattern-card h3{margin:0 0 10px;color:var(--ink);font-size:15px;letter-spacing:-.025em}
+    .pattern-row{display:grid;grid-template-columns:minmax(160px,1.2fr) 94px 74px 74px minmax(150px,1fr);gap:9px;align-items:start;border-top:1px solid var(--line);padding:8px 0;color:var(--muted);font-size:12px;line-height:1.25}
+    .pattern-row:first-child{border-top:0;padding-top:0}
+    .pattern-row strong{display:block;color:var(--ink);font-size:12.5px;line-height:1.2}
+    .pattern-status{display:inline-flex;width:max-content;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:2px 7px;color:var(--cyan);font-size:10px;font-weight:950;white-space:nowrap}
+    .shape-grid{display:grid;gap:8px}
+    .shape-row{border-top:1px solid var(--line);padding-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
+    .shape-row:first-child{border-top:0;padding-top:0}
+    .shape-row strong{display:block;color:var(--ink);font-size:13px}
+    .shape-meta{font-variant-numeric:tabular-nums}
+    .controls{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--soft)}
+    .cardio-answer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px 12px 0}
+    .cardio-answer{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:13px 14px;min-height:142px}
+    .cardio-answer h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;color:var(--ink);font-size:14px;line-height:1.2}
+    .cardio-answer .answer-value{display:block;color:var(--ink);font-size:23px;font-weight:950;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1;margin:8px 0}
+    .cardio-answer p{margin:0;color:var(--muted);font-size:12px;line-height:1.38}
+    .benchmark-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px 12px 0}
+    .benchmark{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:11px 12px}
+    .benchmark span{display:block;color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .benchmark strong{display:block;margin-top:4px;color:var(--ink);font-size:18px;line-height:1;font-variant-numeric:tabular-nums}
+    .benchmark em{display:block;margin-top:5px;color:var(--muted);font-style:normal;font-size:11px;line-height:1.3}
+    .preset-strip{display:grid;grid-template-columns:190px 1fr;gap:12px;align-items:start;padding:12px 18px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--soft),transparent 15%)}
+    .preset-label span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .preset-label strong{display:block;margin-top:4px;color:var(--ink);font-size:15px;line-height:1.15}
+    .preset-actions{display:flex;gap:7px;flex-wrap:wrap}
+    .preset-button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:950;cursor:pointer}
+    .preset-button.active{border-color:color-mix(in srgb,var(--green),transparent 45%);background:color-mix(in srgb,var(--green),transparent 89%);color:var(--green)}
+    .preset-note{grid-column:2;color:var(--muted);font-size:12px;line-height:1.35}
+    .cardio-visuals{display:grid;grid-template-columns:1.25fr 1fr .9fr;gap:10px;padding:12px}
+    .cardio-viz-card{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:12px;min-height:230px}
+    .cardio-viz-card h3{margin:0;color:var(--ink);font-size:15px;letter-spacing:-.025em}
+    .cardio-viz-card p{margin:4px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
+    .cardio-ladder{display:grid;gap:8px;margin-top:12px}
+    .ladder-row{display:grid;grid-template-columns:92px minmax(0,1fr) 58px;gap:9px;align-items:center}
+    .ladder-label{color:var(--muted);font-size:11px;font-weight:950;line-height:1.15}
+    .ladder-label strong{display:block;color:var(--ink);font-size:12px;white-space:nowrap}
+    .ladder-track{height:15px;border-radius:999px;background:var(--soft);overflow:hidden}
+    .ladder-bar{display:block;height:100%;width:var(--w);border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+    .ladder-row.walk .ladder-bar{background:linear-gradient(90deg,#94a3b8,#67e8f9)}
+    .ladder-value{color:var(--ink);font-size:12px;font-weight:950;text-align:right;font-variant-numeric:tabular-nums}
+    .scatter-shell{position:relative;height:170px;margin-top:14px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(4,124,134,.08),rgba(15,23,42,.035));overflow:hidden}
+    html[data-theme="dark"] .scatter-shell{background:linear-gradient(180deg,rgba(70,214,219,.08),rgba(255,255,255,.025))}
+    .scatter-shell::before,.scatter-shell::after{content:"";position:absolute;inset:33% 0 auto;height:1px;background:var(--line)}
+    .scatter-shell::after{inset:auto 0 33%}
+    .scatter-point{position:absolute;left:var(--x);bottom:var(--y);width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px color-mix(in srgb,var(--cyan),transparent 82%);transform:translate(-50%,50%)}
+    .scatter-point.walk{background:#94a3b8;box-shadow:0 0 0 4px rgba(148,163,184,.18)}
+    .scatter-point.suspect{background:var(--warn);box-shadow:0 0 0 4px color-mix(in srgb,var(--warn),transparent 80%)}
+    .scatter-axis{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;margin-top:7px}
+    .cardio-readout{display:grid;gap:8px;margin-top:12px}
+    .readout-line{border-top:1px solid var(--line);padding-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
+    .readout-line:first-child{border-top:0;padding-top:0}
+    .readout-line strong{display:block;color:var(--ink);font-size:18px;font-variant-numeric:tabular-nums}
+    .filters{display:flex;gap:7px;flex-wrap:wrap}
+    button.filter,button.sort-dir,button.range-button,select{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;cursor:pointer}
+    button.filter.active,button.range-button.active{border-color:color-mix(in srgb,var(--cyan),transparent 40%);background:color-mix(in srgb,var(--cyan),transparent 86%);color:var(--cyan)}
+    .sort-control{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:11px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .table-shell{overflow:auto}
+    table.analysis-table{width:100%;border-collapse:collapse;min-width:980px;font-size:12.5px}
+    .analysis-table th,.analysis-table td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+    .analysis-table th{position:sticky;top:0;background:rgba(15,23,42,.055);color:var(--ink);font-size:10px;letter-spacing:.075em;text-transform:uppercase;white-space:nowrap}
+    html[data-theme="dark"] .analysis-table th{background:rgba(255,255,255,.06)}
+    .num{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:850;white-space:nowrap}
+    .bar{height:8px;background:var(--soft);border-radius:999px;overflow:hidden;margin-top:5px}
+    .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:999px}
+    .row-note{color:var(--muted);font-size:12px;line-height:1.35;min-width:220px}
+    .prompt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px}
+    .prompt{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px}
+    .prompt span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .prompt p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
+    .source-note{padding:12px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.4;background:var(--soft)}
+    @media(max-width:1160px){.topline{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}.meal-grid{grid-template-columns:repeat(2,1fr)}.anchor-quick-list{grid-template-columns:repeat(3,1fr)}.operating-read{grid-template-columns:1fr}.source-map-grid,.fuel-card-grid,.operating-cards,.prompt-grid,.read-strip,.benchmark-strip,.cardio-answer-grid{grid-template-columns:repeat(2,1fr)}.cardio-visuals{grid-template-columns:1fr 1fr}.cardio-viz-card:last-child{grid-column:span 2}}
+    @media(max-width:760px){main.analysis-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.analysis-hero{padding:18px}.question-shell{display:block}.question-tabs{justify-content:flex-start;margin-top:10px}.question-tab{flex:1 1 auto}.topline,.timeline,.meal-grid,.read-strip,.prompt-grid,.benchmark-strip,.cardio-answer-grid,.cardio-visuals,.food-review-grid,.pattern-grid,.operating-cards,.anchor-quick-list,.fuel-card-grid,.source-map-grid{grid-template-columns:1fr}.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}.preset-strip{grid-template-columns:1fr}.preset-note{grid-column:auto}.pattern-row{grid-template-columns:1fr}.cardio-viz-card:last-child{grid-column:auto}.answer{grid-column:span 12}.section-head{display:block}.section-head p{margin-top:7px}.controls{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}}
+  </style>
+</head>
+<body>
+  <main class="analysis-page">
+    <nav class="doc-nav" aria-label="Prep documents">
+      <a href="home.html">Home</a>
+      <a href="report.html">Daily Master</a>
+      <a class="primary" href="analysis.html">Analysis</a>
+      <a href="meal-patterns.html">Meal Patterns</a>
+      <a href="data-ledger.html">Data Ledger</a>
+      <a href="sheets.html">Sheets</a>
+      <a href="3-day-cleanup.html">Current Cut</a>
+      <a href="148-burn.html">148 Target</a>
+      <a href="full-runway.html">Full Plan</a>
+      <a href="cardio-calibration.html">Cardio Data</a>
+      <a href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw" target="_blank" rel="noopener">Google Sheet</a>
+    </nav>
+
+    <section class="analysis-hero">
+      <div class="eyebrow">OCB Prep · answer board · May 17-22</div>
+      <h1>What is the data saying?</h1>
+      <p>This page sits between the pretty Daily Master and the raw Data Ledger. It answers the operating questions first, then links the pattern back to meals, training, cardio, sleep, and scale.</p>
+      <div class="topline">
+        <div class="top-metric"><span>Scale move</span><strong>169 → 158.4</strong><em>-10.6 lb from Sun to Fri morning</em></div>
+        <div class="top-metric"><span>Intake avg</span><strong>963 cal</strong><em>May 17-21 · 175P / 12F / 36.5C avg</em></div>
+        <div class="top-metric"><span>Stair output</span><strong>~3,037 kcal</strong><em>7 sessions · 282 min · 10.76 kcal/min</em></div>
+        <div class="top-metric"><span>Stair HR</span><strong>~136 bpm</strong><em>Current week average from known sessions</em></div>
+        <div class="top-metric"><span>Current flag</span><strong>GI + water</strong><em>Loose stool + huge output can mask scale</em></div>
+      </div>
+    </section>
+
+    <section class="question-shell" aria-label="Analysis question mode">
+      <p class="question-copy" id="question-copy"><strong>Overview</strong>Show the decision board, daily signal, and what to log next.</p>
+      <div class="question-tabs" id="question-tabs" role="tablist" aria-label="Analysis views">
+        <button class="question-tab active" type="button" data-analysis-view="overview" role="tab" aria-selected="true">Overview</button>
+        <button class="question-tab" type="button" data-analysis-view="meals" role="tab" aria-selected="false">Meal timing</button>
+        <button class="question-tab" type="button" data-analysis-view="food" role="tab" aria-selected="false">Food review</button>
+        <button class="question-tab" type="button" data-analysis-view="fuel" role="tab" aria-selected="false">Fuel → lift</button>
+        <button class="question-tab" type="button" data-analysis-view="cardio" role="tab" aria-selected="false">Cardio trend</button>
+        <button class="question-tab" type="button" data-analysis-view="all" role="tab" aria-selected="false">All</button>
+      </div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="overview all">
+      <div class="section-head">
+        <div>
+          <h2>Today’s Operating Read</h2>
+          <p>One layer above the data: what changed, what is off, and what to do before adding more complexity.</p>
+        </div>
+      </div>
+      <div class="operating-read" id="operating-read"></div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="overview all">
+      <div class="section-head">
+        <div>
+          <h2>Decision Board</h2>
+          <p>The goal is not to show every field. It is to answer what to do next without losing the evidence trail.</p>
+        </div>
+      </div>
+      <div class="answer-grid">
+        <article class="answer">
+          <h3><span class="badge warn">Off?</span> Anything off?</h3>
+          <p><strong>The off signal is digestion, not effort.</strong> The powder-only run was effective for scale, but the diarrhea-like stomach note after repeated shake boluses means whole-food protein should become the default base.</p>
+        </article>
+        <article class="answer">
+          <h3><span class="badge ok">Meals</span> Is meal timing consistent?</h3>
+          <p>Mostly no. Meal one floated from late morning to early afternoon, and several days used big powder boluses. Thursday was cleaner: <strong>11:34 whole-food meal, 1:50 pre-lift carb/protein, 6-7p post-lift protein</strong>.</p>
+        </article>
+        <article class="answer">
+          <h3><span class="badge warn">Training</span> Does workout load impact scale?</h3>
+          <p>Yes. Thursday was two StairMaster sessions plus a dense lift and only produced a <strong>-0.3 lb</strong> Friday drop. That can be water/inflammation/gut noise, not proof the deficit stopped working.</p>
+        </article>
+        <article class="answer">
+          <h3><span class="badge ok">Cardio</span> Is StairMaster adapting down?</h3>
+          <p>Not clearly. Current-week StairMaster output is still stable around <strong>10-11 kcal/min</strong> with HR around <strong>129-140</strong>. If burn falls, first check sleep, HR, and machine level before assuming adaptation.</p>
+        </article>
+        <article class="answer">
+          <h3><span class="badge bad">Risk</span> Where can this break?</h3>
+          <p>Low calories + low fat + daily high-output sessions can break through sleep, GI, soreness, or cravings before the scale says anything useful. The warning is not one flat weigh-in; it is repeated bad markers.</p>
+        </article>
+        <article class="answer">
+          <h3><span class="badge ok">Lever</span> Next lever</h3>
+          <p>Keep the aggressive setup if markers are good, but make it less fragile: <strong>whole-food protein first, one measured carb around lifting, and no third cardio block just to punish a flat scale</strong>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="overview all">
+      <div class="section-head">
+        <div>
+          <h2>Source & Freshness Map</h2>
+          <p>Shows what each layer is using so stale or missing fields are obvious instead of hidden behind the dashboard.</p>
+        </div>
+      </div>
+      <div class="source-map-grid" id="source-map-grid"></div>
+      <div class="source-map-footer" id="source-map-footer"></div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="overview all">
+      <div class="section-head">
+        <div>
+          <h2>Daily Signal Strip</h2>
+          <p>Compact version of the week: scale, calories, output, and what likely explains the next morning.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <article class="day-card">
+          <div class="day"><span>Sun 5/17</span><span>Primer</span></div>
+          <div class="weight">169.0</div>
+          <div class="mini-line"><strong>873 cal</strong> · 169P · legs</div>
+          <div class="mini-line">Mostly liquid protein; high water/gut starting point.</div>
+        </article>
+        <article class="day-card">
+          <div class="day"><span>Mon 5/18</span><span>D1</span></div>
+          <div class="weight">165.0 <span class="drop">-4.0</span></div>
+          <div class="mini-line"><strong>940 cal</strong> · 171P · ~1,450 adj active</div>
+          <div class="mini-line">Huge output; scale flush begins.</div>
+        </article>
+        <article class="day-card">
+          <div class="day"><span>Tue 5/19</span><span>D2</span></div>
+          <div class="weight">162.5 <span class="drop">-2.5</span></div>
+          <div class="mini-line"><strong>1,028 cal</strong> · 180P · ~1,355 adj active</div>
+          <div class="mini-line">Overreach day: lift + two stairs + walk.</div>
+        </article>
+        <article class="day-card">
+          <div class="day"><span>Wed 5/20</span><span>D3</span></div>
+          <div class="weight">160.3 <span class="drop">-2.2</span></div>
+          <div class="mini-line"><strong>975 cal</strong> · 181P · no lift</div>
+          <div class="mini-line">No lift helped; walking still high.</div>
+        </article>
+        <article class="day-card">
+          <div class="day"><span>Thu 5/21</span><span>High output</span></div>
+          <div class="weight">158.7 <span class="drop">-1.6</span></div>
+          <div class="mini-line"><strong>1,000 cal</strong> · 170P · ~1,818 adj active</div>
+          <div class="mini-line">Best sleep, then dense lift + two stairs.</div>
+        </article>
+        <article class="day-card">
+          <div class="day"><span>Fri 5/22</span><span>Marker-led</span></div>
+          <div class="weight">158.4 <span class="drop flat">-0.3</span></div>
+          <div class="mini-line"><strong>Food pending</strong> · feedback needed</div>
+          <div class="mini-line">Small drop after high output is not enough evidence to add punishment volume.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="meals all">
+      <div class="section-head">
+        <div>
+          <h2>Meal Pattern Read</h2>
+          <p>Grouped MacroFactor food log. This keeps the coach-report meal grouping idea, but focuses on consistency and the decisions it supports.</p>
+        </div>
+      </div>
+      <div class="meal-grid">
+        <article class="meal-day">
+          <h3>Sun 5/17 · powder primer</h3>
+          <div class="meal"><div class="meal-time">1:46p</div><div class="meal-food">Clear protein</div><div class="meal-macro">150 cal · 33P</div></div>
+          <div class="meal"><div class="meal-time">5:03-6:00p</div><div class="meal-food">PB cookies protein + Iso Phorm</div><div class="meal-macro">520 cal · 100P · 18C</div></div>
+          <div class="meal"><div class="meal-time">7:39p</div><div class="meal-food">Strawberry Banana Royale</div><div class="meal-macro">203 cal · 36P</div></div>
+        </article>
+        <article class="meal-day">
+          <h3>Mon 5/18 · powder heavy</h3>
+          <div class="meal"><div class="meal-time">7:00a</div><div class="meal-food">Flash IV</div><div class="meal-macro">10 cal · electrolyte only</div></div>
+          <div class="meal"><div class="meal-time">11:09-11:43a</div><div class="meal-food">Two protein powders</div><div class="meal-macro">405 cal · 72P</div></div>
+          <div class="meal"><div class="meal-time">7:41p</div><div class="meal-food">Lean whey + Raspberry Tart</div><div class="meal-macro">390 cal · 75P</div></div>
+        </article>
+        <article class="meal-day">
+          <h3>Tue 5/19 · spread out</h3>
+          <div class="meal"><div class="meal-time">10:52a</div><div class="meal-food">Chocolate chip protein</div><div class="meal-macro">270 cal · 48P</div></div>
+          <div class="meal"><div class="meal-time">12:59p / 3:14p</div><div class="meal-food">Lemon Raspberry + Strawberry</div><div class="meal-macro">338 cal · 60P</div></div>
+          <div class="meal"><div class="meal-time">6:58p / 9:27p</div><div class="meal-food">Late powders</div><div class="meal-macro">410 cal · 72P</div></div>
+        </article>
+        <article class="meal-day">
+          <h3>Wed 5/20 · powder-only</h3>
+          <div class="meal"><div class="meal-time">10:33a</div><div class="meal-food">Chocolate chip protein</div><div class="meal-macro">270 cal · 48P</div></div>
+          <div class="meal"><div class="meal-time">1:34p / 5:15p</div><div class="meal-food">Lemon Raspberry + Strawberry</div><div class="meal-macro">540 cal · 96P</div></div>
+          <div class="meal"><div class="meal-time">7:28p</div><div class="meal-food">Farm Fed toaster pastry protein</div><div class="meal-macro">165 cal · 38P</div></div>
+        </article>
+        <article class="meal-day">
+          <h3>Thu 5/21 · best structure</h3>
+          <div class="meal"><div class="meal-time">11:34a</div><div class="meal-food">Chicken + egg whites + avocado</div><div class="meal-macro">367 cal · 60P · 10F</div></div>
+          <div class="meal"><div class="meal-time">1:50p</div><div class="meal-food">Banana + egg whites</div><div class="meal-macro">208 cal · 26P · 22C</div></div>
+          <div class="meal"><div class="meal-time">6:02-7:00p</div><div class="meal-food">Chocolate shake + egg whites</div><div class="meal-macro">425 cal · 85P</div></div>
+        </article>
+      </div>
+      <div class="read-strip" id="meal-pattern-reads">
+        <div class="read-card"><strong>Consistency problem</strong>Meal one is not anchored yet. It mostly starts after cardio and can drift late.</div>
+        <div class="read-card"><strong>Useful repeat</strong>Thursday’s chicken/egg whites/avocado + banana/egg whites pattern is the cleanest performance/GI template so far.</div>
+        <div class="read-card"><strong>Food lever</strong>If GI stays loose, reduce large shake boluses before changing calories or cardio.</div>
+      </div>
+    </section>
+
+    <section class="analysis-section" id="pattern-review-section" data-analysis-panel="meals food all">
+      <div class="section-head">
+        <div>
+          <h2>New / Repeat Pattern Review</h2>
+          <p>Coach-report style consistency layer: what is actually repeating in this cleanup, what is new versus the Jan-May master log, and whether the day shape is stable.</p>
+        </div>
+      </div>
+      <div class="read-strip" id="pattern-review-reads"></div>
+      <div class="pattern-grid">
+        <article class="pattern-card">
+          <h3>Food pattern status</h3>
+          <div id="pattern-foods"></div>
+        </article>
+        <article class="pattern-card">
+          <h3>Daily meal shape</h3>
+          <div class="shape-grid" id="pattern-day-shapes"></div>
+        </article>
+      </div>
+      <div class="source-note">Source: current MacroFactor Food Log export plus the historical Jan-May MacroFactor master food log. Names are normalized lightly, so spelling variants can still appear as separate foods.</div>
+    </section>
+
+    <section class="analysis-section" id="meal-map-section" data-analysis-panel="meals all">
+      <div class="section-head">
+        <div>
+          <h2>Meal Timing Map</h2>
+          <p>Coach-report style view for the current cleanup: switch between calories, protein, and timing by meal slot.</p>
+        </div>
+        <div class="mode-controls" aria-label="Meal map mode">
+          <button class="mode-button active" type="button" data-meal-mode="calories">Calories</button>
+          <button class="mode-button" type="button" data-meal-mode="protein">Protein</button>
+          <button class="mode-button" type="button" data-meal-mode="timing">Timing</button>
+        </div>
+      </div>
+      <div class="meal-map-shell"><div class="meal-map" id="meal-map"></div></div>
+      <div class="read-strip" id="meal-map-reads"></div>
+      <div class="source-note">Source: grouped MacroFactor meal windows from the manual meal timing CSV. Electrolyte-only rows stay visible but are excluded from first-meal timing averages.</div>
+    </section>
+
+    <section class="analysis-section" id="protein-split-section" data-analysis-panel="meals food all">
+      <div class="section-head">
+        <div>
+          <h2>Protein Split</h2>
+          <p>Coach-report style protein distribution by meal window. This makes powder boluses obvious without reading every food row.</p>
+        </div>
+      </div>
+      <div class="protein-split-list" id="protein-split-list"></div>
+      <div class="source-note">Source: grouped MacroFactor meal windows. Electrolytes are ignored for protein split; each segment is one protein-containing meal window.</div>
+    </section>
+
+    <section class="analysis-section" id="meal-anchor-section" data-analysis-panel="meals all">
+      <div class="section-head">
+        <div>
+          <h2>Protein Meal Anchors</h2>
+          <p>This answers the practical question: “When is meal one, meal two, meal three actually happening?” Electrolyte-only entries are excluded.</p>
+        </div>
+      </div>
+      <div class="read-strip" id="meal-anchor-reads"></div>
+      <div class="anchor-quick-list" id="anchor-quick-list"></div>
+      <div class="table-shell">
+        <table class="analysis-table" id="meal-anchor-table">
+          <thead><tr><th>Slot</th><th>Days</th><th>Avg time</th><th>Range</th><th>Avg macros</th><th>Common foods</th><th>Status</th><th>Read</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="source-note">Source: same grouped MacroFactor meal windows as the meal map, re-indexed as real protein meals so Flash IV does not become “meal one.”</div>
+    </section>
+
+    <section class="analysis-section" id="food-review-section" data-analysis-panel="food all">
+      <div class="section-head">
+        <div>
+          <h2>Food Review</h2>
+          <p>Coach-report style source review: what repeated, what looked stable, and what may be causing friction.</p>
+        </div>
+      </div>
+      <div class="read-strip" id="food-review-reads"></div>
+      <div class="food-review-grid">
+        <article class="food-review-card">
+          <h3>Protein source mix</h3>
+          <div class="source-list" id="food-source-mix"></div>
+        </article>
+        <article class="food-review-card">
+          <h3>Daily food pattern</h3>
+          <div class="day-review-list" id="food-day-review"></div>
+        </article>
+      </div>
+      <div class="source-note">Source: manual MacroFactor meal grouping CSV. Categories are pragmatic labels for analysis, not exact nutrition database tags.</div>
+    </section>
+
+    <section class="analysis-section" id="workout-fuel-section" data-analysis-panel="fuel all">
+      <div class="section-head">
+        <div>
+          <h2>Workout Fuel Impact</h2>
+          <p>Links the last pre-lift meal to lift density, post-lift cardio, and next-morning scale noise.</p>
+        </div>
+      </div>
+      <div class="read-strip" id="fuel-reads"></div>
+      <div class="fuel-card-grid" id="fuel-card-grid"></div>
+      <div class="table-shell">
+        <table class="analysis-table" id="fuel-table">
+          <thead><tr><th>Date</th><th>Lift</th><th>Pre-lift fuel</th><th>Gap</th><th>Pre macros</th><th>Lift load</th><th>Post-cardio</th><th>Next AM</th><th>Read</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="source-note">Source: grouped meal timing CSV + cleanup training CSV + AM scale deltas. Small sample, so treat this as a signal, not a final causal claim.</div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="cardio all">
+      <div class="section-head">
+        <div>
+          <h2>Cardio Explorer</h2>
+          <p>Start with the current cleanup week, then switch to the full January-May import when you want StairMaster vs walking baselines, HR caveats, and kcal/min sorting.</p>
+        </div>
+      </div>
+      <div class="cardio-answer-grid" id="cardio-answer-grid"></div>
+      <div class="benchmark-strip" id="cardio-benchmarks"></div>
+      <div class="preset-strip" aria-label="Cardio question presets">
+        <div class="preset-label"><span>Question presets</span><strong>Click the question, not five filters.</strong></div>
+        <div class="preset-actions">
+          <button class="preset-button active" type="button" data-preset="runway-stair" data-range="runway" data-filter="stair" data-sort="date" data-direction="desc" data-note="Current cleanup StairMaster sessions only. Use this to judge today’s anchor against this week’s real baseline.">Current StairMaster</button>
+          <button class="preset-button" type="button" data-preset="stair-efficiency" data-range="history" data-filter="stair" data-sort="kpm" data-direction="desc" data-note="All imported StairMaster sessions sorted by kcal/min. Use this to see if current sessions are unusually high, normal, or fading.">Stair burn ranking</button>
+          <button class="preset-button" type="button" data-preset="walk-only" data-range="runway" data-filter="walk" data-sort="date" data-direction="desc" data-note="Current cleanup walking only. Use this to separate support movement from true StairMaster prep cardio.">Walking only</button>
+          <button class="preset-button" type="button" data-preset="hr-cost" data-range="history" data-filter="all" data-sort="avgHr" data-direction="desc" data-note="All imported cardio sorted by average HR. Use this to spot expensive sessions and HR rows that need suspicion.">HR cost check</button>
+          <button class="preset-button" type="button" data-preset="suspect-hr" data-range="history" data-filter="suspect" data-sort="date" data-direction="desc" data-note="Imported rows with likely bad HR data. These stay visible so they do not pollute the StairMaster trend read.">Suspect HR rows</button>
+        </div>
+        <div class="preset-note" id="cardio-preset-note">Current cleanup StairMaster sessions only. Use this to judge today’s anchor against this week’s real baseline.</div>
+      </div>
+      <div class="controls">
+        <div class="filters" aria-label="Cardio data range">
+          <button class="range-button active" type="button" data-range="runway">Current runway</button>
+          <button class="range-button" type="button" data-range="history">YTD import</button>
+        </div>
+        <div class="filters" aria-label="Cardio filters">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="stair">StairMaster</button>
+          <button class="filter" type="button" data-filter="walk">Walking</button>
+          <button class="filter" type="button" data-filter="morning">Morning</button>
+          <button class="filter" type="button" data-filter="evening">Evening</button>
+          <button class="filter" type="button" data-filter="suspect">Suspect HR</button>
+        </div>
+        <label class="sort-control">Sort
+          <select id="cardio-sort">
+            <option value="date">Date</option>
+            <option value="kpm">kcal/min</option>
+            <option value="avgHr">Avg HR</option>
+            <option value="maxHr">Max HR</option>
+            <option value="kcal">Calories</option>
+            <option value="minutes">Duration</option>
+          </select>
+          <button class="sort-dir" type="button" id="sort-dir">Desc</button>
+        </label>
+      </div>
+      <div class="cardio-visuals" id="cardio-visuals">
+        <article class="cardio-viz-card">
+          <h3>Output ladder</h3>
+          <p>Sorted with the table. Bars show kcal/min so StairMaster and walking separate fast.</p>
+          <div class="cardio-ladder" id="cardio-ladder"></div>
+        </article>
+        <article class="cardio-viz-card">
+          <h3>HR cost map</h3>
+          <p>Each dot is a session. X = average HR, Y = kcal/min. No labels unless you hover.</p>
+          <div class="scatter-shell" id="cardio-scatter"></div>
+          <div class="scatter-axis"><span>Lower HR</span><span>Higher HR</span></div>
+        </article>
+        <article class="cardio-viz-card">
+          <h3>Filtered read</h3>
+          <p>Updates with range, filter, and sort.</p>
+          <div class="cardio-readout" id="cardio-readout"></div>
+        </article>
+      </div>
+      <div class="table-shell">
+        <table class="analysis-table" id="cardio-table">
+          <thead><tr><th>Date</th><th>Session</th><th>Time</th><th>Dur</th><th>Calories</th><th>kcal/min</th><th>Avg HR</th><th>Max HR</th><th>Read</th></tr></thead>
+          <tbody>
+            <tr data-kind="stair morning" data-date="2026-05-18" data-minutes="45.23" data-kcal="504" data-kpm="11.14" data-avg-hr="140" data-max-hr="149"><td class="num">Mon 5/18</td><td>StairMaster</td><td>8:07-8:52a</td><td class="num">45:14</td><td><span class="num">504</span><div class="bar"><i style="width:94%"></i></div></td><td class="num">11.14</td><td class="num">140</td><td class="num">149</td><td class="row-note">Hot but productive first anchor.</td></tr>
+            <tr data-kind="stair evening" data-date="2026-05-18" data-minutes="30.48" data-kcal="334" data-kpm="10.94" data-avg-hr="138" data-max-hr="150"><td class="num">Mon 5/18</td><td>StairMaster</td><td>6:37-7:07p</td><td class="num">30:29</td><td><span class="num">334</span><div class="bar"><i style="width:62%"></i></div></td><td class="num">10.94</td><td class="num">138</td><td class="num">150</td><td class="row-note">Same effort after pull day; useful but expensive.</td></tr>
+            <tr data-kind="stair morning" data-date="2026-05-19" data-minutes="47.23" data-kcal="504" data-kpm="10.67" data-avg-hr="136" data-max-hr="150"><td class="num">Tue 5/19</td><td>StairMaster</td><td>6:30-7:18a</td><td class="num">47:14</td><td><span class="num">504</span><div class="bar"><i style="width:94%"></i></div></td><td class="num">10.67</td><td class="num">136</td><td class="num">150</td><td class="row-note">Textbook Z3; not a problem by itself.</td></tr>
+            <tr data-kind="stair evening" data-date="2026-05-19" data-minutes="30.45" data-kcal="309" data-kpm="10.15" data-avg-hr="129" data-max-hr="139"><td class="num">Tue 5/19</td><td>StairMaster</td><td>5:36-6:06p</td><td class="num">30:27</td><td><span class="num">309</span><div class="bar"><i style="width:58%"></i></div></td><td class="num">10.15</td><td class="num">129</td><td class="num">139</td><td class="row-note">Lower HR, still efficient; good controlled PM add-on.</td></tr>
+            <tr data-kind="walk evening" data-date="2026-05-19" data-minutes="52.62" data-kcal="203" data-kpm="3.86" data-avg-hr="95" data-max-hr="135"><td class="num">Tue 5/19</td><td>Walking</td><td>8:31-9:24p</td><td class="num">52:37</td><td><span class="num">203</span><div class="bar"><i style="width:38%"></i></div></td><td class="num">3.86</td><td class="num">95</td><td class="num">135</td><td class="row-note">Useful steps but made Tue an overreach day.</td></tr>
+            <tr data-kind="stair morning" data-date="2026-05-20" data-minutes="45.52" data-kcal="512" data-kpm="11.25" data-avg-hr="140" data-max-hr="156"><td class="num">Wed 5/20</td><td>StairMaster</td><td>6:50-7:35a</td><td class="num">45:31</td><td><span class="num">512</span><div class="bar"><i style="width:96%"></i></div></td><td class="num">11.25</td><td class="num">140</td><td class="num">156</td><td class="row-note">Hardest stair session by HR/kpm; do not chase this daily.</td></tr>
+            <tr data-kind="walk morning" data-date="2026-05-20" data-minutes="62.95" data-kcal="193" data-kpm="3.07" data-avg-hr="77" data-max-hr="101"><td class="num">Wed 5/20</td><td>Walking</td><td>8:39-9:42a</td><td class="num">62:57</td><td><span class="num">193</span><div class="bar"><i style="width:36%"></i></div></td><td class="num">3.07</td><td class="num">77</td><td class="num">101</td><td class="row-note">Low-intensity movement; good recovery if legs tolerate it.</td></tr>
+            <tr data-kind="walk evening" data-date="2026-05-20" data-minutes="43.52" data-kcal="142" data-kpm="3.26" data-avg-hr="93" data-max-hr="105"><td class="num">Wed 5/20</td><td>Walking</td><td>6:38-7:22p</td><td class="num">43:31</td><td><span class="num">142</span><div class="bar"><i style="width:27%"></i></div></td><td class="num">3.26</td><td class="num">93</td><td class="num">105</td><td class="row-note">Adds burn without StairMaster stress.</td></tr>
+            <tr data-kind="stair morning" data-date="2026-05-21" data-minutes="51.07" data-kcal="532" data-kpm="10.42" data-avg-hr="136" data-max-hr="151"><td class="num">Thu 5/21</td><td>StairMaster</td><td>9:24-10:16a</td><td class="num">51:04</td><td><span class="num">532</span><div class="bar"><i style="width:100%"></i></div></td><td class="num">10.42</td><td class="num">136</td><td class="num">151</td><td class="row-note">Longer, not more efficient; solid anchor.</td></tr>
+            <tr data-kind="stair evening" data-date="2026-05-21" data-minutes="32.25" data-kcal="342" data-kpm="10.60" data-avg-hr="134" data-max-hr="150"><td class="num">Thu 5/21</td><td>StairMaster</td><td>3:53-4:25p</td><td class="num">32:15</td><td><span class="num">342</span><div class="bar"><i style="width:64%"></i></div></td><td class="num">10.60</td><td class="num">134</td><td class="num">150</td><td class="row-note">Good output but stacked with dense lift.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="source-note" id="cardio-summary">Showing all current-week cardio sessions.</div>
+    </section>
+
+    <section class="analysis-section" data-analysis-panel="overview all">
+      <div class="section-head">
+        <div>
+          <h2>What To Log Today</h2>
+          <p>These are the missing data points that make tomorrow’s scale interpretation useful instead of emotional.</p>
+        </div>
+      </div>
+      <div class="prompt-grid">
+        <div class="prompt"><span>Body</span><p>GI/stool quality, soreness by body part, hunger, energy, and whether legs feel heavy on stairs.</p></div>
+        <div class="prompt"><span>Training</span><p>Lift split/body part, start/end, avg HR, max HR, Apple kcal, and whether sets felt normal or flat.</p></div>
+        <div class="prompt"><span>Cardio</span><p>StairMaster minutes, kcal, avg HR, max HR, and whether you chased burn or held effort steady.</p></div>
+        <div class="prompt"><span>Food</span><p>Meal windows, whole-food vs powder split, and any pre-lift carb/fat you added.</p></div>
+      </div>
+      <div class="source-note">Raw evidence lives in the Data Ledger and MacroFactor export. This page is intentionally opinionated: it shows the answer first, then the evidence pattern.</div>
+    </section>
+  </main>
+
+  <script src="analysis-data.js?v=20260522-meal-anchor"></script>
+  <script>
+    (() => {
+      const data = window.PREP_ANALYSIS_DATA;
+      if (!data) return;
+
+      function escapeHtml(value) {
+        return String(value ?? "—")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function format(value, digits = 0) {
+        const number = Number(value);
+        if (!Number.isFinite(number)) return "—";
+        return number.toLocaleString(undefined, {
+          maximumFractionDigits: digits,
+          minimumFractionDigits: digits,
+        }).replace(/\.0$/, "");
+      }
+
+      function formatWeight(value) {
+        if (value === null || value === undefined || value === "") return "Pending";
+        const number = Number(value);
+        if (!Number.isFinite(number)) return "Pending";
+        return Number.isInteger(number) ? String(number) : number.toFixed(1);
+      }
+
+      function formatDrop(value) {
+        if (value === null || value === undefined || value === "") return "";
+        const number = Number(value);
+        if (!Number.isFinite(number)) return "";
+        const className = Math.abs(number) < 0.5 ? "drop flat" : "drop";
+        return ` <span class="${className}">${number.toFixed(1)}</span>`;
+      }
+
+      function setHtml(selector, html) {
+        const target = document.querySelector(selector);
+        if (target) target.innerHTML = html;
+      }
+
+      const analysisViewCopy = {
+        overview: {
+          title: "Overview",
+          text: "Show the decision board, daily signal, and what to log next.",
+        },
+        meals: {
+          title: "Meal timing",
+          text: "Show grouped meals, calorie/protein/timing heat map, and real protein meal anchors.",
+        },
+        food: {
+          title: "Food review",
+          text: "Show repeated protein sources, powder reliance, whole-food stability, and daily food patterns.",
+        },
+        fuel: {
+          title: "Fuel → lift",
+          text: "Show whether pre-lift food lined up with denser sessions and next-morning scale noise.",
+        },
+        cardio: {
+          title: "Cardio trend",
+          text: "Show StairMaster vs walking filters, kcal/min, avg HR, max HR, and imported YTD baselines.",
+        },
+        all: {
+          title: "All data",
+          text: "Show every analysis section on one page when you want the full evidence trail.",
+        },
+      };
+      const analysisButtons = [...document.querySelectorAll("[data-analysis-view]")];
+      const analysisPanels = [...document.querySelectorAll("[data-analysis-panel]")];
+      const questionCopy = document.getElementById("question-copy");
+
+      function setAnalysisView(view) {
+        const safeView = analysisViewCopy[view] ? view : "overview";
+        analysisButtons.forEach(button => {
+          const active = button.dataset.analysisView === safeView;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        analysisPanels.forEach(panel => {
+          const views = (panel.dataset.analysisPanel || "").split(" ");
+          panel.classList.toggle("is-hidden", !views.includes(safeView));
+        });
+        if (questionCopy) {
+          const copy = analysisViewCopy[safeView];
+          questionCopy.innerHTML = `<strong>${escapeHtml(copy.title)}</strong>${escapeHtml(copy.text)}`;
+        }
+      }
+
+      analysisButtons.forEach(button => button.addEventListener("click", () => {
+        setAnalysisView(button.dataset.analysisView);
+      }));
+      setAnalysisView(new URLSearchParams(location.search).get("view") || "overview");
+
+      setHtml(".topline", data.topMetrics.map(metric => `
+        <div class="top-metric">
+          <span>${escapeHtml(metric.label)}</span>
+          <strong>${escapeHtml(metric.value)}</strong>
+          <em>${escapeHtml(metric.note)}</em>
+        </div>
+      `).join(""));
+
+      setHtml(".answer-grid", data.answerCards.map(card => `
+        <article class="answer">
+          <h3><span class="badge ${escapeHtml(card.tone)}">${escapeHtml(card.badge)}</span> ${escapeHtml(card.title)}</h3>
+          <p>${escapeHtml(card.body)}</p>
+        </article>
+      `).join(""));
+
+      const operatingRead = data.operatingRead;
+      if (operatingRead) {
+        setHtml("#operating-read", `
+          <article class="operating-lead">
+            <span>Current call</span>
+            <h3>${escapeHtml(operatingRead.headline)}</h3>
+            <p>${escapeHtml(operatingRead.subhead)}</p>
+            <div class="operating-rules">
+              ${(operatingRead.rules || []).map(rule => `
+                <div class="operating-rule"><strong>${escapeHtml(rule.label)}</strong>${escapeHtml(rule.text)}</div>
+              `).join("")}
+            </div>
+          </article>
+          <div class="operating-cards">
+            ${(operatingRead.cards || []).map(card => `
+              <article class="operating-card ${escapeHtml(card.tone)}">
+                <span>${escapeHtml(card.label)}</span>
+                <strong>${escapeHtml(card.value)}</strong>
+                <p>${escapeHtml(card.text)}</p>
+              </article>
+            `).join("")}
+          </div>
+        `);
+      }
+
+      function compactPath(value) {
+        const text = String(value || "—");
+        const marker = "/Claude_Cowork/";
+        if (text.includes(marker)) return "Claude_Cowork/" + text.split(marker).pop();
+        if (text.includes("/Downloads/")) return "~/Downloads/" + text.split("/Downloads/").pop();
+        return text;
+      }
+
+      const sourceMap = [
+        {
+          label: "Daily ledger",
+          title: "Weight, macros, sleep, activity",
+          text: "Feeds the Daily Master, Operating Read, and scale trend.",
+          path: data.sources?.daily,
+        },
+        {
+          label: "Meal grouping",
+          title: "MacroFactor meal windows",
+          text: "Feeds meal timing, protein split, anchors, and food review.",
+          path: data.sources?.meals,
+        },
+        {
+          label: "Training/cardio",
+          title: "Current sessions + YTD import",
+          text: "Feeds workout fuel, cardio explorer, HR/kcal/min comparisons.",
+          path: data.sources?.trainingHistory || data.sources?.training,
+        },
+        {
+          label: "Editable sheet",
+          title: "Google Sheets handoff",
+          text: "Use for clean rows, filters, sorting, and quick manual edits.",
+          path: data.sources?.googleSheet,
+        },
+      ];
+      setHtml("#source-map-grid", sourceMap.map(source => `
+        <article class="source-map-card">
+          <span>${escapeHtml(source.label)}</span>
+          <strong>${escapeHtml(source.title)}</strong>
+          <p>${escapeHtml(source.text)}</p>
+          <code class="source-path">${escapeHtml(compactPath(source.path))}</code>
+        </article>
+      `).join(""));
+      setHtml("#source-map-footer", `
+        <strong>Generated:</strong> ${escapeHtml(data.generatedAt || "—")} ·
+        <strong>Missing now:</strong> ${escapeHtml((data.operatingRead?.cards || []).find(card => card.label === "Missing now")?.text || "No current missing-field read.")}
+      `);
+
+      setHtml(".timeline", data.dayCards.map(day => `
+        <article class="day-card">
+          <div class="day"><span>${escapeHtml(day.label)}</span><span>${escapeHtml(day.phase)}</span></div>
+          <div class="weight">${escapeHtml(formatWeight(day.weight))}${formatDrop(day.delta)}</div>
+          <div class="mini-line"><strong>${escapeHtml(day.calories ? format(day.calories) + " cal" : "Food pending")}</strong>${day.protein ? ` · ${escapeHtml(format(day.protein))}P` : ""} · ${escapeHtml(day.lift || "Pending")}</div>
+          <div class="mini-line">${escapeHtml(day.read)}</div>
+        </article>
+      `).join(""));
+
+      setHtml(".meal-grid", data.mealDays.map(day => `
+        <article class="meal-day">
+          <h3>${escapeHtml(day.label)} · ${escapeHtml(day.pattern)}</h3>
+          ${day.meals.map(meal => `
+            <div class="meal">
+              <div class="meal-time">${escapeHtml(meal.window)}</div>
+              <div class="meal-food">${escapeHtml(meal.food)}</div>
+              <div class="meal-macro">${escapeHtml(format(meal.calories))} cal · ${escapeHtml(format(meal.protein))}P · ${escapeHtml(format(meal.fat))}F · ${escapeHtml(format(meal.carbs))}C</div>
+            </div>
+          `).join("")}
+        </article>
+      `).join(""));
+
+      setHtml("#meal-pattern-reads", data.mealReads.map(read => `
+        <div class="read-card"><strong>${escapeHtml(read.title)}</strong>${escapeHtml(read.text)}</div>
+      `).join(""));
+
+      setHtml("#pattern-review-reads", data.patternReview.reads.map(read => `
+        <div class="read-card"><strong>${escapeHtml(read.title)}</strong>${escapeHtml(read.text)}</div>
+      `).join(""));
+
+      setHtml("#pattern-foods", data.patternReview.foods.slice(0, 12).map(food => `
+        <div class="pattern-row">
+          <div><strong>${escapeHtml(food.food)}</strong><span class="pattern-status">${escapeHtml(food.status)}</span></div>
+          <div>${escapeHtml(food.category)}</div>
+          <div><span class="num">${escapeHtml(format(food.days))}</span> days<br><span class="row-note">${escapeHtml(format(food.uses))} uses</span></div>
+          <div><span class="num">${escapeHtml(format(food.protein))}P</span><br><span class="row-note">${escapeHtml(format(food.calories))} cal</span></div>
+          <div>${escapeHtml(food.read)}</div>
+        </div>
+      `).join(""));
+
+      setHtml("#pattern-day-shapes", data.patternReview.dayShapes.map(shape => `
+        <div class="shape-row">
+          <strong>${escapeHtml(shape.label)}</strong>
+          <div class="shape-meta">${escapeHtml(format(shape.mealCount))} meals · ${escapeHtml(shape.firstMeal)} → ${escapeHtml(shape.lastMeal)} · ${escapeHtml(shape.feedingWindow)}</div>
+          <div class="shape-meta">${escapeHtml(format(shape.totalProtein))}P total · largest meal ${escapeHtml(format(shape.largestProtein))}P</div>
+          <div>${escapeHtml(shape.read)}</div>
+        </div>
+      `).join(""));
+
+      function mealValue(cell, mode) {
+        if (mode === "protein") return `${format(cell.protein)}P`;
+        if (mode === "timing") return escapeHtml(cell.window || "—");
+        return `${format(cell.calories)} cal`;
+      }
+
+      function heatAlpha(cell, mode) {
+        const percentage = mode === "protein" ? Number(cell.proteinPct || 0) : Number(cell.caloriePct || 0);
+        return Math.max(0.06, Math.min(0.34, 0.06 + percentage / 360)).toFixed(2);
+      }
+
+      function renderMealMatrix(mode = "calories") {
+        const matrix = data.mealMatrix;
+        const target = document.getElementById("meal-map");
+        if (!matrix || !target) return;
+
+        const header = [`<div class="meal-map-header"></div>`, ...matrix.slots.map(slot => `<div class="meal-map-header">${escapeHtml(slot)}</div>`)].join("");
+        const rows = matrix.days.map(day => `
+          <div class="meal-map-day">${escapeHtml(day.label)}</div>
+          ${day.cells.map((cell, index) => {
+            if (!cell) {
+              return `<div class="meal-map-cell empty"><div class="slot">${escapeHtml(matrix.slots[index])}</div><div class="cell-value">—</div><div class="cell-food">No meal logged</div></div>`;
+            }
+            return `
+              <div class="meal-map-cell" style="--heat-alpha:${heatAlpha(cell, mode)}">
+                <div class="slot">${escapeHtml(cell.slot)} · ${escapeHtml(cell.window || "—")}</div>
+                <div class="cell-value">${mealValue(cell, mode)}</div>
+                <div class="cell-food">${escapeHtml(cell.food || "—")}</div>
+              </div>
+            `;
+          }).join("")}
+        `).join("");
+        target.innerHTML = header + rows;
+      }
+
+      const mealModeButtons = [...document.querySelectorAll(".mode-button[data-meal-mode]")];
+      mealModeButtons.forEach(button => button.addEventListener("click", () => {
+        mealModeButtons.forEach(modeButton => modeButton.classList.remove("active"));
+        button.classList.add("active");
+        renderMealMatrix(button.dataset.mealMode);
+      }));
+
+      setHtml("#meal-map-reads", data.mealMatrix.reads.map(read => `
+        <div class="read-card"><strong>${escapeHtml(read.title)}</strong>${escapeHtml(read.text)}</div>
+      `).join(""));
+      renderMealMatrix("calories");
+
+      function proteinStatus(largestShare) {
+        if (largestShare >= 50) return { label: "Bolus", className: "bolus" };
+        if (largestShare >= 40) return { label: "Watch", className: "watch" };
+        return { label: "Even", className: "even" };
+      }
+
+      setHtml("#protein-split-list", (data.mealMatrix?.days || []).map(day => {
+        const meals = (day.cells || []).filter(cell => cell && Number(cell.protein || 0) > 0);
+        const totalProtein = meals.reduce((sum, meal) => sum + Number(meal.protein || 0), 0);
+        const largest = meals.reduce((best, meal) => Number(meal.protein || 0) > Number(best?.protein || 0) ? meal : best, null);
+        const largestShare = totalProtein ? Math.round((Number(largest?.protein || 0) / totalProtein) * 100) : 0;
+        const status = proteinStatus(largestShare);
+        return `
+          <div class="protein-split-row">
+            <div class="protein-day">${escapeHtml(day.label)}</div>
+            <div class="protein-bar" aria-label="${escapeHtml(day.label)} protein split">
+              ${meals.map(meal => {
+                const protein = Number(meal.protein || 0);
+                const width = totalProtein ? Math.max(8, Math.round((protein / totalProtein) * 100)) : 0;
+                return `<span class="protein-segment" style="width:${escapeHtml(width)}%" title="${escapeHtml(meal.slot)} · ${escapeHtml(meal.window)} · ${escapeHtml(format(protein))}P">${escapeHtml(format(protein))}</span>`;
+              }).join("")}
+            </div>
+            <div class="protein-meta">
+              <strong>${escapeHtml(format(totalProtein))}P total · biggest ${escapeHtml(format(largest?.protein || 0))}P</strong>
+              ${escapeHtml(largest?.slot || "—")} ${escapeHtml(largest?.window || "")} · ${escapeHtml(String(largestShare))}% <span class="protein-status ${escapeHtml(status.className)}">${escapeHtml(status.label)}</span>
+            </div>
+          </div>
+        `;
+      }).join(""));
+
+      setHtml("#meal-anchor-reads", (data.mealAnchorConsistency?.reads || []).map(read => `
+        <div class="read-card"><strong>${escapeHtml(read.title)}</strong>${escapeHtml(read.text)}</div>
+      `).join(""));
+      setHtml("#anchor-quick-list", (data.mealAnchorConsistency?.rows || []).map(row => {
+        const statusClass = String(row.status || "").toLowerCase();
+        const action = statusClass === "drifting"
+          ? "Pick a tighter window before judging this slot."
+          : "Usable repeat anchor.";
+        return `
+          <article class="anchor-quick-card">
+            <div class="anchor-quick-head">
+              <span class="anchor-slot">${escapeHtml(row.slot)}</span>
+              <span class="anchor-status ${escapeHtml(statusClass)}">${escapeHtml(row.status)}</span>
+            </div>
+            <strong class="anchor-time">${escapeHtml(row.avgTime)}</strong>
+            <div class="anchor-range">${escapeHtml(row.earliest)} → ${escapeHtml(row.latest)}<br>${escapeHtml(row.spread)} spread</div>
+            <div class="anchor-action"><strong>${escapeHtml(row.label)}:</strong> ${escapeHtml(action)}</div>
+          </article>
+        `;
+      }).join(""));
+      const mealAnchorBody = document.querySelector("#meal-anchor-table tbody");
+      if (mealAnchorBody) {
+        mealAnchorBody.innerHTML = (data.mealAnchorConsistency?.rows || []).map(row => `
+          <tr>
+            <td><strong>${escapeHtml(row.label)}</strong><div class="row-note">${escapeHtml(row.slot)}</div></td>
+            <td class="num">${escapeHtml(format(row.days))}</td>
+            <td class="num">${escapeHtml(row.avgTime)}</td>
+            <td class="num">${escapeHtml(row.earliest)} → ${escapeHtml(row.latest)}<div class="row-note">${escapeHtml(row.spread)} spread</div></td>
+            <td class="num">${escapeHtml(format(row.avgCalories))} cal · ${escapeHtml(format(row.avgProtein))}P · ${escapeHtml(format(row.avgFat, 1))}F · ${escapeHtml(format(row.avgCarbs, 1))}C</td>
+            <td>${escapeHtml(row.commonFoods)}</td>
+            <td><span class="anchor-status ${escapeHtml(String(row.status || "").toLowerCase())}">${escapeHtml(row.status)}</span></td>
+            <td class="row-note">${escapeHtml(row.read)}</td>
+          </tr>
+        `).join("");
+      }
+
+      setHtml("#food-review-reads", data.foodReview.reads.map(read => `
+        <div class="read-card"><strong>${escapeHtml(read.title)}</strong>${escapeHtml(read.text)}</div>
+      `).join(""));
+
+      setHtml("#food-source-mix", data.foodReview.sources.map(source => `
+        <div class="source-row">
+          <div class="source-head"><strong>${escapeHtml(source.source)}</strong><span>${escapeHtml(format(source.protein))}P · ${escapeHtml(format(source.meals))} meals</span></div>
+          <div class="source-bar"><i style="--w:${escapeHtml(source.proteinShare)}%"></i></div>
+          <div class="source-meta">${escapeHtml(source.days)} day(s) · ${escapeHtml(format(source.calories))} cal · ${escapeHtml(source.proteinShare)}% protein share</div>
+          <div class="source-meta">${escapeHtml(source.read)}</div>
+        </div>
+      `).join(""));
+
+      setHtml("#food-day-review", data.foodReview.days.map(day => `
+        <div class="day-review-row">
+          <div class="day-review-head"><strong>${escapeHtml(day.label)}</strong><span>${escapeHtml(day.totalProtein)}P · ${escapeHtml(day.meals)} meals</span></div>
+          <div class="day-review-meta">Dominant: ${escapeHtml(day.dominant)} · powder ${escapeHtml(day.powderProtein)}P · whole/egg ${escapeHtml(day.wholeProtein)}P</div>
+          <div class="day-review-meta">${escapeHtml(day.read)}</div>
+        </div>
+      `).join(""));
+
+      setHtml("#fuel-reads", data.workoutFuel.reads.map(read => `
+        <div class="read-card"><strong>${escapeHtml(read.title)}</strong>${escapeHtml(read.text)}</div>
+      `).join(""));
+
+      setHtml("#fuel-card-grid", data.workoutFuel.rows.map(row => {
+        const isCarbSupported = Number(row.preCarbs || 0) >= 20;
+        const isDense = Number(row.kpm || 0) >= 8;
+        const nextDrop = row.nextDelta === null || row.nextDelta === undefined ? "—" : Number(row.nextDelta).toFixed(1);
+        const fuelLabel = isCarbSupported ? "Measured carb" : "Low carb";
+        const fuelClass = isCarbSupported ? "carb" : "low";
+        return `
+          <article class="fuel-card">
+            <div class="fuel-card-head">
+              <h3>${escapeHtml(row.label)} · ${escapeHtml(row.lift)}</h3>
+              <span class="fuel-pill ${escapeHtml(fuelClass)}">${escapeHtml(fuelLabel)}</span>
+            </div>
+            <div class="fuel-load">
+              <div class="fuel-metric"><strong>${escapeHtml(format(row.preCarbs))}C</strong>${escapeHtml(row.preGap)} pre · ${escapeHtml(format(row.preProtein))}P</div>
+              <div class="fuel-metric"><strong>${escapeHtml(format(row.kpm, 2))}</strong>kcal/min lift · HR ${escapeHtml(format(row.avgHr))}</div>
+              <div class="fuel-metric"><strong>${escapeHtml(format(row.postCardioMinutes))}m</strong>post-cardio · ${escapeHtml(format(row.postCardioKcal))} kcal</div>
+              <div class="fuel-metric"><strong>${escapeHtml(nextDrop)}</strong>next AM scale</div>
+            </div>
+            <p class="fuel-read"><strong>${escapeHtml(isDense ? "Dense session." : "Moderate session.")}</strong> ${escapeHtml(row.read)}</p>
+          </article>
+        `;
+      }).join(""));
+
+      const fuelBody = document.querySelector("#fuel-table tbody");
+      if (fuelBody) {
+        fuelBody.innerHTML = data.workoutFuel.rows.map(row => {
+          const nextDrop = row.nextDelta === null || row.nextDelta === undefined ? "—" : Number(row.nextDelta).toFixed(1);
+          const liftCalories = row.adjustedKcal || row.reportedKcal;
+          return `
+            <tr>
+              <td class="num">${escapeHtml(row.label)}</td>
+              <td><strong>${escapeHtml(row.lift)}</strong><div class="row-note">${escapeHtml(row.liftTime)} · ${escapeHtml(row.duration)}</div></td>
+              <td>${escapeHtml(row.preMeal)}<div class="row-note">${escapeHtml(row.preWindow)}</div></td>
+              <td class="num">${escapeHtml(row.preGap)}</td>
+              <td class="num">${escapeHtml(format(row.preCalories))} cal · ${escapeHtml(format(row.preProtein))}P · ${escapeHtml(format(row.preFat))}F · ${escapeHtml(format(row.preCarbs))}C</td>
+              <td class="num">${escapeHtml(format(row.kpm, 2))} kcal/min<div class="row-note">HR ${escapeHtml(format(row.avgHr))}/${escapeHtml(format(row.maxHr))} · ${escapeHtml(format(liftCalories))} kcal</div></td>
+              <td class="num">${escapeHtml(format(row.postCardioMinutes))}m<div class="row-note">${escapeHtml(format(row.postCardioKcal))} kcal</div></td>
+              <td class="num">${escapeHtml(nextDrop)}</td>
+              <td class="row-note">${escapeHtml(row.read)}</td>
+            </tr>
+          `;
+        }).join("");
+      }
+
+      setHtml("#cardio-benchmarks", data.cardioHistory.benchmarks.map(benchmark => `
+        <div class="benchmark">
+          <span>${escapeHtml(benchmark.label)}</span>
+          <strong>${escapeHtml(benchmark.value)}</strong>
+          <em>${escapeHtml(benchmark.note)}</em>
+        </div>
+      `).join(""));
+
+      setHtml("#cardio-answer-grid", (data.cardioHistory.answers || []).map(answer => `
+        <article class="cardio-answer">
+          <h3><span class="badge ${escapeHtml(answer.tone)}">${escapeHtml(answer.badge)}</span>${escapeHtml(answer.title)}</h3>
+          <span class="answer-value">${escapeHtml(answer.value)}</span>
+          <p>${escapeHtml(answer.text)}</p>
+        </article>
+      `).join(""));
+
+      setHtml(".prompt-grid", data.prompts.map(prompt => `
+        <div class="prompt"><span>${escapeHtml(prompt.label)}</span><p>${escapeHtml(prompt.text)}</p></div>
+      `).join(""));
+
+      const filters = [...document.querySelectorAll("button.filter[data-filter]")];
+      const rangeButtons = [...document.querySelectorAll("button.range-button[data-range]")];
+      const presetButtons = [...document.querySelectorAll("button.preset-button[data-preset]")];
+      const presetNote = document.getElementById("cardio-preset-note");
+      const table = document.getElementById("cardio-table");
+      const cardioBody = document.querySelector("#cardio-table tbody");
+      const sortSelect = document.getElementById("cardio-sort");
+      const sortDir = document.getElementById("sort-dir");
+      const summary = document.getElementById("cardio-summary");
+      const cardioLadder = document.getElementById("cardio-ladder");
+      const cardioScatter = document.getElementById("cardio-scatter");
+      const cardioReadout = document.getElementById("cardio-readout");
+      let currentFilter = "all";
+      let currentRange = "runway";
+      let direction = "desc";
+
+      function value(row, key) {
+        if (key === "date") return row.dataset.date;
+        const raw = row.dataset[key] || row.dataset[key.replace(/[A-Z]/g, m => "-" + m.toLowerCase())] || 0;
+        const numeric = Number(raw);
+        return Number.isFinite(numeric) ? numeric : -Infinity;
+      }
+
+      function matches(row) {
+        if (currentFilter === "all") return true;
+        return row.dataset.kind.split(" ").includes(currentFilter);
+      }
+
+      function activeCardioSessions() {
+        return currentRange === "history" ? data.cardioHistory.rows : data.cardioSessions;
+      }
+
+      function renderCardioRow(session) {
+        return `
+          <tr data-kind="${escapeHtml(session.kind)}" data-date="${escapeHtml(session.date)}" data-minutes="${escapeHtml(session.minutes)}" data-kcal="${escapeHtml(session.calories)}" data-kpm="${escapeHtml(session.kpm)}" data-avg-hr="${escapeHtml(session.avgHr)}" data-max-hr="${escapeHtml(session.maxHr)}">
+            <td class="num">${escapeHtml(session.label)}</td>
+            <td>${escapeHtml(session.session)}</td>
+            <td>${escapeHtml(session.time)}</td>
+            <td class="num">${escapeHtml(session.duration)}</td>
+            <td><span class="num">${escapeHtml(format(session.calories))}</span><div class="bar"><i style="width:${escapeHtml(session.barPct)}%"></i></div></td>
+            <td class="num">${escapeHtml(format(session.kpm, 2))}</td>
+            <td class="num">${escapeHtml(format(session.avgHr))}</td>
+            <td class="num">${escapeHtml(format(session.maxHr))}</td>
+            <td class="row-note">${escapeHtml(session.read)}</td>
+          </tr>
+        `;
+      }
+
+      function rowMetric(row, key) {
+        const value = Number(row.dataset[key] || 0);
+        return Number.isFinite(value) ? value : 0;
+      }
+
+      function meanMetric(rows, key) {
+        const values = rows.map(row => rowMetric(row, key)).filter(value => value > 0);
+        return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
+      }
+
+      function rowKind(row, kind) {
+        return (row.dataset.kind || "").split(" ").includes(kind);
+      }
+
+      function renderCardioVisuals(visible) {
+        if (!cardioLadder || !cardioScatter || !cardioReadout) return;
+        const maxKpm = Math.max(...visible.map(row => rowMetric(row, "kpm")), 1);
+        const ladderRows = visible.slice(0, 9);
+        cardioLadder.innerHTML = ladderRows.length ? ladderRows.map(row => {
+          const kpm = rowMetric(row, "kpm");
+          const width = Math.max(5, Math.round((kpm / maxKpm) * 100));
+          const isWalk = rowKind(row, "walk");
+          return `
+            <div class="ladder-row ${isWalk ? "walk" : "stair"}">
+              <div class="ladder-label"><strong>${escapeHtml(row.cells[0]?.textContent || "—")}</strong>${escapeHtml(row.cells[1]?.textContent || "—")}</div>
+              <div class="ladder-track"><span class="ladder-bar" style="--w:${escapeHtml(width)}%"></span></div>
+              <div class="ladder-value">${escapeHtml(format(kpm, 2))}</div>
+            </div>
+          `;
+        }).join("") : `<p>No sessions match this filter.</p>`;
+
+        const plottable = visible.filter(row => rowMetric(row, "avgHr") > 0 && rowMetric(row, "kpm") > 0).slice(0, 140);
+        const hrValues = plottable.map(row => rowMetric(row, "avgHr"));
+        const kpmValues = plottable.map(row => rowMetric(row, "kpm"));
+        const minHr = Math.min(...hrValues, 70);
+        const maxHr = Math.max(...hrValues, 150);
+        const minPlotKpm = Math.min(...kpmValues, 2);
+        const maxPlotKpm = Math.max(...kpmValues, 11);
+        cardioScatter.innerHTML = plottable.map(row => {
+          const avgHr = rowMetric(row, "avgHr");
+          const kpm = rowMetric(row, "kpm");
+          const x = Math.max(4, Math.min(96, ((avgHr - minHr) / Math.max(1, maxHr - minHr)) * 92 + 4));
+          const y = Math.max(6, Math.min(94, ((kpm - minPlotKpm) / Math.max(1, maxPlotKpm - minPlotKpm)) * 88 + 6));
+          const pointClass = rowKind(row, "suspect") ? "suspect" : rowKind(row, "walk") ? "walk" : "stair";
+          const title = `${row.cells[0]?.textContent || "—"} · ${row.cells[1]?.textContent || "—"} · ${format(kpm, 2)} kcal/min · HR ${format(avgHr)}`;
+          return `<span class="scatter-point ${pointClass}" style="--x:${escapeHtml(x.toFixed(1))}%;--y:${escapeHtml(y.toFixed(1))}%" title="${escapeHtml(title)}"></span>`;
+        }).join("");
+
+        const stairRows = visible.filter(row => rowKind(row, "stair"));
+        const walkRows = visible.filter(row => rowKind(row, "walk"));
+        const topRow = visible.reduce((best, row) => rowMetric(row, "kpm") > rowMetric(best, "kpm") ? row : best, visible[0] || null);
+        const stairKpm = meanMetric(stairRows, "kpm");
+        const walkKpm = meanMetric(walkRows, "kpm");
+        const averageHr = meanMetric(visible, "avgHr");
+        cardioReadout.innerHTML = `
+          <div class="readout-line"><strong>${escapeHtml(String(visible.length))}</strong>sessions in this view</div>
+          <div class="readout-line"><strong>${escapeHtml(format(stairKpm, 2))}</strong>Stair kcal/min avg${walkRows.length ? ` · walk ${escapeHtml(format(walkKpm, 2))}` : ""}</div>
+          <div class="readout-line"><strong>${escapeHtml(format(averageHr))}</strong>avg HR for filtered sessions</div>
+          <div class="readout-line"><strong>${escapeHtml(topRow ? format(rowMetric(topRow, "kpm"), 2) : "—")}</strong>top kcal/min${topRow ? ` · ${escapeHtml(topRow.cells[0]?.textContent || "—")} ${escapeHtml(topRow.cells[1]?.textContent || "")}` : ""}</div>
+        `;
+      }
+
+      function render() {
+        cardioBody.innerHTML = activeCardioSessions().map(renderCardioRow).join("");
+        const rows = [...table.querySelectorAll("tbody tr")];
+        const visible = rows.filter(matches).sort((a, b) => {
+          const av = value(a, sortSelect.value);
+          const bv = value(b, sortSelect.value);
+          if (typeof av === "string") return direction === "asc" ? av.localeCompare(bv) : bv.localeCompare(av);
+          return direction === "asc" ? av - bv : bv - av;
+        });
+        const body = table.querySelector("tbody");
+        visible.forEach(row => body.appendChild(row));
+        rows.forEach(row => row.style.display = matches(row) ? "" : "none");
+        const totalMin = visible.reduce((sum, row) => sum + Number(row.dataset.minutes || 0), 0);
+        const totalKcal = visible.reduce((sum, row) => sum + Number(row.dataset.kcal || 0), 0);
+        const hrRows = visible.filter(row => Number(row.dataset.avgHr || 0) > 0);
+        const avgHr = hrRows.length ? Math.round(hrRows.reduce((sum, row) => sum + Number(row.dataset.avgHr), 0) / hrRows.length) : "—";
+        const kpm = totalMin ? (totalKcal / totalMin).toFixed(2) : "—";
+        const sourceLabel = currentRange === "history" ? "YTD imported cardio" : "current cleanup cardio";
+        summary.textContent = `Showing ${visible.length} ${sourceLabel} sessions · ${Math.round(totalMin)} min · ${Math.round(totalKcal)} kcal · ${kpm} kcal/min · avg HR ${avgHr}.`;
+        renderCardioVisuals(visible);
+      }
+
+      function setCardioControls({ range, filter, sort, nextDirection }) {
+        currentRange = range || currentRange;
+        currentFilter = filter || currentFilter;
+        direction = nextDirection || direction;
+        rangeButtons.forEach(button => button.classList.toggle("active", button.dataset.range === currentRange));
+        filters.forEach(button => button.classList.toggle("active", button.dataset.filter === currentFilter));
+        if (sort) sortSelect.value = sort;
+        sortDir.textContent = direction === "desc" ? "Desc" : "Asc";
+        render();
+      }
+
+      filters.forEach(button => button.addEventListener("click", () => {
+        filters.forEach(filter => filter.classList.remove("active"));
+        button.classList.add("active");
+        currentFilter = button.dataset.filter;
+        presetButtons.forEach(preset => preset.classList.remove("active"));
+        render();
+      }));
+      rangeButtons.forEach(button => button.addEventListener("click", () => {
+        rangeButtons.forEach(rangeButton => rangeButton.classList.remove("active"));
+        button.classList.add("active");
+        currentRange = button.dataset.range;
+        presetButtons.forEach(preset => preset.classList.remove("active"));
+        render();
+      }));
+      presetButtons.forEach(button => button.addEventListener("click", () => {
+        presetButtons.forEach(preset => preset.classList.remove("active"));
+        button.classList.add("active");
+        if (presetNote) presetNote.textContent = button.dataset.note || "";
+        setCardioControls({
+          range: button.dataset.range,
+          filter: button.dataset.filter,
+          sort: button.dataset.sort,
+          nextDirection: button.dataset.direction,
+        });
+      }));
+      sortSelect.addEventListener("change", () => {
+        presetButtons.forEach(preset => preset.classList.remove("active"));
+        render();
+      });
+      sortDir.addEventListener("click", () => {
+        direction = direction === "desc" ? "asc" : "desc";
+        sortDir.textContent = direction === "desc" ? "Desc" : "Asc";
+        presetButtons.forEach(preset => preset.classList.remove("active"));
+        render();
+      });
+      const defaultPreset = presetButtons.find(button => button.classList.contains("active"));
+      if (defaultPreset) {
+        setCardioControls({
+          range: defaultPreset.dataset.range,
+          filter: defaultPreset.dataset.filter,
+          sort: defaultPreset.dataset.sort,
+          nextDirection: defaultPreset.dataset.direction,
+        });
+      } else {
+        render();
+      }
+    })();
+  </script>
+</body>
+</html>

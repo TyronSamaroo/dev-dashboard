@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <title>Prep Runway — 148 by June 1</title>
+	  <script>
+	    (() => {
+	      const themeKey = "prep_runway_theme";
+	      const requested = new URLSearchParams(location.search).get("theme");
+	      const stored = localStorage.getItem(themeKey);
+	      document.documentElement.dataset.theme = requested === "light" || requested === "dark" ? requested : stored === "light" || stored === "dark" ? stored : "light";
+	    })();
+	  </script>
+	  <style>
+	    :root{color-scheme:dark light;--bg:#070a0f;--panel:#101722;--panel2:#172033;--ink:#f6f8fc;--muted:#aab7c7;--line:rgba(255,255,255,.12);--green:#51b749;--cyan:#46d6db;--blue:#5484ed;--amber:#fbd75b;--red:#ff6b6b}
+    *{box-sizing:border-box} body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 0 0,rgba(70,214,219,.18),transparent 36rem),radial-gradient(circle at 100% 8%,rgba(81,183,73,.14),transparent 35rem),linear-gradient(180deg,#070a0f,#090d14 45%,#070a0f);color:var(--ink);line-height:1.5}
+	    main{width:min(1240px,calc(100vw - 32px));margin:0 auto;padding:34px 0 72px}.hero,.card,.doc-nav{border:1px solid var(--line);background:linear-gradient(135deg,rgba(16,23,34,.96),rgba(23,32,51,.88));box-shadow:0 22px 70px rgba(0,0,0,.28)}.hero{border-radius:30px;padding:36px}.doc-nav{border-radius:18px;padding:12px 14px;margin-bottom:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}.doc-nav a{color:var(--ink);text-decoration:none;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 12px;font-size:13px;font-weight:850}.doc-nav a.primary{background:rgba(70,214,219,.14);border-color:rgba(70,214,219,.45);color:#c5f9ff}.theme-toggle{margin-left:auto;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;cursor:pointer}.theme-toggle:hover{border-color:rgba(70,214,219,.45)}
+    .eyebrow{color:var(--cyan);font-size:13px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}h1{margin:10px 0 12px;font-size:clamp(36px,5.5vw,72px);line-height:.92;letter-spacing:-.055em;max-width:920px}.lead{color:var(--muted);max-width:900px;font-size:18px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:22px}.card{grid-column:span 12;border-radius:24px;padding:22px}@media(min-width:900px){.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}.span-8{grid-column:span 8}}
+    h2{margin:0 0 12px;font-size:22px;letter-spacing:-.025em}p{margin:0 0 12px;color:var(--muted)}strong{color:var(--ink)}ul{margin:0;padding-left:20px;color:var(--muted)}li{margin:6px 0}table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:16px;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:11px 10px;text-align:left;vertical-align:top}th{background:rgba(255,255,255,.06);color:var(--ink);text-transform:uppercase;font-size:12px;letter-spacing:.08em}td{color:var(--muted)}tr:last-child td{border-bottom:0}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.metric{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:18px;padding:14px}.label{color:var(--muted);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.value{margin-top:4px;font-size:27px;font-weight:950;letter-spacing:-.035em}.tag{display:inline-flex;border:1px solid rgba(81,183,73,.45);color:#c7f6c2;background:rgba(81,183,73,.12);border-radius:999px;padding:4px 9px;font-size:12px;font-weight:900;margin:2px 4px 2px 0}.warn{border-color:rgba(251,215,91,.45);color:#ffec99;background:rgba(251,215,91,.11)}.danger{border-color:rgba(255,107,107,.5);color:#ffc0c0;background:rgba(255,107,107,.11)}.blue{border-color:rgba(84,132,237,.5);color:#c7d6ff;background:rgba(84,132,237,.13)}code{color:#d6e2ff;background:rgba(255,255,255,.06);padding:2px 5px;border-radius:6px}.footer{margin-top:24px;color:var(--muted);font-size:13px}
+	    .hero{padding:22px 24px;border-radius:22px}.eyebrow{font-size:11px}h1{font-size:clamp(28px,4vw,44px);line-height:1;max-width:none;margin:8px 0}.lead{font-size:15px;max-width:780px}.doc-nav{position:sticky;top:10px;z-index:5;padding:9px 10px}.doc-nav a{font-size:12px;padding:7px 10px}.card{border-radius:18px;padding:16px}.grid{gap:12px;margin-top:14px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}.master-ledger{min-width:0;table-layout:fixed}.master-ledger th,.master-ledger td{padding:10px 9px;font-size:13px}.tight-read{max-width:270px}.small{color:#8d9bad;font-size:12px;line-height:1.35}.ledger-wrap{overflow:visible}.master-ledger col.date{width:76px}.master-ledger col.phase{width:82px}.master-ledger col.weight{width:80px}.master-ledger col.sleep{width:122px}.master-ledger col.macros{width:188px}.master-ledger col.cardio{width:214px}.master-ledger col.lift{width:170px}.master-ledger col.burn{width:112px}.master-ledger col.decision{width:auto}.ledger-date strong{display:block;font-size:14px}.ledger-date span{display:block;color:var(--muted);font-size:12px;font-weight:800}.ledger-entry{display:flex;flex-direction:column;gap:7px;min-width:0}.ledger-main{color:var(--ink);font-weight:950;line-height:1.15}.ledger-sub{color:var(--muted);font-size:12px;line-height:1.35}.metric-cluster{display:flex;flex-wrap:wrap;gap:6px}.metric-pill{display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.055);border-radius:999px;color:#d9e4f4;font-size:12px;font-weight:900;line-height:1;padding:6px 8px;white-space:nowrap}.metric-pill strong{font-size:13px}.metric-pill.green{border-color:rgba(81,183,73,.45);background:rgba(81,183,73,.12);color:#c7f6c2}.metric-pill.blue{border-color:rgba(84,132,237,.5);background:rgba(84,132,237,.13);color:#c7d6ff}.metric-pill.warn{border-color:rgba(251,215,91,.45);background:rgba(251,215,91,.11);color:#ffec99}.macro-card{border:1px solid var(--line);border-left:4px solid var(--line);border-radius:12px;background:rgba(255,255,255,.035);padding:8px 9px}.macro-card.very-low{border-color:rgba(251,215,91,.45);border-left-color:var(--amber);background:rgba(251,215,91,.09)}.macro-card.on-runway{border-color:rgba(81,183,73,.38);border-left-color:var(--green);background:rgba(81,183,73,.08)}.macro-card.pending{background:rgba(255,255,255,.025)}.macro-text{color:var(--muted);font-size:12px;font-weight:850;line-height:1.35;white-space:nowrap}.macro-text strong{font-size:13px;font-weight:950}.macro-kcal{color:var(--amber);font-size:15px!important}.macro-card.on-runway .macro-kcal{color:var(--green)}.macro-card.pending .macro-kcal{color:var(--muted)}.macro-protein{color:#7be373}.macro-fat{color:#9ab3ff}.macro-carbs{color:#67e3f0}.event-stack{display:grid;gap:7px}.event-row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;align-items:start;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);border-radius:12px;padding:7px}.event-time{color:#9ff3f6;font-size:11px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}.event-main{color:var(--ink);font-size:13px;font-weight:950;line-height:1.18}.event-meta{color:var(--muted);font-size:12px;line-height:1.32;margin-top:2px}.decision-text{color:#dce6f4;font-size:13px;line-height:1.38}.reference-drawer{grid-column:span 12;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035);padding:0}.reference-drawer summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:900;color:var(--ink);display:flex;justify-content:space-between;gap:12px}.reference-drawer summary::-webkit-details-marker{display:none}.reference-drawer summary::after{content:"Open";color:var(--cyan);font-size:12px;text-transform:uppercase;letter-spacing:.08em}.reference-drawer[open] summary::after{content:"Close"}.reference-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;padding:0 12px 12px}.reference-grid .card{box-shadow:none}@media(max-width:1120px){main{width:min(1000px,calc(100vw - 24px))}.master-ledger th,.master-ledger td{padding:9px 7px;font-size:12px}.master-ledger col.date{width:70px}.master-ledger col.phase{width:76px}.master-ledger col.weight{width:74px}.master-ledger col.sleep{width:112px}.master-ledger col.macros{width:170px}.master-ledger col.cardio{width:194px}.master-ledger col.lift{width:160px}.master-ledger col.burn{width:104px}.metric-pill{font-size:11px;padding:5px 7px}.macro-text{font-size:11px}.macro-text strong{font-size:12px}.macro-kcal{font-size:14px!important}.event-row{grid-template-columns:34px minmax(0,1fr);padding:6px}.event-main,.decision-text{font-size:12px}}@media(max-width:760px){main{width:calc(100vw - 18px);padding-top:14px}.hero{padding:18px;border-radius:20px}.doc-nav{position:static}.card{padding:13px;border-radius:18px}.ledger-wrap{border:0;overflow:visible}.master-ledger,.master-ledger tbody,.master-ledger tr,.master-ledger td{display:block;width:100%}.master-ledger{border-radius:0}.master-ledger colgroup,.master-ledger thead{display:none}.master-ledger tr{border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,rgba(18,26,40,.96),rgba(12,17,26,.92));box-shadow:0 14px 42px rgba(0,0,0,.22);margin:12px 0;padding:9px}.master-ledger td{border-bottom:1px solid rgba(255,255,255,.08);padding:9px 5px;display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;align-items:start}.master-ledger td:last-child{border-bottom:0}.master-ledger td::before{content:attr(data-label);color:#7f8da1;font-size:10px;font-weight:950;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}.tight-read{max-width:none}.ledger-date strong{font-size:16px}.metric-cluster{gap:5px}.metric-pill{font-size:11px;padding:6px 7px}.macro-card{padding:8px 9px}.macro-text{font-size:13px;white-space:normal}.macro-text strong{font-size:14px}.macro-kcal{font-size:16px!important}.event-row{grid-template-columns:42px minmax(0,1fr)}.event-main{font-size:13px}.decision-text{font-size:13px}}@media(max-width:430px){h1{font-size:30px}.lead{font-size:14px}.master-ledger td{grid-template-columns:72px minmax(0,1fr);gap:8px}.event-row{grid-template-columns:36px minmax(0,1fr)}.metric-pill strong{font-size:12px}}
+	    .timing-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;padding:0 12px 12px}.timing-card{grid-column:span 4;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.035);padding:14px}.timing-card.wide{grid-column:span 8}.timing-kicker{color:var(--cyan);font-size:11px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.timing-card h3{margin:4px 0 8px;font-size:18px;letter-spacing:-.025em}.timing-list{display:grid;gap:7px;margin-top:10px}.timing-line{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;color:var(--muted);font-size:13px}.timing-line strong{color:var(--ink)}.timing-note{border-left:3px solid var(--amber);padding-left:10px;color:var(--muted);font-size:13px;line-height:1.4;margin-top:10px}@media(max-width:900px){.timing-grid{display:block}.timing-card,.timing-card.wide{margin:0 0 12px;grid-column:span 12}}@media(max-width:430px){.timing-line{grid-template-columns:72px minmax(0,1fr)}}
+	    .clean-ledger-wrap{margin:0 12px 12px;overflow:hidden}.clean-ledger{width:100%;min-width:0;table-layout:fixed;font-size:10px}.clean-ledger th,.clean-ledger td{padding:7px 5px;white-space:nowrap;line-height:1.05;overflow:hidden;text-overflow:ellipsis}.clean-ledger th{font-size:9px;letter-spacing:.045em}.clean-ledger td{vertical-align:middle}.clean-ledger .num{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:850}.clean-ledger th:nth-child(1),.clean-ledger td:nth-child(1){width:45px}.clean-ledger th:nth-child(2),.clean-ledger td:nth-child(2){width:34px}.clean-ledger th:nth-child(3),.clean-ledger td:nth-child(3){width:58px}.clean-ledger th:nth-child(4),.clean-ledger td:nth-child(4){width:42px}.clean-ledger th:nth-child(5),.clean-ledger td:nth-child(5){width:36px}.clean-ledger th:nth-child(6),.clean-ledger td:nth-child(6),.clean-ledger th:nth-child(7),.clean-ledger td:nth-child(7),.clean-ledger th:nth-child(8),.clean-ledger td:nth-child(8){width:48px}.clean-ledger th:nth-child(9),.clean-ledger td:nth-child(9){width:45px}.clean-ledger th:nth-child(10),.clean-ledger td:nth-child(10),.clean-ledger th:nth-child(11),.clean-ledger td:nth-child(11),.clean-ledger th:nth-child(12),.clean-ledger td:nth-child(12){width:42px}.clean-ledger th:nth-child(13),.clean-ledger td:nth-child(13){width:108px}.clean-ledger th:nth-child(14),.clean-ledger td:nth-child(14){width:76px}.clean-ledger th:nth-child(15),.clean-ledger td:nth-child(15){width:58px}.clean-ledger th:nth-child(16),.clean-ledger td:nth-child(16),.clean-ledger th:nth-child(17),.clean-ledger td:nth-child(17){width:58px}.clean-ledger th:nth-child(18),.clean-ledger td:nth-child(18),.clean-ledger th:nth-child(19),.clean-ledger td:nth-child(19){width:38px}@media(max-width:760px){.clean-ledger-wrap{margin:0 8px 10px;overflow:auto}.clean-ledger{min-width:1080px;font-size:10px}.clean-ledger th,.clean-ledger td{padding:6px 7px}}
+	    .compact-table-wrap{overflow:hidden;margin-top:10px}.compact-ref{width:100%;min-width:0;table-layout:fixed;font-size:12px}.compact-ref th,.compact-ref td{padding:9px 10px;white-space:nowrap;line-height:1.1;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}.compact-ref th{font-size:10px;letter-spacing:.06em}.compact-ref .num{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:850}.timing-ref th:nth-child(1),.timing-ref td:nth-child(1){width:74px}.timing-ref th:nth-child(2),.timing-ref td:nth-child(2),.timing-ref th:nth-child(4),.timing-ref td:nth-child(4),.timing-ref th:nth-child(5),.timing-ref td:nth-child(5),.timing-ref th:nth-child(6),.timing-ref td:nth-child(6){width:68px}.timing-ref th:nth-child(3),.timing-ref td:nth-child(3){width:118px}.timing-ref th:nth-child(7),.timing-ref td:nth-child(7){width:260px}.timing-ref th:nth-child(8),.timing-ref td:nth-child(8){width:150px}.activity-ref th:nth-child(1),.activity-ref td:nth-child(1){width:88px}.activity-ref th:nth-child(2),.activity-ref td:nth-child(2),.activity-ref th:nth-child(3),.activity-ref td:nth-child(3),.activity-ref th:nth-child(4),.activity-ref td:nth-child(4){width:110px}.missing-ref th:nth-child(1),.missing-ref td:nth-child(1){width:88px}.missing-ref th:nth-child(2),.missing-ref td:nth-child(2){width:260px}@media(max-width:760px){.compact-table-wrap{overflow:auto}.compact-ref{min-width:860px;font-size:11px}.compact-ref th,.compact-ref td{padding:7px 8px}}
+	    .forecast-ref th:nth-child(1),.forecast-ref td:nth-child(1){width:74px}.forecast-ref th:nth-child(2),.forecast-ref td:nth-child(2),.forecast-ref th:nth-child(3),.forecast-ref td:nth-child(3){width:86px}.forecast-ref th:nth-child(4),.forecast-ref td:nth-child(4){width:82px}.forecast-ref th:nth-child(5),.forecast-ref td:nth-child(5){width:88px}.forecast-ref th:nth-child(6),.forecast-ref td:nth-child(6){width:auto}
+	    html[data-theme="light"]{--bg:#f7f9fc;--panel:#ffffff;--panel2:#eef3f8;--ink:#101828;--muted:#526173;--line:rgba(21,33,52,.14);--green:#238636;--cyan:#047c86;--blue:#315db8;--amber:#9a6700;--red:#c24141}html[data-theme="light"] body{background:radial-gradient(circle at 0 0,rgba(70,214,219,.18),transparent 34rem),radial-gradient(circle at 100% 10%,rgba(81,183,73,.12),transparent 32rem),linear-gradient(180deg,#fbfcff,#f3f7fb 55%,#eef4f8);color:var(--ink)}html[data-theme="light"] .hero,html[data-theme="light"] .card,html[data-theme="light"] .doc-nav{background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.9));box-shadow:0 18px 56px rgba(16,24,40,.12)}html[data-theme="light"] .doc-nav a{background:rgba(255,255,255,.75);color:var(--ink)}html[data-theme="light"] .doc-nav a.primary{background:rgba(4,124,134,.1);border-color:rgba(4,124,134,.32);color:#035e65}html[data-theme="light"] th{background:rgba(15,23,42,.055)}html[data-theme="light"] td{color:var(--muted)}html[data-theme="light"] .metric-pill{background:rgba(15,23,42,.045);border-color:rgba(15,23,42,.13);color:#253247}html[data-theme="light"] .metric-pill.green{color:#1f7a33;background:rgba(35,134,54,.08)}html[data-theme="light"] .metric-pill.warn{color:#8a5d00;background:rgba(154,103,0,.08)}html[data-theme="light"] .tag{color:#1f7a33;background:rgba(35,134,54,.09);border-color:rgba(35,134,54,.32)}html[data-theme="light"] .event-row{background:rgba(255,255,255,.7);border-color:rgba(15,23,42,.12)}html[data-theme="light"] .event-time{color:#047c86}html[data-theme="light"] .decision-text,html[data-theme="light"] .event-main,html[data-theme="light"] .ledger-main{color:var(--ink)}html[data-theme="light"] .macro-card{background:rgba(255,255,255,.72);border-color:rgba(15,23,42,.14)}html[data-theme="light"] .macro-card.very-low{background:rgba(154,103,0,.08);border-color:rgba(154,103,0,.28)}html[data-theme="light"] .macro-card.on-runway{background:rgba(35,134,54,.07);border-color:rgba(35,134,54,.24)}html[data-theme="light"] .macro-protein{color:#238636}html[data-theme="light"] .macro-fat{color:#315db8}html[data-theme="light"] .macro-carbs{color:#047c86}html[data-theme="light"] .reference-drawer,html[data-theme="light"] .timing-card{background:rgba(255,255,255,.72)}html[data-theme="light"] .master-ledger tr{background:transparent}@media(max-width:760px){html[data-theme="light"] .master-ledger tr{background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.92));box-shadow:0 12px 34px rgba(16,24,40,.1)}}
+    html[data-theme="light"] .macro-card.very-low{border-left-color:var(--amber)}
+    html[data-theme="light"] .macro-card.on-runway{border-left-color:var(--green)}
+  </style>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <style>
+    .current-read-strip{display:grid;grid-template-columns:1.25fr repeat(4,1fr);gap:10px;margin:12px 0}
+    .current-read-card{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);padding:12px;min-width:0}
+    .current-read-card.lead{background:linear-gradient(135deg,rgba(70,214,219,.14),rgba(255,255,255,.04))}
+    .current-read-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .current-read-card strong{display:block;margin-top:5px;color:var(--ink);font-size:18px;line-height:1.05;letter-spacing:-.025em}
+    .current-read-card p{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
+    .current-read-card.ok{border-color:rgba(81,183,73,.38)}
+    .current-read-card.warn{border-color:rgba(251,215,91,.42)}
+    .current-read-card.bad{border-color:rgba(255,107,107,.42)}
+    html[data-theme="light"] .current-read-card{background:rgba(255,255,255,.72)}
+    html[data-theme="light"] .current-read-card.lead{background:linear-gradient(135deg,rgba(4,124,134,.1),rgba(255,255,255,.78))}
+    @media(max-width:980px){.current-read-strip{grid-template-columns:repeat(2,1fr)}.current-read-card.lead{grid-column:span 2}}
+    @media(max-width:620px){.current-read-strip{grid-template-columns:1fr}.current-read-card.lead{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <main>
+	    <nav class="doc-nav" aria-label="Prep documents">
+	      <a href="home.html">Home</a>
+	      <a class="primary" href="report.html">Daily Master</a>
+	      <a href="analysis.html">Analysis</a>
+	      <a href="meal-patterns.html">Meal Patterns</a>
+	      <a href="data-ledger.html">Data Ledger</a>
+	      <a href="sheets.html">Sheets</a>
+	      <a href="3-day-cleanup.html">Current Cut</a>
+	      <a href="148-burn.html">148 Target</a>
+	      <a href="full-runway.html">Full Plan</a>
+	      <a href="cardio-calibration.html">Cardio Data</a>
+	      <a href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw" target="_blank" rel="noopener">Google Sheet</a>
+	      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
+	    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">OCB Prep · master source · May 18-June 1</div>
+      <h1>Master Prep Runway: 148 by June 1</h1>
+      <p class="lead">One hub for the completed 3-day cleanup, the active May 21-25 aggressive/recoverable cut, the 148-by-June runway, and the local data behind the decisions.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card span-12">
+        <h2>Daily Ledger — Starts May 17</h2>
+        <p>One row per day. This is the operating view; everything else is reference.</p>
+        <div class="current-read-strip" id="current-read-strip" aria-label="Current operating read"></div>
+	        <div class="table-wrap ledger-wrap">
+	          <table class="master-ledger">
+	            <colgroup>
+		              <col class="date">
+		              <col class="phase">
+		              <col class="weight">
+		              <col class="sleep">
+		              <col class="macros">
+		              <col class="cardio">
+		              <col class="lift">
+		              <col class="burn">
+		              <col class="decision">
+		            </colgroup>
+		            <thead><tr><th>Date</th><th>Phase</th><th>AM wt</th><th>Sleep</th><th>Macros</th><th>Cardio</th><th>Lift</th><th>Adjusted burn</th><th class="tight-read">Decision / next lever</th></tr></thead>
+	            <tbody id="report-ledger-body">
+	              <tr>
+		                <td data-label="Date"><div class="ledger-date"><strong>Sun</strong><span>5/17</span></div></td>
+		                <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">Primer</div></div></td>
+		                <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">169 lb</div></div></td>
+		                <td data-label="Sleep">
+		                  <div class="ledger-entry">
+		                    <div class="metric-cluster"><span class="metric-pill"><strong>8h22m total</strong></span></div>
+		                    <div class="ledger-sub">Night 8h22m · no nap</div>
+		                  </div>
+		                </td>
+		                <td data-label="Macros">
+		                  <div class="ledger-entry">
+		                    <div class="macro-text">
+		                      <strong class="macro-kcal">873</strong> cal · <strong class="macro-protein">169P</strong> · <strong class="macro-fat">9F</strong> · <strong class="macro-carbs">28C</strong>
+		                    </div>
+		                  </div>
+		                </td>
+	                <td data-label="Cardio">
+	                  <div class="event-stack">
+	                    <div class="event-row"><div class="event-time">Walk</div><div><div class="event-main">Short outside walk</div><div class="event-meta">Time unknown · untracked</div></div></div>
+	                  </div>
+	                </td>
+	                <td data-label="Lift">
+	                  <div class="event-stack">
+	                    <div class="event-row"><div class="event-time">Legs</div><div><div class="event-main">3:27-4:24p · 56:16</div><div class="event-meta">431 reported · HR 128/179</div></div></div>
+	                  </div>
+	                </td>
+	                <td data-label="Adjusted burn"><div class="ledger-entry"><div class="ledger-main">~700 kcal</div><div class="ledger-sub">Apple active 769</div></div></td>
+	                <td data-label="Decision" class="tight-read"><div class="decision-text">Protein hit. No more protein needed that night; add only small fat/sodium if feeling off.</div></td>
+	              </tr>
+	              <tr>
+		                <td data-label="Date"><div class="ledger-date"><strong>Mon</strong><span>5/18</span></div></td>
+		                <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">Cleanup D1</div></div></td>
+		                <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">165 lb</div><div><span class="tag">-4</span></div></div></td>
+		                <td data-label="Sleep">
+		                  <div class="ledger-entry">
+		                    <div class="metric-cluster"><span class="metric-pill"><strong>8h00m total</strong></span></div>
+		                    <div class="ledger-sub">Night 6h24m · nap 1h36m</div>
+		                  </div>
+		                </td>
+		                <td data-label="Macros">
+		                  <div class="ledger-entry">
+		                    <div class="macro-text">
+		                      <strong class="macro-kcal">940</strong> cal · <strong class="macro-protein">171P</strong> · <strong class="macro-fat">12.5F</strong> · <strong class="macro-carbs">34C</strong>
+		                    </div>
+		                  </div>
+	                </td>
+	                <td data-label="Cardio">
+	                  <div class="event-stack">
+	                    <div class="event-row"><div class="event-time">AM</div><div><div class="event-main">8:07-8:52a · 45:14</div><div class="event-meta">504 kcal · Stair · HR 140/149</div></div></div>
+	                    <div class="event-row"><div class="event-time">PM</div><div><div class="event-main">6:37-7:07p · 30:29</div><div class="event-meta">334 kcal · Stair · HR 138/150</div></div></div>
+	                  </div>
+	                </td>
+	                <td data-label="Lift">
+	                  <div class="event-stack">
+	                    <div class="event-row"><div class="event-time">Pull</div><div><div class="event-main">4:58-6:36p · 1:37:26</div><div class="event-meta">914 → 600 adj · HR 129/158</div></div></div>
+	                  </div>
+	                </td>
+	                <td data-label="Adjusted burn"><div class="ledger-entry"><div class="ledger-main">~1,450 kcal</div><div class="ledger-sub">Apple active 1,902</div></div></td>
+	                <td data-label="Decision" class="tight-read"><div class="decision-text">Aggressive intake worked for scale, but fat was extremely low. Stay aggressive; do not chase extra burn after short sleep.</div></td>
+	              </tr>
+		              <tr>
+			                <td data-label="Date"><div class="ledger-date"><strong>Tue</strong><span>5/19</span></div></td>
+		                <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">Cleanup D2</div></div></td>
+		                <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">162.5 lb</div><div><span class="tag">-2.5</span></div></div></td>
+		                <td data-label="Sleep">
+		                  <div class="ledger-entry">
+		                    <div class="metric-cluster"><span class="metric-pill warn"><strong>6h39m total</strong></span></div>
+		                    <div class="ledger-sub">Night 5h53m · nap 46m</div>
+		                  </div>
+		                </td>
+			                <td data-label="Macros">
+			                  <div class="ledger-entry">
+			                    <div class="macro-text">
+			                      <strong class="macro-kcal">1,028</strong> cal · <strong class="macro-protein">180P</strong> · <strong class="macro-fat">12.3F</strong> · <strong class="macro-carbs">44C</strong>
+			                    </div>
+			                  </div>
+		                </td>
+		                <td data-label="Cardio">
+		                  <div class="event-stack">
+		                    <div class="event-row"><div class="event-time">AM</div><div><div class="event-main">6:30-7:18a · 47:14</div><div class="event-meta">504 / ~455 adj · HR 136/150</div></div></div>
+		                    <div class="event-row"><div class="event-time">PM</div><div><div class="event-main">5:36-6:06p · 30:27</div><div class="event-meta">309 / ~290 adj · HR 129/139</div></div></div>
+		                    <div class="event-row"><div class="event-time">Walk</div><div><div class="event-main">8:31-9:24p · 52:37</div><div class="event-meta">203 / ~180 adj · HR 95/135</div></div></div>
+		                  </div>
+		                </td>
+			                <td data-label="Lift">
+			                  <div class="event-stack">
+			                    <div class="event-row"><div class="event-time">Arms</div><div><div class="event-main">4:10-5:36p · 85:31</div><div class="event-meta">485 / ~430 adj · HR 113/141</div></div></div>
+			                  </div>
+			                </td>
+		                <td data-label="Adjusted burn"><div class="ledger-entry"><div class="ledger-main">~1,355 kcal</div><div class="ledger-sub">Apple active 1,768</div></div></td>
+			                <td data-label="Decision" class="tight-read"><div class="decision-text">Overreach day: ~2,200 adjusted deficit. Pull cardio tomorrow, weigh in, and avoid stacking another triple-cardio day if sleep is short.</div></td>
+			              </tr>
+	              <tr>
+		                <td data-label="Date"><div class="ledger-date"><strong>Wed</strong><span>5/20</span></div></td>
+		                <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">Cleanup D3</div></div></td>
+		                <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">160.3 lb</div><div><span class="tag">-2.2</span></div></div></td>
+		                <td data-label="Sleep">
+		                  <div class="ledger-entry">
+		                    <div class="metric-cluster"><span class="metric-pill warn"><strong>6h10m total</strong></span></div>
+		                    <div class="ledger-sub">Night 6h10m · no nap logged</div>
+		                  </div>
+		                </td>
+		                <td data-label="Macros">
+		                  <div class="ledger-entry">
+		                    <div class="macro-text">
+		                      <strong class="macro-kcal">975</strong> cal · <strong class="macro-protein">181P</strong> · <strong class="macro-fat">10.5F</strong> · <strong class="macro-carbs">37C</strong>
+		                    </div>
+		                  </div>
+		                </td>
+		                <td data-label="Cardio">
+		                  <div class="event-stack">
+		                    <div class="event-row"><div class="event-time">AM</div><div><div class="event-main">6:50-7:35a · 45:31</div><div class="event-meta">512 kcal · HR 140/156 · Z3/Z4</div></div></div>
+		                    <div class="event-row"><div class="event-time">Walk</div><div><div class="event-main">8:39-9:42a · 62:57</div><div class="event-meta">193 kcal · HR 77/101 · 2.50 mi</div></div></div>
+		                    <div class="event-row"><div class="event-time">Walk</div><div><div class="event-main">6:38-7:22p · 43:31</div><div class="event-meta">142 kcal · HR 93/105 · 2.11 mi</div></div></div>
+		                  </div>
+		                </td>
+		                <td data-label="Lift">
+		                  <div class="event-stack">
+		                    <div class="event-row"><div class="event-time">Rest</div><div><div class="event-main">No lift</div><div class="event-meta">Recovery move after Tue overreach</div></div></div>
+		                  </div>
+		                </td>
+		                <td data-label="Adjusted burn"><div class="ledger-entry"><div class="ledger-main">~1,075 kcal</div><div class="ledger-sub">Apple active 1,108</div></div></td>
+		                <td data-label="Decision" class="tight-read"><div class="decision-text">Weight drop confirmed. No lift helped, but Stair was hardest of the week and walking volume kept the day aggressive.</div></td>
+		              </tr>
+	              <tr>
+		                <td data-label="Date"><div class="ledger-date"><strong>Thu</strong><span>5/21</span></div></td>
+		                <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">Agg/Rec D1</div></div></td>
+		                <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">158.7 lb</div><div><span class="tag">-1.6</span></div></div></td>
+		                <td data-label="Sleep">
+		                  <div class="ledger-entry">
+		                    <div class="metric-cluster"><span class="metric-pill green"><strong>8h26m total</strong></span></div>
+		                    <div class="ledger-sub">10:59p-7:28a · 99% eff · RHR 47 / HRV 120</div>
+		                  </div>
+		                </td>
+		                <td data-label="Macros">
+		                  <div class="ledger-entry">
+		                    <div class="macro-text">
+		                      <strong class="macro-kcal">1,000</strong> cal · <strong class="macro-protein">170P</strong> · <strong class="macro-fat">14.9F</strong> · <strong class="macro-carbs">34.6C</strong>
+		                    </div>
+		                  </div>
+		                </td>
+		                <td data-label="Cardio">
+		                  <div class="event-stack">
+		                    <div class="event-row"><div class="event-time">AM</div><div><div class="event-main">9:24-10:16a · 51:04</div><div class="event-meta">532 kcal · Stair · HR 135.9/151</div></div></div>
+		                    <div class="event-row"><div class="event-time">PM</div><div><div class="event-main">3:53-4:25p · 32:15</div><div class="event-meta">342 kcal · Stair · HR 134/150</div></div></div>
+		                  </div>
+		                </td>
+		                <td data-label="Lift">
+		                  <div class="event-stack">
+		                    <div class="event-row"><div class="event-time">Lift</div><div><div class="event-main">2:25-3:53p · 87:49</div><div class="event-meta">760 → ~685 adj · HR 126/154</div></div></div>
+		                  </div>
+		                </td>
+		                <td data-label="Adjusted burn"><div class="ledger-entry"><div class="ledger-main">~1,818 kcal</div><div class="ledger-sub">Apple active 1,891</div></div></td>
+		                <td data-label="Decision" class="tight-read"><div class="decision-text">High-output day: two StairMaster blocks plus dense lift on 1,000 cal. Friday should be marker-led; do not add a third cardio block.</div></td>
+		              </tr>
+	            </tbody>
+	          </table>
+        </div>
+        <details class="reference-drawer" style="margin-top:12px">
+          <summary>Full data ledger — separate non-truncated page</summary>
+          <div style="padding:0 16px 16px">
+            <p>The dense CSV-style ledger moved to its own wide page so rows/columns wrap instead of getting cut off.</p>
+            <p style="margin-top:10px"><a class="tag blue" href="data-ledger.html">Open Data Ledger</a><a class="tag blue" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw" target="_blank" rel="noopener">Open Google Sheet</a></p>
+          </div>
+        </details>
+        <details class="reference-drawer" style="margin-top:12px">
+          <summary>Scale forecast vs actual — estimate range and weigh-in through June 1</summary>
+          <div class="table-wrap compact-table-wrap">
+            <table class="compact-ref forecast-ref">
+              <thead><tr><th>Date</th><th>Estimate</th><th>Actual</th><th>Miss</th><th>Verdict</th><th>Read</th></tr></thead>
+              <tbody>
+                <tr><td>5/17 Sun</td><td>Start</td><td class="num">169.0</td><td>—</td><td>Start</td><td title="High post-break AM read; not a settled baseline.">High post-break read</td></tr>
+                <tr><td>5/18 Mon</td><td class="num">165-168</td><td class="num">165.0</td><td class="num">-1.5</td><td>Low edge</td><td title="Initial cleanup model expected 165-168.">Hit the low edge of estimate</td></tr>
+                <tr><td>5/19 Tue</td><td class="num">162-163.5</td><td class="num">162.5</td><td class="num">-0.3</td><td>On track</td><td title="Rolling drop-rate model from early cleanup fit the actual.">Rolling drop model fit</td></tr>
+                <tr><td>5/20 Wed</td><td class="num">159.5-162</td><td class="num">160.3</td><td class="num">-0.5</td><td>On track</td><td title="Still inside the fast-flush band.">Inside fast-flush band</td></tr>
+                <tr><td>5/21 Thu</td><td class="num">159-160</td><td class="num">158.7</td><td class="num">-0.7</td><td>Beat</td><td title="Explicit forecast was 159.0-160.0, center around 159.4.">Beat the forecast</td></tr>
+                <tr><td>5/22 Fri</td><td class="num">157-158</td><td>Pending</td><td>—</td><td>Pending</td><td title="If it lands here, the flush is still moving.">Still flush if hit</td></tr>
+                <tr><td>5/23 Sat</td><td class="num">156-158</td><td>Pending</td><td>—</td><td>Pending</td><td title="Still not fully settled; soreness/sodium/BM can swing this.">Not fully settled</td></tr>
+                <tr><td>5/24 Sun</td><td class="num">155-157</td><td>Pending</td><td>—</td><td>Pending</td><td title="More useful fat-vs-water read starts here.">Better truth read</td></tr>
+                <tr><td>5/25 Mon</td><td class="num">153-156</td><td>Pending</td><td>—</td><td>Pending</td><td title="First strong read if sleep/sodium/training are controlled.">First strong read</td></tr>
+                <tr><td>5/26 Tue</td><td class="num">153-155.5</td><td>Pending</td><td>—</td><td>Pending</td><td title="Drop should slow unless more water/gut clears.">Drop should slow</td></tr>
+                <tr><td>5/27 Wed</td><td class="num">152.5-155</td><td>Pending</td><td>—</td><td>Pending</td><td title="Use this to separate real fat gain from remaining transient mass.">Truth window</td></tr>
+                <tr><td>5/28 Thu</td><td class="num">152-154.5</td><td>Pending</td><td>—</td><td>Pending</td><td title="If still above this range, check sodium, soreness, sleep, BM, and under-logged intake.">Check variables if high</td></tr>
+                <tr><td>5/29 Fri</td><td class="num">151-154</td><td>Pending</td><td>—</td><td>Pending</td><td title="Realistic aggressive-cut lane if recovery stays intact.">Aggressive lane</td></tr>
+                <tr><td>5/30 Sat</td><td class="num">150.5-153.5</td><td>Pending</td><td>—</td><td>Pending</td><td title="Getting near the true post-break damage read.">Damage read</td></tr>
+                <tr><td>5/31 Sun</td><td class="num">149.5-153</td><td>Pending</td><td>—</td><td>Pending</td><td title="Final pre-coach read; 148 is possible only if transient mass clears hard.">Final pre-coach read</td></tr>
+                <tr><td>6/1 Mon</td><td class="num">148.5-152.5</td><td>Pending</td><td>—</td><td>Pending</td><td title="Hard-goal landing zone; 148 requires near-perfect flush plus no rebound noise.">Coach handoff target</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details class="reference-drawer" style="margin-top:12px">
+          <summary>Supporting timing, sleep, movement, and missing-data tables</summary>
+          <div class="table-wrap compact-table-wrap">
+          <table class="compact-ref timing-ref">
+            <thead><tr><th>Day</th><th>Night</th><th>Nap</th><th>Total</th><th>Bed</th><th>Wake</th><th>Cardio Timing</th><th>Lift Timing</th><th>Move</th></tr></thead>
+            <tbody>
+	              <tr><td>5/17 Sun</td><td>8h22</td><td>—</td><td>8h22</td><td>1:58a</td><td>10:46a</td><td title="Short walk; exact time unknown.">Walk unk</td><td title="Legs from 3:27p to 4:24p.">Legs 3:27-4:24p</td><td>—</td></tr>
+	              <tr><td>5/18 Mon</td><td>6h24</td><td title="Nap from 12:29p to 2:09p.">1h36 @12:29p</td><td>8h00</td><td>10:21p</td><td>5:30a</td><td title="8:07-8:52a Stair; 6:37-7:07p Stair.">S 8:07-8:52a; S 6:37-7:07p</td><td title="Pull from 4:58p to 6:36p.">Pull 4:58-6:36p</td><td title="Home after AM cardio at 9:02a.">Home 9:02a</td></tr>
+	              <tr><td>5/19 Tue</td><td>5h53</td><td title="Nap from 1:59p to 2:56p.">46m @1:59p</td><td>6h39</td><td>11:16p</td><td>5:35a</td><td title="6:30-7:18a Stair; 5:36-6:06p Stair.">S 6:30-7:18a; S 5:36-6:06p</td><td title="Arms from 4:10p to 5:36p.">Arms 4:10-5:36p</td><td title="Walk from 8:31p to 9:24p.">W 8:31-9:24p</td></tr>
+	              <tr><td>5/20 Wed</td><td>6h10</td><td>—</td><td>6h10</td><td>11:15p</td><td>5:39a</td><td title="6:50-7:35a Stair; 8:39-9:42a walk; 6:38-7:22p walk.">S 6:50-7:35a; W 8:39a; W 6:38p</td><td>No lift</td><td title="17,197 steps.">17.2k steps</td></tr>
+	              <tr><td>5/21 Thu</td><td>8h26</td><td>—</td><td>8h26</td><td>10:59p</td><td>7:28a</td><td title="9:24-10:15a StairMaster; 3:53-4:25p StairMaster.">S 9:24-10:15a; S 3:53-4:25p</td><td title="Weight Training from 2:25p to 3:53p.">Lift 2:25-3:53p</td><td title="11,903 steps, 5.17 miles, 9 floors.">11.9k steps</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap compact-table-wrap">
+          <table class="compact-ref sleep-ref">
+            <thead><tr><th>Day</th><th>Bed</th><th>Wake</th><th>Asleep</th><th>In Bed</th><th>Eff</th><th>Core</th><th>REM</th><th>Deep</th><th>Awake</th><th>RHR</th><th>HRV</th><th>Read</th></tr></thead>
+            <tbody>
+	              <tr><td>5/17 Sun</td><td>1:58a</td><td>10:46a</td><td>8h22</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td title="Long sleep after disruption; primer day.">Long sleep</td></tr>
+	              <tr><td>5/18 Mon</td><td>10:21p</td><td>5:30a</td><td>6h24</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td title="Shorter night offset by 1h36m nap later.">Nap helped</td></tr>
+	              <tr><td>5/19 Tue</td><td>11:16p</td><td>5:35a</td><td>5h53</td><td>6h18</td><td>93%</td><td>3h46</td><td>54m</td><td>1h13</td><td>25m</td><td class="num">51</td><td class="num">110</td><td title="Short night but efficient; recovery was still usable.">Short</td></tr>
+	              <tr><td>5/20 Wed</td><td>11:15p</td><td>5:39a</td><td>6h10</td><td>6h25</td><td>96%</td><td>3h39</td><td>1h51</td><td>40m</td><td>15m</td><td class="num">50</td><td class="num">112</td><td title="Still short but efficient; no-lift day helped.">Efficient</td></tr>
+	              <tr><td>5/21 Thu</td><td>10:59p</td><td>7:28a</td><td>8h26</td><td>8h29</td><td>99%</td><td>5h19</td><td>2h11</td><td>56m</td><td>3m</td><td class="num">47</td><td class="num">120</td><td title="Recovery crash; body forced rest and markers improved.">Recovery crash</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap compact-table-wrap">
+          <table class="compact-ref activity-ref">
+            <thead><tr><th>Day</th><th>Steps</th><th>Distance</th><th>Floors</th><th>Read</th></tr></thead>
+            <tbody>
+	              <tr><td>5/17 Sun</td><td class="num">5,817</td><td>2.52 mi</td><td class="num">10</td><td title="Primer day; enough movement around leg day.">Primer; enough movement</td></tr>
+	              <tr><td>5/18 Mon</td><td class="num">10,227</td><td>4.45 mi</td><td class="num">8</td><td title="Good baseline with two StairMaster blocks.">Good baseline</td></tr>
+	              <tr><td>5/19 Tue</td><td class="num">14,529</td><td>6.49 mi</td><td class="num">11</td><td title="High output; this is why tomorrow should pull back.">High output</td></tr>
+	              <tr><td>5/20 Wed</td><td class="num">17,197</td><td>7.71 mi</td><td class="num">10</td><td title="No lift, but high walking volume kept output elevated.">High walk volume</td></tr>
+	              <tr><td>5/21 Thu</td><td class="num">11,903</td><td>5.17 mi</td><td class="num">9</td><td title="High output despite fewer steps because two StairMaster blocks plus dense lift drove active burn.">High output</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap compact-table-wrap">
+          <table class="compact-ref missing-ref">
+            <thead><tr><th>Date</th><th>Gap</th><th>Action / Read</th></tr></thead>
+            <tbody>
+	              <tr><td>5/17 Sun</td><td>Walk time</td><td title="Walk time remains untracked; no further action unless you want exact walk timing.">Only if you want exact walk timing.</td></tr>
+	              <tr><td>5/18 Mon</td><td>Na / fiber</td><td title="Sodium/fiber remain unknown; sleep timing is now filled.">Check MacroFactor only if needed.</td></tr>
+	              <tr><td>5/19 Tue</td><td>Na / fiber</td><td title="Sodium/fiber remain unavailable in HK; Wednesday pull resolved weight, RHR, HRV, sleep, and workouts.">Core data resolved.</td></tr>
+	              <tr><td>5/20 Wed</td><td>HR timeout + Na/fiber</td><td title="Re-query HR per workout if you want tighter adjusted burn; otherwise the day is usable.">Usable; HR re-query optional.</td></tr>
+	              <tr><td>5/21 Thu</td><td>Lift label only</td><td title="Core data is complete; body-part label for the lift is still unknown.">Tell me legs/pull/arms/etc. if you want it classified.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        </details>
+      </article>
+
+      <details class="reference-drawer timing-drawer">
+        <summary>Timing drawer — wake, cardio, lift, sleep anchors</summary>
+        <div class="timing-grid">
+          <div class="timing-card wide">
+            <div class="timing-kicker">Current read</div>
+            <h3>The cut is working; do not turn it sloppy</h3>
+            <div class="timing-list">
+              <div class="timing-line"><strong>Scale</strong><span>169 → 158.7 by May 21. That is mostly water/glycogen/gut plus some fat, not a new settled baseline.</span></div>
+              <div class="timing-line"><strong>Protein</strong><span>169-181g every day. Keep this locked; do not trade protein away to chase a lower weigh-in.</span></div>
+              <div class="timing-line"><strong>Output</strong><span>Thu had two StairMaster blocks plus dense lift: 1,891 Apple active, ~1,818 adjusted active, ~2,420 adjusted deficit. Activity is already high enough.</span></div>
+              <div class="timing-line"><strong>Recovery</strong><span>Thu started recovered: 8h26m asleep, 99% efficiency, RHR 47, HRV 120. Friday depends on whether that held after the high-output day.</span></div>
+            </div>
+            <p class="timing-note">Main adjustment: hold the line and stop adding hidden volume. The risk is not lack of effort; it is stacking too much on top of an already sharp drop.</p>
+          </div>
+          <div class="timing-card">
+            <div class="timing-kicker">May 21-25 recoverable cut</div>
+            <h3>Morning anchor</h3>
+            <div class="timing-list">
+              <div class="timing-line"><strong>5:30</strong><span>Wake, bathroom, weigh-in before water.</span></div>
+              <div class="timing-line"><strong>5:40</strong><span>Electrolytes/water, caffeine if using it.</span></div>
+              <div class="timing-line"><strong>6:15</strong><span>Leave for gym; keep the pre-cardio block tight.</span></div>
+              <div class="timing-line"><strong>35-50m</strong><span>Easy StairMaster only if sleep/recovery are okay; use 20-30m or skip if markers are worse.</span></div>
+              <div class="timing-line"><strong>Post</strong><span>Home, shower, protein, log weight/cardio before the day drifts.</span></div>
+            </div>
+          </div>
+          <div class="timing-card">
+            <div class="timing-kicker">Training window</div>
+            <h3>Lift without drift</h3>
+            <div class="timing-list">
+              <div class="timing-line"><strong>4:00</strong><span>Start getting ready; keep the transition short.</span></div>
+              <div class="timing-line"><strong>60-75m</strong><span>One quality lift block. Keep load/signal; do not add density to chase burn.</span></div>
+              <div class="timing-line"><strong>PM cardio</strong><span>No PM StairMaster unless sleep is 7h+, lift is done, and weight has stalled 2 mornings.</span></div>
+              <div class="timing-line"><strong>5:45</strong><span>Post-lift protein and log the session.</span></div>
+            </div>
+          </div>
+          <div class="timing-card">
+            <div class="timing-kicker">Sleep anchor</div>
+            <h3>Protect recovery</h3>
+            <div class="timing-list">
+              <div class="timing-line"><strong>9:15</strong><span>Shutdown alarm: stop adding tasks and cardio ideas.</span></div>
+              <div class="timing-line"><strong>9:30</strong><span>Phone down, prep clothes/bottle, lights dim.</span></div>
+              <div class="timing-line"><strong>10:00</strong><span>Lights out target for a 5:30 wake.</span></div>
+              <div class="timing-line"><strong>7h+</strong><span>This is the lever that keeps the aggressive cut from turning sloppy.</span></div>
+            </div>
+          </div>
+          <div class="timing-card wide">
+            <div class="timing-kicker">May 21-25 adjustment rules</div>
+            <h3>Change one lever at a time</h3>
+            <div class="timing-list">
+              <div class="timing-line"><strong>Trend</strong><span>May 17-21 produced 169 → 158.7. Cleanup worked; Thu still stacked high output, so Friday should be marker-led.</span></div>
+              <div class="timing-line"><strong>Calories</strong><span>Do not repeat ~950 cal plus huge output by default. Use 1,150-1,350 if recovered, 1,300-1,500 if sleep/legs are off.</span></div>
+              <div class="timing-line"><strong>Drop &gt;2 lb</strong><span>Hold calories/activity steady first. Do not stack more restriction on top of a sharp drop.</span></div>
+              <div class="timing-line"><strong>Flat/up day</strong><span>Check BM, sodium, soreness, sleep, and late fluids before changing the plan.</span></div>
+              <div class="timing-line"><strong>Feel wrecked</strong><span>If sleep is under 6.5h, RHR rises, HRV worsens, or legs feel flat: reduce cardio before cutting food lower.</span></div>
+              <div class="timing-line"><strong>Data rule</strong><span>Change one variable at a time: carbs, sodium, water, steps, or training.</span></div>
+            </div>
+            <p class="timing-note">The hard goal stays. The next win is boring repeatability: 5:30 wake/weigh, one easy cardio block, one clean lift, 9:15 shutdown, 10:00 lights out.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="reference-drawer">
+        <summary>Reference drawer — phase plan, timing, DEXA, MacroFactor, cleanup evidence</summary>
+        <div class="reference-grid">
+      <article class="card span-5">
+        <h2>Decision Summary</h2>
+        <ul>
+          <li>Goal: back toward <strong>148 lb AM scale weight by June 1</strong>.</li>
+          <li>Protein: <strong>165g minimum</strong>, <strong>170-185g ideal</strong>, <strong>190g optional cap</strong>.</li>
+          <li>Main cardio: morning StairMaster.</li>
+          <li>Main muscle retention: quality lifting signal.</li>
+          <li>Guardrail: no diuretics, forced sauna cuts, laxatives, or eating back Apple active calories.</li>
+        </ul>
+      </article>
+
+      <article class="card span-7">
+        <h2>Last Full Timing Read</h2>
+        <table>
+          <thead><tr><th>Time</th><th>Event</th><th>Read</th></tr></thead>
+          <tbody>
+            <tr><td>10:59 PM</td><td>Sleep start</td><td>Night leading into Thu 5/21; woke at 7:28 AM after recovery crash sleep.</td></tr>
+            <tr><td>7:28 AM</td><td>Wake</td><td>8h26m asleep, 99% efficiency, RHR 47, HRV 120.</td></tr>
+            <tr><td>9:24-10:15 AM</td><td>AM StairMaster</td><td>51:04, 532 Apple kcal / ~534 adjusted, avg HR 136, peak 151.</td></tr>
+            <tr><td>2:25-3:53 PM</td><td>Weight Training</td><td>87:49, 760 Apple kcal / ~685 adjusted, avg HR 126, peak 154.</td></tr>
+            <tr><td>3:53-4:25 PM</td><td>PM StairMaster</td><td>32:15, 342 Apple kcal / ~342 adjusted, avg HR 134, peak 150.</td></tr>
+            <tr><td>9:35 PM</td><td>Final totals</td><td>1,000 cal / 170P / 14.9F / 34.6C; 11,903 steps; Apple active 1,891; adjusted active ~1,818.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-12">
+        <h2>Last Full Training Load</h2>
+        <table>
+          <thead><tr><th>Time</th><th>Type</th><th>Duration</th><th>Reported kcal</th><th>Adjusted kcal</th><th>kcal/min</th><th>Avg HR</th><th>Max HR</th><th>Zone</th><th>Read</th></tr></thead>
+          <tbody>
+            <tr><td>Thu 9:24-10:15 AM</td><td>StairMaster</td><td>51:04</td><td>532</td><td>~534</td><td>10.42</td><td>136</td><td>151</td><td>Z3</td><td>Strong controlled morning anchor.</td></tr>
+            <tr><td>Thu 2:25-3:53 PM</td><td>Weight Training</td><td>87:49</td><td>760</td><td>~685</td><td>8.65</td><td>126</td><td>154</td><td>Z3 dense</td><td>Dense lift; body-part label still unknown.</td></tr>
+            <tr><td>Thu 3:53-4:25 PM</td><td>StairMaster</td><td>32:15</td><td>342</td><td>~342</td><td>10.60</td><td>134</td><td>150</td><td>Z3</td><td>Good output, but turns Thu into another high-output day.</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>Displayed sessions</strong></td><td><strong>171 min</strong></td><td><strong>1,634 reported</strong></td><td><strong>~1,561 workout adj</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>Day-level adjusted active was ~1,818 after background movement.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-5">
+        <h2>DEXA Anchor</h2>
+        <table>
+          <tbody>
+            <tr><th>Metric</th><th>Value</th></tr>
+            <tr><td>DEXA weight</td><td>154.3 lb</td></tr>
+            <tr><td>Body fat</td><td>15.8%</td></tr>
+            <tr><td>Fat mass</td><td>~24.4 lb</td></tr>
+            <tr><td>Lean mass</td><td>~129.9 lb</td></tr>
+            <tr><td>Stage target</td><td>~137-139 lb</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-7">
+        <h2>Protein Logic</h2>
+        <p>Using local lean mass plus prior successful strict blocks, <strong>170-185g</strong> is enough. The weak day was <strong>110g</strong>, not a day at 165-175g.</p>
+        <p><span class="tag">165g minimum</span><span class="tag">170-185g ideal</span><span class="tag warn">190g optional</span><span class="tag danger">200g+ unnecessary</span></p>
+      </article>
+
+      <article class="card span-12">
+        <h2>Recent MacroFactor Snapshot</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Expend.</th><th>Trend</th><th>Scale</th><th>Cal</th><th>P</th><th>F</th><th>C</th><th>Steps</th><th>Sodium</th><th>Fiber</th></tr></thead>
+          <tbody>
+            <tr><td>5/1</td><td>1940</td><td>150.34</td><td>148.79</td><td>1667</td><td>163</td><td>65</td><td>108</td><td>11682</td><td>1479.7</td><td>20.7</td></tr>
+            <tr><td>5/2</td><td>1940</td><td>150.15</td><td>148.45</td><td>1396</td><td>181</td><td>35</td><td>90</td><td>10367</td><td>813.1</td><td>16.4</td></tr>
+            <tr><td>5/3</td><td>1940</td><td>149.96</td><td>148.26</td><td>1673</td><td>165</td><td>51</td><td>141</td><td>10494</td><td>517.5</td><td>19.2</td></tr>
+            <tr><td>5/4</td><td>1940</td><td>149.84</td><td>148.73</td><td>1739</td><td>181</td><td>54</td><td>138</td><td>7648</td><td>1455.9</td><td>34.1</td></tr>
+            <tr><td>5/5</td><td>1939</td><td>149.81</td><td>149.53</td><td>3553</td><td>247</td><td>128</td><td>392</td><td>5695</td><td>1979.8</td><td>10.0</td></tr>
+            <tr><td>5/6</td><td>1940</td><td>149.97</td><td>151.44</td><td>1373</td><td>164</td><td>35</td><td>100</td><td>7823</td><td>910.0</td><td>8.0</td></tr>
+            <tr><td>5/7</td><td>1939</td><td>150.17</td><td>151.97</td><td>1266</td><td>110</td><td>44</td><td>103</td><td>6320</td><td>988.1</td><td>12.4</td></tr>
+            <tr><td>5/8</td><td>1933</td><td>150.33</td><td>151.75</td><td>3746</td><td>259</td><td>162</td><td>323</td><td>3244</td><td>1585.0</td><td>28.0</td></tr>
+            <tr><td>5/9</td><td>1933</td><td>150.47</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>27</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-6">
+        <h2>Prior Cleanup Evidence</h2>
+        <table>
+          <thead><tr><th>Block</th><th>Avg Cal</th><th>Avg P</th><th>Scale Response</th><th>Lesson</th></tr></thead>
+          <tbody>
+            <tr><td>Mar 25-27</td><td>1118</td><td>164g</td><td>-1.8 lb</td><td>Worked; exit failed.</td></tr>
+            <tr><td>Mar 30-Apr 1</td><td>1093</td><td>159g</td><td>-4.5 lb</td><td>Best proof: strict + clean exit.</td></tr>
+            <tr><td>Apr 14-18</td><td>1042</td><td>160g</td><td>-5.5 lb</td><td>Worked; weak-protein day was risk.</td></tr>
+            <tr><td>Apr 27-30</td><td>1121</td><td>176g</td><td>-3.1 lb</td><td>Best blueprint; guard exit.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-6">
+        <h2>Calorie-Burn Rule</h2>
+        <p>StairMaster is reliable; low-HR lifting is not. Do not eat back active calories.</p>
+        <table>
+          <thead><tr><th>Session</th><th>Planning Read</th></tr></thead>
+          <tbody>
+            <tr><td>30m StairMaster</td><td>~270 kcal real burn</td></tr>
+            <tr><td>45m StairMaster</td><td>~400 kcal real burn</td></tr>
+            <tr><td>Low-HR lift &lt;90</td><td>Muscle signal only; burn can be inflated</td></tr>
+            <tr><td>Lift avg HR &gt;130</td><td>Count as cardio-style work</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-12">
+        <h2>148-by-June-1 Phase Plan</h2>
+        <table>
+          <thead><tr><th>Phase</th><th>Dates</th><th>Macros</th><th>Cardio</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Strict cleanup</td><td>May 18-20</td><td>1,050-1,300 cal · 170-185P · 20-60C · 10-35F</td><td>30-45m StairMaster</td><td>Fast water/glycogen/gut drop</td></tr>
+            <tr><td>5-day aggressive/recoverable</td><td>May 21-25</td><td>1,150-1,500 cal · 165-185P · 30-100C · 20-40F</td><td>35-50m easy cardio</td><td>Keep fat loss moving without repeating overreach</td></tr>
+            <tr><td>Aggressive baseline</td><td>May 26-29</td><td>1,450-1,650 cal · 165-180P · 70-125C · 30-45F</td><td>35-45m easy cardio</td><td>Preserve training/sleep</td></tr>
+            <tr><td>Handoff stabilize</td><td>May 30-Jun 1</td><td>1,650-1,850 cal · 165P+ · 100-160C · 40-55F</td><td>30-40m easy cardio</td><td>Arrive stable for coach</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-12">
+        <h2>Source Files</h2>
+        <p><code>Bodybuilding/Contest Prep/wiki/dexa-baseline.md</code> · <code>Bodybuilding/Contest Prep/data/macrofactor/master/MASTER_daily.csv</code> · <code>Bodybuilding/Contest Prep/reports/psmf-cycle-playbook-2026-05-09-cycles.csv</code> · <code>Bodybuilding/Contest Prep/reports/psmf-response-analysis-2026-05-09.md</code></p>
+      </article>
+        </div>
+      </details>
+    </section>
+	    <p class="footer">Private prep planning artifact for contest-prep execution and evidence review, not medical advice.</p>
+	  </main>
+	  <script src="analysis-data.js?v=20260522-meal-anchor"></script>
+	  <script>
+	    (() => {
+	      const data = window.PREP_ANALYSIS_DATA || {};
+	      const body = document.getElementById("report-ledger-body");
+	      const currentReadStrip = document.getElementById("current-read-strip");
+	      const rows = data.reportLedger || [];
+	      if (!body || !rows.length) return;
+	      const escapeHtml = (value) => String(value ?? "—")
+	        .replaceAll("&", "&amp;")
+	        .replaceAll("<", "&lt;")
+	        .replaceAll(">", "&gt;")
+	        .replaceAll('"', "&quot;");
+	      const fmt = (value, suffix = "") => value === null || value === undefined || value === "" ? "Pending" : `${escapeHtml(value)}${suffix}`;
+	      const fmtNumber = (value, digits = 0) => {
+	        if (value === null || value === undefined || Number.isNaN(Number(value))) return "Pending";
+	        const number = Number(value);
+	        return number.toLocaleString(undefined, {
+	          maximumFractionDigits: digits,
+	          minimumFractionDigits: Number.isInteger(number) ? 0 : Math.min(digits, 1),
+	        });
+	      };
+	      const sleepTone = (total) => {
+	        const match = String(total || "").match(/(\d+)h(?:(\d+))?/);
+	        if (!match) return "";
+	        const minutes = Number(match[1]) * 60 + Number(match[2] || 0);
+	        if (minutes >= 8 * 60) return "green";
+	        if (minutes < 7 * 60) return "warn";
+	        return "";
+	      };
+	      const macroTone = (macros) => {
+	        const caloriesValue = macros?.calories;
+	        if (caloriesValue === null || caloriesValue === undefined || caloriesValue === "") return "pending";
+	        const calories = Number(caloriesValue);
+	        if (!Number.isFinite(calories)) return "pending";
+	        if (calories < 1050) return "very-low";
+	        if (calories <= 1500) return "on-runway";
+	        return "pending";
+	      };
+	      const eventRows = (events) => (events || []).map((event) => `
+	        <div class="event-row">
+	          <div class="event-time">${escapeHtml(event.label)}</div>
+	          <div>
+	            <div class="event-main">${escapeHtml(event.title)}</div>
+	            <div class="event-meta">${escapeHtml(event.meta)}</div>
+	          </div>
+	        </div>
+	      `).join("");
+	      const renderCurrentRead = () => {
+	        if (!currentReadStrip) return;
+	        const operating = data.operatingRead || {};
+	        const cards = operating.cards || [];
+	        currentReadStrip.innerHTML = `
+	          <article class="current-read-card lead">
+	            <span>Current read</span>
+	            <strong>${escapeHtml(operating.headline || "Review the ledger before changing levers.")}</strong>
+	            <p>${escapeHtml(operating.subhead || "No generated operating read is available yet.")}</p>
+	          </article>
+	          ${cards.map(card => `
+	            <article class="current-read-card ${escapeHtml(card.tone || "")}">
+	              <span>${escapeHtml(card.label)}</span>
+	              <strong>${escapeHtml(card.value)}</strong>
+	              <p>${escapeHtml(card.text)}</p>
+	            </article>
+	          `).join("")}
+	        `;
+	      };
+	      renderCurrentRead();
+	      body.innerHTML = rows.map((row) => {
+	        const macros = row.macros || {};
+	        const burn = row.burn || {};
+	        const sleep = row.sleep || {};
+	        const delta = row.delta !== null && row.delta !== undefined ? `<div><span class="tag">${fmtNumber(row.delta, 1)}</span></div>` : "";
+	        const macroText = macros.calories !== null && macros.calories !== undefined
+	          ? `<strong class="macro-kcal">${fmtNumber(macros.calories)}</strong> cal · <strong class="macro-protein">${fmtNumber(macros.protein)}P</strong> · <strong class="macro-fat">${fmtNumber(macros.fat, 1)}F</strong> · <strong class="macro-carbs">${fmtNumber(macros.carbs, 1)}C</strong>`
+	          : "Food pending";
+	        const macroCardClass = macroTone(macros);
+	        const adjustedBurn = burn.adjusted !== null && burn.adjusted !== undefined ? `~${fmtNumber(burn.adjusted)} kcal` : "Pending";
+	        const appleBurn = burn.apple !== null && burn.apple !== undefined ? `Apple active ${fmtNumber(burn.apple)}` : "Apple active pending";
+	        return `
+	          <tr>
+	            <td data-label="Date"><div class="ledger-date"><strong>${escapeHtml(row.day)}</strong><span>${escapeHtml(row.dateShort)}</span></div></td>
+	            <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">${escapeHtml(row.phase)}</div></div></td>
+	            <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">${fmtNumber(row.weight, 1)} lb</div>${delta}</div></td>
+	            <td data-label="Sleep">
+	              <div class="ledger-entry">
+	                <div class="metric-cluster"><span class="metric-pill ${sleepTone(sleep.total)}"><strong>${escapeHtml(sleep.total || "Pending")} total</strong></span></div>
+	                <div class="ledger-sub">${escapeHtml(sleep.detail || "Pending")}</div>
+	              </div>
+	            </td>
+	            <td data-label="Macros">
+	              <div class="ledger-entry"><div class="macro-card ${macroCardClass}" title="${escapeHtml(macroCardClass === "very-low" ? "Calories are very low" : macroCardClass === "on-runway" ? "Calories are inside the active runway window" : "Macro data pending")}"><div class="macro-text">${macroText}</div></div></div>
+	            </td>
+	            <td data-label="Cardio"><div class="event-stack">${eventRows(row.cardioEvents)}</div></td>
+	            <td data-label="Lift"><div class="event-stack">${eventRows(row.liftEvents)}</div></td>
+	            <td data-label="Adjusted burn"><div class="ledger-entry"><div class="ledger-main">${adjustedBurn}</div><div class="ledger-sub">${appleBurn}</div></div></td>
+	            <td data-label="Decision" class="tight-read"><div class="decision-text">${escapeHtml(row.decision || "Pending")}</div></td>
+	          </tr>
+	        `;
+	      }).join("");
+	    })();
+	  </script>
+	  <script>
+	    (() => {
+	      const themeKey = "prep_runway_theme";
+	      const button = document.getElementById("theme-toggle");
+	      const applyTheme = (theme) => {
+	        document.documentElement.dataset.theme = theme;
+	        localStorage.setItem(themeKey, theme);
+	        if (button) {
+	          button.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+	          button.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+	        }
+	      };
+	      applyTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
+	      button?.addEventListener("click", () => applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+	    })();
+	  </script>
+	</body>
+	</html>

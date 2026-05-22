@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Current Cut — 3-Day Cleanup + May 21-25 Aggressive/Recoverable Phase</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b10;
+      --panel: #111722;
+      --panel-2: #161f2f;
+      --text: #f2f6fb;
+      --muted: #aab7c7;
+      --line: rgba(255,255,255,.12);
+      --green: #51b749;
+      --cyan: #46d6db;
+      --amber: #fbd75b;
+      --red: #ff6b6b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(70, 214, 219, .15), transparent 36rem),
+        radial-gradient(circle at top right, rgba(81, 183, 73, .13), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    main {
+      width: min(1120px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+    .hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(17, 23, 34, .94), rgba(22, 31, 47, .88));
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.36);
+    }
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 10px 0 12px;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+    .subtitle {
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+    .doc-nav {
+      border: 1px solid var(--line);
+      background: rgba(17, 23, 34, .88);
+      border-radius: 18px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .doc-nav a {
+      color: var(--text);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 850;
+    }
+    .doc-nav a.primary {
+      background: rgba(70, 214, 219, .14);
+      border-color: rgba(70, 214, 219, .45);
+      color: #c5f9ff;
+    }
+    .card {
+      grid-column: span 12;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(17, 23, 34, .82);
+      padding: 22px;
+    }
+    @media (min-width: 860px) {
+      .span-4 { grid-column: span 4; }
+      .span-5 { grid-column: span 5; }
+      .span-6 { grid-column: span 6; }
+      .span-7 { grid-column: span 7; }
+      .span-8 { grid-column: span 8; }
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      letter-spacing: -.02em;
+    }
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 16px;
+      color: var(--cyan);
+    }
+    p { margin: 0 0 12px; color: var(--muted); }
+    ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    li { margin: 6px 0; }
+    strong { color: var(--text); }
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .metric .label {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+    }
+    .metric .value {
+      margin-top: 4px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      font-size: 14px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 12px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th {
+      color: var(--text);
+      background: rgba(255,255,255,.055);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    td { color: var(--muted); }
+    tr:last-child td { border-bottom: 0; }
+    .tag {
+      display: inline-flex;
+      border: 1px solid rgba(81, 183, 73, .45);
+      color: #baf5b5;
+      background: rgba(81, 183, 73, .12);
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 800;
+      margin: 2px 4px 2px 0;
+    }
+    .warn {
+      border-color: rgba(251, 215, 91, .45);
+      background: rgba(251, 215, 91, .11);
+      color: #ffe995;
+    }
+    .danger {
+      border-color: rgba(255, 107, 107, .5);
+      background: rgba(255, 107, 107, .11);
+      color: #ffc0c0;
+    }
+    .callout {
+      border-left: 4px solid var(--amber);
+      background: rgba(251, 215, 91, .08);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: var(--text);
+    }
+    a { color: #8fe8ff; }
+    .footer {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 24px;
+      padding-bottom: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+</head>
+<body>
+  <main>
+    <nav class="doc-nav" aria-label="Prep documents">
+      <a href="report.html">Daily Master</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="data-ledger.html">Data Ledger</a>
+      <a class="primary" href="3-day-cleanup.html">Current Cut</a>
+      <a href="148-burn.html">148 Target</a>
+      <a href="full-runway.html">Full Runway</a>
+      <a href="cardio-calibration.html">Cardio Calibration</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">OCB Prep · current cut · May 18-25</div>
+      <h1>3-Day Cleanup → 5-Day Aggressive/Recoverable Cut</h1>
+      <p class="subtitle">May 18-20 worked. May 21-25 keeps the aggressive lever on, but it is not five straight days of near-zero-fat liquid PSMF: protein stays locked, cardio stays controlled, and recovery decides whether calories stay low or step up.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card span-5">
+        <h2>Current Ceiling</h2>
+        <p>The 3-day PSMF-style cleanup is complete. The next phase is still aggressive, but the floor is higher so lifting and sleep do not crater.</p>
+        <div class="metric-row">
+          <div class="metric"><div class="label">Calories</div><div class="value">1,150-1,500</div></div>
+          <div class="metric"><div class="label">Protein</div><div class="value">170-185g</div></div>
+          <div class="metric"><div class="label">Carbs</div><div class="value">30-100g</div></div>
+          <div class="metric"><div class="label">Fat Floor</div><div class="value">20-40g</div></div>
+        </div>
+        <p style="margin-top:14px;"><span class="tag">5-day active phase</span><span class="tag warn">low but not reckless</span><span class="tag danger">no diuretics</span></p>
+      </article>
+
+      <article class="card span-7">
+        <h2>May 21-25 Targets</h2>
+        <table>
+          <thead>
+            <tr><th>Date</th><th>Macros</th><th>Cardio</th><th>Lift</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Thu 5/21</strong></td>
+              <td>1,150-1,350 cal · 170-185P · 30-70C · 20-30F</td>
+              <td>40-50 min easy StairMaster; no escalation from the scale win</td>
+              <td>Quality lift block; signal over burn</td>
+            </tr>
+            <tr>
+              <td><strong>Fri 5/22</strong></td>
+              <td>1,200-1,400 cal · 170-185P · 40-80C · 20-35F</td>
+              <td>40-50 min easy StairMaster</td>
+              <td>Quality lift if sleep is okay</td>
+            </tr>
+            <tr>
+              <td><strong>Sat-Mon 5/23-5/25</strong></td>
+              <td>1,300-1,500 cal · 165-180P · 50-100C · 25-40F</td>
+              <td>35-50 min easy cardio; no hidden third session</td>
+              <td>Reduced junk volume; protect strength</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-12">
+        <h2>Live Check-In</h2>
+        <table>
+          <thead>
+            <tr><th>Date</th><th>AM Weight</th><th>Nutrition</th><th>Cardio / Training</th><th>Read</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Sun 5/17</strong></td><td>169 lb</td><td>873 cal · 169P · 9F · 28C</td><td>Short intense legs + short untracked walk</td><td>Protein was enough; very low fat was acceptable as a short primer.</td></tr>
+            <tr><td><strong>Mon 5/18</strong></td><td>165 lb</td><td>940 cal · 171P · 12.5F · 34C</td><td>AM Stair 45:14 + Pull 97:26 + PM Stair 30:29; ~1,450 adjusted active</td><td>Huge output; strength burn discounted.</td></tr>
+            <tr><td><strong>Tue 5/19</strong></td><td>162.5 lb</td><td>1,028 cal · 180P · 12.3F · 44C</td><td>AM Stair 47:14 + Arms 85:31 + PM Stair 30:27 + Walk 52:37; ~1,355 adjusted active</td><td>Overreach day. Good execution, but too much to repeat daily.</td></tr>
+            <tr><td><strong>Wed 5/20</strong></td><td>160.3 lb</td><td>975 cal · 181P · 10.5F · 37C</td><td>AM Stair 45:31 + two walks; no lift; ~1,075 adjusted active</td><td>No lift helped recovery, but walking volume was still high.</td></tr>
+            <tr><td><strong>Thu 5/21</strong></td><td>158.7 lb</td><td>pending</td><td>planned easy Stair + quality lift</td><td>Strong drop. Hold the line; do not turn this into five reckless PSMF days.</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:14px;"><span class="tag">Aggressive stays on</span><span class="tag warn">raise fat floor to 20g+</span><span class="tag warn">use carbs around lift if performance drops</span></p>
+      </article>
+
+      <article class="card span-8">
+        <h2>Timing Template</h2>
+        <table>
+          <thead>
+            <tr><th>Time</th><th>Action</th><th>Rule</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>05:30</td><td>Wake, bathroom, weigh-in</td><td>Log it before water.</td></tr>
+            <tr><td>05:35</td><td>Electrolyte + caffeine</td><td>1 BodyArmor Flash IV + 100-150mg caffeine.</td></tr>
+            <tr><td>06:00-06:45</td><td>StairMaster</td><td>Easy Zone 2. Cut to 30-35 min if legs are heavy.</td></tr>
+            <tr><td>07:15</td><td>Shake 1</td><td>35-50g protein.</td></tr>
+            <tr><td>10:30</td><td>Shake 2</td><td>35-50g protein.</td></tr>
+            <tr><td>12:30</td><td>Shake 3</td><td>Add water/salt if flat or crampy.</td></tr>
+            <tr><td>16:15</td><td>Pre-lift shake</td><td>Optional caffeine only if total stays controlled.</td></tr>
+            <tr><td>17:00-18:00</td><td>Lift</td><td>Load signal, no failure, cut junk volume.</td></tr>
+            <tr><td>19:15</td><td>Post-lift shake</td><td>35-50g protein.</td></tr>
+            <tr><td>21:15</td><td>Final check</td><td>If off: sodium/water, then 10-15g fat, then reduce cardio.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-4">
+        <h2>Protein-Powder-Only Rules</h2>
+        <ul>
+          <li>Use whey isolate / clear protein first.</li>
+          <li>Split into 5-6 doses, not two huge shakes.</li>
+          <li>Log every scoop in MacroFactor.</li>
+          <li>Very low fat is a short test, not a virtue.</li>
+          <li>If sleep or mood gets weird, add 10-15g fat.</li>
+        </ul>
+      </article>
+
+      <article class="card span-12">
+        <h2>HR-Based Cardio Accounting</h2>
+        <p>Claude’s Apple Health read changes the execution rule: StairMaster is the reliable burn; low-HR lifting is not. Do not eat back Apple active calories during this cleanup.</p>
+        <table>
+          <thead><tr><th>Session Type</th><th>Avg HR</th><th>How To Count It</th></tr></thead>
+          <tbody>
+            <tr><td>Easy StairMaster</td><td>~120-130</td><td>Count as real cardio. A 30-min session is roughly a real ~270 kcal burn.</td></tr>
+            <tr><td>Dense lift / circuit</td><td>110-130</td><td>Mostly accurate active work; do not add extra cardio automatically.</td></tr>
+            <tr><td>Cardio-style finisher inside lift</td><td>130+</td><td>Count those minutes toward the day’s cardio target.</td></tr>
+            <tr><td>Paced lift</td><td>90-110</td><td>Apple burn may be inflated; treat as muscle signal, not cardio.</td></tr>
+            <tr><td>Very low-HR lift</td><td>&lt;90</td><td>Apple burn can be heavily inflated; do not eat calories back.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-12">
+        <h2>Protein Target Rationale</h2>
+        <p>You do not need 190-210g protein to preserve muscle here. Local data points to DEXA lean mass around 129.9 lb, a recent clean scale/trend range around 149-152 lb, a baseline coach/MacroFactor target of 165g, and prior successful strict blocks averaging about 159-176g protein. The weak case was May 7 at only 110g protein, not a day at 165-175g.</p>
+        <p><span class="tag">Minimum 165g</span><span class="tag">Best target 170-185g</span><span class="tag warn">190g optional cap</span><span class="tag danger">200g+ not required</span></p>
+      </article>
+
+      <article class="card span-6">
+        <h2>Supplement Rules</h2>
+        <table>
+          <thead><tr><th>Item</th><th>Use</th><th>Limit</th></tr></thead>
+          <tbody>
+            <tr><td>Whey / clear protein</td><td>Yes</td><td>Main protein source.</td></tr>
+            <tr><td>Electrolytes</td><td>Yes</td><td>1 packet pre-cardio; optional later only if needed.</td></tr>
+            <tr><td>Caffeine</td><td>Yes</td><td>100-150mg pre-cardio; cap 200-300mg/day.</td></tr>
+            <tr><td>CarniShred+ non-stim</td><td>Optional</td><td>1 label serving max; skip if RHR/anxiety/GI is off.</td></tr>
+            <tr><td>BCAA</td><td>No</td><td>Redundant with protein target.</td></tr>
+            <tr><td>Diuretics/laxatives</td><td>No</td><td>Not compatible with keeping muscle.</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card span-6">
+        <h2>Water-Cut Guardrail</h2>
+        <p>Do not buy OTC diuretics or water pills for this cleanup. The scale drop is temporary dehydration/electrolyte disruption, not better fat loss, and it stacks badly with low calories, low carbs, StairMaster, caffeine, and recent RHR/HRV stress.</p>
+        <p>Sauna is not a weight-loss lever here. If used at all, keep it to 10-15 minutes for relaxation, never immediately after a hard cardio/lift session, and stop for dizziness, cramps, headache, nausea, unusual heat, or high heart-rate feeling.</p>
+        <p><span class="tag danger">No water pills</span><span class="tag danger">No forced sweat cut</span><span class="tag warn">Consistent sodium/water</span><span class="tag">Low-carb boring cleanup</span></p>
+      </article>
+
+      <article class="card span-6">
+        <h2>Stop / Pullback Triggers</h2>
+        <ul>
+          <li>Dizziness, faintness, chest pain, confusion, or palpitations.</li>
+          <li>Headache/cramps not fixed by water + sodium.</li>
+          <li>Sleep below 5.5 hours or badly fragmented.</li>
+          <li>Resting HR stays much higher than normal.</li>
+          <li>Lift performance drops more than about 15%.</li>
+          <li>Binge/rebound thoughts start building.</li>
+        </ul>
+        <div class="callout" style="margin-top:14px;"><strong>Pullback:</strong> add 150-250 calories and reduce cardio by 10-15 minutes.</div>
+      </article>
+
+      <article class="card span-12">
+        <h2>Next Transition — Tue May 26</h2>
+        <p>Do not finish May 21-25 and improvise. If weight is still moving and recovery is okay, step into the May 26-29 aggressive baseline: 1,450-1,650 calories, 165-180g protein, 70-125g carbs, and 30-45g fat, with 35-45m easy cardio. If sleep/recovery is worse, reduce cardio before cutting food lower.</p>
+      </article>
+    </section>
+
+    <section class="footer">
+      <p>Safety basis: Cleveland Clinic notes PSMF is best done with doctor/dietitian supervision; FDA cites 400mg/day caffeine as generally tolerated for most adults, while this plan stays lower due to recent stress/RHR; NIH ODS and NCCIH caution that supplement effects and safety vary.</p>
+      <p>
+        Sources:
+        <a href="https://health.clevelandclinic.org/protein-sparing-modified-fast-diet">Cleveland Clinic PSMF</a> ·
+        <a href="https://www.fda.gov/consumers/consumer-updates/spilling-the-beans-how-much-caffeine-too-much">FDA caffeine</a> ·
+        <a href="https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/">NIH ODS exercise supplements</a> ·
+        <a href="https://www.nccih.nih.gov/health/bodybuilding-and-performance-enhancement-supplements">NCCIH performance supplements</a>
+      </p>
+    </section>
+  </main>
+</body>
+</html>

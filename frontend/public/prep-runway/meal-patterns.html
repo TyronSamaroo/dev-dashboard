@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prep Runway — Meal Patterns</title>
+  <script>
+    (() => {
+      const key = "prep_runway_theme";
+      const requested = new URLSearchParams(location.search).get("theme");
+      const saved = localStorage.getItem(key);
+      document.documentElement.dataset.theme = requested === "dark" || saved === "dark" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+  <style>
+    :root{--surface:rgba(255,255,255,.76);--soft:rgba(15,23,42,.045);--ok:#238636;--warn:#9a6700;--bad:#c24141}
+    html[data-theme="dark"]{--surface:rgba(255,255,255,.04);--soft:rgba(255,255,255,.06);--ok:#51b749;--warn:#fbd75b;--bad:#ff6b6b}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main.meal-page{width:min(1360px,calc(100vw - 28px))!important;margin:0 auto;padding:34px 0 72px!important}
+    .meal-hero,.meal-section,.doc-nav{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.9));box-shadow:0 18px 56px rgba(16,24,40,.12)}
+    html[data-theme="dark"] .meal-hero,html[data-theme="dark"] .meal-section,html[data-theme="dark"] .doc-nav{background:linear-gradient(135deg,rgba(16,23,34,.96),rgba(23,32,51,.88));box-shadow:0 22px 70px rgba(0,0,0,.28)}
+    .meal-hero{border-radius:24px;padding:24px}
+    .meal-hero h1{margin:8px 0 10px;font-size:clamp(32px,4.8vw,58px);line-height:.95;letter-spacing:-.065em}
+    .meal-hero p{max-width:920px;margin:0;color:var(--muted);font-size:15px;line-height:1.45}
+    .hero-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+    .action{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;padding:9px 12px;font-size:12px;font-weight:950}
+    .action.primary{border-color:color-mix(in srgb,var(--cyan),transparent 40%);background:color-mix(in srgb,var(--cyan),transparent 85%);color:var(--cyan)}
+    .answer-grid{display:grid;grid-template-columns:1.1fr repeat(3,1fr);gap:10px;margin-top:16px}
+    .answer{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:13px 14px;min-height:128px}
+    .answer.lead{background:linear-gradient(135deg,color-mix(in srgb,var(--cyan),transparent 86%),var(--surface))}
+    .answer span,.metric span,.source-row span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .answer strong{display:block;margin-top:7px;color:var(--ink);font-size:20px;line-height:1.05;letter-spacing:-.035em}
+    .answer p{margin:7px 0 0;color:var(--muted);font-size:12.5px;line-height:1.38}
+    .meal-section{border-radius:22px;margin-top:14px;overflow:hidden}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .section-head h2{margin:0;font-size:22px;letter-spacing:-.035em}
+    .section-head p{margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.4;max-width:820px}
+    .mode-controls{display:flex;gap:7px;flex-wrap:wrap}
+    .mode-button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:950;cursor:pointer}
+    .mode-button.active{border-color:color-mix(in srgb,var(--cyan),transparent 40%);background:color-mix(in srgb,var(--cyan),transparent 86%);color:var(--cyan)}
+    .metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:12px}
+    .metric{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px}
+    .metric strong{display:block;margin-top:5px;color:var(--ink);font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+    .metric p{margin:6px 0 0;color:var(--muted);font-size:11.5px;line-height:1.3}
+    .table-shell{overflow:auto}
+    table{width:100%;border-collapse:collapse;min-width:900px;font-size:12.5px}
+    th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+    th{position:sticky;top:0;background:rgba(15,23,42,.055);color:var(--ink);font-size:10px;letter-spacing:.075em;text-transform:uppercase;white-space:nowrap}
+    html[data-theme="dark"] th{background:rgba(255,255,255,.06)}
+    .num{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:850;white-space:nowrap}
+    .read{min-width:220px;color:var(--muted);font-size:12px;line-height:1.35}
+    .status{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:2px 7px;color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;white-space:nowrap}
+    .status.stable{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 58%);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .status.drifting,.status.loose{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .heat-shell{overflow:auto;padding:12px}
+    .meal-map{display:grid;grid-template-columns:90px repeat(6,minmax(128px,1fr));gap:7px;min-width:940px}
+    .map-head,.map-day,.map-cell{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:9px}
+    .map-head{color:var(--muted);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+    .map-day{display:flex;align-items:center;color:var(--ink);font-size:13px;font-weight:950}
+    .map-cell{min-height:92px;position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(4,124,134,var(--heat-alpha,.08)),var(--surface))}
+    html[data-theme="dark"] .map-cell{background:linear-gradient(180deg,rgba(70,214,219,var(--heat-alpha,.10)),var(--surface))}
+    .map-cell.empty{background:var(--soft)}
+    .slot{color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.08em}
+    .cell-value{margin-top:4px;color:var(--ink);font-size:19px;font-weight:950;line-height:1;font-variant-numeric:tabular-nums}
+    .cell-food{margin-top:6px;color:var(--muted);font-size:11px;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .protein-split-list{display:grid;gap:8px;padding:12px}
+    .protein-split-row{display:grid;grid-template-columns:92px 1fr 176px;gap:10px;align-items:center;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:10px 12px}
+    .protein-day{color:var(--ink);font-size:13px;font-weight:950;white-space:nowrap}
+    .protein-bar{display:flex;height:22px;border-radius:999px;background:var(--soft);overflow:hidden;border:1px solid var(--line)}
+    .protein-segment{display:flex;align-items:center;justify-content:center;min-width:28px;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff;font-size:10px;font-weight:950;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .protein-segment:nth-child(2n){background:linear-gradient(90deg,var(--green),var(--cyan))}
+    .protein-meta{color:var(--muted);font-size:11.5px;line-height:1.3;text-align:right}
+    .protein-meta strong{display:block;color:var(--ink);font-size:13px}
+    .protein-status{display:inline-flex;margin-top:3px;border-radius:999px;padding:2px 7px;background:var(--soft);color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.07em}
+    .protein-status.even{color:var(--ok);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .protein-status.watch{color:var(--warn);background:color-mix(in srgb,var(--warn),transparent 91%)}
+    .protein-status.bolus{color:var(--bad);background:color-mix(in srgb,var(--bad),transparent 91%)}
+    .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+    .source-list,.shape-list{display:grid;gap:8px}
+    .source-row,.shape-row{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:11px 12px}
+    .source-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+    .source-head strong,.shape-row strong{color:var(--ink);font-size:13px}
+    .source-head em{color:var(--muted);font-size:11px;font-style:normal;font-weight:950;white-space:nowrap}
+    .bar{height:9px;background:var(--soft);border-radius:999px;overflow:hidden;margin:8px 0 6px}
+    .bar i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:999px}
+    .source-meta,.shape-meta{color:var(--muted);font-size:12px;line-height:1.35}
+    .shape-row{display:grid;grid-template-columns:100px repeat(4,1fr) minmax(220px,1.2fr);gap:10px;align-items:start}
+    .fuel-note{padding:0 12px 12px;color:var(--muted);font-size:12px;line-height:1.4}
+    .source-note{padding:12px 18px;border-top:1px solid var(--line);background:var(--soft);color:var(--muted);font-size:12px;line-height:1.4}
+    @media(max-width:1100px){.answer-grid{grid-template-columns:repeat(2,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}.split-grid{grid-template-columns:1fr}.shape-row{grid-template-columns:1fr 1fr}}
+    @media(max-width:860px){.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}}
+    @media(max-width:700px){main.meal-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.meal-hero{padding:18px}.answer-grid,.metrics,.shape-row{grid-template-columns:1fr}.section-head{display:block}.mode-controls{margin-top:10px}.hero-actions .action{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="meal-page">
+    <nav class="doc-nav" aria-label="Prep documents">
+      <a href="home.html">Home</a>
+      <a href="report.html">Daily Master</a>
+      <a href="analysis.html">Analysis</a>
+      <a class="primary" href="meal-patterns.html">Meal Patterns</a>
+      <a href="data-ledger.html">Data Ledger</a>
+      <a href="sheets.html">Sheets</a>
+      <a href="3-day-cleanup.html">Current Cut</a>
+      <a href="148-burn.html">148 Target</a>
+      <a href="full-runway.html">Full Plan</a>
+      <a href="cardio-calibration.html">Cardio Data</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
+    </nav>
+
+    <section class="meal-hero">
+      <div class="eyebrow">OCB Prep · meal pattern control</div>
+      <h1>Meal timing, food repeatability, and lift fuel.</h1>
+      <p>This is the cleaner version of the coach-report meal views: what is off, when protein meals actually happen, what foods are repeating, and whether pre-lift food is helping the workout.</p>
+      <div class="hero-actions">
+        <a class="action primary" href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw/edit" target="_blank" rel="noopener">Open Google Sheet</a>
+        <a class="action" href="analysis.html?view=meals">Open Full Analysis</a>
+        <a class="action" href="sheets.html">Sheet Handoff</a>
+      </div>
+      <div class="answer-grid" id="answer-grid"></div>
+    </section>
+
+    <section class="meal-section">
+      <div class="section-head">
+        <div>
+          <h2>Protein meal anchors</h2>
+          <p>Real protein meals only. Electrolyte-only entries are excluded so Flash IV does not become “meal one.”</p>
+        </div>
+      </div>
+      <div class="metrics" id="anchor-metrics"></div>
+      <div class="table-shell">
+        <table>
+          <thead><tr><th>Slot</th><th>Avg time</th><th>Range</th><th>Spread</th><th>Avg macros</th><th>Common foods</th><th>Status</th><th>Read</th></tr></thead>
+          <tbody id="anchor-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="meal-section">
+      <div class="section-head">
+        <div>
+          <h2>Meal heat map</h2>
+          <p>Switch between calories, protein, and timing. This keeps the useful coach-report heat map without burying the answer.</p>
+        </div>
+        <div class="mode-controls" aria-label="Meal map mode">
+          <button class="mode-button active" type="button" data-mode="calories">Calories</button>
+          <button class="mode-button" type="button" data-mode="protein">Protein</button>
+          <button class="mode-button" type="button" data-mode="timing">Timing</button>
+        </div>
+      </div>
+      <div class="heat-shell"><div class="meal-map" id="meal-map"></div></div>
+    </section>
+
+    <section class="meal-section">
+      <div class="section-head">
+        <div>
+          <h2>Protein split by day</h2>
+          <p>Coach-report style protein distribution by meal window. This makes large powder boluses obvious without reading every food row.</p>
+        </div>
+      </div>
+      <div class="protein-split-list" id="protein-split-list"></div>
+    </section>
+
+    <section class="meal-section">
+      <div class="section-head">
+        <div>
+          <h2>Food pattern review</h2>
+          <p>Powder is working for compliance, but the data says Thursday’s whole-food base is the cleaner digestion/performance test.</p>
+        </div>
+      </div>
+      <div class="split-grid">
+        <div class="source-list" id="source-list"></div>
+        <div class="shape-list" id="shape-list"></div>
+      </div>
+    </section>
+
+    <section class="meal-section">
+      <div class="section-head">
+        <div>
+          <h2>Workout fuel impact</h2>
+          <p>Small sample. Use this to decide what to repeat, not to make a hard causal claim yet.</p>
+        </div>
+      </div>
+      <div class="fuel-note" id="fuel-note"></div>
+      <div class="table-shell">
+        <table>
+          <thead><tr><th>Date</th><th>Lift</th><th>Pre-lift food</th><th>Gap</th><th>Pre macros</th><th>Lift output</th><th>Post-cardio</th><th>Next AM</th><th>Read</th></tr></thead>
+          <tbody id="fuel-body"></tbody>
+        </table>
+      </div>
+      <div class="source-note" id="source-note"></div>
+    </section>
+  </main>
+
+  <script src="analysis-data.js?v=20260522-meal-patterns"></script>
+  <script>
+    (() => {
+      const data = window.PREP_ANALYSIS_DATA || {};
+      const escapeHtml = value => String(value ?? "—").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+      const fmt = value => value === null || value === undefined || value === "" ? "—" : Number.isFinite(Number(value)) ? Number(value).toLocaleString(undefined, {maximumFractionDigits: 1}) : value;
+      const setHtml = (selector, html) => {
+        const node = document.querySelector(selector);
+        if (node) node.innerHTML = html;
+      };
+      const statusClass = status => String(status || "").toLowerCase().replace(/[^a-z]+/g, "-");
+      const answerReads = [
+        {label:"Off right now", value:"Powder load", text:data.mealReads?.[2]?.text || "Watch GI before changing calories or cardio.", tone:"lead"},
+        {label:"Meal one", value:data.mealAnchorConsistency?.rows?.[0]?.avgTime || "—", text:data.mealAnchorConsistency?.rows?.[0]?.read || "Anchor the first real protein meal."},
+        {label:"Best repeat", value:"Thu template", text:data.mealReads?.[1]?.text || "Repeat the whole-food base and measured pre-lift carb/protein."},
+        {label:"Lift fuel", value:"35m pre", text:data.workoutFuel?.reads?.[0]?.text || "Use pre-lift fuel rows to compare output."},
+      ];
+      setHtml("#answer-grid", answerReads.map(item => `
+        <article class="answer ${item.tone || ""}">
+          <span>${escapeHtml(item.label)}</span>
+          <strong>${escapeHtml(item.value)}</strong>
+          <p>${escapeHtml(item.text)}</p>
+        </article>
+      `).join(""));
+
+      const anchorRows = data.mealAnchorConsistency?.rows || [];
+      setHtml("#anchor-metrics", anchorRows.slice(0, 5).map(row => `
+        <article class="metric">
+          <span>${escapeHtml(row.slot)} · ${escapeHtml(row.status)}</span>
+          <strong>${escapeHtml(row.avgTime)}</strong>
+          <p>${escapeHtml(row.spread)} spread · ${escapeHtml(fmt(row.avgProtein))}g protein avg</p>
+        </article>
+      `).join(""));
+      setHtml("#anchor-body", anchorRows.map(row => `
+        <tr>
+          <td><strong>${escapeHtml(row.label)}</strong><br><span class="num">${escapeHtml(row.days)} days</span></td>
+          <td class="num">${escapeHtml(row.avgTime)}</td>
+          <td>${escapeHtml(row.earliest)} → ${escapeHtml(row.latest)}</td>
+          <td class="num">${escapeHtml(row.spread)}</td>
+          <td class="num">${escapeHtml(fmt(row.avgCalories))} cal · ${escapeHtml(fmt(row.avgProtein))}P · ${escapeHtml(fmt(row.avgFat))}F · ${escapeHtml(fmt(row.avgCarbs))}C</td>
+          <td>${escapeHtml(row.commonFoods)}</td>
+          <td><span class="status ${escapeHtml(statusClass(row.status))}">${escapeHtml(row.status)}</span></td>
+          <td class="read">${escapeHtml(row.read)}</td>
+        </tr>
+      `).join(""));
+
+      const renderMealMap = mode => {
+        const matrix = data.mealMatrix || {};
+        const slots = matrix.slots || [];
+        const days = matrix.days || [];
+        const headers = [`<div class="map-head">Day</div>`, ...slots.map(slot => `<div class="map-head">${escapeHtml(slot)}</div>`)].join("");
+        const rows = days.map(day => {
+          const cells = (day.cells || []).map((cell, index) => {
+            if (!cell) return `<div class="map-cell empty"><div class="slot">${escapeHtml(slots[index])}</div><div class="cell-value">—</div><div class="cell-food">No logged meal</div></div>`;
+            let value = `${fmt(cell.calories)} cal`;
+            let alpha = 0.08 + (Number(cell.caloriePct || 0) / 100) * 0.36;
+            if (mode === "protein") {
+              value = `${fmt(cell.protein)}P`;
+              alpha = 0.08 + (Number(cell.proteinPct || 0) / 100) * 0.36;
+            }
+            if (mode === "timing") {
+              value = cell.window;
+              const start = Number(cell.timeStart || 420);
+              alpha = 0.08 + Math.max(0, Math.min(1, (start - 420) / 780)) * 0.36;
+            }
+            return `<div class="map-cell" style="--heat-alpha:${alpha.toFixed(2)}">
+              <div class="slot">${escapeHtml(cell.slot)}</div>
+              <div class="cell-value">${escapeHtml(value)}</div>
+              <div class="cell-food">${escapeHtml(cell.food)}</div>
+            </div>`;
+          }).join("");
+          return `<div class="map-day">${escapeHtml(day.label)}</div>${cells}`;
+        }).join("");
+        setHtml("#meal-map", headers + rows);
+      };
+      renderMealMap("calories");
+      document.querySelectorAll("[data-mode]").forEach(button => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll("[data-mode]").forEach(node => node.classList.toggle("active", node === button));
+          renderMealMap(button.dataset.mode);
+        });
+      });
+
+      const proteinStatus = largestShare => {
+        if (largestShare >= 50) return { label: "Bolus", className: "bolus" };
+        if (largestShare >= 40) return { label: "Watch", className: "watch" };
+        return { label: "Even", className: "even" };
+      };
+      setHtml("#protein-split-list", (data.mealMatrix?.days || []).map(day => {
+        const meals = (day.cells || []).filter(cell => cell && Number(cell.protein || 0) > 0);
+        const totalProtein = meals.reduce((sum, meal) => sum + Number(meal.protein || 0), 0);
+        const largest = meals.reduce((best, meal) => Number(meal.protein || 0) > Number(best?.protein || 0) ? meal : best, null);
+        const largestShare = totalProtein ? Math.round((Number(largest?.protein || 0) / totalProtein) * 100) : 0;
+        const status = proteinStatus(largestShare);
+        return `
+          <div class="protein-split-row">
+            <div class="protein-day">${escapeHtml(day.label)}</div>
+            <div class="protein-bar" aria-label="${escapeHtml(day.label)} protein split">
+              ${meals.map(meal => {
+                const protein = Number(meal.protein || 0);
+                const width = totalProtein ? Math.max(8, Math.round((protein / totalProtein) * 100)) : 0;
+                return `<span class="protein-segment" style="width:${width}%" title="${escapeHtml(meal.slot)} · ${escapeHtml(meal.window)} · ${escapeHtml(fmt(protein))}P">${escapeHtml(fmt(protein))}</span>`;
+              }).join("")}
+            </div>
+            <div class="protein-meta">
+              <strong>${escapeHtml(fmt(totalProtein))}P total · biggest ${escapeHtml(fmt(largest?.protein || 0))}P</strong>
+              ${escapeHtml(largest?.slot || "—")} ${escapeHtml(largest?.window || "")} · ${escapeHtml(String(largestShare))}% <span class="protein-status ${escapeHtml(status.className)}">${escapeHtml(status.label)}</span>
+            </div>
+          </div>
+        `;
+      }).join(""));
+
+      const sources = data.foodReview?.sources || [];
+      setHtml("#source-list", sources.map(source => `
+        <article class="source-row">
+          <div class="source-head"><strong>${escapeHtml(source.source)}</strong><em>${escapeHtml(source.proteinShare)}% protein share</em></div>
+          <div class="bar"><i style="--w:${Math.max(3, Number(source.proteinShare || 0))}%"></i></div>
+          <div class="source-meta">${escapeHtml(source.protein)}g protein · ${escapeHtml(source.meals)} meals · examples: ${escapeHtml((source.examples || []).slice(0, 3).join(", "))}<br>${escapeHtml(source.read)}</div>
+        </article>
+      `).join(""));
+
+      const shapes = data.patternReview?.dayShapes || [];
+      setHtml("#shape-list", shapes.map(day => `
+        <article class="shape-row">
+          <strong>${escapeHtml(day.label)}</strong>
+          <span class="shape-meta">${escapeHtml(day.mealCount)} meals</span>
+          <span class="shape-meta">${escapeHtml(day.firstMeal)} first</span>
+          <span class="shape-meta">${escapeHtml(day.lastMeal)} last</span>
+          <span class="shape-meta">${escapeHtml(day.feedingWindow)} window</span>
+          <span class="shape-meta">${escapeHtml(day.read)}</span>
+        </article>
+      `).join(""));
+
+      const fuelReads = data.workoutFuel?.reads || [];
+      setHtml("#fuel-note", fuelReads.map(read => `<strong>${escapeHtml(read.title)}:</strong> ${escapeHtml(read.text)}`).join(" · "));
+      const fuelRows = data.workoutFuel?.rows || [];
+      setHtml("#fuel-body", fuelRows.map(row => `
+        <tr>
+          <td>${escapeHtml(row.label)}</td>
+          <td><strong>${escapeHtml(row.lift)}</strong><br>${escapeHtml(row.liftTime)} · ${escapeHtml(row.duration)}</td>
+          <td>${escapeHtml(row.preMeal)}<br><span class="num">${escapeHtml(row.preWindow)}</span></td>
+          <td class="num">${escapeHtml(row.preGap)}</td>
+          <td class="num">${escapeHtml(fmt(row.preCalories))} cal · ${escapeHtml(fmt(row.preProtein))}P · ${escapeHtml(fmt(row.preFat))}F · ${escapeHtml(fmt(row.preCarbs))}C</td>
+          <td class="num">${escapeHtml(fmt(row.kpm))} kcal/min · HR ${escapeHtml(fmt(row.avgHr))}/${escapeHtml(fmt(row.maxHr))}</td>
+          <td class="num">${escapeHtml(row.postCardioMinutes)}m · ${escapeHtml(row.postCardioKcal)} cal</td>
+          <td class="num">${escapeHtml(fmt(row.nextDelta))} lb</td>
+          <td class="read">${escapeHtml(row.read)}</td>
+        </tr>
+      `).join(""));
+      setHtml("#source-note", `<strong>Sources:</strong> ${escapeHtml(data.sources?.meals)} · MacroFactor export: ${escapeHtml(data.sources?.currentMacroFactorExport)} · Generated ${escapeHtml(data.generatedAt)}`);
+    })();
+  </script>
+</body>
+</html>

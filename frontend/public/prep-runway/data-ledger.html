@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prep Runway — Data Ledger</title>
+  <style>
+    :root{color-scheme:light;--bg:#f7f9fc;--panel:#ffffff;--panel2:#eef3f8;--ink:#101828;--muted:#526173;--line:rgba(21,33,52,.14);--green:#238636;--cyan:#047c86;--blue:#315db8;--amber:#9a6700;--red:#c24141}
+    html[data-theme="dark"]{color-scheme:dark;--bg:#070a0f;--panel:#111827;--panel2:#172033;--ink:#f5f7fb;--muted:#aab6c7;--line:rgba(255,255,255,.12);--green:#51b749;--cyan:#46d6db;--blue:#5484ed;--amber:#fbd75b;--red:#ff6b6b}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 0 0,rgba(70,214,219,.18),transparent 34rem),radial-gradient(circle at 100% 10%,rgba(81,183,73,.12),transparent 32rem),linear-gradient(180deg,#fbfcff,#f3f7fb 55%,#eef4f8);color:var(--ink);line-height:1.5}
+    html[data-theme="dark"] body{background:radial-gradient(circle at 10% 0,rgba(70,214,219,.16),transparent 34rem),radial-gradient(circle at 90% 10%,rgba(81,183,73,.14),transparent 34rem),var(--bg)}
+    main.ledger-page{width:min(1760px,calc(100vw - 28px));margin:0 auto;padding:34px 0 72px}
+    .hero,.doc-nav,.ledger-section{border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.9));box-shadow:0 18px 56px rgba(16,24,40,.12)}
+    html[data-theme="dark"] .hero,html[data-theme="dark"] .doc-nav,html[data-theme="dark"] .ledger-section{background:linear-gradient(135deg,rgba(16,23,34,.96),rgba(23,32,51,.88));box-shadow:0 22px 70px rgba(0,0,0,.28)}
+    .doc-nav{position:sticky;top:10px;z-index:5;border-radius:18px;padding:9px 10px;margin-bottom:18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .doc-nav a,.theme-toggle{color:var(--ink);text-decoration:none;border:1px solid var(--line);background:rgba(255,255,255,.75);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:850}
+    html[data-theme="dark"] .doc-nav a,html[data-theme="dark"] .theme-toggle{background:rgba(255,255,255,.04)}
+    .doc-nav a.primary{background:rgba(4,124,134,.1);border-color:rgba(4,124,134,.32);color:#035e65}
+    html[data-theme="dark"] .doc-nav a.primary{background:rgba(70,214,219,.14);border-color:rgba(70,214,219,.45);color:#c5f9ff}
+    .theme-toggle{margin-left:auto;cursor:pointer}
+    .hero{border-radius:22px;padding:22px 24px}
+    .eyebrow{color:var(--cyan);font-size:11px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}
+    h1{margin:8px 0 10px;font-size:clamp(30px,4vw,48px);line-height:1;letter-spacing:-.055em}
+    h2{margin:0;font-size:21px;letter-spacing:-.025em}
+    h3{margin:0 0 8px;font-size:15px}
+    p{color:var(--muted);margin:0}
+    .lead{max-width:940px;color:var(--muted);font-size:15px}
+    .jump-nav{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+    .jump-nav a{border:1px solid var(--line);background:rgba(255,255,255,.55);border-radius:999px;color:var(--ink);font-size:12px;font-weight:900;padding:7px 10px;text-decoration:none}
+    html[data-theme="dark"] .jump-nav a{background:rgba(255,255,255,.04)}
+    .ledger-section{border-radius:20px;margin-top:14px;overflow:visible}
+    .section-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .section-head p{max-width:920px;font-size:13px}
+    .table-shell{overflow:auto;width:100%;max-height:none}
+    .ledger-table{width:100%;border-collapse:collapse;table-layout:auto;font-size:12.5px}
+    .ledger-table.wide{min-width:1540px}
+    .ledger-table.extra-wide{min-width:1780px}
+    .ledger-table th,.ledger-table td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;white-space:normal;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:break-word;line-height:1.35}
+    .ledger-table th{position:sticky;top:0;z-index:2;background:rgba(15,23,42,.055);color:var(--ink);font-size:10px;letter-spacing:.075em;text-transform:uppercase}
+    html[data-theme="dark"] .ledger-table th{background:rgba(255,255,255,.06)}
+    .ledger-table tr:last-child td{border-bottom:0}
+    .num,.time,.date-cell{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink);font-weight:850}
+    .read{min-width:260px}
+    .source{min-width:300px;color:var(--muted);font-size:11.5px}
+    .small{color:var(--muted);font-size:11.5px}
+    .tag{display:inline-flex;border:1px solid rgba(35,134,54,.32);color:#1f7a33;background:rgba(35,134,54,.09);border-radius:999px;padding:2px 7px;margin:1px 3px 1px 0;font-size:11px;font-weight:900;white-space:nowrap}
+    .tag.warn{color:#8a5d00;border-color:rgba(154,103,0,.32);background:rgba(154,103,0,.08)}
+    .tag.red{color:#b42318;border-color:rgba(194,65,65,.3);background:rgba(194,65,65,.08)}
+    html[data-theme="dark"] .tag{color:#c7f6c2;background:rgba(81,183,73,.12);border-color:rgba(81,183,73,.45)}
+    html[data-theme="dark"] .tag.warn{color:#ffec99;background:rgba(251,215,91,.11);border-color:rgba(251,215,91,.45)}
+    html[data-theme="dark"] .tag.red{color:#ffc0c0;background:rgba(255,107,107,.11);border-color:rgba(255,107,107,.5)}
+    .compact-daily{min-width:1280px}
+    .compact-daily th,.compact-daily td{white-space:nowrap}
+    .compact-daily .wrap{white-space:normal;min-width:150px}
+    .compact-daily .status{white-space:normal;min-width:180px}
+    .macro-line{font-variant-numeric:tabular-nums;font-weight:850;color:var(--ink)}
+    .macro-line .low{color:var(--green)}
+    .macro-line .warn{color:var(--amber)}
+    .macro-line .hot{color:var(--red)}
+    .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.36)}
+    html[data-theme="dark"] .toolbar{background:rgba(255,255,255,.025)}
+    .filter-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+    .filter-button,.sort-dir{border:1px solid var(--line);background:rgba(255,255,255,.72);color:var(--ink);border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;cursor:pointer}
+    html[data-theme="dark"] .filter-button,html[data-theme="dark"] .sort-dir{background:rgba(255,255,255,.05)}
+    .filter-button.active{border-color:rgba(4,124,134,.45);background:rgba(4,124,134,.12);color:#035e65}
+    html[data-theme="dark"] .filter-button.active{border-color:rgba(70,214,219,.55);background:rgba(70,214,219,.16);color:#d3fbff}
+    .sort-control{display:flex;gap:7px;align-items:center;color:var(--muted);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+    .sort-control select{border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);padding:6px 26px 6px 9px;font-size:12px;font-weight:850}
+    .summary-strip{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px;padding:10px 18px;border-bottom:1px solid var(--line);background:rgba(15,23,42,.025)}
+    html[data-theme="dark"] .summary-strip{background:rgba(255,255,255,.018)}
+    .summary-card{border:1px solid var(--line);border-radius:14px;padding:8px 10px;background:rgba(255,255,255,.62)}
+    html[data-theme="dark"] .summary-card{background:rgba(255,255,255,.035)}
+    .summary-card span{display:block;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .summary-card strong{display:block;margin-top:2px;font-size:15px;line-height:1.1;font-variant-numeric:tabular-nums}
+    .answer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.3)}
+    html[data-theme="dark"] .answer-grid{background:rgba(255,255,255,.018)}
+    .answer-card{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.68);padding:12px;min-height:126px}
+    html[data-theme="dark"] .answer-card{background:rgba(255,255,255,.035)}
+    .answer-card .badge{display:inline-flex;border:1px solid rgba(4,124,134,.34);border-radius:999px;padding:2px 7px;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}
+    .answer-card strong{display:block;margin-top:8px;color:var(--ink);font-size:20px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.035em}
+    .answer-card h3{margin:8px 0 6px;color:var(--ink);font-size:13px;line-height:1.2}
+    .answer-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.35}
+    .ledger-table th[data-sort-key]{cursor:pointer;user-select:none}
+    .ledger-table th[data-sort-key]::after{content:"↕";margin-left:5px;color:var(--muted);font-size:10px}
+    .ledger-table th[data-sort-key].sort-active::after{content:attr(data-sort-icon);color:var(--cyan)}
+    .detail-section summary.section-head{cursor:pointer;list-style:none}
+    .detail-section summary.section-head::-webkit-details-marker{display:none}
+    .detail-section summary.section-head::after{content:"Open details";border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;color:var(--muted);white-space:nowrap}
+    .detail-section[open] summary.section-head::after{content:"Hide details"}
+    .note{border-top:1px solid var(--line);padding:12px 18px;color:var(--muted);font-size:12px;background:rgba(255,255,255,.38)}
+    html[data-theme="dark"] .note{background:rgba(255,255,255,.025)}
+    .compact-note{padding:10px 18px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px;background:rgba(4,124,134,.055)}
+    html[data-theme="dark"] .compact-note{background:rgba(70,214,219,.05)}
+    @media(max-width:1100px){.answer-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:920px){.summary-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}.compact-daily{min-width:1180px}}
+    @media(max-width:640px){.answer-grid{grid-template-columns:1fr}}
+    @media(max-width:760px){main.ledger-page{width:calc(100vw - 14px);padding-top:14px}.doc-nav{position:static}.hero{padding:18px}.section-head{display:block}.section-head p{margin-top:6px}.ledger-table{font-size:12px}.ledger-table th,.ledger-table td{padding:8px}.jump-nav a{font-size:11px}}
+  </style>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+</head>
+<body>
+  <main class="ledger-page">
+    <nav class="doc-nav" aria-label="Prep documents">
+      <a href="home.html">Home</a>
+      <a href="report.html">Daily Master</a>
+      <a href="analysis.html">Analysis</a>
+      <a href="meal-patterns.html">Meal Patterns</a>
+      <a class="primary" href="data-ledger.html">Data Ledger</a>
+      <a href="sheets.html">Sheets</a>
+      <a href="3-day-cleanup.html">Current Cut</a>
+      <a href="148-burn.html">148 Target</a>
+      <a href="full-runway.html">Full Runway</a>
+      <a href="cardio-calibration.html">Cardio Data</a>
+      <a href="https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw" target="_blank" rel="noopener">Google Sheet</a>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">OCB Prep · evidence ledger · May 17-June 1</div>
+      <h1>Full Prep Data Ledger</h1>
+      <p class="lead">Separate CSV-style page for the full rows and columns. Nothing is truncated: wide tables scroll when needed, and long reads/source fields wrap instead of getting cut off.</p>
+      <div class="jump-nav" aria-label="Ledger sections">
+        <a href="#daily">Daily overview</a>
+        <a href="#scorecard">Daily scorecard</a>
+        <a href="#meal-timing">Meal timing</a>
+        <a href="#feedback-loop">Feedback loop</a>
+        <a href="#training">Training</a>
+        <a href="#cardio">Cardio</a>
+        <a href="#cardio-history">YTD cardio</a>
+        <a href="#sleep">Sleep</a>
+        <a href="#forecast">Forecast</a>
+      </div>
+    </section>
+
+    <section class="ledger-section" id="daily">
+      <div class="section-head">
+        <h2>Daily Overview</h2>
+        <p>Compact operating row. Detailed sleep stages, source notes, and long reads stay in the sections below so this stays scannable.</p>
+      </div>
+      <div class="table-shell">
+        <table class="ledger-table compact-daily">
+          <thead><tr><th>Date</th><th>Phase</th><th>AM Wt</th><th>Δ</th><th>Sleep</th><th>Macros</th><th>Cardio</th><th>Lift</th><th>Steps</th><th>Active</th><th>RHR / HRV</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="date-cell">Sun 5/17</td><td>Primer</td><td class="num">169.0</td><td>—</td><td>8h22</td><td class="macro-line"><span class="low">873</span> · P169 F9 C28</td><td class="wrap">Walk</td><td>Legs 56</td><td class="num">5,817</td><td class="num">769 / ~700</td><td>—</td><td class="status">Protein hit.</td></tr>
+            <tr><td class="date-cell">Mon 5/18</td><td>Cln D1</td><td class="num">165.0</td><td class="num">-4.0</td><td>8h00 total</td><td class="macro-line"><span class="low">940</span> · P171 F12.5 C34</td><td class="wrap">S45 + S30</td><td>Pull 97</td><td class="num">10,227</td><td class="num">1,902 / ~1,450</td><td>—</td><td class="status">Huge output; strength discounted.</td></tr>
+            <tr><td class="date-cell">Tue 5/19</td><td>Cln D2</td><td class="num">162.5</td><td class="num">-2.5</td><td>6h39 total</td><td class="macro-line"><span class="low">1,028</span> · P180 F12.3 C44</td><td class="wrap">S47 + S30 + W53</td><td>Arms 85</td><td class="num">14,529</td><td class="num">1,768 / ~1,355</td><td class="num">51 / 110</td><td class="status">Overreach day.</td></tr>
+            <tr><td class="date-cell">Wed 5/20</td><td>Cln D3</td><td class="num">160.3</td><td class="num">-2.2</td><td>6h10</td><td class="macro-line"><span class="low">975</span> · P181 F10.5 C37</td><td class="wrap">S45 + W63 + W44</td><td>No lift</td><td class="num">17,197</td><td class="num">1,108 / ~1,075</td><td class="num">50 / 112</td><td class="status">No lift; high walk volume.</td></tr>
+            <tr><td class="date-cell">Thu 5/21</td><td>Rec D1</td><td class="num">158.7</td><td class="num">-1.6</td><td>8h26 · 99%</td><td class="macro-line"><span class="low">1,000</span> · P170 F14.9 C34.6</td><td class="wrap">S51 + S32</td><td>Lift 88</td><td class="num">11,903</td><td class="num">1,891 / ~1,818</td><td class="num">47 / 120</td><td class="status">High output; Friday marker-led.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <details class="ledger-section detail-section" id="scorecard">
+      <summary class="section-head">
+        <span>
+          <h2>Daily Scorecard Detail</h2>
+          <p>Expanded cardio minutes/kcal, strength minutes/kcal, total training time, recovery decision, and next-morning checks.</p>
+        </span>
+      </summary>
+      <div class="table-shell">
+        <table class="ledger-table extra-wide">
+          <thead><tr><th>Date</th><th>Phase</th><th>AM Weight</th><th>Sleep</th><th>Calories</th><th>P</th><th>F</th><th>C</th><th>Cardio Min</th><th>Cardio Reported</th><th>Cardio Adj</th><th>Strength Min</th><th>Strength Reported</th><th>Strength Adj</th><th>Total Time</th><th>Total Reported</th><th>Total Adj</th><th>Training Read</th><th>Recovery Decision</th><th>Next Checks</th></tr></thead>
+          <tbody>
+            <tr><td class="date-cell">2026-05-17</td><td>Day 0 primer</td><td class="num">169</td><td>8h22m; bedtime 1:58a; wake 10:46a</td><td class="num">873</td><td class="num">169</td><td class="num">9</td><td class="num">28</td><td>—</td><td>—</td><td>—</td><td class="num">56.3</td><td class="num">431</td><td>—</td><td class="num">66.0</td><td class="num">467</td><td>—</td><td class="read">Protein-only primer with leg day and short untracked walk. Calories and fat were extremely low; the next scale drop is mostly water/glycogen/gut cleanup, not pure fat.</td><td class="read">No extra protein needed that night. Add only small fat or sodium if feeling off.</td><td class="read">AM weight; bathroom/pre-water weigh-in; hunger and soreness check.</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td>Day 1 cleanup</td><td class="num">165</td><td>8h00m total; night 6h24m; nap 1h36m from 12:29p-2:09p; bedtime 10:21p; wake 5:30a</td><td class="num">940</td><td class="num">171</td><td class="num">12.5</td><td class="num">34</td><td class="num">75.7</td><td class="num">838</td><td class="num">838</td><td class="num">97.4</td><td class="num">914</td><td class="num">600</td><td class="num">2h56m</td><td class="num">1,764</td><td class="num">1,450</td><td class="read">Monster training day: 45:14 AM StairMaster, 1:37:26 pull day, and 30:29 PM StairMaster. Cardio burn is trusted; strength burn is discounted.</td><td class="read">Day 2 can stay aggressive because RHR fell and HRV rebounded; prioritize sleep if fatigue appears.</td><td class="read">Tue AM weight 162.5; RHR; HRV; sleep including nap; soreness; hunger; lift readiness.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Day 2 cleanup</td><td class="num">162.5</td><td>6h39m total; night 5h53m; nap 46m from 1:59p-2:56p; bedtime 11:16p; wake 5:35a</td><td class="num">1,028</td><td class="num">180</td><td class="num">12.3</td><td class="num">44</td><td class="num">130.3</td><td class="num">1,016</td><td class="num">925</td><td class="num">85.5</td><td class="num">485</td><td class="num">430</td><td class="num">216m</td><td class="num">1,501</td><td class="num">1,355</td><td class="read">AM Stair 47:14, arms 85:31, PM Stair 30:27, and walk 52:37. Steps were 14,529 and adjusted deficit was roughly 2,200 kcal. Warm-up excluded.</td><td class="read">Pull cardio tomorrow, weigh in, and avoid stacking another triple-cardio day if sleep is short.</td><td class="read">Wed AM weigh-in; RHR; HRV; sleep duration; hunger; soreness; arm-day recovery; cardio cap.</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td>Day 3 cleanup</td><td class="num">160.3</td><td>6h10m total; night 6h10m; no nap logged; bedtime 11:15p Tue; wake 5:39a</td><td class="num">975</td><td class="num">181</td><td class="num">10.5</td><td class="num">37</td><td class="num">152.0</td><td class="num">847</td><td class="num">822</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">152m</td><td class="num">847</td><td class="num">1,075</td><td class="read">No lift. AM Stair 45:31 at HR 140/156 with zones Z2 ~10%, Z3 ~55%, Z4 ~35%; morning/evening walks kept output high.</td><td class="read">Weight drop confirmed at 160.3. Keep next day controlled and protect sleep; avoid using walks as hidden second/third cardio if fatigue is high.</td><td class="read">Thu AM weigh-in; RHR; HRV; sleep; hunger; soreness; whether Thu cardio/lift were completed.</td></tr>
+            <tr><td class="date-cell">2026-05-21</td><td>Aggressive/recoverable D1</td><td class="num">158.7</td><td>8h26m asleep; 8h29m in bed; 99% efficiency; bedtime 10:59p Wed; wake 7:28a; RHR 47; HRV 120</td><td class="num">1,000</td><td class="num">170</td><td class="num">14.9</td><td class="num">34.6</td><td class="num">83.3</td><td class="num">874</td><td class="num">876</td><td class="num">87.8</td><td class="num">760</td><td class="num">685</td><td class="num">171m</td><td class="num">1,634</td><td class="num">1,818</td><td class="read">Thu became another high-output day: AM Stair 51:04 HR 136/151, dense lift 2:25-3:53p for 87:49 HR 126/154, and PM Stair 32:15 HR 134/150. Apple active was 1,891; adjusted active about 1,818; adjusted deficit about 2,420 on 1,000 calories.</td><td class="read">Recovery markers were excellent, but the day stacked two StairMaster blocks plus a dense lift. Friday should be decided by AM weight, RHR/HRV, sleep, soreness, and hunger; do not add a third cardio block.</td><td class="read">Fri AM weight; RHR; HRV; sleep; soreness; hunger; body-part label for Thu lift if available.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <section class="ledger-section" id="meal-timing">
+      <div class="section-head">
+        <h2>Meal Timing</h2>
+        <p>MacroFactor food log grouped into simple meal windows. Entries within about 60 minutes are treated as one meal so the day is easier to read.</p>
+      </div>
+      <div class="answer-grid" id="meal-anchor-snapshot">
+        <article class="answer-card"><span class="badge">Loading</span><strong>—</strong><h3>Meal timing read</h3><p>Loading protein meal anchors from analysis-data.js.</p></article>
+      </div>
+      <div class="table-shell">
+        <table class="ledger-table wide">
+          <thead><tr><th>Date</th><th>Day</th><th>Meal</th><th>Window</th><th>Food group</th><th>Calories</th><th>P</th><th>F</th><th>C</th><th>Structure read</th></tr></thead>
+          <tbody>
+            <tr><td class="date-cell">2026-05-17</td><td>Sun</td><td>M1</td><td class="time">1:46p</td><td>Clear protein</td><td class="num">150</td><td class="num">33</td><td class="num">0</td><td class="num">2</td><td class="read">Protein-only primer; low residue but all liquid.</td></tr>
+            <tr><td class="date-cell">2026-05-17</td><td>Sun</td><td>M2</td><td class="time">5:03-6:00p</td><td>PB cookies protein + Iso Phorm WCPB</td><td class="num">520</td><td class="num">100</td><td class="num">7</td><td class="num">18</td><td class="read">Large protein-powder bolus.</td></tr>
+            <tr><td class="date-cell">2026-05-17</td><td>Sun</td><td>M3</td><td class="time">7:39p</td><td>Strawberry Banana Royale</td><td class="num">203</td><td class="num">36</td><td class="num">2</td><td class="num">9</td><td class="read">Another powder meal.</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td>Mon</td><td>M1</td><td class="time">7:00a</td><td>Flash IV</td><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="read">Electrolyte only.</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td>Mon</td><td>M2</td><td class="time">11:09-11:43a</td><td>Chocolate chip protein + Strawberry Banana</td><td class="num">405</td><td class="num">72</td><td class="num">5</td><td class="num">16</td><td class="read">Two powders close together.</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td>Mon</td><td>M3</td><td class="time">4:30p</td><td>Strawberry Banana</td><td class="num">135</td><td class="num">24</td><td class="num">2</td><td class="num">6</td><td class="read">Small powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td>Mon</td><td>M4</td><td class="time">7:41p</td><td>Lean whey WCPB + Raspberry Tart</td><td class="num">390</td><td class="num">75</td><td class="num">6</td><td class="num">11</td><td class="read">Large late powder bolus.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td>M1</td><td class="time">6:12a</td><td>Flash IV</td><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="read">Electrolyte only.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td>M2</td><td class="time">10:52a</td><td>Chocolate chip protein</td><td class="num">270</td><td class="num">48</td><td class="num">3</td><td class="num">10</td><td class="read">Powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td>M3</td><td class="time">12:59p</td><td>Lemon Raspberry Wedding Cake</td><td class="num">203</td><td class="num">36</td><td class="num">2</td><td class="num">9</td><td class="read">Powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td>M4</td><td class="time">3:14p</td><td>Strawberry Banana</td><td class="num">135</td><td class="num">24</td><td class="num">2</td><td class="num">6</td><td class="read">Powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td>M5</td><td class="time">6:58p</td><td>Lemon Raspberry Wedding Cake</td><td class="num">270</td><td class="num">48</td><td class="num">3</td><td class="num">12</td><td class="read">Powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td>M6</td><td class="time">9:27p</td><td>PB cookies protein</td><td class="num">140</td><td class="num">24</td><td class="num">3</td><td class="num">6</td><td class="read">Late powder.</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td>Wed</td><td>M1</td><td class="time">10:33a</td><td>Chocolate chip protein</td><td class="num">270</td><td class="num">48</td><td class="num">3</td><td class="num">10</td><td class="read">Powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td>Wed</td><td>M2</td><td class="time">1:34p</td><td>Lemon Raspberry Wedding Cake</td><td class="num">270</td><td class="num">48</td><td class="num">3</td><td class="num">12</td><td class="read">Powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td>Wed</td><td>M3</td><td class="time">5:15p</td><td>Strawberry Banana</td><td class="num">270</td><td class="num">48</td><td class="num">3</td><td class="num">12</td><td class="read">Powder anchor.</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td>Wed</td><td>M4</td><td class="time">7:28p</td><td>Farm Fed toaster pastry protein</td><td class="num">165</td><td class="num">38</td><td class="num">2</td><td class="num">3</td><td class="read">Late powder.</td></tr>
+            <tr><td class="date-cell">2026-05-21</td><td>Thu</td><td>M1</td><td class="time">11:34a</td><td>Chicken + egg whites + avocado</td><td class="num">367</td><td class="num">60</td><td class="num">10</td><td class="num">5</td><td class="read">Best whole-food structure; low carb and more stomach-stable.</td></tr>
+            <tr><td class="date-cell">2026-05-21</td><td>Thu</td><td>M2</td><td class="time">1:50p</td><td>Banana + egg whites</td><td class="num">208</td><td class="num">26</td><td class="num">0</td><td class="num">22</td><td class="read">Useful pre-lift carb with controlled fat.</td></tr>
+            <tr><td class="date-cell">2026-05-21</td><td>Thu</td><td>M3</td><td class="time">6:02-7:00p</td><td>Chocolate shake + egg whites + chocolate shake</td><td class="num">425</td><td class="num">85</td><td class="num">6</td><td class="num">8</td><td class="read">High late protein; still shake-heavy.</td></tr>
+            <tr><td class="date-cell">2026-05-22</td><td>Fri</td><td>Pending</td><td>Pending</td><td>No food logged in export yet</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="read">Use feedback loop today.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">Pattern: powder-heavy days created tight macros, but the new whole-food base is the better buy if GI symptoms continue.</div>
+    </section>
+
+    <section class="ledger-section" id="feedback-loop">
+      <div class="section-head">
+        <h2>Daily Feedback Loop</h2>
+        <p>Use this to connect the scale to what actually happened: GI, stool, hunger, energy, soreness, training readiness, and the next lever.</p>
+      </div>
+      <div class="table-shell">
+        <table class="ledger-table wide">
+          <thead><tr><th>Date</th><th>AM Weight</th><th>GI / stomach</th><th>Stool</th><th>Energy</th><th>Hunger</th><th>Soreness</th><th>Training readiness</th><th>Scale read</th><th>Adjustment</th></tr></thead>
+          <tbody>
+            <tr><td class="date-cell">2026-05-17</td><td class="num">169.0</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Leg soreness after leg day</td><td>Unknown</td><td class="read">Start point.</td><td class="read">No change.</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td class="num">165.0</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>High output</td><td class="read">Strong flush.</td><td class="read">Keep aggressive but do not add extra punishment cardio.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td class="num">162.5</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Overreach</td><td class="read">Flush continued.</td><td class="read">Pull back if sleep/recovery weak.</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td class="num">160.3</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>No lift; high walking</td><td class="read">Flush continued.</td><td class="read">No lift helped; protect sleep.</td></tr>
+            <tr><td class="date-cell">2026-05-21</td><td class="num">158.7</td><td>Stomach upset reported after high shake volume</td><td>Loose / diarrhea-like</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>Dense lift plus two StairMasters</td><td class="read">Small next-day drop likely masked by training/GI water.</td><td class="read">Shift more protein to whole foods; reduce powder boluses.</td></tr>
+            <tr><td class="date-cell">2026-05-22</td><td class="num">158.4</td><td>Needs check-in</td><td>Needs check-in</td><td>Needs check-in</td><td>Needs check-in</td><td>Needs check-in</td><td>Needs check-in</td><td class="read">Flat-ish but still down 10.6 lb from 5/17.</td><td class="read">Use marker-led cardio and GI-friendly protein.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">Daily check-in format: weight, sleep, RHR/HRV, stool/GI, hunger, energy, soreness, workout readiness, macros so far, planned cardio/lift.</div>
+    </section>
+
+    <section class="ledger-section" id="training">
+      <div class="section-head">
+        <h2>Workout / Training Sessions</h2>
+        <p>Training only. Filter by split and sort by density, HR, duration, or burn. Warmups are excluded.</p>
+      </div>
+      <div class="answer-grid" id="fuel-lift-snapshot">
+        <article class="answer-card"><span class="badge">Loading</span><strong>—</strong><h3>Fuel → lift read</h3><p>Loading pre-workout food and lift-density signals from analysis-data.js.</p></article>
+      </div>
+      <div class="compact-note">Current limitation: this answers workout density/output, not true load progression. Set/rep/load detail is not in the current Apple/MacroFactor data.</div>
+      <div class="toolbar" id="training-toolbar" data-target="training-table">
+        <div class="filter-group" aria-label="Training filters">
+          <button class="filter-button active" type="button" data-filter="all">All training</button>
+          <button class="filter-button" type="button" data-filter="legs">Legs</button>
+          <button class="filter-button" type="button" data-filter="pull">Pull</button>
+          <button class="filter-button" type="button" data-filter="arms">Arms</button>
+          <button class="filter-button" type="button" data-filter="unlabeled">Unlabeled</button>
+          <button class="filter-button" type="button" data-filter="rest">Rest / Plan</button>
+        </div>
+        <label class="sort-control">Sort
+          <select data-sort-select>
+            <option value="date">Date</option>
+            <option value="duration">Duration</option>
+            <option value="adjusted">Adjusted kcal</option>
+            <option value="kpm">kcal/min</option>
+            <option value="avg_hr">Avg HR</option>
+            <option value="max_hr">Max HR</option>
+            <option value="pct">Percent max</option>
+          </select>
+          <button class="sort-dir" type="button" data-sort-dir="desc">Desc</button>
+        </label>
+      </div>
+      <div class="summary-strip" id="training-summary" aria-label="Visible training summary"></div>
+      <div class="table-shell">
+        <table class="ledger-table wide" id="training-table">
+          <thead><tr><th data-sort-key="date">Date</th><th>Session</th><th>Start</th><th>End</th><th data-sort-key="duration">Duration</th><th data-sort-key="reported">Reported kcal</th><th data-sort-key="adjusted">Adjusted kcal</th><th data-sort-key="kpm">kcal/min</th><th data-sort-key="avg_hr">Avg HR</th><th data-sort-key="max_hr">Max HR</th><th data-sort-key="pct">% Max</th><th>Zone</th><th>Read</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr data-type="legs" data-date="2026-05-17" data-duration="56.27" data-reported="431" data-adjusted="405" data-kpm="7.65" data-avg-hr="128" data-max-hr="179" data-pct="70"><td class="date-cell">2026-05-17</td><td>Leg day</td><td class="time">3:27 PM</td><td class="time">4:24 PM</td><td class="time">56:16</td><td class="num">431</td><td class="num">~405</td><td class="num">7.65</td><td class="num">128</td><td class="num">179</td><td class="num">70%</td><td>Z3 moderate</td><td class="read">Short intense leg day per user correction; lift calories are context and should not be eaten back.</td><td class="source">workouts apr may 2026 v2.csv; user chat correction</td></tr>
+            <tr data-type="pull" data-date="2026-05-18" data-duration="97.43" data-reported="914" data-adjusted="600" data-kpm="9.37" data-avg-hr="129" data-max-hr="158" data-pct="70"><td class="date-cell">2026-05-18</td><td>Pull day</td><td class="time">4:58 PM</td><td class="time">6:36 PM</td><td class="time">1:37:26</td><td class="num">914</td><td class="num">~600</td><td class="num">9.37</td><td class="num">129</td><td class="num">158</td><td class="num">70%</td><td>Z3 moderate</td><td class="read">Dense pull day, but Apple likely overstates strength active calories; use 550-650 range, 600 planning value.</td><td class="source">Claude/Apple Health pull pasted in Codex chat; user chat correction</td></tr>
+            <tr data-type="arms" data-date="2026-05-19" data-duration="85.52" data-reported="485" data-adjusted="430" data-kpm="5.67" data-avg-hr="113" data-max-hr="141" data-pct="60"><td class="date-cell">2026-05-19</td><td>Arms</td><td class="time">4:10 PM</td><td class="time">5:36 PM</td><td class="time">85:31</td><td class="num">485</td><td class="num">~430</td><td class="num">5.67</td><td class="num">113</td><td class="num">141</td><td class="num">60%</td><td>Z2/Z3</td><td class="read">Displayed lift session; Apple strength burn discounted for planning.</td><td class="source">Claude final macros/workout/day totals pasted in Codex chat 2026-05-19</td></tr>
+            <tr data-type="rest" data-date="2026-05-20" data-duration="0" data-reported="0" data-adjusted="0" data-kpm="0" data-avg-hr="0" data-max-hr="0" data-pct="0"><td class="date-cell">2026-05-20</td><td>No lift</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Rest</td><td class="read">No lift; cardio and walking still kept output elevated.</td><td class="source">Claude corrected HR pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr data-type="unlabeled" data-date="2026-05-21" data-duration="87.82" data-reported="760" data-adjusted="685" data-kpm="8.65" data-avg-hr="126" data-max-hr="154" data-pct="67"><td class="date-cell">2026-05-21</td><td>Weight Training</td><td class="time">2:25 PM</td><td class="time">3:53 PM</td><td class="time">87:49</td><td class="num">760</td><td class="num">~685</td><td class="num">8.65</td><td class="num">126</td><td class="num">154</td><td class="num">67%</td><td>Z3 dense</td><td class="read">Body-part label is still unknown, so this stays unlabeled instead of being forced into legs/pull/arms. Avg HR 126 makes it a dense lift signal.</td><td class="source">Claude final Thu 5/21 workout pull pasted in Codex chat 2026-05-21</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">Warmup rows exist in the source file but are intentionally excluded here because you asked not to count warmups as the main workout.</div>
+    </section>
+
+    <section class="ledger-section" id="cardio">
+      <div class="section-head">
+        <h2>Cardio Sessions</h2>
+        <p>Filter by type and sort the exact signal you care about: HR, max HR, kcal/min, duration, or adjusted burn.</p>
+      </div>
+      <div class="answer-grid" id="cardio-answer-snapshot">
+        <article class="answer-card"><span class="badge">Loading</span><strong>—</strong><h3>Cardio read</h3><p>Loading current vs YTD cardio answer from analysis-data.js.</p></article>
+      </div>
+      <div class="toolbar" id="cardio-toolbar" data-target="cardio-table">
+        <div class="filter-group" aria-label="Cardio filters">
+          <button class="filter-button active" type="button" data-filter="all">All cardio</button>
+          <button class="filter-button" type="button" data-filter="stairmaster">StairMaster</button>
+          <button class="filter-button" type="button" data-filter="walking">Walking</button>
+          <button class="filter-button" type="button" data-filter="unknown">Untracked</button>
+        </div>
+        <label class="sort-control">Sort
+          <select data-sort-select>
+            <option value="date">Date</option>
+            <option value="duration">Duration</option>
+            <option value="adjusted">Adjusted kcal</option>
+            <option value="kpm">kcal/min</option>
+            <option value="avg_hr">Avg HR</option>
+            <option value="max_hr">Max HR</option>
+            <option value="pct">Percent max</option>
+          </select>
+          <button class="sort-dir" type="button" data-sort-dir="desc">Desc</button>
+        </label>
+      </div>
+      <div class="summary-strip" id="cardio-summary" aria-label="Visible cardio summary"></div>
+      <div class="table-shell">
+        <table class="ledger-table wide" id="cardio-table">
+          <thead><tr><th data-sort-key="date">Date</th><th>Activity</th><th>Start</th><th>End</th><th data-sort-key="duration">Duration</th><th data-sort-key="reported">Reported kcal</th><th data-sort-key="adjusted">Adjusted kcal</th><th data-sort-key="kpm">kcal/min</th><th data-sort-key="avg_hr">Avg HR</th><th data-sort-key="max_hr">Max HR</th><th data-sort-key="pct">% Max</th><th>Distance</th><th>Zone</th><th>Read</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr data-type="unknown" data-date="2026-05-17" data-duration="0" data-reported="0" data-adjusted="0" data-kpm="0" data-avg-hr="0" data-max-hr="0" data-pct="0"><td class="date-cell">2026-05-17</td><td>Short outside walk</td><td>Unknown</td><td>Unknown</td><td>Unknown</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Low</td><td class="read">Walk happened, but timing and tracking are weak/unknown.</td><td class="source">User chat correction</td></tr>
+            <tr data-type="stairmaster" data-date="2026-05-18" data-duration="45.23" data-reported="504" data-adjusted="504" data-kpm="11.14" data-avg-hr="140" data-max-hr="149" data-pct="76"><td class="date-cell">2026-05-18</td><td>StairMaster</td><td class="time">8:07 AM</td><td class="time">8:52 AM</td><td class="time">45:14</td><td class="num">504</td><td class="num">504</td><td class="num">11.14</td><td class="num">140</td><td class="num">149</td><td class="num">76%</td><td>—</td><td>Z4 hard</td><td class="read">Morning cardio anchor; trust this cardio burn more than strength burn.</td><td class="source">Claude/Apple Health pull pasted in Codex chat</td></tr>
+            <tr data-type="stairmaster" data-date="2026-05-18" data-duration="30.48" data-reported="334" data-adjusted="334" data-kpm="10.94" data-avg-hr="138" data-max-hr="150" data-pct="75"><td class="date-cell">2026-05-18</td><td>StairMaster</td><td class="time">6:37 PM</td><td class="time">7:07 PM</td><td class="time">30:29</td><td class="num">334</td><td class="num">334</td><td class="num">10.94</td><td class="num">138</td><td class="num">150</td><td class="num">75%</td><td>—</td><td>Z4 hard</td><td class="read">Second StairMaster matched morning effort after dense lift; trust this cardio burn more than strength burn.</td><td class="source">Claude/Apple Health pull pasted in Codex chat</td></tr>
+            <tr data-type="stairmaster" data-date="2026-05-19" data-duration="47.23" data-reported="504" data-adjusted="455" data-kpm="10.67" data-avg-hr="136" data-max-hr="150" data-pct="73"><td class="date-cell">2026-05-19</td><td>StairMaster</td><td class="time">6:30 AM</td><td class="time">7:18 AM</td><td class="time">47:14</td><td class="num">504</td><td class="num">~455</td><td class="num">10.67</td><td class="num">136</td><td class="num">150</td><td class="num">73%</td><td>1.86 mi</td><td>Z3 moderate</td><td class="read">Textbook Zone 3 morning StairMaster after short sleep; Apple kcal likely within 10%, but planning value uses ~455 kcal MET estimate.</td><td class="source">Claude/Apple Health pull pasted in Codex chat 2026-05-19</td></tr>
+            <tr data-type="stairmaster" data-date="2026-05-19" data-duration="30.45" data-reported="309" data-adjusted="290" data-kpm="10.15" data-avg-hr="129" data-max-hr="139" data-pct="69"><td class="date-cell">2026-05-19</td><td>StairMaster</td><td class="time">5:36 PM</td><td class="time">6:06 PM</td><td class="time">30:27</td><td class="num">309</td><td class="num">~290</td><td class="num">10.15</td><td class="num">129</td><td class="num">139</td><td class="num">69%</td><td>—</td><td>Z2/Z3</td><td class="read">Second stair session after lift; useful but overreach when stacked with AM cardio and walk.</td><td class="source">Claude final macros/workout/day totals pasted in Codex chat 2026-05-19</td></tr>
+            <tr data-type="walking" data-date="2026-05-19" data-duration="52.62" data-reported="203" data-adjusted="180" data-kpm="3.86" data-avg-hr="95" data-max-hr="135" data-pct="51"><td class="date-cell">2026-05-19</td><td>Walking</td><td class="time">8:31 PM</td><td class="time">9:24 PM</td><td class="time">52:37</td><td class="num">203</td><td class="num">~180</td><td class="num">3.86</td><td class="num">95</td><td class="num">135</td><td class="num">51%</td><td>—</td><td>Low</td><td class="read">Extra evening walk pushed the day further into overreach.</td><td class="source">Claude final macros/workout/day totals pasted in Codex chat 2026-05-19</td></tr>
+            <tr data-type="stairmaster" data-date="2026-05-20" data-duration="45.52" data-reported="512" data-adjusted="512" data-kpm="11.25" data-avg-hr="140" data-max-hr="156" data-pct="75"><td class="date-cell">2026-05-20</td><td>StairMaster</td><td class="time">6:50 AM</td><td class="time">7:35 AM</td><td class="time">45:31</td><td class="num">512</td><td class="num">512</td><td class="num">11.25</td><td class="num">140</td><td class="num">156</td><td class="num">75%</td><td>—</td><td>Z3/Z4 hard</td><td class="read">Corrected HR pull: avg 140 / max 156, zones about Z2 10%, Z3 55%, Z4 35%; hardest stair session of the week.</td><td class="source">Claude corrected HR pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr data-type="walking" data-date="2026-05-20" data-duration="62.95" data-reported="193" data-adjusted="180" data-kpm="3.07" data-avg-hr="77" data-max-hr="101" data-pct="41"><td class="date-cell">2026-05-20</td><td>Walking</td><td class="time">8:39 AM</td><td class="time">9:42 AM</td><td class="time">62:57</td><td class="num">193</td><td class="num">~180</td><td class="num">3.07</td><td class="num">77</td><td class="num">101</td><td class="num">41%</td><td>2.50 mi</td><td>Low</td><td class="read">Long morning walk after StairMaster; low HR, useful output, but still adds fatigue even without lifting.</td><td class="source">Claude corrected HR pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr data-type="walking" data-date="2026-05-20" data-duration="43.52" data-reported="142" data-adjusted="130" data-kpm="3.26" data-avg-hr="93" data-max-hr="105" data-pct="50"><td class="date-cell">2026-05-20</td><td>Walking</td><td class="time">6:38 PM</td><td class="time">7:22 PM</td><td class="time">43:31</td><td class="num">142</td><td class="num">~130</td><td class="num">3.26</td><td class="num">93</td><td class="num">105</td><td class="num">50%</td><td>2.11 mi</td><td>Low</td><td class="read">Evening walk kept the day aggressive despite no lift; HR stayed easy.</td><td class="source">Claude corrected HR pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr data-type="stairmaster" data-date="2026-05-21" data-duration="51.07" data-reported="532.3" data-adjusted="533.6" data-kpm="10.42" data-avg-hr="135.87" data-max-hr="151" data-pct="73"><td class="date-cell">2026-05-21</td><td>StairMaster</td><td class="time">9:24:54 AM</td><td class="time">10:15:58 AM</td><td class="time">51:04</td><td class="num">532.3</td><td class="num">533.6</td><td class="num">10.42</td><td class="num">135.87</td><td class="num">151</td><td class="num">73%</td><td>—</td><td>Z3 moderate</td><td class="read">Actual Thu AM StairMaster logged: workout active 532.3 kcal, window active 533.56 kcal, basal 86.4 kcal, total window 618.69 kcal. Strong controlled cardio; enough AM cardio before any later lift.</td><td class="source">User pasted workout record in Codex chat 2026-05-21</td></tr>
+            <tr data-type="stairmaster" data-date="2026-05-21" data-duration="32.25" data-reported="342" data-adjusted="342" data-kpm="10.60" data-avg-hr="134" data-max-hr="150" data-pct="72"><td class="date-cell">2026-05-21</td><td>StairMaster</td><td class="time">3:53 PM</td><td class="time">4:25 PM</td><td class="time">32:15</td><td class="num">342</td><td class="num">342</td><td class="num">10.60</td><td class="num">134</td><td class="num">150</td><td class="num">72%</td><td>—</td><td>Z3 moderate</td><td class="read">Second Thu StairMaster after dense lift. Strong output, but it makes Thu another high-output day rather than a pure recovery day.</td><td class="source">Claude final Thu 5/21 cardio pull pasted in Codex chat 2026-05-21</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">Mon 5/18 had a later conflicting pasted table that appeared to swap AM/PM Stair calories. This page keeps the current trusted source file values until a raw re-pull resolves it.</div>
+    </section>
+
+    <section class="ledger-section" id="cardio-history">
+      <div class="section-head">
+        <h2>YTD Cardio Explorer</h2>
+        <p>Full January-May import from the workout CSVs. This is the clean place to sort all StairMaster and walking sessions without crowding the current cleanup ledger.</p>
+      </div>
+      <div class="compact-note">Use this when the question is “is StairMaster getting easier/harder?” Filter StairMaster, sort by kcal/min or average HR, then compare current cleanup rows against the YTD baseline.</div>
+      <div class="toolbar" id="ytd-cardio-toolbar" data-target="ytd-cardio-table">
+        <div class="filter-group" aria-label="YTD cardio filters">
+          <button class="filter-button active" type="button" data-filter="all">All YTD cardio</button>
+          <button class="filter-button" type="button" data-filter="stairmaster">StairMaster</button>
+          <button class="filter-button" type="button" data-filter="walking">Walking</button>
+          <button class="filter-button" type="button" data-filter="reliable">Reliable HR</button>
+          <button class="filter-button" type="button" data-filter="suspect">Suspect HR</button>
+        </div>
+        <label class="sort-control">Sort
+          <select data-sort-select>
+            <option value="date">Date</option>
+            <option value="duration">Duration</option>
+            <option value="reported">Calories</option>
+            <option value="kpm">kcal/min</option>
+            <option value="avg_hr">Avg HR</option>
+            <option value="max_hr">Max HR</option>
+          </select>
+          <button class="sort-dir" type="button" data-sort-dir="desc">Desc</button>
+        </label>
+      </div>
+      <div class="summary-strip" id="ytd-cardio-summary" aria-label="Visible YTD cardio summary"></div>
+      <div class="table-shell">
+        <table class="ledger-table wide" id="ytd-cardio-table">
+          <thead><tr><th data-sort-key="date">Date</th><th>Type</th><th>Session</th><th>Time</th><th data-sort-key="duration">Duration</th><th data-sort-key="reported">Calories</th><th data-sort-key="kpm">kcal/min</th><th data-sort-key="avg_hr">Avg HR</th><th data-sort-key="max_hr">Max HR</th><th>HR quality</th><th>Read</th><th>Source</th></tr></thead>
+          <tbody id="ytd-cardio-body">
+            <tr><td colspan="12" class="small">Loading YTD cardio rows from analysis-data.js…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">Suspect HR rows stay visible so they do not silently pollute the trend. Calories and kcal/min can still be useful, but HR-based conclusions should use reliable rows first.</div>
+    </section>
+
+    <section class="ledger-section" id="sleep">
+      <div class="section-head">
+        <h2>Sleep + Recovery</h2>
+        <p>Sleep timing, sleep stages, efficiency, RHR, and HRV. This is the key guardrail for deciding whether aggressive stays aggressive or becomes sloppy.</p>
+      </div>
+      <div class="table-shell">
+        <table class="ledger-table wide">
+          <thead><tr><th>Date</th><th>Day</th><th>Bed</th><th>Wake</th><th>Asleep</th><th>In Bed</th><th>Efficiency</th><th>Core</th><th>REM</th><th>Deep</th><th>Awake</th><th>RHR</th><th>HRV</th><th>Read</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td class="date-cell">2026-05-17</td><td>Sun</td><td class="time">1:58a</td><td class="time">10:46a</td><td>8h22m</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="read">Long sleep after disruption; primer day.</td><td class="source">Claude/Apple Health pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td>Mon</td><td class="time">10:21p Sun</td><td class="time">5:30a</td><td>6h24m</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="read">Shorter night offset by 1h36m nap later.</td><td class="source">Claude/Apple Health pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td class="time">11:16p Mon</td><td class="time">5:35a</td><td>5h53m</td><td>6h18m</td><td class="num">93%</td><td>3h46m</td><td>54m</td><td>1h13m</td><td>25m</td><td class="num">51</td><td class="num">110</td><td class="read">Short night but efficient; recovery was still usable.</td><td class="source">Claude/Apple Health pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td>Wed</td><td class="time">11:15p Tue</td><td class="time">5:39a</td><td>6h10m</td><td>6h25m</td><td class="num">96%</td><td>3h39m</td><td>1h51m</td><td>40m</td><td>15m</td><td class="num">50</td><td class="num">112</td><td class="read">Still short but efficient; no-lift day helped.</td><td class="source">Claude/Apple Health pull pasted in Codex chat 2026-05-21</td></tr>
+            <tr><td class="date-cell">2026-05-21</td><td>Thu</td><td class="time">10:59p Wed</td><td class="time">7:28a</td><td>8h26m</td><td>8h29m</td><td class="num">99%</td><td>5h19m</td><td>2h11m</td><td>56m</td><td>3m</td><td class="num">47</td><td class="num">120</td><td class="read">Recovery crash; body forced rest and markers improved.</td><td class="source">Claude/Apple Health pull pasted in Codex chat 2026-05-21</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="ledger-section" id="forecast">
+      <div class="section-head">
+        <h2>Scale Forecast vs Actual</h2>
+        <p>Estimate ranges are kept here so the prediction history is visible instead of rewritten after each weigh-in.</p>
+      </div>
+      <div class="table-shell">
+        <table class="ledger-table wide">
+          <thead><tr><th>Date</th><th>Day</th><th>Forecast Source</th><th>Forecast Range</th><th>Center</th><th>Actual AM Weight</th><th>Δ vs Center</th><th>Verdict</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td class="date-cell">2026-05-17</td><td>Sun</td><td>Starting weigh-in</td><td>no prior estimate</td><td>—</td><td class="num">169.0</td><td>—</td><td>Start point</td><td class="read">High post-break AM read; not a settled baseline.</td></tr>
+            <tr><td class="date-cell">2026-05-18</td><td>Mon</td><td>Initial cleanup model</td><td class="num">165-168</td><td class="num">166.5</td><td class="num">165.0</td><td class="num">-1.5</td><td>Hit low edge</td><td class="read">Initial expectation was Day 1 AM in the 165-168 band.</td></tr>
+            <tr><td class="date-cell">2026-05-19</td><td>Tue</td><td>Rolling drop-rate model</td><td class="num">162-163.5</td><td class="num">162.8</td><td class="num">162.5</td><td class="num">-0.3</td><td>On track</td><td class="read">Rolling expectation used 1.5-3 lb/day early cleanup drop.</td></tr>
+            <tr><td class="date-cell">2026-05-20</td><td>Wed</td><td>Rolling drop-rate model</td><td class="num">159.5-162</td><td class="num">160.8</td><td class="num">160.3</td><td class="num">-0.5</td><td>On track</td><td class="read">Still inside the fast-flush band.</td></tr>
+            <tr><td class="date-cell">2026-05-21</td><td>Thu</td><td>Codex explicit forecast after Wed data</td><td class="num">159-160</td><td class="num">159.4</td><td class="num">158.7</td><td class="num">-0.7</td><td>Beat forecast</td><td class="read">Expected 159.0-160.0 with center around 159.4; actual came in lighter.</td></tr>
+            <tr><td class="date-cell">2026-05-22</td><td>Fri</td><td>Current forward range</td><td class="num">157-158</td><td class="num">157.5</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">If this lands 157-158 it still reads as mostly transient flush plus some fat loss.</td></tr>
+            <tr><td class="date-cell">2026-05-23</td><td>Sat</td><td>Current forward range</td><td class="num">156-158</td><td class="num">157.0</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">Still not fully settled; soreness/sodium/BM can swing this.</td></tr>
+            <tr><td class="date-cell">2026-05-24</td><td>Sun</td><td>Current forward range</td><td class="num">155-157</td><td class="num">156.0</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">This starts becoming a more useful fat-vs-water read.</td></tr>
+            <tr><td class="date-cell">2026-05-25</td><td>Mon</td><td>Current forward range</td><td class="num">153-156</td><td class="num">154.5</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">First strong read if sleep/sodium/training are controlled.</td></tr>
+            <tr><td class="date-cell">2026-05-26</td><td>Tue</td><td>Projected truth-window range</td><td class="num">153-155.5</td><td class="num">154.3</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">Drop should slow unless more water/gut clears.</td></tr>
+            <tr><td class="date-cell">2026-05-27</td><td>Wed</td><td>Projected truth-window range</td><td class="num">152.5-155</td><td class="num">153.8</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">Use this to separate real fat gain from remaining transient mass.</td></tr>
+            <tr><td class="date-cell">2026-05-28</td><td>Thu</td><td>Projected settled-cut range</td><td class="num">152-154.5</td><td class="num">153.3</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">If still above this range check sodium, soreness, sleep, BM, and under-logged intake.</td></tr>
+            <tr><td class="date-cell">2026-05-29</td><td>Fri</td><td>Projected settled-cut range</td><td class="num">151-154</td><td class="num">152.5</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">Realistic aggressive-cut lane if recovery stays intact.</td></tr>
+            <tr><td class="date-cell">2026-05-30</td><td>Sat</td><td>Projected final-runway range</td><td class="num">150.5-153.5</td><td class="num">152.0</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">Getting near the true post-break damage read.</td></tr>
+            <tr><td class="date-cell">2026-05-31</td><td>Sun</td><td>Projected final-runway range</td><td class="num">149.5-153</td><td class="num">151.3</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">Final pre-coach read; 148 is possible only if transient mass clears hard.</td></tr>
+            <tr><td class="date-cell">2026-06-01</td><td>Mon</td><td>Coach handoff target range</td><td class="num">148.5-152.5</td><td class="num">150.5</td><td>Pending</td><td>—</td><td>Pending</td><td class="read">Hard-goal landing zone; 148 requires near-perfect flush plus no rebound noise.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="analysis-data.js?v=20260522-ledger-ytd"></script>
+  <script>
+    (function(){
+      const number = (value) => {
+        const parsed = Number.parseFloat(value || "0");
+        return Number.isFinite(parsed) ? parsed : 0;
+      };
+      const escapeHtml = (value) => String(value ?? "—").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+      const displayNumber = (value, digits = 0) => {
+        const parsed = Number.parseFloat(value);
+        if (!Number.isFinite(parsed) || parsed <= 0) return "—";
+        return parsed.toLocaleString(undefined, { maximumFractionDigits: digits, minimumFractionDigits: digits });
+      };
+      const minutesLabel = (minutes) => {
+        if (!minutes) return "0m";
+        const hours = Math.floor(minutes / 60);
+        const mins = Math.round(minutes % 60);
+        return hours ? `${hours}h ${mins}m` : `${mins}m`;
+      };
+      const average = (rows, key) => {
+        const values = rows.map((row) => number(row.dataset[key])).filter((value) => value > 0);
+        return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0;
+      };
+      const sum = (rows, key) => rows.reduce((total, row) => total + number(row.dataset[key]), 0);
+      const renderSummary = (summary, rows) => {
+        const totalDuration = sum(rows, "duration");
+        const totalAdjusted = sum(rows, "adjusted");
+        const avgHr = average(rows, "avgHr");
+        const avgKpm = average(rows, "kpm");
+        summary.innerHTML = [
+          ["Visible", `${rows.length} rows`],
+          ["Total time", minutesLabel(totalDuration)],
+          ["Adj kcal", Math.round(totalAdjusted).toLocaleString()],
+          ["Avg HR", avgHr ? avgHr.toFixed(1) : "—"],
+          ["Avg kcal/min", avgKpm ? avgKpm.toFixed(2) : "—"]
+        ].map(([label, value]) => `<div class="summary-card"><span>${label}</span><strong>${value}</strong></div>`).join("");
+      };
+      const sortValue = (row, key) => {
+        if (key === "date") return Date.parse(row.dataset.date || "") || 0;
+        const datasetKey = key === "avg_hr" ? "avgHr" : key === "max_hr" ? "maxHr" : key;
+        return number(row.dataset[datasetKey]);
+      };
+      const setupTable = ({ tableId, toolbarId, summaryId }) => {
+        const table = document.getElementById(tableId);
+        const toolbar = document.getElementById(toolbarId);
+        const summary = document.getElementById(summaryId);
+        if (!table || !toolbar || !summary) return;
+        const tbody = table.querySelector("tbody");
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        const select = toolbar.querySelector("[data-sort-select]");
+        const dirButton = toolbar.querySelector("[data-sort-dir]");
+        const filters = Array.from(toolbar.querySelectorAll("[data-filter]"));
+        const headers = Array.from(table.querySelectorAll("th[data-sort-key]"));
+
+        const render = () => {
+          const activeFilter = toolbar.querySelector("[data-filter].active")?.dataset.filter || "all";
+          const sortKey = select.value;
+          const direction = dirButton.dataset.sortDir === "asc" ? 1 : -1;
+          rows.sort((left, right) => (sortValue(left, sortKey) - sortValue(right, sortKey)) * direction);
+          const visibleRows = [];
+          rows.forEach((row) => {
+            const visible =
+              activeFilter === "all" ||
+              row.dataset.type === activeFilter ||
+              (activeFilter === "reliable" && row.dataset.hrReliable === "true") ||
+              (activeFilter === "suspect" && row.dataset.hrReliable === "false");
+            row.hidden = !visible;
+            if (visible) visibleRows.push(row);
+            tbody.appendChild(row);
+          });
+          headers.forEach((header) => {
+            const active = header.dataset.sortKey === sortKey;
+            header.classList.toggle("sort-active", active);
+            header.setAttribute("data-sort-icon", direction === 1 ? "↑" : "↓");
+          });
+          renderSummary(summary, visibleRows);
+        };
+
+        filters.forEach((button) => {
+          button.addEventListener("click", () => {
+            filters.forEach((filter) => filter.classList.remove("active"));
+            button.classList.add("active");
+            render();
+          });
+        });
+        select.addEventListener("change", render);
+        dirButton.addEventListener("click", () => {
+          const next = dirButton.dataset.sortDir === "desc" ? "asc" : "desc";
+          dirButton.dataset.sortDir = next;
+          dirButton.textContent = next === "asc" ? "Asc" : "Desc";
+          render();
+        });
+        headers.forEach((header) => {
+          header.addEventListener("click", () => {
+            const key = header.dataset.sortKey;
+            if (select.value === key) {
+              dirButton.click();
+              return;
+            }
+            select.value = key;
+            if (key !== "date") {
+              dirButton.dataset.sortDir = "desc";
+              dirButton.textContent = "Desc";
+            }
+            render();
+          });
+        });
+        render();
+      };
+
+      const renderCardioSnapshot = () => {
+        const target = document.getElementById("cardio-answer-snapshot");
+        const answers = window.PREP_ANALYSIS_DATA?.cardioHistory?.answers || [];
+        if (!target) return;
+        if (!answers.length) {
+          target.innerHTML = `<article class="answer-card"><span class="badge">No data</span><strong>—</strong><h3>Cardio read unavailable</h3><p>analysis-data.js did not include cardio answers.</p></article>`;
+          return;
+        }
+        target.innerHTML = answers.map((answer) => `
+          <article class="answer-card">
+            <span class="badge">${escapeHtml(answer.badge || "Read")}</span>
+            <strong>${escapeHtml(answer.value || "—")}</strong>
+            <h3>${escapeHtml(answer.title || "Cardio read")}</h3>
+            <p>${escapeHtml(answer.text || "")}</p>
+          </article>
+        `).join("");
+      };
+
+      const renderMealSnapshot = () => {
+        const target = document.getElementById("meal-anchor-snapshot");
+        const rows = window.PREP_ANALYSIS_DATA?.mealAnchorConsistency?.rows || [];
+        if (!target) return;
+        if (!rows.length) {
+          target.innerHTML = `<article class="answer-card"><span class="badge">No data</span><strong>—</strong><h3>Meal timing unavailable</h3><p>analysis-data.js did not include protein meal anchors.</p></article>`;
+          return;
+        }
+        target.innerHTML = rows.slice(0, 5).map((row) => `
+          <article class="answer-card">
+            <span class="badge">${escapeHtml(row.slot || "Meal")} · ${escapeHtml(row.status || "—")}</span>
+            <strong>${escapeHtml(row.avgTime || "—")}</strong>
+            <h3>${escapeHtml(row.label || "Protein meal")}</h3>
+            <p>${escapeHtml(row.earliest || "—")} → ${escapeHtml(row.latest || "—")} · ${escapeHtml(row.spread || "—")} spread. ${escapeHtml(row.read || "")}</p>
+          </article>
+        `).join("");
+      };
+
+      const renderFuelSnapshot = () => {
+        const target = document.getElementById("fuel-lift-snapshot");
+        const fuel = window.PREP_ANALYSIS_DATA?.workoutFuel || {};
+        const rows = fuel.rows || [];
+        const reads = fuel.reads || [];
+        const summary = fuel.summary || {};
+        if (!target) return;
+        if (!rows.length) {
+          target.innerHTML = `<article class="answer-card"><span class="badge">No data</span><strong>—</strong><h3>Fuel read unavailable</h3><p>analysis-data.js did not include workout fuel rows.</p></article>`;
+          return;
+        }
+        const bestSetup = rows.find((row) => String(row.read || "").toLowerCase().includes("best fuel")) || rows[rows.length - 1];
+        const densest = rows.reduce((best, row) => number(row.kpm) > number(best.kpm) ? row : best, rows[0]);
+        const scaleRead = reads.find((read) => String(read.title || "").toLowerCase().includes("scale")) || reads[2] || {};
+        const setupRead = reads[0] || {};
+        target.innerHTML = `
+          <article class="answer-card">
+            <span class="badge">Best setup</span>
+            <strong>${escapeHtml(bestSetup.preProtein || "—")}P / ${escapeHtml(bestSetup.preCarbs || "—")}C</strong>
+            <h3>${escapeHtml(setupRead.title || "Best current setup")}</h3>
+            <p>${escapeHtml(bestSetup.preMeal || "—")} · ${escapeHtml(bestSetup.preGap || "—")} pre-lift. ${escapeHtml(setupRead.text || bestSetup.read || "")}</p>
+          </article>
+          <article class="answer-card">
+            <span class="badge">Densest lift</span>
+            <strong>${displayNumber(densest.kpm, 2)} kcal/min</strong>
+            <h3>${escapeHtml(densest.label || "—")} · ${escapeHtml(densest.lift || "Lift")}</h3>
+            <p>Pre-lift: ${escapeHtml(densest.preMeal || "—")} · ${escapeHtml(densest.preCarbs || "—")}C · ${escapeHtml(densest.preGap || "—")} gap.</p>
+          </article>
+          <article class="answer-card">
+            <span class="badge">Carb support</span>
+            <strong>${escapeHtml(summary.carbSupportedLiftCount ?? "—")}/${escapeHtml(summary.liftCount ?? "—")} lifts</strong>
+            <h3>Food signal is still thin</h3>
+            <p>${escapeHtml(summary.lowCarbDenseLiftCount ?? "—")} dense lift happened after very low carbs, so output does not prove the food setup is ideal yet.</p>
+          </article>
+          <article class="answer-card">
+            <span class="badge">Scale caveat</span>
+            <strong>${escapeHtml(bestSetup.nextDelta ?? "—")} lb</strong>
+            <h3>${escapeHtml(scaleRead.title || "Post-lift noise")}</h3>
+            <p>${escapeHtml(scaleRead.text || "Post-lift cardio can mask the next morning scale read.")}</p>
+          </article>
+        `;
+      };
+
+      const renderYtdCardioRows = () => {
+        const body = document.getElementById("ytd-cardio-body");
+        const rows = window.PREP_ANALYSIS_DATA?.cardioHistory?.rows || [];
+        if (!body) return;
+        if (!rows.length) {
+          body.innerHTML = `<tr><td colspan="12" class="small">No YTD cardio rows found.</td></tr>`;
+          return;
+        }
+        const cleanType = (row) => {
+          const text = `${row.session || ""} ${row.kind || ""}`.toLowerCase();
+          if (text.includes("stair")) return "stairmaster";
+          if (text.includes("walk")) return "walking";
+          return "unknown";
+        };
+        body.innerHTML = rows.map((row) => {
+          const type = cleanType(row);
+          const calories = row.adjusted ?? row.calories;
+          const hrReliable = row.hrReliable !== false;
+          return `
+            <tr data-type="${type}" data-date="${escapeHtml(row.date)}" data-duration="${number(row.minutes)}" data-reported="${number(calories)}" data-adjusted="${number(calories)}" data-kpm="${number(row.kpm)}" data-avg-hr="${number(row.avgHr)}" data-max-hr="${number(row.maxHr)}" data-hr-reliable="${hrReliable ? "true" : "false"}">
+              <td class="date-cell">${escapeHtml(row.label || row.date)}</td>
+              <td>${type === "stairmaster" ? "StairMaster" : type === "walking" ? "Walking" : "Other cardio"}</td>
+              <td>${escapeHtml(row.session || row.kind)}</td>
+              <td class="time">${escapeHtml(row.time || "—")}</td>
+              <td class="time">${escapeHtml(row.duration || minutesLabel(number(row.minutes)))}</td>
+              <td class="num">${displayNumber(calories, 0)}</td>
+              <td class="num">${displayNumber(row.kpm, 2)}</td>
+              <td class="num">${displayNumber(row.avgHr, 0)}</td>
+              <td class="num">${displayNumber(row.maxHr, 0)}</td>
+              <td>${hrReliable ? `<span class="tag">Reliable</span>` : `<span class="tag warn">Suspect</span>`}</td>
+              <td class="read">${escapeHtml(row.read || "—")}</td>
+              <td class="source">${escapeHtml(row.source || "—")}</td>
+            </tr>
+          `;
+        }).join("");
+      };
+
+      renderMealSnapshot();
+      renderCardioSnapshot();
+      renderFuelSnapshot();
+      renderYtdCardioRows();
+      setupTable({ tableId: "training-table", toolbarId: "training-toolbar", summaryId: "training-summary" });
+      setupTable({ tableId: "cardio-table", toolbarId: "cardio-toolbar", summaryId: "cardio-summary" });
+      setupTable({ tableId: "ytd-cardio-table", toolbarId: "ytd-cardio-toolbar", summaryId: "ytd-cardio-summary" });
+    })();
+  </script>
+</body>
+</html>
