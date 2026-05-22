@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-22T13:40:50",
+  "generatedAt": "2026-05-22T13:44:27",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -9,6 +9,83 @@ window.PREP_ANALYSIS_DATA = {
     "masterFoodLog": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/macrofactor/master/MASTER_food_log.csv",
     "trainingHistory": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json",
     "googleSheet": "https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw"
+  },
+  "sourceMap": [
+    {
+      "label": "Daily ledger",
+      "title": "Weight, macros, sleep, activity",
+      "status": "current",
+      "value": "5 rows",
+      "text": "Latest weight is 158.4 on Fri 5/22; latest complete macros are Thu 5/21.",
+      "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv"
+    },
+    {
+      "label": "Meal grouping",
+      "title": "MacroFactor meal windows",
+      "status": "current",
+      "value": "5 days",
+      "text": "Feeds meal heat map, protein split, anchors, and food review through Thu 5/21.",
+      "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-meal-timing-may17-may22-2026.csv"
+    },
+    {
+      "label": "Training/cardio",
+      "title": "Current sessions + YTD import",
+      "status": "current",
+      "value": "10 current · 474 YTD",
+      "text": "Latest current session is Thu 5/21; use corrected rows before older suspect HR rows.",
+      "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json"
+    },
+    {
+      "label": "Editable sheet",
+      "title": "Google Sheets handoff",
+      "status": "editable",
+      "value": "browser first",
+      "text": "Use for clean rows, filters, sorting, and quick manual edits. XLSX is only a backup/export.",
+      "path": "https://docs.google.com/spreadsheets/d/1fMyIM8-pWGyL2gpg8E__8Hd16hkuQrabKsENQ4OKpMw"
+    },
+    {
+      "label": "Feedback loop",
+      "title": "GI, hunger, energy, soreness",
+      "status": "watch",
+      "value": "4 missing",
+      "text": "This is the key context layer for interpreting flat scale days during aggressive output.",
+      "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-feedback-loop-may17-jun1-2026.csv"
+    }
+  ],
+  "dataHealth": {
+    "summary": "Usable for decisions; today still needs check-in fields.",
+    "missing": [
+      "macros",
+      "cardio/lift",
+      "GI",
+      "hunger/energy"
+    ],
+    "rows": [
+      {
+        "label": "Scale trend",
+        "value": "169 → 158.4",
+        "status": "current",
+        "read": "-10.6 lb from Sun 5/17 to Fri 5/22."
+      },
+      {
+        "label": "Macros",
+        "value": "Thu 5/21",
+        "status": "current",
+        "read": "Latest complete MacroFactor/macros day is available for the operating read."
+      },
+      {
+        "label": "Cardio",
+        "value": "7 Stair",
+        "status": "current",
+        "read": "Current StairMaster average is 10.76 kcal/min."
+      },
+      {
+        "label": "Feedback",
+        "value": "4 missing",
+        "status": "watch",
+        "read": "macros, cardio/lift, GI, hunger/energy"
+      }
+    ]
   },
   "topMetrics": [
     {

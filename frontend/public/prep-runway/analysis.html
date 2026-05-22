@@ -62,6 +62,9 @@
     .source-map-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
     .source-map-card strong{display:block;margin-top:6px;color:var(--ink);font-size:15px;line-height:1.15}
     .source-map-card p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
+    .source-status{display:inline-flex;margin-top:8px;border:1px solid var(--line);border-radius:999px;background:var(--soft);padding:3px 8px;color:var(--muted);font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.08em}
+    .source-status.current,.source-status.editable{color:var(--ok);border-color:color-mix(in srgb,var(--ok),transparent 60%);background:color-mix(in srgb,var(--ok),transparent 91%)}
+    .source-status.watch{color:var(--warn);border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%)}
     .source-path{display:block;margin-top:8px;color:var(--muted);font-size:10.5px;line-height:1.3;word-break:break-word}
     .source-map-footer{padding:0 12px 12px;color:var(--muted);font-size:12px;line-height:1.4}
     .source-map-footer strong{color:var(--ink)}
@@ -324,7 +327,7 @@
       <div class="section-head">
         <div>
           <h2>Source & Freshness Map</h2>
-          <p>Shows what each layer is using so stale or missing fields are obvious instead of hidden behind the dashboard.</p>
+          <p>Data Health Snapshot: shows what each layer is using so stale or missing fields are obvious instead of hidden behind the dashboard.</p>
         </div>
       </div>
       <div class="source-map-grid" id="source-map-grid"></div>
@@ -773,43 +776,26 @@
         return text;
       }
 
-      const sourceMap = [
-        {
-          label: "Daily ledger",
-          title: "Weight, macros, sleep, activity",
-          text: "Feeds the Daily Master, Operating Read, and scale trend.",
-          path: data.sources?.daily,
-        },
-        {
-          label: "Meal grouping",
-          title: "MacroFactor meal windows",
-          text: "Feeds meal timing, protein split, anchors, and food review.",
-          path: data.sources?.meals,
-        },
-        {
-          label: "Training/cardio",
-          title: "Current sessions + YTD import",
-          text: "Feeds workout fuel, cardio explorer, HR/kcal/min comparisons.",
-          path: data.sources?.trainingHistory || data.sources?.training,
-        },
-        {
-          label: "Editable sheet",
-          title: "Google Sheets handoff",
-          text: "Use for clean rows, filters, sorting, and quick manual edits.",
-          path: data.sources?.googleSheet,
-        },
+      const sourceMap = data.sourceMap || [
+        { label: "Daily ledger", title: "Weight, macros, sleep, activity", text: "Feeds the Daily Master, Operating Read, and scale trend.", path: data.sources?.daily },
+        { label: "Meal grouping", title: "MacroFactor meal windows", text: "Feeds meal timing, protein split, anchors, and food review.", path: data.sources?.meals },
+        { label: "Training/cardio", title: "Current sessions + YTD import", text: "Feeds workout fuel, cardio explorer, HR/kcal/min comparisons.", path: data.sources?.trainingHistory || data.sources?.training },
+        { label: "Editable sheet", title: "Google Sheets handoff", text: "Use for clean rows, filters, sorting, and quick manual edits.", path: data.sources?.googleSheet },
       ];
       setHtml("#source-map-grid", sourceMap.map(source => `
         <article class="source-map-card">
           <span>${escapeHtml(source.label)}</span>
           <strong>${escapeHtml(source.title)}</strong>
+          <div class="source-status ${escapeHtml(source.status || "current")}">${escapeHtml(source.value || source.status || "current")}</div>
           <p>${escapeHtml(source.text)}</p>
           <code class="source-path">${escapeHtml(compactPath(source.path))}</code>
         </article>
       `).join(""));
+      const dataHealth = data.dataHealth || {};
       setHtml("#source-map-footer", `
         <strong>Generated:</strong> ${escapeHtml(data.generatedAt || "—")} ·
-        <strong>Missing now:</strong> ${escapeHtml((data.operatingRead?.cards || []).find(card => card.label === "Missing now")?.text || "No current missing-field read.")}
+        <strong>Data health:</strong> ${escapeHtml(dataHealth.summary || "No structured data-health read.")} ·
+        <strong>Missing now:</strong> ${escapeHtml((dataHealth.missing || []).join(", ") || (data.operatingRead?.cards || []).find(card => card.label === "Missing now")?.text || "No current missing-field read.")}
       `);
 
       setHtml(".timeline", data.dayCards.map(day => `
