@@ -324,6 +324,10 @@ html[data-theme="light"] .header {
   background: var(--panel-soft);
   color: var(--muted);
   padding: 8px 13px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
 }
 .main-tab:hover { color: var(--text); border-color: color-mix(in srgb,var(--accent),transparent 45%); }
 .main-tab.active {
@@ -331,44 +335,192 @@ html[data-theme="light"] .header {
   background: var(--accent-soft);
   border-color: color-mix(in srgb,var(--accent),transparent 35%);
 }
-.review-strip {
-  width: min(1600px, calc(100vw - 32px));
-  margin: 16px auto 0;
-  display: grid;
-  grid-template-columns: 1.18fr repeat(3, 1fr);
-  gap: 10px;
+.analysis-shell {
+  max-width: 1600px;
+  margin: 0 auto;
 }
-.review-card {
+.analysis-hero {
   border: 1px solid var(--line);
-  border-radius: 18px;
-  background: linear-gradient(135deg, color-mix(in srgb,var(--panel),transparent 2%), color-mix(in srgb,var(--panel-2),transparent 14%));
+  border-left: 5px solid var(--accent);
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--panel), var(--panel-2));
   box-shadow: var(--shadow);
-  padding: 14px 15px;
-  min-height: 112px;
+  padding: clamp(18px, 3vw, 30px);
+  margin-bottom: 16px;
 }
-.review-card span {
-  display: block;
+.analysis-kicker,
+.analysis-label {
   color: var(--cyan);
   font-size: 10px;
   font-weight: 950;
   letter-spacing: .09em;
   text-transform: uppercase;
 }
-.review-card strong {
+.analysis-hero h2 {
+  margin: 8px 0 6px;
+  padding: 0;
+  border: 0;
+  color: var(--text);
+  font-size: clamp(24px, 3.4vw, 44px);
+  line-height: .98;
+  letter-spacing: -.045em;
+  max-width: 920px;
+}
+.analysis-hero p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 880px;
+}
+.analysis-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+.analysis-stat,
+.analysis-block,
+.week-read,
+.view-note {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+.analysis-stat {
+  border-radius: 16px;
+  padding: 14px;
+}
+.analysis-stat .value {
   display: block;
   margin-top: 6px;
   color: var(--text);
-  font-size: 18px;
-  line-height: 1.08;
-  letter-spacing: -.025em;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -.035em;
 }
-.review-card p {
-  margin-top: 7px;
+.analysis-stat .sub {
+  display: block;
+  margin-top: 5px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.35;
 }
-.review-card a { color: var(--cyan); text-decoration: none; font-weight: 850; }
+.analysis-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .72fr);
+  gap: 14px;
+  align-items: start;
+}
+.analysis-block {
+  border-radius: 18px;
+  padding: 16px;
+}
+.analysis-block h3,
+.week-read h3,
+.template-title {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 15px;
+  letter-spacing: -.015em;
+}
+.signal-list {
+  display: grid;
+  gap: 8px;
+}
+.signal-row {
+  display: grid;
+  grid-template-columns: minmax(110px, .38fr) minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+.signal-row:first-child { border-top: 0; padding-top: 0; }
+.signal-row strong {
+  color: var(--text);
+  font-size: 13px;
+}
+.signal-row span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.analysis-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.analysis-actions a {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 11px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-size: 12px;
+  font-weight: 850;
+}
+.analysis-actions a.secondary {
+  color: var(--cyan);
+  background: color-mix(in srgb,var(--cyan),transparent 90%);
+}
+.week-read {
+  border-radius: 18px;
+  padding: 15px;
+  margin: 14px 0;
+}
+.week-read-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(110px, 1fr));
+  gap: 8px;
+}
+.week-read-stat {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px;
+  background: var(--panel-2);
+}
+.week-read-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.week-read-stat strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--text);
+  font-size: 17px;
+}
+.week-read-stat em {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+}
+.view-note {
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin: 10px 0 12px;
+  background: linear-gradient(135deg, var(--panel), var(--panel-2));
+}
+.view-note strong {
+  color: var(--text);
+  display: block;
+  font-size: 13px;
+}
+.view-note span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
 .main-panel { padding: 22px clamp(12px,2vw,28px) 56px; }
 .summary-table,
 .insight-box,
@@ -477,6 +629,15 @@ h2 {
   overflow-x: auto;
   padding-bottom: 4px;
 }
+.food-panel.meal-pattern-panel.active {
+  display: flex;
+  flex-direction: column;
+}
+.meal-pattern-panel > .week-read { order: 1; }
+.meal-pattern-panel > .mp-views { order: 2; }
+.meal-pattern-panel > .mp-view-panel { order: 3; }
+.meal-pattern-panel > .mp-template-box { order: 4; }
+.meal-pattern-panel > .mp-grid { order: 5; }
 .mp-grid {
   grid-template-columns: 80px repeat(7,minmax(0,1fr));
   width: 100%;
@@ -551,15 +712,154 @@ h2 {
 .te-dot.present { background: color-mix(in srgb,var(--green),transparent 84%); color: var(--green); }
 .te-dot.absent { background: var(--panel-soft); color: var(--faint); }
 .muted-inline { color: var(--muted); }
+.empty-marker { color: var(--faint); font-size: 12px; }
+.mp-meal-label.total-label { color: var(--accent); background: var(--panel-2); }
+.pd-cell.protein-total { border-color: color-mix(in srgb,var(--blue),transparent 35%); }
+
+/* Light-mode hard reset: no dark islands inside the report surface. */
+html[data-theme="light"] .header,
+html[data-theme="light"] .main-tabs,
+html[data-theme="light"] .main-tab,
+html[data-theme="light"] .main-panel,
+html[data-theme="light"] .summary-table,
+html[data-theme="light"] .summary-table th,
+html[data-theme="light"] .summary-table td,
+html[data-theme="light"] .insight-box,
+html[data-theme="light"] .consistency-table,
+html[data-theme="light"] .consistency-table th,
+html[data-theme="light"] .consistency-table td,
+html[data-theme="light"] .week-nav,
+html[data-theme="light"] .week-banner,
+html[data-theme="light"] .day-col,
+html[data-theme="light"] .day-hdr,
+html[data-theme="light"] .meal-hdr,
+html[data-theme="light"] .food-col-hdr,
+html[data-theme="light"] .day-total,
+html[data-theme="light"] .wx-section,
+html[data-theme="light"] .food-tab,
+html[data-theme="light"] .food-tab.active,
+html[data-theme="light"] .food-review-table,
+html[data-theme="light"] .food-review-table th,
+html[data-theme="light"] .food-review-table td,
+html[data-theme="light"] .workout-review-table,
+html[data-theme="light"] .workout-review-table th,
+html[data-theme="light"] .workout-review-table td,
+html[data-theme="light"] .session-header,
+html[data-theme="light"] .cat-header,
+html[data-theme="light"] .set-pill,
+html[data-theme="light"] .wk-summary-card,
+html[data-theme="light"] .mp-day-hdr,
+html[data-theme="light"] .mp-meal-label,
+html[data-theme="light"] .mp-cell,
+html[data-theme="light"] .mp-template-box,
+html[data-theme="light"] .mp-template-tag,
+html[data-theme="light"] .mp-view-btn,
+html[data-theme="light"] .mp-views,
+html[data-theme="light"] .hm-cell,
+html[data-theme="light"] .tm-cell,
+html[data-theme="light"] .pd-cell,
+html[data-theme="light"] .te-wrap,
+html[data-theme="light"] .te-food,
+html[data-theme="light"] .te-wk-hdr {
+  background-color: var(--panel);
+  border-color: var(--line);
+  color: var(--text);
+}
+html[data-theme="light"] .summary-table th,
+html[data-theme="light"] .day-hdr,
+html[data-theme="light"] .meal-hdr,
+html[data-theme="light"] .food-col-hdr,
+html[data-theme="light"] .day-total,
+html[data-theme="light"] .week-nav,
+html[data-theme="light"] .mp-day-hdr,
+html[data-theme="light"] .mp-meal-label,
+html[data-theme="light"] .te-wk-hdr,
+html[data-theme="light"] .food-review-table th,
+html[data-theme="light"] .workout-review-table th,
+html[data-theme="light"] .session-header,
+html[data-theme="light"] .cat-header,
+html[data-theme="light"] .set-pill,
+html[data-theme="light"] .mp-template-tag {
+  background: var(--panel-2) !important;
+}
+html[data-theme="light"] .mp-meal-label,
+html[data-theme="light"] .meal-label,
+html[data-theme="light"] .wx-title,
+html[data-theme="light"] .session-header td,
+html[data-theme="light"] .cat-header td,
+html[data-theme="light"] .mp-template-box h4 {
+  color: var(--accent) !important;
+}
+html[data-theme="light"] .dt-label,
+html[data-theme="light"] .day-hdr .day-name,
+html[data-theme="light"] .week-banner .wt,
+html[data-theme="light"] .wk-summary-card .value,
+html[data-theme="light"] .fr-name,
+html[data-theme="light"] .mp-food,
+html[data-theme="light"] .te-food,
+html[data-theme="light"] .set-pill {
+  color: var(--text) !important;
+}
+html[data-theme="light"] .legend span,
+html[data-theme="light"] .mp-legend span {
+  background: transparent !important;
+}
+html[data-theme="light"] .macro-bar .mb,
+html[data-theme="light"] .stat-strip .ss {
+  border-right: 1px solid rgba(21,33,52,.08);
+}
+html[data-theme="light"] .mb-cal { background: #e8f6eb; color: var(--green); }
+html[data-theme="light"] .mb-cal.over { background: #fae9e9; color: var(--red); }
+html[data-theme="light"] .mb-pro { background: #ebf1ff; color: var(--blue); }
+html[data-theme="light"] .mb-fat { background: #fff6da; color: var(--amber); }
+html[data-theme="light"] .mb-carb { background: #e7f8fa; color: var(--cyan); }
+html[data-theme="light"] .ss-na.high { background: #fae9e9; color: var(--red); }
+html[data-theme="light"] .hm-cell.heat-low { background: #e9f7ed; }
+html[data-theme="light"] .hm-cell.heat-mid { background: #fff5d8; }
+html[data-theme="light"] .hm-cell.heat-high { background: #fae7e7; }
+html[data-theme="light"] .tm-cell.drift-good { background: #e9f7ed; }
+html[data-theme="light"] .tm-cell.drift-watch { background: #fff5d8; }
+html[data-theme="light"] .tm-cell.drift-miss { background: #fae7e7; }
+html[data-theme="light"] .pd-cell.protein-high { background: #e9f7ed; }
+html[data-theme="light"] .pd-cell.protein-mid { background: #ebf1ff; }
+html[data-theme="light"] .pd-cell.protein-low { background: #fff5d8; }
+html[data-theme="light"] .pd-cell.protein-very-low,
+html[data-theme="light"] .pd-cell.day-miss { background: #fae7e7; }
+html[data-theme="light"] .pd-cell.day-hit { background: #e9f7ed; }
+html[data-theme="light"] [style*="background:#1e1e2e"],
+html[data-theme="light"] [style*="background:#252540"],
+html[data-theme="light"] [style*="background:#1a1a2e"],
+html[data-theme="light"] [style*="background:#0d1a0d"],
+html[data-theme="light"] [style*="background:#0d0d1a"],
+html[data-theme="light"] [style*="background:#1a150d"],
+html[data-theme="light"] [style*="background:#0d151a"] {
+  background: var(--panel) !important;
+  border-color: var(--line) !important;
+}
+html[data-theme="light"] [style*="color:#333"],
+html[data-theme="light"] [style*="color:#555"],
+html[data-theme="light"] [style*="color:#666"],
+html[data-theme="light"] [style*="color:#888"],
+html[data-theme="light"] [style*="color:#aaa"],
+html[data-theme="light"] [style*="color:#ccc"] {
+  color: var(--muted) !important;
+}
 
 @media (max-width: 1400px) { .week-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 1100px) { .review-strip { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 1100px) {
+  .analysis-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .analysis-columns { grid-template-columns: 1fr; }
+  .week-read-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 @media (max-width: 800px) {
   .header { display: block; padding: 18px; }
+  .header h1 { font-size: 24px; line-height: 1.05; }
   .theme-toggle { margin-top: 12px; }
   .week-grid { grid-template-columns: repeat(2, 1fr); }
-  .review-strip { width: calc(100vw - 18px); grid-template-columns: 1fr; }
   .main-panel { padding-left: 9px; padding-right: 9px; }
+  .analysis-stat-grid,
+  .week-read-grid { grid-template-columns: 1fr; }
+  .signal-row { grid-template-columns: 1fr; gap: 4px; }
 }
 @media print { body { background: #fff; color: #222; } }
 </style></head><body>
@@ -572,37 +872,74 @@ h2 {
   <button class="theme-toggle" type="button" onclick="toggleReportTheme()" aria-label="Toggle coach report theme">Theme</button>
 </div>
 
-<div class="main-tabs">
-  <div class="main-tab active" onclick="showMainTab('daily')">Daily Meals</div>
-  <div class="main-tab" onclick="showMainTab('mealpatterns')">Meal Patterns</div>
-  <div class="main-tab" onclick="showMainTab('foodreview')">Food Review</div>
-  <div class="main-tab" onclick="showMainTab('workouts')">Workouts</div>
+<div class="main-tabs" role="tablist" aria-label="Coach report sections">
+  <button class="main-tab active" type="button" onclick="showMainTab('overview', this)">Overview</button>
+  <button class="main-tab" type="button" onclick="showMainTab('daily', this)">Daily Meals</button>
+  <button class="main-tab" type="button" onclick="showMainTab('mealpatterns', this)">Meal Patterns</button>
+  <button class="main-tab" type="button" onclick="showMainTab('foodreview', this)">Food Review</button>
+  <button class="main-tab" type="button" onclick="showMainTab('workouts', this)">Workouts</button>
 </div>
 
-<div class="review-strip" aria-label="Coach report review focus">
-  <article class="review-card">
-    <span>Current read</span>
-    <strong>Wk 6 → Wk 19: 154.54 to 150.68 lb</strong>
-    <p>Net <b style="color:#51b749">-3.86 lb</b>. Lowest checkpoint was Wk 18 at 148.50 lb.</p>
-  </article>
-  <article class="review-card">
-    <span>Latest week</span>
-    <strong>2,335 cal avg · 5,126 steps</strong>
-    <p>Use Daily Meals for exact days, then Meal Patterns to see whether timing and protein split explain the result.</p>
-  </article>
-  <article class="review-card">
-    <span>Food template</span>
-    <strong>40 unique foods in Wk 19</strong>
-    <p>Template Evolution now scrolls cleanly across all weeks and keeps the food names pinned while comparing.</p>
-  </article>
-  <article class="review-card">
-    <span>Prep Runway</span>
-    <strong><a href="/prep-runway/analysis.html">Open Analysis Board</a></strong>
-    <p>Use the runway page for current meal anchors, fuel-to-lift reads, and cardio trend questions.</p>
-  </article>
+<div class="main-panel active" id="overview">
+  <div class="analysis-shell">
+    <section class="analysis-hero">
+      <div class="analysis-kicker">Coach report read</div>
+      <h2>Wk 19 is a calorie spike plus low-step week; review the pattern before digging through meals.</h2>
+      <p>Weight is -3.86 lb from Wk 6 to Wk 19, with the lowest checkpoint at Wk 18. The latest week combines 2,335 average calories, 5,126 average steps, and 40 unique foods, so the useful question is whether the spike came from meal timing, heavier meal slots, or template drift.</p>
+      <div class="analysis-actions">
+        <a href="#mealpatterns" onclick="showMainTab('mealpatterns');return false;">Open Meal Patterns</a>
+        <a href="#daily" onclick="showMainTab('daily');return false;">Review Daily Meals</a>
+        <a class="secondary" href="/prep-runway/analysis.html">Prep Runway Analysis</a>
+      </div>
+    </section>
+
+    <section class="analysis-stat-grid" aria-label="Latest report stats">
+      <article class="analysis-stat">
+        <span class="analysis-label">Scale path</span>
+        <strong class="value">154.5 → 150.7</strong>
+        <span class="sub">Net -3.86 lb; low was Wk 18 at 148.50 lb.</span>
+      </article>
+      <article class="analysis-stat">
+        <span class="analysis-label">Calories</span>
+        <strong class="value">2,335</strong>
+        <span class="sub">Wk 19 avg, +756 vs Wk 18.</span>
+      </article>
+      <article class="analysis-stat">
+        <span class="analysis-label">Steps</span>
+        <strong class="value">5,126</strong>
+        <span class="sub">Wk 19 avg, -5,722 vs Wk 18.</span>
+      </article>
+      <article class="analysis-stat">
+        <span class="analysis-label">Food template</span>
+        <strong class="value">40</strong>
+        <span class="sub">20 new foods; 28 staples across the report.</span>
+      </article>
+    </section>
+
+    <section class="analysis-columns">
+      <article class="analysis-block">
+        <h3>What changed in Wk 19</h3>
+        <div class="signal-list">
+          <div class="signal-row"><strong>Fuel moved up</strong><span>Average calories moved +756 from Wk 18; 2/7 days cleared 1,900 calories.</span></div>
+          <div class="signal-row"><strong>Output moved down</strong><span>Steps moved -5,722 from Wk 18; this makes the latest calorie average harder to judge from scale weight alone.</span></div>
+          <div class="signal-row"><strong>Meal load</strong><span>6 meals crossed 650 calories. The heaviest was Meal 5 on Tue 05-05: 1816 cal / 87P.</span></div>
+          <div class="signal-row"><strong>Protein spread</strong><span>4/7 days hit 165g protein; 13 meals were 40g+ anchors and 1 meals were under 25g.</span></div>
+        </div>
+      </article>
+      <article class="analysis-block">
+        <h3>Fast review order</h3>
+        <div class="signal-list">
+          <div class="signal-row"><strong>1. Heatmap</strong><span>Find which meal slots carried the Wk 19 calorie load instead of reading every food row first.</span></div>
+          <div class="signal-row"><strong>2. Timing</strong><span>Check late meals and drift; Wk 19 averaged 2.9 meals/day over a 8.3 hour eating window.</span></div>
+          <div class="signal-row"><strong>3. Template</strong><span>Use Template Evolution for the longer cut signal: 28 staples, 19 regulars, 160 one-off or rare foods.</span></div>
+          <div class="signal-row"><strong>4. Daily detail</strong><span>Drop into Daily Meals only after the analysis view tells you which day or meal slot is worth inspecting.</span></div>
+        </div>
+      </article>
+    </section>
+  </div>
 </div>
 
-<div class="main-panel active" id="daily">
+<div class="main-panel" id="daily">
 
 <h2>📊 WEIGHT & METRICS OVERVIEW</h2>
 <table class="summary-table">
@@ -4595,7 +4932,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="main-panel" id="mealpatterns">
-<h2>🔄 MEAL PATTERNS — WEEKLY CONSISTENCY</h2>
+<h2>Meal Patterns Analysis</h2>
 <div class="mp-legend"><span class="repeat-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#00e676;vertical-align:middle"></span> <span style="color:#00e676">Repeating food</span> (appears 4+ days this week) &nbsp;|&nbsp; <span class="new-badge" style="display:inline-block;background:#ff5252;color:#fff;font-size:9px;padding:1px 5px;border-radius:3px;vertical-align:middle">NEW</span> <span style="color:#ff5252">First time in any week</span> &nbsp;|&nbsp; Meals grouped within 1hr window</div>
 <div class="food-tabs">
 <div class="food-tab" onclick="showMealPatternTab(6)">Wk 6</div>
@@ -4614,6 +4951,16 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="food-tab active" onclick="showMealPatternTab(19)">Wk 19</div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp6">
+<section class="week-read">
+      <h3>Wk 6 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.9/day</strong><em>9.9 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>5</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>2/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>901 cal</strong><em>Meal 2 · Fri 02-06</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>27 new</strong><em>27 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box" style="border-color:#ff5252">
 <h4 style="color:#ff5252">🆕 New This Week (27)</h4>
 <span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Apple Cinnamon Cheesecake Overnight Oats</span>
@@ -4820,6 +5167,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v6','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v6_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 6 had 5 meals above 650 calories; heaviest was Meal 2 on Fri 02-06 at 901 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-02</span></div>
@@ -4921,12 +5269,12 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">331</div>
 <div class="hm-macros">41P / 7F / 26C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">499</div>
 <div class="hm-macros">49P / 15F / 42C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">208</div>
 <div class="hm-macros">36P / 5F / 9C</div>
@@ -4944,13 +5292,13 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">160</div>
 <div class="hm-macros">30P / 3F / 2C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total watch">
 <div class="hm-cal" style="font-size:16px">1727</div>
 <div class="hm-macros">day total</div></div>
@@ -4975,6 +5323,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v6_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 6 averaged 3.9 meals/day, 5 meals after 8 PM, and a 9.9 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-02</span></div>
@@ -5076,12 +5425,12 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">6:19 PM</div>
 <div class="tm-drift">-66m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">7:00 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">7:48 PM</div>
 <div class="tm-drift">on time</div>
@@ -5099,13 +5448,13 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">10:19 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">5 meals</div><div class="tm-drift" style="color:#888">12.8hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">9.0hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">7.0hr window</div></div>
@@ -5116,6 +5465,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v6_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 6 hit 165g protein on 2/7 days; lowest protein day was Tue 02-03: 120g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-02</span></div>
@@ -5239,13 +5589,13 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:53%"></div>
 <div class="pd-pct">23% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">49g</div>
 <div class="pd-bar" style="width:63%"></div>
 <div class="pd-pct">32% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">36g</div>
 <div class="pd-bar" style="width:46%"></div>
@@ -5267,38 +5617,48 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:38%"></div>
 <div class="pd-pct">17% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">176g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">120g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">155g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">174g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">159g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">126g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">155g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp7">
+<section class="week-read">
+      <h3>Wk 7 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>4.3/day</strong><em>9.4 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>4</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>2/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1167 cal</strong><em>Meal 3 · Sat 02-14</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>17 new</strong><em>25 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box" style="border-color:#ff5252">
 <h4 style="color:#ff5252">🆕 New This Week (17)</h4>
 <span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Bang Bang Chicken</span>
@@ -5518,6 +5878,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v7','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v7_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 7 had 4 meals above 650 calories; heaviest was Meal 3 on Sat 02-14 at 1167 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-09</span></div>
@@ -5635,15 +5996,15 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">316</div>
 <div class="hm-macros">40P / 12F / 15C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">170</div>
 <div class="hm-macros">30P / 4F / 8C</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">170</div>
 <div class="hm-macros">30P / 4F / 8C</div>
@@ -5652,20 +6013,20 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">170</div>
 <div class="hm-macros">30P / 4F / 8C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">160</div>
 <div class="hm-macros">30P / 3F / 2C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">1308</div>
 <div class="hm-macros">day total</div></div>
@@ -5690,6 +6051,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v7_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 7 averaged 4.3 meals/day, 7 meals after 8 PM, and a 9.4 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-09</span></div>
@@ -5807,15 +6169,15 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">8:35 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">8:48 PM</div>
 <div class="tm-drift">+36m</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">7:16 PM</div>
 <div class="tm-drift">-98m</div>
@@ -5824,20 +6186,20 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">10:33 PM</div>
 <div class="tm-drift">+98m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">8:34 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">8.4hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">9.2hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">8.2hr window</div></div>
@@ -5848,6 +6210,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v7_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 7 hit 165g protein on 2/7 days; lowest protein day was Mon 02-09: 146g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-09</span></div>
@@ -5991,16 +6354,16 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:38%"></div>
 <div class="pd-pct">25% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">30g</div>
 <div class="pd-bar" style="width:28%"></div>
 <div class="pd-pct">18% of day</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">30g</div>
 <div class="pd-bar" style="width:28%"></div>
@@ -6011,46 +6374,56 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:28%"></div>
 <div class="pd-pct">19% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">30g</div>
 <div class="pd-bar" style="width:28%"></div>
 <div class="pd-pct">16% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">146g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">163g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">171g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">182g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">162g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp8">
+<section class="week-read">
+      <h3>Wk 8 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.4/day</strong><em>8.9 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>3</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>5/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1038 cal</strong><em>Meal 2 · Thu 02-19</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>17 new</strong><em>27 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box" style="border-color:#ff5252">
 <h4 style="color:#ff5252">🆕 New This Week (17)</h4>
 <span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Baja Chicken Tacos</span>
@@ -6244,6 +6617,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v8','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v8_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 8 had 3 meals above 650 calories; heaviest was Meal 2 on Thu 02-19 at 1038 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-16</span></div>
@@ -6341,7 +6715,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">71P / 21F / 35C</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">620</div>
 <div class="hm-macros">82P / 14F / 40C</div>
@@ -6350,14 +6724,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">620</div>
 <div class="hm-macros">82P / 14F / 40C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">415</div>
 <div class="hm-macros">77P / 8F / 21C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">1582</div>
 <div class="hm-macros">day total</div></div>
@@ -6382,6 +6756,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v8_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 8 averaged 3.4 meals/day, 2 meals after 8 PM, and a 8.9 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-16</span></div>
@@ -6479,7 +6854,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">+84m</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">8:00 PM</div>
 <div class="tm-drift">+48m</div>
@@ -6488,14 +6863,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">8:36 PM</div>
 <div class="tm-drift">+84m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">5:00 PM</div>
 <div class="tm-drift">-132m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">7.7hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">10.2hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">9.6hr window</div></div>
@@ -6506,6 +6881,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v8_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 8 hit 165g protein on 5/7 days; lowest protein day was Tue 02-17: 159g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-16</span></div>
@@ -6624,7 +7000,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">41% of day</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">82g</div>
 <div class="pd-bar" style="width:83%"></div>
@@ -6635,40 +7011,50 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:83%"></div>
 <div class="pd-pct">52% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">77g</div>
 <div class="pd-bar" style="width:78%"></div>
 <div class="pd-pct">44% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">182g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">159g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">159g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">172g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">175g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">172g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">173g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp9">
+<section class="week-read">
+      <h3>Wk 9 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>4.0/day</strong><em>9.0 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>4</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>6/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1304 cal</strong><em>Meal 5 · Sun 03-01</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>8 new</strong><em>22 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box" style="border-color:#ff5252">
 <h4 style="color:#ff5252">🆕 New This Week (8)</h4>
 <span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252">Apple COR OAT</span>
@@ -6874,6 +7260,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v9','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v9_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 9 had 4 meals above 650 calories; heaviest was Meal 5 on Sun 03-01 at 1304 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-23</span></div>
@@ -6983,15 +7370,15 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">464</div>
 <div class="hm-macros">60P / 11F / 31C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">243</div>
 <div class="hm-macros">26P / 8F / 15C</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">263</div>
 <div class="hm-macros">37P / 7F / 11C</div>
@@ -7000,14 +7387,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">225</div>
 <div class="hm-macros">37P / 5F / 7C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">1304</div>
 <div class="hm-macros">99P / 52F / 110C</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">1589</div>
 <div class="hm-macros">day total</div></div>
@@ -7032,6 +7419,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v9_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 9 averaged 4.0 meals/day, 6 meals after 8 PM, and a 9.0 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-23</span></div>
@@ -7141,15 +7529,15 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">7:26 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">7:00 PM</div>
 <div class="tm-drift">-36m</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">9:20 PM</div>
 <div class="tm-drift">on time</div>
@@ -7158,14 +7546,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">9:00 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">8:32 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">7.6hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">5 meals</div><div class="tm-drift" style="color:#888">10.3hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">5 meals</div><div class="tm-drift" style="color:#888">10.4hr window</div></div>
@@ -7176,6 +7564,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v9_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 9 hit 165g protein on 6/7 days; lowest protein day was Sat 02-28: 158g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">02-23</span></div>
@@ -7309,16 +7698,16 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:50%"></div>
 <div class="pd-pct">36% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">26g</div>
 <div class="pd-bar" style="width:22%"></div>
 <div class="pd-pct">11% of day</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">37g</div>
 <div class="pd-bar" style="width:31%"></div>
@@ -7329,40 +7718,50 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:31%"></div>
 <div class="pd-pct">22% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">99g</div>
 <div class="pd-bar" style="width:83%"></div>
 <div class="pd-pct">42% of day</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">176g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">166g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">166g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">188g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">168g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">158g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">238g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp10">
+<section class="week-read">
+      <h3>Wk 10 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.9/day</strong><em>9.9 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>4</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>4/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>821 cal</strong><em>Meal 2 · Fri 03-06</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>24 new</strong><em>44 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 10</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -7634,6 +8033,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v10','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v10_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 10 had 4 meals above 650 calories; heaviest was Meal 2 on Fri 03-06 at 821 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-02</span></div>
@@ -7731,7 +8131,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">30P / 3F / 4C</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">553</div>
 <div class="hm-macros">65P / 7F / 53C</div>
@@ -7756,7 +8156,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">485</div>
 <div class="hm-macros">63P / 8F / 50C</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">1601</div>
 <div class="hm-macros">day total</div></div>
@@ -7781,6 +8181,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v10_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 10 averaged 3.9 meals/day, 7 meals after 8 PM, and a 9.9 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-02</span></div>
@@ -7878,7 +8279,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">on time</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">8:50 PM</div>
 <div class="tm-drift">on time</div>
@@ -7903,7 +8304,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">8:00 PM</div>
 <div class="tm-drift">-54m</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">10.1hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">11.8hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">7.6hr window</div></div>
@@ -7914,6 +8315,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v10_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 10 hit 165g protein on 4/7 days; lowest protein day was Thu 03-05: 155g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-02</span></div>
@@ -8032,7 +8434,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">18% of day</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">65g</div>
 <div class="pd-bar" style="width:74%"></div>
@@ -8063,32 +8465,42 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:72%"></div>
 <div class="pd-pct">38% of day</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">173g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">160g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">163g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">155g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">168g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">168g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp11">
+<section class="week-read">
+      <h3>Wk 11 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.9/day</strong><em>9.5 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>4</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>6/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1062 cal</strong><em>Meal 3 · Mon 03-09</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>9 new</strong><em>37 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 11</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -8410,6 +8822,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v11','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v11_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 11 had 4 meals above 650 calories; heaviest was Meal 3 on Mon 03-09 at 1062 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-09</span></div>
@@ -8507,12 +8920,12 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">38P / 17F / 29C</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">547</div>
 <div class="hm-macros">53P / 14F / 58C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">538</div>
 <div class="hm-macros">73P / 5F / 55C</div>
@@ -8525,30 +8938,30 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">150</div>
 <div class="hm-macros">30P / 3F / 4C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">385</div>
 <div class="hm-macros">45P / 2F / 47C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">434</div>
 <div class="hm-macros">47P / 22F / 19C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total miss">
 <div class="hm-cal" style="font-size:16px">1971</div>
 <div class="hm-macros">day total</div></div>
@@ -8573,6 +8986,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v11_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 11 averaged 3.9 meals/day, 6 meals after 8 PM, and a 9.5 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-09</span></div>
@@ -8670,12 +9084,12 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">+130m</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">9:00 PM</div>
 <div class="tm-drift">+67m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">7:00 PM</div>
 <div class="tm-drift">-52m</div>
@@ -8688,30 +9102,30 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">8:30 PM</div>
 <div class="tm-drift">+37m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">8:10 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">10:15 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">10.7hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">8.4hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">7.1hr window</div></div>
@@ -8722,6 +9136,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v11_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 11 hit 165g protein on 6/7 days; lowest protein day was Sat 03-14: 164g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-09</span></div>
@@ -8840,13 +9255,13 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">23% of day</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">53g</div>
 <div class="pd-bar" style="width:48%"></div>
 <div class="pd-pct">32% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">73g</div>
 <div class="pd-bar" style="width:66%"></div>
@@ -8862,57 +9277,67 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:27%"></div>
 <div class="pd-pct">18% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">45g</div>
 <div class="pd-bar" style="width:41%"></div>
 <div class="pd-pct">27% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">47g</div>
 <div class="pd-bar" style="width:42%"></div>
 <div class="pd-pct">28% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">206g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">196g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">165g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp12">
+<section class="week-read">
+      <h3>Wk 12 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.6/day</strong><em>8.5 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>7</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>4/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1190 cal</strong><em>Meal 3 · Sat 03-21</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>20 new</strong><em>43 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 12</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -9215,6 +9640,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v12','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v12_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 12 had 7 meals above 650 calories; heaviest was Meal 3 on Sat 03-21 at 1190 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-16</span></div>
@@ -9307,9 +9733,9 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">1190</div>
 <div class="hm-macros">87P / 51F / 98C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">785</div>
 <div class="hm-macros">95P / 23F / 66C</div>
@@ -9326,20 +9752,20 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">761</div>
 <div class="hm-macros">79P / 24F / 63C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">558</div>
 <div class="hm-macros">49P / 12F / 65C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total watch">
 <div class="hm-cal" style="font-size:16px">1847</div>
 <div class="hm-macros">day total</div></div>
@@ -9364,6 +9790,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v12_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 12 averaged 3.6 meals/day, 5 meals after 8 PM, and a 8.5 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-16</span></div>
@@ -9456,9 +9883,9 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">6:00 PM</div>
 <div class="tm-drift">+47m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">7:09 PM</div>
 <div class="tm-drift">-87m</div>
@@ -9475,20 +9902,20 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">10:08 PM</div>
 <div class="tm-drift">+91m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">9:35 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">9.7hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">6.4hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">10.0hr window</div></div>
@@ -9499,6 +9926,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v12_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 12 hit 165g protein on 4/7 days; lowest protein day was Sun 03-22: 152g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-16</span></div>
@@ -9611,9 +10039,9 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:92%"></div>
 <div class="pd-pct">53% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">95g</div>
 <div class="pd-bar" style="width:100%"></div>
@@ -9634,46 +10062,56 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:83%"></div>
 <div class="pd-pct">46% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">49g</div>
 <div class="pd-bar" style="width:52%"></div>
 <div class="pd-pct">29% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">171g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">170g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">171g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">152g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp13">
+<section class="week-read">
+      <h3>Wk 13 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.4/day</strong><em>9.5 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>4</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>2/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>3705 cal</strong><em>Meal 2 · Tue 03-24</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>23 new</strong><em>43 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 13</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -9933,6 +10371,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v13','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v13_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 13 had 4 meals above 650 calories; heaviest was Meal 2 on Tue 03-24 at 3705 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-23</span></div>
@@ -9972,7 +10411,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">53P / 17F / 24C</div>
 </div>
 <div class="mp-meal-label">Meal 2</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">3705</div>
 <div class="hm-macros">38P / 191F / 482C</div>
@@ -9998,7 +10437,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">62P / 35F / 61C</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">180</div>
 <div class="hm-macros">0P / 4F / 34C</div>
@@ -10024,14 +10463,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">107P / 65F / 47C</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">150</div>
 <div class="hm-macros">30P / 3F / 4C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">0</div>
 <div class="hm-macros">0P / 0F / 0C</div>
@@ -10041,11 +10480,11 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">97P / 57F / 31C</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">182</div>
 <div class="hm-macros">39P / 3F / 0C</div>
@@ -10054,7 +10493,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">632</div>
 <div class="hm-macros">5P / 20F / 108C</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">580</div>
 <div class="hm-macros">day total</div></div>
@@ -10079,6 +10518,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v13_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 13 averaged 3.4 meals/day, 6 meals after 8 PM, and a 9.5 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-23</span></div>
@@ -10118,7 +10558,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">-104m</div>
 </div>
 <div class="mp-meal-label">Meal 2</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">5:00 PM</div>
 <div class="tm-drift">+40m</div>
@@ -10144,7 +10584,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">-112m</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">7:18 PM</div>
 <div class="tm-drift">+33m</div>
@@ -10170,14 +10610,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">-45m</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">11:14 PM</div>
 <div class="tm-drift">+176m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">5:40 PM</div>
 <div class="tm-drift">-158m</div>
@@ -10187,11 +10627,11 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">on time</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">8:20 PM</div>
 <div class="tm-drift">on time</div>
@@ -10200,7 +10640,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">9:19 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">1 meals</div><div class="tm-drift" style="color:#888">0.0hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">10.9hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">8.1hr window</div></div>
@@ -10211,6 +10651,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v13_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 13 hit 165g protein on 2/7 days; lowest protein day was Mon 03-23: 55g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-23</span></div>
@@ -10257,7 +10698,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">16% of day</div>
 </div>
 <div class="mp-meal-label">Meal 2</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">38g</div>
 <div class="pd-bar" style="width:36%"></div>
@@ -10289,7 +10730,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">19% of day</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-very-low">
 <div class="pd-val">0g</div>
 <div class="pd-bar" style="width:0%"></div>
@@ -10321,15 +10762,15 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">33% of day</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">30g</div>
 <div class="pd-bar" style="width:28%"></div>
 <div class="pd-pct">24% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-very-low">
 <div class="pd-val">0g</div>
 <div class="pd-bar" style="width:0%"></div>
@@ -10341,11 +10782,11 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">30% of day</div>
 </div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">39g</div>
 <div class="pd-bar" style="width:36%"></div>
@@ -10356,32 +10797,42 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:5%"></div>
 <div class="pd-pct">2% of day</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">55g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">123g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">161g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">163g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">324g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp14">
+<section class="week-read">
+      <h3>Wk 14 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.3/day</strong><em>8.0 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>3</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>2/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>839 cal</strong><em>Meal 2 · Tue 03-31</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>5 new</strong><em>31 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 14</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -10605,6 +11056,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v14','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v14_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 14 had 3 meals above 650 calories; heaviest was Meal 2 on Tue 03-31 at 839 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-30</span></div>
@@ -10673,8 +11125,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">33P / 27F / 60C</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">600</div>
 <div class="hm-macros">93P / 21F / 26C</div>
@@ -10696,9 +11148,9 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">43P / 6F / 46C</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">278</div>
 <div class="hm-macros">41P / 9F / 14C</div>
@@ -10715,7 +11167,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">150</div>
 <div class="hm-macros">30P / 3F / 4C</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">980</div>
 <div class="hm-macros">day total</div></div>
@@ -10740,6 +11192,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v14_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 14 averaged 3.3 meals/day, 7 meals after 8 PM, and a 8.0 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-30</span></div>
@@ -10808,8 +11261,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">-147m</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">7:58 PM</div>
 <div class="tm-drift">on time</div>
@@ -10831,9 +11284,9 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">-160m</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">10:13 PM</div>
 <div class="tm-drift">+31m</div>
@@ -10850,7 +11303,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">7:56 PM</div>
 <div class="tm-drift">-105m</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">2 meals</div><div class="tm-drift" style="color:#888">4.6hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">2 meals</div><div class="tm-drift" style="color:#888">7.1hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">6.1hr window</div></div>
@@ -10861,6 +11314,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v14_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 14 hit 165g protein on 2/7 days; lowest protein day was Mon 03-30: 152g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">03-30</span></div>
@@ -10943,8 +11397,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">20% of day</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">93g</div>
 <div class="pd-bar" style="width:73%"></div>
@@ -10971,9 +11425,9 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">27% of day</div>
 </div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">41g</div>
 <div class="pd-bar" style="width:32%"></div>
@@ -10994,32 +11448,42 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:24%"></div>
 <div class="pd-pct">19% of day</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">152g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">165g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">161g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">163g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">161g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp15">
+<section class="week-read">
+      <h3>Wk 15 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.3/day</strong><em>7.1 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>6</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>5/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1288 cal</strong><em>Meal 2 · Sun 04-12</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>8 new</strong><em>33 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 15</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -11294,6 +11758,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v15','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v15_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 15 had 6 meals above 650 calories; heaviest was Meal 2 on Sun 04-12 at 1288 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-06</span></div>
@@ -11395,24 +11860,24 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">431</div>
 <div class="hm-macros">34P / 13F / 58C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">75</div>
 <div class="hm-macros">15P / 1F / 2C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">1442</div>
 <div class="hm-macros">day total</div></div>
@@ -11437,6 +11902,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v15_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 15 averaged 3.3 meals/day, 5 meals after 8 PM, and a 7.1 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-06</span></div>
@@ -11538,24 +12004,24 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">7:45 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
 <div class="tm-cell drift-good">
 <div class="tm-time">8:48 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">5 meals</div><div class="tm-drift" style="color:#888">9.8hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">6.8hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">7.6hr window</div></div>
@@ -11566,6 +12032,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v15_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 15 hit 165g protein on 5/7 days; lowest protein day was Sun 04-12: 154g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-06</span></div>
@@ -11689,50 +12156,60 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:34%"></div>
 <div class="pd-pct">21% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
 <div class="pd-cell protein-low">
 <div class="pd-val">15g</div>
 <div class="pd-bar" style="width:15%"></div>
 <div class="pd-pct">9% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">168g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">167g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">174g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">170g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">165g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">154g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp16">
+<section class="week-read">
+      <h3>Wk 16 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>2.7/day</strong><em>7.1 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>3</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>4/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>8000 cal</strong><em>Meal 2 · Mon 04-13</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>6 new</strong><em>23 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 16</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -11926,6 +12403,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v16','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v16_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 16 had 3 meals above 650 calories; heaviest was Meal 2 on Mon 04-13 at 8000 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-13</span></div>
@@ -11994,7 +12472,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">61P / 14F / 46C</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">560</div>
 <div class="hm-macros">110P / 11F / 14C</div>
@@ -12011,20 +12489,20 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">490</div>
 <div class="hm-macros">72P / 17F / 38C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">150</div>
 <div class="hm-macros">30P / 3F / 4C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total miss">
 <div class="hm-cal" style="font-size:16px">8571</div>
 <div class="hm-macros">day total</div></div>
@@ -12049,6 +12527,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v16_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 16 averaged 2.7 meals/day, 2 meals after 8 PM, and a 7.1 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-13</span></div>
@@ -12117,7 +12596,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">+65m</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">9:15 PM</div>
 <div class="tm-drift">+90m</div>
@@ -12134,20 +12613,20 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">7:22 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">7:30 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">2 meals</div><div class="tm-drift" style="color:#888">9.5hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">5.8hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">7.3hr window</div></div>
@@ -12158,6 +12637,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v16_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 16 hit 165g protein on 4/7 days; lowest protein day was Mon 04-13: 50g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-13</span></div>
@@ -12240,7 +12720,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">37% of day</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">110g</div>
 <div class="pd-bar" style="width:100%"></div>
@@ -12261,46 +12741,56 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:65%"></div>
 <div class="pd-pct">44% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">30g</div>
 <div class="pd-bar" style="width:27%"></div>
 <div class="pd-pct">17% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">50g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">170g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">172g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">172g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">163g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">150g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">166g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp17">
+<section class="week-read">
+      <h3>Wk 17 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>3.6/day</strong><em>8.1 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>6</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>7/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1268 cal</strong><em>Meal 3 · Sun 04-26</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>16 new</strong><em>41 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box">
 <h4>Detected Meal Templates — Wk 17</h4>
 <p style="font-size:11px;color:#888;margin-bottom:8px">Foods that consistently appear together (3+ days in same meal)</p>
@@ -12573,6 +13063,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v17','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v17_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 17 had 6 meals above 650 calories; heaviest was Meal 3 on Sun 04-26 at 1268 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-20</span></div>
@@ -12682,14 +13173,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">473</div>
 <div class="hm-macros">78P / 13F / 25C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">790</div>
 <div class="hm-macros">59P / 34F / 80C</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">1614</div>
 <div class="hm-macros">day total</div></div>
@@ -12714,6 +13205,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v17_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 17 averaged 3.6 meals/day, 7 meals after 8 PM, and a 8.1 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-20</span></div>
@@ -12823,14 +13315,14 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">9:06 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">9:41 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">9.1hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">9.8hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">4 meals</div><div class="tm-drift" style="color:#888">6.2hr window</div></div>
@@ -12841,6 +13333,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v17_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 17 hit 165g protein on 7/7 days; lowest protein day was Tue 04-21: 166g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-20</span></div>
@@ -12974,40 +13467,50 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:66%"></div>
 <div class="pd-pct">44% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">59g</div>
 <div class="pd-bar" style="width:50%"></div>
 <div class="pd-pct">18% of day</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">169g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">166g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">179g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">168g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">166g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">175g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">325g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel" id="mpp18">
+<section class="week-read">
+      <h3>Wk 18 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>1.3/day</strong><em>8.1 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>2</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>2/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>965 cal</strong><em>Meal 2 · Sun 05-03</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>7 new</strong><em>18 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box" style="border-color:#ff5252">
 <h4 style="color:#ff5252">🆕 New This Week (7)</h4>
 <span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252"> Banana Chocolate Chip Buffing Muffin</span>
@@ -13113,6 +13616,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v18','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v18_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 18 had 2 meals above 650 calories; heaviest was Meal 2 on Sun 05-03 at 965 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-27</span></div>
@@ -13123,10 +13627,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-day-hdr">Sat<br><span style="font-size:10px;color:#888">05-02</span></div>
 <div class="mp-day-hdr">Sun<br><span style="font-size:10px;color:#888">05-03</span></div>
 <div class="mp-meal-label">Meal 1</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">695</div>
 <div class="hm-macros">65P / 27F / 47C</div>
@@ -13140,10 +13644,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">29P / 9F / 11C</div>
 </div>
 <div class="mp-meal-label">Meal 2</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-mid">
 <div class="hm-cal">326</div>
 <div class="hm-macros">24P / 14F / 26C</div>
@@ -13157,10 +13661,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-macros">75P / 37F / 83C</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">646</div>
 <div class="hm-macros">74P / 24F / 35C</div>
@@ -13173,7 +13677,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">494</div>
 <div class="hm-macros">61P / 6F / 48C</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total good">
 <div class="hm-cal" style="font-size:16px">0</div>
 <div class="hm-macros">day total</div></div>
@@ -13198,6 +13702,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v18_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 18 averaged 1.3 meals/day, 2 meals after 8 PM, and a 8.1 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-27</span></div>
@@ -13208,10 +13713,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-day-hdr">Sat<br><span style="font-size:10px;color:#888">05-02</span></div>
 <div class="mp-day-hdr">Sun<br><span style="font-size:10px;color:#888">05-03</span></div>
 <div class="mp-meal-label">Meal 1</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">11:04 AM</div>
 <div class="tm-drift">on time</div>
@@ -13225,10 +13730,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">+55m</div>
 </div>
 <div class="mp-meal-label">Meal 2</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">3:10 PM</div>
 <div class="tm-drift">on time</div>
@@ -13242,10 +13747,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-drift">-74m</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">8:02 PM</div>
 <div class="tm-drift">on time</div>
@@ -13258,17 +13763,18 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">6:50 PM</div>
 <div class="tm-drift">-47m</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">9.0hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">9.0hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">6.4hr window</div></div>
 </div>
 </div>
 <div class="mp-view-panel" id="v18_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 18 hit 165g protein on 2/7 days; lowest protein day was Fri 05-01: 163g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">04-27</span></div>
@@ -13279,10 +13785,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-day-hdr">Sat<br><span style="font-size:10px;color:#888">05-02</span></div>
 <div class="mp-day-hdr">Sun<br><span style="font-size:10px;color:#888">05-03</span></div>
 <div class="mp-meal-label">Meal 1</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">65g</div>
 <div class="pd-bar" style="width:83%"></div>
@@ -13299,10 +13805,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">18% of day</div>
 </div>
 <div class="mp-meal-label">Meal 2</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-low">
 <div class="pd-val">24g</div>
 <div class="pd-bar" style="width:31%"></div>
@@ -13319,10 +13825,10 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-pct">45% of day</div>
 </div>
 <div class="mp-meal-label">Meal 3</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">74g</div>
 <div class="pd-bar" style="width:95%"></div>
@@ -13338,32 +13844,42 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:78%"></div>
 <div class="pd-pct">37% of day</div>
 </div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">0g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">0g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">0g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">0g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">163g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">181g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">165g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div class="food-panel meal-pattern-panel active" id="mpp19">
+<section class="week-read">
+      <h3>Wk 19 Meal Read</h3>
+      <div class="week-read-grid">
+        <div class="week-read-stat"><span>Meal rhythm</span><strong>2.9/day</strong><em>8.3 hr avg window</em></div>
+        <div class="week-read-stat"><span>Calorie load</span><strong>6</strong><em>meals above 650 cal</em></div>
+        <div class="week-read-stat"><span>Protein target</span><strong>4/7</strong><em>days at 165g+</em></div>
+        <div class="week-read-stat"><span>Heaviest meal</span><strong>1816 cal</strong><em>Meal 5 · Tue 05-05</em></div>
+        <div class="week-read-stat"><span>Template movement</span><strong>20 new</strong><em>40 unique foods</em></div>
+      </div>
+    </section>
 <div class="mp-template-box" style="border-color:#ff5252">
 <h4 style="color:#ff5252">🆕 New This Week (20)</h4>
 <span class="mp-template-tag" style="border-color:#ff5252;color:#ff5252"> peanut Butter Cookie</span>
@@ -13562,6 +14078,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="mp-view-btn" onclick="showMPView('v19','protein')">Protein Split</div>
 </div>
 <div class="mp-view-panel active" id="v19_heatmap">
+<div class="view-note"><strong>Calorie heatmap</strong><span>Fast scan for load-bearing meal slots. Wk 19 had 6 meals above 650 calories; heaviest was Meal 5 on Tue 05-05 at 1816 calories.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">05-04</span></div>
@@ -13592,8 +14109,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">388</div>
 <div class="hm-macros">27P / 13F / 40C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 2</div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">571</div>
@@ -13615,8 +14132,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">1140</div>
 <div class="hm-macros">86P / 46F / 103C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 3</div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">585</div>
@@ -13638,48 +14155,48 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="hm-cal">150</div>
 <div class="hm-macros">30P / 3F / 4C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">90</div>
 <div class="hm-macros">0P / 2F / 17C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">323</div>
 <div class="hm-macros">25P / 15F / 22C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">1816</div>
 <div class="hm-macros">87P / 77F / 231C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-high">
 <div class="hm-cal">1337</div>
 <div class="hm-macros">66P / 73F / 104C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
 <div class="hm-cell heat-low">
 <div class="hm-cal">408</div>
 <div class="hm-macros">25P / 12F / 50C</div>
 </div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="hm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="hm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
 <div class="hm-cell heat-total watch">
 <div class="hm-cal" style="font-size:16px">1741</div>
 <div class="hm-macros">day total</div></div>
@@ -13704,6 +14221,7 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 </div>
 </div>
 <div class="mp-view-panel" id="v19_timing">
+<div class="view-note"><strong>Meal timing</strong><span>Shows drift versus the average slot time. Wk 19 averaged 2.9 meals/day, 4 meals after 8 PM, and a 8.3 hour first-to-last meal window.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">05-04</span></div>
@@ -13734,8 +14252,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">10:43 AM</div>
 <div class="tm-drift">-88m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 2</div>
 <div class="tm-cell drift-watch">
 <div class="tm-time">4:31 PM</div>
@@ -13757,8 +14275,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">12:00 PM</div>
 <div class="tm-drift">-189m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 3</div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">9:00 PM</div>
@@ -13780,58 +14298,59 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="tm-time">2:01 PM</div>
 <div class="tm-drift">-290m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">8:08 PM</div>
 <div class="tm-drift">+145m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">3:17 PM</div>
 <div class="tm-drift">-145m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">9:35 PM</div>
 <div class="tm-drift">+135m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-miss">
 <div class="tm-time">5:04 PM</div>
 <div class="tm-drift">-135m</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 <div class="tm-cell drift-good">
 <div class="tm-time">7:00 PM</div>
 <div class="tm-drift">on time</div>
 </div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:9px">AVG TIME</div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">AVG TIME</div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">7.5hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">5 meals</div><div class="tm-drift" style="color:#888">9.6hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">6.3hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">3 meals</div><div class="tm-drift" style="color:#888">9.7hr window</div></div>
 <div class="tm-cell"><div class="tm-time" style="color:#42a5f5;font-size:11px">6 meals</div><div class="tm-drift" style="color:#888">8.3hr window</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
-<div class="tm-cell"><div style="color:#333">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
+<div class="tm-cell"><div class="empty-marker">—</div></div>
 </div>
 </div>
 <div class="mp-view-panel" id="v19_protein">
+<div class="view-note"><strong>Protein split</strong><span>Green cells are 40g+ anchors, amber/red cells are lighter boluses. Wk 19 hit 165g protein on 4/7 days; lowest protein day was Wed 05-06: 164g.</span></div>
 <div class="mp-grid">
 <div></div>
 <div class="mp-day-hdr">Mon<br><span style="font-size:10px;color:#888">05-04</span></div>
@@ -13867,8 +14386,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:28%"></div>
 <div class="pd-pct">10% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 2</div>
 <div class="pd-cell protein-high">
 <div class="pd-val">55g</div>
@@ -13895,8 +14414,8 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:90%"></div>
 <div class="pd-pct">33% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 3</div>
 <div class="pd-cell protein-high">
 <div class="pd-val">63g</div>
@@ -13923,79 +14442,79 @@ Food variety check: Wk6 had 27 unique foods, Wk19 has 40.</p>
 <div class="pd-bar" style="width:31%"></div>
 <div class="pd-pct">12% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 4</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-very-low">
 <div class="pd-val">0g</div>
 <div class="pd-bar" style="width:0%"></div>
 <div class="pd-pct">0% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">25g</div>
 <div class="pd-bar" style="width:26%"></div>
 <div class="pd-pct">10% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 5</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">87g</div>
 <div class="pd-bar" style="width:91%"></div>
 <div class="pd-pct">35% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-high">
 <div class="pd-val">66g</div>
 <div class="pd-bar" style="width:69%"></div>
 <div class="pd-pct">25% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="mp-meal-label">Meal 6</div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
 <div class="pd-cell protein-mid">
 <div class="pd-val">25g</div>
 <div class="pd-bar" style="width:26%"></div>
 <div class="pd-pct">10% of day</div>
 </div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="pd-cell"><div style="color:#333">—</div></div>
-<div class="mp-meal-label" style="color:#fff;font-size:10px">TOTAL</div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="pd-cell"><div class="empty-marker">—</div></div>
+<div class="mp-meal-label total-label">TOTAL</div>
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">181g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">247g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">164g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">168g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-hit" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-hit">
 <div class="pd-val" style="font-size:16px">259g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">0g</div>
 <div class="pd-pct">target: 165g</div></div>
-<div class="pd-cell day-miss" style="border-color:#42a5f5">
+<div class="pd-cell protein-total day-miss">
 <div class="pd-val" style="font-size:16px">0g</div>
 <div class="pd-pct">target: 165g</div></div>
 </div>
 </div>
 </div>
 <div style="margin-top:20px">
-<h3 style="color:var(--accent);font-size:14px;margin-bottom:8px">Template Evolution — Across All Weeks</h3>
+<h3 class="template-title">Template Evolution — Across All Weeks</h3>
 <p class="muted-inline" style="font-size:12px;margin-bottom:12px">Top foods across the full cut. Food names stay pinned while the week columns scroll, so winner changes and drop-offs are easier to compare.</p>
 <div class="te-wrap"><div class="te-grid">
 <div class="te-food" style="font-weight:bold;color:var(--accent)">Food</div>
@@ -16759,11 +17278,14 @@ function setReportTheme(theme) {
 function toggleReportTheme() {
   setReportTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 }
-function showMainTab(id) {
+function showMainTab(id, trigger) {
   document.querySelectorAll('.main-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  event.target.classList.add('active');
+  const panel = document.getElementById(id);
+  if (panel) panel.classList.add('active');
+  const tab = trigger || document.querySelector(`.main-tab[onclick*="${id}"]`);
+  if (tab) tab.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function showFoodTab(wk) {
   document.querySelectorAll('#foodreview .food-panel').forEach(p => p.classList.remove('active'));
