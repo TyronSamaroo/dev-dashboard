@@ -56,9 +56,17 @@
     .route-link{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.66);color:var(--ink);text-decoration:none;padding:6px 9px;font-size:11px;font-weight:950}
     html[data-theme="dark"] .route-link{background:rgba(255,255,255,.05)}
     .route-link.primary{border-color:color-mix(in srgb,var(--cyan),transparent 42%);background:color-mix(in srgb,var(--cyan),transparent 88%);color:var(--cyan)}
+    .coverage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:12px}
+    .coverage-item{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px}
+    .coverage-item span{color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .coverage-item strong{display:block;color:var(--ink);font-size:14px;line-height:1.15}
+    .coverage-item p{margin:3px 0 0;color:var(--muted);font-size:12px;line-height:1.32}
+    .coverage-status{display:inline-flex;align-items:center;border:1px solid color-mix(in srgb,var(--ok),transparent 58%);border-radius:999px;background:color-mix(in srgb,var(--ok),transparent 91%);color:var(--ok);padding:4px 8px;font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}
+    .coverage-status.watch{border-color:color-mix(in srgb,var(--warn),transparent 58%);background:color-mix(in srgb,var(--warn),transparent 91%);color:var(--warn)}
     .source-line{padding:0 18px 14px;color:var(--muted);font-size:12px}
     .source-line strong{color:var(--ink)}
-    @media(max-width:980px){.read-grid,.route-grid,.data-access{grid-template-columns:1fr}.read-cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:980px){.read-grid,.route-grid,.data-access,.coverage-grid{grid-template-columns:1fr}.read-cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){.coverage-item{grid-template-columns:1fr;align-items:start}.coverage-status{width:max-content}}
     @media(max-width:640px){main.home-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.home-hero{padding:18px}.hero-actions .action{width:100%}.read-cards{grid-template-columns:1fr}}
   </style>
 </head>
@@ -134,6 +142,21 @@
         <article class="route-card"><span>Training</span><strong>Did food impact the lift?</strong><p>Pre-lift food, lift density, post-cardio, and next-morning scale noise.</p><em>Fuel → lift</em><div class="route-actions"><a class="route-link primary" href="analysis.html?view=fuel">Fuel analysis</a><a class="route-link" href="data-ledger.html#training">Training rows</a></div></article>
         <article class="route-card"><span>Cardio</span><strong>Is StairMaster changing?</strong><p>Use filters for StairMaster vs walking, kcal/min, avg HR, max HR, and suspect HR rows.</p><em>Trend + explorer</em><div class="route-actions"><a class="route-link primary" href="cardio-calibration.html">Cardio Data</a><a class="route-link" href="analysis.html?view=cardio">Cardio read</a></div></article>
         <article class="route-card"><span>Raw</span><strong>Show me every row.</strong><p>Compact default tables with filters/sorting; audit/source columns are one click away.</p><em>Evidence trail</em><div class="route-actions"><a class="route-link primary" href="data-ledger.html">Data Ledger</a><a class="route-link" href="sheets.html">Google Sheet</a></div></article>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="section-head">
+        <h2>Coverage Audit</h2>
+        <p>Requirement-to-surface map so the system stays organized instead of turning into another pile of pages.</p>
+      </div>
+      <div class="coverage-grid">
+        <article class="coverage-item"><span>Daily Ledger</span><div><strong>Readable daily row is covered</strong><p>Weight drop, colored calories/macros, sleep, cardio blocks, lift, burn, and decision are in Daily Master.</p></div><a class="coverage-status" href="report.html">Covered</a></article>
+        <article class="coverage-item"><span>Meals</span><div><strong>Meal timing / protein split is covered</strong><p>MacroFactor grouping feeds meal heat map, protein split, anchors, food review, and repeat patterns.</p></div><a class="coverage-status" href="meal-patterns.html">Covered</a></article>
+        <article class="coverage-item"><span>Analysis</span><div><strong>Question-first reads are covered</strong><p>Anything off, meal timing, food review, fuel-to-lift, cardio trend, and source freshness live in Analysis.</p></div><a class="coverage-status" href="analysis.html">Covered</a></article>
+        <article class="coverage-item"><span>Cardio</span><div><strong>StairMaster / walking explorer is covered</strong><p>Filter and sort by type, calories, kcal/min, avg HR, max HR, duration, reliable HR, and suspect HR rows.</p></div><a class="coverage-status" href="cardio-calibration.html">Covered</a></article>
+        <article class="coverage-item"><span>Rows</span><div><strong>Clean CSV-style rows are covered</strong><p>Data Ledger keeps current cleanup, training, cardio, YTD cardio, sleep, feedback, and forecast rows separate.</p></div><a class="coverage-status" href="data-ledger.html">Covered</a></article>
+        <article class="coverage-item"><span>Live Data</span><div><strong>Today still needs check-in fields</strong><p>Current missing layer is not UI: macros/cardio/lift/GI/hunger-energy need fresh input before final day read.</p></div><a class="coverage-status watch" href="analysis.html?view=overview">Watch</a></article>
       </div>
     </section>
   </main>
