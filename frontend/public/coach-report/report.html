@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coach Report — Weeks 6-21 Current Update</title><link rel="icon" href="data:,">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coach Report — Weeks 6-19 + Current Context</title><link rel="icon" href="data:,">
 <script>
 (() => {
   const key = "coach_report_theme";
@@ -74,11 +74,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 60px; }
 .week-focus-btn { border: 1px solid var(--line); border-radius: 999px; background: var(--panel-soft); color: var(--muted); padding: 7px 10px; font: inherit; font-size: 11px; font-weight: 850; cursor: pointer; white-space: nowrap; }
 .week-focus-btn:hover { color: var(--text); border-color: color-mix(in srgb,var(--accent),transparent 45%); }
 .week-focus-btn.active { color: var(--accent); background: var(--accent-soft); border-color: color-mix(in srgb,var(--accent),transparent 35%); }
-body[data-week-scope="current"] .week-detail,
 body[data-week-scope="latest"] .week-detail:not(.latest-week),
 body[data-week-scope="recent"] .week-detail:not(.recent-week) { display: none; }
-body[data-week-scope="latest"] .manual-week-detail,
-body[data-week-scope="recent"] .manual-week-detail { display: none; }
 .week-detail { animation: weekFade .18s ease-out; }
 @keyframes weekFade { from { opacity: .4; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 body.report-density-compact .week-grid { gap: 5px; }
@@ -1137,12 +1134,12 @@ html[data-theme="light"] [style*="color:white"] {
   .signal-row { grid-template-columns: 1fr; gap: 4px; }
 }
 @media print { body { background: #fff; color: #222; } }
-</style></head><body data-week-scope="current">
+</style></head><body data-week-scope="latest">
 
 <div class="header">
   <div class="header-copy">
-    <h1>Coach Report — Weeks 6-21 Current Update</h1>
-    <div class="subtitle">Tyron Samaroo &nbsp;|&nbsp; OCB Contest Prep &nbsp;|&nbsp; Wk6-Wk19 full MacroFactor history + Wk20/Wk21 manual current context through May 22, 2026</div>
+    <h1>Coach Report — Weeks 6-19 + Current Context</h1>
+    <div class="subtitle">Tyron Samaroo &nbsp;|&nbsp; OCB Contest Prep &nbsp;|&nbsp; Wk6-Wk19 full MacroFactor history; Wk20/Wk21 summarized only on Overview through May 22, 2026</div>
   </div>
   <button class="theme-toggle" type="button" onclick="toggleReportTheme()" aria-label="Toggle coach report theme">Theme</button>
 </div>
@@ -1194,17 +1191,16 @@ html[data-theme="light"] [style*="color:white"] {
     <section class="current-update" aria-label="Current week coach update">
       <div class="current-update-head">
         <div>
-          <div class="analysis-kicker">Current update</div>
-          <h3>Wk20 is an intentional diet-break gap; Wk21 is partial cleanup data.</h3>
-          <p>The historical MacroFactor report still ends at Wk 19. This section adds the local manual ledger so the coach view does not misread the staycation or miss the current cleanup week.</p>
+          <div class="analysis-kicker">Current coach note</div>
+          <h3>Wk20 is intentionally excluded; Wk21 is a partial current read.</h3>
+          <p>One coach-facing note only: the full food-log history ends at Wk 19; Wk20/Wk21 are context, not extra daily meal detail.</p>
         </div>
         <span class="source-pill">Manual ledger</span>
       </div>
       <div class="current-grid">
         <article class="current-card break">
           <h4>Wk20 / May 11-17: staycation diet break</h4>
-          <p>Calories were intentionally untracked during the staycation/diet break. This should be excluded from macro averages and compliance scoring, not treated as zero intake or a failed logging week.</p>
-          <p>Training also had a real break: multiple gym days off, roughly six by your note. Exact count can be tightened later if the workout export catches up, but the coach-facing read is clear: this was a chosen reset, not missing adherence data.</p>
+          <p>Calories were intentionally untracked during the staycation/diet break. Exclude this week from macro averages and compliance scoring instead of treating it as missing adherence.</p>
           <div class="current-metrics">
             <div class="current-metric"><span>Status</span><strong>Excluded</strong></div>
             <div class="current-metric"><span>Reason</span><strong>Diet break</strong></div>
@@ -1212,29 +1208,15 @@ html[data-theme="light"] [style*="color:white"] {
         </article>
         <article class="current-card cleanup">
           <h4>Wk21 / May 18-22: cleanup runway, partial current data</h4>
-          <p>Manual rows show the aggressive cleanup after the staycation. Food/macros are verified locally through May 21; May 22 has a weight-only feedback row so far.</p>
+          <p>Manual current context only. Food/macros are verified locally through May 21; May 22 is weight-only so far.</p>
           <div class="current-metrics">
             <div class="current-metric"><span>Scale move</span><strong>165.0 -> 158.4</strong></div>
             <div class="current-metric"><span>Wk21 delta</span><strong>-6.6 lb</strong></div>
             <div class="current-metric"><span>Avg intake</span><strong>986 cal</strong></div>
             <div class="current-metric"><span>Avg protein</span><strong>176g</strong></div>
-            <div class="current-metric"><span>Avg steps</span><strong>13,464</strong></div>
-            <div class="current-metric"><span>Adjusted active</span><strong>1,424 kcal</strong></div>
           </div>
-          <p>From the May 17 primer weight, the cleanup ledger is -10.6 lb through the May 22 weight-only row. Treat this mostly as water/glycogen/gut cleanup plus some fat loss, not a settled new baseline.</p>
+          <p>Read this as post-break cleanup context, not a settled new baseline.</p>
         </article>
-      </div>
-      <div class="current-table-wrap">
-        <table class="current-table">
-          <thead><tr><th>Day</th><th>AM Wt</th><th>Macros</th><th>Lift</th><th>Cardio</th><th>Steps</th><th>Read</th></tr></thead>
-          <tbody>
-            <tr><td>Mon<br><span>2026-05-18</span></td><td>165.0</td><td>940 / 171P / 12.5F / 34.0C</td><td>Pull 97:26</td><td>Stair 45:14 + Stair 30:29</td><td>10,227</td><td>Huge output; strength burn discounted.</td></tr>
-<tr><td>Tue<br><span>2026-05-19</span></td><td>162.5</td><td>1,028 / 180P / 12.3F / 44.0C</td><td>Arms 85:31</td><td>Stair 47:14 + Stair 30:27 + Walk 52:37</td><td>14,529</td><td>Overreach day; pull extra volume.</td></tr>
-<tr><td>Wed<br><span>2026-05-20</span></td><td>160.3</td><td>975 / 181P / 10.5F / 37.0C</td><td>No lift</td><td>Stair 45:31 + Walk 62:57 + Walk 43:31</td><td>17,197</td><td>No lift helped; walking kept output high.</td></tr>
-<tr><td>Thu<br><span>2026-05-21</span></td><td>158.7</td><td>1,000 / 170P / 14.9F / 34.6C</td><td>Unlabeled lift 87:49</td><td>Stair 51:04 + Stair 32:15</td><td>11,903</td><td>High-output day: two StairMaster sessions plus dense lift; adjusted deficit about 2420.</td></tr>
-<tr class="pending-row"><td>Fri<br><span>2026-05-22</span></td><td>158.4</td><td colspan="4">Weight-only feedback row so far; food/check-in fields are still pending in local data.</td><td>flat-ish but still down 10.6 lb from 5/17. Use marker-led cardio and GI-friendly protein.</td></tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
@@ -1293,60 +1275,15 @@ html[data-theme="light"] [style*="color:white"] {
 <div class="week-focus-bar" aria-label="Daily meal detail controls">
   <div class="week-focus-copy">
     <strong>Daily detail scope</strong>
-    <span id="week-scope-note">Showing Wk20/Wk21 current update first. Wk20 is excluded; Wk21 is partial manual data.</span>
+    <span id="week-scope-note">Showing Wk 19, the latest full MacroFactor food-log week.</span>
   </div>
   <div class="week-focus-actions">
-    <button class="week-focus-btn active" type="button" data-week-scope-button="current" onclick="setWeekScope('current', this)">Current update</button>
-    <button class="week-focus-btn" type="button" data-week-scope-button="latest" onclick="setWeekScope('latest', this)">Latest tracked week</button>
+    <button class="week-focus-btn active" type="button" data-week-scope-button="latest" onclick="setWeekScope('latest', this)">Latest tracked week</button>
     <button class="week-focus-btn" type="button" data-week-scope-button="recent" onclick="setWeekScope('recent', this)">Recent 4</button>
     <button class="week-focus-btn" type="button" data-week-scope-button="all" onclick="setWeekScope('all', this)">All weeks</button>
     <button class="week-focus-btn" type="button" id="density-toggle" onclick="toggleReportDensity(this)">Compact rows</button>
   </div>
 </div>
-<section class="manual-week-detail" data-week="20" id="wk20">
-  <div class="week-banner"><span class="wt">WEEK 20</span> — 05-11 – 05-17
-    <div class="meta">Staycation / intentional diet break | calories excluded | multiple gym days off | not scored as compliance failure</div>
-  </div>
-  <div class="current-card break">
-    <h4>Wk20 daily detail: intentionally untracked</h4>
-    <p>This week is now in the Daily Meals surface because it is part of the report timeline, but it should not show fake meals. Calories were intentionally untracked during the staycation/diet break, so macro averages, heatmaps, protein splits, and compliance scoring should exclude it.</p>
-    <div class="current-metrics">
-      <div class="current-metric"><span>Coach read</span><strong>Diet break</strong></div>
-      <div class="current-metric"><span>Macro status</span><strong>Excluded</strong></div>
-      <div class="current-metric"><span>Training</span><strong>Deload/off</strong></div>
-      <div class="current-metric"><span>Next usable row</span><strong>May 17</strong></div>
-    </div>
-    <p>May 17 is kept as the primer row for the cleanup runway: 169.0 lb, 873 cal, 169P, legs 56:16, short walk.</p>
-  </div>
-</section>
-
-<section class="manual-week-detail" data-week="21" id="wk21">
-  <div class="week-banner"><span class="wt">WEEK 21</span> — 05-18 – 05-24
-    <div class="meta">Partial current manual ledger | food/macros through May 21 | May 22 weight-only row pending food detail</div>
-  </div>
-  <div class="current-card cleanup">
-    <h4>Wk21 daily detail: cleanup runway, partial data</h4>
-    <p>This is visible in Daily Meals now, but it is not the same source depth as Wk6-Wk19. The rows below come from the manual cleanup ledger because the MacroFactor food export has not caught up past May 8/9.</p>
-    <div class="current-metrics">
-      <div class="current-metric"><span>Scale move</span><strong>165.0 -> 158.4</strong></div>
-      <div class="current-metric"><span>Wk21 delta</span><strong>-6.6 lb</strong></div>
-      <div class="current-metric"><span>Avg intake</span><strong>986 cal</strong></div>
-      <div class="current-metric"><span>Avg protein</span><strong>176g</strong></div>
-      <div class="current-metric"><span>Avg steps</span><strong>13,464</strong></div>
-      <div class="current-metric"><span>Adjusted active</span><strong>1,424 kcal</strong></div>
-    </div>
-    <div class="current-table-wrap">
-      <table class="current-table">
-        <thead><tr><th>Day</th><th>AM Wt</th><th>Macros</th><th>Lift</th><th>Cardio</th><th>Steps</th><th>Read</th></tr></thead>
-        <tbody><tr><td>Mon<br><span>2026-05-18</span></td><td>165.0</td><td>940 / 171P / 12.5F / 34.0C</td><td>Pull 97:26</td><td>Stair 45:14 + Stair 30:29</td><td>10,227</td><td>Huge output; strength burn discounted.</td></tr>
-<tr><td>Tue<br><span>2026-05-19</span></td><td>162.5</td><td>1,028 / 180P / 12.3F / 44.0C</td><td>Arms 85:31</td><td>Stair 47:14 + Stair 30:27 + Walk 52:37</td><td>14,529</td><td>Overreach day; pull extra volume.</td></tr>
-<tr><td>Wed<br><span>2026-05-20</span></td><td>160.3</td><td>975 / 181P / 10.5F / 37.0C</td><td>No lift</td><td>Stair 45:31 + Walk 62:57 + Walk 43:31</td><td>17,197</td><td>No lift helped; walking kept output high.</td></tr>
-<tr><td>Thu<br><span>2026-05-21</span></td><td>158.7</td><td>1,000 / 170P / 14.9F / 34.6C</td><td>Unlabeled lift 87:49</td><td>Stair 51:04 + Stair 32:15</td><td>11,903</td><td>High-output day: two StairMaster sessions plus dense lift; adjusted deficit about 2420.</td></tr>
-<tr class="pending-row"><td>Fri<br><span>2026-05-22</span></td><td>158.4</td><td colspan="4">Weight-only feedback row so far; food/check-in fields are still pending in local data.</td><td>flat-ish but still down 10.6 lb from 5/17. Use marker-led cardio and GI-friendly protein.</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</section>
 <h2>📊 WEIGHT & METRICS OVERVIEW</h2>
 <table class="summary-table">
 <tr><th>Week</th><th>Dates</th><th>Avg Wt</th><th>Δ</th><th>Avg Cal</th><th>Avg Na</th><th>Avg Steps</th><th>Unique Foods</th><th>Total Vol</th><th>Vol/Sess</th></tr>
@@ -1364,12 +1301,8 @@ html[data-theme="light"] [style*="color:white"] {
 <tr><td><b>Wk 17</b></td><td>04-20 – 04-26</td><td>149.74</td><td style="color:#00e676;font-weight:bold">-3.27</td><td>1,844</td><td>1,471</td><td>11,241</td><td>41</td><td>143,800</td><td>35,950</td></tr>
 <tr><td><b>Wk 18</b></td><td>04-27 – 05-03</td><td>148.50</td><td style="color:#00e676;font-weight:bold">-1.24</td><td>1,579</td><td>937</td><td>10,848</td><td>18</td><td>50,685</td><td>16,895</td></tr>
 <tr><td><b>Wk 19</b></td><td>05-04 – 05-10</td><td>150.68</td><td style="color:#ff5252;font-weight:bold">+2.18</td><td>2,335</td><td>1,406</td><td>5,126</td><td>40</td><td>91,820</td><td>30,607</td></tr>
-<tr class="pending-row"><td><b>Wk 20</b></td><td>05-11 – 05-17</td><td>—</td><td>break</td><td>Excluded</td><td>—</td><td>—</td><td>Untracked</td><td>Deload/off</td><td>—</td></tr>
-<tr class="pending-row"><td><b>Wk 21</b></td><td>05-18 – 05-24</td><td>161.0</td><td>manual</td><td>986</td><td>—</td><td>13,464</td><td>manual</td><td>1,424 adj active</td><td>partial</td></tr>
 </table>
 <div class="week-nav">
-<a href="#wk20" onclick="setWeekScope('current')">Wk 20</a>
-<a href="#wk21" onclick="setWeekScope('current')">Wk 21</a>
 <a href="#wk6" onclick="setWeekScope('all')">Wk 6</a>
 <a href="#wk7" onclick="setWeekScope('all')">Wk 7</a>
 <a href="#wk8" onclick="setWeekScope('all')">Wk 8</a>
@@ -17717,21 +17650,19 @@ function toggleReportTheme() {
   setReportTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 }
 function setWeekScope(scope, trigger) {
-  const allowed = ['current', 'latest', 'recent', 'all'];
-  const next = allowed.includes(scope) ? scope : 'current';
+  const allowed = ['latest', 'recent', 'all'];
+  const next = allowed.includes(scope) ? scope : 'latest';
   document.body.dataset.weekScope = next;
   document.querySelectorAll('[data-week-scope-button]').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.weekScopeButton === next);
   });
   const note = document.getElementById('week-scope-note');
   if (note) {
-    note.textContent = next === 'current'
-      ? 'Showing Wk20/Wk21 current update first. Wk20 is excluded; Wk21 is partial manual data.'
-      : next === 'latest'
-        ? 'Showing Wk 19, the latest full MacroFactor food-log week.'
-        : next === 'recent'
-          ? 'Showing Wk 16-Wk 19 so the latest full tracked pattern is easy to compare.'
-          : 'Showing Wk20/Wk21 current update plus every full historical week. Use Compact rows if you want less vertical scrolling.';
+    note.textContent = next === 'latest'
+      ? 'Showing Wk 19, the latest full MacroFactor food-log week.'
+      : next === 'recent'
+        ? 'Showing Wk 16-Wk 19 so the latest full tracked pattern is easy to compare.'
+        : 'Showing every full historical week. Use Compact rows if you want less vertical scrolling.';
   }
   if (trigger) trigger.blur();
 }
@@ -17797,7 +17728,7 @@ function openLatestMealView(view) {
 }
 document.addEventListener('DOMContentLoaded', () => {
   updateThemeToggle();
-  setWeekScope(document.body.dataset.weekScope || 'current');
+  setWeekScope(document.body.dataset.weekScope || 'latest');
 });
 </script>
 </body></html>
