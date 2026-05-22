@@ -38,10 +38,17 @@
     .current-read-card.ok{border-color:rgba(81,183,73,.38)}
     .current-read-card.warn{border-color:rgba(251,215,91,.42)}
     .current-read-card.bad{border-color:rgba(255,107,107,.42)}
+    .cal-chip{display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(251,215,91,.42);border-radius:999px;background:rgba(251,215,91,.12);color:var(--amber);padding:4px 7px;margin-right:4px;line-height:1;vertical-align:middle;white-space:nowrap}
+    .cal-chip strong{font-size:15px!important;color:inherit}
+    .cal-chip.on-runway{border-color:rgba(81,183,73,.4);background:rgba(81,183,73,.12);color:var(--green)}
+    .cal-chip.pending{border-color:var(--line);background:rgba(255,255,255,.04);color:var(--muted)}
+    .macro-rest{white-space:nowrap}
     html[data-theme="light"] .current-read-card{background:rgba(255,255,255,.72)}
     html[data-theme="light"] .current-read-card.lead{background:linear-gradient(135deg,rgba(4,124,134,.1),rgba(255,255,255,.78))}
+    html[data-theme="light"] .cal-chip{background:rgba(154,103,0,.09);border-color:rgba(154,103,0,.25);color:#8a5d00}
+    html[data-theme="light"] .cal-chip.on-runway{background:rgba(35,134,54,.09);border-color:rgba(35,134,54,.25);color:#1f7a33}
     @media(max-width:980px){.current-read-strip{grid-template-columns:repeat(2,1fr)}.current-read-card.lead{grid-column:span 2}}
-    @media(max-width:620px){.current-read-strip{grid-template-columns:1fr}.current-read-card.lead{grid-column:auto}}
+    @media(max-width:620px){.current-read-strip{grid-template-columns:1fr}.current-read-card.lead{grid-column:auto}.macro-rest{white-space:normal}}
   </style>
 </head>
 <body>
@@ -595,10 +602,10 @@
 	        const burn = row.burn || {};
 	        const sleep = row.sleep || {};
 	        const delta = row.delta !== null && row.delta !== undefined ? `<div><span class="tag">${fmtNumber(row.delta, 1)}</span></div>` : "";
-	        const macroText = macros.calories !== null && macros.calories !== undefined
-	          ? `<strong class="macro-kcal">${fmtNumber(macros.calories)}</strong> cal · <strong class="macro-protein">${fmtNumber(macros.protein)}P</strong> · <strong class="macro-fat">${fmtNumber(macros.fat, 1)}F</strong> · <strong class="macro-carbs">${fmtNumber(macros.carbs, 1)}C</strong>`
-	          : "Food pending";
-	        const macroCardClass = macroTone(macros);
+        const macroCardClass = macroTone(macros);
+        const macroText = macros.calories !== null && macros.calories !== undefined
+          ? `<span class="cal-chip ${macroCardClass}"><strong>${fmtNumber(macros.calories)}</strong> cal</span><span class="macro-rest"><strong class="macro-protein">${fmtNumber(macros.protein)}P</strong> · <strong class="macro-fat">${fmtNumber(macros.fat, 1)}F</strong> · <strong class="macro-carbs">${fmtNumber(macros.carbs, 1)}C</strong></span>`
+          : `<span class="cal-chip pending"><strong>Food pending</strong></span>`;
 	        const adjustedBurn = burn.adjusted !== null && burn.adjusted !== undefined ? `~${fmtNumber(burn.adjusted)} kcal` : "Pending";
 	        const appleBurn = burn.apple !== null && burn.apple !== undefined ? `Apple active ${fmtNumber(burn.apple)}` : "Apple active pending";
 	        return `
