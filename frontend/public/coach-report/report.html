@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coach Report — Weeks 6-19 v4</title><link rel="icon" href="data:,">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Coach Report — Weeks 6-19 + Current Update</title><link rel="icon" href="data:,">
 <script>
 (() => {
   const key = "coach_report_theme";
@@ -546,6 +546,138 @@ html[data-theme="light"] .main-tab.active {
   text-decoration: none;
 }
 .analysis-lens-card a:hover { text-decoration: underline; }
+.current-update {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(16px, 2.4vw, 22px);
+  margin: 14px 0;
+}
+.current-update-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+.current-update-head h3 {
+  margin: 6px 0 4px;
+  color: var(--text);
+  font-size: clamp(20px, 2.4vw, 28px);
+  letter-spacing: -.035em;
+}
+.current-update-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  max-width: 860px;
+}
+.source-pill {
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--cyan);
+  background: color-mix(in srgb,var(--cyan),transparent 91%);
+  padding: 7px 10px;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.current-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: 12px;
+}
+.current-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel-2);
+  padding: 14px;
+}
+.current-card.break {
+  border-left: 5px solid var(--amber);
+}
+.current-card.cleanup {
+  border-left: 5px solid var(--green);
+}
+.current-card h4 {
+  color: var(--text);
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+.current-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+.current-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.current-metric {
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--panel);
+  padding: 10px;
+}
+.current-metric span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.current-metric strong {
+  display: block;
+  color: var(--text);
+  font-size: 21px;
+  line-height: 1;
+  margin-top: 6px;
+  letter-spacing: -.03em;
+}
+.current-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-top: 12px;
+}
+.current-table {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 12px;
+}
+.current-table th {
+  background: var(--panel-2);
+  color: var(--text);
+  padding: 9px 10px;
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.current-table td {
+  border-top: 1px solid var(--line);
+  padding: 9px 10px;
+  vertical-align: top;
+  line-height: 1.35;
+}
+.current-table td span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.current-table .pending-row td {
+  background: color-mix(in srgb,var(--amber),transparent 91%);
+}
 .week-read {
   border-radius: 18px;
   padding: 15px;
@@ -972,6 +1104,7 @@ html[data-theme="light"] [style*="color:white"] {
 @media (max-width: 1100px) {
   .analysis-stat-grid { grid-template-columns: repeat(2, 1fr); }
   .analysis-lens-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .current-grid { grid-template-columns: 1fr; }
   .analysis-columns { grid-template-columns: 1fr; }
   .week-read-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -979,6 +1112,9 @@ html[data-theme="light"] [style*="color:white"] {
   .header { display: block; padding: 18px; }
   .header h1 { font-size: 24px; line-height: 1.05; }
   .theme-toggle { margin-top: 12px; }
+  .current-update-head { display: block; }
+  .source-pill { display: inline-flex; margin-top: 10px; }
+  .current-metrics { grid-template-columns: 1fr; }
   .week-focus-bar { align-items: flex-start; flex-direction: column; }
   .week-focus-actions { justify-content: flex-start; }
   .summary-table,
@@ -1002,8 +1138,8 @@ html[data-theme="light"] [style*="color:white"] {
 
 <div class="header">
   <div class="header-copy">
-    <h1>Coach Report — Weeks 6-19</h1>
-    <div class="subtitle">Tyron Samaroo &nbsp;|&nbsp; OCB Contest Prep &nbsp;|&nbsp; Feb 2 – May 10, 2026</div>
+    <h1>Coach Report — Weeks 6-19 + Current Update</h1>
+    <div class="subtitle">Tyron Samaroo &nbsp;|&nbsp; OCB Contest Prep &nbsp;|&nbsp; Historical report through May 10 + manual update through May 22, 2026</div>
   </div>
   <button class="theme-toggle" type="button" onclick="toggleReportTheme()" aria-label="Toggle coach report theme">Theme</button>
 </div>
@@ -1050,6 +1186,53 @@ html[data-theme="light"] [style*="color:white"] {
         <strong class="value">40</strong>
         <span class="sub">20 new foods; 28 staples across the report.</span>
       </article>
+    </section>
+
+    <section class="current-update" aria-label="Current week coach update">
+      <div class="current-update-head">
+        <div>
+          <div class="analysis-kicker">Current update</div>
+          <h3>Wk20 is an intentional diet-break gap; Wk21 is partial cleanup data.</h3>
+          <p>The historical MacroFactor report still ends at Wk 19. This section adds the local manual ledger so the coach view does not misread the staycation or miss the current cleanup week.</p>
+        </div>
+        <span class="source-pill">Manual ledger</span>
+      </div>
+      <div class="current-grid">
+        <article class="current-card break">
+          <h4>Wk20 / May 11-17: staycation diet break</h4>
+          <p>Calories were intentionally untracked during the staycation/diet break. This should be excluded from macro averages and compliance scoring, not treated as zero intake or a failed logging week.</p>
+          <p>Training also had a real break: multiple gym days off, roughly six by your note. Exact count can be tightened later if the workout export catches up, but the coach-facing read is clear: this was a chosen reset, not missing adherence data.</p>
+          <div class="current-metrics">
+            <div class="current-metric"><span>Status</span><strong>Excluded</strong></div>
+            <div class="current-metric"><span>Reason</span><strong>Diet break</strong></div>
+          </div>
+        </article>
+        <article class="current-card cleanup">
+          <h4>Wk21 / May 18-22: cleanup runway, partial current data</h4>
+          <p>Manual rows show the aggressive cleanup after the staycation. Food/macros are verified locally through May 21; May 22 has a weight-only feedback row so far.</p>
+          <div class="current-metrics">
+            <div class="current-metric"><span>Scale move</span><strong>165.0 -> 158.4</strong></div>
+            <div class="current-metric"><span>Wk21 delta</span><strong>-6.6 lb</strong></div>
+            <div class="current-metric"><span>Avg intake</span><strong>986 cal</strong></div>
+            <div class="current-metric"><span>Avg protein</span><strong>176g</strong></div>
+            <div class="current-metric"><span>Avg steps</span><strong>13,464</strong></div>
+            <div class="current-metric"><span>Adjusted active</span><strong>1,424 kcal</strong></div>
+          </div>
+          <p>From the May 17 primer weight, the cleanup ledger is -10.6 lb through the May 22 weight-only row. Treat this mostly as water/glycogen/gut cleanup plus some fat loss, not a settled new baseline.</p>
+        </article>
+      </div>
+      <div class="current-table-wrap">
+        <table class="current-table">
+          <thead><tr><th>Day</th><th>AM Wt</th><th>Macros</th><th>Lift</th><th>Cardio</th><th>Steps</th><th>Read</th></tr></thead>
+          <tbody>
+            <tr><td>Mon<br><span>2026-05-18</span></td><td>165.0</td><td>940 / 171P / 12.5F / 34.0C</td><td>Pull 97:26</td><td>Stair 45:14 + Stair 30:29</td><td>10,227</td><td>Huge output; strength burn discounted.</td></tr>
+<tr><td>Tue<br><span>2026-05-19</span></td><td>162.5</td><td>1,028 / 180P / 12.3F / 44.0C</td><td>Arms 85:31</td><td>Stair 47:14 + Stair 30:27 + Walk 52:37</td><td>14,529</td><td>Overreach day; pull extra volume.</td></tr>
+<tr><td>Wed<br><span>2026-05-20</span></td><td>160.3</td><td>975 / 181P / 10.5F / 37.0C</td><td>No lift</td><td>Stair 45:31 + Walk 62:57 + Walk 43:31</td><td>17,197</td><td>No lift helped; walking kept output high.</td></tr>
+<tr><td>Thu<br><span>2026-05-21</span></td><td>158.7</td><td>1,000 / 170P / 14.9F / 34.6C</td><td>Unlabeled lift 87:49</td><td>Stair 51:04 + Stair 32:15</td><td>11,903</td><td>High-output day: two StairMaster sessions plus dense lift; adjusted deficit about 2420.</td></tr>
+<tr class="pending-row"><td>Fri<br><span>2026-05-22</span></td><td>158.4</td><td colspan="4">Weight-only feedback row so far; food/check-in fields are still pending in local data.</td><td>flat-ish but still down 10.6 lb from 5/17. Use marker-led cardio and GI-friendly protein.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section class="analysis-lens-grid" aria-label="Question-first coach review lenses">
