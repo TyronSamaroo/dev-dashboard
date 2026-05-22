@@ -67,6 +67,26 @@ h2 { color: #e94560; font-size: 18px; margin: 28px 0 10px; border-bottom: 2px so
 .week-nav a { display:inline-block; padding:8px 16px; background:linear-gradient(135deg,#1a1a2e,#16213e); color:#e94560; border:1px solid #333; border-radius:8px; text-decoration:none; font-weight:bold; font-size:13px; transition:all 0.2s; }
 .week-nav a:hover { background:#e94560; color:#fff; border-color:#e94560; }
 html { scroll-behavior: smooth; scroll-padding-top: 60px; }
+.week-focus-bar { display: flex; justify-content: space-between; gap: 14px; align-items: center; margin: 16px 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); box-shadow: 0 10px 28px rgba(0,0,0,.07); }
+.week-focus-copy strong { display: block; color: var(--text); font-size: 13px; letter-spacing: -.01em; }
+.week-focus-copy span { display: block; color: var(--muted); font-size: 12px; line-height: 1.35; margin-top: 3px; }
+.week-focus-actions { display: flex; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+.week-focus-btn { border: 1px solid var(--line); border-radius: 999px; background: var(--panel-soft); color: var(--muted); padding: 7px 10px; font: inherit; font-size: 11px; font-weight: 850; cursor: pointer; white-space: nowrap; }
+.week-focus-btn:hover { color: var(--text); border-color: color-mix(in srgb,var(--accent),transparent 45%); }
+.week-focus-btn.active { color: var(--accent); background: var(--accent-soft); border-color: color-mix(in srgb,var(--accent),transparent 35%); }
+body[data-week-scope="latest"] .week-detail:not(.latest-week),
+body[data-week-scope="recent"] .week-detail:not(.recent-week) { display: none; }
+.week-detail { animation: weekFade .18s ease-out; }
+@keyframes weekFade { from { opacity: .4; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+body.report-density-compact .week-grid { gap: 5px; }
+body.report-density-compact .day-col { border-radius: 10px; }
+body.report-density-compact .day-hdr { padding: 7px 6px; }
+body.report-density-compact .macro-bar .mb { padding: 4px 2px; font-size: 10px; }
+body.report-density-compact .stat-strip .ss { padding: 3px 2px; font-size: 9px; }
+body.report-density-compact .meal-hdr { padding: 4px 5px 2px; }
+body.report-density-compact .food-row { min-height: 20px; padding: 2px 5px; font-size: 9px; }
+body.report-density-compact .food-col-hdr,
+body.report-density-compact .day-total { padding: 3px 5px; }
 .week-banner { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 16px 20px; border-radius: 12px; margin: 28px 0 12px; border-left: 4px solid #e94560; border: 1px solid #333; border-left: 4px solid #e94560; }
 .week-banner .wt { font-size: 20px; color: #fff; font-weight: bold; }
 .week-banner .meta { font-size: 12px; color: #aaa; margin-top: 4px; }
@@ -855,6 +875,17 @@ html[data-theme="light"] [style*="color:#ccc"] {
   .header { display: block; padding: 18px; }
   .header h1 { font-size: 24px; line-height: 1.05; }
   .theme-toggle { margin-top: 12px; }
+  .week-focus-bar { align-items: flex-start; flex-direction: column; }
+  .week-focus-actions { justify-content: flex-start; }
+  .summary-table,
+  .consistency-table,
+  .food-review-table,
+  .workout-review-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 100%;
+  }
   .week-grid { grid-template-columns: repeat(2, 1fr); }
   .main-panel { padding-left: 9px; padding-right: 9px; }
   .analysis-stat-grid,
@@ -862,7 +893,7 @@ html[data-theme="light"] [style*="color:#ccc"] {
   .signal-row { grid-template-columns: 1fr; gap: 4px; }
 }
 @media print { body { background: #fff; color: #222; } }
-</style></head><body>
+</style></head><body data-week-scope="latest">
 
 <div class="header">
   <div class="header-copy">
@@ -941,6 +972,18 @@ html[data-theme="light"] [style*="color:#ccc"] {
 
 <div class="main-panel" id="daily">
 
+<div class="week-focus-bar" aria-label="Daily meal detail controls">
+  <div class="week-focus-copy">
+    <strong>Daily detail scope</strong>
+    <span id="week-scope-note">Showing Wk 19 first. Switch to recent or all weeks when you need full historical detail.</span>
+  </div>
+  <div class="week-focus-actions">
+    <button class="week-focus-btn active" type="button" data-week-scope-button="latest" onclick="setWeekScope('latest', this)">Latest week</button>
+    <button class="week-focus-btn" type="button" data-week-scope-button="recent" onclick="setWeekScope('recent', this)">Recent 4</button>
+    <button class="week-focus-btn" type="button" data-week-scope-button="all" onclick="setWeekScope('all', this)">All weeks</button>
+    <button class="week-focus-btn" type="button" id="density-toggle" onclick="toggleReportDensity(this)">Compact rows</button>
+  </div>
+</div>
 <h2>📊 WEIGHT & METRICS OVERVIEW</h2>
 <table class="summary-table">
 <tr><th>Week</th><th>Dates</th><th>Avg Wt</th><th>Δ</th><th>Avg Cal</th><th>Avg Na</th><th>Avg Steps</th><th>Unique Foods</th><th>Total Vol</th><th>Vol/Sess</th></tr>
@@ -960,20 +1003,20 @@ html[data-theme="light"] [style*="color:#ccc"] {
 <tr><td><b>Wk 19</b></td><td>05-04 – 05-10</td><td>150.68</td><td style="color:#ff5252;font-weight:bold">+2.18</td><td>2,335</td><td>1,406</td><td>5,126</td><td>40</td><td>91,820</td><td>30,607</td></tr>
 </table>
 <div class="week-nav">
-<a href="#wk6">Wk 6</a>
-<a href="#wk7">Wk 7</a>
-<a href="#wk8">Wk 8</a>
-<a href="#wk9">Wk 9</a>
-<a href="#wk10">Wk 10</a>
-<a href="#wk11">Wk 11</a>
-<a href="#wk12">Wk 12</a>
-<a href="#wk13">Wk 13</a>
-<a href="#wk14">Wk 14</a>
-<a href="#wk15">Wk 15</a>
-<a href="#wk16">Wk 16</a>
-<a href="#wk17">Wk 17</a>
-<a href="#wk18">Wk 18</a>
-<a href="#wk19">Wk 19</a>
+<a href="#wk6" onclick="setWeekScope('all')">Wk 6</a>
+<a href="#wk7" onclick="setWeekScope('all')">Wk 7</a>
+<a href="#wk8" onclick="setWeekScope('all')">Wk 8</a>
+<a href="#wk9" onclick="setWeekScope('all')">Wk 9</a>
+<a href="#wk10" onclick="setWeekScope('all')">Wk 10</a>
+<a href="#wk11" onclick="setWeekScope('all')">Wk 11</a>
+<a href="#wk12" onclick="setWeekScope('all')">Wk 12</a>
+<a href="#wk13" onclick="setWeekScope('all')">Wk 13</a>
+<a href="#wk14" onclick="setWeekScope('all')">Wk 14</a>
+<a href="#wk15" onclick="setWeekScope('all')">Wk 15</a>
+<a href="#wk16" onclick="setWeekScope('all')">Wk 16</a>
+<a href="#wk17" onclick="setWeekScope('all')">Wk 17</a>
+<a href="#wk18" onclick="setWeekScope('all')">Wk 18</a>
+<a href="#wk19" onclick="setWeekScope('all')">Wk 19</a>
 </div>
 <h2>🍽️ FOOD CONSISTENCY ANALYSIS</h2>
 <div class="insight-box">
@@ -1031,6 +1074,7 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 <h2>📋 DAILY MEALS — SIDE BY SIDE</h2>
 <div class="legend">Columns: <span style="color:#69f0ae;background:#0d1a0d">Cal</span> <span style="color:#82b1ff;background:#0d0d1a">P</span> <span style="color:#ffd740;background:#1a150d">F</span> <span style="color:#80deea;background:#0d151a">C</span> &nbsp;|&nbsp; <span style="color:#ff5252">Red</span> = 500+ cal item &nbsp;|&nbsp; <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#ea80fc;vertical-align:middle"></span> = 500+ mg sodium &nbsp;|&nbsp; Foods within 1hr grouped as one meal</div>
+<section class="week-detail" data-week="6">
 <div class="week-banner" id="wk6"><span class="wt">WEEK 6</span> — 02-02 – 02-08<div class="meta">Avg: 154.54 lbs (—) | Cal: 1,791 | Na: 1,921 | Steps: 13,465 | Vol: 151,960 (5s, 30,392/s) | 27 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -1278,6 +1322,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="7">
 <div class="week-banner" id="wk7"><span class="wt">WEEK 7</span> — 02-09 – 02-15<div class="meta">Avg: 153.54 lbs (-1.00) | Cal: 1,647 | Na: 1,693 | Steps: 14,881 | Vol: 194,425 (5s, 38,885/s) | 25 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -1553,6 +1599,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="8">
 <div class="week-banner" id="wk8"><span class="wt">WEEK 8</span> — 02-16 – 02-22<div class="meta">Avg: 153.69 lbs (+0.15) | Cal: 1,673 | Na: 2,282 | Steps: 15,025 | Vol: 204,685 (5s, 40,937/s) | 27 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -1828,6 +1876,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="9">
 <div class="week-banner" id="wk9"><span class="wt">WEEK 9</span> — 02-23 – 03-01<div class="meta">Avg: 154.36 lbs (+0.67) | Cal: 1,813 | Na: 2,221 | Steps: 12,864 | Vol: 161,398 (4s, 40,349/s) | 22 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -2094,6 +2144,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="10">
 <div class="week-banner" id="wk10"><span class="wt">WEEK 10</span> — 03-02 – 03-08<div class="meta">Avg: 154.83 lbs (+0.47) | Cal: 1,565 | Na: 3,366 | Steps: 13,007 | Vol: 221,602 (5s, 44,320/s) | 44 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
@@ -2413,6 +2465,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 <div class="day-total"><div class="dt-label">17 items · 4 meals</div><div class="dt-cal">1643</div><div class="dt-p">168</div><div class="dt-f">47</div><div class="dt-c">146</div></div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="11">
 <div class="week-banner" id="wk11"><span class="wt">WEEK 11</span> — 03-09 – 03-15<div class="meta">Avg: 153.76 lbs (-1.07) | Cal: 1,622 | Na: 3,224 | Steps: 13,806 | Vol: 223,828 (5s, 44,766/s) | 37 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
@@ -2770,6 +2824,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="12">
 <div class="week-banner" id="wk12"><span class="wt">WEEK 12</span> — 03-16 – 03-22<div class="meta">Avg: 153.63 lbs (-0.13) | Cal: 1,721 | Na: 3,331 | Steps: 12,317 | Vol: 291,295 (5s, 58,259/s) | 43 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
@@ -3111,6 +3167,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 <div class="day-total"><div class="dt-label">11 items · 2 meals</div><div class="dt-cal">1460</div><div class="dt-p">152</div><div class="dt-f">54</div><div class="dt-c">138</div></div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="13">
 <div class="week-banner" id="wk13"><span class="wt">WEEK 13</span> — 03-23 – 03-29<div class="meta">Avg: 153.83 lbs (+0.20) | Cal: 2,029 | Na: 1,821 | Steps: 10,868 | Vol: 248,105 (6s, 41,351/s) | 43 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
@@ -3421,6 +3479,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="14">
 <div class="week-banner" id="wk14"><span class="wt">WEEK 14</span> — 03-30 – 04-05<div class="meta">Avg: 152.37 lbs (-1.45) | Cal: 1,399 | Na: 2,038 | Steps: 11,789 | Vol: 220,487 (5s, 44,097/s) | 31 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
@@ -3699,6 +3759,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail" data-week="15">
 <div class="week-banner" id="wk15"><span class="wt">WEEK 15</span> — 04-06 – 04-12<div class="meta">Avg: 150.78 lbs (-1.59) | Cal: 1,687 | Na: 2,247 | Steps: 10,099 | Vol: 200,279 (5s, 40,056/s) | 33 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -4009,6 +4071,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail recent-week" data-week="16">
 <div class="week-banner" id="wk16"><span class="wt">WEEK 16</span> — 04-13 – 04-19<div class="meta">Avg: 153.01 lbs (+2.23) | Cal: 2,228 | Na: 1,437 | Steps: 12,046 | Vol: 171,944 (4s, 42,986/s) | 23 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -4247,6 +4311,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail recent-week" data-week="17">
 <div class="week-banner" id="wk17"><span class="wt">WEEK 17</span> — 04-20 – 04-26<div class="meta">Avg: 149.74 lbs (-3.27) | Cal: 1,844 | Na: 1,471 | Steps: 11,241 | Vol: 143,800 (4s, 35,950/s) | 41 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -4536,6 +4602,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 <div class="day-total"><div class="dt-label">17 items · 4 meals</div><div class="dt-cal">3467</div><div class="dt-p">325</div><div class="dt-f">156</div><div class="dt-c">215</div></div>
 </div>
 </div>
+</section>
+<section class="week-detail recent-week" data-week="18">
 <div class="week-banner" id="wk18"><span class="wt">WEEK 18</span> — 04-27 – 05-03<div class="meta">Avg: 148.50 lbs (-1.24) | Cal: 1,579 | Na: 937 | Steps: 10,848 | Vol: 50,685 (3s, 16,895/s) | 18 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col ">
@@ -4680,6 +4748,8 @@ html[data-theme="light"] [style*="color:#ccc"] {
 </div>
 </div>
 </div>
+</section>
+<section class="week-detail latest-week recent-week" data-week="19">
 <div class="week-banner" id="wk19"><span class="wt">WEEK 19</span> — 05-04 – 05-10<div class="meta">Avg: 150.68 lbs (+2.18) | Cal: 2,335 | Na: 1,406 | Steps: 5,126 | Vol: 91,820 (3s, 30,607/s) | 40 unique foods</div></div>
 <div class="week-grid">
 <div class="day-col train-day">
@@ -4886,6 +4956,7 @@ html[data-theme="light"] [style*="color:#ccc"] {
 <div class="day-total"><div class="dt-label">0 items · 0 meals</div><div class="dt-cal">0</div><div class="dt-p">0</div><div class="dt-f">0</div><div class="dt-c">0</div></div>
 </div>
 </div>
+</section>
 <h2>🔑 KEY FINDINGS</h2>
 <div class="insight-box">
 <h4>Weight Trend</h4>
@@ -17278,6 +17349,30 @@ function setReportTheme(theme) {
 function toggleReportTheme() {
   setReportTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 }
+function setWeekScope(scope, trigger) {
+  const allowed = ['latest', 'recent', 'all'];
+  const next = allowed.includes(scope) ? scope : 'latest';
+  document.body.dataset.weekScope = next;
+  document.querySelectorAll('[data-week-scope-button]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.weekScopeButton === next);
+  });
+  const note = document.getElementById('week-scope-note');
+  if (note) {
+    note.textContent = next === 'latest'
+      ? 'Showing Wk 19 first. Switch to recent or all weeks when you need full historical detail.'
+      : next === 'recent'
+        ? 'Showing Wk 16-Wk 19 so the latest pattern is easy to compare without loading every historical week.'
+        : 'Showing every week. Use Compact rows if you want the dense coach-report table with less vertical scrolling.';
+  }
+  if (trigger) trigger.blur();
+}
+function toggleReportDensity(trigger) {
+  const compact = document.body.classList.toggle('report-density-compact');
+  if (trigger) {
+    trigger.classList.toggle('active', compact);
+    trigger.textContent = compact ? 'Comfort rows' : 'Compact rows';
+  }
+}
 function showMainTab(id, trigger) {
   document.querySelectorAll('.main-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
@@ -17313,6 +17408,9 @@ function showMPView(vid, view) {
   document.getElementById(vid + '_' + view).classList.add('active');
   event.target.classList.add('active');
 }
-document.addEventListener('DOMContentLoaded', updateThemeToggle);
+document.addEventListener('DOMContentLoaded', () => {
+  updateThemeToggle();
+  setWeekScope(document.body.dataset.weekScope || 'latest');
+});
 </script>
 </body></html>
