@@ -247,8 +247,10 @@ html[data-theme="dark"] .danger {
 
 @media (max-width: 760px) {
   main {
-    width: calc(100vw - 12px) !important;
-    max-width: 100% !important;
+    width: auto !important;
+    max-width: none !important;
+    margin-left: 6px !important;
+    margin-right: 6px !important;
     padding-top: 8px !important;
     padding-bottom: 42px !important;
     overflow-x: hidden !important;
