@@ -83,6 +83,7 @@
       <a href="148-burn.html">148 Target</a>
       <a href="full-runway.html">Full Plan</a>
       <a href="cardio-calibration.html">Cardio Data</a>
+      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
     </nav>
 
@@ -91,22 +92,23 @@
       <h1>Open the Google Sheet. Skip Excel.</h1>
       <p>The website is for reading and decisions. Google Sheets is the editable version for clean rows, filters, sorting, and quick manual edits without Excel. The local workbook is only a backup/export.</p>
       <div class="actions">
-        <a class="action primary" id="open-native-sheet" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit" target="_blank" rel="noopener">Open Native Google Sheet</a>
-        <button class="action" id="copy-sheet-link" type="button">Copy Google Sheet Link</button>
+        <a class="action primary" id="open-native-sheet" href="open-sheet.html">Open Native Google Sheet</a>
+        <button class="action" id="copy-sheet-link" type="button">Copy Quick Open Link</button>
+        <a class="action" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit" target="_blank" rel="noopener">Direct Google URL</a>
         <a class="action" href="https://tyronsamaroo.dev/coach-report/report.html">Open Coach Report</a>
         <a class="action" href="prep-runway-google-sheets-2026-05-22.xlsx" download>Download Workbook Backup</a>
         <a class="action" href="data-ledger.html">Open Site Data Ledger</a>
       </div>
-      <div class="open-note"><strong>Best workflow:</strong> click <code>Open Native Google Sheet</code>. If macOS asks what app should open an <code>.xlsx</code>, ignore that path unless you intentionally want the backup file.</div>
+      <div class="open-note"><strong>Best workflow:</strong> click <code>Open Native Google Sheet</code>. It uses the site launcher at <code>/prep-runway/open-sheet.html</code>, then sends you to the browser-based Google Sheet. If macOS asks what app should open an <code>.xlsx</code>, you clicked the backup path.</div>
       <div class="open-path">
         <div class="open-card primary"><span>Use this first</span><strong>Native Google Sheet</strong><p>Already converted in Drive. Opens in the browser with filters, sortable columns, and manual edit support.</p></div>
         <div class="open-card"><span>No install needed</span><strong>Skip Excel</strong><p>Excel is optional. You only need it if you want offline local editing; Google Sheets covers this workflow.</p></div>
         <div class="open-card"><span>Backup role</span><strong>XLSX is portable only</strong><p>The downloaded workbook is a backup/export, not the main place to work day to day.</p></div>
       </div>
       <div class="tab-jump-grid" aria-label="Open exact Google Sheet tabs">
-        <a class="tab-jump" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit#gid=1474334615" target="_blank" rel="noopener"><span>Primary row view</span><strong>Daily Ledger tab</strong><em>Weight, sleep, macros, cardio, lift, steps.</em></a>
-        <a class="tab-jump" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit#gid=1491109884" target="_blank" rel="noopener"><span>Food timing</span><strong>Meal Timing tab</strong><em>Grouped meals and protein windows.</em></a>
-        <a class="tab-jump" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit#gid=2005018094" target="_blank" rel="noopener"><span>Workout filters</span><strong>Training tab</strong><em>Cardio/lift rows, HR, calories, duration.</em></a>
+        <a class="tab-jump" href="open-sheet.html?tab=daily"><span>Primary row view</span><strong>Daily Ledger tab</strong><em>Weight, sleep, macros, cardio, lift, steps.</em></a>
+        <a class="tab-jump" href="open-sheet.html?tab=meals"><span>Food timing</span><strong>Meal Timing tab</strong><em>Grouped meals and protein windows.</em></a>
+        <a class="tab-jump" href="open-sheet.html?tab=training"><span>Workout filters</span><strong>Training tab</strong><em>Cardio/lift rows, HR, calories, duration.</em></a>
       </div>
       <div class="source-strip" id="source-strip"></div>
     </section>
@@ -172,13 +174,14 @@
   <script src="analysis-data.js?v=20260522-sheets-source"></script>
   <script>
     (() => {
-      const sheetUrl = "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit";
+      const sheetUrl = `${location.origin}/prep-runway/open-sheet.html`;
+      const directSheetUrl = "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit";
       const copyButton = document.getElementById("copy-sheet-link");
       copyButton?.addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(sheetUrl);
-          copyButton.textContent = "Copied Google Sheet Link";
-          setTimeout(() => { copyButton.textContent = "Copy Google Sheet Link"; }, 1800);
+          copyButton.textContent = "Copied Quick Open Link";
+          setTimeout(() => { copyButton.textContent = "Copy Quick Open Link"; }, 1800);
         } catch {
           window.prompt("Copy this Google Sheet link:", sheetUrl);
         }
@@ -188,7 +191,7 @@
       const sourceStrip = document.getElementById("source-strip");
       if (sourceStrip) {
         sourceStrip.innerHTML = `
-          <div class="source-card"><span>Editable truth</span><strong>Google Sheet</strong><p>${escapeHtml(sheetUrl)}</p></div>
+          <div class="source-card"><span>Editable truth</span><strong>Google Sheet</strong><p>${escapeHtml(directSheetUrl)}</p></div>
           <div class="source-card"><span>Latest MacroFactor export</span><strong>${escapeHtml((data.sources?.currentMacroFactorExport || "").split("/").pop() || "MacroFactor XLSX")}</strong><p>Use as import evidence, not the daily editing surface.</p></div>
           <div class="source-card"><span>Site data bundle</span><strong>analysis-data.js</strong><p>Generated ${escapeHtml(data.generatedAt || "from current prep manual data")} for the clean web views.</p></div>
         `;

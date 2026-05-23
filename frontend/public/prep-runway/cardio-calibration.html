@@ -29,7 +29,7 @@
     .section-head h2{margin:0;font-size:22px;letter-spacing:-.035em}
     .section-head p{margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
     .small{color:var(--muted);font-size:12px;line-height:1.4}
-    .answer-grid,.kpi-grid,.compare-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+    .answer-grid,.kpi-grid,.compare-grid,.diagnostic-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
     .answer-card{grid-column:span 3;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:14px}
     .answer-card.warn{border-color:color-mix(in srgb,var(--warn),transparent 62%);background:color-mix(in srgb,var(--warn),transparent 91%)}
     .answer-card.bad{border-color:color-mix(in srgb,var(--bad),transparent 62%);background:color-mix(in srgb,var(--bad),transparent 92%)}
@@ -42,6 +42,14 @@
     .kpi strong,.compare strong{display:block;margin-top:5px;color:var(--ink);font-size:22px;line-height:1;font-variant-numeric:tabular-nums}
     .kpi p,.compare p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.35}
     .compare{grid-column:span 4}
+    .diagnostic-card{grid-column:span 3;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:14px;min-height:150px}
+    .diagnostic-card.ok{border-color:color-mix(in srgb,var(--ok),transparent 68%)}
+    .diagnostic-card.warn{border-color:color-mix(in srgb,var(--warn),transparent 62%)}
+    .diagnostic-card.bad{border-color:color-mix(in srgb,var(--bad),transparent 62%)}
+    .diagnostic-card span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .diagnostic-card strong{display:block;margin-top:7px;color:var(--ink);font-size:24px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+    .diagnostic-card p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.38}
+    .diagnostic-card em{display:block;margin-top:10px;color:var(--ink);font-style:normal;font-size:12px;font-weight:950}
     .rule-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
     .rule{border-left:4px solid var(--cyan);background:var(--surface);border-radius:14px;padding:11px 12px;color:var(--muted);font-size:13px;line-height:1.4}
     .rule strong{color:var(--ink)}
@@ -74,8 +82,8 @@
     .axis-label{position:absolute;color:var(--muted);font-size:11px;font-weight:850}
     .axis-label.x{left:50%;bottom:8px;transform:translateX(-50%)}
     .axis-label.y{left:10px;top:50%;transform:rotate(-90deg) translateX(-50%);transform-origin:left center}
-    @media(max-width:980px){.answer-card,.kpi,.compare{grid-column:span 6}.rule-strip{grid-template-columns:1fr}.section-head{display:block}}
-    @media(max-width:720px){main.cardio-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.answer-card,.kpi,.compare{grid-column:span 12}.table-wrap{max-height:none}table{min-width:1040px}.hero{padding:18px}.section{padding:14px}}
+    @media(max-width:980px){.answer-card,.kpi,.compare,.diagnostic-card{grid-column:span 6}.rule-strip{grid-template-columns:1fr}.section-head{display:block}}
+    @media(max-width:720px){main.cardio-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.answer-card,.kpi,.compare,.diagnostic-card{grid-column:span 12}.table-wrap{max-height:none}table{min-width:1040px}.hero{padding:18px}.section{padding:14px}}
   </style>
 </head>
 <body>
@@ -91,6 +99,7 @@
       <a href="148-burn.html">148 Target</a>
       <a href="full-runway.html">Full Plan</a>
       <a class="primary" href="cardio-calibration.html">Cardio Data</a>
+      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
     </nav>
 
@@ -124,6 +133,16 @@
         <div class="rule"><strong>Lower burn + same HR:</strong> likely lower machine output, shorter duration, or bodyweight/device noise.</div>
         <div class="rule"><strong>Lower burn + lower HR:</strong> possible adaptation or intentionally easier effort.</div>
       </div>
+    </section>
+
+    <section class="section" aria-labelledby="diagnostic-title">
+      <div class="section-head">
+        <div>
+          <h2 id="diagnostic-title">Stair Diagnostic</h2>
+          <p>Answers whether burn is dropping, effort cost is rising, or the session changed. This merges current cleanup sessions with the YTD import.</p>
+        </div>
+      </div>
+      <div class="diagnostic-grid" id="diagnostic-grid"></div>
     </section>
 
     <section class="section" aria-labelledby="explorer-title">
@@ -183,12 +202,26 @@
   <script src="analysis-data.js?v=20260522-cardio-lean"></script>
   <script>
     (() => {
-      const data = window.PREP_ANALYSIS_DATA?.cardioHistory || {};
-      const rows = data.rows || [];
+      const allPrepData = window.PREP_ANALYSIS_DATA || {};
+      const data = allPrepData.cardioHistory || {};
+      const historyRows = data.rows || [];
+      const currentRows = (allPrepData.cardioSessions || []).map((row) => ({
+        ...row,
+        source: row.source || "current cleanup ledger",
+        hrReliable: row.hrReliable ?? (Number(row.avgHr) >= 80),
+        currentCleanup: true,
+      }));
+      const rowKey = (row) => `${row.date || ""}|${String(row.session || "").toLowerCase()}|${String(row.time || "").replace(/\s+/g,"").toLowerCase()}`;
+      const currentKeys = new Set(currentRows.map(rowKey));
+      const rows = [
+        ...currentRows,
+        ...historyRows.filter((row) => !currentKeys.has(rowKey(row))),
+      ];
       const summary = data.summary || {};
       const answerGrid = document.getElementById("answer-grid");
       const benchmarkGrid = document.getElementById("benchmark-grid");
       const compareGrid = document.getElementById("compare-grid");
+      const diagnosticGrid = document.getElementById("diagnostic-grid");
       const visibleSummary = document.getElementById("visible-summary");
       const sessionBody = document.getElementById("session-body");
       const tableNote = document.getElementById("table-note");
@@ -245,6 +278,8 @@
           .filter(Number.isFinite);
         return values.length ? values.reduce((sum,value) => sum + value, 0) / values.length : null;
       };
+      const sum = (list, key) => list.reduce((total,row) => total + (Number(row[key]) || 0), 0);
+      const reliable = (row) => row.hrReliable === true && hrValue(row) !== null;
       const renderAnswers = () => {
         answerGrid.innerHTML = (data.answers || []).map(card => `
           <article class="answer-card ${escapeHtml(card.tone || "")}">
@@ -265,6 +300,51 @@
           <div class="compare"><span>HR Caveat</span><strong>${fmt(summary.questionableCardioHrHardSessions)}</strong><p>Imported cardio rows with suspect HR; trust corrected Apr-May/current rows more.</p></div>
         `;
         sourceLine.textContent = `${summary.start || "—"} → ${summary.end || "—"} · ${summary.aprMaySource || "source pending"}`;
+      };
+      const renderDiagnostics = () => {
+        const currentStairs = rows.filter(row => isStair(row) && row.date >= "2026-05-17" && Number.isFinite(Number(row.kpm)));
+        const baselineStairs = rows.filter(row => isStair(row) && row.date < "2026-05-17" && Number.isFinite(Number(row.kpm)));
+        const reliableCurrent = currentStairs.filter(reliable);
+        const reliableBaseline = baselineStairs.filter(reliable);
+        const currentKpm = average(currentStairs, "kpm");
+        const baselineKpm = average(baselineStairs, "kpm");
+        const currentHr = average(reliableCurrent, "avgHr");
+        const baselineHr = average(reliableBaseline, "avgHr");
+        const currentMinutes = sum(currentStairs, "minutes");
+        const currentKcal = sum(currentStairs, "calories");
+        const kpmDelta = currentKpm !== null && baselineKpm !== null ? currentKpm - baselineKpm : null;
+        const hrDelta = currentHr !== null && baselineHr !== null ? currentHr - baselineHr : null;
+        const burnTone = kpmDelta === null ? "warn" : kpmDelta >= -0.3 ? "ok" : "warn";
+        const hrTone = hrDelta === null ? "warn" : hrDelta > 6 ? "warn" : "ok";
+        const decision = kpmDelta !== null && kpmDelta >= -0.3
+          ? "No cardio-adaptation signal yet; do not add punishment volume from one flat weigh-in."
+          : "Possible output drop; compare machine level, duration, sleep, and HR before changing the plan.";
+        diagnosticGrid.innerHTML = `
+          <article class="diagnostic-card ${burnTone}">
+            <span>Current vs YTD</span>
+            <strong>${fmt(currentKpm,2)} / ${fmt(baselineKpm,2)}</strong>
+            <p>Cleanup StairMaster kcal/min versus prior StairMaster baseline.</p>
+            <em>${kpmDelta === null ? "Need more rows" : `${kpmDelta >= 0 ? "+" : ""}${fmt(kpmDelta,2)} kcal/min delta`}</em>
+          </article>
+          <article class="diagnostic-card ${hrTone}">
+            <span>HR cost</span>
+            <strong>${fmt(currentHr)} / ${fmt(baselineHr)}</strong>
+            <p>Reliable avg HR current cleanup versus prior baseline.</p>
+            <em>${hrDelta === null ? "HR comparison limited" : `${hrDelta >= 0 ? "+" : ""}${fmt(hrDelta)} bpm delta`}</em>
+          </article>
+          <article class="diagnostic-card ok">
+            <span>Current dose</span>
+            <strong>${fmt(currentMinutes)} min</strong>
+            <p>${fmt(currentStairs.length)} StairMaster sessions · ${fmt(currentKcal)} kcal in the cleanup window.</p>
+            <em>Keep comparing same modality, not walks vs stairs.</em>
+          </article>
+          <article class="diagnostic-card ${burnTone}">
+            <span>Decision</span>
+            <strong>${burnTone === "ok" ? "Hold" : "Audit"}</strong>
+            <p>${escapeHtml(decision)}</p>
+            <em>Best test: 45–50 min AM Stair, same machine/level, track HR and kcal/min.</em>
+          </article>
+        `;
       };
       const renderTable = () => {
         const selectedRaw = rows.filter(rowMatches);
@@ -379,6 +459,7 @@
       });
       renderAnswers();
       renderBenchmarks();
+      renderDiagnostics();
       renderSortButtons();
       renderTable();
     })();

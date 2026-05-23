@@ -247,3 +247,72 @@ html[data-theme="dark"] .danger {
     padding: 18px !important;
   }
 }
+
+/* Daily Master safety rail: prevent dense ledger cells from being squeezed into each other. */
+.ledger-wrap {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
+  padding-bottom: 8px !important;
+}
+
+.master-ledger {
+  width: 1500px !important;
+  min-width: 1500px !important;
+  max-width: none !important;
+  table-layout: fixed !important;
+}
+
+.master-ledger col.date { width: 74px !important; }
+.master-ledger col.phase { width: 118px !important; }
+.master-ledger col.weight { width: 92px !important; }
+.master-ledger col.sleep { width: 145px !important; }
+.master-ledger col.macros { width: 230px !important; }
+.master-ledger col.cardio { width: 260px !important; }
+.master-ledger col.lift { width: 185px !important; }
+.master-ledger col.burn { width: 132px !important; }
+.master-ledger col.decision { width: 264px !important; }
+
+.master-ledger .ledger-entry,
+.master-ledger .macro-card,
+.master-ledger .event-row {
+  min-width: 0 !important;
+}
+
+.master-ledger .ledger-main,
+.master-ledger .ledger-sub,
+.master-ledger .event-main,
+.master-ledger .event-meta,
+.master-ledger .decision-text,
+.master-ledger .macro-text {
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+
+.master-ledger .macro-text {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 4px 6px !important;
+  white-space: normal !important;
+}
+
+.master-ledger .macro-rest {
+  white-space: nowrap !important;
+}
+
+@media (max-width: 760px) {
+  .ledger-wrap {
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .master-ledger {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .master-ledger .macro-rest {
+    white-space: normal !important;
+  }
+}

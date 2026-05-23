@@ -12,19 +12,28 @@
 
   window.addEventListener("DOMContentLoaded", function () {
     const nav = document.querySelector(".doc-nav");
-    if (!nav || nav.querySelector(".theme-toggle")) return;
+    if (!nav) return;
 
-    const button = document.createElement("button");
-    button.className = "theme-toggle";
-    button.type = "button";
-    button.setAttribute("aria-label", "Toggle dark theme");
-    label(button);
-    button.addEventListener("click", function () {
-      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-      document.documentElement.dataset.theme = next;
-      localStorage.setItem(key, next);
+    let buttons = Array.from(document.querySelectorAll(".theme-toggle"));
+    if (!buttons.length) {
+      const button = document.createElement("button");
+      button.className = "theme-toggle";
+      button.type = "button";
+      button.setAttribute("aria-label", "Toggle dark theme");
+      nav.appendChild(button);
+      buttons = [button];
+    }
+
+    buttons.forEach(function (button) {
+      if (button.dataset.themeBound === "true") return;
+      button.dataset.themeBound = "true";
       label(button);
+      button.addEventListener("click", function () {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem(key, next);
+        buttons.forEach(label);
+      });
     });
-    nav.appendChild(button);
   });
 }());

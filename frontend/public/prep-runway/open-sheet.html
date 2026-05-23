@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opening Prep Runway Google Sheet</title>
+  <script>
+    (() => {
+      const themeKey = "prep_runway_theme";
+      const requested = new URLSearchParams(location.search).get("theme");
+      const stored = localStorage.getItem(themeKey);
+      document.documentElement.dataset.theme = requested === "dark" || stored === "dark" ? "dark" : "light";
+    })();
+  </script>
+  <link rel="stylesheet" href="prep-runway-ui.css">
+  <script src="prep-runway-theme.js" defer></script>
+  <style>
+    :root{--surface:rgba(255,255,255,.78);--soft:rgba(15,23,42,.045)}
+    html[data-theme="dark"]{--surface:rgba(255,255,255,.045);--soft:rgba(255,255,255,.055)}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main.sheet-open{min-height:100svh;display:grid;place-items:center;width:min(820px,calc(100vw - 28px));margin:0 auto;padding:28px 0}
+    .panel{border:1px solid var(--line);border-radius:26px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(239,245,250,.9));box-shadow:0 24px 70px rgba(16,24,40,.16);padding:26px;width:100%}
+    html[data-theme="dark"] .panel{background:linear-gradient(135deg,rgba(16,23,34,.96),rgba(23,32,51,.88));box-shadow:0 28px 80px rgba(0,0,0,.32)}
+    h1{margin:8px 0 10px;font-size:clamp(32px,6vw,58px);line-height:.95;letter-spacing:-.065em;color:var(--ink)}
+    p{margin:0;color:var(--muted);font-size:15px;line-height:1.45;max-width:680px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .action{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;padding:10px 13px;font-size:13px;font-weight:950}
+    .action.primary{border-color:color-mix(in srgb,var(--cyan),transparent 40%);background:color-mix(in srgb,var(--cyan),transparent 85%);color:var(--cyan)}
+    .tab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+    .tab{border:1px solid var(--line);border-radius:17px;background:var(--surface);padding:13px;color:inherit;text-decoration:none}
+    .tab span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
+    .tab strong{display:block;margin-top:6px;color:var(--ink);font-size:16px;letter-spacing:-.025em}
+    .note{margin-top:14px;border-left:4px solid var(--cyan);border-radius:14px;background:var(--surface);padding:12px 14px;color:var(--muted);font-size:13px;line-height:1.4}
+    @media(max-width:720px){main.sheet-open{width:calc(100vw - 16px)}.panel{padding:20px}.actions .action,.tab-grid{width:100%}.tab-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="sheet-open">
+    <section class="panel">
+      <div class="eyebrow">Prep Runway · quick sheet opener</div>
+      <h1>Opening Google Sheets.</h1>
+      <p>This route always points to the native Google Sheet, not the downloaded XLSX backup. Bookmark this page if you want a simple launcher from the site.</p>
+      <div class="actions">
+        <a class="action primary" id="open-target" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit">Open Google Sheet Now</a>
+        <a class="action" href="sheets.html">Sheet Guide</a>
+        <a class="action" href="home.html">Back to Prep Runway</a>
+      </div>
+      <div class="tab-grid">
+        <a class="tab" data-tab-link="daily" href="#"><span>Primary rows</span><strong>Daily Ledger</strong></a>
+        <a class="tab" data-tab-link="meals" href="#"><span>Meal review</span><strong>Meal Timing</strong></a>
+        <a class="tab" data-tab-link="training" href="#"><span>Workout filters</span><strong>Training</strong></a>
+      </div>
+      <div class="note" id="status-note">Auto-opening the selected Google Sheet tab. If nothing happens, use the button above.</div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const base = "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit";
+      const tabs = {
+        daily: "#gid=1474334615",
+        meals: "#gid=1491109884",
+        training: "#gid=2005018094",
+      };
+      const params = new URLSearchParams(location.search);
+      const tab = params.get("tab") || "";
+      const target = `${base}${tabs[tab] || ""}`;
+      const openTarget = document.getElementById("open-target");
+      const statusNote = document.getElementById("status-note");
+      if (openTarget) openTarget.href = target;
+      document.querySelectorAll("[data-tab-link]").forEach((link) => {
+        const key = link.dataset.tabLink;
+        link.href = `${base}${tabs[key] || ""}`;
+      });
+      if (statusNote) statusNote.textContent = tab ? `Auto-opening the ${tab} tab in Google Sheets.` : "Auto-opening the main Google Sheet.";
+      window.setTimeout(() => {
+        location.replace(target);
+      }, 700);
+    })();
+  </script>
+</body>
+</html>

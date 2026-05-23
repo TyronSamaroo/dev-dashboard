@@ -273,6 +273,7 @@
       <a href="full-runway.html">Full Plan</a>
       <a href="cardio-calibration.html">Cardio Data</a>
       <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
     </nav>
 
     <section class="analysis-hero">
@@ -355,7 +356,7 @@
       <div class="scorecard-grid" id="question-scorecard"></div>
     </section>
 
-    <section class="analysis-section" data-analysis-panel="overview all">
+    <section class="analysis-section" data-analysis-panel="all">
       <div class="section-head">
         <div>
           <h2>Source & Freshness Map</h2>
@@ -366,7 +367,7 @@
       <div class="source-map-footer" id="source-map-footer"></div>
     </section>
 
-    <section class="analysis-section" data-analysis-panel="overview all">
+    <section class="analysis-section" data-analysis-panel="all">
       <div class="section-head">
         <div>
           <h2>Daily Signal Strip</h2>
@@ -712,7 +713,7 @@
       const analysisViewCopy = {
         overview: {
           title: "Overview",
-          text: "Show the decision board, daily signal, and what to log next.",
+          text: "Show only the operating read, decision board, scorecard, and what to log next. Use All for the full evidence trail.",
         },
         meals: {
           title: "Meal timing",
@@ -757,7 +758,12 @@
       }
 
       analysisButtons.forEach(button => button.addEventListener("click", () => {
-        setAnalysisView(button.dataset.analysisView);
+        const nextView = button.dataset.analysisView;
+        setAnalysisView(nextView);
+        const url = new URL(location.href);
+        if (nextView === "overview") url.searchParams.delete("view");
+        else url.searchParams.set("view", nextView);
+        history.replaceState(null, "", url);
       }));
       setAnalysisView(new URLSearchParams(location.search).get("view") || "overview");
 
