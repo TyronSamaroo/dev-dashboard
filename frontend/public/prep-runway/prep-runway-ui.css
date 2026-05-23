@@ -289,6 +289,7 @@ html[data-theme="dark"] .danger {
 
   .hero {
     padding: 14px !important;
+    overflow: hidden !important;
   }
 
   .hero,
@@ -298,6 +299,16 @@ html[data-theme="dark"] .danger {
   .inventory-card,
   .reference-drawer {
     border-radius: 16px !important;
+    max-width: 100% !important;
+  }
+
+  h1,
+  .lead,
+  .current-read-card strong,
+  .current-read-card p {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
   }
 }
 
