@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-24T13:23:05",
+  "generatedAt": "2026-05-24T14:07:57",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -16,8 +16,8 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Daily ledger",
       "title": "Weight, macros, sleep, activity",
       "status": "current",
-      "value": "7 rows",
-      "text": "Latest weight is 157 on Sat 5/23; latest complete macros are Sat 5/23.",
+      "value": "8 rows",
+      "text": "Latest weight is 156.3 on Sun 5/24; latest complete macros are Sat 5/23.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv"
     },
     {
@@ -56,7 +56,7 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Feedback loop",
       "title": "GI, hunger, energy, soreness",
       "status": "watch",
-      "value": "1 missing",
+      "value": "3 missing",
       "text": "This is the key context layer for interpreting flat scale days during aggressive output.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-feedback-loop-may17-jun1-2026.csv"
     }
@@ -64,14 +64,16 @@ window.PREP_ANALYSIS_DATA = {
   "dataHealth": {
     "summary": "Usable for decisions; today still needs check-in fields.",
     "missing": [
+      "macros",
+      "cardio/lift",
       "hunger/energy"
     ],
     "rows": [
       {
         "label": "Scale trend",
-        "value": "169 → 157",
+        "value": "169 → 156.3",
         "status": "current",
-        "read": "-12.0 lb from Sun 5/17 to Sat 5/23."
+        "read": "-12.7 lb from Sun 5/17 to Sun 5/24."
       },
       {
         "label": "Macros",
@@ -87,23 +89,23 @@ window.PREP_ANALYSIS_DATA = {
       },
       {
         "label": "Feedback",
-        "value": "1 missing",
+        "value": "3 missing",
         "status": "watch",
-        "read": "hunger/energy"
+        "read": "macros, cardio/lift, hunger/energy"
       }
     ]
   },
   "todayStatus": {
-    "date": "2026-05-23",
-    "label": "Sat 5/23",
+    "date": "2026-05-24",
+    "label": "Sun 5/24",
     "headline": "Marker-led aggressive: keep the work, fix the unstable inputs.",
     "subhead": "The shared read is the same across Daily Master and Analysis: scale/cardio are working, while food form, meal timing, and missing current-day feedback are the weak links.",
     "cards": [
       {
         "label": "Scale",
         "tone": "ok",
-        "value": "157 lb",
-        "text": "-12.0 lb since Sun 5/17; -1.4 lb vs prior weigh-in."
+        "value": "156.3 lb",
+        "text": "-12.7 lb since Sun 5/17; -0.7 lb vs prior weigh-in."
       },
       {
         "label": "Food form",
@@ -126,8 +128,8 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Missing",
         "tone": "warn",
-        "value": "1 fields",
-        "text": "hunger/energy"
+        "value": "3 fields",
+        "text": "macros, cardio/lift, hunger/energy"
       }
     ],
     "rules": [
@@ -183,26 +185,28 @@ window.PREP_ANALYSIS_DATA = {
       {
         "question": "Can I trust today?",
         "tone": "warn",
-        "value": "1 missing",
-        "metric": "hunger/energy",
+        "value": "3 missing",
+        "metric": "macros, cardio/lift, hunger/energy",
         "read": "The site can answer trends, but current-day decisions need food, training/cardio, GI, and energy filled.",
         "next": "Log the missing fields once instead of spreading them across chat fragments."
       }
     ]
   },
   "checkInPacket": {
-    "title": "Prep Runway update packet — Sat 5/23",
+    "title": "Prep Runway update packet — Sun 5/24",
     "missing": [
+      "macros",
+      "cardio/lift",
       "hunger/energy"
     ],
-    "text": "Prep Runway update packet — Sat 5/23\nAM weight: 157 lb\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nHunger / energy: \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
+    "text": "Prep Runway update packet — Sun 5/24\nAM weight: 156.3 lb\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nHunger / energy: \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
     "read": "Paste this once with the missing fields filled. It keeps Analysis, Daily Master, and the Data Ledger aligned."
   },
   "topMetrics": [
     {
       "label": "Scale move",
-      "value": "169 → 157",
-      "note": "-12.0 lb from Sun 5/17 to Sat 5/23 morning"
+      "value": "169 → 156.3",
+      "note": "-12.7 lb from Sun 5/17 to Sun 5/24 morning"
     },
     {
       "label": "Intake avg",
@@ -232,8 +236,8 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Scale",
         "tone": "ok",
-        "value": "157 lb",
-        "text": "-12.0 lb since Sun 5/17; -1.4 lb vs prior weigh-in."
+        "value": "156.3 lb",
+        "text": "-12.7 lb since Sun 5/17; -0.7 lb vs prior weigh-in."
       },
       {
         "label": "Last complete day",
@@ -245,13 +249,13 @@ window.PREP_ANALYSIS_DATA = {
         "label": "Off signal",
         "tone": "bad",
         "value": "GI / powder",
-        "text": "Stay aggressive but controlled. Next lever is measured food quality/pre-lift carbs if performance dips, not extra cardio volume."
+        "text": "Need sleep/recovery, macros, cardio/lift, steps, and subjective feedback before changing levers."
       },
       {
         "label": "Missing now",
         "tone": "warn",
-        "value": "1 fields",
-        "text": "hunger/energy"
+        "value": "3 fields",
+        "text": "macros, cardio/lift, hunger/energy"
       }
     ],
     "rules": [
@@ -391,6 +395,18 @@ window.PREP_ANALYSIS_DATA = {
       "lift": "Arms/shoulders 120:00",
       "adjustedActive": 1070.0,
       "read": "Strong drop: 158.4 to 157.0 after Friday high output; Saturday did not look like a stall or rebound. Protein hit, calories stayed very low, and output was lighter than Friday."
+    },
+    {
+      "date": "2026-05-24",
+      "label": "Sun 5/24",
+      "phase": "Current check-in",
+      "weight": 156.3,
+      "delta": -0.7,
+      "calories": null,
+      "protein": null,
+      "lift": "Pending",
+      "adjustedActive": null,
+      "read": "Down 0.7 from Sat and 12.7 from 5/17; this is not a stall."
     }
   ],
   "reportLedger": [
@@ -722,6 +738,47 @@ window.PREP_ANALYSIS_DATA = {
         "apple": 1245.0
       },
       "decision": "Sat closed controlled but still aggressive: 956 cal / 170.9P / 10.3F / 43.6C, one 2h lift, one 62m StairMaster, 8,029 steps, adjusted active ~1,070. Lighter than Friday and recovery markers stayed usable; Stay aggressive but controlled. Next lever is measured food quality/pre-lift carbs if performance dips, not extra cardio volume."
+    },
+    {
+      "date": "2026-05-24",
+      "day": "Sun",
+      "dateShort": "5/24",
+      "phase": "Current check-in",
+      "weight": 156.3,
+      "delta": -0.7,
+      "sleep": {
+        "total": "Pending",
+        "detail": "Night Pending · nap —",
+        "rhr": null,
+        "hrv": null
+      },
+      "macros": {
+        "calories": null,
+        "protein": null,
+        "fat": null,
+        "carbs": null
+      },
+      "cardioEvents": [
+        {
+          "label": "Cardio",
+          "title": "Pending",
+          "meta": "Timing unavailable",
+          "type": "Summary"
+        }
+      ],
+      "liftEvents": [
+        {
+          "label": "Lift",
+          "title": "Pending",
+          "meta": "Session details pending",
+          "type": "Pending"
+        }
+      ],
+      "burn": {
+        "adjusted": null,
+        "apple": null
+      },
+      "decision": "Weight-only update: 156.3 lb, down 0.7 from Sat and down 12.7 from 5/17. Not a stall; need sleep/macros/cardio/lift to close the day; Need sleep/recovery, macros, cardio/lift, steps, and subjective feedback before changing levers."
     }
   ],
   "mealDays": [
@@ -1760,7 +1817,7 @@ window.PREP_ANALYSIS_DATA = {
       },
       {
         "title": "New foods",
-        "text": "3 food(s) are new versus the Jan-May master log; only promote them if digestion/training improves."
+        "text": "2 food(s) are new versus the Jan-May master log; only promote them if digestion/training improves."
       },
       {
         "title": "Powder share",
@@ -1774,28 +1831,15 @@ window.PREP_ANALYSIS_DATA = {
     "foods": [
       {
         "food": "Choclate Choclate Chip Protein Powder",
-        "status": "New repeat",
+        "status": "Current repeat",
         "category": "Protein powder",
         "days": 3,
         "uses": 3,
-        "historyDays": 0,
+        "historyDays": 3,
         "calories": 810,
         "protein": 144,
         "fat": 9.0,
         "carbs": 30.0,
-        "read": "Useful repeat but watch GI if multiple shake boluses stack."
-      },
-      {
-        "food": "Strawberry Banana Royale Lean Whey Gourmet",
-        "status": "Current repeat",
-        "category": "Protein powder",
-        "days": 4,
-        "uses": 5,
-        "historyDays": 3,
-        "calories": 878,
-        "protein": 156,
-        "fat": 11.0,
-        "carbs": 39.0,
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
@@ -1825,12 +1869,25 @@ window.PREP_ANALYSIS_DATA = {
         "read": "High-value repeat candidate for a more stable aggressive day."
       },
       {
+        "food": "Strawberry Banana Royale Lean Whey Gourmet",
+        "status": "Returning staple",
+        "category": "Protein powder",
+        "days": 4,
+        "uses": 5,
+        "historyDays": 7,
+        "calories": 878,
+        "protein": 156,
+        "fat": 11.0,
+        "carbs": 39.0,
+        "read": "Useful repeat but watch GI if multiple shake boluses stack."
+      },
+      {
         "food": "Chocolate Nutrition Shake",
         "status": "Returning staple",
         "category": "Protein powder",
         "days": 3,
         "uses": 9,
-        "historyDays": 39,
+        "historyDays": 40,
         "calories": 1350,
         "protein": 270,
         "fat": 27.0,
@@ -1843,12 +1900,25 @@ window.PREP_ANALYSIS_DATA = {
         "category": "Other",
         "days": 3,
         "uses": 3,
-        "historyDays": 49,
+        "historyDays": 50,
         "calories": 270,
         "protein": 3,
         "fat": 24.0,
         "carbs": 15.0,
         "read": "Known food returning in the current cleanup."
+      },
+      {
+        "food": "Peanut Butter Cookies & Cream Protein Powder",
+        "status": "Returning staple",
+        "category": "Protein powder",
+        "days": 2,
+        "uses": 2,
+        "historyDays": 7,
+        "calories": 420,
+        "protein": 72,
+        "fat": 8.0,
+        "carbs": 18.0,
+        "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
         "food": "Flash Iv - Strawberry Kiwi",
@@ -1874,19 +1944,6 @@ window.PREP_ANALYSIS_DATA = {
         "protein": 132,
         "fat": 8.0,
         "carbs": 33.0,
-        "read": "Useful repeat but watch GI if multiple shake boluses stack."
-      },
-      {
-        "food": "Peanut Butter Cookies & Cream Protein Powder",
-        "status": "Returning",
-        "category": "Protein powder",
-        "days": 2,
-        "uses": 2,
-        "historyDays": 4,
-        "calories": 420,
-        "protein": 72,
-        "fat": 8.0,
-        "carbs": 18.0,
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
@@ -1983,19 +2040,6 @@ window.PREP_ANALYSIS_DATA = {
     ],
     "newFoods": [
       {
-        "food": "Choclate Choclate Chip Protein Powder",
-        "status": "New repeat",
-        "category": "Protein powder",
-        "days": 3,
-        "uses": 3,
-        "historyDays": 0,
-        "calories": 810,
-        "protein": 144,
-        "fat": 9.0,
-        "carbs": 30.0,
-        "read": "Useful repeat but watch GI if multiple shake boluses stack."
-      },
-      {
         "food": "Clear Protein Tropical Punch",
         "status": "New",
         "category": "Protein powder",
@@ -2025,28 +2069,15 @@ window.PREP_ANALYSIS_DATA = {
     "repeats": [
       {
         "food": "Choclate Choclate Chip Protein Powder",
-        "status": "New repeat",
+        "status": "Current repeat",
         "category": "Protein powder",
         "days": 3,
         "uses": 3,
-        "historyDays": 0,
+        "historyDays": 3,
         "calories": 810,
         "protein": 144,
         "fat": 9.0,
         "carbs": 30.0,
-        "read": "Useful repeat but watch GI if multiple shake boluses stack."
-      },
-      {
-        "food": "Strawberry Banana Royale Lean Whey Gourmet",
-        "status": "Current repeat",
-        "category": "Protein powder",
-        "days": 4,
-        "uses": 5,
-        "historyDays": 3,
-        "calories": 878,
-        "protein": 156,
-        "fat": 11.0,
-        "carbs": 39.0,
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
@@ -2076,12 +2107,25 @@ window.PREP_ANALYSIS_DATA = {
         "read": "High-value repeat candidate for a more stable aggressive day."
       },
       {
+        "food": "Strawberry Banana Royale Lean Whey Gourmet",
+        "status": "Returning staple",
+        "category": "Protein powder",
+        "days": 4,
+        "uses": 5,
+        "historyDays": 7,
+        "calories": 878,
+        "protein": 156,
+        "fat": 11.0,
+        "carbs": 39.0,
+        "read": "Useful repeat but watch GI if multiple shake boluses stack."
+      },
+      {
         "food": "Chocolate Nutrition Shake",
         "status": "Returning staple",
         "category": "Protein powder",
         "days": 3,
         "uses": 9,
-        "historyDays": 39,
+        "historyDays": 40,
         "calories": 1350,
         "protein": 270,
         "fat": 27.0,
@@ -2094,7 +2138,7 @@ window.PREP_ANALYSIS_DATA = {
         "category": "Other",
         "days": 3,
         "uses": 3,
-        "historyDays": 49,
+        "historyDays": 50,
         "calories": 270,
         "protein": 3,
         "fat": 24.0,
@@ -2117,12 +2161,25 @@ window.PREP_ANALYSIS_DATA = {
         "read": "High-value repeat candidate for a more stable aggressive day."
       },
       {
+        "food": "Strawberry Banana Royale Lean Whey Gourmet",
+        "status": "Returning staple",
+        "category": "Protein powder",
+        "days": 4,
+        "uses": 5,
+        "historyDays": 7,
+        "calories": 878,
+        "protein": 156,
+        "fat": 11.0,
+        "carbs": 39.0,
+        "read": "Useful repeat but watch GI if multiple shake boluses stack."
+      },
+      {
         "food": "Chocolate Nutrition Shake",
         "status": "Returning staple",
         "category": "Protein powder",
         "days": 3,
         "uses": 9,
-        "historyDays": 39,
+        "historyDays": 40,
         "calories": 1350,
         "protein": 270,
         "fat": 27.0,
@@ -2135,12 +2192,25 @@ window.PREP_ANALYSIS_DATA = {
         "category": "Other",
         "days": 3,
         "uses": 3,
-        "historyDays": 49,
+        "historyDays": 50,
         "calories": 270,
         "protein": 3,
         "fat": 24.0,
         "carbs": 15.0,
         "read": "Known food returning in the current cleanup."
+      },
+      {
+        "food": "Peanut Butter Cookies & Cream Protein Powder",
+        "status": "Returning staple",
+        "category": "Protein powder",
+        "days": 2,
+        "uses": 2,
+        "historyDays": 7,
+        "calories": 420,
+        "protein": 72,
+        "fat": 8.0,
+        "carbs": 18.0,
+        "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
         "food": "Flash Iv - Strawberry Kiwi",
@@ -2166,19 +2236,6 @@ window.PREP_ANALYSIS_DATA = {
         "protein": 132,
         "fat": 8.0,
         "carbs": 33.0,
-        "read": "Useful repeat but watch GI if multiple shake boluses stack."
-      },
-      {
-        "food": "Peanut Butter Cookies & Cream Protein Powder",
-        "status": "Returning",
-        "category": "Protein powder",
-        "days": 2,
-        "uses": 2,
-        "historyDays": 4,
-        "calories": 420,
-        "protein": 72,
-        "fat": 8.0,
-        "carbs": 18.0,
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
@@ -2471,7 +2528,7 @@ window.PREP_ANALYSIS_DATA = {
         "preCarbs": 28.0,
         "postCardioMinutes": 62,
         "postCardioKcal": 618,
-        "nextDelta": null,
+        "nextDelta": -0.6999999999999886,
         "read": "Best fuel structure: measured carbs/protein before lifting."
       }
     ],
