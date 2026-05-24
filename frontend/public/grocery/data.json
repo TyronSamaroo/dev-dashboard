@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-03T23:59:22.895346Z",
+  "generatedAt": "2026-05-24T22:06:01.023366Z",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -169,6 +169,20 @@
       "total": 85.0,
       "itemCount": 0,
       "supplementCount": 4,
+      "momCount": 0,
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "store": "Natural Body Hicksville",
+      "food": 0,
+      "hh": 0,
+      "supplement": 228.0,
+      "mom": 0,
+      "groceryTotal": 0,
+      "total": 228.0,
+      "itemCount": 0,
+      "supplementCount": 8,
       "momCount": 0,
       "storeType": "supplement"
     }
@@ -1302,7 +1316,7 @@
       "cost": 1.77,
       "servings": null,
       "costPerServing": null,
-      "notes": "Sales tax - Trans 68417, Visa **4368",
+      "notes": null,
       "storeType": "supplement"
     },
     {
@@ -1484,7 +1498,7 @@
       "cost": -56.13,
       "servings": null,
       "costPerServing": null,
-      "notes": "Loyalty applied at checkout - Trans pi_3TQyfAFfuIutquDb139yAcP8",
+      "notes": null,
       "storeType": "supplement"
     },
     {
@@ -1627,7 +1641,7 @@
       "cost": -5.0,
       "servings": null,
       "costPerServing": null,
-      "notes": "Trans pi_3SnPJHFfuIutquDb1hBjkEx8",
+      "notes": null,
       "storeType": "supplement"
     },
     {
@@ -1718,7 +1732,7 @@
       "cost": -5.0,
       "servings": null,
       "costPerServing": null,
-      "notes": "Paid AmEx ****0043 - Trans pi_3T1XdVFfuIutquDb0AH4A9xn",
+      "notes": null,
       "storeType": "supplement"
     },
     {
@@ -1757,7 +1771,7 @@
       "cost": -5.0,
       "servings": null,
       "costPerServing": null,
-      "notes": "Trans pi_3TEZB0FfuIutquDb0YvX7vbf",
+      "notes": null,
       "storeType": "supplement"
     },
     {
@@ -1809,7 +1823,111 @@
       "cost": -10.0,
       "servings": null,
       "costPerServing": null,
-      "notes": "Trans pi_3TSlwFFfuIutquDb0F6JhGYP, served by Jonathan S.",
+      "notes": null,
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Core Nutritionals Fury Black Pre-Workout - Red Alert",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 48.0,
+      "servings": 20,
+      "costPerServing": 2.4,
+      "notes": "Receipt #8301; List $54.99, saved $6.99 (12.71%); 4x Rewards MDW Sale",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Musclesport CarniShred + Mitoburn Liquid - Rainbow Candy",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 30.0,
+      "servings": 31,
+      "costPerServing": 0.97,
+      "notes": "Receipt #8301; List $34.99, saved $4.99 (14.26%); 4x Rewards MDW Sale",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Musclesport Lean Whey 2 lb - Mom's Peanut Butter & Jelly",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 55.0,
+      "servings": 30,
+      "costPerServing": 1.83,
+      "notes": "Receipt #8301; 2 lb; List $59.99, saved $4.99 (8.32%); 4x Rewards MDW Sale",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Musclesport Lean Whey 2 lb - Monster Cookie",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 55.0,
+      "servings": 30,
+      "costPerServing": 1.83,
+      "notes": "Receipt #8301; 2 lb; List $59.99, saved $4.99 (8.32%); 4x Rewards MDW Sale",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Hicksville Smoothies - Chocolate Banana Nut",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 9.21,
+      "servings": 1,
+      "costPerServing": 9.21,
+      "notes": "Receipt #8301; 20 oz; 4x Rewards MDW Sale; taxable",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "TAX",
+      "store": "Natural Body Hicksville",
+      "item": "Sales Tax",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": 0.79,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Receipt #8301; NY State $0.37 + Nassau County $0.43",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "NutraBio Intra Blast - Strawberry Lemon Bomb",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 45.0,
+      "servings": 30,
+      "costPerServing": 1.5,
+      "notes": "Receipt #8303; List $49.99, saved $4.99 (9.98%); 30 servings",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "LOYALTY",
+      "store": "Natural Body Hicksville",
+      "item": "Loyalty Redemption Credit",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -15.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Receipt #8303; 3 x $5 loyalty redemptions; paid $30.00",
       "storeType": "supplement"
     }
   ],
@@ -1925,7 +2043,7 @@
     ],
     "online": []
   },
-  "watch": "Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.",
+  "watch": "May 24 Natural Body Hicksville added $228.00 net supplement spend. Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.",
   "shoppingList": {
     "needNow": [
       {
@@ -1938,7 +2056,7 @@
         ]
       },
       {
-        "store": "Natural Body \u2014 Ozone Park *(Hicksville was closed last time \u2014 try OZP)*",
+        "store": "Natural Body \u2014 confirm stock + hours",
         "items": [
           {
             "name": "Fiducia supplement \u2014 carried over from 4/26",
@@ -1967,6 +2085,20 @@
     }
   },
   "tripHistory": [
+    {
+      "date": "2026-05-24",
+      "title": "Natural Body Hicksville \u2014 MDW supplement restock",
+      "stores": [
+        "Natural Body Hicksville"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 228.0,
+      "supplementActual": 228.0,
+      "itemsBought": 6,
+      "status": "closed",
+      "body": "# 2026-05-24 \u2014 Natural Body Hicksville MDW supplement restock\n\n## How it went\n\nTwo Natural Body Hicksville receipts were filed from Downloads and logged into `Grocery_Tracker.xlsx`. Total paid was **$228.00** across receipt **#8301** (`$198.00`) and receipt **#8303** (`$30.00` after `$15.00` loyalty redemption).\n\n## What was bought\n\n**Workout / intra-workout**\n- Core Nutritionals Fury Black Pre-Workout \u2014 Red Alert, 20 servings, **$48.00**\n- NutraBio Intra Blast \u2014 Strawberry Lemon Bomb, 30 servings, **$45.00**, paid **$30.00 net** after loyalty\n\n**Protein / prep support**\n- Musclesport Lean Whey 2 lb \u2014 Mom's Peanut Butter & Jelly, **$55.00**\n- Musclesport Lean Whey 2 lb \u2014 Monster Cookie, **$55.00**\n\n**Fat burner**\n- Musclesport CarniShred + Mitoburn Liquid \u2014 Rainbow Candy, 31 servings, **$30.00**\n\n**Other**\n- Hicksville Smoothies \u2014 Chocolate Banana Nut, 20 oz, **$9.21**\n- Sales tax on smoothie receipt: **$0.79**\n- Loyalty redemption on Intra Blast receipt: **-$15.00**\n\n## Notes\n\n- MDW 4x Rewards promo applied to receipt #8301.\n- Hicksville was open and usable on this run, so the older \"Hicksville closed\" warning should be treated as a location-hours reminder, not a hard rule to avoid the store.\n- Fiducia supplement is still not resolved from the shopping list.",
+      "filename": "2026-05-24_natural-body-hicksville-mdw-restock.md"
+    },
     {
       "date": "2026-04-27",
       "title": "Natural Body Ozone Park \u2014 bulk supplement restock",
@@ -2022,9 +2154,9 @@
       "text": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick, missed on 4/26 (came home with Chobani drinks instead). Add to next Costco trip."
     },
     {
-      "color": "purple",
+      "color": "amber",
       "label": "Budget pace",
-      "text": "April supplements $429 / $300 target \u2014 first month over. Bulk restocks happen every 2-3 months; expect lower May."
+      "text": "May supplements $313 / $300 target \u2014 May 24 Hicksville receipts moved the month to over target."
     }
   ],
   "supplementAnalysis": [
@@ -2083,6 +2215,24 @@
       "verdict": "Verify online"
     },
     {
+      "item": "NutraBio Intra Blast (30 srv)",
+      "paid": 45.0,
+      "servings": 30,
+      "perSrv": 1.5,
+      "online": null,
+      "onlineSource": null,
+      "verdict": "New 5/24 Hicksville pickup \u2014 verify online"
+    },
+    {
+      "item": "Musclesport Lean Whey 2 lb (MDW flavors)",
+      "paid": 55.0,
+      "servings": 30,
+      "perSrv": 1.83,
+      "online": null,
+      "onlineSource": null,
+      "verdict": "Paid $55 on MDW promo \u2014 verify flavor-specific online price"
+    },
+    {
       "item": "Musclesport CarniShred + Mitoburn (31 srv)",
       "paid": 22.5,
       "servings": 31,
@@ -2129,8 +2279,8 @@
     }
   ],
   "totals": {
-    "itemCount": 126,
-    "tripCount": 12,
-    "monthlyEstimate": 398.98
+    "itemCount": 134,
+    "tripCount": 13,
+    "monthlyEstimate": 444.58
   }
 }

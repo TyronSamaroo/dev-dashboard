@@ -163,7 +163,7 @@ tr:hover td { background: var(--surface-alt); }
     </div>
     <div class="results-meta" id="meta"></div>
 
-    <div class="footer">122 line items across 11 trips since January</div>
+    <div class="footer" id="footer-meta">Line items refresh when receipts are processed</div>
   </div>
 </div>
 
@@ -238,6 +238,11 @@ async function loadAndRender() {
   const data = await res.json();
   allItems = (data.items || []).filter(i => i.itemCode !== 'LOYALTY' && i.itemCode !== 'TAX');
   winners = data.winners || [];
+  const footer = document.getElementById('footer-meta');
+  if (footer) {
+    const tripCount = Array.isArray(data.trips) ? data.trips.length : 0;
+    footer.textContent = `${allItems.length} line items across ${tripCount} trips since January`;
+  }
   renderWinners();
   renderSuppAnalysis(data.supplementAnalysis || []);
   renderCatalog();
