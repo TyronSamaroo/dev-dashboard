@@ -1,11 +1,11 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-23T10:30:17",
+  "generatedAt": "2026-05-24T13:23:05",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
     "meals": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-meal-timing-may17-may22-2026.csv",
     "feedback": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-feedback-loop-may17-jun1-2026.csv",
-    "currentMacroFactorExport": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/macrofactor/MacroFactor-20260522174242.xlsx",
+    "currentMacroFactorExport": "/Users/tyronsamaroo/Downloads/MacroFactor-20260524131818.xlsx",
     "masterFoodLog": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/macrofactor/master/MASTER_food_log.csv",
     "trainingHistory": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json",
     "googleSheet": "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI",
@@ -17,15 +17,15 @@ window.PREP_ANALYSIS_DATA = {
       "title": "Weight, macros, sleep, activity",
       "status": "current",
       "value": "7 rows",
-      "text": "Latest weight is 157 on Sat 5/23; latest complete macros are Fri 5/22.",
+      "text": "Latest weight is 157 on Sat 5/23; latest complete macros are Sat 5/23.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv"
     },
     {
       "label": "Meal grouping",
       "title": "MacroFactor meal windows",
       "status": "current",
-      "value": "6 days",
-      "text": "Feeds meal heat map, protein split, anchors, and food review through Fri 5/22.",
+      "value": "7 days",
+      "text": "Feeds meal heat map, protein split, anchors, and food review through Sat 5/23.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-meal-timing-may17-may22-2026.csv"
     },
     {
@@ -40,8 +40,8 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Training/cardio",
       "title": "Current sessions + YTD import",
       "status": "current",
-      "value": "12 current · 474 YTD",
-      "text": "Latest current session is Fri 5/22; use corrected rows before older suspect HR rows.",
+      "value": "13 current · 474 YTD",
+      "text": "Latest current session is Sat 5/23; use corrected rows before older suspect HR rows.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json"
     },
     {
@@ -56,7 +56,7 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Feedback loop",
       "title": "GI, hunger, energy, soreness",
       "status": "watch",
-      "value": "3 missing",
+      "value": "1 missing",
       "text": "This is the key context layer for interpreting flat scale days during aggressive output.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-feedback-loop-may17-jun1-2026.csv"
     }
@@ -64,8 +64,6 @@ window.PREP_ANALYSIS_DATA = {
   "dataHealth": {
     "summary": "Usable for decisions; today still needs check-in fields.",
     "missing": [
-      "macros",
-      "cardio/lift",
       "hunger/energy"
     ],
     "rows": [
@@ -77,21 +75,21 @@ window.PREP_ANALYSIS_DATA = {
       },
       {
         "label": "Macros",
-        "value": "Fri 5/22",
+        "value": "Sat 5/23",
         "status": "current",
         "read": "Latest complete MacroFactor/macros day is available for the operating read."
       },
       {
         "label": "Cardio",
-        "value": "9 Stair",
+        "value": "10 Stair",
         "status": "current",
-        "read": "Current StairMaster average is 10.67 kcal/min."
+        "read": "Current StairMaster average is 10.57 kcal/min."
       },
       {
         "label": "Feedback",
-        "value": "3 missing",
+        "value": "1 missing",
         "status": "watch",
-        "read": "macros, cardio/lift, hunger/energy"
+        "read": "hunger/energy"
       }
     ]
   },
@@ -110,7 +108,7 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Food form",
         "tone": "warn",
-        "value": "81%",
+        "value": "76%",
         "text": "Powder/hybrid protein share is high; repeat the Thursday whole-food base before adding more cardio."
       },
       {
@@ -122,14 +120,14 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Cardio",
         "tone": "ok",
-        "value": "10.67 k/min",
-        "text": "Current StairMaster is 0.4 kcal/min vs YTD Stair."
+        "value": "10.57 k/min",
+        "text": "Current StairMaster is 0.3 kcal/min vs YTD Stair."
       },
       {
         "label": "Missing",
         "tone": "warn",
-        "value": "3 fields",
-        "text": "macros, cardio/lift, hunger/energy"
+        "value": "1 fields",
+        "text": "hunger/energy"
       }
     ],
     "rules": [
@@ -154,7 +152,7 @@ window.PREP_ANALYSIS_DATA = {
         "question": "Anything off?",
         "tone": "warn",
         "value": "GI / powder",
-        "metric": "81% powder/hybrid protein",
+        "metric": "76% powder/hybrid protein",
         "read": "Effort is high and the scale moved. The off signal is digestion after repeated shake-heavy days.",
         "next": "Repeat the Thursday whole-food base before adding more cardio or cutting lower."
       },
@@ -169,7 +167,7 @@ window.PREP_ANALYSIS_DATA = {
       {
         "question": "Workout fuel impact?",
         "tone": "warn",
-        "value": "2/5 lifts",
+        "value": "3/6 lifts",
         "metric": "carb-supported pre-lift",
         "read": "1 dense lift(s) happened low-carb, so output alone does not prove the setup is ideal.",
         "next": "Keep testing measured banana/rice-cake style carbs around harder lifts."
@@ -177,16 +175,16 @@ window.PREP_ANALYSIS_DATA = {
       {
         "question": "Cardio adapting down?",
         "tone": "ok",
-        "value": "0.4 kcal/min",
-        "metric": "current vs YTD Stair (10.67 vs 10.31)",
+        "value": "0.3 kcal/min",
+        "metric": "current vs YTD Stair (10.57 vs 10.31)",
         "read": "No clear StairMaster efficiency drop yet; current output is still around or above YTD Stair baseline.",
         "next": "Hold one controlled morning Stair block and compare HR/kcal/min before adding punishment volume."
       },
       {
         "question": "Can I trust today?",
         "tone": "warn",
-        "value": "3 missing",
-        "metric": "macros, cardio/lift, hunger/energy",
+        "value": "1 missing",
+        "metric": "hunger/energy",
         "read": "The site can answer trends, but current-day decisions need food, training/cardio, GI, and energy filled.",
         "next": "Log the missing fields once instead of spreading them across chat fragments."
       }
@@ -195,8 +193,6 @@ window.PREP_ANALYSIS_DATA = {
   "checkInPacket": {
     "title": "Prep Runway update packet — Sat 5/23",
     "missing": [
-      "macros",
-      "cardio/lift",
       "hunger/energy"
     ],
     "text": "Prep Runway update packet — Sat 5/23\nAM weight: 157 lb\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nHunger / energy: \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
@@ -210,17 +206,17 @@ window.PREP_ANALYSIS_DATA = {
     },
     {
       "label": "Intake avg",
-      "value": "988.2 cal",
-      "note": "176.2P / 13.4F / 36.3C avg"
+      "value": "983.6 cal",
+      "note": "175.4P / 12.9F / 37.3C avg"
     },
     {
       "label": "Stair output",
-      "value": "~4,083.3 kcal",
-      "note": "9 sessions · 382.9 min · 10.67 kcal/min"
+      "value": "~4,701.3 kcal",
+      "note": "10 sessions · 444.9 min · 10.57 kcal/min"
     },
     {
       "label": "Stair HR",
-      "value": "~135 bpm",
+      "value": "~134.3 bpm",
       "note": "Current-week average from known sessions"
     },
     {
@@ -242,20 +238,20 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Last complete day",
         "tone": "warn",
-        "value": "Fri 5/22",
-        "text": "1,113 cal · 186P · Stair 50:37 + Stair 50:00 · Pull 108:07."
+        "value": "Sat 5/23",
+        "text": "956 cal · 170.9P · Stair 62:00 · Arms/shoulders 120:00."
       },
       {
         "label": "Off signal",
         "tone": "bad",
         "value": "GI / powder",
-        "text": "Stay aggressive but controlled: light arms/shoulders and 35-45 min easy StairMaster; no panic second hard cardio."
+        "text": "Stay aggressive but controlled. Next lever is measured food quality/pre-lift carbs if performance dips, not extra cardio volume."
       },
       {
         "label": "Missing now",
         "tone": "warn",
-        "value": "3 fields",
-        "text": "macros, cardio/lift, hunger/energy"
+        "value": "1 fields",
+        "text": "hunger/energy"
       }
     ],
     "rules": [
@@ -296,7 +292,7 @@ window.PREP_ANALYSIS_DATA = {
       "badge": "Cardio",
       "tone": "ok",
       "title": "Is StairMaster adapting down?",
-      "body": "Not clearly. Current StairMaster output is 4,083.3 kcal across 9 sessions at 10.67 kcal/min with avg HR about 135 bpm."
+      "body": "Not clearly. Current StairMaster output is 4,701.3 kcal across 10 sessions at 10.57 kcal/min with avg HR about 134.3 bpm."
     },
     {
       "badge": "Risk",
@@ -390,11 +386,11 @@ window.PREP_ANALYSIS_DATA = {
       "phase": "Agg/Rec D3",
       "weight": 157.0,
       "delta": -1.4,
-      "calories": null,
-      "protein": null,
-      "lift": "Planned light arms/shoulders + post-lift cardio pending",
-      "adjustedActive": null,
-      "read": "Strong drop: 158.4 to 157.0 after Friday high output; not a stall. Sleep 7h47 and RHR 44 support continuing; HRV 105.7 says keep output controlled."
+      "calories": 956.0,
+      "protein": 170.9,
+      "lift": "Arms/shoulders 120:00",
+      "adjustedActive": 1070.0,
+      "read": "Strong drop: 158.4 to 157.0 after Friday high output; Saturday did not look like a stall or rebound. Protein hit, calories stayed very low, and output was lighter than Friday."
     }
   ],
   "reportLedger": [
@@ -700,32 +696,32 @@ window.PREP_ANALYSIS_DATA = {
         "hrv": 105.7
       },
       "macros": {
-        "calories": null,
-        "protein": null,
-        "fat": null,
-        "carbs": null
+        "calories": 956.0,
+        "protein": 170.9,
+        "fat": 10.3,
+        "carbs": 43.6
       },
       "cardioEvents": [
         {
-          "label": "Cardio",
-          "title": "Pending",
-          "meta": "Timing unavailable",
-          "type": "Summary"
+          "label": "PM",
+          "title": "3:13p-4:14p · 1h02m",
+          "meta": "618 kcal · Stair · HR 128/141",
+          "type": "StairMaster"
         }
       ],
       "liftEvents": [
         {
-          "label": "Lift",
-          "title": "Planned light arms/shoulders + post-lift cardio pending",
-          "meta": "Session details pending",
-          "type": "Pending"
+          "label": "Arms",
+          "title": "1:12p-3:13p · 2h00m",
+          "meta": "450 → 225 adj · HR 83/123",
+          "type": "Arms/Shoulders"
         }
       ],
       "burn": {
-        "adjusted": null,
-        "apple": null
+        "adjusted": 1070.0,
+        "apple": 1245.0
       },
-      "decision": "Scale broke lower after Friday high-output day; recovery sleep was strong and HRV dipped from 116.6 to 105.7 so keep today controlled and do not panic-add volume; Stay aggressive but controlled: light arms/shoulders and 35-45 min easy StairMaster; no panic second hard cardio."
+      "decision": "Sat closed controlled but still aggressive: 956 cal / 170.9P / 10.3F / 43.6C, one 2h lift, one 62m StairMaster, 8,029 steps, adjusted active ~1,070. Lighter than Friday and recovery markers stayed usable; Stay aggressive but controlled. Next lever is measured food quality/pre-lift carbs if performance dips, not extra cardio volume."
     }
   ],
   "mealDays": [
@@ -1010,6 +1006,65 @@ window.PREP_ANALYSIS_DATA = {
           "fat": 4.0,
           "carbs": 8.0,
           "read": "Reconciles the partial 688 cal export to the user-reported final 1113 cal / 186P / 21F / 40C."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "label": "Sat 5/23",
+      "pattern": "large powder bolus",
+      "totalCalories": 956.0,
+      "totalProtein": 171.0,
+      "meals": [
+        {
+          "meal": "M1",
+          "window": "12:15p",
+          "food": "Chocolate nutrition shake",
+          "calories": 150.0,
+          "protein": 30.0,
+          "fat": 3.0,
+          "carbs": 4.0,
+          "read": "Powder anchor before training; simple but still shake-based."
+        },
+        {
+          "meal": "M2",
+          "window": "12:47p",
+          "food": "Banana",
+          "calories": 106.0,
+          "protein": 1.0,
+          "fat": 0.0,
+          "carbs": 28.0,
+          "read": "Measured carb before the lift; useful training support with nearly no fat."
+        },
+        {
+          "meal": "M3",
+          "window": "5:00-5:22p",
+          "food": "Chocolate shakes + egg whites",
+          "calories": 425.0,
+          "protein": 85.0,
+          "fat": 6.0,
+          "carbs": 8.0,
+          "read": "Post-training protein cluster after lift and StairMaster; high protein but still powder-heavy."
+        },
+        {
+          "meal": "M4",
+          "window": "7:40p",
+          "food": "Chocolate nutrition shake",
+          "calories": 150.0,
+          "protein": 30.0,
+          "fat": 3.0,
+          "carbs": 4.0,
+          "read": "Additional powder meal; keeps protein covered but does not improve food-form stability."
+        },
+        {
+          "meal": "M5",
+          "window": "9:30p",
+          "food": "Egg whites",
+          "calories": 125.0,
+          "protein": 25.0,
+          "fat": 0.0,
+          "carbs": 0.0,
+          "read": "Low-fat whole-food protein closeout."
         }
       ]
     }
@@ -1348,16 +1403,83 @@ window.PREP_ANALYSIS_DATA = {
           null,
           null
         ]
+      },
+      {
+        "date": "2026-05-23",
+        "label": "Sat 5/23",
+        "cells": [
+          {
+            "slot": "M1",
+            "window": "12:15p",
+            "food": "Chocolate nutrition shake",
+            "calories": 150.0,
+            "protein": 30.0,
+            "fat": 3.0,
+            "carbs": 4.0,
+            "caloriePct": 29,
+            "proteinPct": 30,
+            "timeStart": 735
+          },
+          {
+            "slot": "M2",
+            "window": "12:47p",
+            "food": "Banana",
+            "calories": 106.0,
+            "protein": 1.0,
+            "fat": 0.0,
+            "carbs": 28.0,
+            "caloriePct": 20,
+            "proteinPct": 1,
+            "timeStart": 767
+          },
+          {
+            "slot": "M3",
+            "window": "5:00-5:22p",
+            "food": "Chocolate shakes + egg whites",
+            "calories": 425.0,
+            "protein": 85.0,
+            "fat": 6.0,
+            "carbs": 8.0,
+            "caloriePct": 82,
+            "proteinPct": 85,
+            "timeStart": 1020
+          },
+          {
+            "slot": "M4",
+            "window": "7:40p",
+            "food": "Chocolate nutrition shake",
+            "calories": 150.0,
+            "protein": 30.0,
+            "fat": 3.0,
+            "carbs": 4.0,
+            "caloriePct": 29,
+            "proteinPct": 30,
+            "timeStart": 1180
+          },
+          {
+            "slot": "M5",
+            "window": "9:30p",
+            "food": "Egg whites",
+            "calories": 125.0,
+            "protein": 25.0,
+            "fat": 0.0,
+            "carbs": 0.0,
+            "caloriePct": 24,
+            "proteinPct": 25,
+            "timeStart": 1290
+          },
+          null
+        ]
       }
     ],
     "reads": [
       {
         "title": "First real meal",
-        "text": "Average first meaningful protein meal is around 11:35 AM; electrolyte-only entries are not counted."
+        "text": "Average first meaningful protein meal is around 11:40 AM; electrolyte-only entries are not counted."
       },
       {
         "title": "Last meal",
-        "text": "Average last logged meal starts around 6:55 PM; late powder meals are the main consistency issue."
+        "text": "Average last logged meal starts around 7:20 PM; late powder meals are the main consistency issue."
       },
       {
         "title": "Largest protein bolus",
@@ -1369,7 +1491,7 @@ window.PREP_ANALYSIS_DATA = {
     "reads": [
       {
         "title": "First real meal",
-        "text": "Protein meal 1 averages 11:35 AM across 6 days, but ranges 10:35 AM → 1:45 PM."
+        "text": "Protein meal 1 averages 11:40 AM across 7 days, but ranges 10:35 AM → 1:45 PM."
       },
       {
         "title": "Biggest timing drift",
@@ -1384,15 +1506,15 @@ window.PREP_ANALYSIS_DATA = {
       {
         "slot": "P1",
         "label": "Protein meal 1",
-        "days": 6,
-        "avgTime": "11:35 AM",
+        "days": 7,
+        "avgTime": "11:40 AM",
         "earliest": "10:35 AM",
         "latest": "1:45 PM",
         "spread": "3h 13m",
-        "avgCalories": 319,
-        "avgProtein": 55,
-        "avgFat": 5.8,
-        "avgCarbs": 8.0,
+        "avgCalories": 295,
+        "avgProtein": 52,
+        "avgFat": 5.4,
+        "avgCarbs": 7.4,
         "commonFoods": "Chocolate chip protein / Chicken + egg whites + avocado",
         "status": "Drifting",
         "read": "First real protein meal is not anchored yet; this is the main meal-timing issue."
@@ -1400,31 +1522,31 @@ window.PREP_ANALYSIS_DATA = {
       {
         "slot": "P2",
         "label": "Protein meal 2",
-        "days": 6,
-        "avgTime": "2:50 PM",
-        "earliest": "1:00 PM",
+        "days": 7,
+        "avgTime": "2:35 PM",
+        "earliest": "12:45 PM",
         "latest": "5:05 PM",
-        "spread": "4h 4m",
-        "avgCalories": 262,
-        "avgProtein": 44,
-        "avgFat": 2.8,
-        "avgCarbs": 15.7,
-        "commonFoods": "Lemon Raspberry Wedding Cake / Banana + chocolate nutrition shake",
+        "spread": "4h 16m",
+        "avgCalories": 240,
+        "avgProtein": 38,
+        "avgFat": 2.4,
+        "avgCarbs": 17.4,
+        "commonFoods": "Lemon Raspberry Wedding Cake / Banana",
         "status": "Drifting",
         "read": "Not consistent yet; compare only after anchoring the window."
       },
       {
         "slot": "P3",
         "label": "Protein meal 3",
-        "days": 5,
-        "avgTime": "6:00 PM",
+        "days": 6,
+        "avgTime": "5:50 PM",
         "earliest": "3:15 PM",
         "latest": "7:40 PM",
         "spread": "4h 27m",
-        "avgCalories": 285,
-        "avgProtein": 54,
-        "avgFat": 3.8,
-        "avgCarbs": 9.2,
+        "avgCalories": 308,
+        "avgProtein": 59,
+        "avgFat": 4.2,
+        "avgCarbs": 9.0,
         "commonFoods": "Strawberry Banana / Chocolate shake + egg whites + chocolate shake",
         "status": "Drifting",
         "read": "Not consistent yet; compare only after anchoring the window."
@@ -1432,32 +1554,32 @@ window.PREP_ANALYSIS_DATA = {
       {
         "slot": "P4",
         "label": "Protein meal 4",
-        "days": 2,
-        "avgTime": "7:15 PM",
+        "days": 3,
+        "avgTime": "7:20 PM",
         "earliest": "7:00 PM",
-        "latest": "7:30 PM",
-        "spread": "30m",
-        "avgCalories": 218,
-        "avgProtein": 43,
-        "avgFat": 2.5,
-        "avgCarbs": 7.5,
-        "commonFoods": "Farm Fed toaster pastry protein / Lemon Raspberry Wedding Cake",
+        "latest": "7:40 PM",
+        "spread": "42m",
+        "avgCalories": 195,
+        "avgProtein": 39,
+        "avgFat": 2.7,
+        "avgCarbs": 6.3,
+        "commonFoods": "Chocolate nutrition shake / Farm Fed toaster pastry protein",
         "status": "Stable",
         "read": "This slot is usable as a repeat anchor."
       },
       {
         "slot": "P5",
         "label": "Protein meal 5",
-        "days": 1,
-        "avgTime": "9:25 PM",
+        "days": 2,
+        "avgTime": "9:30 PM",
         "earliest": "9:25 PM",
-        "latest": "9:25 PM",
-        "spread": "0m",
-        "avgCalories": 140,
+        "latest": "9:30 PM",
+        "spread": "3m",
+        "avgCalories": 132,
         "avgProtein": 24,
-        "avgFat": 3.0,
-        "avgCarbs": 6.0,
-        "commonFoods": "PB cookies protein",
+        "avgFat": 1.5,
+        "avgCarbs": 3.0,
+        "commonFoods": "Egg whites / PB cookies protein",
         "status": "Stable",
         "read": "This slot is usable as a repeat anchor."
       }
@@ -1467,11 +1589,11 @@ window.PREP_ANALYSIS_DATA = {
     "reads": [
       {
         "title": "Dominant source",
-        "text": "Powder/hybrid sources supplied about 818g protein in the logged cleanup window."
+        "text": "Powder/hybrid sources supplied about 963g protein in the logged cleanup window."
       },
       {
         "title": "Stability source",
-        "text": "Whole-food/egg-white sources supplied about 156g protein; Thursday is the cleanest repeat candidate."
+        "text": "Whole-food/egg-white sources supplied about 181g protein; Thursday is the cleanest repeat candidate."
       },
       {
         "title": "Pattern to test",
@@ -1481,11 +1603,11 @@ window.PREP_ANALYSIS_DATA = {
     "sources": [
       {
         "source": "Protein powder",
-        "days": 5,
-        "meals": 16,
-        "calories": 4033,
-        "protein": 733,
-        "proteinShare": 69,
+        "days": 6,
+        "meals": 18,
+        "calories": 4333,
+        "protein": 793,
+        "proteinShare": 64,
         "examples": [
           "Banana + chocolate nutrition shake",
           "Chocolate chip protein",
@@ -1494,12 +1616,25 @@ window.PREP_ANALYSIS_DATA = {
         "read": "Main repeat source; useful, but GI risk rises when bolused hard."
       },
       {
+        "source": "Powder + egg whites",
+        "days": 2,
+        "meals": 2,
+        "calories": 850,
+        "protein": 170,
+        "proteinShare": 14,
+        "examples": [
+          "Chocolate shake + egg whites + chocolate shake",
+          "Chocolate shakes + egg whites"
+        ],
+        "read": "Hybrid compromise; high protein but still shake-heavy."
+      },
+      {
         "source": "Whole-food protein",
         "days": 2,
         "meals": 2,
         "calories": 818,
         "protein": 130,
-        "proteinShare": 12,
+        "proteinShare": 11,
         "examples": [
           "Chicken + egg whites + avocado",
           "Chicken + egg whites + avocado + turkey bacon"
@@ -1507,25 +1642,14 @@ window.PREP_ANALYSIS_DATA = {
         "read": "Most stable template so far; repeat when digestion matters."
       },
       {
-        "source": "Powder + egg whites",
-        "days": 1,
-        "meals": 1,
-        "calories": 425,
-        "protein": 85,
-        "proteinShare": 8,
-        "examples": [
-          "Chocolate shake + egg whites + chocolate shake"
-        ],
-        "read": "Hybrid compromise; high protein but still shake-heavy."
-      },
-      {
         "source": "Other",
-        "days": 1,
-        "meals": 1,
-        "calories": 425,
-        "protein": 85,
-        "proteinShare": 8,
+        "days": 2,
+        "meals": 2,
+        "calories": 531,
+        "protein": 86,
+        "proteinShare": 7,
         "examples": [
+          "Banana",
           "Final macro closeout / user-reported remainder"
         ],
         "read": "Worth tracking as a recurring source."
@@ -1541,6 +1665,18 @@ window.PREP_ANALYSIS_DATA = {
           "Banana + egg whites"
         ],
         "read": "Best current training-support meal because carbs are measured and fat is low."
+      },
+      {
+        "source": "Egg whites",
+        "days": 1,
+        "meals": 1,
+        "calories": 125,
+        "protein": 25,
+        "proteinShare": 2,
+        "examples": [
+          "Egg whites"
+        ],
+        "read": "Single-use item; watch before calling it a pattern."
       }
     ],
     "days": [
@@ -1603,6 +1739,16 @@ window.PREP_ANALYSIS_DATA = {
         "wholeProtein": 70,
         "totalProtein": 186,
         "read": "Usable day, but source pattern is not strong yet."
+      },
+      {
+        "date": "2026-05-23",
+        "label": "Sat 5/23",
+        "dominant": "Powder + egg whites",
+        "meals": 5,
+        "powderProtein": 145,
+        "wholeProtein": 25,
+        "totalProtein": 171,
+        "read": "Usable day, but source pattern is not strong yet."
       }
     ]
   },
@@ -1610,7 +1756,7 @@ window.PREP_ANALYSIS_DATA = {
     "reads": [
       {
         "title": "Current repeats",
-        "text": "2 food(s) repeated across 3+ cleanup days; these are the true current-runway staples."
+        "text": "6 food(s) repeated across 3+ cleanup days; these are the true current-runway staples."
       },
       {
         "title": "New foods",
@@ -1618,11 +1764,11 @@ window.PREP_ANALYSIS_DATA = {
       },
       {
         "title": "Powder share",
-        "text": "Protein powder/hybrid items supplied about 81% of current logged protein."
+        "text": "Protein powder/hybrid items supplied about 76% of current logged protein."
       },
       {
         "title": "Meal shape",
-        "text": "Average current structure is about 3.5 protein meals across a 4h 48m feeding window."
+        "text": "Average current structure is about 3.7 protein meals across a 5h 26m feeding window."
       }
     ],
     "foods": [
@@ -1653,14 +1799,27 @@ window.PREP_ANALYSIS_DATA = {
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
+        "food": "Banana, Fresh",
+        "status": "Current repeat",
+        "category": "Other",
+        "days": 3,
+        "uses": 3,
+        "historyDays": 4,
+        "calories": 276,
+        "protein": 3,
+        "fat": 0.0,
+        "carbs": 73.0,
+        "read": "Known food returning in the current cleanup."
+      },
+      {
         "food": "Egg Whites",
         "status": "Returning staple",
         "category": "Egg whites",
-        "days": 2,
-        "uses": 4,
+        "days": 4,
+        "uses": 9,
         "historyDays": 27,
-        "calories": 500,
-        "protein": 100,
+        "calories": 1125,
+        "protein": 225,
         "fat": 0.0,
         "carbs": 0.0,
         "read": "High-value repeat candidate for a more stable aggressive day."
@@ -1669,26 +1828,26 @@ window.PREP_ANALYSIS_DATA = {
         "food": "Chocolate Nutrition Shake",
         "status": "Returning staple",
         "category": "Protein powder",
-        "days": 2,
-        "uses": 3,
+        "days": 3,
+        "uses": 9,
         "historyDays": 39,
-        "calories": 450,
-        "protein": 90,
-        "fat": 9.0,
-        "carbs": 12.0,
+        "calories": 1350,
+        "protein": 270,
+        "fat": 27.0,
+        "carbs": 36.0,
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
         "food": "Organic Avocado Mash",
         "status": "Returning staple",
         "category": "Other",
-        "days": 2,
-        "uses": 2,
+        "days": 3,
+        "uses": 3,
         "historyDays": 49,
-        "calories": 180,
-        "protein": 2,
-        "fat": 16.0,
-        "carbs": 10.0,
+        "calories": 270,
+        "protein": 3,
+        "fat": 24.0,
+        "carbs": 15.0,
         "read": "Known food returning in the current cleanup."
       },
       {
@@ -1742,19 +1901,6 @@ window.PREP_ANALYSIS_DATA = {
         "fat": 4.0,
         "carbs": 0.0,
         "read": "High-value repeat candidate for a more stable aggressive day."
-      },
-      {
-        "food": "Banana, Fresh",
-        "status": "Returning",
-        "category": "Other",
-        "days": 2,
-        "uses": 2,
-        "historyDays": 4,
-        "calories": 170,
-        "protein": 2,
-        "fat": 0.0,
-        "carbs": 45.0,
-        "read": "Known food returning in the current cleanup."
       },
       {
         "food": "Iso Phorm White Chocolate Peanut Butter",
@@ -1902,18 +2048,29 @@ window.PREP_ANALYSIS_DATA = {
         "fat": 11.0,
         "carbs": 39.0,
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
-      }
-    ],
-    "returning": [
+      },
+      {
+        "food": "Banana, Fresh",
+        "status": "Current repeat",
+        "category": "Other",
+        "days": 3,
+        "uses": 3,
+        "historyDays": 4,
+        "calories": 276,
+        "protein": 3,
+        "fat": 0.0,
+        "carbs": 73.0,
+        "read": "Known food returning in the current cleanup."
+      },
       {
         "food": "Egg Whites",
         "status": "Returning staple",
         "category": "Egg whites",
-        "days": 2,
-        "uses": 4,
+        "days": 4,
+        "uses": 9,
         "historyDays": 27,
-        "calories": 500,
-        "protein": 100,
+        "calories": 1125,
+        "protein": 225,
         "fat": 0.0,
         "carbs": 0.0,
         "read": "High-value repeat candidate for a more stable aggressive day."
@@ -1922,26 +2079,67 @@ window.PREP_ANALYSIS_DATA = {
         "food": "Chocolate Nutrition Shake",
         "status": "Returning staple",
         "category": "Protein powder",
-        "days": 2,
-        "uses": 3,
+        "days": 3,
+        "uses": 9,
         "historyDays": 39,
-        "calories": 450,
-        "protein": 90,
-        "fat": 9.0,
-        "carbs": 12.0,
+        "calories": 1350,
+        "protein": 270,
+        "fat": 27.0,
+        "carbs": 36.0,
         "read": "Useful repeat but watch GI if multiple shake boluses stack."
       },
       {
         "food": "Organic Avocado Mash",
         "status": "Returning staple",
         "category": "Other",
-        "days": 2,
-        "uses": 2,
+        "days": 3,
+        "uses": 3,
         "historyDays": 49,
-        "calories": 180,
-        "protein": 2,
-        "fat": 16.0,
-        "carbs": 10.0,
+        "calories": 270,
+        "protein": 3,
+        "fat": 24.0,
+        "carbs": 15.0,
+        "read": "Known food returning in the current cleanup."
+      }
+    ],
+    "returning": [
+      {
+        "food": "Egg Whites",
+        "status": "Returning staple",
+        "category": "Egg whites",
+        "days": 4,
+        "uses": 9,
+        "historyDays": 27,
+        "calories": 1125,
+        "protein": 225,
+        "fat": 0.0,
+        "carbs": 0.0,
+        "read": "High-value repeat candidate for a more stable aggressive day."
+      },
+      {
+        "food": "Chocolate Nutrition Shake",
+        "status": "Returning staple",
+        "category": "Protein powder",
+        "days": 3,
+        "uses": 9,
+        "historyDays": 39,
+        "calories": 1350,
+        "protein": 270,
+        "fat": 27.0,
+        "carbs": 36.0,
+        "read": "Useful repeat but watch GI if multiple shake boluses stack."
+      },
+      {
+        "food": "Organic Avocado Mash",
+        "status": "Returning staple",
+        "category": "Other",
+        "days": 3,
+        "uses": 3,
+        "historyDays": 49,
+        "calories": 270,
+        "protein": 3,
+        "fat": 24.0,
+        "carbs": 15.0,
         "read": "Known food returning in the current cleanup."
       },
       {
@@ -1995,19 +2193,6 @@ window.PREP_ANALYSIS_DATA = {
         "fat": 4.0,
         "carbs": 0.0,
         "read": "High-value repeat candidate for a more stable aggressive day."
-      },
-      {
-        "food": "Banana, Fresh",
-        "status": "Returning",
-        "category": "Other",
-        "days": 2,
-        "uses": 2,
-        "historyDays": 4,
-        "calories": 170,
-        "protein": 2,
-        "fat": 0.0,
-        "carbs": 45.0,
-        "read": "Known food returning in the current cleanup."
       },
       {
         "food": "Iso Phorm White Chocolate Peanut Butter",
@@ -2122,6 +2307,16 @@ window.PREP_ANALYSIS_DATA = {
         "totalProtein": 186,
         "largestProtein": 85,
         "read": "Most stable structure so far."
+      },
+      {
+        "label": "Sat 5/23",
+        "mealCount": 5,
+        "firstMeal": "12:15 PM",
+        "lastMeal": "9:30 PM",
+        "feedingWindow": "9h 15m",
+        "totalProtein": 171,
+        "largestProtein": 85,
+        "read": "Large protein bolus day; useful but less GI-stable."
       }
     ]
   },
@@ -2255,11 +2450,34 @@ window.PREP_ANALYSIS_DATA = {
         "postCardioKcal": 528,
         "nextDelta": -1.4000000000000057,
         "read": "Best fuel structure: measured carbs/protein before lifting."
+      },
+      {
+        "date": "2026-05-23",
+        "label": "Sat 5/23",
+        "lift": "Arms/Shoulders",
+        "liftTime": "1:12 PM–3:13 PM",
+        "duration": "2:00:00",
+        "avgHr": 83.0,
+        "maxHr": 123.0,
+        "kpm": 3.75,
+        "reportedKcal": 450.0,
+        "adjustedKcal": 225.0,
+        "preMeal": "Banana",
+        "preWindow": "12:47p",
+        "preGap": "25m",
+        "preCalories": 106.0,
+        "preProtein": 1.0,
+        "preFat": 0.0,
+        "preCarbs": 28.0,
+        "postCardioMinutes": 62,
+        "postCardioKcal": 618,
+        "nextDelta": null,
+        "read": "Best fuel structure: measured carbs/protein before lifting."
       }
     ],
     "summary": {
-      "liftCount": 5,
-      "carbSupportedLiftCount": 2,
+      "liftCount": 6,
+      "carbSupportedLiftCount": 3,
       "lowCarbDenseLiftCount": 1
     }
   },
@@ -2291,7 +2509,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 11.14,
       "avgHr": 140.0,
       "maxHr": 149.0,
-      "barPct": 95,
+      "barPct": 82,
       "read": "Morning cardio anchor; trust this cardio burn more than strength burn."
     },
     {
@@ -2307,7 +2525,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 10.94,
       "avgHr": 138.0,
       "maxHr": 150.0,
-      "barPct": 63,
+      "barPct": 54,
       "read": "Second StairMaster matched morning effort after dense lift; trust this cardio burn more than strength burn."
     },
     {
@@ -2323,7 +2541,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 10.67,
       "avgHr": 136.0,
       "maxHr": 150.0,
-      "barPct": 95,
+      "barPct": 82,
       "read": "Textbook Zone 3 morning StairMaster after short sleep; Apple kcal likely within 10%, but planning value uses ~455 kcal MET estimate."
     },
     {
@@ -2339,7 +2557,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 10.15,
       "avgHr": 129.0,
       "maxHr": 139.0,
-      "barPct": 58,
+      "barPct": 50,
       "read": "Second stair session after lift; useful but overreach when stacked with AM cardio and walk."
     },
     {
@@ -2355,7 +2573,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 3.86,
       "avgHr": 95.0,
       "maxHr": 135.0,
-      "barPct": 38,
+      "barPct": 33,
       "read": "Extra evening walk pushed the day further into overreach."
     },
     {
@@ -2371,7 +2589,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 11.25,
       "avgHr": 140.0,
       "maxHr": 156.0,
-      "barPct": 96,
+      "barPct": 83,
       "read": "Morning cardio anchor; corrected HR pull shows avg 140 / max 156, with zones about Z2 10%, Z3 55%, Z4 35%; hardest stair session of the week."
     },
     {
@@ -2387,7 +2605,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 3.07,
       "avgHr": 77.0,
       "maxHr": 101.0,
-      "barPct": 36,
+      "barPct": 31,
       "read": "Long morning walk after StairMaster; low HR, useful output, but still adds fatigue even without lifting."
     },
     {
@@ -2403,7 +2621,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 3.26,
       "avgHr": 93.0,
       "maxHr": 105.0,
-      "barPct": 27,
+      "barPct": 23,
       "read": "Evening walk kept the day aggressive despite no lift; HR stayed easy."
     },
     {
@@ -2419,7 +2637,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 10.42,
       "avgHr": 135.87,
       "maxHr": 151.0,
-      "barPct": 100,
+      "barPct": 86,
       "read": "Actual Thu AM StairMaster logged: 51:04, workout active 532.3 kcal, window active 533.56 kcal, basal 86.4 kcal, total window 618.69 kcal. Strong controlled cardio; enough AM cardio before any later lift."
     },
     {
@@ -2435,7 +2653,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 10.6,
       "avgHr": 134.0,
       "maxHr": 150.0,
-      "barPct": 64,
+      "barPct": 55,
       "read": "Second Thu StairMaster after dense lift; useful output but makes Thu another high-output day."
     },
     {
@@ -2451,7 +2669,7 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 10.23,
       "avgHr": 130.0,
       "maxHr": 144.0,
-      "barPct": 97,
+      "barPct": 84,
       "read": "AM stair was controlled lower-HR output than Wed/Thu; useful anchor without spiking too hard."
     },
     {
@@ -2467,8 +2685,24 @@ window.PREP_ANALYSIS_DATA = {
       "kpm": 10.56,
       "avgHr": 132.0,
       "maxHr": 175.0,
-      "barPct": 99,
+      "barPct": 85,
       "read": "PM StairMaster matched AM average effort but peaked at 175 after the long pull day; useful output, but this is a hard post-lift spike and should count as high stress."
+    },
+    {
+      "date": "2026-05-23",
+      "label": "Sat 5/23",
+      "kind": "stair evening",
+      "session": "StairMaster",
+      "time": "3:13 PM–4:14 PM",
+      "duration": "1:02:00",
+      "minutes": 62.0,
+      "calories": 618.0,
+      "adjusted": 618.0,
+      "kpm": 9.97,
+      "avgHr": 128.0,
+      "maxHr": 141.0,
+      "barPct": 100,
+      "read": "Single post-lift StairMaster block; lower peak than Friday PM stair and useful controlled output without the 175 bpm spike."
     }
   ],
   "cardioHistory": {
@@ -2500,8 +2734,8 @@ window.PREP_ANALYSIS_DATA = {
     "benchmarks": [
       {
         "label": "Current Stair",
-        "value": "10.67 kcal/min",
-        "note": "9 sessions · 382.9 min · avg HR 135"
+        "value": "10.57 kcal/min",
+        "note": "10 sessions · 444.9 min · avg HR 134.3"
       },
       {
         "label": "YTD Stair",
@@ -2524,14 +2758,14 @@ window.PREP_ANALYSIS_DATA = {
         "badge": "Adaptation",
         "tone": "ok",
         "title": "No clear StairMaster drop yet",
-        "value": "10.67 vs 10.31",
+        "value": "10.57 vs 10.31",
         "text": "Current cleanup StairMaster output is not below the YTD baseline. A flat weigh-in is more likely water/GI/training noise than cardio adaptation."
       },
       {
         "badge": "Anchor",
         "tone": "ok",
         "title": "Morning StairMaster is the cleanest lever",
-        "value": "9 sessions",
+        "value": "10 sessions",
         "text": "StairMaster burn is the most reliable cardio signal here. Keep one controlled morning block before adding extra volume."
       },
       {
@@ -2552,7 +2786,7 @@ window.PREP_ANALYSIS_DATA = {
     "reads": [
       {
         "title": "No StairMaster drop yet",
-        "text": "Current cleanup StairMaster is 10.67 kcal/min versus the YTD Stair baseline of 10.31 kcal/min."
+        "text": "Current cleanup StairMaster is 10.57 kcal/min versus the YTD Stair baseline of 10.31 kcal/min."
       },
       {
         "title": "Walking role",
