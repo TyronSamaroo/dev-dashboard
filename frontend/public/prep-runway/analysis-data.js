@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-24T22:27:53",
+  "generatedAt": "2026-05-24T22:43:26",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -64,7 +64,7 @@ window.PREP_ANALYSIS_DATA = {
   "dataHealth": {
     "summary": "Usable for decisions; today still needs check-in fields.",
     "missing": [
-      "hunger/energy"
+      "hunger"
     ],
     "rows": [
       {
@@ -89,7 +89,7 @@ window.PREP_ANALYSIS_DATA = {
         "label": "Feedback",
         "value": "1 missing",
         "status": "watch",
-        "read": "hunger/energy"
+        "read": "hunger"
       }
     ]
   },
@@ -127,7 +127,7 @@ window.PREP_ANALYSIS_DATA = {
         "label": "Missing",
         "tone": "warn",
         "value": "1 fields",
-        "text": "hunger/energy"
+        "text": "hunger"
       }
     ],
     "rules": [
@@ -184,7 +184,7 @@ window.PREP_ANALYSIS_DATA = {
         "question": "Can I trust today?",
         "tone": "warn",
         "value": "1 missing",
-        "metric": "hunger/energy",
+        "metric": "hunger",
         "read": "The site can answer trends, but current-day decisions need food, training/cardio, GI, and energy filled.",
         "next": "Log the missing fields once instead of spreading them across chat fragments."
       }
@@ -193,9 +193,9 @@ window.PREP_ANALYSIS_DATA = {
   "checkInPacket": {
     "title": "Prep Runway update packet — Sun 5/24",
     "missing": [
-      "hunger/energy"
+      "hunger"
     ],
-    "text": "Prep Runway update packet — Sun 5/24\nAM weight: 156.3 lb\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nHunger / energy: \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
+    "text": "Prep Runway update packet — Sun 5/24\nAM weight: 156.3 lb\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nEnergy / Hunger / Drive (1-10): \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
     "read": "Paste this once with the missing fields filled. It keeps Analysis, Daily Master, and the Data Ledger aligned."
   },
   "topMetrics": [
@@ -245,13 +245,19 @@ window.PREP_ANALYSIS_DATA = {
         "label": "Off signal",
         "tone": "bad",
         "value": "GI / powder",
-        "text": "Before Monday leg day, keep cardio controlled and use measured carb timing if performance feels flat. Need GI/stool/hunger/soreness to decide whether to add food."
+        "text": "No refeed yet. If energy and drive stay good and physical markers stay good, continue pushing; track Energy/Hunger/Drive as 1-10 instead of guessing cortisol."
+      },
+      {
+        "label": "Subjective",
+        "tone": "warn",
+        "value": "E Good; score pending / H Needs score / D Good; score pending",
+        "text": "Use 1-10 Energy, Hunger, Drive. If energy/drive are good and markers are good, keep pushing; this is a readiness signal, not a cortisol measurement."
       },
       {
         "label": "Missing now",
         "tone": "warn",
         "value": "1 fields",
-        "text": "hunger/energy"
+        "text": "hunger"
       }
     ],
     "rules": [
@@ -774,7 +780,7 @@ window.PREP_ANALYSIS_DATA = {
         "adjusted": 1250.0,
         "apple": 1251.0
       },
-      "decision": "Sunday closed as cardio-only but still hard: 1,170 cal / 166P / 32F / 49C, one 80:48 StairMaster at avg HR 143 / max 157, 13,095 steps, Apple active 1,251. RHR hit true baseline at 42; not a refeed day; Before Monday leg day, keep cardio controlled and use measured carb timing if performance feels flat. Need GI/stool/hunger/soreness to decide whether to add food."
+      "decision": "Sunday closed as cardio-only but still hard: 1,170 cal / 166P / 32F / 49C, one 80:48 StairMaster at avg HR 143 / max 157, 13,095 steps, Apple active 1,251. RHR hit true baseline at 42; not a refeed day; No refeed yet. If energy and drive stay good and physical markers stay good, continue pushing; track Energy/Hunger/Drive as 1-10 instead of guessing cortisol."
     }
   ],
   "mealDays": [
