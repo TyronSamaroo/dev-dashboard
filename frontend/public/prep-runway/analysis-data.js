@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-25T22:09:30",
+  "generatedAt": "2026-05-26T08:30:00",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -16,8 +16,8 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Daily ledger",
       "title": "Weight, macros, sleep, activity",
       "status": "current",
-      "value": "9 rows",
-      "text": "Latest weight is 154.6 on Mon 5/25; latest complete macros are Mon 5/25.",
+      "value": "10 rows",
+      "text": "Latest weight is 154.0 on Tue 5/26; latest complete macros are Mon 5/25.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv"
     },
     {
@@ -56,7 +56,7 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Feedback loop",
       "title": "GI, hunger, energy, soreness",
       "status": "watch",
-      "value": "3 missing",
+      "value": "6 missing",
       "text": "This is the key context layer for interpreting flat scale days during aggressive output.",
       "path": "/Users/tyronsamaroo/Documents/Claude_Cowork/Bodybuilding/Contest Prep/data/manual/cleanup-feedback-loop-may17-jun1-2026.csv"
     }
@@ -64,6 +64,9 @@ window.PREP_ANALYSIS_DATA = {
   "dataHealth": {
     "summary": "Usable for decisions; today still needs check-in fields.",
     "missing": [
+      "sleep/recovery",
+      "macros",
+      "training/cardio",
       "energy",
       "hunger",
       "drive"
@@ -71,9 +74,9 @@ window.PREP_ANALYSIS_DATA = {
     "rows": [
       {
         "label": "Scale trend",
-        "value": "169 → 154.6",
+        "value": "169 → 154.0",
         "status": "current",
-        "read": "-14.4 lb from Sun 5/17 to Mon 5/25."
+        "read": "-15.0 lb from Sun 5/17 to Tue 5/26."
       },
       {
         "label": "Macros",
@@ -89,23 +92,23 @@ window.PREP_ANALYSIS_DATA = {
       },
       {
         "label": "Feedback",
-        "value": "3 missing",
+        "value": "6 missing",
         "status": "watch",
-        "read": "energy, hunger, drive"
+        "read": "sleep/recovery, macros, training/cardio, energy, hunger, drive"
       }
     ]
   },
   "todayStatus": {
-    "date": "2026-05-25",
-    "label": "Mon 5/25",
+    "date": "2026-05-26",
+    "label": "Tue 5/26",
     "headline": "Push, but keep the inputs stable.",
-    "subhead": "Scale/cardio are working. Watch food form, GI, energy, and recovery.",
+    "subhead": "Scale is still moving; today needs sleep, macros, training, recovery, and subjective check-in.",
     "cards": [
       {
         "label": "Scale",
         "tone": "ok",
-        "value": "154.6 lb",
-        "text": "-14.4 lb since Sun 5/17; -1.7 lb vs prior weigh-in."
+        "value": "154.0 lb",
+        "text": "-15.0 lb since Sun 5/17; -0.6 lb vs prior weigh-in."
       },
       {
         "label": "Food form",
@@ -128,8 +131,8 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Missing",
         "tone": "warn",
-        "value": "3 fields",
-        "text": "energy, hunger, drive"
+        "value": "6 fields",
+        "text": "sleep, RHR/HRV, macros, cardio/lift, energy, hunger/drive"
       }
     ],
     "rules": [
@@ -185,28 +188,28 @@ window.PREP_ANALYSIS_DATA = {
       {
         "question": "Can I trust today?",
         "tone": "warn",
-        "value": "3 missing",
-        "metric": "energy, hunger, drive",
-        "read": "The site can answer trends, but current-day decisions need food, training/cardio, GI, and energy filled.",
+        "value": "6 missing",
+        "metric": "sleep/recovery, macros, training/cardio, energy, hunger, drive",
+        "read": "The site can answer the scale trend, but current-day decisions need sleep/recovery, food, training/cardio, GI, and energy filled.",
         "next": "Log the missing fields once instead of spreading them across chat fragments."
       }
     ]
   },
   "checkInPacket": {
-    "title": "Prep Runway update packet — Mon 5/25",
+    "title": "Prep Runway update packet — Tue 5/26",
     "missing": [
       "energy",
       "hunger",
       "drive"
     ],
-    "text": "Prep Runway update packet — Mon 5/25\nAM weight: 154.6 lb\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nEnergy / Hunger / Drive (1-10): \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
+    "text": "Prep Runway update packet — Tue 5/26\nAM weight: 154.0 lb\nSleep: bed / wake / total / RHR / HRV = \nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nEnergy / Hunger / Drive (1-10): \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
     "read": "Paste this once with the missing fields filled. It keeps Analysis, Daily Master, and the Data Ledger aligned."
   },
   "topMetrics": [
     {
       "label": "Scale move",
-      "value": "169 → 154.6",
-      "note": "-14.4 lb from Sun 5/17 to Mon 5/25 morning"
+      "value": "169 → 154.0",
+      "note": "-15.0 lb from Sun 5/17 to Tue 5/26 morning"
     },
     {
       "label": "Intake avg",
@@ -236,8 +239,8 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Scale",
         "tone": "ok",
-        "value": "154.6 lb",
-        "text": "-14.4 lb since Sun 5/17; -1.7 lb vs prior weigh-in."
+        "value": "154.0 lb",
+        "text": "-15.0 lb since Sun 5/17; -0.6 lb vs prior weigh-in."
       },
       {
         "label": "Last complete day",
@@ -260,8 +263,8 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Missing now",
         "tone": "warn",
-        "value": "3 fields",
-        "text": "energy, hunger, drive"
+        "value": "6 fields",
+        "text": "sleep/recovery, macros, training/cardio, energy, hunger, drive"
       }
     ],
     "rules": [
@@ -425,6 +428,18 @@ window.PREP_ANALYSIS_DATA = {
       "lift": "Weight Training 120:16",
       "adjustedActive": 1285.0,
       "read": "Down 1.7 from Sun and 14.4 from 5/17; landed essentially on the 154.5 forecast center and held the aggressive runway."
+    },
+    {
+      "date": "2026-05-26",
+      "label": "Tue 5/26",
+      "phase": "Agg/Rec D6",
+      "weight": 154.0,
+      "delta": -0.6,
+      "calories": null,
+      "protein": null,
+      "lift": "Pending",
+      "adjustedActive": null,
+      "read": "Down 0.6 from Mon and 15.0 from 5/17; inside the 153-155.5 projected truth-window range. Current-day sleep, macros, recovery, and training are still pending."
     }
   ],
   "reportLedger": [
@@ -838,6 +853,47 @@ window.PREP_ANALYSIS_DATA = {
         "apple": 1434.0
       },
       "decision": "Monday closed as an aggressive but recovered day: 1,177 cal / 179P / 18.7F / 72.6C, 9h38m sleep, HRV 125, 2h lift, and a controlled 61:57 StairMaster at avg HR 128. Output stayed high without the Sunday redline HR; Keep aggressive if Energy/Hunger/Drive are usable, but do not add more cardio on top of this output; use measured carbs around hard legs or performance dips."
+    },
+    {
+      "date": "2026-05-26",
+      "day": "Tue",
+      "dateShort": "5/26",
+      "phase": "Agg/Rec D6",
+      "weight": 154.0,
+      "delta": -0.6,
+      "sleep": {
+        "total": null,
+        "detail": "Sleep pending",
+        "rhr": null,
+        "hrv": null
+      },
+      "macros": {
+        "calories": null,
+        "protein": null,
+        "fat": null,
+        "carbs": null
+      },
+      "cardioEvents": [
+        {
+          "label": "Cardio",
+          "title": "Pending",
+          "meta": "Session details pending",
+          "type": "Pending"
+        }
+      ],
+      "liftEvents": [
+        {
+          "label": "Lift",
+          "title": "Pending",
+          "meta": "Session details pending",
+          "type": "Pending"
+        }
+      ],
+      "burn": {
+        "adjusted": null,
+        "apple": null
+      },
+      "decision": "154.0 this morning: down 0.6 from Mon and 15.0 from 5/17. Still inside the Tue forecast range; fill sleep/recovery, macros, cardio/lift, GI, and Energy/Hunger/Drive before changing levers."
     }
   ],
   "mealDays": [
