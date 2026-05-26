@@ -12,7 +12,7 @@
       document.documentElement.dataset.theme = requested === "dark" || saved === "dark" ? "dark" : "light";
     })();
   </script>
-  <link rel="stylesheet" href="prep-runway-ui.css?v=20260523-mobile-wrap2">
+  <link rel="stylesheet" href="prep-runway-ui.css?v=20260525-simplify">
   <script src="prep-runway-theme.js" defer></script>
   <style>
     :root{--surface:rgba(255,255,255,.76);--soft:rgba(15,23,42,.045);--ok:#238636;--warn:#9a6700;--bad:#c24141}
@@ -96,18 +96,12 @@
 </head>
 <body>
   <main class="meal-page">
-    <nav class="doc-nav" aria-label="Prep documents">
-      <a href="home.html">Home</a>
-      <a href="report.html">Daily Master</a>
-      <a href="analysis.html">Analysis</a>
-      <a class="primary" href="meal-patterns.html">Meal Patterns</a>
-      <a href="data-ledger.html">Data Ledger</a>
-      <a href="sheets.html">Sheets</a>
-      <a href="3-day-cleanup.html">Current Cut</a>
-      <a href="148-burn.html">148 Target</a>
-      <a href="full-runway.html">Full Plan</a>
-      <a href="cardio-calibration.html">Cardio Data</a>
-      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
+    <nav class="doc-nav" aria-label="Prep Runway primary navigation">
+      <a href="report.html">Today</a>
+      <a href="analysis.html">Trends</a>
+      <a class="primary" href="meal-patterns.html">Food</a>
+      <a href="training-analytics.html">Training</a>
+      <a href="data-ledger.html">Data</a>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
     </nav>
 
@@ -116,9 +110,9 @@
       <h1>Meal timing, food repeatability, and lift fuel.</h1>
       <p>This is the cleaner version of the coach-report meal views: what is off, when protein meals actually happen, what foods are repeating, and whether pre-lift food is helping the workout.</p>
       <div class="hero-actions">
-        <a class="action primary" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI/edit" target="_blank" rel="noopener">Open Google Sheet</a>
+        <a class="action primary" href="data-ledger.html#sheet-links">Open Sheet Links</a>
         <a class="action" href="analysis.html?view=meals">Open Full Analysis</a>
-        <a class="action" href="sheets.html">Sheet Handoff</a>
+        <a class="action" href="data-ledger.html#sheet-links">Sheet Handoff</a>
       </div>
       <div class="answer-grid" id="answer-grid"></div>
     </section>
@@ -195,7 +189,7 @@
     </section>
   </main>
 
-  <script src="analysis-data.js?v=20260525-weight"></script>
+  <script src="analysis-data.js?v=20260525-close"></script>
   <script>
     (() => {
       const data = window.PREP_ANALYSIS_DATA || {};

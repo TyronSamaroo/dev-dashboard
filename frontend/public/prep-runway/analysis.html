@@ -13,7 +13,7 @@
       document.documentElement.dataset.theme = requested === "dark" || saved === "dark" ? "dark" : "light";
     })();
   </script>
-  <link rel="stylesheet" href="prep-runway-ui.css?v=20260523-mobile-wrap2">
+  <link rel="stylesheet" href="prep-runway-ui.css?v=20260525-simplify">
   <script src="prep-runway-theme.js" defer></script>
   <style>
     :root{--surface:rgba(255,255,255,.72);--soft:rgba(15,23,42,.045);--ok:#238636;--warn:#9a6700;--bad:#c24141}
@@ -38,6 +38,8 @@
     .question-tab.active{border-color:color-mix(in srgb,var(--cyan),transparent 35%);background:color-mix(in srgb,var(--cyan),transparent 84%);color:var(--cyan)}
     .analysis-section.is-hidden{display:none}
     .analysis-section{border-radius:22px;margin-top:14px;overflow:hidden}
+    .analysis-section.compact-brief{margin-top:10px}
+    .compact-brief .compact-status{padding:10px}
     .section-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:17px 18px;border-bottom:1px solid var(--line)}
     .section-head h2{margin:0;font-size:22px;letter-spacing:-.035em}
     .section-head p{max-width:860px;margin:3px 0 0;color:var(--muted);font-size:13px}
@@ -252,33 +254,28 @@
     .update-packet-head span{display:block;color:var(--cyan);font-size:10px;font-weight:950;letter-spacing:.09em;text-transform:uppercase}
     .update-packet-head strong{display:block;margin-top:3px;color:var(--ink);font-size:16px;letter-spacing:-.02em}
     .copy-packet{border:1px solid color-mix(in srgb,var(--cyan),transparent 42%);background:color-mix(in srgb,var(--cyan),transparent 88%);color:var(--cyan);border-radius:999px;padding:8px 11px;font-size:12px;font-weight:950;cursor:pointer;white-space:nowrap}
-    .packet-text{margin:0;padding:13px 14px;color:var(--ink);font:12.5px/1.45 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre-wrap;overflow:auto;max-height:260px;background:var(--soft)}
+    .packet-text{margin:0;padding:13px 14px;color:var(--ink);font:12.5px/1.45 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre-wrap;overflow:auto;max-height:210px;background:var(--soft)}
     .packet-read{padding:10px 14px;color:var(--muted);font-size:12px;line-height:1.35;border-top:1px solid var(--line)}
     .source-note{padding:12px 18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.4;background:var(--soft)}
     @media(max-width:1160px){.topline{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(3,1fr)}.meal-grid{grid-template-columns:repeat(2,1fr)}.anchor-quick-list{grid-template-columns:repeat(3,1fr)}.operating-read{grid-template-columns:1fr}.source-map-grid,.fuel-card-grid,.operating-cards,.prompt-grid,.read-strip,.benchmark-strip,.cardio-answer-grid,.scorecard-grid{grid-template-columns:repeat(2,1fr)}.cardio-visuals{grid-template-columns:1fr 1fr}.cardio-viz-card:last-child{grid-column:span 2}}
-    @media(max-width:760px){main.analysis-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.analysis-hero{padding:18px}.question-shell{display:block}.question-tabs{justify-content:flex-start;margin-top:10px}.question-tab{flex:1 1 auto}.topline,.timeline,.meal-grid,.read-strip,.prompt-grid,.benchmark-strip,.cardio-answer-grid,.cardio-visuals,.food-review-grid,.pattern-grid,.operating-cards,.anchor-quick-list,.fuel-card-grid,.source-map-grid,.scorecard-grid{grid-template-columns:1fr}.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}.preset-strip{grid-template-columns:1fr}.preset-note{grid-column:auto}.pattern-row{grid-template-columns:1fr}.cardio-viz-card:last-child{grid-column:auto}.answer{grid-column:span 12}.section-head{display:block}.section-head p{margin-top:7px}.controls{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}.update-packet-head{display:block}.copy-packet{margin-top:10px;width:100%}}
+    @media(max-width:760px){main.analysis-page{width:calc(100vw - 16px)!important;padding-top:14px!important}.doc-nav{position:static!important}.analysis-hero{padding:18px}.question-shell{display:block}.question-tabs{justify-content:flex-start;margin-top:10px}.question-tab{flex:1 1 auto}.timeline,.meal-grid,.read-strip,.prompt-grid,.benchmark-strip,.cardio-answer-grid,.cardio-visuals,.food-review-grid,.pattern-grid,.operating-cards,.anchor-quick-list,.fuel-card-grid,.source-map-grid,.scorecard-grid{grid-template-columns:1fr}.topline{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:12px}.top-metric{padding:10px}.top-metric strong{font-size:20px}.top-metric em{font-size:11px}.protein-split-row{grid-template-columns:1fr}.protein-meta{text-align:left}.preset-strip{grid-template-columns:1fr}.preset-note{grid-column:auto}.pattern-row{grid-template-columns:1fr}.cardio-viz-card:last-child{grid-column:auto}.answer{grid-column:span 12}.section-head{display:block}.section-head p{margin-top:7px}.controls{align-items:flex-start}.sort-control{width:100%;justify-content:space-between}.update-packet-head{display:block}.copy-packet{margin-top:10px;width:100%}}
+    @media(max-width:430px){.top-metric em{display:none}.top-metric{min-height:84px}}
   </style>
 </head>
 <body>
   <main class="analysis-page">
-    <nav class="doc-nav" aria-label="Prep documents">
-      <a href="home.html">Home</a>
-      <a href="report.html">Daily Master</a>
-      <a class="primary" href="analysis.html">Analysis</a>
-      <a href="meal-patterns.html">Meal Patterns</a>
-      <a href="data-ledger.html">Data Ledger</a>
-      <a href="sheets.html">Sheets</a>
-      <a href="3-day-cleanup.html">Current Cut</a>
-      <a href="148-burn.html">148 Target</a>
-      <a href="full-runway.html">Full Plan</a>
-      <a href="cardio-calibration.html">Cardio Data</a>
-      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
+    <nav class="doc-nav" aria-label="Prep Runway primary navigation">
+      <a href="report.html">Today</a>
+      <a class="primary" href="analysis.html">Trends</a>
+      <a href="meal-patterns.html">Food</a>
+      <a href="training-analytics.html">Training</a>
+      <a href="data-ledger.html">Data</a>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
     </nav>
 
     <section class="analysis-hero">
       <div class="eyebrow">OCB Prep · answer board · May 17-22</div>
-      <h1>What is the data saying?</h1>
+      <h1>Trends: on track, off track, next lever.</h1>
       <p>This page sits between the pretty Daily Master and the raw Data Ledger. It answers the operating questions first, then links the pattern back to meals, training, cardio, sleep, and scale.</p>
       <div class="topline">
         <div class="top-metric"><span>Scale move</span><strong>169 → 157.0</strong><em>-12.0 lb from Sun to Sat morning</em></div>
@@ -299,6 +296,10 @@
         <button class="question-tab" type="button" data-analysis-view="cardio" role="tab" aria-selected="false">Cardio trend</button>
         <button class="question-tab" type="button" data-analysis-view="all" role="tab" aria-selected="false">All</button>
       </div>
+    </section>
+
+    <section class="analysis-section compact-brief" data-analysis-panel="overview all">
+      <div class="compact-status" id="analysis-status-strip"></div>
     </section>
 
     <section class="analysis-section" data-analysis-panel="overview all">
@@ -666,7 +667,7 @@
     </section>
   </main>
 
-  <script src="analysis-data.js?v=20260525-weight"></script>
+  <script src="analysis-data.js?v=20260525-close"></script>
   <script>
     (() => {
       const data = window.PREP_ANALYSIS_DATA;
@@ -850,6 +851,37 @@
         <strong>Data health:</strong> ${escapeHtml(dataHealth.summary || "No structured data-health read.")} ·
         <strong>Missing now:</strong> ${escapeHtml((dataHealth.missing || []).join(", ") || (data.operatingRead?.cards || []).find(card => card.label === "Missing now")?.text || "No current missing-field read.")}
       `);
+      const missingFields = dataHealth.missing || data.checkInPacket?.missing || [];
+      setHtml("#analysis-status-strip", `
+        <article class="compact-status-card">
+          <span>Overview mode</span>
+          <strong>Answer first, proof lower.</strong>
+          <p>${escapeHtml(data.questionScorecard?.summary || "Use the tabs for meal, food, fuel, and cardio detail.")}</p>
+        </article>
+        <article class="compact-status-card">
+          <span>Missing now</span>
+          <strong>${escapeHtml(missingFields.length ? `${missingFields.length} fields` : "No current gap")}</strong>
+          <div class="compact-missing-list">
+            ${missingFields.map(field => `<b>${escapeHtml(field)}</b>`).join("") || "<b>clear</b>"}
+          </div>
+        </article>
+        <button class="compact-status-action" id="copy-status-packet" type="button">
+          <span>Check-in packet</span>
+          <strong>${escapeHtml(data.checkInPacket?.title || "Copy the missing-field packet")}</strong>
+          <em>Copy packet</em>
+        </button>
+      `);
+      document.getElementById("copy-status-packet")?.addEventListener("click", async event => {
+        const button = event.currentTarget;
+        const packetText = data.checkInPacket?.text || "";
+        try {
+          await navigator.clipboard.writeText(packetText);
+          button.querySelector("em").textContent = "Copied";
+          setTimeout(() => { button.querySelector("em").textContent = "Copy packet"; }, 1600);
+        } catch {
+          window.prompt("Copy this Prep Runway packet:", packetText);
+        }
+      });
 
       setHtml(".timeline", data.dayCards.map(day => `
         <article class="day-card">

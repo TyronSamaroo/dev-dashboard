@@ -12,7 +12,7 @@
       document.documentElement.dataset.theme = requested === "dark" || stored === "dark" ? "dark" : "light";
     })();
   </script>
-  <link rel="stylesheet" href="prep-runway-ui.css?v=20260523-mobile-wrap2">
+  <link rel="stylesheet" href="prep-runway-ui.css?v=20260525-simplify">
   <script src="prep-runway-theme.js" defer></script>
   <style>
     :root{--surface:rgba(255,255,255,.74);--soft:rgba(15,23,42,.045);--ok:#238636;--warn:#9a6700}
@@ -72,20 +72,15 @@
 </head>
 <body>
   <main class="sheets-page">
-    <nav class="doc-nav" aria-label="Prep documents">
-      <a href="home.html">Home</a>
-      <a href="report.html">Daily Master</a>
-      <a href="analysis.html">Analysis</a>
-      <a href="meal-patterns.html">Meal Patterns</a>
-      <a href="data-ledger.html">Data Ledger</a>
-      <a class="primary" href="sheets.html">Sheets</a>
-      <a href="3-day-cleanup.html">Current Cut</a>
-      <a href="148-burn.html">148 Target</a>
-      <a href="full-runway.html">Full Plan</a>
-      <a href="cardio-calibration.html">Cardio Data</a>
-      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
+    <nav class="doc-nav" aria-label="Prep Runway primary navigation">
+      <a href="report.html">Today</a>
+      <a href="analysis.html">Trends</a>
+      <a href="meal-patterns.html">Food</a>
+      <a href="training-analytics.html">Training</a>
+      <a class="primary" href="data-ledger.html#sheet-links">Data</a>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
     </nav>
+    <div class="archive-banner"><strong>Moved under Data.</strong> Sheet links are now part of the Data tab. This old guide remains available for reference.</div>
 
     <section class="sheet-hero">
       <div class="eyebrow">OCB Prep · Google Sheets handoff</div>
@@ -171,7 +166,7 @@
       </section>
     </div>
   </main>
-  <script src="analysis-data.js?v=20260525-weight"></script>
+  <script src="analysis-data.js?v=20260525-close"></script>
   <script>
     (() => {
       const sheetUrl = `${location.origin}/prep-runway/open-sheet.html`;

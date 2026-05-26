@@ -27,7 +27,7 @@
     html[data-theme="light"] .macro-card.very-low{border-left-color:var(--amber)}
     html[data-theme="light"] .macro-card.on-runway{border-left-color:var(--green)}
   </style>
-  <link rel="stylesheet" href="prep-runway-ui.css?v=20260523-mobile-wrap2">
+  <link rel="stylesheet" href="prep-runway-ui.css?v=20260525-simplify">
   <style>
     .current-read-strip{display:grid;grid-template-columns:1.25fr repeat(4,1fr);gap:10px;margin:12px 0}
     .current-read-card{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.04);padding:12px;min-width:0}
@@ -75,40 +75,40 @@
 	    @media(max-width:980px){.term-legend{grid-template-columns:repeat(2,minmax(0,1fr))}.master-ledger{min-width:1480px!important}}
 	    @media(max-width:760px){.term-legend{grid-template-columns:1fr}.ledger-wrap{overflow:visible!important;padding-bottom:0}.master-ledger{min-width:0!important}.macro-rest{white-space:normal!important}}
 	  </style>
+	  <style>
+	    .hero .lead,.current-read-card strong,.current-read-card p{max-width:100%;overflow-wrap:anywhere;word-break:normal}
+	    @media(max-width:760px){.hero .lead,.current-read-card strong,.current-read-card p{width:280px!important;max-width:calc(100vw - 86px)!important}.current-read-strip{display:block!important}.current-read-card{width:100%;max-width:100%;margin:0 0 10px;min-width:0}.current-read-card:last-child{margin-bottom:0}}
+	  </style>
 </head>
 <body>
   <main>
-    <nav class="doc-nav" aria-label="Prep documents">
-      <a href="home.html">Home</a>
-      <a class="primary" href="report.html">Daily Master</a>
-      <a href="analysis.html">Analysis</a>
-      <a href="meal-patterns.html">Meal Patterns</a>
-      <a href="data-ledger.html">Data Ledger</a>
-      <a href="sheets.html">Sheets</a>
-      <a href="3-day-cleanup.html">Current Cut</a>
-      <a href="148-burn.html">148 Target</a>
-      <a href="full-runway.html">Full Plan</a>
-      <a href="cardio-calibration.html">Cardio Data</a>
-      <a href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Google Sheet</a>
+    <nav class="doc-nav" aria-label="Prep Runway primary navigation">
+      <a class="primary" href="report.html">Today</a>
+      <a href="analysis.html">Trends</a>
+      <a href="meal-patterns.html">Food</a>
+      <a href="training-analytics.html">Training</a>
+      <a href="data-ledger.html">Data</a>
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark theme">Dark mode</button>
     </nav>
 
     <section class="hero">
-      <div class="eyebrow">OCB Prep · master source · May 18-June 1</div>
-      <h1>Master Prep Runway: 148 by June 1</h1>
-      <p class="lead">One hub for the completed 3-day cleanup, the active May 21-25 aggressive/recoverable cut, the 148-by-June runway, and the local data behind the decisions.</p>
+      <div class="eyebrow">OCB Prep · today · May 18-June 1</div>
+      <h1>Today: daily operating read</h1>
+      <p class="lead">Daily status first. Details live in Data.</p>
     </section>
 
     <section class="grid">
       <article class="card span-12">
 	        <h2>Daily Ledger — Starts May 17</h2>
-	        <p>One row per day. This is the operating view; everything else is reference.</p>
+	        <p>One row per day. Everything else is reference.</p>
 	        <div class="current-read-strip" id="current-read-strip" aria-label="Current operating read"></div>
 	        <div class="term-legend" aria-label="Daily Master term legend">
 	          <div class="legend-pill"><strong>D1/D2/D3</strong><span>Day 1/2/3 inside the current phase.</span></div>
 	          <div class="legend-pill"><strong>Cleanup</strong><span>Aggressive water/glycogen/gut-content cleanup block.</span></div>
 	          <div class="legend-pill"><strong>Agg/Rec</strong><span>Aggressive but recoverable phase after the initial cleanup.</span></div>
 	          <div class="legend-pill"><strong>Adj burn</strong><span>Adjusted active burn after discounting inflated workout calories.</span></div>
+	          <div class="legend-pill"><strong>RHR / HRV</strong><span>Recovery markers: resting heart rate and heart-rate variability.</span></div>
+	          <div class="legend-pill"><strong>PSMF</strong><span>Protein-sparing modified fast: high protein with low calories/carbs/fats.</span></div>
 	          <div class="legend-pill"><strong>Primer</strong><span>Setup day before the tracked cleanup block.</span></div>
 	          <div class="legend-pill"><strong>Marker-led</strong><span>Adjust by sleep, RHR, HRV, GI, soreness, and scale trend.</span></div>
 	          <div class="legend-pill"><strong>AM/PM</strong><span>Morning/evening cardio or training blocks.</span></div>
@@ -292,7 +292,7 @@
           <summary>Full data ledger — separate non-truncated page</summary>
           <div style="padding:0 16px 16px">
             <p>The dense CSV-style ledger moved to its own wide page so rows/columns wrap instead of getting cut off.</p>
-            <p style="margin-top:10px"><a class="tag blue" href="data-ledger.html">Open Data Ledger</a><a class="tag blue" href="https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI" target="_blank" rel="noopener">Open Google Sheet</a></p>
+            <p style="margin-top:10px"><a class="tag blue" href="data-ledger.html">Open Data Ledger</a><a class="tag blue" href="data-ledger.html#sheet-links">Open Sheet Links</a></p>
           </div>
         </details>
         <details class="reference-drawer" style="margin-top:12px">
@@ -323,62 +323,10 @@
         </details>
         <details class="reference-drawer" style="margin-top:12px">
           <summary>Supporting timing, sleep, movement, and missing-data tables</summary>
-          <div class="table-wrap compact-table-wrap">
-          <table class="compact-ref timing-ref">
-            <thead><tr><th>Day</th><th>Night</th><th>Nap</th><th>Total</th><th>Bed</th><th>Wake</th><th>Cardio Timing</th><th>Lift Timing</th><th>Move</th></tr></thead>
-            <tbody>
-	              <tr><td>5/17 Sun</td><td>8h22</td><td>—</td><td>8h22</td><td>1:58a</td><td>10:46a</td><td title="Short walk; exact time unknown.">Walk unk</td><td title="Legs from 3:27p to 4:24p.">Legs 3:27-4:24p</td><td>—</td></tr>
-	              <tr><td>5/18 Mon</td><td>6h24</td><td title="Nap from 12:29p to 2:09p.">1h36 @12:29p</td><td>8h00</td><td>10:21p</td><td>5:30a</td><td title="8:07-8:52a Stair; 6:37-7:07p Stair.">S 8:07-8:52a; S 6:37-7:07p</td><td title="Pull from 4:58p to 6:36p.">Pull 4:58-6:36p</td><td title="Home after AM cardio at 9:02a.">Home 9:02a</td></tr>
-	              <tr><td>5/19 Tue</td><td>5h53</td><td title="Nap from 1:59p to 2:56p.">46m @1:59p</td><td>6h39</td><td>11:16p</td><td>5:35a</td><td title="6:30-7:18a Stair; 5:36-6:06p Stair.">S 6:30-7:18a; S 5:36-6:06p</td><td title="Arms from 4:10p to 5:36p.">Arms 4:10-5:36p</td><td title="Walk from 8:31p to 9:24p.">W 8:31-9:24p</td></tr>
-	              <tr><td>5/20 Wed</td><td>6h10</td><td>—</td><td>6h10</td><td>11:15p</td><td>5:39a</td><td title="6:50-7:35a Stair; 8:39-9:42a walk; 6:38-7:22p walk.">S 6:50-7:35a; W 8:39a; W 6:38p</td><td>No lift</td><td title="17,197 steps.">17.2k steps</td></tr>
-	              <tr><td>5/21 Thu</td><td>8h26</td><td>—</td><td>8h26</td><td>10:59p</td><td>7:28a</td><td title="9:24-10:15a StairMaster; 3:53-4:25p StairMaster.">S 9:24-10:15a; S 3:53-4:25p</td><td title="Weight Training from 2:25p to 3:53p.">Lift 2:25-3:53p</td><td title="11,903 steps, 5.17 miles, 9 floors.">11.9k steps</td></tr>
-	              <tr><td>5/22 Fri</td><td>7h25</td><td>—</td><td>7h25</td><td>11:58p</td><td>7:29a</td><td title="7:03-7:54a Stair; 5:35-6:25p Stair.">S 7:03-7:54a; S 5:35-6:25p</td><td title="Pull from 3:45p to 5:33p.">Pull 3:45-5:33p</td><td title="11,987 steps.">12.0k steps</td></tr>
-	              <tr><td>5/23 Sat</td><td>7h47</td><td>—</td><td>7h47</td><td>12:10a</td><td>8:27a</td><td title="Post-lift StairMaster 3:13-4:14p.">3:13-4:14p Stair</td><td title="Arms/shoulders-style weight training 1:12-3:13p.">1:12-3:13p lift</td><td>8,029 steps</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="table-wrap compact-table-wrap">
-          <table class="compact-ref sleep-ref">
-            <thead><tr><th>Day</th><th>Bed</th><th>Wake</th><th>Asleep</th><th>In Bed</th><th>Eff</th><th>Core</th><th>REM</th><th>Deep</th><th>Awake</th><th>RHR</th><th>HRV</th><th>Read</th></tr></thead>
-            <tbody>
-	              <tr><td>5/17 Sun</td><td>1:58a</td><td>10:46a</td><td>8h22</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td title="Long sleep after disruption; primer day.">Long sleep</td></tr>
-	              <tr><td>5/18 Mon</td><td>10:21p</td><td>5:30a</td><td>6h24</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td title="Shorter night offset by 1h36m nap later.">Nap helped</td></tr>
-	              <tr><td>5/19 Tue</td><td>11:16p</td><td>5:35a</td><td>5h53</td><td>6h18</td><td>93%</td><td>3h46</td><td>54m</td><td>1h13</td><td>25m</td><td class="num">51</td><td class="num">110</td><td title="Short night but efficient; recovery was still usable.">Short</td></tr>
-	              <tr><td>5/20 Wed</td><td>11:15p</td><td>5:39a</td><td>6h10</td><td>6h25</td><td>96%</td><td>3h39</td><td>1h51</td><td>40m</td><td>15m</td><td class="num">50</td><td class="num">112</td><td title="Still short but efficient; no-lift day helped.">Efficient</td></tr>
-	              <tr><td>5/21 Thu</td><td>10:59p</td><td>7:28a</td><td>8h26</td><td>8h29</td><td>99%</td><td>5h19</td><td>2h11</td><td>56m</td><td>3m</td><td class="num">47</td><td class="num">120</td><td title="Recovery crash; body forced rest and markers improved.">Recovery crash</td></tr>
-	              <tr><td>5/22 Fri</td><td>11:58p</td><td>7:29a</td><td>7h25</td><td>—</td><td>—</td><td>4h38</td><td>2h10</td><td>35m</td><td>—</td><td class="num">45</td><td class="num">116.6</td><td title="Good recovery marker day before another high-output training day.">Good marker</td></tr>
-	              <tr><td>5/23 Sat</td><td>12:10a</td><td>8:27a</td><td>7h47</td><td>8h17</td><td>94%</td><td>4h47</td><td>2h05</td><td>55m</td><td>24m</td><td class="num">44</td><td class="num">105.7</td><td title="Strong sleep and RHR; HRV dipped after Friday volume but remains usable.">Usable</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="table-wrap compact-table-wrap">
-          <table class="compact-ref activity-ref">
-            <thead><tr><th>Day</th><th>Steps</th><th>Distance</th><th>Floors</th><th>Read</th></tr></thead>
-            <tbody>
-	              <tr><td>5/17 Sun</td><td class="num">5,817</td><td>2.52 mi</td><td class="num">10</td><td title="Primer day; enough movement around leg day.">Primer; enough movement</td></tr>
-	              <tr><td>5/18 Mon</td><td class="num">10,227</td><td>4.45 mi</td><td class="num">8</td><td title="Good baseline with two StairMaster blocks.">Good baseline</td></tr>
-	              <tr><td>5/19 Tue</td><td class="num">14,529</td><td>6.49 mi</td><td class="num">11</td><td title="High output; this is why tomorrow should pull back.">High output</td></tr>
-	              <tr><td>5/20 Wed</td><td class="num">17,197</td><td>7.71 mi</td><td class="num">10</td><td title="No lift, but high walking volume kept output elevated.">High walk volume</td></tr>
-	              <tr><td>5/21 Thu</td><td class="num">11,903</td><td>5.17 mi</td><td class="num">9</td><td title="High output despite fewer steps because two StairMaster blocks plus dense lift drove active burn.">High output</td></tr>
-	              <tr><td>5/22 Fri</td><td class="num">11,987</td><td>Pending</td><td>Pending</td><td title="High output from two StairMaster blocks plus pull day.">High output</td></tr>
-	              <tr><td>5/23 Sat</td><td>8,029</td><td>3.45 mi</td><td>6</td><td title="Controlled day after Friday: one lift plus one StairMaster.">Controlled aggressive output.</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="table-wrap compact-table-wrap">
-          <table class="compact-ref missing-ref">
-            <thead><tr><th>Date</th><th>Gap</th><th>Action / Read</th></tr></thead>
-            <tbody>
-	              <tr><td>5/17 Sun</td><td>Walk time</td><td title="Walk time remains untracked; no further action unless you want exact walk timing.">Only if you want exact walk timing.</td></tr>
-	              <tr><td>5/18 Mon</td><td>Na / fiber</td><td title="Sodium/fiber remain unknown; sleep timing is now filled.">Check MacroFactor only if needed.</td></tr>
-	              <tr><td>5/19 Tue</td><td>Na / fiber</td><td title="Sodium/fiber remain unavailable in HK; Wednesday pull resolved weight, RHR, HRV, sleep, and workouts.">Core data resolved.</td></tr>
-	              <tr><td>5/20 Wed</td><td>HR timeout + Na/fiber</td><td title="Re-query HR per workout if you want tighter adjusted burn; otherwise the day is usable.">Usable; HR re-query optional.</td></tr>
-	              <tr><td>5/21 Thu</td><td>Lift label only</td><td title="Core data is complete; body-part label for the lift is still unknown.">Tell me legs/pull/arms/etc. if you want it classified.</td></tr>
-	              <tr><td>5/22 Fri</td><td>GI/hunger/soreness</td><td title="Workout, macros, sleep, and recovery are filled; subjective feedback remains useful.">Subjective feedback still useful.</td></tr>
-	              <tr><td>5/23 Sat</td><td>GI, hunger, energy, soreness</td><td title="Macros, training, cardio, steps, and sleep are now filled; subjective recovery is still missing.">Add subjective feedback only.</td></tr>
-            </tbody>
-          </table>
-        </div>
+          <div style="padding:0 16px 16px">
+            <p>Moved out of Today so the operating page stays readable. Use the Data tab for sleep, activity, cardio, training, and missing-field tables.</p>
+            <p style="margin-top:10px"><a class="tag blue" href="data-ledger.html#sleep">Sleep data</a><a class="tag blue" href="data-ledger.html#cardio">Cardio rows</a><a class="tag blue" href="data-ledger.html#training">Training rows</a></p>
+          </div>
         </details>
       </article>
 
@@ -572,7 +520,7 @@
     </section>
 	    <p class="footer">Private prep planning artifact for contest-prep execution and evidence review, not medical advice.</p>
 	  </main>
-		  <script src="analysis-data.js?v=20260525-weight"></script>
+		  <script src="analysis-data.js?v=20260525-close"></script>
 	  <script>
 	    (() => {
 	      const data = window.PREP_ANALYSIS_DATA || {};

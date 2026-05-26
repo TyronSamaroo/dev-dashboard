@@ -138,6 +138,71 @@ html[data-theme="dark"] .doc-nav a.primary {
   cursor: pointer !important;
 }
 
+.archive-banner {
+  border: 1px solid rgba(154, 103, 0, .28);
+  background: rgba(154, 103, 0, .08);
+  color: var(--muted);
+  border-radius: 16px;
+  padding: 11px 13px;
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.archive-banner strong {
+  color: var(--ink);
+}
+
+.archive-banner a {
+  color: var(--cyan);
+  font-weight: 900;
+}
+
+.sheet-link-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 14px 18px 18px;
+}
+
+.sheet-link-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .62);
+  color: inherit;
+  min-height: 120px;
+  padding: 13px;
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .sheet-link-card {
+  background: rgba(255, 255, 255, .035);
+}
+
+.sheet-link-card span {
+  color: var(--cyan);
+  display: block;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.sheet-link-card strong {
+  display: block;
+  font-size: 18px;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+  margin-top: 7px;
+}
+
+.sheet-link-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+  margin: 7px 0 0;
+}
+
 .eyebrow {
   color: var(--cyan) !important;
   font-size: 11px !important;
@@ -245,6 +310,115 @@ html[data-theme="dark"] .danger {
   background: rgba(154, 103, 0, .08) !important;
 }
 
+.compact-status {
+  display: grid;
+  grid-template-columns: minmax(240px, .9fr) minmax(0, 1.35fr) auto;
+  gap: 10px;
+  align-items: stretch;
+  padding: 12px;
+}
+
+.compact-status-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .72);
+  padding: 12px;
+}
+
+html[data-theme="dark"] .compact-status-card {
+  background: rgba(255, 255, 255, .04);
+}
+
+.compact-status-card span,
+.compact-status-action span {
+  display: block;
+  color: var(--cyan);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.compact-status-card strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+}
+
+.compact-status-card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.compact-missing-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.compact-missing-list b {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border: 1px solid color-mix(in srgb, var(--amber), transparent 58%);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--amber), transparent 91%);
+  color: var(--amber);
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.compact-status-action {
+  display: flex;
+  min-width: 170px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid color-mix(in srgb, var(--cyan), transparent 45%);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--cyan), transparent 89%);
+  color: var(--ink);
+  padding: 12px;
+  text-decoration: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.compact-status-action strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.15;
+}
+
+.compact-status-action em {
+  color: var(--cyan);
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.compact-status-action:hover,
+.compact-status-card:hover {
+  border-color: color-mix(in srgb, var(--cyan), transparent 42%);
+}
+
 @media (max-width: 760px) {
   main {
     width: auto !important;
@@ -287,6 +461,17 @@ html[data-theme="dark"] .danger {
     margin-left: 0 !important;
   }
 
+  .sheet-link-grid {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    padding: 10px;
+  }
+
+  .sheet-link-card {
+    min-height: 0;
+    padding: 10px;
+  }
+
   .hero {
     padding: 14px !important;
     overflow: hidden !important;
@@ -309,6 +494,24 @@ html[data-theme="dark"] .danger {
     max-width: 100% !important;
     white-space: normal !important;
     overflow-wrap: anywhere !important;
+  }
+
+  .compact-status {
+    grid-template-columns: 1fr !important;
+    gap: 7px !important;
+    padding: 7px !important;
+  }
+
+  .compact-status-card,
+  .compact-status-action {
+    min-width: 0 !important;
+    border-radius: 14px !important;
+    padding: 10px !important;
+  }
+
+  .compact-status-card strong,
+  .compact-status-action strong {
+    font-size: 15px !important;
   }
 }
 
@@ -366,6 +569,48 @@ html[data-theme="dark"] .danger {
 }
 
 @media (max-width: 760px) {
+  main,
+  main.training-page {
+    width: calc(100vw - 52px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hero,
+  .card,
+  .doc-nav,
+  .training-hero,
+  .tool-strip,
+  .training-panel,
+  .detail-panel,
+  .prompt-panel,
+  .cardio-section {
+    max-width: 100% !important;
+  }
+
+  .doc-nav {
+    gap: 5px !important;
+    padding: 7px !important;
+    overflow: visible !important;
+  }
+
+  .doc-nav a,
+  .theme-toggle {
+    flex: 0 0 auto !important;
+    margin-left: 0 !important;
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .theme-toggle {
+    font-size: 0 !important;
+  }
+
+  .theme-toggle::after {
+    content: "Mode";
+    font-size: 11px !important;
+  }
+
   .ledger-wrap {
     overflow: visible !important;
     padding-bottom: 0 !important;
