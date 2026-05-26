@@ -42,7 +42,7 @@ html[data-theme="light"] {
   --faint: #7b8798;
   --line: rgba(21,33,52,.14);
   --accent: #c2415a;
-  --accent-soft: rgba(194,65,90,.10);
+  --accent-soft: rgba(194,65,90,.08);
   --green: #238636;
   --blue: #315db8;
   --cyan: #047c86;
@@ -429,8 +429,8 @@ body {
 }
 html[data-theme="light"] body {
   background:
-    radial-gradient(circle at 0 0, rgba(4,124,134,.12), transparent 34rem),
-    radial-gradient(circle at 100% 10%, rgba(194,65,90,.09), transparent 34rem),
+    radial-gradient(circle at 0 0, rgba(70,214,219,.18), transparent 34rem),
+    radial-gradient(circle at 100% 10%, rgba(81,183,73,.12), transparent 32rem),
     linear-gradient(180deg,#fbfcff,#f3f7fb 58%,#eef4f8);
 }
 .header {
@@ -1245,6 +1245,221 @@ html[data-theme="light"] [style*="color:#ccc"] {
 html[data-theme="light"] [style*="color:#fff"],
 html[data-theme="light"] [style*="color:white"] {
   color: var(--text) !important;
+}
+
+/* Prep Runway hybrid light mode: layered, readable, and no dark table islands. */
+html[data-theme="light"] .header,
+html[data-theme="light"] .main-tabs,
+html[data-theme="light"] .control-toolbar,
+html[data-theme="light"] .current-prep-empty,
+html[data-theme="light"] .analysis-hero,
+html[data-theme="light"] .analysis-block,
+html[data-theme="light"] .analysis-stat,
+html[data-theme="light"] .analysis-lens-card,
+html[data-theme="light"] .current-update,
+html[data-theme="light"] .week-banner,
+html[data-theme="light"] .week-read,
+html[data-theme="light"] .view-note,
+html[data-theme="light"] .food-review-leaderboard,
+html[data-theme="light"] .insight-box,
+html[data-theme="light"] .mp-template-box,
+html[data-theme="light"] .te-wrap {
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(239,245,250,.90)) !important;
+  border-color: var(--line) !important;
+  box-shadow: 0 18px 56px rgba(16,24,40,.10);
+  color: var(--text) !important;
+}
+html[data-theme="light"] .main-panel {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] .main-tabs,
+html[data-theme="light"] .control-toolbar {
+  backdrop-filter: blur(18px);
+}
+html[data-theme="light"] .header {
+  border-bottom-color: rgba(21,33,52,.12);
+}
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .main-tab,
+html[data-theme="light"] .phase-btn,
+html[data-theme="light"] .range-btn,
+html[data-theme="light"] .range-select,
+html[data-theme="light"] .food-tab,
+html[data-theme="light"] .mp-view-btn,
+html[data-theme="light"] .week-nav a {
+  background: rgba(255,255,255,.72) !important;
+  border-color: var(--line) !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] .main-tab.active,
+html[data-theme="light"] .phase-btn.active,
+html[data-theme="light"] .range-btn.active,
+html[data-theme="light"] .food-tab.active,
+html[data-theme="light"] .mp-view-btn.active {
+  background: rgba(194,65,90,.085) !important;
+  border-color: rgba(194,65,90,.32) !important;
+  color: var(--accent) !important;
+}
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .main-tab:hover,
+html[data-theme="light"] .phase-btn:hover,
+html[data-theme="light"] .range-btn:hover,
+html[data-theme="light"] .range-select:hover,
+html[data-theme="light"] .food-tab:hover,
+html[data-theme="light"] .mp-view-btn:hover,
+html[data-theme="light"] .week-nav a:hover {
+  border-color: rgba(4,124,134,.32) !important;
+  color: var(--cyan) !important;
+}
+html[data-theme="light"] .baseline-focus-strip {
+  background: rgba(194,65,90,.045) !important;
+  border-color: rgba(194,65,90,.20) !important;
+}
+html[data-theme="light"] .baseline-focus-items > div {
+  border-left-color: rgba(194,65,90,.28) !important;
+}
+html[data-theme="light"] .baseline-partial-metrics span,
+html[data-theme="light"] body[data-report-phase="baseline"] .baseline-focus-week td,
+html[data-theme="light"] body[data-report-phase="baseline"] .baseline-partial-row td,
+html[data-theme="light"] body[data-report-phase="history"] .baseline-partial-row td {
+  background: rgba(194,65,90,.035) !important;
+  border-color: rgba(194,65,90,.16) !important;
+}
+html[data-theme="light"] .food-frequency-head h3,
+html[data-theme="light"] .food-drilldown-title,
+html[data-theme="light"] .meal-timing-slot,
+html[data-theme="light"] .meal-template-anchor,
+html[data-theme="light"] .food-frequency-table .food-name {
+  color: var(--text) !important;
+}
+html[data-theme="light"] .food-review-legend,
+html[data-theme="light"] .food-review-control,
+html[data-theme="light"] .food-frequency-meta,
+html[data-theme="light"] .food-frequency-empty,
+html[data-theme="light"] .meal-template-empty,
+html[data-theme="light"] .food-review-table .raw-names,
+html[data-theme="light"] .week-banner .meta {
+  color: var(--muted) !important;
+}
+html[data-theme="light"] .food-review-legend strong {
+  color: var(--accent) !important;
+}
+html[data-theme="light"] .food-review-control select,
+html[data-theme="light"] .food-frequency-table-wrap,
+html[data-theme="light"] .current-table-wrap {
+  background: rgba(255,255,255,.70) !important;
+  border-color: var(--line) !important;
+  color: var(--text) !important;
+}
+html[data-theme="light"] .food-frequency-table,
+html[data-theme="light"] .food-review-table,
+html[data-theme="light"] .workout-review-table,
+html[data-theme="light"] .summary-table,
+html[data-theme="light"] .current-table,
+html[data-theme="light"] .consistency-table {
+  background: rgba(255,255,255,.72) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+  box-shadow: none !important;
+}
+html[data-theme="light"] .food-frequency-table th,
+html[data-theme="light"] .food-review-table th,
+html[data-theme="light"] .workout-review-table th,
+html[data-theme="light"] .summary-table th,
+html[data-theme="light"] .current-table th,
+html[data-theme="light"] .consistency-table th,
+html[data-theme="light"] .session-header,
+html[data-theme="light"] .cat-header {
+  background: rgba(15,23,42,.055) !important;
+  color: #3f4d5f !important;
+  border-color: var(--line) !important;
+}
+html[data-theme="light"] .food-frequency-table td,
+html[data-theme="light"] .food-review-table td,
+html[data-theme="light"] .workout-review-table td,
+html[data-theme="light"] .summary-table td,
+html[data-theme="light"] .current-table td,
+html[data-theme="light"] .consistency-table td {
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+html[data-theme="light"] .food-frequency-table tr:hover,
+html[data-theme="light"] .food-review-table tr:hover,
+html[data-theme="light"] .workout-review-table tr:hover,
+html[data-theme="light"] .summary-table tr:hover,
+html[data-theme="light"] .current-table tr:hover,
+html[data-theme="light"] .consistency-table tr:hover {
+  background: rgba(4,124,134,.055) !important;
+}
+html[data-theme="light"] .day-col,
+html[data-theme="light"] .mp-cell,
+html[data-theme="light"] .hm-cell,
+html[data-theme="light"] .tm-cell,
+html[data-theme="light"] .pd-cell,
+html[data-theme="light"] .wk-summary-card,
+html[data-theme="light"] .current-card,
+html[data-theme="light"] .current-metric,
+html[data-theme="light"] .empty-metrics div {
+  background: rgba(255,255,255,.72) !important;
+  border-color: var(--line) !important;
+  color: var(--text) !important;
+  box-shadow: 0 10px 30px rgba(16,24,40,.08);
+}
+html[data-theme="light"] .day-hdr,
+html[data-theme="light"] .meal-hdr,
+html[data-theme="light"] .food-col-hdr,
+html[data-theme="light"] .day-total,
+html[data-theme="light"] .wx-section,
+html[data-theme="light"] .mp-day-hdr,
+html[data-theme="light"] .mp-meal-label,
+html[data-theme="light"] .te-wk-hdr,
+html[data-theme="light"] .set-pill {
+  background: rgba(15,23,42,.045) !important;
+  border-color: var(--line) !important;
+}
+html[data-theme="light"] .meal-group,
+html[data-theme="light"] .food-row,
+html[data-theme="light"] .stat-strip,
+html[data-theme="light"] .macro-bar {
+  border-color: var(--line) !important;
+}
+html[data-theme="light"] .food-row:hover,
+html[data-theme="light"] .mp-cell:hover {
+  background: rgba(4,124,134,.045) !important;
+}
+html[data-theme="light"] .food-frequency-table td.food-type,
+html[data-theme="light"] .food-frequency-table td.meal-timing-window,
+html[data-theme="light"] .analysis-kicker,
+html[data-theme="light"] .analysis-label,
+html[data-theme="light"] .analysis-lens-kicker,
+html[data-theme="light"] .source-pill {
+  color: var(--cyan) !important;
+}
+html[data-theme="light"] .food-frequency-table td.food-family,
+html[data-theme="light"] .food-review-table .merged {
+  color: var(--amber) !important;
+}
+html[data-theme="light"] .food-frequency-table td.meal-timing-slot,
+html[data-theme="light"] .food-frequency-table td.meal-template-anchor,
+html[data-theme="light"] .food-frequency-table td.food-name {
+  color: var(--text) !important;
+}
+html[data-theme="light"] .raw-names {
+  color: var(--faint) !important;
+}
+html[data-theme="light"] .mp-views {
+  background: rgba(247,249,252,.78) !important;
+}
+html[data-theme="light"] .te-food {
+  background: rgba(239,245,250,.92) !important;
+}
+html[data-theme="light"] .meal-role-chip {
+  background: rgba(15,23,42,.045) !important;
+  border-color: var(--line) !important;
+  color: var(--muted) !important;
 }
 
 @media (max-width: 1400px) { .week-grid { grid-template-columns: repeat(4, 1fr); } }
