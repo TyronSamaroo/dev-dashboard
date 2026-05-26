@@ -122,7 +122,7 @@ function showReport() {
   var frame = document.getElementById('report-frame');
   frame.style.display = 'block';
   var params = new URLSearchParams(window.location.search);
-  params.set('v', '20260526-delta-so-far');
+  params.set('v', '20260526-zoomout-row');
   frame.src = '/coach-report/report.html?' + params.toString();
   document.getElementById('signout-float').style.display = 'block';
   document.body.style.display = 'block';

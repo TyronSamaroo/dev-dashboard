@@ -1613,9 +1613,49 @@ html[data-theme="light"] .meal-role-chip {
   .analysis-columns { grid-template-columns: 1fr; }
   .week-read-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bryan-head { display: grid; align-items: start; }
-  .bryan-week-top { grid-template-columns: 1fr; align-items: start; }
-  .bryan-actions { justify-content: flex-start; }
-  .bryan-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bryan-week-top {
+    grid-template-columns: minmax(94px, 112px) minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+  }
+  .bryan-week-id { column-gap: 4px; }
+  .bryan-week-id span { font-size: 7.5px; }
+  .bryan-week-id strong { font-size: 14px; }
+  .bryan-week-id em {
+    font-size: 9px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bryan-status {
+    max-width: 62px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 4px;
+    font-size: 7.5px;
+  }
+  .bryan-metrics {
+    display: flex;
+    grid-template-columns: none;
+    gap: 5px;
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .bryan-metrics::-webkit-scrollbar { display: none; }
+  .bryan-mini { flex: 0 0 78px; min-height: 34px; padding: 5px 6px; }
+  .bryan-mini span { font-size: 7.2px; line-height: 1; }
+  .bryan-mini strong { font-size: 10.5px; margin-top: 2px; }
+  .bryan-actions {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 4px;
+  }
+  .bryan-toggle { min-height: 26px; padding: 4px 6px; font-size: 9px; }
   .daily-range-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 800px) {
@@ -1655,49 +1695,7 @@ html[data-theme="light"] .meal-role-chip {
   .analysis-stat-grid,
   .analysis-lens-grid,
   .week-read-grid { grid-template-columns: 1fr; }
-  .bryan-head,
-  .bryan-week-top { padding: 10px; }
-  .bryan-week-top {
-    grid-template-columns: minmax(94px, 112px) minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 6px;
-  }
-  .bryan-week-id { column-gap: 4px; }
-  .bryan-week-id span { font-size: 7.5px; }
-  .bryan-week-id strong { font-size: 14px; }
-  .bryan-week-id em {
-    font-size: 9px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .bryan-status { padding: 2px 4px; font-size: 7.5px; }
-  .bryan-status {
-    max-width: 62px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .bryan-metrics {
-    display: flex;
-    grid-template-columns: none;
-    gap: 5px;
-    min-width: 0;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  .bryan-metrics::-webkit-scrollbar { display: none; }
-  .bryan-mini { flex: 0 0 78px; min-height: 34px; padding: 5px 6px; }
-  .bryan-mini span { font-size: 7.2px; line-height: 1; }
-  .bryan-mini strong { font-size: 10.5px; margin-top: 2px; }
-  .bryan-actions {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 4px;
-  }
-  .bryan-toggle { min-height: 26px; padding: 4px 6px; font-size: 9px; }
+  .bryan-head { padding: 10px; }
   .bryan-detail-head { display: grid; justify-items: start; }
   .daily-range-head { display: grid; justify-items: start; }
   .daily-range-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
