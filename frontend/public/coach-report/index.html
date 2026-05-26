@@ -121,7 +121,9 @@ function showReport() {
   document.getElementById('gate').style.display = 'none';
   var frame = document.getElementById('report-frame');
   frame.style.display = 'block';
-  frame.src = '/coach-report/report.html' + window.location.search;
+  var params = new URLSearchParams(window.location.search);
+  params.set('v', '20260526-mobile-row');
+  frame.src = '/coach-report/report.html?' + params.toString();
   document.getElementById('signout-float').style.display = 'block';
   document.body.style.display = 'block';
   document.body.style.margin = '0';
