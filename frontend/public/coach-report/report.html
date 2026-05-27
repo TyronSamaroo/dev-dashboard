@@ -24669,6 +24669,7 @@ function updateRangeSummary(range, preset) {
   });
 }
 function setWeekRange(from, to, preset, trigger, options) {
+  closeWeekMetricDetails();
   const phase = document.body.dataset.reportPhase || 'current';
   const range = normalizeWeekRange(from, to, phase);
   const selected = new Set(range.weeks);
@@ -24771,6 +24772,26 @@ function setReportTheme(theme) {
 function toggleReportTheme() {
   setReportTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light');
 }
+function closeWeekMetricDetails(exceptRoot) {
+  document.querySelectorAll('[data-week-detail-panel]').forEach(panel => {
+    const root = panel.closest('.weekly-drill-row') || panel.closest('.week-detail') || panel.closest('.bryan-detail');
+    if (exceptRoot && root === exceptRoot) return;
+    panel.classList.remove('open', 'active');
+    panel.setAttribute('aria-hidden', 'true');
+  });
+  document.querySelectorAll('[data-week-detail-trigger]').forEach(btn => {
+    const row = btn.closest('[data-week-row-key]');
+    const rowKey = row ? row.dataset.weekRowKey || '' : '';
+    const rootId = rowKey ? rowKey.replace('-', '-wk') + '-detail' : '';
+    if (exceptRoot && rootId && exceptRoot.id === rootId) return;
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  document.querySelectorAll('.weekly-drill-row.open').forEach(row => {
+    if (exceptRoot && row === exceptRoot) return;
+    row.classList.remove('open');
+  });
+}
 function toggleWeekMetricDetail(scope, wk, type, trigger) {
   const isDrillTable = scope === 'weekly' || scope === 'bryan';
   const root = isDrillTable ? document.getElementById(scope + '-wk' + wk + '-detail') : document.getElementById('bryan-wk' + wk);
@@ -24779,6 +24800,7 @@ function toggleWeekMetricDetail(scope, wk, type, trigger) {
   if (!target) return;
   const openClass = isDrillTable ? 'active' : 'open';
   const wasOpen = target.classList.contains(openClass) && (!isDrillTable || root.classList.contains('open'));
+  closeWeekMetricDetails(root);
   root.querySelectorAll('[data-week-detail-panel]').forEach(panel => {
     panel.classList.remove('open', 'active');
     panel.setAttribute('aria-hidden', 'true');
@@ -24817,6 +24839,7 @@ function openBryanFullTab(tabId, wk) {
   showMainTab(tabId);
 }
 function showMainTab(id, trigger, options) {
+  closeWeekMetricDetails();
   document.querySelectorAll('.main-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
   const panel = document.getElementById(id);
@@ -24861,8 +24884,26 @@ function openLatestMealView(view) {
   }
   showMPView('v21', view);
 }
+function setupWeekDetailDismissal() {
+  document.addEventListener('click', event => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (target.closest('[data-week-detail-trigger]')) return;
+    if (target.closest('.weekly-drill-row, [data-week-detail-panel]')) return;
+    if (target.closest('[data-week-row-key]')) {
+      closeWeekMetricDetails();
+      return;
+    }
+    if (target.closest('button, a, input, select, textarea, label, [role="button"], [role="tab"], .food-tab, .mp-view-btn')) return;
+    closeWeekMetricDetails();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closeWeekMetricDetails();
+  });
+}
 document.addEventListener('DOMContentLoaded', () => {
   updateThemeToggle();
+  setupWeekDetailDismissal();
   setReportPhase(reportPhaseFromUrl(), null, { skipUrl: true, skipRange: true });
   initializeWeekRange();
   const requestedTab = new URLSearchParams(location.search).get('tab') || DEFAULT_REPORT_TAB;
