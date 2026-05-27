@@ -517,6 +517,9 @@ body[data-report-phase="history"] .baseline-partial-row td {
 .wk-summary-card .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
 .wk-summary-card .value { font-size: 18px; font-weight: 700; color: #fff; margin: 4px 0 1px; }
 .wk-summary-card .sub { font-size: 10px; color: #666; }
+.workout-week-tabs { align-items: center; gap: 6px; margin: 10px 0 12px; overflow: visible; flex-wrap: wrap; padding-bottom: 0; }
+.workout-week-tab { border-radius: 999px; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 5px; min-height: 28px; }
+.workout-week-tab span { color: var(--faint); font-size: 9px; font-weight: 850; }
 .cat-header { background: #1a1a2e !important; }
 .cat-header td { color: #e94560; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; border-top: 2px solid #e94560; padding: 10px; }
 
@@ -21698,23 +21701,432 @@ html[data-theme="light"] .meal-role-chip {
     </section>
 <div class="phase-filtered-content">
 <h2>🏋️ WORKOUT REVIEW — BY WEEK</h2>
-<div class="food-tabs">
-<div class="food-tab" onclick="setSingleWeekRange(6)" data-report-week-phase="baseline" data-range-week="6">Wk 6 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(7)" data-report-week-phase="baseline" data-range-week="7">Wk 7 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(8)" data-report-week-phase="baseline" data-range-week="8">Wk 8 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(9)" data-report-week-phase="baseline" data-range-week="9">Wk 9 (4s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(10)" data-report-week-phase="baseline" data-range-week="10">Wk 10 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(11)" data-report-week-phase="baseline" data-range-week="11">Wk 11 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(12)" data-report-week-phase="baseline" data-range-week="12">Wk 12 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(13)" data-report-week-phase="baseline" data-range-week="13">Wk 13 (6s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(14)" data-report-week-phase="baseline" data-range-week="14">Wk 14 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(15)" data-report-week-phase="baseline" data-range-week="15">Wk 15 (5s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(16)" data-report-week-phase="baseline" data-range-week="16">Wk 16 (4s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(17)" data-report-week-phase="baseline" data-range-week="17">Wk 17 (4s)</div>
-<div class="food-tab" onclick="setSingleWeekRange(18)" data-report-week-phase="baseline" data-range-week="18">Wk 18 (6s)</div>
-<div class="food-tab active" onclick="setSingleWeekRange(21)" data-report-week-phase="baseline" data-range-week="21">Wk 21 (5s)</div>
+<p class="weekly-source-note">Workout Review includes imported source training weeks Wk 3-5 plus staycation workout-only weeks Wk 19-20 plus current Wk 22 partial. Food detail tabs stay on completed report weeks.</p>
+<div class="food-tabs workout-week-tabs" aria-label="Workout weeks">
+<button class="food-tab workout-week-tab active" type="button" data-workout-week="22" onclick="showWorkoutTab(22, this)">Wk 22 partial<span>2s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="21" onclick="showWorkoutTab(21, this)">Wk 21<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="20" onclick="showWorkoutTab(20, this)">Wk 20 break<span>2s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="19" onclick="showWorkoutTab(19, this)">Wk 19 break<span>4s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="18" onclick="showWorkoutTab(18, this)">Wk 18<span>6s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="17" onclick="showWorkoutTab(17, this)">Wk 17<span>4s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="16" onclick="showWorkoutTab(16, this)">Wk 16<span>4s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="15" onclick="showWorkoutTab(15, this)">Wk 15<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="14" onclick="showWorkoutTab(14, this)">Wk 14<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="13" onclick="showWorkoutTab(13, this)">Wk 13<span>6s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="12" onclick="showWorkoutTab(12, this)">Wk 12<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="11" onclick="showWorkoutTab(11, this)">Wk 11<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="10" onclick="showWorkoutTab(10, this)">Wk 10<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="9" onclick="showWorkoutTab(9, this)">Wk 9<span>4s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="8" onclick="showWorkoutTab(8, this)">Wk 8<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="7" onclick="showWorkoutTab(7, this)">Wk 7<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="6" onclick="showWorkoutTab(6, this)">Wk 6<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="5" onclick="showWorkoutTab(5, this)">Wk 5 source<span>4s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="4" onclick="showWorkoutTab(4, this)">Wk 4 source<span>5s</span></button>
+<button class="food-tab workout-week-tab" type="button" data-workout-week="3" onclick="showWorkoutTab(3, this)">Wk 3 source<span>5s</span></button>
 </div>
-<div class="food-panel workout-panel" id="wp6" data-report-week-phase="baseline" data-range-week="6">
+<div class="food-panel workout-panel" id="wp3">
+<div class="wk-summary-grid">
+<div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
+<div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">237,712</div><div class="sub">lbs moved</div></div>
+<div class="wk-summary-card"><div class="label">Avg Vol/Session</div><div class="value" style="color:#42a5f5">47,542</div><div class="sub">lbs per workout</div></div>
+<div class="wk-summary-card"><div class="label">Total Sets</div><div class="value" style="color:#00e676">218</div><div class="sub">working sets</div></div>
+<div class="wk-summary-card"><div class="label">Exercises</div><div class="value">49</div><div class="sub">unique movements</div></div>
+</div>
+<h3 style="color:#e94560;font-size:13px;margin:16px 0 8px;text-transform:uppercase;letter-spacing:1px">Top Exercises by Volume</h3>
+<div style="background:#1e1e2e;border-radius:12px;padding:12px;border:1px solid #333;margin-bottom:20px">
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Plate-Loaded Leg Press">Plate-Loaded Leg Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:100%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">21,240</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pendulum Squat Machine">Pendulum Squat Machine</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:97%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">20,700</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Reclined Plate-Loaded Machine Incline Press">Reclined Plate-Loaded Machine Incline Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:89%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">18,880</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pin-Loaded Machine Donkey Calf Raise">Pin-Loaded Machine Donkey Calf Raise</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:84%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">17,900</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pin-Loaded Leg Press">Pin-Loaded Leg Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:78%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">16,650</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Pin-Loaded Machine Hamstring Curl">Seated Pin-Loaded Machine Hamstring Curl</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:63%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">13,475</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="45° Incline Dumbbell Press">45° Incline Dumbbell Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:59%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">12,480</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Plate-Loaded Machine Incline Press">Seated Plate-Loaded Machine Incline Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:54%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">11,400</span>
+</div></div></div>
+</div>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Mon 01-12 — Leg Day<span class="vol-tag">61,745 vol · 48 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pendulum Squat Machine</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">90×12.0</span><span class="set-pill">180×11.0</span><span class="set-pill">270×10.0</span><span class="set-pill">360×8.0</span><span class="set-pill">360×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">11,160</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Accentuated Eccentric Pin-Loaded Machine Leg Extension</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">30×12.0</span><span class="set-pill">30×12.0</span><span class="set-pill">40×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,200</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Barbell Deficit Romanian Deadlift</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×12.0</span><span class="set-pill">100×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Barbell Romanian Deadlift</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">45×10.0</span><span class="set-pill">90×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,350</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Knee Leg Raise</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×12.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">180×12.0</span><span class="set-pill">270×8.0</span><span class="set-pill">360×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,480</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press Calf Raise</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">50×15.0</span><span class="set-pill">50×12.0</span><span class="set-pill">90×9.0</span><span class="set-pill">110×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,040</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Donkey Calf Raise</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">160×15.0</span><span class="set-pill">160×13.0</span><span class="set-pill">220×9.0</span><span class="set-pill">220×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">8,660</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Leg Extension</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">55×10.0</span><span class="set-pill">85×12.0</span><span class="set-pill">115×8.0</span><span class="set-pill">115×9.0</span><span class="set-pill">130×9.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,695</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Plate-Loaded Leg Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">180×12.0</span><span class="set-pill">270×10.0</span><span class="set-pill">360×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,740</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hamstring Curl</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">70×15.0</span><span class="set-pill">100×15.0</span><span class="set-pill">115×12.0</span><span class="set-pill">130×7.0</span><span class="set-pill">130×6.0</span><span class="set-pill">130×11.0</span><span class="set-pill">145×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">8,210</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hip Adduction</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">70×12.0</span><span class="set-pill">110×10.0</span><span class="set-pill">150×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,840</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Cable Crunch</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">42×12.0</span><span class="set-pill">50×12.0</span><span class="set-pill">65×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,890</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Hamstring Curl</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">30×24.0</span><span class="set-pill">40×24.0</span><span class="set-pill">50×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,680</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Wed 01-14 — Push Day V1<span class="vol-tag">25,410 vol · 36 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">45° Incline Dumbbell Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">100×18.0</span><span class="set-pill">130×18.0</span><span class="set-pill">140×12.0</span><span class="set-pill">150×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,620</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">0×15.0</span><span class="set-pill">0×9.0</span><span class="set-pill">0×12.0</span><span class="set-pill">0×8.0</span><span class="set-pill">0×8.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Dip ∈ SS2</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">0×8.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Close Grip Push-Up ∈ SS2</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">0×8.0</span><span class="set-pill">0×6.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Pulley Cable Rope Overhead Triceps Extension</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">20×12.0</span><span class="set-pill">30×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">450</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Lying Dumbbell Triceps Extension Pullover</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×16.0</span><span class="set-pill">40×14.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,200</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Grip Reverse Pec Deck ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">55×24.0</span><span class="set-pill">85×24.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,360</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Cable Straight Bar Triceps Pushdown</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">35×10.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">750</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">20×12.0</span><span class="set-pill">25×12.0</span><span class="set-pill">30×11.0</span><span class="set-pill">30×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,110</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Dumbbell Overhead Press</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">120×14.0</span><span class="set-pill">120×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,120</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Incline Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">90×10.0</span><span class="set-pill">140×8.0</span><span class="set-pill">140×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,000</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Lateral Raise</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Lateral Raise ∈ SS1</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">40×24.0</span><span class="set-pill">50×8.0</span><span class="set-pill">50×24.0</span><span class="set-pill">60×24.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,000</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Thu 01-15 — Ad Hoc Workout<span class="vol-tag">21,165 vol · 38 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bent-Over Overhand Grip Barbell Row</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">95×10.0</span><span class="set-pill">145×9.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,255</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Rope Straight Arm Lat Pulldown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">30×10.0</span><span class="set-pill">30×12.0</span><span class="set-pill">42×10.0</span><span class="set-pill">50×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,585</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Biceps Curl</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">20×10.0</span><span class="set-pill">25×10.0</span><span class="set-pill">30×10.0</span><span class="set-pill">35×10.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Straight Arm Lat Pulldown</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">400</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Chest-Supported Neutral Grip Pin-Loaded Machine Row</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">85×10.0</span><span class="set-pill">100×10.0</span><span class="set-pill">115×10.0</span><span class="set-pill">130×8.0</span><span class="set-pill">145×8.0</span><span class="set-pill">165×8.0</span><span class="set-pill">175×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,920</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Dumbbell Spider Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">80×16.0</span><span class="set-pill">100×16.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,880</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Incline Dumbbell Biceps Curl</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">480</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Shoulder Width Grip Cable Lat Pulldown</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">100×8.0</span><span class="set-pill">120×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,760</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Wide Grip Cable Lat Pulldown</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">120×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">960</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Cable Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×12.0</span><span class="set-pill">100×10.0</span><span class="set-pill">120×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,400</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pin-Loaded Machine Assisted Pull-Up</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">-55×12.0</span><span class="set-pill">-55×13.0</span><span class="set-pill">-40×10.0</span><span class="set-pill">-40×12.0</span><span class="set-pill">-40×13.0</span><span class="set-pill">0×10.0</span></div></td><td class="r" style="color:#555;font-weight:bold">-2,775</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pull-Up ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×8.0</span><span class="set-pill">0×6.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Biceps Curl</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Wrist Roller Wrist Curl With Arms Raised ∈ SS1</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×24.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sat 01-17 — TT Split 1.0 (Push Day V1)<span class="vol-tag">61,375 vol · 48 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">45° Incline Dumbbell Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×20.0</span><span class="set-pill">130×12.0</span><span class="set-pill">130×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,860</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">0×9.0</span><span class="set-pill">0×8.0</span><span class="set-pill">0×7.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Rope Triceps Pushdown ∈ SS3</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">15×10.0</span><span class="set-pill">20×10.0</span><span class="set-pill">30×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">650</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Pulley Cable Rope Overhead Triceps Extension</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">20×10.0</span><span class="set-pill">30×10.0</span><span class="set-pill">30×8.0</span><span class="set-pill">35×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,020</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Lying Dumbbell Triceps Extension Pullover</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">30×20.0</span><span class="set-pill">30×20.0</span><span class="set-pill">40×16.0</span><span class="set-pill">40×14.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,400</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Machine Cable Fly  ∈ SS2</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">50×10.0</span><span class="set-pill">100×10.0</span><span class="set-pill">100×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,300</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Grip Reverse Pec Deck ∈ SS1</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">70×30.0</span><span class="set-pill">85×24.0</span><span class="set-pill">100×24.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,540</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Reclined Plate-Loaded Machine Incline Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">180×16.0</span><span class="set-pill">230×20.0</span><span class="set-pill">380×16.0</span><span class="set-pill">380×14.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">18,880</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">20×12.0</span><span class="set-pill">25×10.0</span><span class="set-pill">30×10.0</span><span class="set-pill">30×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,030</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Plate-Loaded Machine Incline Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">90×20.0</span><span class="set-pill">110×16.0</span><span class="set-pill">280×12.0</span><span class="set-pill">280×16.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">11,400</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Single Arm High Cable Lateral Raise</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">8×20.0</span><span class="set-pill">12×16.0</span><span class="set-pill">18×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">525</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Lateral Raise ∈ SS2</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">30×20.0</span><span class="set-pill">30×22.0</span><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,060</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Lateral Raise ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×24.0</span><span class="set-pill">50×24.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,160</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Tricep Dip Press Machine  ∈ SS3</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">140×12.0</span><span class="set-pill">160×10.0</span><span class="set-pill">175×8.0</span><span class="set-pill">205×8.0</span><span class="set-pill">205×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,550</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sun 01-18 — TT Split 1.0 (Leg Day V1)<span class="vol-tag">68,018 vol · 48 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pendulum Squat Machine</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">90×10.0</span><span class="set-pill">180×8.0</span><span class="set-pill">270×8.0</span><span class="set-pill">360×6.0</span><span class="set-pill">360×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">9,540</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Knee Leg Raise</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×13.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pause Belt Squat  Romanian Deadlift</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">90×12.0</span><span class="set-pill">90×8.0</span><span class="set-pill">140×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,920</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">180×10.0</span><span class="set-pill">270×8.0</span><span class="set-pill">270×13.0</span><span class="set-pill">270×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">10,170</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press Calf Raise</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">50×10.0</span><span class="set-pill">70×10.0</span><span class="set-pill">110×10.0</span><span class="set-pill">110×7.0</span><span class="set-pill">110×9.0</span><span class="set-pill">110×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,940</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Donkey Calf Raise</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">160×15.0</span><span class="set-pill">200×11.0</span><span class="set-pill">240×10.0</span><span class="set-pill">280×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">9,240</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Leg Extension</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">55×10.0</span><span class="set-pill">85×10.0</span><span class="set-pill">100×9.0</span><span class="set-pill">115×8.0</span><span class="set-pill">130×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,260</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Plate-Loaded Leg Press</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">180×10.0</span><span class="set-pill">180×13.0</span><span class="set-pill">360×8.0</span><span class="set-pill">360×11.0</span><span class="set-pill">360×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">13,500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hamstring Curl</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">70×15.0</span><span class="set-pill">100×15.0</span><span class="set-pill">115×8.0</span><span class="set-pill">130×6.0</span><span class="set-pill">145×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,265</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hip Adduction</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">90×10.0</span><span class="set-pill">130×6.0</span><span class="set-pill">130×9.0</span><span class="set-pill">130×7.0</span><span class="set-pill">150×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,810</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Cable Crunch</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">30×10.0</span><span class="set-pill">50×15.0</span><span class="set-pill">50×14.0</span><span class="set-pill">58×9.0</span><span class="set-pill">65×17.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,372</td></tr>
+</table>
+</div>
+<div class="food-panel workout-panel" id="wp4">
+<div class="wk-summary-grid">
+<div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
+<div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">189,193</div><div class="sub">lbs moved</div></div>
+<div class="wk-summary-card"><div class="label">Avg Vol/Session</div><div class="value" style="color:#42a5f5">37,839</div><div class="sub">lbs per workout</div></div>
+<div class="wk-summary-card"><div class="label">Total Sets</div><div class="value" style="color:#00e676">196</div><div class="sub">working sets</div></div>
+<div class="wk-summary-card"><div class="label">Exercises</div><div class="value">45</div><div class="sub">unique movements</div></div>
+</div>
+<h3 style="color:#e94560;font-size:13px;margin:16px 0 8px;text-transform:uppercase;letter-spacing:1px">Top Exercises by Volume</h3>
+<div style="background:#1e1e2e;border-radius:12px;padding:12px;border:1px solid #333;margin-bottom:20px">
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Reclined Plate-Loaded Machine Incline Press">Reclined Plate-Loaded Machine Incline Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:100%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">33,960</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="45° Incline Dumbbell Press">45° Incline Dumbbell Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:40%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">13,460</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Conventional Above-The-Knee Rack Pull">Conventional Above-The-Knee Rack Pull</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:37%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">12,465</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Neutral Grip Reverse Pec Deck ∈ SS1">Neutral Grip Reverse Pec Deck ∈ SS1</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:34%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">11,600</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pin-Loaded Machine Donkey Calf Raise">Pin-Loaded Machine Donkey Calf Raise</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:28%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">9,440</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Overhand Grip Plate-Loaded Machine Chest Press">Seated Overhand Grip Plate-Loaded Machine Chest Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:27%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">9,200</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Chest-Supported Neutral Grip Pin-Loaded Machine Row">Chest-Supported Neutral Grip Pin-Loaded Machine Row</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:22%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">7,505</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pendulum Squat Machine">Pendulum Squat Machine</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:19%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,480</span>
+</div></div></div>
+</div>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Tue 01-20 — TT Split 1.0 (Push Day V1)<span class="vol-tag">40,665 vol · 36 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">45° Incline Dumbbell Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×20.0</span><span class="set-pill">130×20.0</span><span class="set-pill">130×16.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,680</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">0×9.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Pulley Cable Rope Overhead Triceps Extension</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">20×10.0</span><span class="set-pill">35×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">550</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Lying Dumbbell Triceps Extension Pullover</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">30×20.0</span><span class="set-pill">30×20.0</span><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,000</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Machine Cable Fly</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×10.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">900</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Grip Reverse Pec Deck ∈ SS1</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">55×20.0</span><span class="set-pill">70×30.0</span><span class="set-pill">85×30.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,750</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Cable Straight Bar Triceps Pushdown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">35×10.0</span><span class="set-pill">50×10.0</span><span class="set-pill">50×12.0</span><span class="set-pill">65×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,970</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">15×15.0</span><span class="set-pill">20×15.0</span><span class="set-pill">25×10.0</span><span class="set-pill">25×12.0</span><span class="set-pill">30×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,435</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Dumbbell Overhead Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">100×16.0</span><span class="set-pill">120×14.0</span><span class="set-pill">120×12.0</span><span class="set-pill">140×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,120</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Overhand Grip Plate-Loaded Machine Chest Press</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">180×20.0</span><span class="set-pill">280×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">9,200</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Incline Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">90×12.0</span><span class="set-pill">110×10.0</span><span class="set-pill">110×8.0</span><span class="set-pill">140×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,900</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Lateral Raise ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×24.0</span><span class="set-pill">50×24.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,160</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Wed 01-21 — TT Split 1.0 (Pull Day V1)<span class="vol-tag">31,865 vol · 46 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Barbell Upright Row</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">45×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">450</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bent-Over Overhand Grip Barbell Row</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">95×10.0</span><span class="set-pill">145×9.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,255</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Rope Straight Arm Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">30×10.0</span><span class="set-pill">35×10.0</span><span class="set-pill">42×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,075</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Biceps Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">20×10.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">600</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Straight Arm Lat Pulldown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">42×8.0</span><span class="set-pill">42×8.0</span><span class="set-pill">50×9.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,530</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Chest-Supported Neutral Grip Pin-Loaded Machine Row</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">85×10.0</span><span class="set-pill">115×10.0</span><span class="set-pill">130×10.0</span><span class="set-pill">145×8.0</span><span class="set-pill">160×7.0</span><span class="set-pill">175×5.0</span><span class="set-pill">175×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,505</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Chest-Supported Wide Grip Pin-Loaded Machine Row</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">85×8.0</span><span class="set-pill">100×8.0</span><span class="set-pill">115×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,170</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Conventional Above-The-Knee Rack Pull</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">135×10.0</span><span class="set-pill">185×12.0</span><span class="set-pill">275×5.0</span><span class="set-pill">275×10.0</span><span class="set-pill">315×8.0</span><span class="set-pill">375×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">12,465</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Incline Dumbbell Biceps Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×16.0</span><span class="set-pill">50×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,140</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Wide Grip Cable Lat Pulldown</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">100×12.0</span><span class="set-pill">120×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,160</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Cable Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×12.0</span><span class="set-pill">120×6.0</span><span class="set-pill">120×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,880</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pin-Loaded Machine Assisted Pull-Up</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">-55×15.0</span><span class="set-pill">-55×12.0</span><span class="set-pill">-40×10.0</span><span class="set-pill">-40×9.0</span><span class="set-pill">-40×11.0</span><span class="set-pill">-40×12.0</span><span class="set-pill">0×10.0</span></div></td><td class="r" style="color:#555;font-weight:bold">-3,165</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pull-Up ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×8.0</span><span class="set-pill">0×6.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Biceps Curl</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Wrist Roller Wrist Curl With Arms Raised ∈ SS1</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×24.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Thu 01-22 — Leg Day<span class="vol-tag">39,948 vol · 34 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pendulum Squat Machine</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">90×8.0</span><span class="set-pill">180×8.0</span><span class="set-pill">270×8.0</span><span class="set-pill">360×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,480</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Knee Leg Raise</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×13.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pause Belt Squat  Romanian Deadlift</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">90×9.0</span><span class="set-pill">90×8.0</span><span class="set-pill">140×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,370</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Hip Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">180×11.0</span><span class="set-pill">270×8.0</span><span class="set-pill">360×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,580</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press Calf Raise</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">90×8.0</span><span class="set-pill">110×8.0</span><span class="set-pill">130×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,380</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Donkey Calf Raise</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">160×12.0</span><span class="set-pill">200×12.0</span><span class="set-pill">240×12.0</span><span class="set-pill">280×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">9,440</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Leg Extension</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">55×12.0</span><span class="set-pill">85×12.0</span><span class="set-pill">115×10.0</span><span class="set-pill">130×8.0</span><span class="set-pill">145×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,030</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hamstring Curl</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">70×15.0</span><span class="set-pill">100×12.0</span><span class="set-pill">115×10.0</span><span class="set-pill">130×8.0</span><span class="set-pill">130×7.0</span><span class="set-pill">145×5.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,075</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Cable Crunch</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">30×10.0</span><span class="set-pill">50×15.0</span><span class="set-pill">50×14.0</span><span class="set-pill">58×9.0</span><span class="set-pill">65×5.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,592</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sat 01-24 — Push Day<span class="vol-tag">64,805 vol · 47 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">45° Incline Dumbbell Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">100×20.0</span><span class="set-pill">130×16.0</span><span class="set-pill">150×12.0</span><span class="set-pill">150×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,780</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">45° Incline Smith Machine Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">50×15.0</span><span class="set-pill">100×8.0</span><span class="set-pill">150×3.0</span><span class="set-pill">150×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,600</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Arsenal Plate Loaded Fly</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×10.0</span><span class="set-pill">100×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,300</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">0×9.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Close Grip Push-Up</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×10.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Pulley Cable Rope Overhead Triceps Extension</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">20×11.0</span><span class="set-pill">25×10.0</span><span class="set-pill">25×8.0</span><span class="set-pill">30×8.0</span><span class="set-pill">30×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,090</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Lying Dumbbell Triceps Extension Pullover</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">20×20.0</span><span class="set-pill">30×20.0</span><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Grip Reverse Pec Deck ∈ SS1</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">60×20.0</span><span class="set-pill">70×30.0</span><span class="set-pill">85×30.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,850</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Reclined Plate-Loaded Machine Incline Press</td><td class="r">8</td><td><div class="set-pills"><span class="set-pill">180×16.0</span><span class="set-pill">280×18.0</span><span class="set-pill">380×12.0</span><span class="set-pill">180×30.0</span><span class="set-pill">180×24.0</span><span class="set-pill">280×16.0</span><span class="set-pill">280×14.0</span><span class="set-pill">280×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">33,960</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">15×15.0</span><span class="set-pill">20×15.0</span><span class="set-pill">25×12.0</span><span class="set-pill">30×10.0</span><span class="set-pill">30×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,365</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Lateral Raise ∈ SS1</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">40×24.0</span><span class="set-pill">50×24.0</span><span class="set-pill">50×20.0</span><span class="set-pill">50×16.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,960</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Tricep Dip Press Machine</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">115×12.0</span><span class="set-pill">145×12.0</span><span class="set-pill">175×7.0</span><span class="set-pill">205×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,575</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Underhand Grip Cable Straight Bar Triceps Pushdown</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">15×15.0</span><span class="set-pill">20×15.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">525</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sun 01-25 — TT Split 1.0 (Pull Day V1)<span class="vol-tag">11,910 vol · 33 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Rope Straight Arm Lat Pulldown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">30×10.0</span><span class="set-pill">35×10.0</span><span class="set-pill">35×9.0</span><span class="set-pill">35×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,245</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Biceps Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">20×10.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">600</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Straight Arm Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">35×9.0</span><span class="set-pill">42×9.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,098</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Chest-Supported Overhand Grip T-Bar Row</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">20×10.0</span><span class="set-pill">20×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">320</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Shoulder Width Grip Cable Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×10.0</span><span class="set-pill">100×9.0</span><span class="set-pill">120×5.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Cable Lat Pulldown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">12×9.0</span><span class="set-pill">120×7.0</span><span class="set-pill">140×8.0</span><span class="set-pill">160×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,028</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pin-Loaded Machine Assisted Pull-Up</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">-55×12.0</span><span class="set-pill">-55×13.0</span><span class="set-pill">-55×15.0</span><span class="set-pill">-40×10.0</span><span class="set-pill">-40×11.0</span><span class="set-pill">0×10.0</span></div></td><td class="r" style="color:#555;font-weight:bold">-3,040</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pull-Up ∈ SS1</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×8.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Overhand Grip Cable Row</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">100×10.0</span><span class="set-pill">145×10.0</span><span class="set-pill">145×8.0</span><span class="set-pill">175×6.0</span><span class="set-pill">175×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,360</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Biceps Curl</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Wrist Roller Wrist Curl With Arms Raised ∈ SS1</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×24.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+</table>
+</div>
+<div class="food-panel workout-panel" id="wp5">
+<div class="wk-summary-grid">
+<div class="wk-summary-card"><div class="label">Sessions</div><div class="value">4</div><div class="sub">training days</div></div>
+<div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">132,342</div><div class="sub">lbs moved</div></div>
+<div class="wk-summary-card"><div class="label">Avg Vol/Session</div><div class="value" style="color:#42a5f5">33,086</div><div class="sub">lbs per workout</div></div>
+<div class="wk-summary-card"><div class="label">Total Sets</div><div class="value" style="color:#00e676">150</div><div class="sub">working sets</div></div>
+<div class="wk-summary-card"><div class="label">Exercises</div><div class="value">36</div><div class="sub">unique movements</div></div>
+</div>
+<h3 style="color:#e94560;font-size:13px;margin:16px 0 8px;text-transform:uppercase;letter-spacing:1px">Top Exercises by Volume</h3>
+<div style="background:#1e1e2e;border-radius:12px;padding:12px;border:1px solid #333;margin-bottom:20px">
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Chest-Supported Neutral Grip Pin-Loaded Machine Row">Chest-Supported Neutral Grip Pin-Loaded Machine Row</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:100%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">14,180</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pin-Loaded Machine Donkey Calf Raise">Pin-Loaded Machine Donkey Calf Raise</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:96%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">13,600</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Conventional Above-The-Knee Rack Pull">Conventional Above-The-Knee Rack Pull</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:92%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">13,040</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Conventional Below-The-Knee Rack Pull">Conventional Below-The-Knee Rack Pull</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:54%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">7,605</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pendulum Squat Machine">Pendulum Squat Machine</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:51%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">7,200</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Pin-Loaded Machine Hamstring Curl">Seated Pin-Loaded Machine Hamstring Curl</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:50%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">7,160</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Dumbbell Bench Press">Dumbbell Bench Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:49%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,900</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Neutral Shoulder Width Grip Cable Lat Pulldown">Neutral Shoulder Width Grip Cable Lat Pulldown</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:42%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,020</span>
+</div></div></div>
+</div>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Mon 01-26 — TT Split 1.0 (Leg Day V1)<span class="vol-tag">51,842 vol · 42 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pendulum Squat Machine</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">90×8.0</span><span class="set-pill">180×8.0</span><span class="set-pill">270×8.0</span><span class="set-pill">360×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,200</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cybex Plate Loaded Squad Press</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">180×8.0</span><span class="set-pill">360×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,600</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Knee Leg Raise</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×13.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pause Belt Squat  Romanian Deadlift</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">85×5.0</span><span class="set-pill">135×9.0</span><span class="set-pill">90×8.0</span><span class="set-pill">140×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,200</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press Calf Raise</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">70×10.0</span><span class="set-pill">90×10.0</span><span class="set-pill">110×10.0</span><span class="set-pill">110×8.0</span><span class="set-pill">130×7.0</span><span class="set-pill">150×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,390</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Donkey Calf Raise</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">160×15.0</span><span class="set-pill">200×12.0</span><span class="set-pill">240×12.0</span><span class="set-pill">280×12.0</span><span class="set-pill">320×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">13,600</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Leg Extension</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">70×12.0</span><span class="set-pill">115×12.0</span><span class="set-pill">115×10.0</span><span class="set-pill">130×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,410</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hamstring Curl</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">70×15.0</span><span class="set-pill">100×15.0</span><span class="set-pill">115×10.0</span><span class="set-pill">130×7.0</span><span class="set-pill">130×8.0</span><span class="set-pill">145×6.0</span><span class="set-pill">160×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,160</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hip Adduction</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">90×10.0</span><span class="set-pill">110×10.0</span><span class="set-pill">130×8.0</span><span class="set-pill">150×7.0</span><span class="set-pill">150×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,990</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Cable Crunch</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">50×15.0</span><span class="set-pill">50×14.0</span><span class="set-pill">58×9.0</span><span class="set-pill">65×5.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,292</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Wed 01-28 — TT Split 1.0 (Push Day V1)<span class="vol-tag">32,490 vol · 44 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">0×8.0</span><span class="set-pill">0×9.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Rope Triceps Pushdown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">15×10.0</span><span class="set-pill">20×10.0</span><span class="set-pill">20×9.0</span><span class="set-pill">25×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">680</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Dumbbell Bench Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">90×16.0</span><span class="set-pill">130×12.0</span><span class="set-pill">130×16.0</span><span class="set-pill">130×14.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,900</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Pulley Cable Rope Overhead Triceps Extension</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">20×12.0</span><span class="set-pill">25×10.0</span><span class="set-pill">25×8.0</span><span class="set-pill">30×8.0</span><span class="set-pill">30×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,110</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Machine Cable Fly</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×12.0</span><span class="set-pill">100×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,400</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Grip Reverse Pec Deck ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">70×30.0</span><span class="set-pill">85×24.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,140</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pin-Loaded Machine Shoulder Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">50×10.0</span><span class="set-pill">60×8.0</span><span class="set-pill">70×8.0</span><span class="set-pill">80×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,020</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">15×15.0</span><span class="set-pill">20×15.0</span><span class="set-pill">25×12.0</span><span class="set-pill">30×10.0</span><span class="set-pill">30×8.0</span><span class="set-pill">35×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,575</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Incline Press</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">90×12.0</span><span class="set-pill">110×9.0</span><span class="set-pill">140×7.0</span><span class="set-pill">140×6.0</span><span class="set-pill">180×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,610</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Lateral Raise ∈ SS1</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">40×24.0</span><span class="set-pill">50×24.0</span><span class="set-pill">50×20.0</span><span class="set-pill">60×12.0</span><span class="set-pill">50×12.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,480</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Tricep Dip Press Machine</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">115×12.0</span><span class="set-pill">145×12.0</span><span class="set-pill">175×7.0</span><span class="set-pill">205×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,575</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Thu 01-29 — TT Split 1.0 (Pull Day V1)<span class="vol-tag">21,042 vol · 34 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Rope Straight Arm Lat Pulldown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">30×10.0</span><span class="set-pill">35×10.0</span><span class="set-pill">35×9.0</span><span class="set-pill">35×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,245</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Biceps Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">20×10.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">600</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Straight Arm Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">35×9.0</span><span class="set-pill">42×9.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,098</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Chest-Supported Neutral Grip Pin-Loaded Machine Row</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">85×12.0</span><span class="set-pill">115×12.0</span><span class="set-pill">130×10.0</span><span class="set-pill">145×8.0</span><span class="set-pill">160×9.0</span><span class="set-pill">175×5.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,175</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Conventional Above-The-Knee Rack Pull</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">135×10.0</span><span class="set-pill">185×12.0</span><span class="set-pill">225×12.0</span><span class="set-pill">275×10.0</span><span class="set-pill">315×8.0</span><span class="set-pill">375×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">13,040</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Incline Dumbbell Biceps Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×8.0</span><span class="set-pill">50×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">820</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pin-Loaded Machine Assisted Pull-Up</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">-55×15.0</span><span class="set-pill">-55×14.0</span><span class="set-pill">-55×12.0</span><span class="set-pill">-40×14.0</span><span class="set-pill">-40×12.0</span><span class="set-pill">-40×11.0</span><span class="set-pill">0×6.0</span></div></td><td class="r" style="color:#555;font-weight:bold">-3,735</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pull-Up ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×8.0</span><span class="set-pill">0×6.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Biceps Curl</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Wrist Roller Wrist Curl With Arms Raised ∈ SS1</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">0×24.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sun 02-01 — TT Split 1.0 (Pull Day V1)<span class="vol-tag">26,968 vol · 30 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Straight Arm Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">35×9.0</span><span class="set-pill">42×9.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,098</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Chest-Supported Neutral Grip Pin-Loaded Machine Row</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">85×12.0</span><span class="set-pill">115×11.0</span><span class="set-pill">130×8.0</span><span class="set-pill">145×8.0</span><span class="set-pill">160×7.0</span><span class="set-pill">175×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,005</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Chest-Supported Overhand Grip T-Bar Row</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">50×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Conventional Below-The-Knee Rack Pull</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">135×8.0</span><span class="set-pill">225×8.0</span><span class="set-pill">275×6.0</span><span class="set-pill">315×5.0</span><span class="set-pill">375×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,605</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Incline Dumbbell Biceps Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×10.0</span><span class="set-pill">50×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">900</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Neutral Shoulder Width Grip Cable Lat Pulldown</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">85×12.0</span><span class="set-pill">100×12.0</span><span class="set-pill">120×12.0</span><span class="set-pill">120×10.0</span><span class="set-pill">140×6.0</span><span class="set-pill">160×2.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,020</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Cable Lat Pulldown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">120×9.0</span><span class="set-pill">120×7.0</span><span class="set-pill">140×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,040</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pull-Up</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×8.0</span><span class="set-pill">0×6.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Biceps Curl</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×20.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">800</td></tr>
+</table>
+</div>
+<div class="food-panel workout-panel" id="wp6">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">151,960</div><div class="sub">lbs moved</div></div>
@@ -21838,7 +22250,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Knee Leg Rais</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill bw">BW×13</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp7" data-report-week-phase="baseline" data-range-week="7">
+<div class="food-panel workout-panel" id="wp7">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">194,425</div><div class="sub">lbs moved</div></div>
@@ -21975,7 +22387,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Knee Leg Rais</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill bw">BW×13</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp8" data-report-week-phase="baseline" data-range-week="8">
+<div class="food-panel workout-panel" id="wp8">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">204,685</div><div class="sub">lbs moved</div></div>
@@ -22122,7 +22534,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Walking</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill bw">BW×0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp9" data-report-week-phase="baseline" data-range-week="9">
+<div class="food-panel workout-panel" id="wp9">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">4</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">161,398</div><div class="sub">lbs moved</div></div>
@@ -22245,7 +22657,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Straight Ar</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">35×10</span><span class="set-pill">42×9</span><span class="set-pill">50×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,032</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp10" data-report-week-phase="baseline" data-range-week="10">
+<div class="food-panel workout-panel" id="wp10">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">221,602</div><div class="sub">lbs moved</div></div>
@@ -22381,7 +22793,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Knee Leg Rais</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill bw">BW×9</span><span class="set-pill bw">BW×8</span><span class="set-pill bw">BW×7</span><span class="set-pill bw">BW×5</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp11" data-report-week-phase="baseline" data-range-week="11">
+<div class="food-panel workout-panel" id="wp11">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">223,828</div><div class="sub">lbs moved</div></div>
@@ -22529,7 +22941,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Incline Dumbbell Biceps Curl</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">40×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">240</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp12" data-report-week-phase="baseline" data-range-week="12">
+<div class="food-panel workout-panel" id="wp12">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">291,295</div><div class="sub">lbs moved</div></div>
@@ -22669,7 +23081,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Low Pulley Cable Rope Overhead Triceps Extension</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">20×10</span><span class="set-pill">35×7</span><span class="set-pill">35×8</span><span class="set-pill">42×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,065</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp13" data-report-week-phase="baseline" data-range-week="13">
+<div class="food-panel workout-panel" id="wp13">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">6</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">248,105</div><div class="sub">lbs moved</div></div>
@@ -22820,7 +23232,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Hammer Curl</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">40×12.0</span><span class="set-pill">50×10.0</span><span class="set-pill">50×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,480</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp14" data-report-week-phase="baseline" data-range-week="14">
+<div class="food-panel workout-panel" id="wp14">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">220,487</div><div class="sub">lbs moved</div></div>
@@ -22945,7 +23357,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hip Adduction</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">50×12</span><span class="set-pill">90×10</span><span class="set-pill">110×9</span><span class="set-pill">130×8</span><span class="set-pill">150×6</span><span class="set-pill">190×2</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,810</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp15" data-report-week-phase="baseline" data-range-week="15">
+<div class="food-panel workout-panel" id="wp15">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">200,279</div><div class="sub">lbs moved</div></div>
@@ -23078,7 +23490,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Dumbbell Skull Crusher</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">30×15</span><span class="set-pill">40×15</span><span class="set-pill">40×12</span><span class="set-pill">50×5</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,780</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp16" data-report-week-phase="baseline" data-range-week="16">
+<div class="food-panel workout-panel" id="wp16">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">4</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">171,944</div><div class="sub">lbs moved</div></div>
@@ -23195,7 +23607,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Hammer Curl</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×10</span><span class="set-pill">60×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">880</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp17" data-report-week-phase="baseline" data-range-week="17">
+<div class="food-panel workout-panel" id="wp17">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">4</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">143,800</div><div class="sub">lbs moved</div></div>
@@ -23302,7 +23714,7 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Lateral Raise</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">40×10</span><span class="set-pill">50×10</span><span class="set-pill">60×9</span><span class="set-pill">70×8</span><span class="set-pill">80×6</span><span class="set-pill">80×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,960</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel" id="wp18" data-report-week-phase="baseline" data-range-week="18">
+<div class="food-panel workout-panel" id="wp18">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">6</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">194,280</div><div class="sub">lbs moved</div></div>
@@ -23440,7 +23852,197 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Hammer Curl ∈ SS1</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">30×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">300</td></tr>
 </table>
 </div>
-<div class="food-panel workout-panel active" id="wp21" data-report-week-phase="baseline" data-range-week="21">
+<div class="food-panel workout-panel" id="wp19">
+<div class="wk-summary-grid">
+<div class="wk-summary-card"><div class="label">Sessions</div><div class="value">4</div><div class="sub">training days</div></div>
+<div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">128,415</div><div class="sub">lbs moved</div></div>
+<div class="wk-summary-card"><div class="label">Avg Vol/Session</div><div class="value" style="color:#42a5f5">32,104</div><div class="sub">lbs per workout</div></div>
+<div class="wk-summary-card"><div class="label">Total Sets</div><div class="value" style="color:#00e676">130</div><div class="sub">working sets</div></div>
+<div class="wk-summary-card"><div class="label">Exercises</div><div class="value">29</div><div class="sub">unique movements</div></div>
+</div>
+<h3 style="color:#e94560;font-size:13px;margin:16px 0 8px;text-transform:uppercase;letter-spacing:1px">Top Exercises by Volume</h3>
+<div style="background:#1e1e2e;border-radius:12px;padding:12px;border:1px solid #333;margin-bottom:20px">
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Cybex Plate Loaded Squad Press">Cybex Plate Loaded Squad Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:100%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">14,310</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title=" Pendulum Squat Machine"> Pendulum Squat Machine</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:94%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">13,500</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pin-Loaded Leg Press Calf Raise">Pin-Loaded Leg Press Calf Raise</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:56%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">8,070</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Low Incline Dumbbell Press">Low Incline Dumbbell Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:49%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">7,050</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Cable Fly">Seated Cable Fly</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:49%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">7,000</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Hamstring Curl">Seated Hamstring Curl</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:49%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,950</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Pin-Loaded Machine Hamstring Curl">Seated Pin-Loaded Machine Hamstring Curl</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:49%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,950</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Cybex Plate-Loaded Machine Incline Bench Press  ">Cybex Plate-Loaded Machine Incline Bench Press  </div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:48%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,860</span>
+</div></div></div>
+</div>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Mon 05-04 — Leg Day<span class="vol-tag">76,670 vol · 57 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600"> Pendulum Squat Machine</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">180×8</span><span class="set-pill">90×10</span><span class="set-pill">270×6</span><span class="set-pill">360×4</span><span class="set-pill">450×5</span><span class="set-pill">450×7</span><span class="set-pill">540×5</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">13,500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cybex Plate Loaded Squad Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">270×12</span><span class="set-pill">360×12</span><span class="set-pill">450×8</span><span class="set-pill">450×7</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">14,310</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Leg Raise</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill bw">BW×8</span><span class="set-pill bw">BW×6</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Leg Extension</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">85×10</span><span class="set-pill">100×12</span><span class="set-pill">130×10</span><span class="set-pill">145×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Megamass Romanian Deadlift </td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">90×10</span><span class="set-pill">180×12</span><span class="set-pill">270×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,760</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press Calf Raise</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">50×12</span><span class="set-pill">110×12</span><span class="set-pill">130×11</span><span class="set-pill">150×10</span><span class="set-pill">170×10</span><span class="set-pill">190×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">8,070</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Leg Extension</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">85×10</span><span class="set-pill">100×12</span><span class="set-pill">130×10</span><span class="set-pill">145×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,800</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Hamstring Curl</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">100×15</span><span class="set-pill">115×14</span><span class="set-pill">130×11</span><span class="set-pill">145×10</span><span class="set-pill">160×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,950</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Machine Hip Abduction</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×12</span><span class="set-pill">50×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,100</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Machine Hip Adduction</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">50×10</span><span class="set-pill">90×8</span><span class="set-pill">130×8</span><span class="set-pill">150×8</span><span class="set-pill">190×3</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,030</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hamstring Curl</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">100×15</span><span class="set-pill">115×14</span><span class="set-pill">130×11</span><span class="set-pill">145×10</span><span class="set-pill">160×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,950</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hip Abduction</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×12</span><span class="set-pill">50×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,100</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Pin-Loaded Machine Hip Adduction</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">50×10</span><span class="set-pill">90×8</span><span class="set-pill">130×8</span><span class="set-pill">150×8</span><span class="set-pill">190×3</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,030</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Cable Crunch</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">35×12</span><span class="set-pill">35×10</span><span class="set-pill">50×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,270</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Wed 05-06 — Push Day<span class="vol-tag">26,770 vol · 36 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill bw">BW×10</span><span class="set-pill bw">BW×8</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cybex Plate-Loaded Machine Incline Bench Press  </td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">90×10</span><span class="set-pill">140×10</span><span class="set-pill">190×9</span><span class="set-pill">210×7</span><span class="set-pill">230×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,860</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Incline Dumbbell Press</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">100×12</span><span class="set-pill">130×10</span><span class="set-pill">150×8</span><span class="set-pill">150×7</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,750</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">30×15</span><span class="set-pill">40×15</span><span class="set-pill">50×13</span><span class="set-pill">60×12</span><span class="set-pill">60×11</span><span class="set-pill">70×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Dumbbell Overhead Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×9</span><span class="set-pill">120×7</span><span class="set-pill">130×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,520</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Lateral Raise</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">30×12</span><span class="set-pill">40×12</span><span class="set-pill">40×10</span><span class="set-pill">50×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,740</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Machine Lateral Raise</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">40×12</span><span class="set-pill">50×12</span><span class="set-pill">60×12</span><span class="set-pill">70×10</span><span class="set-pill">80×8</span><span class="set-pill">70×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,700</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Pin-Loaded Machine Lateral Raise</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">40×12</span><span class="set-pill">50×12</span><span class="set-pill">60×12</span><span class="set-pill">70×10</span><span class="set-pill">80×8</span><span class="set-pill">70×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,700</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Thu 05-07 — Pull Day<span class="vol-tag">10,870 vol · 18 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Bar Straight Arm Lat Pulldown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">35×10</span><span class="set-pill">42×12</span><span class="set-pill">50×11</span><span class="set-pill">50×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,910</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Straight Arm Lat Pulldown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">35×10</span><span class="set-pill">42×12</span><span class="set-pill">50×11</span><span class="set-pill">50×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,910</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Green Attachment Close Grip Cable Lat Pulldown </td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">85×12</span><span class="set-pill">120×9</span><span class="set-pill">140×9</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,360</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Green Attachment Neutral Shoulder Width Grip Cable Lat Pulldown </td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">85×14</span><span class="set-pill">120×9</span><span class="set-pill">140×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,390</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pull-Up ∈ SS1</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill bw">BW×8</span><span class="set-pill bw">BW×7</span><span class="set-pill bw">BW×10</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Hammer Curl ∈ SS1</td><td class="r">1</td><td><div class="set-pills"><span class="set-pill">30×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">300</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sat 05-09 — Push Day<span class="vol-tag">14,105 vol · 19 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill bw">BW×10</span><span class="set-pill bw">BW×8</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Incline Dumbbell Press</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">100×10</span><span class="set-pill">130×10</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,300</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Overhand Grip Pec Deck Fly</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">55×15</span><span class="set-pill">100×15</span><span class="set-pill">130×12</span><span class="set-pill">160×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,165</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">30×15</span><span class="set-pill">40×15</span><span class="set-pill">50×13</span><span class="set-pill">60×12</span><span class="set-pill">60×11</span><span class="set-pill">70×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Machine Lateral Raise</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">40×12</span><span class="set-pill">50×12</span><span class="set-pill">60×12</span><span class="set-pill">70×10</span><span class="set-pill">80×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,140</td></tr>
+</table>
+</div>
+<div class="food-panel workout-panel" id="wp20">
+<div class="wk-summary-grid">
+<div class="wk-summary-card"><div class="label">Sessions</div><div class="value">2</div><div class="sub">training days</div></div>
+<div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">55,202</div><div class="sub">lbs moved</div></div>
+<div class="wk-summary-card"><div class="label">Avg Vol/Session</div><div class="value" style="color:#42a5f5">27,601</div><div class="sub">lbs per workout</div></div>
+<div class="wk-summary-card"><div class="label">Total Sets</div><div class="value" style="color:#00e676">60</div><div class="sub">working sets</div></div>
+<div class="wk-summary-card"><div class="label">Exercises</div><div class="value">13</div><div class="sub">unique movements</div></div>
+</div>
+<h3 style="color:#e94560;font-size:13px;margin:16px 0 8px;text-transform:uppercase;letter-spacing:1px">Top Exercises by Volume</h3>
+<div style="background:#1e1e2e;border-radius:12px;padding:12px;border:1px solid #333;margin-bottom:20px">
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title=" Pendulum Squat Machine"> Pendulum Squat Machine</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:100%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">12,060</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Leg Extension">Leg Extension</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:67%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">8,070</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Cybex Plate-Loaded Machine Incline Bench Press  ">Cybex Plate-Loaded Machine Incline Bench Press  </div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:55%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,600</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Hamstring Curl">Seated Hamstring Curl</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:50%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,000</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pec Deck Fly">Pec Deck Fly</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:41%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">4,995</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Cable Fly">Seated Cable Fly</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:30%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">3,580</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Low Incline Dumbbell Press">Low Incline Dumbbell Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:27%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">3,240</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Standing Machine Lateral Raise">Standing Machine Lateral Raise</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:24%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">2,920</span>
+</div></div></div>
+</div>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sat 05-16 — Push Day<span class="vol-tag">26,642 vol · 38 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill bw">BW×7</span><span class="set-pill bw">BW×5</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Rope Overhead Triceps Extension</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">20×10</span><span class="set-pill">30×8</span><span class="set-pill">35×10</span><span class="set-pill">35×6</span><span class="set-pill">42×5</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,212</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Triceps Pushdown</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">30×10</span><span class="set-pill">35×10</span><span class="set-pill">42×10</span><span class="set-pill">50×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,475</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cybex Plate-Loaded Machine Incline Bench Press  </td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">90×10</span><span class="set-pill">140×8</span><span class="set-pill">190×7</span><span class="set-pill">210×4</span><span class="set-pill">210×6</span><span class="set-pill">230×5</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,600</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Incline Dumbbell Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×10</span><span class="set-pill">130×8</span><span class="set-pill">150×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,240</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pec Deck Fly</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">85×10</span><span class="set-pill">115×10</span><span class="set-pill">145×11</span><span class="set-pill">175×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">4,995</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">30×15</span><span class="set-pill">40×15</span><span class="set-pill">50×13</span><span class="set-pill">60×12</span><span class="set-pill">60×10</span><span class="set-pill">70×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,580</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Dumbbell Overhead Press</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">100×10</span><span class="set-pill">120×7</span><span class="set-pill">130×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,620</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Machine Lateral Raise</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">40×12</span><span class="set-pill">50×10</span><span class="set-pill">60×10</span><span class="set-pill">70×10</span><span class="set-pill">80×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,920</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Sun 05-17 — Leg Day<span class="vol-tag">28,560 vol · 22 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600"> Pendulum Squat Machine</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">90×10</span><span class="set-pill">180×8</span><span class="set-pill">270×6</span><span class="set-pill">360×4</span><span class="set-pill">450×6</span><span class="set-pill">450×4</span><span class="set-pill">540×4</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">12,060</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Leg Extension</td><td class="r">7</td><td><div class="set-pills"><span class="set-pill">85×12</span><span class="set-pill">100×12</span><span class="set-pill">115×10</span><span class="set-pill">160×8</span><span class="set-pill">175×6</span><span class="set-pill">190×6</span><span class="set-pill">205×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">8,070</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Machine Hip Thrust</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">90×9</span><span class="set-pill">90×10</span><span class="set-pill">90×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">2,430</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Hamstring Curl</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">100×12</span><span class="set-pill">115×12</span><span class="set-pill">130×10</span><span class="set-pill">145×8</span><span class="set-pill">160×6</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,000</td></tr>
+</table>
+</div>
+<div class="food-panel workout-panel" id="wp21">
 <div class="wk-summary-grid">
 <div class="wk-summary-card"><div class="label">Sessions</div><div class="value">5</div><div class="sub">training days</div></div>
 <div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">112,731</div><div class="sub">lbs moved</div></div>
@@ -23569,6 +24171,92 @@ html[data-theme="light"] .meal-role-chip {
 <tr><td style="color:#42a5f5;font-weight:600">Standing Machine Lateral Raise</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">40×8</span><span class="set-pill">50×8</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">720</td></tr>
 </table>
 </div>
+<div class="food-panel workout-panel active" id="wp22">
+<div class="wk-summary-grid">
+<div class="wk-summary-card"><div class="label">Sessions</div><div class="value">2</div><div class="sub">training days</div></div>
+<div class="wk-summary-card"><div class="label">Total Volume</div><div class="value" style="color:#ffab40">74,370</div><div class="sub">lbs moved</div></div>
+<div class="wk-summary-card"><div class="label">Avg Vol/Session</div><div class="value" style="color:#42a5f5">37,185</div><div class="sub">lbs per workout</div></div>
+<div class="wk-summary-card"><div class="label">Total Sets</div><div class="value" style="color:#00e676">74</div><div class="sub">working sets</div></div>
+<div class="wk-summary-card"><div class="label">Exercises</div><div class="value">18</div><div class="sub">unique movements</div></div>
+</div>
+<h3 style="color:#e94560;font-size:13px;margin:16px 0 8px;text-transform:uppercase;letter-spacing:1px">Top Exercises by Volume</h3>
+<div style="background:#1e1e2e;border-radius:12px;padding:12px;border:1px solid #333;margin-bottom:20px">
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Cybex Plate Loaded Squad Press">Cybex Plate Loaded Squad Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:100%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">13,050</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pendulum Squat Machine">Pendulum Squat Machine</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:66%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">8,640</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Seated Hamstring Curl">Seated Hamstring Curl</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:57%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">7,465</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Pin-Loaded Leg Press Calf Raise">Pin-Loaded Leg Press Calf Raise</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:50%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">6,480</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Leg Extension">Leg Extension</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:45%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">5,890</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Cybex Plate-Loaded Machine Incline Bench Press">Cybex Plate-Loaded Machine Incline Bench Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:44%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">5,700</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Low Incline Dumbbell Press">Low Incline Dumbbell Press</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:39%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">5,150</span>
+</div></div></div>
+<div style="display:flex;align-items:center;margin:6px 0;gap:8px">
+<div style="width:180px;font-size:11px;color:#ccc;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="Megamass Romanian Deadlift">Megamass Romanian Deadlift</div>
+<div style="flex:1;background:#1a1a2e;border-radius:3px;height:18px;overflow:hidden">
+<div style="width:30%;height:100%;background:linear-gradient(90deg,#e94560,#ff6b81);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px">
+<span style="font-size:9px;color:#fff;font-weight:bold">3,960</span>
+</div></div></div>
+</div>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Mon 05-25 — Leg Day<span class="vol-tag">50,225 vol · 37 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pendulum Squat Machine</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">90×8.0</span><span class="set-pill">180×8.0</span><span class="set-pill">270×6.0</span><span class="set-pill">360×4.0</span><span class="set-pill">450×4.0</span><span class="set-pill">540×3.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">8,640</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cybex Plate Loaded Squad Press</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">180×10.0</span><span class="set-pill">360×7.0</span><span class="set-pill">360×8.0</span><span class="set-pill">450×6.0</span><span class="set-pill">450×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">13,050</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Hanging Straight Leg Raise</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">0×8.0</span><span class="set-pill">0×6.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Leg Extension</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">85×12.0</span><span class="set-pill">115×12.0</span><span class="set-pill">145×8.0</span><span class="set-pill">160×8.0</span><span class="set-pill">175×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,890</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Megamass Romanian Deadlift</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">180×10.0</span><span class="set-pill">270×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,960</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Pin-Loaded Leg Press Calf Raise</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">110×10.0</span><span class="set-pill">130×10.0</span><span class="set-pill">150×8.0</span><span class="set-pill">170×8.0</span><span class="set-pill">190×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">6,480</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Hamstring Curl</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">70×10.0</span><span class="set-pill">100×12.0</span><span class="set-pill">115×13.0</span><span class="set-pill">130×14.0</span><span class="set-pill">145×10.0</span><span class="set-pill">160×5.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">7,465</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Machine Hip Abduction</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×12.0</span><span class="set-pill">50×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,100</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Machine Hip Adduction</td><td class="r">4</td><td><div class="set-pills"><span class="set-pill">50×10.0</span><span class="set-pill">90×10.0</span><span class="set-pill">130×8.0</span><span class="set-pill">150×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,640</td></tr>
+</table>
+<table class="workout-review-table" style="margin-bottom:12px">
+<tr class="session-header"><td colspan="4">Tue 05-26 — Push Day<span class="vol-tag">24,145 vol · 37 sets</span></td></tr>
+<tr><th>Exercise</th><th class="r">Sets</th><th>Weight × Reps</th><th class="r">Volume</th></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Arsenal Plate Loaded Fly   ∈ SS1</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">50×10.0</span><span class="set-pill">100×10.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,500</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Bodyweight Chest Dip</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">0×10.0</span><span class="set-pill">0×9.0</span><span class="set-pill">0×8.0</span></div></td><td class="r" style="color:#555;font-weight:bold">0</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cable Straight Bar Triceps Pushdown</td><td class="r">3</td><td><div class="set-pills"><span class="set-pill">30×12.0</span><span class="set-pill">42×10.0</span><span class="set-pill">50×8.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,185</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Cybex Plate-Loaded Machine Incline Bench Press</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">90×12.0</span><span class="set-pill">140×10.0</span><span class="set-pill">190×7.0</span><span class="set-pill">210×5.0</span><span class="set-pill">210×4.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,700</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Low Incline Dumbbell Press</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">100×10.0</span><span class="set-pill">130×10.0</span><span class="set-pill">150×8.0</span><span class="set-pill">150×6.0</span><span class="set-pill">150×5.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">5,150</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Cable Fly</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">30×15.0</span><span class="set-pill">40×13.0</span><span class="set-pill">50×13.0</span><span class="set-pill">60×12.0</span><span class="set-pill">70×8.0</span><span class="set-pill">70×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,320</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Seated Dumbbell Overhead Press</td><td class="r">2</td><td><div class="set-pills"><span class="set-pill">100×10.0</span><span class="set-pill">120×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,720</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Dumbbell Lateral Raise ∈ SS1</td><td class="r">5</td><td><div class="set-pills"><span class="set-pill">30×12.0</span><span class="set-pill">40×12.0</span><span class="set-pill">40×10.0</span><span class="set-pill">50×8.0</span><span class="set-pill">50×7.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">1,990</td></tr>
+<tr><td style="color:#42a5f5;font-weight:600">Standing Machine Lateral Raise</td><td class="r">6</td><td><div class="set-pills"><span class="set-pill">40×12.0</span><span class="set-pill">50×12.0</span><span class="set-pill">60×12.0</span><span class="set-pill">60×10.0</span><span class="set-pill">70×10.0</span><span class="set-pill">80×6.0</span></div></td><td class="r" style="color:#ffab40;font-weight:bold">3,580</td></tr>
+</table>
+</div>
 </div>
 </div>
 <script>
@@ -23610,7 +24298,7 @@ const WEEK_OPTIONS = window.REPORT_WEEK_OPTIONS || [];
 const WEEK_SUMMARIES = window.REPORT_WEEK_SUMMARIES || [];
 const LAST_COMPLETED_WEEK = window.REPORT_LAST_COMPLETED_WEEK || 21;
 const PARTIAL_WEEK = window.REPORT_PARTIAL_WEEK || null;
-const DETAIL_TABS = new Set(['daily', 'mealpatterns', 'foodreview', 'workouts']);
+const PARTIAL_LOCK_TABS = new Set(['daily', 'mealpatterns', 'foodreview']);
 const FOOD_REVIEW_ROWS = window.REPORT_FOOD_REVIEW || [];
 const FOOD_REVIEW_TYPES = window.REPORT_FOOD_TYPES || [];
 const FOOD_REVIEW_FAMILIES = window.REPORT_FOOD_FAMILIES || [];
@@ -24267,7 +24955,7 @@ function openBryanFullTab(tabId, wk) {
 }
 function showMainTab(id, trigger, options) {
   closeWeekMetricDetails();
-  if (DETAIL_TABS.has(id) && PARTIAL_WEEK && Number(document.body.dataset.rangeTo) === PARTIAL_WEEK) {
+  if (PARTIAL_LOCK_TABS.has(id) && PARTIAL_WEEK && Number(document.body.dataset.rangeTo) === PARTIAL_WEEK) {
     setSingleWeekRange(LAST_COMPLETED_WEEK);
   }
   document.querySelectorAll('.main-panel').forEach(p => p.classList.remove('active'));
@@ -24279,6 +24967,7 @@ function showMainTab(id, trigger, options) {
   if (!options || !options.skipUrl) {
     const url = new URL(location.href);
     url.searchParams.set('tab', id);
+    if (id !== 'workouts') url.searchParams.delete('workoutWeek');
     history.replaceState(null, '', url);
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -24286,8 +24975,25 @@ function showMainTab(id, trigger, options) {
 function showFoodTab(wk) {
   setSingleWeekRange(wk);
 }
-function showWorkoutTab(wk) {
-  setSingleWeekRange(wk);
+function showWorkoutTab(wk, trigger, options) {
+  const weekNum = Number(wk);
+  const hasGlobalWeek = WEEK_OPTIONS.some(opt => opt.week === weekNum);
+  if (hasGlobalWeek) setSingleWeekRange(weekNum, null, { skipUrl: true });
+  else closeWeekMetricDetails();
+  document.querySelectorAll('.workout-panel').forEach(panel => panel.classList.remove('active'));
+  document.querySelectorAll('.workout-week-tab').forEach(tab => tab.classList.remove('active'));
+  const panel = document.getElementById('wp' + weekNum);
+  if (panel) panel.classList.add('active');
+  const tab = trigger || document.querySelector('.workout-week-tab[data-workout-week="' + weekNum + '"]');
+  if (tab) tab.classList.add('active');
+  if (!options || !options.skipUrl) {
+    const url = new URL(location.href);
+    url.searchParams.set('tab', 'workouts');
+    url.searchParams.set('workoutWeek', String(weekNum));
+    if (hasGlobalWeek) url.searchParams.set('weeks', String(weekNum));
+    history.replaceState(null, '', url);
+  }
+  if (trigger) trigger.blur();
 }
 function showMealPatternTab(wk) {
   setSingleWeekRange(wk);
@@ -24339,6 +25045,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const requestedTab = new URLSearchParams(location.search).get('tab') || DEFAULT_REPORT_TAB;
   if (requestedTab && document.getElementById(requestedTab)) {
     showMainTab(requestedTab, null, { skipUrl: true });
+  }
+  const requestedWorkoutWeek = Number(new URLSearchParams(location.search).get('workoutWeek'));
+  if (requestedTab === 'workouts' && requestedWorkoutWeek) {
+    showWorkoutTab(requestedWorkoutWeek, null, { skipUrl: true });
   }
 });
 </script>
