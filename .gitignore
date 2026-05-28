@@ -9,3 +9,6 @@ __pycache__/
 output/
 .vercel
 .playwright-cli/
+
+# Keep private prep workbook exports out of the public static site.
+frontend/public/prep-runway/*.xlsx

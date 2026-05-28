@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /prep-runway/
+Disallow: /coach-report/
+Disallow: /coach-report-wk12/
+Disallow: /grocery/
+Disallow: /love/
+Disallow: /training-program/
+Disallow: /coding-review/
