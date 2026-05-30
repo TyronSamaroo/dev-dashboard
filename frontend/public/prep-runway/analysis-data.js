@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-29T08:20:00",
+  "generatedAt": "2026-05-30T13:58:00",
   "sources": {
     "daily": "private://prep-runway/daily-ledger",
     "training": "private://prep-runway/training-ledger",
@@ -11,13 +11,13 @@ window.PREP_ANALYSIS_DATA = {
     "googleSheet": "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI",
     "coachReport": "https://tyronsamaroo.dev/coach-report/report.html"
   },
-  "sourceMap": [
+  "sourceMap":     [
     {
       "label": "Daily ledger",
       "title": "Weight, macros, sleep, activity",
       "status": "current",
-      "value": "13 rows",
-      "text": "Latest complete day is Fri 5/29: 1,516 cal, 164P, 113C, 9h26m sleep, and one low-HR walk.",
+      "value": "14 rows",
+      "text": "Latest complete day is Fri 5/29; latest weigh-in is 154 on Sat 5/30 with small rebound after controlled carb/fat top-off; compare to Thu and confirm with standard timing.",
       "path": "private://prep-runway/daily-ledger"
     },
     {
@@ -61,8 +61,8 @@ window.PREP_ANALYSIS_DATA = {
       "path": "private://prep-runway/feedback-loop"
     }
   ],
-  "dataHealth": {
-    "summary": "Fri 5/29 is now closed: 153.3 lb, 1,516 cal / 164P / 46F / 113C, 9h26m sleep, 629 active kcal, and one low-HR walk.",
+  "dataHealth":     {
+    "summary": "Sat 5/30 weigh-in is 154, +0.7 vs Fri. Fri 5/29 remains the latest fully closed day.",
     "missing": [
       "energy",
       "hunger",
@@ -73,9 +73,9 @@ window.PREP_ANALYSIS_DATA = {
     "rows": [
       {
         "label": "Scale trend",
-        "value": "169 → 153.3",
+        "value": "169 → 154",
         "status": "current",
-        "read": "-15.7 lb from Sun 5/17 to Fri 5/29; -0.6 lb vs Thu, with timing caveat."
+        "read": "-15 lb from Sun 5/17 to Sat 5/30; +0.7 vs Fri, with small rebound after controlled carb/fat top-off; compare to Thu and confirm with standard timing."
       },
       {
         "label": "Macros",
@@ -97,41 +97,41 @@ window.PREP_ANALYSIS_DATA = {
       }
     ]
   },
-  "todayStatus": {
-    "date": "2026-05-29",
-    "label": "Fri 5/29",
-    "headline": "Soft landing closed before Bryan.",
-    "subhead": "Fri closed at 1,516 cal with 113g carbs, 9h26m sleep, RHR 39, and only a low-HR walk. This is a controlled top-off, not a free-feed.",
+  "todayStatus":     {
+    "date": "2026-05-30",
+    "label": "Sat 5/30",
+    "headline": "Small rebound logged; confirm with standard timing.",
+    "subhead": "154 is +0.7 vs Fri. small rebound after controlled carb/fat top-off; compare to Thu and confirm with standard timing; do not change levers from this read alone.",
     "cards": [
       {
         "label": "Scale",
         "tone": "ok",
-        "value": "153.3 lb",
-        "text": "-0.6 vs Thu; -15.7 lb since Sun 5/17. Timing caveat."
+        "value": "154 lb",
+        "text": "+0.7 vs Fri; -15 lb since Sun 5/17. small rebound after controlled carb/fat top-off; compare to Thu and confirm with standard timing."
       },
       {
         "label": "Recovery",
-        "tone": "ok",
-        "value": "9h26m",
-        "text": "RHR 39 / HRV 99; sleep was the recovery win."
+        "tone": "warn",
+        "value": "Pending",
+        "text": "Need sleep, RHR, HRV, GI/stool, soreness."
       },
       {
         "label": "Macros",
-        "tone": "ok",
-        "value": "1,516 cal",
-        "text": "164P · 46F · 113C; controlled glycogen top-off."
+        "tone": "warn",
+        "value": "Food pending",
+        "text": "Need macros before changing calories/cardio."
       },
       {
-        "label": "Cardio",
-        "tone": "ok",
-        "value": "Walk 60m",
-        "text": "Avg HR 92; support movement without StairMaster fatigue."
+        "label": "Training",
+        "tone": "warn",
+        "value": "Pending",
+        "text": "Need cardio/lift and active burn."
       },
       {
         "label": "Missing",
         "tone": "warn",
-        "value": "Feedback",
-        "text": "Need GI/stool, soreness, Energy/Hunger/Drive."
+        "value": "Check-in",
+        "text": "Energy, hunger, drive, GI/stool, soreness."
       }
     ],
     "rules": [
@@ -476,7 +476,19 @@ window.PREP_ANALYSIS_DATA = {
       "adjustedActive": null,
       "read": "Morning scale is down again, but weigh-in timing was not standard. Count the drop and tag quality."
     }
-  ],
+  ,
+            {
+      "date": "2026-05-30",
+      "label": "Sat 5/30",
+      "phase": "Agg/Rec D10",
+      "weight": 154,
+      "delta": 0.7,
+      "calories": null,
+      "protein": null,
+      "lift": "Pending",
+      "adjustedActive": null,
+      "read": "Scale logged at 154. small rebound after controlled carb/fat top-off; compare to Thu and confirm with standard timing; confirm with the next standard weigh-in before changing levers."
+    }],
   "reportLedger": [
     {
       "date": "2026-05-17",
@@ -1058,7 +1070,34 @@ window.PREP_ANALYSIS_DATA = {
       },
       "decision": "Fri 5/29 closed: 1516 cal / 164P / 46F / 113C, 10,546 steps, 629 Apple active kcal, no lift, and Walking 6:45p-7:45p · 1h00m."
     }
-  ],
+  ,
+            {
+      "date": "2026-05-30",
+      "day": "Sat",
+      "dateShort": "5/30",
+      "phase": "Agg/Rec D10",
+      "weight": 154,
+      "delta": 0.7,
+      "sleep": {
+        "total": null,
+        "detail": "Sleep pending · small rebound after controlled carb/fat top-off; compare to Thu and confirm with standard timing",
+        "rhr": null,
+        "hrv": null
+      },
+      "macros": {
+        "calories": null,
+        "protein": null,
+        "fat": null,
+        "carbs": null
+      },
+      "cardioEvents": [],
+      "liftEvents": [],
+      "burn": {
+        "adjusted": null,
+        "apple": null
+      },
+      "decision": "154 today: +0.7 vs Fri. small rebound after controlled carb/fat top-off; compare to Thu and confirm with standard timing; wait for sleep, macros, training, active burn, GI/stool, soreness, and Energy/Hunger/Drive before changing levers."
+    }],
   "mealDays": [
     {
       "date": "2026-05-17",

@@ -81,7 +81,8 @@ const loadData = () => {
 };
 
 const replaceObjectAtProperty = (source, property, replacement) => {
-  const propertyIndex = source.indexOf(`"${property}": {`);
+  const propertyMatch = source.match(new RegExp(`"${property}"\\s*:\\s*\\{`));
+  const propertyIndex = propertyMatch?.index ?? -1;
   if (propertyIndex === -1) return { source, changed: false, reason: `${property} not found` };
   const objectStart = source.indexOf("{", propertyIndex);
   let depth = 0;
@@ -107,7 +108,8 @@ const replaceObjectAtProperty = (source, property, replacement) => {
 };
 
 const replaceArrayAtProperty = (source, property, replacement) => {
-  const propertyIndex = source.indexOf(`"${property}": [`);
+  const propertyMatch = source.match(new RegExp(`"${property}"\\s*:\\s*\\[`));
+  const propertyIndex = propertyMatch?.index ?? -1;
   if (propertyIndex === -1) return { source, changed: false, reason: `${property} not found` };
   const arrayStart = source.indexOf("[", propertyIndex);
   let depth = 0;
@@ -133,7 +135,8 @@ const replaceArrayAtProperty = (source, property, replacement) => {
 };
 
 const upsertObjectInArray = (source, property, matchDate, replacement) => {
-  const propertyIndex = source.indexOf(`"${property}": [`);
+  const propertyMatch = source.match(new RegExp(`"${property}"\\s*:\\s*\\[`));
+  const propertyIndex = propertyMatch?.index ?? -1;
   if (propertyIndex === -1) return { source, changed: false, reason: `${property} not found` };
   const arrayStart = source.indexOf("[", propertyIndex);
   let depth = 0;
@@ -206,9 +209,24 @@ const replaceForecastActual = (html, isoDate) => {
   const matcher = new RegExp(`(<tr><td class="date-cell">${escaped}</td><td>${day}</td><td>[^<]+</td><td class="num">([^<]+)</td><td class="num">([^<]+)</td>)<td(?: class="num")?>[^<]+</td><td(?: class="num")?>[^<]+</td><td>[^<]+</td><td class="read">[^<]+</td></tr>`);
   const match = html.match(matcher);
   if (!match) return { html, changed: false, reason: `${isoDate} forecast row not found` };
+  const range = match[2].match(/([0-9.]+)\s*-\s*([0-9.]+)/);
+  const low = range ? Number.parseFloat(range[1]) : null;
+  const high = range ? Number.parseFloat(range[2]) : null;
   const center = Number.parseFloat(match[3]);
   const variance = Number.isFinite(center) ? formatSigned(weight - center) : "—";
-  const row = `${match[1]}<td class="num">${weight}</td><td class="num">${variance}</td><td>On track / timing caveat</td><td class="read">Inside the projected range. ${escapeHtml(note)}; confirm with the next standard weigh-in before changing levers.</td></tr>`;
+  const rangeRead = Number.isFinite(low) && Number.isFinite(high)
+    ? weight < low
+      ? `Below projected range by ${Number((low - weight).toFixed(1))} lb.`
+      : weight > high
+        ? `Above projected range by ${Number((weight - high).toFixed(1))} lb.`
+        : "Inside the projected range."
+    : "Logged against the projected range.";
+  const status = Number.isFinite(high) && weight > high
+    ? "Above range / timing caveat"
+    : Number.isFinite(low) && weight < low
+      ? "Below range / timing caveat"
+      : "On track / timing caveat";
+  const row = `${match[1]}<td class="num">${weight}</td><td class="num">${variance}</td><td>${status}</td><td class="read">${rangeRead} ${escapeHtml(note)}; confirm with the next standard weigh-in before changing levers.</td></tr>`;
   const next = html.replace(matcher, row);
   return { html: next, changed: next !== html, reason: `${isoDate} forecast actual` };
 };
@@ -271,8 +289,10 @@ const todayStatus = {
   ...(data.todayStatus || {}),
   date: dateFromArg,
   label,
-  headline: "Scale is down again; confirm with standard timing.",
-  subhead: `${weight} is ${deltaText} and inside the current forecast lane. ${note}; do not change levers from this read alone.`,
+  headline: delta !== null && delta > 0
+    ? "Small rebound logged; confirm with standard timing."
+    : "Scale logged; confirm with standard timing.",
+  subhead: `${weight} is ${deltaText}. ${note}; do not change levers from this read alone.`,
   cards: [
     {
       label: "Scale",
@@ -345,7 +365,7 @@ const reportRow = {
     adjusted: null,
     apple: null,
   },
-  decision: `${weight} today: ${deltaText} and inside the current forecast lane. ${note}; wait for sleep, macros, training, active burn, GI/stool, soreness, and Energy/Hunger/Drive before changing levers.`,
+  decision: `${weight} today: ${deltaText}. ${note}; wait for sleep, macros, training, active burn, GI/stool, soreness, and Energy/Hunger/Drive before changing levers.`,
 };
 
 let analysisSource = fs.readFileSync(analysisPath, "utf8");
