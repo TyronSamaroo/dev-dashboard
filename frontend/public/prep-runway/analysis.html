@@ -667,7 +667,7 @@
     </section>
   </main>
 
-  <script src="analysis-data.js?v=20260527-wed-recovery"></script>
+  <script src="analysis-data.js?v=20260529-fri-closeout"></script>
   <script>
     (() => {
       const data = window.PREP_ANALYSIS_DATA;
@@ -824,8 +824,8 @@
 
       function compactPath(value) {
         const text = String(value || "—");
-        const marker = "/Claude_Cowork/";
-        if (text.includes(marker)) return "Claude_Cowork/" + text.split(marker).pop();
+        const marker = "/MissionControl/";
+        if (text.includes(marker)) return "MissionControl/" + text.split(marker).pop();
         if (text.includes("/Downloads/")) return "~/Downloads/" + text.split("/Downloads/").pop();
         return text;
       }

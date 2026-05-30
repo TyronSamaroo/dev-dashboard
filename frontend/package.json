@@ -8,6 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "prep:weight": "node scripts/prep-runway-weight.mjs",
+    "prep:close": "node scripts/prep-runway-closeout.mjs",
     "prep:check": "node scripts/prep-runway-fast-check.mjs",
     "prep:check:data": "node scripts/prep-runway-fast-check.mjs --scope data",
     "prep:check:all": "node scripts/prep-runway-fast-check.mjs --scope all"

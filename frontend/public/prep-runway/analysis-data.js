@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-27T10:56:00",
+  "generatedAt": "2026-05-29T08:20:00",
   "sources": {
     "daily": "private://prep-runway/daily-ledger",
     "training": "private://prep-runway/training-ledger",
@@ -16,8 +16,8 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Daily ledger",
       "title": "Weight, macros, sleep, activity",
       "status": "current",
-      "value": "11 rows",
-      "text": "Latest complete day is Tue 5/26; latest weigh-in is 153.6 on Wed 5/27.",
+      "value": "13 rows",
+      "text": "Latest complete day is Fri 5/29: 1,516 cal, 164P, 113C, 9h26m sleep, and one low-HR walk.",
       "path": "private://prep-runway/daily-ledger"
     },
     {
@@ -40,8 +40,8 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Training/cardio",
       "title": "Current sessions + YTD import",
       "status": "current",
-      "value": "20 current · 474 YTD",
-      "text": "Latest current session is Tue 5/26; warmups and movie walks are separated from the main cardio/lift cards.",
+      "value": "25 current · 474 YTD",
+      "text": "Latest current session is Fri 5/29 walking support volume; Thu remains latest lift/StairMaster day.",
       "path": "private://training/ytd-workouts"
     },
     {
@@ -62,76 +62,76 @@ window.PREP_ANALYSIS_DATA = {
     }
   ],
   "dataHealth": {
-    "summary": "Tue 5/26 is closed; Wed 5/27 weight and recovery are logged. Today still needs macros and training/cardio.",
+    "summary": "Fri 5/29 is now closed: 153.3 lb, 1,516 cal / 164P / 46F / 113C, 9h26m sleep, 629 active kcal, and one low-HR walk.",
     "missing": [
-      "Wed macros",
-      "Wed training/cardio",
       "energy",
       "hunger",
-      "drive"
+      "drive",
+      "GI/stool",
+      "soreness"
     ],
     "rows": [
       {
         "label": "Scale trend",
-        "value": "169 → 153.6",
+        "value": "169 → 153.3",
         "status": "current",
-        "read": "-15.4 lb from Sun 5/17 to Wed 5/27."
+        "read": "-15.7 lb from Sun 5/17 to Fri 5/29; -0.6 lb vs Thu, with timing caveat."
       },
       {
         "label": "Macros",
-        "value": "Tue 5/26",
+        "value": "Fri 5/29",
         "status": "current",
-        "read": "Latest complete macro day is 1,075 cal / 195P / 19.5F / 27C."
+        "read": "Latest complete macro day is 1,516 cal / 164P / 46F / 113C."
       },
       {
         "label": "Cardio",
-        "value": "14 Stair",
+        "value": "17 Stair",
         "status": "current",
-        "read": "Current StairMaster average is 10.65 kcal/min."
+        "read": "Current StairMaster average is about 10.54 kcal/min."
       },
       {
         "label": "Feedback",
-        "value": "3 scores missing",
+        "value": "5 checks missing",
         "status": "watch",
-        "read": "Energy, hunger, drive plus GI/soreness are still the missing interpretation layer."
+        "read": "Energy, hunger, drive, GI/stool, and soreness are still the missing interpretation layer."
       }
     ]
   },
   "todayStatus": {
-    "date": "2026-05-27",
-    "label": "Wed 5/27",
-    "headline": "Tue closed extreme; make Wed marker-led.",
-    "subhead": "Weight is down again and recovery markers are strong after the biggest single-day deficit of this runway. Today still needs macros, training/cardio, and subjective scores before another push.",
+    "date": "2026-05-29",
+    "label": "Fri 5/29",
+    "headline": "Soft landing closed before Bryan.",
+    "subhead": "Fri closed at 1,516 cal with 113g carbs, 9h26m sleep, RHR 39, and only a low-HR walk. This is a controlled top-off, not a free-feed.",
     "cards": [
       {
         "label": "Scale",
         "tone": "ok",
-        "value": "153.6 lb",
-        "text": "-15.4 lb since Sun 5/17; -0.4 lb vs Tue 5/26."
+        "value": "153.3 lb",
+        "text": "-0.6 vs Thu; -15.7 lb since Sun 5/17. Timing caveat."
       },
       {
         "label": "Recovery",
         "tone": "ok",
-        "value": "RHR 41 / HRV 118",
-        "text": "6h12m sleep at 91% efficiency; markers still usable."
+        "value": "9h26m",
+        "text": "RHR 39 / HRV 99; sleep was the recovery win."
       },
       {
-        "label": "Tue output",
-        "tone": "bad",
-        "value": "21,058 steps",
-        "text": "Two StairMaster blocks, one dense lift, and movie walks."
+        "label": "Macros",
+        "tone": "ok",
+        "value": "1,516 cal",
+        "text": "164P · 46F · 113C; controlled glycogen top-off."
       },
       {
         "label": "Cardio",
         "tone": "ok",
-        "value": "10.65 k/min",
-        "text": "Current StairMaster is 0.34 kcal/min vs YTD Stair."
+        "value": "Walk 60m",
+        "text": "Avg HR 92; support movement without StairMaster fatigue."
       },
       {
         "label": "Missing",
         "tone": "warn",
-        "value": "Wed fields",
-        "text": "macros, cardio/lift, energy/hunger/drive"
+        "value": "Feedback",
+        "text": "Need GI/stool, soreness, Energy/Hunger/Drive."
       }
     ],
     "rules": [
@@ -179,79 +179,79 @@ window.PREP_ANALYSIS_DATA = {
       {
         "question": "Cardio adapting down?",
         "tone": "ok",
-        "value": "0.4 kcal/min",
-        "metric": "current vs YTD Stair (10.65 vs 10.31)",
+        "value": "0.2 kcal/min",
+        "metric": "current vs YTD Stair (10.54 vs 10.31)",
         "read": "No clear StairMaster efficiency drop yet; current output is still around or above YTD Stair baseline.",
         "next": "Hold one controlled morning Stair block and compare HR/kcal/min before adding punishment volume."
       },
       {
         "question": "Can I trust today?",
         "tone": "warn",
-        "value": "Wed missing",
-        "metric": "macros, training/cardio, energy, hunger, drive",
-        "read": "Wed weight and recovery are logged and still supportive. Decisions still need food, training/cardio, GI, and soreness.",
-        "next": "Log the missing fields once instead of spreading them across chat fragments."
+        "value": "Subjective missing",
+        "metric": "energy, hunger, drive, GI/stool, soreness",
+        "read": "Thu's objective data is closed. The only thing missing for the decision loop is how you felt and whether GI/stool/soreness explains the 0.3 lb bounce.",
+        "next": "Send Energy/Hunger/Drive plus GI/stool and soreness once."
       }
     ]
   },
   "checkInPacket": {
-    "title": "Prep Runway update packet — Wed 5/27",
+    "title": "Prep Runway update packet — Thu 5/28",
     "missing": [
       "energy",
       "hunger",
       "drive"
     ],
-    "text": "Prep Runway update packet — Wed 5/27\nAM weight: 153.6 lb\nSleep: 1:03a → 7:53a / 6h12m asleep / 6h50m in bed / 91% / RHR 41 / HRV 118\nMacros: calories / protein / fat / carbs = \nFood timing: meal windows + foods + rough whole-food vs powder split = \nCardio: type / start-end / duration / kcal / avg HR / max HR = \nLift: split / start-end / duration / kcal / avg HR / max HR / felt normal or flat = \nSteps / active kcal: \nGI/stool: \nEnergy / Hunger / Drive (1-10): \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
+    "text": "Prep Runway update packet — Thu 5/28\nAM weight: 153.9 lb\nSleep: 11:08p → 6:16a / 6h31m asleep / 7h08m in bed / 91% / RHR 39 / HRV 99\nMacros: 1,055 cal / 180P / 18F / 27C\nCardio: Stair 7:08a-7:46a / 37:57 / 364 kcal / HR 123/138; Stair 5:52p-6:44p / 51:25 / 502 kcal / HR 125/139\nLift: Weight Training 4:04p-5:52p / 108:25 / 411 kcal / HR 87/119\nSteps / active kcal: 12,366 steps / 1,587 Apple active\nGI/stool: \nEnergy / Hunger / Drive (1-10): \nSoreness / legs on stairs: \nDecision note: keep aggressive, add food, reduce cardio, or no change?",
     "read": "Paste this once with the missing fields filled. It keeps Analysis, Daily Master, and the Data Ledger aligned."
   },
   "topMetrics": [
     {
       "label": "Scale move",
-      "value": "169 → 153.6",
-      "note": "-15.4 lb from Sun 5/17 to Wed 5/27 morning"
+      "value": "169 → 153.9",
+      "note": "-15.1 lb from Sun 5/17 to Thu 5/28; +0.3 vs Wed"
     },
     {
       "label": "Intake avg",
-      "value": "1,030.7 cal",
-      "note": "176.8P / 16.1F / 41.0C avg"
+      "value": "1,025.6 cal",
+      "note": "176.1P / 16.3F / 38.7C avg from complete macro days"
     },
     {
       "label": "Stair output",
-      "value": "~7,225.3 kcal",
-      "note": "14 sessions · 678.4 min · 10.65 kcal/min"
+      "value": "~8,639.3 kcal",
+      "note": "17 sessions · 819.9 min · 10.54 kcal/min"
     },
     {
       "label": "Stair HR",
-      "value": "~134.3 bpm",
+      "value": "~132.9 bpm",
       "note": "Current-week average from known sessions"
     },
     {
       "label": "Current flag",
-      "value": "Tue overreach",
-      "note": "21k steps + 278 exercise min + 1,075 cal"
+      "value": "Scale bounce",
+      "note": "+0.3 lb with RHR 39 and a 2,107 kcal Apple deficit"
     }
   ],
   "operatingRead": {
-    "headline": "Keep the plan aggressive, but judge it by markers — not one flat weigh-in.",
-    "subhead": "The data says the cut is still working. The immediate bottleneck is whether digestion, sleep, soreness, and HR markers can tolerate the output.",
+    "headline": "Keep the plan aggressive, but do not overreact to the 0.3 lb bounce.",
+    "subhead": "Thu is closed: low calories, high protein, controlled cardio, and the lowest RHR of the runway. The remaining question is subjective readiness and GI/soreness.",
     "cards": [
       {
         "label": "Scale",
         "tone": "ok",
-        "value": "153.6 lb",
-        "text": "-15.4 lb since Sun 5/17; -0.4 lb vs prior weigh-in."
+        "value": "153.9 lb",
+        "text": "-15.1 lb since Sun 5/17; +0.3 lb vs prior weigh-in."
       },
       {
         "label": "Last complete day",
         "tone": "warn",
-      "value": "Tue 5/26",
-      "text": "1,075 cal · 195P · Stair 60:19 + 30:27 · Weight Training 106:53."
+      "value": "Thu 5/28",
+      "text": "1,055 cal · 180P · Stair 37:57 + 51:25 · Weight Training 108:25."
       },
       {
         "label": "Off signal",
         "tone": "bad",
-        "value": "GI / powder",
-        "text": "Keep aggressive if Energy/Hunger/Drive are usable, but do not add more cardio on top of this output; use measured carbs around hard legs or performance dips."
+        "value": "Bounce context",
+        "text": "The scale went up 0.3 despite a big deficit. Check GI/stool, soreness, sodium, and sleep before calling it a stall."
       },
       {
         "label": "Subjective",
@@ -262,8 +262,8 @@ window.PREP_ANALYSIS_DATA = {
       {
         "label": "Missing now",
         "tone": "warn",
-        "value": "Wed fields",
-        "text": "macros, training/cardio, energy/hunger/drive"
+        "value": "Subjective",
+        "text": "energy/hunger/drive, GI/stool, soreness"
       }
     ],
     "rules": [
@@ -304,7 +304,7 @@ window.PREP_ANALYSIS_DATA = {
       "badge": "Cardio",
       "tone": "ok",
       "title": "Is StairMaster adapting down?",
-      "body": "Not clearly. Current StairMaster output is 7,225.3 kcal across 14 sessions at 10.65 kcal/min with avg HR about 134.3 bpm."
+      "body": "Not clearly. Current StairMaster output is 8,639.3 kcal across 17 sessions at 10.54 kcal/min with avg HR about 132.9 bpm."
     },
     {
       "badge": "Risk",
@@ -439,6 +439,42 @@ window.PREP_ANALYSIS_DATA = {
       "lift": "Weight Training 106:53",
       "adjustedActive": 2125.0,
       "read": "Down 0.6 from Mon and 15.0 from 5/17; Tue became the biggest deficit day with 21,058 steps, two StairMaster blocks, and a dense lift."
+    },
+    {
+      "date": "2026-05-27",
+      "label": "Wed 5/27",
+      "phase": "Agg/Rec D7",
+      "weight": 153.6,
+      "delta": -0.4,
+      "calories": 945.0,
+      "protein": 165.0,
+      "lift": "Lift-tagged-Other 94:32",
+      "adjustedActive": 1195.0,
+      "read": "Backfilled: 945 cal / 165P, lift-tagged-Other treated as a lift, then 52:07 StairMaster. Still a large deficit day."
+    },
+    {
+      "date": "2026-05-28",
+      "label": "Thu 5/28",
+      "phase": "Agg/Rec D8",
+      "weight": 153.9,
+      "delta": 0.3,
+      "calories": 1055.0,
+      "protein": 180.0,
+      "lift": "Weight Training 108:25",
+      "adjustedActive": 1340.0,
+      "read": "Small scale bounce while still inside forecast; RHR 39 and controlled output argue noise, not stall."
+    },
+    {
+      "date": "2026-05-29",
+      "label": "Fri 5/29",
+      "phase": "Agg/Rec D9",
+      "weight": 153.3,
+      "delta": -0.6,
+      "calories": null,
+      "protein": null,
+      "lift": "Pending",
+      "adjustedActive": null,
+      "read": "Morning scale is down again, but weigh-in timing was not standard. Count the drop and tag quality."
     }
   ],
   "reportLedger": [
@@ -914,32 +950,113 @@ window.PREP_ANALYSIS_DATA = {
         "hrv": 118.0
       },
       "macros": {
-        "calories": null,
-        "protein": null,
-        "fat": null,
-        "carbs": null
+        "calories": 945.0,
+        "protein": 165.0,
+        "fat": 17.0,
+        "carbs": 27.0
       },
       "cardioEvents": [
         {
-          "label": "Cardio",
-          "title": "Pending",
-          "meta": "Session details pending",
-          "type": "Pending"
+          "label": "PM",
+          "title": "6:03p-6:56p · 52m",
+          "meta": "548 kcal · Stair · HR 133/143",
+          "type": "StairMaster"
         }
       ],
       "liftEvents": [
         {
           "label": "Lift",
-          "title": "Pending",
-          "meta": "Session details pending",
-          "type": "Pending"
+          "title": "4:27p-6:02p · 1h35m",
+          "meta": "521 → 450 adj · HR 114/147",
+          "type": "Lift tagged Other"
         }
       ],
       "burn": {
-        "adjusted": null,
-        "apple": null
+        "adjusted": 1195.0,
+        "apple": 1266.0
       },
-      "decision": "153.6 this morning: down 0.4 from Tue and 15.4 from 5/17. Recovery is supportive: 6h12m sleep, RHR 41, HRV 118. Still inside the Wed forecast range and not stalled; fill macros, cardio/lift, GI, and Energy/Hunger/Drive before changing levers."
+      "decision": "Wednesday is now closed: 945 cal / 165P / 17F / 27C, 7,269 steps, 1,266 Apple active kcal, one lift-tagged-Other session that reads like a lift by HR profile, and a 52:07 StairMaster. This was still an aggressive deficit day; treat the workout as lift in the dashboard, not as miscellaneous cardio."
+    },
+    {
+      "date": "2026-05-28",
+      "day": "Thu",
+      "dateShort": "5/28",
+      "phase": "Agg/Rec D8",
+      "weight": 153.9,
+      "delta": 0.3,
+      "sleep": {
+        "total": "6h31m",
+        "detail": "Night 6h31m · 91% · RHR 39 / HRV 99",
+        "rhr": 39.0,
+        "hrv": 99.0
+      },
+      "macros": {
+        "calories": 1055.0,
+        "protein": 180.0,
+        "fat": 18.0,
+        "carbs": 27.0
+      },
+      "cardioEvents": [
+        {
+          "label": "AM",
+          "title": "7:08a-7:46a · 38m",
+          "meta": "364 kcal · Stair · HR 123/138",
+          "type": "StairMaster"
+        },
+        {
+          "label": "PM",
+          "title": "5:52p-6:44p · 51m",
+          "meta": "502 kcal · Stair · HR 125/139",
+          "type": "StairMaster"
+        }
+      ],
+      "liftEvents": [
+        {
+          "label": "Lift",
+          "title": "4:04p-5:52p · 1h48m",
+          "meta": "411 → 205 adj · HR 87/119",
+          "type": "Weight Training"
+        }
+      ],
+      "burn": {
+        "adjusted": 1340.0,
+        "apple": 1587.0
+      },
+      "decision": "153.9 is up 0.3 from Wed but still inside Thu's 152-154.5 range. Thu closed at 1,055 cal / 180P / 18F / 27C, 12,366 steps, two controlled StairMaster blocks, and the most paced lift of the week (avg HR 87). Warmup is excluded from main cards; do not overreact to the scale bounce without GI/stool, soreness, and subjective scores."
+    },
+                    {
+      "date": "2026-05-29",
+      "day": "Fri",
+      "dateShort": "5/29",
+      "phase": "Agg/Rec D9",
+      "weight": 153.3,
+      "delta": -0.6,
+      "sleep": {
+        "total": "9h26m",
+        "detail": "Night 9h26m · 90% · RHR 39 / HRV 99",
+        "rhr": 39,
+        "hrv": 99
+      },
+      "macros": {
+        "calories": 1516,
+        "protein": 164,
+        "fat": 46,
+        "carbs": 113
+      },
+      "cardioEvents": [
+        {
+          "label": "Walk",
+          "title": "6:45p-7:45p · 1h00m",
+          "meta": "377 kcal · Walk · HR 92/113",
+          "type": "Walking"
+        }
+      ],
+      "liftEvents": [],
+      "burn": {
+        "adjusted": 629,
+        "apple": 629
+      },
+      "decision": "Fri 5/29 closed: 1516 cal / 164P / 46F / 113C, 10,546 steps, 629 Apple active kcal, no lift, and Walking 6:45p-7:45p · 1h00m."
     }
   ],
   "mealDays": [
@@ -3131,6 +3248,54 @@ window.PREP_ANALYSIS_DATA = {
       "maxHr": 88.0,
       "barPct": 11,
       "read": "Movie walk back. Support movement only; keep it visible in Data but out of the Daily Master cardio cards."
+    },
+    {
+      "date": "2026-05-27",
+      "label": "Wed 5/27",
+      "kind": "stair evening",
+      "session": "StairMaster",
+      "time": "6:03 PM–6:56 PM",
+      "duration": "52:07",
+      "minutes": 52.12,
+      "calories": 548.0,
+      "adjusted": 548.0,
+      "kpm": 10.52,
+      "avgHr": 133.0,
+      "maxHr": 143.0,
+      "barPct": 59,
+      "read": "Post-lift StairMaster after a lift-tagged-Other session. Counts as main cardio and keeps Wed aggressive despite low calories."
+    },
+    {
+      "date": "2026-05-28",
+      "label": "Thu 5/28",
+      "kind": "stair morning",
+      "session": "StairMaster",
+      "time": "7:08 AM–7:46 AM",
+      "duration": "37:57",
+      "minutes": 37.95,
+      "calories": 364.0,
+      "adjusted": 364.0,
+      "kpm": 9.59,
+      "avgHr": 123.0,
+      "maxHr": 138.0,
+      "barPct": 39,
+      "read": "Controlled AM StairMaster with lower HR and lower kcal/min than redline days."
+    },
+    {
+      "date": "2026-05-28",
+      "label": "Thu 5/28",
+      "kind": "stair evening",
+      "session": "StairMaster",
+      "time": "5:52 PM–6:44 PM",
+      "duration": "51:25",
+      "minutes": 51.42,
+      "calories": 502.0,
+      "adjusted": 502.0,
+      "kpm": 9.76,
+      "avgHr": 125.0,
+      "maxHr": 139.0,
+      "barPct": 54,
+      "read": "Controlled post-lift StairMaster; output without a panic spike."
     }
   ],
   "cardioHistory": {
@@ -3162,8 +3327,8 @@ window.PREP_ANALYSIS_DATA = {
     "benchmarks": [
       {
         "label": "Current Stair",
-        "value": "10.65 kcal/min",
-        "note": "14 sessions · 678.4 min · avg HR 134.3"
+        "value": "10.54 kcal/min",
+        "note": "17 sessions · 819.9 min · avg HR 132.9"
       },
       {
         "label": "YTD Stair",
@@ -3186,14 +3351,14 @@ window.PREP_ANALYSIS_DATA = {
         "badge": "Adaptation",
         "tone": "ok",
         "title": "No clear StairMaster drop yet",
-        "value": "10.65 vs 10.31",
+        "value": "10.54 vs 10.31",
         "text": "Current cleanup StairMaster output is not below the YTD baseline. A flat weigh-in is more likely water/GI/training noise than cardio adaptation."
       },
       {
         "badge": "Anchor",
         "tone": "ok",
         "title": "Morning StairMaster is the cleanest lever",
-        "value": "14 sessions",
+        "value": "17 sessions",
         "text": "StairMaster burn is the most reliable cardio signal here. Keep one controlled morning block before adding extra volume."
       },
       {
@@ -3214,7 +3379,7 @@ window.PREP_ANALYSIS_DATA = {
     "reads": [
       {
         "title": "No StairMaster drop yet",
-        "text": "Current cleanup StairMaster is 10.65 kcal/min versus the YTD Stair baseline of 10.31 kcal/min."
+        "text": "Current cleanup StairMaster is 10.54 kcal/min versus the YTD Stair baseline of 10.31 kcal/min."
       },
       {
         "title": "Walking role",
