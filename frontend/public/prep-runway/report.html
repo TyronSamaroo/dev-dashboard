@@ -525,13 +525,13 @@
     </section>
 	    <p class="footer">Private prep planning artifact for contest-prep execution and evidence review, not medical advice.</p>
 	  </main>
-			  <script src="analysis-data.js?v=20260530-macro-closeout"></script>
+			  <script src="analysis-data.js?v=20260531-weight"></script>
 	  <script>
 	    (() => {
 	      const data = window.PREP_ANALYSIS_DATA || {};
 	      const body = document.getElementById("report-ledger-body");
 	      const currentReadStrip = document.getElementById("current-read-strip");
-	      const rows = data.reportLedger || [];
+	      const rows = (data.reportLedger || []).slice().sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
 	      if (!body || !rows.length) return;
 	      const escapeHtml = (value) => String(value ?? "—")
 	        .replaceAll("&", "&amp;")
@@ -539,14 +539,16 @@
 	        .replaceAll(">", "&gt;")
 	        .replaceAll('"', "&quot;");
 	      const fmt = (value, suffix = "") => value === null || value === undefined || value === "" ? "Pending" : `${escapeHtml(value)}${suffix}`;
+	      const hasNumber = (value) => value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
 	      const fmtNumber = (value, digits = 0) => {
-	        if (value === null || value === undefined || Number.isNaN(Number(value))) return "Pending";
+	        if (!hasNumber(value)) return "Pending";
 	        const number = Number(value);
 	        return number.toLocaleString(undefined, {
 	          maximumFractionDigits: digits,
 	          minimumFractionDigits: Number.isInteger(number) ? 0 : Math.min(digits, 1),
 	        });
 	      };
+	      const fmtWeight = (value) => hasNumber(value) ? `${fmtNumber(value, 1)} lb` : "Not logged";
 	      const phaseLabel = value => String(value || "—").replace("Aggressive/Recoverable", "Agg/Rec");
 	      const sleepTone = (total) => {
 	        const match = String(total || "").match(/(\d+)h(?:(\d+))?/);
@@ -576,7 +578,7 @@
 	      `).join("");
 	      const renderCurrentRead = () => {
 	        if (!currentReadStrip) return;
-	        const operating = data.todayStatus || data.operatingRead || {};
+	        const operating = data.operatingRead || data.todayStatus || {};
 	        const cards = operating.cards || [];
 	        currentReadStrip.innerHTML = `
 	          <article class="current-read-card lead">
@@ -598,7 +600,7 @@
 	        const macros = row.macros || {};
 	        const burn = row.burn || {};
 	        const sleep = row.sleep || {};
-	        const delta = row.delta !== null && row.delta !== undefined ? `<div><span class="tag">${fmtNumber(row.delta, 1)}</span></div>` : "";
+	        const delta = hasNumber(row.delta) ? `<div><span class="tag">${fmtNumber(row.delta, 1)}</span></div>` : "";
         const macroCardClass = macroTone(macros);
         const macroText = macros.calories !== null && macros.calories !== undefined
           ? `<span class="cal-chip ${macroCardClass}"><strong>${fmtNumber(macros.calories)}</strong> cal</span><span class="macro-rest"><strong class="macro-protein">${fmtNumber(macros.protein)}P</strong> · <strong class="macro-fat">${fmtNumber(macros.fat, 1)}F</strong> · <strong class="macro-carbs">${fmtNumber(macros.carbs, 1)}C</strong></span>`
@@ -609,7 +611,7 @@
 	          <tr>
 	            <td data-label="Date"><div class="ledger-date"><strong>${escapeHtml(row.day)}</strong><span>${escapeHtml(row.dateShort)}</span></div></td>
 		            <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">${escapeHtml(phaseLabel(row.phase))}</div></div></td>
-	            <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">${fmtNumber(row.weight, 1)} lb</div>${delta}</div></td>
+	            <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">${fmtWeight(row.weight)}</div>${delta}</div></td>
 	            <td data-label="Sleep">
 	              <div class="ledger-entry">
 	                <div class="metric-cluster"><span class="metric-pill ${sleepTone(sleep.total)}"><strong>${escapeHtml(sleep.total || "Pending")} total</strong></span></div>

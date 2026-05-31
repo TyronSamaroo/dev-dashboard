@@ -667,7 +667,7 @@
     </section>
   </main>
 
-  <script src="analysis-data.js?v=20260530-macro-closeout"></script>
+  <script src="analysis-data.js?v=20260531-weight"></script>
   <script>
     (() => {
       const data = window.PREP_ANALYSIS_DATA;
@@ -797,7 +797,7 @@
         `).join(""));
       }
 
-      const operatingRead = data.todayStatus || data.operatingRead;
+      const operatingRead = data.operatingRead || data.todayStatus;
       if (operatingRead) {
         setHtml("#operating-read", `
           <article class="operating-lead">
