@@ -74,7 +74,7 @@ const validateLatestClosedRow = (data) => {
   }
 
   const missing = [];
-  if (!isPresent(latestClosed.weight)) missing.push("weight");
+  if (!isPresent(latestClosed.weight)) warnings.push(`${latestClosed.day} ${latestClosed.dateShort} latest closed row has no weight; report should render this as Not logged.`);
   if (!isPresent(latestClosed.sleep?.total)) missing.push("sleep total");
   for (const key of ["calories", "protein", "fat", "carbs"]) {
     if (!isPresent(latestClosed.macros?.[key])) missing.push(`macros.${key}`);
