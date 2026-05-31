@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-31T12:08:52",
+  "generatedAt": "2026-05-31T12:13:57",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -25,7 +25,7 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Manual weigh-ins",
       "title": "Fresh scale overrides",
       "status": "current",
-      "value": "7 logged",
+      "value": "8 logged",
       "text": "Manual weigh-ins fill days MacroFactor has not exported yet; latest is 153.3 on Sun 5/31.",
       "path": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/coach-report-manual-weighins-may24-may29-2026.csv"
     },
@@ -117,7 +117,7 @@ window.PREP_ANALYSIS_DATA = {
         "label": "Scale",
         "tone": "ok",
         "value": "153.3 lb",
-        "text": "-15.7 lb since Sun 5/17; 0.0 lb vs prior weigh-in."
+        "text": "-15.7 lb since Sun 5/17; -0.7 lb vs prior weigh-in."
       },
       {
         "label": "Latest complete day",
@@ -252,7 +252,7 @@ window.PREP_ANALYSIS_DATA = {
         "label": "Scale",
         "tone": "ok",
         "value": "153.3 lb",
-        "text": "-15.7 lb since Sun 5/17; 0.0 lb vs prior weigh-in."
+        "text": "-15.7 lb since Sun 5/17; -0.7 lb vs prior weigh-in."
       },
       {
         "label": "Latest complete day",
@@ -532,11 +532,11 @@ window.PREP_ANALYSIS_DATA = {
       "date": "2026-05-30",
       "label": "Sat 5/30",
       "phase": "Soft Landing Push Day",
-      "weight": null,
-      "displayWeight": 151.61,
+      "weight": 154.0,
+      "displayWeight": 154.0,
       "trendWeight": 151.61,
-      "weightSource": "trend",
-      "delta": null,
+      "weightSource": "scale",
+      "delta": 0.7,
       "calories": 1891.0,
       "protein": 146.0,
       "lift": "Push/Bryan 76:22",
@@ -1179,11 +1179,11 @@ window.PREP_ANALYSIS_DATA = {
       "day": "Sat",
       "dateShort": "5/30",
       "phase": "Soft Landing Push Day",
-      "weight": null,
-      "displayWeight": 151.61,
+      "weight": 154.0,
+      "displayWeight": 154.0,
       "trendWeight": 151.61,
-      "weightSource": "trend",
-      "delta": null,
+      "weightSource": "scale",
+      "delta": 0.7,
       "sleep": {
         "total": "7h15m",
         "detail": "Night 7h15m · nap —",
@@ -3225,7 +3225,7 @@ window.PREP_ANALYSIS_DATA = {
         "preCarbs": null,
         "postCardioMinutes": 62,
         "postCardioKcal": 638,
-        "nextDelta": null,
+        "nextDelta": -0.6999999999999886,
         "read": "Usable session, but fuel signal is incomplete."
       }
     ],
