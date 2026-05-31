@@ -525,7 +525,7 @@
     </section>
 	    <p class="footer">Private prep planning artifact for contest-prep execution and evidence review, not medical advice.</p>
 	  </main>
-			  <script src="analysis-data.js?v=20260531-weight"></script>
+			  <script src="analysis-data.js?v=20260531-sat-trend"></script>
 	  <script>
 	    (() => {
 	      const data = window.PREP_ANALYSIS_DATA || {};
@@ -548,7 +548,14 @@
 	          minimumFractionDigits: Number.isInteger(number) ? 0 : Math.min(digits, 1),
 	        });
 	      };
-	      const fmtWeight = (value) => hasNumber(value) ? `${fmtNumber(value, 1)} lb` : "Not logged";
+	      const rowDisplayWeight = (row) => row?.displayWeight ?? row?.weight ?? row?.trendWeight;
+	      const fmtWeight = (row) => hasNumber(rowDisplayWeight(row)) ? `${fmtNumber(rowDisplayWeight(row), 1)} lb` : "Not logged";
+	      const weightSourceTag = (row) => {
+	        if (!hasNumber(rowDisplayWeight(row))) return "";
+	        if (row?.weightSource === "trend") return `<div><span class="tag blue">trend</span></div>`;
+	        if (row?.weightSource === "macrofactor_scale") return `<div><span class="tag blue">MF scale</span></div>`;
+	        return "";
+	      };
 	      const phaseLabel = value => String(value || "—").replace("Aggressive/Recoverable", "Agg/Rec");
 	      const sleepTone = (total) => {
 	        const match = String(total || "").match(/(\d+)h(?:(\d+))?/);
@@ -600,7 +607,8 @@
 	        const macros = row.macros || {};
 	        const burn = row.burn || {};
 	        const sleep = row.sleep || {};
-	        const delta = hasNumber(row.delta) ? `<div><span class="tag">${fmtNumber(row.delta, 1)}</span></div>` : "";
+	        const sourceTag = weightSourceTag(row);
+	        const delta = sourceTag || (hasNumber(row.delta) ? `<div><span class="tag">${fmtNumber(row.delta, 1)}</span></div>` : "");
         const macroCardClass = macroTone(macros);
         const macroText = macros.calories !== null && macros.calories !== undefined
           ? `<span class="cal-chip ${macroCardClass}"><strong>${fmtNumber(macros.calories)}</strong> cal</span><span class="macro-rest"><strong class="macro-protein">${fmtNumber(macros.protein)}P</strong> · <strong class="macro-fat">${fmtNumber(macros.fat, 1)}F</strong> · <strong class="macro-carbs">${fmtNumber(macros.carbs, 1)}C</strong></span>`
@@ -611,7 +619,7 @@
 	          <tr>
 	            <td data-label="Date"><div class="ledger-date"><strong>${escapeHtml(row.day)}</strong><span>${escapeHtml(row.dateShort)}</span></div></td>
 		            <td data-label="Phase"><div class="ledger-entry"><div class="ledger-main">${escapeHtml(phaseLabel(row.phase))}</div></div></td>
-	            <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">${fmtWeight(row.weight)}</div>${delta}</div></td>
+	            <td data-label="AM wt"><div class="ledger-entry"><div class="ledger-main">${fmtWeight(row)}</div>${delta}</div></td>
 	            <td data-label="Sleep">
 	              <div class="ledger-entry">
 	                <div class="metric-cluster"><span class="metric-pill ${sleepTone(sleep.total)}"><strong>${escapeHtml(sleep.total || "Pending")} total</strong></span></div>

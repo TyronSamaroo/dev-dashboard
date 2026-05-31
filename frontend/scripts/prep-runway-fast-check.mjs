@@ -59,6 +59,7 @@ const loadAnalysisData = () => {
 
 const isPresent = (value) => value !== null && value !== undefined && value !== "" && value !== "Pending";
 const hasAnyEvents = (row) => [...(row.cardioEvents || []), ...(row.liftEvents || [])].length > 0;
+const displayWeight = (row) => row?.displayWeight ?? row?.weight ?? row?.trendWeight;
 
 const validateLatestClosedRow = (data) => {
   const rows = data.reportLedger || [];
@@ -74,7 +75,7 @@ const validateLatestClosedRow = (data) => {
   }
 
   const missing = [];
-  if (!isPresent(latestClosed.weight)) warnings.push(`${latestClosed.day} ${latestClosed.dateShort} latest closed row has no weight; report should render this as Not logged.`);
+  if (!isPresent(displayWeight(latestClosed))) missing.push("weight or trend weight");
   if (!isPresent(latestClosed.sleep?.total)) missing.push("sleep total");
   for (const key of ["calories", "protein", "fat", "carbs"]) {
     if (!isPresent(latestClosed.macros?.[key])) missing.push(`macros.${key}`);
@@ -155,7 +156,8 @@ console.log(`Scope: ${scope} (${files.join(", ")})`);
 if (latestClosed) {
   const macros = latestClosed.macros;
   const events = [...(latestClosed.cardioEvents || []), ...(latestClosed.liftEvents || [])].length;
-  console.log(`Latest closed: ${latestClosed.day} ${latestClosed.dateShort} · ${latestClosed.weight} lb · ${macros.calories} cal · ${macros.protein}P/${macros.fat}F/${macros.carbs}C · ${events} events`);
+  const source = latestClosed.weightSource === "trend" ? " trend" : "";
+  console.log(`Latest closed: ${latestClosed.day} ${latestClosed.dateShort} · ${displayWeight(latestClosed)} lb${source} · ${macros.calories} cal · ${macros.protein}P/${macros.fat}F/${macros.carbs}C · ${events} events`);
 }
 if (data?.todayStatus) {
   console.log(`Open day: ${data.todayStatus.label || data.todayStatus.date} · ${data.todayStatus.headline || "no headline"}`);

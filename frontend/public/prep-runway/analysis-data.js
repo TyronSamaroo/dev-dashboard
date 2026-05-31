@@ -1,11 +1,12 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-31T10:46:15",
+  "generatedAt": "2026-05-31T12:08:52",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
     "meals": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-meal-timing-may17-may22-2026.csv",
     "feedback": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-feedback-loop-may17-jun1-2026.csv",
     "currentMacroFactorExport": "/Users/tyronsamaroo/Downloads/MacroFactor-20260530200827.xlsx",
+    "masterDaily": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/macrofactor/master/MASTER_daily.csv",
     "masterFoodLog": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/macrofactor/master/MASTER_food_log.csv",
     "trainingHistory": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json",
     "googleSheet": "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI",
@@ -224,8 +225,8 @@ window.PREP_ANALYSIS_DATA = {
     },
     {
       "label": "Intake avg",
-      "value": "1,112.3 cal",
-      "note": "171.9P / 21.9F / 53.4C avg"
+      "value": "1,122.4 cal",
+      "note": "173.1P / 22.8F / 52C avg"
     },
     {
       "label": "Stair output",
@@ -337,6 +338,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Sun 5/17",
       "phase": "Primer",
       "weight": 169.0,
+      "displayWeight": 169.0,
+      "trendWeight": 151.2,
+      "weightSource": "scale",
       "delta": null,
       "calories": 873.0,
       "protein": 169.0,
@@ -349,6 +353,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Mon 5/18",
       "phase": "Cleanup D1",
       "weight": 165.0,
+      "displayWeight": 165.0,
+      "trendWeight": 151.25,
+      "weightSource": "scale",
       "delta": -4.0,
       "calories": 940.0,
       "protein": 171.0,
@@ -361,6 +368,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Tue 5/19",
       "phase": "Cleanup D2",
       "weight": 162.5,
+      "displayWeight": 162.5,
+      "trendWeight": 151.3,
+      "weightSource": "scale",
       "delta": -2.5,
       "calories": 1028.0,
       "protein": 180.0,
@@ -373,6 +383,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Wed 5/20",
       "phase": "Cleanup D3",
       "weight": 160.3,
+      "displayWeight": 160.3,
+      "trendWeight": 151.35,
+      "weightSource": "scale",
       "delta": -2.2,
       "calories": 975.0,
       "protein": 181.0,
@@ -385,6 +398,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Thu 5/21",
       "phase": "Agg/Rec D1",
       "weight": 158.7,
+      "displayWeight": 158.7,
+      "trendWeight": 151.39,
+      "weightSource": "scale",
       "delta": -1.6,
       "calories": 1000.0,
       "protein": 170.0,
@@ -397,6 +413,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Fri 5/22",
       "phase": "Agg/Rec D2",
       "weight": 158.4,
+      "displayWeight": 158.4,
+      "trendWeight": 151.42,
+      "weightSource": "scale",
       "delta": -0.3,
       "calories": 1113.0,
       "protein": 186.0,
@@ -409,6 +428,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Sat 5/23",
       "phase": "Agg/Rec D3",
       "weight": 157.0,
+      "displayWeight": 157.0,
+      "trendWeight": 151.45,
+      "weightSource": "scale",
       "delta": -1.4,
       "calories": 956.0,
       "protein": 170.9,
@@ -421,6 +443,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Sun 5/24",
       "phase": "Agg/Rec D4",
       "weight": 156.3,
+      "displayWeight": 156.3,
+      "trendWeight": 151.48,
+      "weightSource": "scale",
       "delta": -0.7,
       "calories": 1170.0,
       "protein": 166.0,
@@ -433,6 +458,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Mon 5/25",
       "phase": "Agg/Rec D5",
       "weight": 154.6,
+      "displayWeight": 154.6,
+      "trendWeight": 151.51,
+      "weightSource": "scale",
       "delta": -1.7,
       "calories": 1177.0,
       "protein": 179.0,
@@ -445,9 +473,12 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Tue 5/26",
       "phase": "Scale check",
       "weight": 154.0,
+      "displayWeight": 154.0,
+      "trendWeight": 151.53,
+      "weightSource": "scale",
       "delta": -0.6,
-      "calories": null,
-      "protein": null,
+      "calories": 1075.0,
+      "protein": 195.0,
       "lift": "Pending",
       "adjustedActive": null,
       "read": "Tue 5/26 AM weight logged at 154 lb; macros/training pending unless separately logged."
@@ -457,9 +488,12 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Wed 5/27",
       "phase": "Scale check",
       "weight": 153.6,
+      "displayWeight": 153.6,
+      "trendWeight": 151.55,
+      "weightSource": "scale",
       "delta": -0.4,
-      "calories": null,
-      "protein": null,
+      "calories": 945.0,
+      "protein": 165.0,
       "lift": "Pending",
       "adjustedActive": null,
       "read": "Wed 5/27 AM weight logged at 153.6 lb; macros/training pending unless separately logged."
@@ -469,9 +503,12 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Thu 5/28",
       "phase": "Scale check",
       "weight": 153.9,
+      "displayWeight": 153.9,
+      "trendWeight": 151.57,
+      "weightSource": "scale",
       "delta": 0.3,
-      "calories": null,
-      "protein": null,
+      "calories": 1055.0,
+      "protein": 180.0,
       "lift": "Pending",
       "adjustedActive": null,
       "read": "Thu 5/28 AM weight logged at 153.9 lb; macros/training pending unless separately logged."
@@ -481,9 +518,12 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Fri 5/29",
       "phase": "Scale check",
       "weight": 153.3,
+      "displayWeight": 153.3,
+      "trendWeight": 151.59,
+      "weightSource": "scale",
       "delta": -0.6,
-      "calories": null,
-      "protein": null,
+      "calories": 1516.0,
+      "protein": 164.0,
       "lift": "Pending",
       "adjustedActive": null,
       "read": "Fri 5/29 AM weight logged at 153.3 lb; macros/training pending unless separately logged."
@@ -493,6 +533,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Sat 5/30",
       "phase": "Soft Landing Push Day",
       "weight": null,
+      "displayWeight": 151.61,
+      "trendWeight": 151.61,
+      "weightSource": "trend",
       "delta": null,
       "calories": 1891.0,
       "protein": 146.0,
@@ -505,6 +548,9 @@ window.PREP_ANALYSIS_DATA = {
       "label": "Sun 5/31",
       "phase": "Scale check",
       "weight": 153.3,
+      "displayWeight": 153.3,
+      "trendWeight": null,
+      "weightSource": "scale",
       "delta": 0.0,
       "calories": null,
       "protein": null,
@@ -520,6 +566,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/17",
       "phase": "Primer",
       "weight": 169.0,
+      "displayWeight": 169.0,
+      "trendWeight": 151.2,
+      "weightSource": "scale",
       "delta": null,
       "sleep": {
         "total": "8h22m",
@@ -561,6 +610,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/18",
       "phase": "Cleanup D1",
       "weight": 165.0,
+      "displayWeight": 165.0,
+      "trendWeight": 151.25,
+      "weightSource": "scale",
       "delta": -4.0,
       "sleep": {
         "total": "8h00m",
@@ -608,6 +660,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/19",
       "phase": "Cleanup D2",
       "weight": 162.5,
+      "displayWeight": 162.5,
+      "trendWeight": 151.3,
+      "weightSource": "scale",
       "delta": -2.5,
       "sleep": {
         "total": "6h39m",
@@ -661,6 +716,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/20",
       "phase": "Cleanup D3",
       "weight": 160.3,
+      "displayWeight": 160.3,
+      "trendWeight": 151.35,
+      "weightSource": "scale",
       "delta": -2.2,
       "sleep": {
         "total": "6h10m",
@@ -714,6 +772,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/21",
       "phase": "Agg/Rec D1",
       "weight": 158.7,
+      "displayWeight": 158.7,
+      "trendWeight": 151.39,
+      "weightSource": "scale",
       "delta": -1.6,
       "sleep": {
         "total": "8h26m",
@@ -761,6 +822,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/22",
       "phase": "Agg/Rec D2",
       "weight": 158.4,
+      "displayWeight": 158.4,
+      "trendWeight": 151.42,
+      "weightSource": "scale",
       "delta": -0.3,
       "sleep": {
         "total": "7h25m",
@@ -808,6 +872,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/23",
       "phase": "Agg/Rec D3",
       "weight": 157.0,
+      "displayWeight": 157.0,
+      "trendWeight": 151.45,
+      "weightSource": "scale",
       "delta": -1.4,
       "sleep": {
         "total": "7h47m",
@@ -849,6 +916,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/24",
       "phase": "Agg/Rec D4",
       "weight": 156.3,
+      "displayWeight": 156.3,
+      "trendWeight": 151.48,
+      "weightSource": "scale",
       "delta": -0.7,
       "sleep": {
         "total": "6h40m",
@@ -890,6 +960,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/25",
       "phase": "Agg/Rec D5",
       "weight": 154.6,
+      "displayWeight": 154.6,
+      "trendWeight": 151.51,
+      "weightSource": "scale",
       "delta": -1.7,
       "sleep": {
         "total": "9h38m",
@@ -931,6 +1004,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/26",
       "phase": "Scale check",
       "weight": 154.0,
+      "displayWeight": 154.0,
+      "trendWeight": 151.53,
+      "weightSource": "scale",
       "delta": -0.6,
       "sleep": {
         "total": "Pending",
@@ -939,10 +1015,10 @@ window.PREP_ANALYSIS_DATA = {
         "hrv": null
       },
       "macros": {
-        "calories": null,
-        "protein": null,
-        "fat": null,
-        "carbs": null
+        "calories": 1075.0,
+        "protein": 195.0,
+        "fat": 19.0,
+        "carbs": 27.0
       },
       "cardioEvents": [
         {
@@ -972,6 +1048,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/27",
       "phase": "Scale check",
       "weight": 153.6,
+      "displayWeight": 153.6,
+      "trendWeight": 151.55,
+      "weightSource": "scale",
       "delta": -0.4,
       "sleep": {
         "total": "Pending",
@@ -980,10 +1059,10 @@ window.PREP_ANALYSIS_DATA = {
         "hrv": null
       },
       "macros": {
-        "calories": null,
-        "protein": null,
-        "fat": null,
-        "carbs": null
+        "calories": 945.0,
+        "protein": 165.0,
+        "fat": 17.0,
+        "carbs": 27.0
       },
       "cardioEvents": [
         {
@@ -1013,6 +1092,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/28",
       "phase": "Scale check",
       "weight": 153.9,
+      "displayWeight": 153.9,
+      "trendWeight": 151.57,
+      "weightSource": "scale",
       "delta": 0.3,
       "sleep": {
         "total": "Pending",
@@ -1021,10 +1103,10 @@ window.PREP_ANALYSIS_DATA = {
         "hrv": null
       },
       "macros": {
-        "calories": null,
-        "protein": null,
-        "fat": null,
-        "carbs": null
+        "calories": 1055.0,
+        "protein": 180.0,
+        "fat": 18.0,
+        "carbs": 27.0
       },
       "cardioEvents": [
         {
@@ -1054,6 +1136,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/29",
       "phase": "Scale check",
       "weight": 153.3,
+      "displayWeight": 153.3,
+      "trendWeight": 151.59,
+      "weightSource": "scale",
       "delta": -0.6,
       "sleep": {
         "total": "Pending",
@@ -1062,10 +1147,10 @@ window.PREP_ANALYSIS_DATA = {
         "hrv": null
       },
       "macros": {
-        "calories": null,
-        "protein": null,
-        "fat": null,
-        "carbs": null
+        "calories": 1516.0,
+        "protein": 164.0,
+        "fat": 46.0,
+        "carbs": 113.0
       },
       "cardioEvents": [
         {
@@ -1095,6 +1180,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/30",
       "phase": "Soft Landing Push Day",
       "weight": null,
+      "displayWeight": 151.61,
+      "trendWeight": 151.61,
+      "weightSource": "trend",
       "delta": null,
       "sleep": {
         "total": "7h15m",
@@ -1136,6 +1224,9 @@ window.PREP_ANALYSIS_DATA = {
       "dateShort": "5/31",
       "phase": "Scale check",
       "weight": 153.3,
+      "displayWeight": 153.3,
+      "trendWeight": null,
+      "weightSource": "scale",
       "delta": 0.0,
       "sleep": {
         "total": "Pending",

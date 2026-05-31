@@ -667,7 +667,7 @@
     </section>
   </main>
 
-  <script src="analysis-data.js?v=20260531-weight"></script>
+  <script src="analysis-data.js?v=20260531-sat-trend"></script>
   <script>
     (() => {
       const data = window.PREP_ANALYSIS_DATA;
@@ -691,11 +691,13 @@
         }).replace(/\.0$/, "");
       }
 
-      function formatWeight(value) {
+      function formatWeight(day) {
+        const value = day?.displayWeight ?? day?.weight ?? day?.trendWeight;
         if (value === null || value === undefined || value === "") return "Pending";
         const number = Number(value);
         if (!Number.isFinite(number)) return "Pending";
-        return Number.isInteger(number) ? String(number) : number.toFixed(1);
+        const formatted = Number.isInteger(number) ? String(number) : number.toFixed(1);
+        return day?.weightSource === "trend" ? `${formatted} trend` : formatted;
       }
 
       function formatDrop(value) {
@@ -886,7 +888,7 @@
       setHtml(".timeline", data.dayCards.map(day => `
         <article class="day-card">
           <div class="day"><span>${escapeHtml(day.label)}</span><span>${escapeHtml(day.phase)}</span></div>
-          <div class="weight">${escapeHtml(formatWeight(day.weight))}${formatDrop(day.delta)}</div>
+          <div class="weight">${escapeHtml(formatWeight(day))}${day.weightSource === "trend" ? "" : formatDrop(day.delta)}</div>
           <div class="mini-line"><strong>${escapeHtml(day.calories ? format(day.calories) + " cal" : "Food pending")}</strong>${day.protein ? ` · ${escapeHtml(format(day.protein))}P` : ""} · ${escapeHtml(day.lift || "Pending")}</div>
           <div class="mini-line">${escapeHtml(day.read)}</div>
         </article>
