@@ -35,6 +35,7 @@
     { "source": "/prep-runway/:path*", "destination": "/prep-runway/:path*" },
     { "source": "/coding-review/:path*", "destination": "/coding-review/:path*" },
     { "source": "/love/:path*", "destination": "/love/:path*" },
+    { "source": "/summer/:path*", "destination": "/summer/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

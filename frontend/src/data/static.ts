@@ -40,6 +40,16 @@ export const projects: Project[] = [
     created_at: "2026-03-02",
   },
   {
+    id: "summer-in-new-york",
+    name: "Summer in New York Finder",
+    description:
+      "A mobile-first public map for Nassau, Suffolk, and NYC summer programs with a questionnaire flow, filters, source links, and location drawers.",
+    tech_stack: ["HTML", "Leaflet", "OpenStreetMap", "Public Data", "Mobile UX"],
+    live_url: "/summer/",
+    status: "active",
+    created_at: "2026-06-01",
+  },
+  {
     id: "daily-command-center",
     name: "Daily Command Center",
     description:
