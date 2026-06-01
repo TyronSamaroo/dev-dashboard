@@ -6,3 +6,4 @@ Disallow: /grocery/
 Disallow: /love/
 Disallow: /training-program/
 Disallow: /coding-review/
+Disallow: /summer/
