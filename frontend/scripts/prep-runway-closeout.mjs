@@ -373,12 +373,68 @@ const loadAnalysisData = () => {
   return sandbox.window.PREP_ANALYSIS_DATA;
 };
 
+const replaceObjectAtProperty = (source, property, replacement) => {
+  const propertyMatch = source.match(new RegExp(`"${property}"\\s*:\\s*\\{`));
+  const propertyIndex = propertyMatch?.index ?? -1;
+  if (propertyIndex === -1) return { source, changed: false, reason: `${property} not found` };
+  const objectStart = source.indexOf("{", propertyIndex);
+  let depth = 0;
+  for (let index = objectStart; index < source.length; index += 1) {
+    if (source[index] === "{") depth += 1;
+    if (source[index] === "}") {
+      depth -= 1;
+      if (depth === 0) {
+        const objectEnd = index + 1;
+        const formatted = JSON.stringify(replacement, null, 2)
+          .split("\n")
+          .map((line) => `  ${line}`)
+          .join("\n");
+        return {
+          source: `${source.slice(0, objectStart)}${formatted}${source.slice(objectEnd)}`,
+          changed: source.slice(objectStart, objectEnd) !== formatted,
+          reason: property,
+        };
+      }
+    }
+  }
+  return { source, changed: false, reason: `${property} object end not found` };
+};
+
+const replaceArrayAtProperty = (source, property, replacement) => {
+  const propertyMatch = source.match(new RegExp(`"${property}"\\s*:\\s*\\[`));
+  const propertyIndex = propertyMatch?.index ?? -1;
+  if (propertyIndex === -1) return { source, changed: false, reason: `${property} not found` };
+  const arrayStart = source.indexOf("[", propertyIndex);
+  let depth = 0;
+  for (let index = arrayStart; index < source.length; index += 1) {
+    if (source[index] === "[") depth += 1;
+    if (source[index] === "]") {
+      depth -= 1;
+      if (depth === 0) {
+        const arrayEnd = index + 1;
+        const formatted = JSON.stringify(replacement, null, 2)
+          .split("\n")
+          .map((line) => `  ${line}`)
+          .join("\n");
+        return {
+          source: `${source.slice(0, arrayStart)}${formatted}${source.slice(arrayEnd)}`,
+          changed: source.slice(arrayStart, arrayEnd) !== formatted,
+          reason: property,
+        };
+      }
+    }
+  }
+  return { source, changed: false, reason: `${property} array end not found` };
+};
+
 const writeObjectInArray = (source, property, matchDate, replacement) => {
-  const propertyIndex = source.indexOf(`"${property}": [`);
+  const propertyMatch = source.match(new RegExp(`"${property}"\\s*:\\s*\\[`));
+  const propertyIndex = propertyMatch?.index ?? -1;
   if (propertyIndex === -1) return { source, changed: false, reason: `${property} array not found` };
   const arrayStart = source.indexOf("[", propertyIndex);
   let depth = 0;
   let objectStart = -1;
+  let insertionIndex = source.indexOf("]", arrayStart);
   for (let index = arrayStart + 1; index < source.length; index += 1) {
     const character = source[index];
     if (character === "{") {
@@ -400,13 +456,30 @@ const writeObjectInArray = (source, property, matchDate, replacement) => {
             reason: `${property} ${matchDate}`,
           };
         }
+        const rowDate = objectText.match(/"date": "([^"]+)"/)?.[1];
+        if (rowDate && rowDate > matchDate) {
+          insertionIndex = objectStart;
+          break;
+        }
         objectStart = -1;
       }
     } else if (character === "]" && depth === 0) {
+      insertionIndex = index;
       break;
     }
   }
-  return { source, changed: false, reason: `${property} ${matchDate} row not found` };
+
+  const formatted = JSON.stringify(replacement, null, 2)
+    .split("\n")
+    .map((line) => `    ${line}`)
+    .join("\n");
+  const needsCommaBefore = /}\s*$/.test(source.slice(arrayStart, insertionIndex));
+  const prefix = needsCommaBefore ? ",\n" : "\n";
+  return {
+    source: `${source.slice(0, insertionIndex)}${prefix}${formatted}${source.slice(insertionIndex)}`,
+    changed: true,
+    reason: `${property} ${matchDate} inserted`,
+  };
 };
 
 const replaceRowByDateCell = (html, dateCell, rowHtml) => {
@@ -530,6 +603,14 @@ const cardioAdjusted = workouts.filter((workout) => isStair(workout)).reduce((to
 const adjustedActive = totals.active !== null
   ? Math.round(totals.active - strengthReported + strengthAdjusted)
   : Math.round(cardioAdjusted + strengthAdjusted);
+const sourceRowCount = (analysisData.reportLedger || []).some((row) => row.date === dateInfo.date)
+  ? (analysisData.reportLedger || []).length
+  : (analysisData.reportLedger || []).length + 1;
+const latestScaleRow = weight !== null
+  ? { weight, day: dateInfo.day, dateShort: dateInfo.dateShort }
+  : previousRow;
+const startWeight = (analysisData.reportLedger || [])[0]?.weight ?? 169;
+const totalDrop = latestScaleRow?.weight ? Number((startWeight - latestScaleRow.weight).toFixed(1)) : null;
 
 const reportRow = {
   date: dateInfo.date,
@@ -537,6 +618,8 @@ const reportRow = {
   dateShort: dateInfo.dateShort,
   phase: existingRow?.phase ?? "Agg/Rec",
   weight,
+  displayWeight: weight === null ? "Not logged" : weight,
+  weightSource: weight === null ? "not-logged" : "scale",
   delta,
   sleep: {
     total: sleep.asleep ?? existingRow?.sleep?.total ?? "Pending",
@@ -605,8 +688,114 @@ const cardioRows = supportCardioWorkouts.map((workout) => {
 const sleepRow = `<tr><td class="date-cell">${dateInfo.date}</td><td>${dateInfo.day}</td><td class="time">${tableTime(sleep.bed)}</td><td class="time">${tableTime(sleep.wake)}</td><td>${sleep.asleep ?? "—"}</td><td>${sleep.inBed ?? "—"}</td><td class="num">${sleep.efficiency ?? "—"}${sleep.efficiency ? "%" : ""}</td><td>${sleep.stages.core ?? "—"}</td><td>${sleep.stages.rem ?? "—"}</td><td>${sleep.stages.deep ?? "—"}</td><td>${sleep.stages.awake ?? "—"}</td><td class="num">${markers.rhr ?? "—"}</td><td class="num">${markers.hrv ?? "—"}</td><td class="read">${escapeHtml(`${sleep.asleep ?? "Sleep"} logged with RHR ${markers.rhr ?? "—"} and HRV ${markers.hrv ?? "—"}; use with soreness and subjective scores before changing levers.`)}</td><td class="source">${escapeHtml(sourceStamp)}</td></tr>`;
 
 let analysisSource = fs.readFileSync(analysisPath, "utf8");
+analysisSource = analysisSource.replace(/"generatedAt": "[^"]+"/, `"generatedAt": "${new Date().toISOString().slice(0, 16)}:00"`);
 const reportPatch = writeObjectInArray(analysisSource, "reportLedger", dateInfo.date, reportRow);
 analysisSource = reportPatch.source;
+
+const sourceMap = (analysisData.sourceMap || []).map((source) => {
+  if (source.label === "Daily ledger") {
+    return {
+      ...source,
+      status: "current",
+      value: `${sourceRowCount} rows`,
+      text: `Latest complete macros through ${dateInfo.label}; ${weight === null ? "AM weight not logged." : `latest weight is ${weight}.`}`,
+    };
+  }
+  if (source.label === "Training/cardio") {
+    return {
+      ...source,
+      status: "current",
+      text: `Latest current session is ${dateInfo.label}: ${liftEvents.length ? "lift" : "no lift"}${cardioEvents.length ? ` plus ${cardioEvents.map((event) => event.type).join(" + ")}` : ""}.`,
+    };
+  }
+  return source;
+});
+
+const dataHealth = {
+  ...(analysisData.dataHealth || {}),
+  summary: `${dateInfo.label} is closed: ${macros.calories ?? "—"} cal / ${macros.protein ?? "—"}P / ${macros.fat ?? "—"}F / ${macros.carbs ?? "—"}C, ${sleep.asleep ?? "sleep pending"}, RHR ${markers.rhr ?? "—"} / HRV ${markers.hrv ?? "—"}, ${liftEvents.length ? "lift" : "no lift"}${cardioEvents.length ? ` plus ${cardioEvents.map((event) => event.type).join(" + ")}` : ""}.`,
+  missing: [
+    ...(weight === null ? ["AM weight"] : []),
+    "GI/stool",
+    "Energy/Hunger/Drive",
+    "soreness",
+  ],
+  rows: (analysisData.dataHealth?.rows || []).map((row) => {
+    if (row.label === "Scale trend") {
+      return {
+        ...row,
+        value: totalDrop !== null ? `${startWeight} → ${latestScaleRow.weight}` : row.value,
+        status: weight === null ? "watch" : "current",
+        read: totalDrop !== null
+          ? `-${totalDrop} lb from Sun 5/17 to ${latestScaleRow.day} ${latestScaleRow.dateShort}; ${dateInfo.label} weight not logged.`
+          : row.read,
+      };
+    }
+    if (row.label === "Macros") {
+      return {
+        ...row,
+        value: dateInfo.label,
+        status: "current",
+        read: `Latest complete macro day is ${macros.calories ?? "—"} cal / ${macros.protein ?? "—"}P / ${macros.fat ?? "—"}F / ${macros.carbs ?? "—"}C.`,
+      };
+    }
+    if (row.label === "Feedback") {
+      return {
+        ...row,
+        value: "Needs scores",
+        status: "watch",
+        read: "GI/stool, soreness, and Energy/Hunger/Drive are still needed to interpret the hard training day.",
+      };
+    }
+    return row;
+  }),
+};
+
+const todayStatus = {
+  ...(analysisData.todayStatus || {}),
+  date: dateInfo.date,
+  label: dateInfo.label,
+  headline: `${dateInfo.label} closed: recovered markers plus hard lift/cardio.`,
+  subhead: `${macros.calories ?? "—"} cal / ${macros.protein ?? "—"}P / ${macros.fat ?? "—"}F / ${macros.carbs ?? "—"}C, ${sleep.asleep ?? "sleep pending"}, RHR ${markers.rhr ?? "—"} / HRV ${markers.hrv ?? "—"}, ${totals.active ?? "—"} Apple active kcal.`,
+  cards: [
+    {
+      label: "Scale",
+      tone: weight === null ? "warn" : "ok",
+      value: weight === null ? "Not logged" : `${weight} lb`,
+      text: weight === null
+        ? "No AM weight in this closeout; use Tue AM before judging the transition."
+        : `${delta ?? "logged"} vs prior; ${totalDrop !== null ? `-${totalDrop} lb since Sun 5/17.` : "Trend pending."}`,
+    },
+    {
+      label: "Recovery",
+      tone: "ok",
+      value: `${markers.rhr ?? "—"} / ${markers.hrv ?? "—"}`,
+      text: `${sleep.asleep ?? "Sleep pending"} sleep; Deep ${sleep.stages.deep ?? "—"}.`,
+    },
+    {
+      label: "Macros",
+      tone: "ok",
+      value: `${macros.calories ?? "—"} cal`,
+      text: `${macros.protein ?? "—"}P · ${macros.fat ?? "—"}F · ${macros.carbs ?? "—"}C.`,
+    },
+    {
+      label: "Training",
+      tone: "warn",
+      value: `${formatMinutes(totalMainMinutes, "")}`,
+      text: `${liftEvents.length ? liftEvents[0].title : "No lift"}; ${cardioEvents.length ? cardioEvents[0].title : "no cardio"}.`,
+    },
+    {
+      label: "Missing",
+      tone: "warn",
+      value: weight === null ? "AM weight" : "Feedback",
+      text: "Need GI/stool, soreness, Energy/Hunger/Drive.",
+    },
+  ],
+};
+
+analysisSource = replaceArrayAtProperty(analysisSource, "sourceMap", sourceMap).source;
+analysisSource = replaceObjectAtProperty(analysisSource, "dataHealth", dataHealth).source;
+analysisSource = replaceObjectAtProperty(analysisSource, "todayStatus", todayStatus).source;
 
 const changedFiles = [];
 if (shouldWrite && reportPatch.changed) {
@@ -617,7 +806,7 @@ if (shouldWrite && reportPatch.changed) {
 const dataLedgerPatchReasons = [];
 if (shouldPatchDataLedger) {
   let ledgerHtml = fs.readFileSync(dataLedgerPath, "utf8");
-  const overviewPatch = replaceRowByDateCell(ledgerHtml, dateInfo.label, overviewRow);
+  const overviewPatch = upsertDateCellRowInSection(ledgerHtml, "daily", dateInfo.label, overviewRow);
   ledgerHtml = overviewPatch.html;
   dataLedgerPatchReasons.push(overviewPatch.reason);
 

@@ -60,6 +60,7 @@ const loadAnalysisData = () => {
 const isPresent = (value) => value !== null && value !== undefined && value !== "" && value !== "Pending";
 const hasAnyEvents = (row) => [...(row.cardioEvents || []), ...(row.liftEvents || [])].length > 0;
 const displayWeight = (row) => row?.displayWeight ?? row?.weight ?? row?.trendWeight;
+const isWeightOptional = (row) => row?.weightSource === "not-logged" || row?.displayWeight === "Not logged";
 
 const validateLatestClosedRow = (data) => {
   const rows = data.reportLedger || [];
@@ -75,7 +76,7 @@ const validateLatestClosedRow = (data) => {
   }
 
   const missing = [];
-  if (!isPresent(displayWeight(latestClosed))) missing.push("weight or trend weight");
+  if (!isPresent(displayWeight(latestClosed)) && !isWeightOptional(latestClosed)) missing.push("weight or trend weight");
   if (!isPresent(latestClosed.sleep?.total)) missing.push("sleep total");
   for (const key of ["calories", "protein", "fat", "carbs"]) {
     if (!isPresent(latestClosed.macros?.[key])) missing.push(`macros.${key}`);
@@ -157,7 +158,8 @@ if (latestClosed) {
   const macros = latestClosed.macros;
   const events = [...(latestClosed.cardioEvents || []), ...(latestClosed.liftEvents || [])].length;
   const source = latestClosed.weightSource === "trend" ? " trend" : "";
-  console.log(`Latest closed: ${latestClosed.day} ${latestClosed.dateShort} · ${displayWeight(latestClosed)} lb${source} · ${macros.calories} cal · ${macros.protein}P/${macros.fat}F/${macros.carbs}C · ${events} events`);
+  const weightText = isWeightOptional(latestClosed) ? "weight not logged" : `${displayWeight(latestClosed)} lb${source}`;
+  console.log(`Latest closed: ${latestClosed.day} ${latestClosed.dateShort} · ${weightText} · ${macros.calories} cal · ${macros.protein}P/${macros.fat}F/${macros.carbs}C · ${events} events`);
 }
 if (data?.todayStatus) {
   console.log(`Open day: ${data.todayStatus.label || data.todayStatus.date} · ${data.todayStatus.headline || "no headline"}`);

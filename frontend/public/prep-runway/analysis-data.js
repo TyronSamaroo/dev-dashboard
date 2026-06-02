@@ -1,5 +1,5 @@
 window.PREP_ANALYSIS_DATA = {
-  "generatedAt": "2026-05-31T20:05:54",
+  "generatedAt": "2026-06-02T02:13:00",
   "sources": {
     "daily": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv",
     "training": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-training-may18-jun1-2026.csv",
@@ -12,13 +12,13 @@ window.PREP_ANALYSIS_DATA = {
     "googleSheet": "https://docs.google.com/spreadsheets/d/1UfpaHQwFJvd_qycexOQldofhCle4Z3HMs9_KPIwp4OI",
     "coachReport": "https://tyronsamaroo.dev/coach-report/report.html"
   },
-  "sourceMap": [
+  "sourceMap":   [
     {
       "label": "Daily ledger",
       "title": "Macros, sleep, activity",
       "status": "current",
-      "value": "11 source rows",
-      "text": "Daily ledger carries the latest complete macros through Sun 5/31; fresh scale rows come from Manual weigh-ins.",
+      "value": "16 rows",
+      "text": "Latest complete macros through Mon 6/1; AM weight not logged.",
       "path": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-clean-ledger-may17-may21-2026.csv"
     },
     {
@@ -50,7 +50,7 @@ window.PREP_ANALYSIS_DATA = {
       "title": "Current sessions + YTD import",
       "status": "current",
       "value": "18 current · 474 YTD",
-      "text": "Latest current session is Sun 5/31; use corrected rows before older suspect HR rows.",
+      "text": "Latest current session is Mon 6/1: lift plus StairMaster.",
       "path": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/uploads/training/workouts-2026-ytd-jan-may.json"
     },
     {
@@ -70,21 +70,26 @@ window.PREP_ANALYSIS_DATA = {
       "path": "/Users/tyronsamaroo/Documents/MissionControl/Bodybuilding/Contest Prep/data/manual/cleanup-feedback-loop-may17-jun1-2026.csv"
     }
   ],
-  "dataHealth": {
-    "summary": "Clean enough for a current-day decision.",
-    "missing": [],
+  "dataHealth":   {
+    "summary": "Mon 6/1 is closed: 1634 cal / 164P / 48F / 140C, ~8h18m, RHR 40 / HRV 129, lift plus StairMaster.",
+    "missing": [
+      "AM weight",
+      "GI/stool",
+      "Energy/Hunger/Drive",
+      "soreness"
+    ],
     "rows": [
       {
         "label": "Scale trend",
         "value": "169 → 153.3",
-        "status": "current",
-        "read": "-15.7 lb from Sun 5/17 to Sun 5/31."
+        "status": "watch",
+        "read": "-15.7 lb from Sun 5/17 to Sun 5/31; Mon 6/1 weight not logged."
       },
       {
         "label": "Macros",
-        "value": "Sun 5/31",
+        "value": "Mon 6/1",
         "status": "current",
-        "read": "Latest complete MacroFactor/macros day is available for the operating read."
+        "read": "Latest complete macro day is 1634 cal / 164P / 48F / 140C."
       },
       {
         "label": "Cardio",
@@ -94,47 +99,47 @@ window.PREP_ANALYSIS_DATA = {
       },
       {
         "label": "Feedback",
-        "value": "0 missing",
-        "status": "current",
-        "read": "GI, hunger, energy, and readiness fields are filled."
+        "value": "Needs scores",
+        "status": "watch",
+        "read": "GI/stool, soreness, and Energy/Hunger/Drive are still needed to interpret the hard training day."
       }
     ]
   },
-  "todayStatus": {
-    "date": "2026-05-31",
-    "label": "Sun 5/31",
-    "headline": "Sun 5/31 scale read: 153.3 lb.",
-    "subhead": "Latest complete macros are Sun 5/31: 1,480 cal / 145P. This is the latest complete day; use it for the current operating read.",
+  "todayStatus":   {
+    "date": "2026-06-01",
+    "label": "Mon 6/1",
+    "headline": "Mon 6/1 closed: recovered markers plus hard lift/cardio.",
+    "subhead": "1634 cal / 164P / 48F / 140C, ~8h18m, RHR 40 / HRV 129, 1666 Apple active kcal.",
     "cards": [
       {
         "label": "Scale",
-        "tone": "ok",
-        "value": "153.3 lb",
-        "text": "-15.7 lb since Sun 5/17; -0.7 lb vs prior weigh-in."
-      },
-      {
-        "label": "Latest complete day",
         "tone": "warn",
-        "value": "Sun 5/31",
-        "text": "1,480 cal · 145P · Stair 61:25 + Walk 46:14 · Weight Training 125:11."
+        "value": "Not logged",
+        "text": "No AM weight in this closeout; use Tue AM before judging the transition."
       },
       {
-        "label": "Off signal",
-        "tone": "bad",
-        "value": "GI / powder",
-        "text": "Coach handoff tomorrow. Prioritize clean sleep and do not add extra punishment volume; protein was a touch low at 145g, so bring it back up."
-      },
-      {
-        "label": "Subjective",
+        "label": "Recovery",
         "tone": "ok",
-        "value": "E Solid enough to complete 125m lift plus stairs/walk; score not logged / H Big appetite context; score not logged / D Solid training drive; score not logged",
-        "text": "Use 1-10 Energy, Hunger, Drive. If energy/drive are good and markers are good, keep pushing; this is a readiness signal, not a cortisol measurement."
+        "value": "40 / 129",
+        "text": "~8h18m sleep; Deep 1h 22m."
       },
       {
-        "label": "Missing now",
+        "label": "Macros",
         "tone": "ok",
-        "value": "0 fields",
-        "text": "Today has the core data needed for a clean next-day read."
+        "value": "1634 cal",
+        "text": "164P · 48F · 140C."
+      },
+      {
+        "label": "Training",
+        "tone": "warn",
+        "value": "2h46",
+        "text": "6:09p-7:55p · 1h46m; 7:56p-8:57p · 1h01m."
+      },
+      {
+        "label": "Missing",
+        "tone": "warn",
+        "value": "AM weight",
+        "text": "Need GI/stool, soreness, Energy/Hunger/Drive."
       }
     ],
     "rules": [
@@ -1254,7 +1259,50 @@ window.PREP_ANALYSIS_DATA = {
       },
       "decision": "Sunday closed as the final cleanup handoff day: 1,480 cal / 145P / 52F / 114C, 8h50m asleep but fragmented by a long awake block, HRV 127, RHR 43, a 125m lift, 61m Stair Climbing, and 46m walk. Protein was a touch low again, but output and recovery markers were strong; Coach handoff tomorrow. Prioritize clean sleep and do not add extra punishment volume; protein was a touch low at 145g, so bring it back up."
     }
-  ],
+  ,
+            {
+      "date": "2026-06-01",
+      "day": "Mon",
+      "dateShort": "6/1",
+      "phase": "Agg/Rec",
+      "weight": null,
+      "displayWeight": "Not logged",
+      "weightSource": "not-logged",
+      "delta": null,
+      "sleep": {
+        "total": "~8h18m",
+        "detail": "Night ~8h18m · 92% · RHR 40 / HRV 129",
+        "rhr": 40,
+        "hrv": 129
+      },
+      "macros": {
+        "calories": 1634,
+        "protein": 164,
+        "fat": 48,
+        "carbs": 140
+      },
+      "cardioEvents": [
+        {
+          "label": "PM",
+          "title": "7:56p-8:57p · 1h01m",
+          "meta": "663 kcal · Stair · HR 137/147",
+          "type": "StairMaster"
+        }
+      ],
+      "liftEvents": [
+        {
+          "label": "Lift",
+          "title": "6:09p-7:55p · 1h46m",
+          "meta": "759 → 655 adj · HR 118/178",
+          "type": "Weight Training"
+        }
+      ],
+      "burn": {
+        "adjusted": 1562,
+        "apple": 1666
+      },
+      "decision": "Mon 6/1 closed: 1634 cal / 164P / 48F / 140C, 8,698 steps, 1666 Apple active kcal, weight training, and StairMaster 7:56p-8:57p · 1h01m."
+    }],
   "mealDays": [
     {
       "date": "2026-05-17",
