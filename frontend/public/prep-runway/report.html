@@ -301,7 +301,7 @@
           </div>
         </details>
         <details class="reference-drawer" style="margin-top:12px">
-          <summary>Scale forecast vs actual — estimate range and weigh-in through June 1</summary>
+          <summary>Scale forecast vs actual — estimate range and weigh-in through June 2</summary>
           <div class="table-wrap compact-table-wrap">
             <table class="compact-ref forecast-ref">
               <thead><tr><th>Date</th><th>Estimate</th><th>Actual</th><th>Miss</th><th>Verdict</th><th>Read</th></tr></thead>
@@ -318,10 +318,11 @@
                 <tr><td>5/26 Tue</td><td class="num">153-155.5</td><td class="num">154.0</td><td class="num">-0.3</td><td>On track</td><td title="Down 0.6 from Mon and still inside the 153-155.5 projected truth-window range.">Inside truth window</td></tr>
                 <tr><td>5/27 Wed</td><td class="num">152.5-155</td><td class="num">153.6</td><td class="num">-0.2</td><td>On track</td><td title="Down 0.4 from Tue and inside the 152.5-155 range.">Inside truth window</td></tr>
                 <tr><td>5/28 Thu</td><td class="num">152-154.5</td><td class="num">153.9</td><td class="num">+0.6</td><td>On track / bounce</td><td title="Up 0.3 from Wed but still inside range; RHR 39 and large deficit make this noise, not a stall.">Scale bounce</td></tr>
-                <tr><td>5/29 Fri</td><td class="num">151-154</td><td>Pending</td><td>—</td><td>Pending</td><td title="Realistic aggressive-cut lane if recovery stays intact.">Aggressive lane</td></tr>
-                <tr><td>5/30 Sat</td><td class="num">150.5-153.5</td><td>Pending</td><td>—</td><td>Pending</td><td title="Getting near the true post-break damage read.">Damage read</td></tr>
-                <tr><td>5/31 Sun</td><td class="num">149.5-153</td><td>Pending</td><td>—</td><td>Pending</td><td title="Final pre-coach read; 148 is possible only if transient mass clears hard.">Final pre-coach read</td></tr>
-                <tr><td>6/1 Mon</td><td class="num">148.5-152.5</td><td>Pending</td><td>—</td><td>Pending</td><td title="Hard-goal landing zone; 148 requires near-perfect flush plus no rebound noise.">Coach handoff target</td></tr>
+                <tr><td>5/29 Fri</td><td class="num">151-154</td><td class="num">153.3</td><td class="num">+0.8</td><td>On track / timing caveat</td><td title="Inside range and down from Thu; weigh-in timing was not standard, so tag quality before changing levers.">Inside range</td></tr>
+                <tr><td>5/30 Sat</td><td class="num">150.5-153.5</td><td class="num">154.0</td><td class="num">+2.0</td><td>High / carb-up bounce</td><td title="Above range after the fueled soft landing/carb-up; treat as water/glycogen/training noise, not a fat verdict.">Carb-up bounce</td></tr>
+                <tr><td>5/31 Sun</td><td class="num">149.5-153</td><td class="num">153.3</td><td class="num">+2.0</td><td>High / still down</td><td title="Final pre-coach read stayed 153.3 after high output; still down 15.7 from 5/17.">Final closeout</td></tr>
+                <tr><td>6/1 Mon</td><td class="num">148.5-152.5</td><td>Not logged</td><td>—</td><td>Not logged</td><td title="No Mon AM scale; use Tue 6/2 155.0 with late meal/timing caveat before interpreting rebound/noise.">Coach handoff data closed</td></tr>
+                <tr><td>6/2 Tue</td><td>Post-handoff</td><td class="num">155.0</td><td>—</td><td>Scale check</td><td title="Late meal/timing caveat; do not change levers from this read alone.">Timing caveat</td></tr>
               </tbody>
             </table>
           </div>
@@ -525,7 +526,7 @@
     </section>
 	    <p class="footer">Private prep planning artifact for contest-prep execution and evidence review, not medical advice.</p>
 	  </main>
-			  <script src="analysis-data.js?v=20260602-weight-155"></script>
+			  <script src="analysis-data.js?v=20260602-data-reconcile"></script>
 	  <script>
 	    (() => {
 	      const data = window.PREP_ANALYSIS_DATA || {};
@@ -548,7 +549,7 @@
 	          minimumFractionDigits: Number.isInteger(number) ? 0 : Math.min(digits, 1),
 	        });
 	      };
-	      const rowDisplayWeight = (row) => row?.displayWeight ?? row?.weight ?? row?.trendWeight;
+	      const rowDisplayWeight = (row) => row?.displayWeight ?? row?.weight;
 	      const fmtWeight = (row) => hasNumber(rowDisplayWeight(row)) ? `${fmtNumber(rowDisplayWeight(row), 1)} lb` : "Not logged";
 	      const weightSourceTag = (row) => {
 	        if (!hasNumber(rowDisplayWeight(row))) return "";

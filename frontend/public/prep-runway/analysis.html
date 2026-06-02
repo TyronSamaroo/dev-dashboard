@@ -667,7 +667,7 @@
     </section>
   </main>
 
-  <script src="analysis-data.js?v=20260602-weight-155"></script>
+  <script src="analysis-data.js?v=20260602-data-reconcile"></script>
   <script>
     (() => {
       const data = window.PREP_ANALYSIS_DATA;
@@ -692,7 +692,7 @@
       }
 
       function formatWeight(day) {
-        const value = day?.displayWeight ?? day?.weight ?? day?.trendWeight;
+        const value = day?.displayWeight ?? day?.weight;
         if (value === null || value === undefined || value === "") return "Pending";
         const number = Number(value);
         if (!Number.isFinite(number)) return "Pending";
