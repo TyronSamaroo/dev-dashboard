@@ -28,21 +28,30 @@ type ReleaseNote = {
   highlights: string[];
 };
 
+type VisualMilestone = {
+  build: string;
+  title: string;
+  body: string;
+  image: string;
+  alt: string;
+  tags: string[];
+};
+
 const releaseNotes: ReleaseNote[] = [
   {
     build: "22",
     date: "Jun 21, 2026",
-    label: "In review",
+    label: "Merged",
     title: "Compete invites and diagnostics",
     summary:
-      "Build 22 is the next beta candidate for household competition: invite deep links, CloudKit share acceptance, join confirmation, and clearer sync diagnostics.",
+      "Build 22 moved household competition forward with invite deep links, CloudKit share acceptance, join confirmation, and clearer sync diagnostics.",
     icon: Trophy,
     tags: ["Compete", "CloudKit", "Diagnostics"],
     highlights: [
       "Added compete invite deep links so a shared board can be joined from a link instead of manual copy/paste only.",
       "Added CKShare acceptance handling and a join confirmation screen for safer household-board setup.",
       "Added a Compete diagnostics sheet that separates iCloud status, board state, schema issues, and last sync details.",
-      "PR #22 is open for this candidate; CI needs attention before it becomes the next merged/TestFlight build.",
+      "Merged PR #22 into main; the next step is a fresh beta upload and phone proof for the merged build.",
     ],
   },
   {
@@ -215,10 +224,101 @@ const pillars = [
 ];
 
 const currentStatus = [
-  ["Latest build", "0.1.0 (22) candidate in review"],
+  ["Latest build", "0.1.0 (22) merged on main"],
   ["Compete", "Invite links and diagnostics added"],
   ["CloudKit", "Production schema deployed and queryable fields verified"],
-  ["Next proof", "Fix PR checks, merge, upload, then verify on both beta phones"],
+  ["Next proof", "Upload the merged build, then verify the shared beta flow on phones"],
+];
+
+const visualMilestones: VisualMilestone[] = [
+  {
+    build: "22",
+    title: "Compete setup",
+    body: "Household board setup, join codes, and the latest CloudKit-driven competition flow.",
+    image: "/portfolio/strideslip/build-22-compete.jpg",
+    alt: "StrideSlip Compete screen showing household board setup and join code fields",
+    tags: ["Compete", "CloudKit"],
+  },
+  {
+    build: "20",
+    title: "Health sync repair",
+    body: "A clearer place to diagnose stale Apple Health reads and repair refresh behavior.",
+    image: "/portfolio/strideslip/build-20-health-sync.jpg",
+    alt: "StrideSlip Settings screen showing Health sync repair and data refresh controls",
+    tags: ["HealthKit", "Reliability"],
+  },
+  {
+    build: "19",
+    title: "Diagnostics",
+    body: "Copy-safe app, Apple Health, iCloud, Compete, and Live Activity status without raw activity data.",
+    image: "/portfolio/strideslip/build-19-diagnostics.jpg",
+    alt: "StrideSlip Settings diagnostics screen with app, Apple Health, iCloud, and Live Activity status",
+    tags: ["QOL", "Settings"],
+  },
+  {
+    build: "17",
+    title: "Weekly insights",
+    body: "A Monday-start week receipt with totals, averages, heat map, and cardio context.",
+    image: "/portfolio/strideslip/build-17-weekly-insights.jpg",
+    alt: "StrideSlip weekly Insights screen with receipt totals and a monthly heat map",
+    tags: ["Insights", "Week"],
+  },
+  {
+    build: "17",
+    title: "Week drill-down",
+    body: "Tap from a week into cardio, top days, and individual day detail paths.",
+    image: "/portfolio/strideslip/build-17-cardio-week-detail.jpg",
+    alt: "StrideSlip Insights screen showing cardio insight and week detail rows",
+    tags: ["Insights", "Drill-down"],
+  },
+  {
+    build: "17",
+    title: "Cardio detail",
+    body: "Cardio totals, heart-rate zones, editable thresholds, and workout drill-downs.",
+    image: "/portfolio/strideslip/build-17-cardio-detail.jpg",
+    alt: "StrideSlip Cardio Detail screen showing zone time and cardio workout list",
+    tags: ["Cardio", "Zones"],
+  },
+  {
+    build: "17",
+    title: "Heart-rate zones",
+    body: "Workout detail with average and max heart rate, charting, and time spent in each zone.",
+    image: "/portfolio/strideslip/build-17-heart-zones.jpg",
+    alt: "StrideSlip workout detail screen showing a heart-rate chart and zone breakdown",
+    tags: ["Workouts", "Heart rate"],
+  },
+  {
+    build: "10",
+    title: "Today home",
+    body: "The main tab became the daily command surface with steps, weather, progress, and coaching.",
+    image: "/portfolio/strideslip/build-10-today.jpg",
+    alt: "StrideSlip Today screen showing steps, weather, progress ring, and coach card",
+    tags: ["Today", "Coach"],
+  },
+  {
+    build: "3",
+    title: "Workout receipt",
+    body: "Compact workout detail, templates, metrics, and comparison context for frequent activities.",
+    image: "/portfolio/strideslip/build-03-workout-detail.jpg",
+    alt: "StrideSlip workout detail screen showing stair stepper metrics and templates",
+    tags: ["Workout detail", "Share"],
+  },
+  {
+    build: "3",
+    title: "Workout filters",
+    body: "A faster history view for common workouts like stair stepper, strength, indoor walk, and outdoor walk.",
+    image: "/portfolio/strideslip/build-03-workout-list.jpg",
+    alt: "StrideSlip Activity screen showing workout filters and workout history",
+    tags: ["Activity", "Filters"],
+  },
+  {
+    build: "1",
+    title: "Activity history",
+    body: "The original Apple Health-backed timeline for days, workouts, steps, calories, and distance.",
+    image: "/portfolio/strideslip/build-01-activity-history.jpg",
+    alt: "StrideSlip Activity screen showing day history from sample data",
+    tags: ["Foundation", "HealthKit"],
+  },
 ];
 
 function ReleaseArticle({ release, index }: { release: ReleaseNote; index: number }) {
@@ -269,6 +369,34 @@ function ReleaseArticle({ release, index }: { release: ReleaseNote; index: numbe
   );
 }
 
+function VisualMilestoneCard({ milestone }: { milestone: VisualMilestone }) {
+  return (
+    <article className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+      <div className="bg-zinc-900/70 px-4 py-3">
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-xs uppercase tracking-[0.22em] text-emerald-300">Build {milestone.build}</p>
+          <div className="flex flex-wrap justify-end gap-1.5">
+            {milestone.tags.map((tag) => (
+              <span key={tag} className="rounded-md border border-zinc-800 bg-zinc-950 px-2 py-0.5 text-[0.68rem] text-zinc-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        <h3 className="mt-3 text-lg font-semibold tracking-tight text-zinc-50">{milestone.title}</h3>
+        <p className="mt-2 text-sm leading-6 text-zinc-400">{milestone.body}</p>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-[17rem] px-5 pb-5 pt-4">
+        <div className="absolute inset-x-8 bottom-4 top-10 rounded-full bg-emerald-400/10 blur-3xl" />
+        <div className="relative overflow-hidden rounded-[1.75rem] border border-zinc-800 bg-black p-1.5 shadow-xl shadow-black/40">
+          <img src={milestone.image} alt={milestone.alt} className="aspect-[9/19.5] w-full rounded-[1.35rem] object-cover object-top" />
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function StepReceiptChangelog() {
   const location = useLocation();
 
@@ -299,7 +427,7 @@ export default function StepReceiptChangelog() {
         </Link>
         <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
           <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Updated Jun 21, 2026</span>
-          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Latest candidate 0.1.0 (22)</span>
+          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Latest build 0.1.0 (22)</span>
           <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Production CloudKit verified</span>
         </div>
       </div>
@@ -370,12 +498,30 @@ export default function StepReceiptChangelog() {
         })}
       </section>
 
+      <section id="visuals" className="scroll-mt-24 border-t border-zinc-800 py-10">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.22em] text-emerald-300">Build visuals</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-50">Screens tied to the changes</h2>
+          </div>
+          <p className="max-w-lg text-sm leading-6 text-zinc-500">
+            Captured from the iOS simulator with sample data so the public page can show the product shape without exposing raw Health data.
+          </p>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {visualMilestones.map((milestone) => (
+            <VisualMilestoneCard key={`${milestone.build}-${milestone.title}`} milestone={milestone} />
+          ))}
+        </div>
+      </section>
+
       <div className="grid gap-10 lg:grid-cols-[14rem_1fr]">
         <aside className="hidden lg:block">
           <div className="sticky top-24 space-y-6">
             <div>
               <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">On this page</p>
               <div className="mt-3 grid gap-2 text-sm">
+                <a href="#visuals" className="text-zinc-400 transition-colors hover:text-zinc-100">Build visuals</a>
                 <a href="#timeline" className="text-zinc-400 transition-colors hover:text-zinc-100">Release timeline</a>
                 <a href="#tester-guide" className="text-zinc-400 transition-colors hover:text-zinc-100">Tester guide</a>
                 <a href="#limits" className="text-zinc-400 transition-colors hover:text-zinc-100">Known limits</a>
@@ -398,7 +544,7 @@ export default function StepReceiptChangelog() {
                 rel="noopener noreferrer"
                 className="mt-2 inline-flex items-center gap-2 text-sm text-emerald-300 transition-colors hover:text-emerald-200"
               >
-                Latest PR <ArrowUpRight size={14} />
+                Merged PR #22 <ArrowUpRight size={14} />
               </a>
             </div>
           </div>
@@ -447,7 +593,7 @@ export default function StepReceiptChangelog() {
                   Lock Screen steps are limited by iOS background scheduling. Apple Health can wake the app, but it cannot guarantee every-step or every-minute updates while the app is closed.
                 </p>
                 <p>
-                  Build 22 is still a candidate until the open PR checks are fixed, merged, and uploaded as a new beta build.
+                  Build 22 is merged on main, but it still needs a fresh beta upload and phone verification before it should be treated as the current tested build.
                 </p>
                 <p>
                   Household competition uses aggregate totals only. Raw HealthKit samples, routes, and workouts remain on-device.
