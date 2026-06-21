@@ -10,7 +10,6 @@ import {
   RefreshCw,
   Route,
   ShieldCheck,
-  Sparkles,
   Trophy,
   Watch,
   Zap,
@@ -31,19 +30,19 @@ type ReleaseNote = {
 
 const releaseNotes: ReleaseNote[] = [
   {
-    build: "Next",
+    build: "21",
     date: "Jun 21, 2026",
-    label: "Candidate",
-    title: "Warmer Today, tighter insights, better workout context",
+    label: "Testing",
+    title: "TestFlight build 21 and production CloudKit",
     summary:
-      "The next build candidate sharpens the daily view, compact timelines, cardio split, heart metrics, and workout comparison work after build 20.",
-    icon: Sparkles,
-    tags: ["Today", "Insights", "Workouts"],
+      "Build 21 moved into TestFlight testing with Tiffany attached, updated beta notes, and production CloudKit schema deployed for household compete.",
+    icon: ShieldCheck,
+    tags: ["TestFlight", "Compete", "CloudKit"],
     highlights: [
-      "Compact hourly timetable rows across Today and Activity history.",
-      "Redesigned Insights heat map with clearer empty and weekday states.",
-      "Trend filters, strength detail cards, session compare, and richer coach previews.",
-      "Heart metrics, cardio split, week compare, and Today warmth polish.",
+      "Uploaded 0.1.0 (21) to App Store Connect and moved the build from Ready to Submit into Testing.",
+      "Attached Tiffany as an existing individual tester for build 21 with tester notes focused on HealthKit, Live Activity, Watch, Insights, and Compete.",
+      "Deployed CloudKit schema changes to Production from CloudKit Console.",
+      "Verified production schema includes queryable CompetitionEntry.groupHash and HouseholdCompetitionBoard.groupHash fields for household sync.",
     ],
   },
   {
@@ -174,7 +173,7 @@ const releaseNotes: ReleaseNote[] = [
 ];
 
 const testerGuide = [
-  "Open Today, pull to refresh, and confirm real Health data appears.",
+  "Install build 21 from TestFlight, then open Today, pull to refresh, and confirm real Health data appears.",
   "Open a workout and inspect duration, burn, heart-rate zones, and share card output.",
   "Browse Insights by week and month, then drill into cardio and day details.",
   "Use Compete sync and confirm Tyron/Tiffany aggregate rows appear after both phones sync.",
@@ -194,9 +193,16 @@ const pillars = [
   },
   {
     title: "Family testing",
-    body: "Built for Tyron and Tiffany first: direct installs, TestFlight prep, household board sync, and practical diagnostics.",
+    body: "Build 21 is in TestFlight testing with Tiffany attached, production CloudKit deployed, and household board sync ready for real-phone proof.",
     icon: Trophy,
   },
+];
+
+const currentStatus = [
+  ["TestFlight", "0.1.0 (21) is in Testing"],
+  ["Family beta", "Tiffany is attached as an invited tester"],
+  ["CloudKit", "Production schema deployed and queryable fields verified"],
+  ["Next proof", "Install build 21 on both phones and sync the same household code"],
 ];
 
 function ReleaseArticle({ release, index }: { release: ReleaseNote; index: number }) {
@@ -257,7 +263,8 @@ export default function StepReceiptChangelog() {
         </Link>
         <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
           <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Updated Jun 21, 2026</span>
-          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Current repo build 0.1.0 (20)</span>
+          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Current TestFlight build 0.1.0 (21)</span>
+          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Production CloudKit verified</span>
         </div>
       </div>
 
@@ -305,7 +312,16 @@ export default function StepReceiptChangelog() {
         </div>
       </section>
 
-      <section className="grid gap-4 py-8 md:grid-cols-3">
+      <section className="grid gap-3 py-8 md:grid-cols-4">
+        {currentStatus.map(([label, value]) => (
+          <div key={label} className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4">
+            <p className="text-xs uppercase tracking-[0.22em] text-zinc-500">{label}</p>
+            <p className="mt-3 text-sm font-medium leading-6 text-zinc-100">{value}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="grid gap-4 pb-8 md:grid-cols-3">
         {pillars.map((pillar) => {
           const Icon = pillar.icon;
           return (
@@ -351,7 +367,7 @@ export default function StepReceiptChangelog() {
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-50">What changed over time</h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-zinc-500">
-              Based on local build notes and git history from June 10 through June 21, 2026.
+              Based on local build notes, git history, App Store Connect state, and CloudKit production schema proof from June 10 through June 21, 2026.
             </p>
           </div>
 
@@ -387,7 +403,7 @@ export default function StepReceiptChangelog() {
                   Lock Screen steps are limited by iOS background scheduling. Apple Health can wake the app, but it cannot guarantee every-step or every-minute updates while the app is closed.
                 </p>
                 <p>
-                  TestFlight access depends on Apple beta review. Direct installs are useful for Tyron and Tiffany while development is moving fast.
+                  Tiffany still needs to accept the TestFlight invitation on her iPhone before build 21 can be installed from TestFlight.
                 </p>
                 <p>
                   Household competition uses aggregate totals only. Raw HealthKit samples, routes, and workouts remain on-device.
