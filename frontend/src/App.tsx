@@ -82,17 +82,17 @@ function AppContent() {
   useHotkey("k", () => setPaletteOpen((o) => !o));
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+    <div className="min-h-screen overflow-x-hidden bg-zinc-950 text-zinc-100">
       <StatusBanner />
       <nav className="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Link to="/" className="text-lg font-semibold tracking-tight">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-3 sm:px-4">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <Link to="/" className="truncate text-base font-semibold tracking-tight sm:text-lg">
               dev<span className="text-violet-400">.dashboard</span>
             </Link>
             <OnlineIndicator />
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex shrink-0 items-center gap-0.5 sm:gap-1">
             {isHome && (
               <div className="hidden md:flex items-center gap-0.5 mr-2">
                 {sectionLinks.map((s) => (
@@ -104,11 +104,11 @@ function AppContent() {
               <kbd className="text-[10px]">⌘K</kbd>
             </button>
             <ThemeToggle />
-            <Link to="/" className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-zinc-800 transition-colors">
-              <LayoutDashboard size={16} /> Dashboard
+            <Link to="/" aria-label="Dashboard" title="Dashboard" className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-zinc-800 sm:px-3">
+              <LayoutDashboard size={16} /> <span className="hidden min-[430px]:inline">Dashboard</span>
             </Link>
-            <Link to="/manage" className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-zinc-800 transition-colors">
-              <Settings size={16} /> Manage
+            <Link to="/manage" aria-label="Manage" title="Manage" className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-zinc-800 sm:px-3">
+              <Settings size={16} /> <span className="hidden min-[430px]:inline">Manage</span>
             </Link>
           </div>
         </div>

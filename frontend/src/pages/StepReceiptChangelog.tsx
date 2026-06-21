@@ -14,8 +14,8 @@ import {
   Watch,
   Zap,
 } from "lucide-react";
-import type { ElementType } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, type ElementType } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 type ReleaseNote = {
   build: string;
@@ -30,17 +30,33 @@ type ReleaseNote = {
 
 const releaseNotes: ReleaseNote[] = [
   {
+    build: "22",
+    date: "Jun 21, 2026",
+    label: "In review",
+    title: "Compete invites and diagnostics",
+    summary:
+      "Build 22 is the next beta candidate for household competition: invite deep links, CloudKit share acceptance, join confirmation, and clearer sync diagnostics.",
+    icon: Trophy,
+    tags: ["Compete", "CloudKit", "Diagnostics"],
+    highlights: [
+      "Added compete invite deep links so a shared board can be joined from a link instead of manual copy/paste only.",
+      "Added CKShare acceptance handling and a join confirmation screen for safer household-board setup.",
+      "Added a Compete diagnostics sheet that separates iCloud status, board state, schema issues, and last sync details.",
+      "PR #22 is open for this candidate; CI needs attention before it becomes the next merged/TestFlight build.",
+    ],
+  },
+  {
     build: "21",
     date: "Jun 21, 2026",
     label: "Testing",
     title: "TestFlight build 21 and production CloudKit",
     summary:
-      "Build 21 moved into TestFlight testing with Tiffany attached, updated beta notes, and production CloudKit schema deployed for household compete.",
+      "Build 21 moved the app into TestFlight testing, refreshed beta notes, and deployed the production CloudKit schema for household compete.",
     icon: ShieldCheck,
     tags: ["TestFlight", "Compete", "CloudKit"],
     highlights: [
       "Uploaded 0.1.0 (21) to App Store Connect and moved the build from Ready to Submit into Testing.",
-      "Attached Tiffany as an existing individual tester for build 21 with tester notes focused on HealthKit, Live Activity, Watch, Insights, and Compete.",
+      "Prepared shared beta tester notes focused on HealthKit, Live Activity, Watch, Insights, and Compete.",
       "Deployed CloudKit schema changes to Production from CloudKit Console.",
       "Verified production schema includes queryable CompetitionEntry.groupHash and HouseholdCompetitionBoard.groupHash fields for household sync.",
     ],
@@ -129,7 +145,7 @@ const releaseNotes: ReleaseNote[] = [
     label: "Shipped",
     title: "Workout receipts get real detail",
     summary:
-      "Workout detail moved closer to the Apple Fitness feel Tyron wanted, with stronger color, heart-rate context, and shareable cards.",
+      "Workout detail moved closer to an Apple Fitness-style experience, with stronger color, heart-rate context, and shareable cards.",
     icon: Watch,
     tags: ["Workouts", "Share"],
     highlights: [
@@ -173,10 +189,10 @@ const releaseNotes: ReleaseNote[] = [
 ];
 
 const testerGuide = [
-  "Install build 21 from TestFlight, then open Today, pull to refresh, and confirm real Health data appears.",
+  "Install the latest beta build, then open Today, pull to refresh, and confirm real Health data appears.",
   "Open a workout and inspect duration, burn, heart-rate zones, and share card output.",
   "Browse Insights by week and month, then drill into cardio and day details.",
-  "Use Compete sync and confirm Tyron/Tiffany aggregate rows appear after both phones sync.",
+  "Use Compete sync and confirm both beta phones can see the same shared board.",
   "Use Settings diagnostics or Repair Health Sync if data looks stale.",
 ];
 
@@ -192,17 +208,17 @@ const pillars = [
     icon: Watch,
   },
   {
-    title: "Family testing",
-    body: "Build 21 is in TestFlight testing with Tiffany attached, production CloudKit deployed, and household board sync ready for real-phone proof.",
+    title: "Shared beta testing",
+    body: "The beta path is built around real iPhones, TestFlight, production CloudKit, and practical household-board validation.",
     icon: Trophy,
   },
 ];
 
 const currentStatus = [
-  ["TestFlight", "0.1.0 (21) is in Testing"],
-  ["Family beta", "Tiffany is attached as an invited tester"],
+  ["Latest build", "0.1.0 (22) candidate in review"],
+  ["Compete", "Invite links and diagnostics added"],
   ["CloudKit", "Production schema deployed and queryable fields verified"],
-  ["Next proof", "Install build 21 on both phones and sync the same household code"],
+  ["Next proof", "Fix PR checks, merge, upload, then verify on both beta phones"],
 ];
 
 function ReleaseArticle({ release, index }: { release: ReleaseNote; index: number }) {
@@ -254,6 +270,26 @@ function ReleaseArticle({ release, index }: { release: ReleaseNote; index: numbe
 }
 
 export default function StepReceiptChangelog() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const id = location.hash.slice(1);
+    if (!id) return;
+
+    const scrollToSection = () => {
+      document.getElementById(id)?.scrollIntoView({ block: "start" });
+    };
+    const frame = window.requestAnimationFrame(scrollToSection);
+    const timeout = window.setTimeout(scrollToSection, 250);
+    const settledTimeout = window.setTimeout(scrollToSection, 900);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timeout);
+      window.clearTimeout(settledTimeout);
+    };
+  }, [location.hash]);
+
   return (
     <div className="mx-auto max-w-6xl">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
@@ -263,7 +299,7 @@ export default function StepReceiptChangelog() {
         </Link>
         <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
           <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Updated Jun 21, 2026</span>
-          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Current TestFlight build 0.1.0 (21)</span>
+          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Latest candidate 0.1.0 (22)</span>
           <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Production CloudKit verified</span>
         </div>
       </div>
@@ -271,17 +307,17 @@ export default function StepReceiptChangelog() {
       <section className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_18%,rgba(16,185,129,0.18),transparent_30%),radial-gradient(circle_at_80%_24%,rgba(59,130,246,0.14),transparent_28%)]" />
         <div className="relative grid gap-10 p-6 md:grid-cols-[1fr_20rem] md:p-10 lg:p-12">
-          <div className="flex min-h-[34rem] flex-col justify-between">
+          <div className="flex min-h-[28rem] flex-col justify-between md:min-h-[34rem]">
             <div>
               <div className="mb-6 flex items-center gap-3">
                 <span className="h-px w-10 bg-emerald-300/70" />
                 <span className="text-xs font-medium uppercase tracking-[0.28em] text-emerald-300">Project changelog</span>
               </div>
-              <h1 className="max-w-4xl text-5xl font-bold tracking-tight text-zinc-50 md:text-7xl lg:text-8xl">
+              <h1 className="max-w-4xl text-5xl font-bold tracking-tight text-zinc-50 sm:text-6xl md:text-7xl lg:text-8xl">
                 StrideSlip
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-300">
-                A personal-first iPhone activity app built around Apple Health, workout receipts, heart-rate context, and family beta feedback.
+                A personal-first iPhone activity app built around Apple Health, workout receipts, heart-rate context, and shared beta feedback.
               </p>
             </div>
 
@@ -303,8 +339,8 @@ export default function StepReceiptChangelog() {
             <div className="absolute -inset-8 rounded-full bg-emerald-300/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-zinc-700 bg-zinc-900 p-2 shadow-2xl shadow-black/50">
               <img
-                src="/portfolio/stride-slip-today.png"
-                alt="StrideSlip Today screen showing steps, weather, coach notes, and progress"
+                src="/portfolio/stride-slip-build-22.png"
+                alt="StrideSlip Today screen showing steps, weather, and progress"
                 className="h-full w-full rounded-[1.5rem] object-cover"
               />
             </div>
@@ -356,18 +392,26 @@ export default function StepReceiptChangelog() {
               >
                 Source repo <ArrowUpRight size={14} />
               </a>
+              <a
+                href="https://github.com/TyronSamaroo/step-receipt-ios/pull/22"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-2 text-sm text-emerald-300 transition-colors hover:text-emerald-200"
+              >
+                Latest PR <ArrowUpRight size={14} />
+              </a>
             </div>
           </div>
         </aside>
 
-        <div id="timeline">
+        <div id="timeline" className="scroll-mt-24">
           <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
             <div>
               <p className="text-xs uppercase tracking-[0.22em] text-emerald-300">Release timeline</p>
               <h2 className="mt-2 text-3xl font-semibold tracking-tight text-zinc-50">What changed over time</h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-zinc-500">
-              Based on local build notes, git history, App Store Connect state, and CloudKit production schema proof from June 10 through June 21, 2026.
+              Based on local build notes, git history, App Store Connect state, PR review status, and CloudKit production schema proof from June 10 through June 21, 2026.
             </p>
           </div>
 
@@ -375,11 +419,11 @@ export default function StepReceiptChangelog() {
             <ReleaseArticle key={`${release.build}-${release.title}`} release={release} index={index} />
           ))}
 
-          <section id="tester-guide" className="border-t border-zinc-800 py-8">
+          <section id="tester-guide" className="scroll-mt-24 border-t border-zinc-800 py-8">
             <div className="grid gap-6 md:grid-cols-[12rem_1fr]">
               <div>
                 <CalendarDays className="h-5 w-5 text-emerald-300" />
-                <h2 className="mt-4 text-xl font-semibold text-zinc-50">Tiffany test guide</h2>
+                <h2 className="mt-4 text-xl font-semibold text-zinc-50">Shared beta test guide</h2>
               </div>
               <ul className="grid gap-3">
                 {testerGuide.map((item) => (
@@ -392,7 +436,7 @@ export default function StepReceiptChangelog() {
             </div>
           </section>
 
-          <section id="limits" className="border-t border-zinc-800 py-8">
+          <section id="limits" className="scroll-mt-24 border-t border-zinc-800 py-8">
             <div className="grid gap-6 md:grid-cols-[12rem_1fr]">
               <div>
                 <Route className="h-5 w-5 text-emerald-300" />
@@ -403,7 +447,7 @@ export default function StepReceiptChangelog() {
                   Lock Screen steps are limited by iOS background scheduling. Apple Health can wake the app, but it cannot guarantee every-step or every-minute updates while the app is closed.
                 </p>
                 <p>
-                  Tiffany still needs to accept the TestFlight invitation on her iPhone before build 21 can be installed from TestFlight.
+                  Build 22 is still a candidate until the open PR checks are fixed, merged, and uploaded as a new beta build.
                 </p>
                 <p>
                   Household competition uses aggregate totals only. Raw HealthKit samples, routes, and workouts remain on-device.

@@ -246,7 +246,7 @@ function ProjectUpdatesSection() {
         <div className="grid gap-0 md:grid-cols-[13rem_1fr]">
           <div className="h-52 bg-zinc-950 border-b md:border-b-0 md:border-r border-zinc-800 overflow-hidden">
             <img
-              src="/portfolio/stride-slip-today.png"
+              src="/portfolio/stride-slip-build-22.png"
               alt="StrideSlip Today screen"
               className="h-full w-full object-cover object-top opacity-90"
               loading="lazy"
