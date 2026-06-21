@@ -3,6 +3,7 @@ import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { LayoutDashboard, Settings, WifiOff, Wifi, Sun, Moon } from "lucide-react";
 import Dashboard from "./pages/Dashboard";
 import Manage from "./pages/Manage";
+import StepReceiptChangelog from "./pages/StepReceiptChangelog";
 import AdminGate from "./components/AdminGate";
 import CommandPalette from "./components/CommandPalette";
 import { isBackendOnline, onBackendStatusChange, getCacheAge } from "./api";
@@ -115,6 +116,8 @@ function AppContent() {
       <main className="max-w-6xl mx-auto px-4 py-8">
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/projects/stride-slip" element={<StepReceiptChangelog />} />
+          <Route path="/projects/stepreceipt" element={<StepReceiptChangelog />} />
           <Route path="/manage" element={<AdminGate><Manage /></AdminGate>} />
         </Routes>
       </main>

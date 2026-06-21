@@ -16,7 +16,9 @@ import {
   Zap,
   Award,
   ArrowDown,
+  ArrowUpRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import type { Stat } from "../types";
 import SectionHeader from "../components/SectionHeader";
 import UptimeBadge from "../components/UptimeBadge";
@@ -231,6 +233,56 @@ function ApiDocsSection() {
   );
 }
 
+function ProjectUpdatesSection() {
+  return (
+    <section id="project-updates">
+      <div className="flex items-center gap-3 mb-6">
+        <BookOpen size={20} className="text-violet-400" />
+        <h2 className="text-xl font-semibold">Project Updates</h2>
+        <span className="text-sm text-zinc-500">1</span>
+      </div>
+
+      <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 overflow-hidden">
+        <div className="grid gap-0 md:grid-cols-[13rem_1fr]">
+          <div className="h-52 bg-zinc-950 border-b md:border-b-0 md:border-r border-zinc-800 overflow-hidden">
+            <img
+              src="/portfolio/stride-slip-today.png"
+              alt="StrideSlip Today screen"
+              className="h-full w-full object-cover object-top opacity-90"
+              loading="lazy"
+            />
+          </div>
+          <div className="p-5">
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <span className="px-2 py-0.5 text-xs rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                Project update
+              </span>
+              <span className="text-xs text-zinc-500">June 2026</span>
+            </div>
+            <h3 className="text-xl font-semibold">StrideSlip iOS build notes</h3>
+            <p className="text-sm text-zinc-400 mt-2 leading-relaxed max-w-2xl">
+              An iPhone activity companion for daily steps, workout receipts, Lock Screen progress, and smarter Apple Health insights.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-4">
+              {["SwiftUI", "HealthKit", "ActivityKit", "CloudKit"].map((tech) => (
+                <span key={tech} className="px-2 py-0.5 text-xs rounded-md bg-zinc-800 text-zinc-400 border border-zinc-700/50">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <Link
+              to="/projects/stride-slip"
+              className="inline-flex items-center gap-1.5 mt-5 text-sm text-violet-400 hover:text-violet-300 transition-colors"
+            >
+              View project changelog <ArrowUpRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ═══════════════════════════════════════
    MAIN DASHBOARD
    ═══════════════════════════════════════ */
@@ -330,6 +382,10 @@ export default function Dashboard() {
       <ExperienceTimeline experience={workExperience} />
       <ScrollDivider />
       <EducationSection education={education} certifications={certifications} />
+      <ScrollDivider />
+
+      <ProjectUpdatesSection />
+
       <ScrollDivider />
 
       {projects.length > 0 && <ProjectShowcase projects={projects} />}
