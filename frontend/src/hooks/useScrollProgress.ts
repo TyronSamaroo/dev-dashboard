@@ -28,16 +28,16 @@ export function useScrollProgress() {
     }
   }, []);
 
-  const tick = useCallback(() => {
-    if (!isVisibleRef.current) return;
-    computeProgress();
-    rafId.current = requestAnimationFrame(tick);
-  }, [computeProgress]);
-
   // IO gating — only run rAF loop when element is in viewport
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    function tick() {
+      if (!isVisibleRef.current) return;
+      computeProgress();
+      rafId.current = requestAnimationFrame(tick);
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -67,7 +67,7 @@ export function useScrollProgress() {
       cancelAnimationFrame(rafId.current);
       window.removeEventListener("scroll", onScroll);
     };
-  }, [computeProgress, tick]);
+  }, [computeProgress]);
 
   /**
    * Remap a sub-range of progress to 0-1.
