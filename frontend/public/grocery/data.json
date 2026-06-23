@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T22:06:01.023366Z",
+  "generatedAt": "2026-06-23T01:42:54Z",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -185,6 +185,20 @@
       "supplementCount": 8,
       "momCount": 0,
       "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-22",
+      "store": "BJ's",
+      "food": 108.71,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "groceryTotal": 108.71,
+      "total": 108.71,
+      "itemCount": 7,
+      "supplementCount": 0,
+      "momCount": 0,
+      "storeType": "grocery"
     }
   ],
   "items": [
@@ -1929,6 +1943,97 @@
       "costPerServing": null,
       "notes": "Receipt #8303; 3 x $5 loyalty redemptions; paid $30.00",
       "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "18468",
+      "store": "BJ's",
+      "item": "Wymans Frozen Wild Blueberries 4lb",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 13.99,
+      "servings": 4,
+      "costPerServing": 3.4975,
+      "notes": "Order #287150669; same-day delivery; repeat price from 4/17",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "244767",
+      "store": "BJ's",
+      "item": "Wellsley Farms Sweet Potatoes 3 lbs",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 3.29,
+      "servings": 3,
+      "costPerServing": 1.0967,
+      "notes": "Was $2.99 on 4/26; now $3.29",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "321149",
+      "store": "BJ's",
+      "item": "Wellsley Farms Macadamia Nuts",
+      "category": "Snacks",
+      "type": "Food",
+      "cost": 8.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Order #287150669; same-day delivery",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "357688",
+      "store": "BJ's",
+      "item": "The Little Potato Co. Little Duo",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 6.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Order #287150669; same-day delivery",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "60746",
+      "store": "BJ's",
+      "item": "Wellsley Farms Red Potatoes",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 6.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Order #287150669; same-day delivery",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "86878",
+      "store": "BJ's",
+      "item": "Verde Farms Organic Grass Fed Beef",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 41.58,
+      "servings": 2,
+      "costPerServing": 20.79,
+      "notes": "Quantity 2 at $20.79 each",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "980302",
+      "store": "BJ's",
+      "item": "Harvestland by Perdue Organic Chicken",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 16.59,
+      "servings": 2,
+      "costPerServing": 8.295,
+      "notes": "Quantity 2; weighted receipt line showed $5.99 item price and $16.59 total",
+      "storeType": "grocery"
     }
   ],
   "winners": {
@@ -1965,12 +2070,12 @@
           },
           {
             "item": "Wild Blueberries 4lb",
-            "detail": "$3.50/lb after $1.50 coupon",
-            "savings": null
+            "detail": "$13.99 on 6/22; stable vs 4/17",
+            "savings": "$3.50/lb"
           },
           {
-            "item": "Russet Potatoes 10lb",
-            "detail": "$5.29 \u2014 same as Costco",
+            "item": "Sweet Potatoes 3lb",
+            "detail": "$3.29 on 6/22; was $2.99 on 4/26",
             "savings": null
           }
         ]
@@ -2043,7 +2148,7 @@
     ],
     "online": []
   },
-  "watch": "May 24 Natural Body Hicksville added $228.00 net supplement spend. Beverages hit $61.28 in one Costco trip (Fairlife Choc $39.99 + Coke Zero $21.29). Quest Chips 14ct at $29.99 biggest BJ's line-item. Beef Round $37.55 at Costco could replace Laura's Lean at better $/lb.",
+  "watch": "June 22 BJ's same-day order added $108.71 actual paid. Item subtotal was $98.42; delivery fee/tax were $0.00 and the $10.29 driver tip is what bridges to the paid total. Sweet potatoes moved $2.99 -> $3.29 since 4/26; Wyman's blueberries stayed $13.99.",
   "shoppingList": {
     "needNow": [
       {
@@ -2067,6 +2172,14 @@
     ],
     "restockSoon": [
       {
+        "name": "Wyman's Frozen Wild Blueberries 4lb \u2014 last bought 6/22 ($13.99)",
+        "done": false
+      },
+      {
+        "name": "BJ's proteins \u2014 Verde Farms beef + Harvestland chicken last bought 6/22 ($58.17 combined)",
+        "done": false
+      },
+      {
         "name": "Fairlife Chocolate Milk 18pk \u2014 last bought 4/17 ($39.99)",
         "done": false
       },
@@ -2085,6 +2198,22 @@
     }
   },
   "tripHistory": [
+    {
+      "date": "2026-06-22",
+      "title": "BJ's same-day delivery \u2014 produce + protein restock",
+      "stores": [
+        "BJ's"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 108.71,
+      "groceryActual": 108.71,
+      "supplementActual": 0,
+      "momActual": 0,
+      "itemsBought": 7,
+      "status": "closed",
+      "body": "# 2026-06-22 \u2014 BJ's same-day delivery produce + protein restock\n\n## How it went\n\nBJ's order **#287150669** was delivered on **June 22, 2026**. The app receipt showed **$98.42 item subtotal**, **$0.00 tax**, **$0.00 delivery fee**, **$10.29 driver tip**, and **$108.71 paid total**.\n\nThis order has been filed in `Grocery_Tracker.xlsx`, `Food_Spending_Split.xlsx`, `Finance/receipts/BJs/`, the Finance wiki, and this grocery dashboard data bundle.\n\n## What was bought\n\n**Protein**\n- Verde Farms Organic Grass Fed Beef \u2014 quantity 2, **$41.58** total\n- Harvestland by Perdue Organic Chicken \u2014 quantity 2, **$16.59** total\n\n**Produce / carbs**\n- Wyman's Frozen Wild Blueberries 4lb \u2014 **$13.99**\n- Wellsley Farms Sweet Potatoes 3lb \u2014 **$3.29**\n- The Little Potato Co. Little Duo \u2014 **$6.99**\n- Wellsley Farms Red Potatoes \u2014 **$6.99**\n\n**Snacks / fats**\n- Wellsley Farms Macadamia Nuts \u2014 **$8.99**\n\n## Price notes\n\n- Wyman's blueberries stayed flat at **$13.99** versus the April BJ's receipt.\n- Wellsley Farms sweet potatoes moved from **$2.99** on April 26 to **$3.29** on June 22.\n- The shared-expense settlement source uses the paid total: **$108.71**, split as **$54.36 each** in `Food_Spending_Split.xlsx`.\n",
+      "filename": "2026-06-22_bjs-same-day-delivery.md"
+    },
     {
       "date": "2026-05-24",
       "title": "Natural Body Hicksville \u2014 MDW supplement restock",
@@ -2134,29 +2263,29 @@
   ],
   "insights": [
     {
-      "color": "red",
+      "color": "blue",
+      "label": "Receipt filed",
+      "text": "BJ's 6/22 same-day order added: $98.42 item subtotal, $108.71 paid with the $10.29 driver tip."
+    },
+    {
+      "color": "amber",
       "label": "Price up",
-      "text": "Iceberg lettuce at BJ's: $1.99 (4/17) \u2192 $2.49 (4/26) \u2014 +25% in 9 days. Watch this."
+      "text": "Wellsley Farms sweet potatoes at BJ's: $2.99 (4/26) -> $3.29 (6/22), about +10%."
     },
     {
       "color": "green",
-      "label": "Price drop",
-      "text": "Coke Zero 35pk at Costco: $23.04 (3/8) \u2192 $21.29 (4/17) \u2014 \u22127.6%. Stock up if you'll go through it."
+      "label": "Stable repeat",
+      "text": "Wyman's wild blueberries stayed at $13.99 from the April BJ's receipt to the June 22 order."
+    },
+    {
+      "color": "amber",
+      "label": "Shared split",
+      "text": "Food_Spending_Split has the paid total at $108.71, split as $54.36 each."
     },
     {
       "color": "blue",
-      "label": "Best deal found",
-      "text": "Ghost Energy cases at Natural Body: $2.25/can in 12-packs. Beats Vitamin Shoppe singles ($3.49/can) by 35%."
-    },
-    {
-      "color": "amber",
-      "label": "Restock due",
-      "text": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick, missed on 4/26 (came home with Chobani drinks instead). Add to next Costco trip."
-    },
-    {
-      "color": "amber",
-      "label": "Budget pace",
-      "text": "May supplements $313 / $300 target \u2014 May 24 Hicksville receipts moved the month to over target."
+      "label": "Protein restock",
+      "text": "BJ's protein lines were $58.17 combined: Verde Farms beef $41.58 plus Harvestland chicken $16.59."
     }
   ],
   "supplementAnalysis": [
@@ -2279,8 +2408,8 @@
     }
   ],
   "totals": {
-    "itemCount": 134,
-    "tripCount": 13,
-    "monthlyEstimate": 444.58
+    "itemCount": 141,
+    "tripCount": 14,
+    "monthlyEstimate": 388.61
   }
 }
