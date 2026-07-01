@@ -39,6 +39,22 @@ type VisualMilestone = {
 
 const releaseNotes: ReleaseNote[] = [
   {
+    build: "24",
+    date: "Jun 21, 2026",
+    label: "Draft update",
+    title: "Compete member drill-ins",
+    summary:
+      "Build 24 focuses on making Compete easier to inspect: leaderboard rows can open member detail, while the surrounding sync work makes household totals more reliable.",
+    icon: Trophy,
+    tags: ["Compete", "Drill-down", "Reliability"],
+    highlights: [
+      "Added member drill-in from the household leaderboard with week and month scopes.",
+      "Member detail shows total score, daily average, goal days, active days, best day, heat map, and daily rows.",
+      "Build 23 reliability work tightened join sync, pull-to-refresh sync, manual retry, queued-row diagnostics, recent-row CloudKit queries, batched saves, conflict retry, timeout/debounce behavior, and the 45-day upload cap.",
+      "Polished the Today Day Flow card with aligned hourly steps, distance, and active-burn rows.",
+    ],
+  },
+  {
     build: "22",
     date: "Jun 21, 2026",
     label: "Merged",
@@ -224,13 +240,29 @@ const pillars = [
 ];
 
 const currentStatus = [
-  ["Latest build", "0.1.0 (22) merged on main"],
-  ["Compete", "Invite links and diagnostics added"],
+  ["Latest build", "0.1.0 (24) verified in StepReceipt main"],
+  ["Compete", "Member drill-ins and sync reliability"],
   ["CloudKit", "Production schema deployed and queryable fields verified"],
-  ["Next proof", "Upload the merged build, then verify the shared beta flow on phones"],
+  ["Draft status", "Local page draft only; waiting for review before deploy"],
 ];
 
 const visualMilestones: VisualMilestone[] = [
+  {
+    build: "24",
+    title: "Compete leaderboard",
+    body: "Preview board with week/month windows, metric switching, gap context, and tappable member rows.",
+    image: "/portfolio/strideslip/build-24-compete-leaderboard.jpg",
+    alt: "StrideSlip Compete screen showing a preview leaderboard with week, month, and metric controls",
+    tags: ["Compete", "Leaderboard"],
+  },
+  {
+    build: "24",
+    title: "Day Flow polish",
+    body: "Aligned hourly steps, distance, and active burn so the daily movement table is easier to scan.",
+    image: "/portfolio/strideslip/build-24-day-flow.jpg",
+    alt: "StrideSlip Today screen showing the Day Flow card with hourly steps, distance, and burn rows",
+    tags: ["Today", "Day Flow"],
+  },
   {
     build: "22",
     title: "Compete setup",
@@ -427,7 +459,7 @@ export default function StepReceiptChangelog() {
         </Link>
         <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
           <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Updated Jun 21, 2026</span>
-          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Latest build 0.1.0 (22)</span>
+          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Latest build 0.1.0 (24)</span>
           <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1">Production CloudKit verified</span>
         </div>
       </div>
@@ -539,12 +571,12 @@ export default function StepReceiptChangelog() {
                 Source repo <ArrowUpRight size={14} />
               </a>
               <a
-                href="https://github.com/TyronSamaroo/step-receipt-ios/pull/22"
+                href="https://github.com/TyronSamaroo/step-receipt-ios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 inline-flex items-center gap-2 text-sm text-emerald-300 transition-colors hover:text-emerald-200"
               >
-                Merged PR #22 <ArrowUpRight size={14} />
+                StepReceipt repo <ArrowUpRight size={14} />
               </a>
             </div>
           </div>
@@ -593,7 +625,7 @@ export default function StepReceiptChangelog() {
                   Lock Screen steps are limited by iOS background scheduling. Apple Health can wake the app, but it cannot guarantee every-step or every-minute updates while the app is closed.
                 </p>
                 <p>
-                  Build 22 is merged on main, but it still needs a fresh beta upload and phone verification before it should be treated as the current tested build.
+                  Build 24 is verified from the local StepReceipt repo and simulator sample data. This page update is still a draft until the copy and visuals are reviewed before deployment.
                 </p>
                 <p>
                   Household competition uses aggregate totals only. Raw HealthKit samples, routes, and workouts remain on-device.
