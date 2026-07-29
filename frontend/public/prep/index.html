@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Road to OCB — Access</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f0f; color: #e0e0e0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.gate {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border: 1px solid #333; border-radius: 16px; padding: 48px 40px; text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5); max-width: 400px; width: 90%;
+}
+.gate h1 { font-size: 22px; color: #fff; margin-bottom: 6px; }
+.gate .sub { color: #888; font-size: 13px; margin-bottom: 28px; }
+.gate input {
+  width: 100%; padding: 14px 16px; background: #0f0f0f; border: 2px solid #333;
+  border-radius: 10px; color: #fff; font-size: 16px; text-align: center;
+  letter-spacing: 3px; font-family: monospace; outline: none; transition: border-color 0.2s;
+}.gate input:focus { border-color: #e94560; }
+.gate input.error { border-color: #ff5252; animation: shake 0.4s ease; }
+.gate button {
+  margin-top: 16px; width: 100%; padding: 14px; background: #e94560; color: #fff;
+  border: none; border-radius: 10px; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+}
+.gate button:hover { background: #d63851; }
+.gate .err-msg { color: #ff5252; font-size: 12px; margin-top: 10px; min-height: 18px; }
+.lock-icon { font-size: 36px; margin-bottom: 16px; }
+.google-btn {
+  width: 100%; padding: 12px; margin-bottom: 16px;
+  background: #fff !important; color: #1a1a1a !important;
+  border: none; border-radius: 10px; cursor: pointer;
+  font-size: 14px; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background 0.2s;
+}
+.google-btn:hover { background: #f0f0f0 !important; }
+.google-btn svg { width: 18px; height: 18px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 4px 0 18px; color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #333; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+}
+#report-frame { display: none; width: 100%; height: 100vh; border: none; position: fixed; top: 0; left: 0; z-index: 100; }
+#signout-float { display: none; position: fixed; top: 16px; right: 16px; z-index: 200; background: rgba(15,15,15,0.85); color: #fff; border: 1px solid #333; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: inherit; transition: all 0.2s; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+#signout-float:hover { background: #e94560; border-color: #e94560; }
+</style>
+</head><body>
+<div class="gate" id="gate">
+  <div class="lock-icon">🔒</div>
+  <h1>OCB Prep</h1>
+  <div class="sub">Prep dashboard &amp; daily journal · show September 6, 2026</div>
+  <button class="google-btn" id="google-signin-btn" type="button">
+    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+    Sign in with Google
+  </button>
+  <div class="divider">or</div>
+  <form onsubmit="return checkCode()">
+    <input type="password" id="code" placeholder="Enter passcode" autocomplete="off">
+    <button type="submit">Open Dashboard</button>
+  </form>
+  <div class="err-msg" id="err"></div>
+</div>
+<iframe id="report-frame"></iframe>
+<button id="signout-float" onclick="signOutAll()">Sign out</button>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+  authDomain: "tyron-personal.firebaseapp.com",
+  projectId: "tyron-personal",
+  appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+};
+const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com", "tiffanysamaroo721@gmail.com"];
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+window.__firebaseAuth = auth;
+const provider = new GoogleAuthProvider();
+document.getElementById('google-signin-btn').addEventListener('click', async () => {
+  document.getElementById('err').textContent = '';
+  try {
+    const result = await signInWithPopup(auth, provider);
+    if (ALLOWED_EMAILS.includes(result.user.email)) {
+      try { localStorage.setItem('prep_auth', JSON.stringify({ ts: Date.now() })); } catch(e) {}
+      window.showReport();
+    } else {
+      document.getElementById('err').textContent = result.user.email + ' is not authorized';
+    }
+  } catch (e) {
+    if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') {
+      document.getElementById('err').textContent = 'Sign-in failed: ' + (e.message || e.code);
+    }
+  }
+});
+onAuthStateChanged(auth, (user) => {
+  if (user && ALLOWED_EMAILS.includes(user.email)) {
+    try { localStorage.setItem('prep_auth', JSON.stringify({ ts: Date.now() })); } catch(e) {}
+    window.showReport();
+  }
+});
+</script>
+<script>
+function hashCode(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h) + s.charCodeAt(i);
+    h |= 0;
+  }
+  return h;
+}
+const EXPECTED = -2056149904;
+const CACHE_KEY = 'prep_auth';
+const CACHE_DURATION = 24 * 60 * 60 * 1000;
+
+function showReport() {
+  document.getElementById('gate').style.display = 'none';
+  var frame = document.getElementById('report-frame');
+  frame.style.display = 'block';
+  var params = new URLSearchParams(window.location.search);
+  params.set('v', '20260728-v12');
+  frame.src = '/prep/dashboard.html?' + params.toString();
+  document.getElementById('signout-float').style.display = 'block';
+  document.body.style.display = 'block';
+  document.body.style.margin = '0';
+  document.body.style.padding = '0';
+}
+
+function signOutAll() {
+  try { localStorage.removeItem('prep_auth'); } catch(e) {}
+  if (window.__firebaseAuth) {
+    window.__firebaseAuth.signOut().finally(function() { location.reload(); });
+  } else {
+    location.reload();
+  }
+}
+
+(function() {
+  try {
+    var cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      var data = JSON.parse(cached);
+      if (Date.now() - data.ts < CACHE_DURATION) { showReport(); return; }
+      localStorage.removeItem(CACHE_KEY);
+    }
+  } catch(e) {}
+})();
+
+function checkCode() {
+  var input = document.getElementById('code').value.toUpperCase();
+  if (hashCode(input) === EXPECTED) {
+    try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now() })); } catch(e) {}
+    showReport();
+  } else {
+    document.getElementById('code').classList.add('error');
+    document.getElementById('err').textContent = 'Incorrect passcode';
+    setTimeout(function() {
+      document.getElementById('code').classList.remove('error');
+    }, 500);
+  }
+  return false;
+}
+</script>
+</body></html>
