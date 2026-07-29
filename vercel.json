@@ -14,6 +14,15 @@
       ]
     },
     {
+      "source": "/prep/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
       "source": "/coach-report/:path*",
       "headers": [
         {
@@ -81,6 +90,10 @@
     {
       "source": "/prep-runway/:path*",
       "destination": "/prep-runway/:path*"
+    },
+    {
+      "source": "/prep/:path*",
+      "destination": "/prep/:path*"
     },
     {
       "source": "/coach-report/:path*",
