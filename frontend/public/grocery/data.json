@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T12:00:00-04:00",
+  "generatedAt": "2026-08-04T18:07:13.161595-04:00",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -7,296 +7,352 @@
     {
       "date": "2026-01-08",
       "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 214.96,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 214.96,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 11,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 11
     },
     {
       "date": "2026-02-16",
       "store": "Natural Body Hicksville",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 239.93,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 239.93,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 7,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 7
     },
     {
       "date": "2026-03-02",
       "store": "Stop & Shop",
+      "storeType": "grocery",
       "food": 71.89,
       "hh": 0,
       "supplement": 0,
       "mom": 0,
-      "groceryTotal": 71.89,
       "total": 71.89,
+      "groceryTotal": 71.89,
       "itemCount": 10,
-      "supplementCount": 0,
       "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 0
     },
     {
       "date": "2026-03-08",
       "store": "Costco",
+      "storeType": "grocery",
       "food": 294.37,
       "hh": 89.63,
       "supplement": 0,
       "mom": 0,
-      "groceryTotal": 384.0,
       "total": 384.0,
+      "groceryTotal": 384.0,
       "itemCount": 25,
-      "supplementCount": 0,
       "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 0
     },
     {
       "date": "2026-03-24",
       "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 100.0,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 100.0,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 3,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 3
     },
     {
       "date": "2026-04-17",
       "store": "BJ's",
+      "storeType": "grocery",
       "food": 96.19,
       "hh": 32.98,
       "supplement": 0,
       "mom": 0,
-      "groceryTotal": 129.17,
       "total": 129.17,
+      "groceryTotal": 129.17,
       "itemCount": 13,
-      "supplementCount": 0,
       "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 0
     },
     {
       "date": "2026-04-17",
       "store": "Costco",
+      "storeType": "grocery",
       "food": 175.79,
       "hh": 63.46,
       "supplement": 0,
       "mom": 0,
-      "groceryTotal": 239.25,
       "total": 239.25,
+      "groceryTotal": 239.25,
       "itemCount": 15,
-      "supplementCount": 0,
       "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 0
     },
     {
       "date": "2026-04-26",
-      "store": "The Vitamin Shoppe",
-      "food": 0,
-      "hh": 0,
-      "supplement": 22.31,
-      "mom": 0,
-      "groceryTotal": 0,
-      "total": 22.31,
-      "itemCount": 0,
-      "supplementCount": 7,
-      "momCount": 0,
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-04-26 00:00:00",
       "store": "BJ's",
+      "storeType": "grocery",
       "food": 99.9,
       "hh": 19.98,
       "supplement": 0,
       "mom": 13.98,
-      "groceryTotal": 119.88,
       "total": 119.88,
+      "groceryTotal": 119.88,
       "itemCount": 11,
-      "supplementCount": 0,
       "momCount": 2,
-      "storeType": "grocery"
+      "supplementCount": 0
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "store": "Costco",
+      "storeType": "grocery",
       "food": 35.66,
       "hh": 0,
       "supplement": 0,
       "mom": 0,
-      "groceryTotal": 35.66,
       "total": 35.66,
+      "groceryTotal": 35.66,
       "itemCount": 4,
-      "supplementCount": 0,
       "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 0
+    },
+    {
+      "date": "2026-04-26",
+      "store": "The Vitamin Shoppe",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 22.31,
+      "mom": 0,
+      "total": 22.31,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 7
     },
     {
       "date": "2026-04-27",
       "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 352.87,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 352.87,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 14,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 14
     },
     {
       "date": "2026-05-02",
       "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 85.0,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 85.0,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 4,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 4
     },
     {
       "date": "2026-05-24",
       "store": "Natural Body Hicksville",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 228.0,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 228.0,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 8,
       "momCount": 0,
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-06-22",
-      "store": "BJ's",
-      "food": 108.71,
-      "hh": 0,
-      "supplement": 0,
-      "mom": 0,
-      "groceryTotal": 108.71,
-      "total": 108.71,
-      "itemCount": 7,
-      "supplementCount": 0,
-      "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 8
     },
     {
       "date": "2026-05-24",
       "store": "The Vitamin Shoppe",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 56.44,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 56.44,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 5,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 5
     },
     {
       "date": "2026-05-25",
       "store": "Costco.com",
+      "storeType": "grocery",
       "food": 56.98,
       "hh": 0,
       "supplement": 0,
       "mom": 0,
-      "groceryTotal": 56.98,
       "total": 56.98,
+      "groceryTotal": 56.98,
       "itemCount": 1,
-      "supplementCount": 0,
       "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 0
     },
     {
       "date": "2026-05-25",
       "store": "Natural Body Online",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 40.14,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 40.14,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 3,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 3
     },
     {
       "date": "2026-06-05",
       "store": "Natural Body Hicksville",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 30.0,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 30.0,
-      "itemCount": 0,
-      "supplementCount": 1,
-      "momCount": 0,
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-06-13",
-      "store": "Natural Body Ozone Park",
-      "food": 0,
-      "hh": 0,
-      "supplement": 115.0,
-      "mom": 0,
       "groceryTotal": 0,
-      "total": 115.0,
       "itemCount": 0,
-      "supplementCount": 3,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 1
     },
     {
       "date": "2026-06-13",
       "store": "Amazon Grocery",
+      "storeType": "grocery",
       "food": 34.07,
       "hh": 0,
       "supplement": 0,
       "mom": 0,
-      "groceryTotal": 34.07,
       "total": 34.07,
-      "itemCount": 5,
-      "supplementCount": 0,
+      "groceryTotal": 34.07,
+      "itemCount": 4,
       "momCount": 0,
-      "storeType": "grocery"
+      "supplementCount": 0
+    },
+    {
+      "date": "2026-06-13",
+      "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 115.0,
+      "mom": 0,
+      "total": 115.0,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 3
+    },
+    {
+      "date": "2026-06-22",
+      "store": "BJ's",
+      "storeType": "grocery",
+      "food": 173.87,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 173.87,
+      "groceryTotal": 173.87,
+      "itemCount": 11,
+      "momCount": 0,
+      "supplementCount": 0
     },
     {
       "date": "2026-06-22",
       "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
       "food": 0,
       "hh": 0,
       "supplement": 122.0,
       "mom": 0,
-      "groceryTotal": 0,
       "total": 122.0,
+      "groceryTotal": 0,
       "itemCount": 0,
-      "supplementCount": 4,
       "momCount": 0,
-      "storeType": "supplement"
+      "supplementCount": 4
+    },
+    {
+      "date": "2026-06-23",
+      "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 30.0,
+      "mom": 0,
+      "total": 30.0,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 1
+    },
+    {
+      "date": "2026-07-04",
+      "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 155.98,
+      "mom": 0,
+      "total": 155.98,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 7
+    },
+    {
+      "date": "2026-07-20",
+      "store": "Natural Body Ozone Park",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 180.87,
+      "mom": 0,
+      "total": 180.87,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 11
+    },
+    {
+      "date": "2026-07-30",
+      "store": "The Vitamin Shoppe",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 36.07,
+      "mom": 0,
+      "total": 36.07,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 3
     }
   ],
   "items": [
@@ -756,6 +812,474 @@
       "storeType": "grocery"
     },
     {
+      "date": "2026-06-22",
+      "itemCode": "18468",
+      "store": "BJ's",
+      "item": "Wyman's of Maine Frozen Wild Blueberries",
+      "category": "Frozen",
+      "type": "Food",
+      "cost": 13.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "244767",
+      "store": "BJ's",
+      "item": "Wellsley Farms Sweet Potatoes",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 3.29,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "321149",
+      "store": "BJ's",
+      "item": "Wellsley Farms Macadamia Nuts",
+      "category": "Snacks",
+      "type": "Food",
+      "cost": 8.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "357688",
+      "store": "BJ's",
+      "item": "The Little Potato Co. Little Duo",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 6.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "60746",
+      "store": "BJ's",
+      "item": "Wellsley Farms Red Potatoes",
+      "category": "Produce",
+      "type": "Food",
+      "cost": 6.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "86878",
+      "store": "BJ's",
+      "item": "Verde Farms Organic Grass Fed Beef (x2)",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 41.58,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 2 at $20.79 each",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": "980302",
+      "store": "BJ's",
+      "item": "Harvestland by Perdue Organic Chicken (x2)",
+      "category": "Protein",
+      "type": "Food",
+      "cost": 16.59,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 2 weighted item, item price shown $5.99, total $16.59",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Core Nutritionals Fury Black Pre-Workout - Red Alert",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 48.0,
+      "servings": 20,
+      "costPerServing": null,
+      "notes": "Receipt #8301; list $54.99, saved $6.99; MDW 4x Rewards",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Musclesport CarniShred + Mitoburn Liquid - Rainbow Candy",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 30.0,
+      "servings": 31,
+      "costPerServing": null,
+      "notes": "Receipt #8301; list $34.99, saved $4.99; MDW 4x Rewards",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Musclesport Lean Whey 2 lb - Mom's Peanut Butter & Jelly",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 55.0,
+      "servings": 30,
+      "costPerServing": null,
+      "notes": "Receipt #8301; list $59.99, saved $4.99; MDW 4x Rewards",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Musclesport Lean Whey 2 lb - Monster Cookie",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 55.0,
+      "servings": 30,
+      "costPerServing": null,
+      "notes": "Receipt #8301; list $59.99, saved $4.99; MDW 4x Rewards",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "Hicksville Smoothies - Chocolate Banana Nut 20oz",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 9.21,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Receipt #8301; taxable smoothie line",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "TAX",
+      "store": "Natural Body Hicksville",
+      "item": "Sales Tax",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": 0.79,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Receipt #8301; tax on smoothie line",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "NutraBio Intra Blast - Strawberry Lemon Bomb",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 45.0,
+      "servings": 30,
+      "costPerServing": null,
+      "notes": "Receipt #8303; list $49.99, saved $4.99",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "LOYALTY",
+      "store": "Natural Body Hicksville",
+      "item": "Loyalty Redemption Credit",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -15.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Receipt #8303; paid $30.00 net after loyalty",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "2715175",
+      "store": "The Vitamin Shoppe",
+      "item": "Gorilla Mind Root Beer Energy Drink 1ct",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 3.49,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "E-receipt 01002900107135020260524",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "2705309",
+      "store": "The Vitamin Shoppe",
+      "item": "Ghost Energy Grape Cran single",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 3.49,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "E-receipt 01002900107135020260524",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "2257111",
+      "store": "The Vitamin Shoppe",
+      "item": "Ghost Energy Warheads Apple",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 29.99,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": "E-receipt; BOGO 50% promo applied across Ghost energy lines",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Ghost Energy BOGO 50% item",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 14.99,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": "E-receipt line name clipped in Gmail body; paired with Ghost Energy promo",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-24",
+      "itemCode": "TAX",
+      "store": "The Vitamin Shoppe",
+      "item": "Sales Tax",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": 4.48,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "E-receipt tax; total paid $56.44",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-25",
+      "itemCode": "1543437",
+      "store": "Costco.com",
+      "item": "Premier 30g Protein PLUS Energy and Immune Support Shakes, Chocolate Peanut Butter 18pk (x2)",
+      "category": "Beverages",
+      "type": "Food",
+      "cost": 56.98,
+      "servings": 36,
+      "costPerServing": null,
+      "notes": "Costco.com order #1287533602; subtotal $73.98, discount $17.00, delivered 2026-05-27",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-05-25",
+      "itemCode": "NB11332",
+      "store": "Natural Body Online",
+      "item": "Enhanced Labs Top T 120 Capsules (x2)",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 99.98,
+      "servings": 120,
+      "costPerServing": null,
+      "notes": "Order #117094; shipped 2026-05-28; list item total before credits",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-25",
+      "itemCode": "DISCOUNT",
+      "store": "Natural Body Online",
+      "item": "Order Discount",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -20.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Order #117094 discount",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-05-25",
+      "itemCode": "LOYALTY",
+      "store": "Natural Body Online",
+      "item": "Loyalty Redemption Credit",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -39.84,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Order #117094 loyalty redemption; paid total $40.14",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-05",
+      "itemCode": null,
+      "store": "Natural Body Hicksville",
+      "item": "1st Phorm B-Complex 60 Capsules",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 30.0,
+      "servings": 60,
+      "costPerServing": null,
+      "notes": "Receipt #9060",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-13",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Gorilla Mind Energy Drink Case - Root Beer",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 40.0,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": "Receipt #8620; case of 12",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-13",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink RTD Case - Welch's Grape",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 27.0,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": "Receipt #8620; list $44.99, saved $17.99",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-13",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Core Nutritionals Fury Black Pre-Workout - Red Alert",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 48.0,
+      "servings": 20,
+      "costPerServing": null,
+      "notes": "Receipt #8620; list $54.99, saved $6.99",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-13",
+      "itemCode": null,
+      "store": "Amazon Grocery",
+      "item": "365 by Whole Foods Market Organic Ground Cinnamon 1.9oz",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 3.99,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Amazon order #114-8826587-1301034",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-13",
+      "itemCode": null,
+      "store": "Amazon Grocery",
+      "item": "Amazon Grocery Sliced Almonds 12oz",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 5.4,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": "Amazon order #114-8826587-1301034",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-13",
+      "itemCode": null,
+      "store": "Amazon Grocery",
+      "item": "365 by Whole Foods Market Organic White Chia Seed 15oz (x3)",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 28.47,
+      "servings": 45,
+      "costPerServing": null,
+      "notes": "Amazon order #114-8826587-1301034; email unit line $9.49 x3",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-13",
+      "itemCode": "ADJUSTMENT",
+      "store": "Amazon Grocery",
+      "item": "Order Discount / Adjustment",
+      "category": "Other",
+      "type": "Food",
+      "cost": -3.79,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Reconciles visible item lines to $34.07 grand total",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Gorilla Mind Energy Drink Case - Root Beer",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 40.0,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": "Receipt #3942; case of 12",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Ghost Energy Drink RTD Case - Welch's Grape",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 27.0,
+      "servings": 12,
+      "costPerServing": null,
+      "notes": "Receipt #3942; list $44.99, saved $17.99",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Core Nutritionals Fury Black Pre-Workout - Red Alert",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 48.0,
+      "servings": 20,
+      "costPerServing": null,
+      "notes": "Receipt #3942; list $54.99, saved $6.99",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-06-22",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Legendary Foods Protein Pasta Plus Mac & Cheese",
+      "category": "Food",
+      "type": "Supplement",
+      "cost": 7.0,
+      "servings": 1,
+      "costPerServing": null,
+      "notes": "Receipt #3942",
+      "storeType": "supplement"
+    },
+    {
       "date": "2026-04-17",
       "itemCode": "891742",
       "store": "Costco",
@@ -1120,7 +1644,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "253607",
       "store": "BJ's",
       "item": "93 Lean Ground Beef 4 lbs",
@@ -1133,7 +1657,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "264203",
       "store": "BJ's",
       "item": "Farm To Table Fresh 96 Lean Ground Beef Sirloin 2 lbs",
@@ -1146,7 +1670,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "343916",
       "store": "BJ's",
       "item": "Butterball Extra Lean Turkey Breast Tenderloins 48 oz",
@@ -1159,7 +1683,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "240850",
       "store": "BJ's",
       "item": "Kiwi Fruit 3 lbs",
@@ -1172,7 +1696,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "60748",
       "store": "BJ's",
       "item": "Wellsley Farms Russet Potatoes 10 lbs",
@@ -1185,7 +1709,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "242390",
       "store": "BJ's",
       "item": "Iceberg Lettuce 1 ct",
@@ -1198,7 +1722,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "328741",
       "store": "BJ's",
       "item": "Angel Sweet Grape Tomatoes 2 lbs",
@@ -1211,7 +1735,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "244767",
       "store": "BJ's",
       "item": "Wellsley Farms Sweet Potatoes 3 lbs",
@@ -1224,7 +1748,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "71303",
       "store": "BJ's",
       "item": "Wellsley Farms Organic Baby Spinach 16 oz",
@@ -1237,7 +1761,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "226128",
       "store": "BJ's",
       "item": "Blue Diamond Almond Breeze Unsweet Vanilla Almondmilk 96 oz",
@@ -1250,7 +1774,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "342100",
       "store": "BJ's",
       "item": "Chobani 20g Protein Drinks Variety Pack 8ct 10oz",
@@ -1263,7 +1787,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "322231",
       "store": "BJ's",
       "item": "Gayo Azul Red Wax Gouda 16 oz",
@@ -1276,7 +1800,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "345754",
       "store": "BJ's",
       "item": "Dash 16Pc AllInOne Egg Cooker",
@@ -1289,7 +1813,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "1967484",
       "store": "Costco",
       "item": "ACE Sourdough Bistro",
@@ -1302,7 +1826,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "123614",
       "store": "Costco",
       "item": "Green Onions",
@@ -1315,7 +1839,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "1063232",
       "store": "Costco",
       "item": "KS Egg Whites",
@@ -1328,7 +1852,7 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-04-26 00:00:00",
+      "date": "2026-04-26",
       "itemCode": "1285362",
       "store": "Costco",
       "item": "KS Guacamole Singles",
@@ -1939,110 +2463,6 @@
       "storeType": "supplement"
     },
     {
-      "date": "2026-05-24",
-      "itemCode": null,
-      "store": "Natural Body Hicksville",
-      "item": "Core Nutritionals Fury Black Pre-Workout - Red Alert",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 48.0,
-      "servings": 20,
-      "costPerServing": 2.4,
-      "notes": "Receipt #8301; List $54.99, saved $6.99 (12.71%); 4x Rewards MDW Sale",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": null,
-      "store": "Natural Body Hicksville",
-      "item": "Musclesport CarniShred + Mitoburn Liquid - Rainbow Candy",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 30.0,
-      "servings": 31,
-      "costPerServing": 0.97,
-      "notes": "Receipt #8301; List $34.99, saved $4.99 (14.26%); 4x Rewards MDW Sale",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": null,
-      "store": "Natural Body Hicksville",
-      "item": "Musclesport Lean Whey 2 lb - Mom's Peanut Butter & Jelly",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 55.0,
-      "servings": 30,
-      "costPerServing": 1.83,
-      "notes": "Receipt #8301; 2 lb; List $59.99, saved $4.99 (8.32%); 4x Rewards MDW Sale",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": null,
-      "store": "Natural Body Hicksville",
-      "item": "Musclesport Lean Whey 2 lb - Monster Cookie",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 55.0,
-      "servings": 30,
-      "costPerServing": 1.83,
-      "notes": "Receipt #8301; 2 lb; List $59.99, saved $4.99 (8.32%); 4x Rewards MDW Sale",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": null,
-      "store": "Natural Body Hicksville",
-      "item": "Hicksville Smoothies - Chocolate Banana Nut",
-      "category": "Beverages",
-      "type": "Supplement",
-      "cost": 9.21,
-      "servings": 1,
-      "costPerServing": 9.21,
-      "notes": "Receipt #8301; 20 oz; 4x Rewards MDW Sale; taxable",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": "TAX",
-      "store": "Natural Body Hicksville",
-      "item": "Sales Tax",
-      "category": "Other",
-      "type": "Supplement",
-      "cost": 0.79,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Receipt #8301; NY State $0.37 + Nassau County $0.43",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": null,
-      "store": "Natural Body Hicksville",
-      "item": "NutraBio Intra Blast - Strawberry Lemon Bomb",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 45.0,
-      "servings": 30,
-      "costPerServing": 1.5,
-      "notes": "Receipt #8303; List $49.99, saved $4.99 (9.98%); 30 servings",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": "LOYALTY",
-      "store": "Natural Body Hicksville",
-      "item": "Loyalty Redemption Credit",
-      "category": "Other",
-      "type": "Supplement",
-      "cost": -15.0,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Receipt #8303; 3 x $5 loyalty redemptions; paid $30.00",
-      "storeType": "supplement"
-    },
-    {
       "date": "2026-06-22",
       "itemCode": "18468",
       "store": "BJ's",
@@ -2066,45 +2486,6 @@
       "servings": 3,
       "costPerServing": 1.0967,
       "notes": "Was $2.99 on 4/26; now $3.29",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-06-22",
-      "itemCode": "321149",
-      "store": "BJ's",
-      "item": "Wellsley Farms Macadamia Nuts",
-      "category": "Snacks",
-      "type": "Food",
-      "cost": 8.99,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Order #287150669; same-day delivery",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-06-22",
-      "itemCode": "357688",
-      "store": "BJ's",
-      "item": "The Little Potato Co. Little Duo",
-      "category": "Produce",
-      "type": "Food",
-      "cost": 6.99,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Order #287150669; same-day delivery",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-06-22",
-      "itemCode": "60746",
-      "store": "BJ's",
-      "item": "Wellsley Farms Red Potatoes",
-      "category": "Produce",
-      "type": "Food",
-      "cost": 6.99,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Order #287150669; same-day delivery",
       "storeType": "grocery"
     },
     {
@@ -2134,276 +2515,289 @@
       "storeType": "grocery"
     },
     {
-      "date": "2026-05-24",
-      "itemCode": "2715175",
-      "store": "The Vitamin Shoppe",
-      "item": "Gorilla Mind Root Beer Energy Drink 1ct",
-      "category": "Beverages",
-      "type": "Supplement",
-      "cost": 3.49,
-      "servings": 1,
-      "costPerServing": 3.49,
-      "notes": "E-receipt 01002900107135020260524",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": "2705309",
-      "store": "The Vitamin Shoppe",
-      "item": "Ghost Energy Grape Cran single",
-      "category": "Beverages",
-      "type": "Supplement",
-      "cost": 3.49,
-      "servings": 1,
-      "costPerServing": 3.49,
-      "notes": "E-receipt 01002900107135020260524",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": "2257111",
-      "store": "The Vitamin Shoppe",
-      "item": "Ghost Energy Warheads Apple",
-      "category": "Beverages",
-      "type": "Supplement",
-      "cost": 29.99,
-      "servings": 12,
-      "costPerServing": 2.4992,
-      "notes": "E-receipt; BOGO 50% promo applied across Ghost energy lines",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
+      "date": "2026-06-23",
       "itemCode": null,
-      "store": "The Vitamin Shoppe",
-      "item": "Ghost Energy BOGO 50% item",
-      "category": "Beverages",
-      "type": "Supplement",
-      "cost": 14.99,
-      "servings": 12,
-      "costPerServing": 1.2492,
-      "notes": "E-receipt line name clipped in Gmail body; paired with Ghost Energy promo",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-24",
-      "itemCode": "TAX",
-      "store": "The Vitamin Shoppe",
-      "item": "Sales Tax",
-      "category": "Other",
-      "type": "Supplement",
-      "cost": 4.48,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "E-receipt tax; total paid $56.44",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-25",
-      "itemCode": "1543437",
-      "store": "Costco.com",
-      "item": "Premier 30g Protein PLUS Energy and Immune Support Shakes, Chocolate Peanut Butter 18pk (x2)",
-      "category": "Beverages",
-      "type": "Food",
-      "cost": 56.98,
-      "servings": 36,
-      "costPerServing": 1.5828,
-      "notes": "Costco.com order #1287533602; subtotal $73.98, discount $17.00, delivered 2026-05-27",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-05-25",
-      "itemCode": "NB11332",
-      "store": "Natural Body Online",
-      "item": "Enhanced Labs Top T 120 Capsules (x2)",
+      "store": "Natural Body Ozone Park",
+      "item": "MuscleSport CarniShred + Mitoburn - Rainbow Candy",
       "category": "Supplement",
       "type": "Supplement",
-      "cost": 99.98,
-      "servings": 120,
-      "costPerServing": 0.8332,
-      "notes": "Order #117094; shipped 2026-05-28; list item total before credits",
+      "cost": 30.0,
+      "servings": 31,
+      "costPerServing": 0.97,
+      "notes": "List $34.99, saved $4.99 (14.26%) - AmEx, rcpt #9203",
       "storeType": "supplement"
     },
     {
-      "date": "2026-05-25",
-      "itemCode": "DISCOUNT",
-      "store": "Natural Body Online",
-      "item": "Order Discount",
-      "category": "Other",
-      "type": "Supplement",
-      "cost": -20.0,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Order #117094 discount",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-05-25",
-      "itemCode": "LOYALTY",
-      "store": "Natural Body Online",
-      "item": "Loyalty Redemption Credit",
-      "category": "Other",
-      "type": "Supplement",
-      "cost": -39.84,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Order #117094 loyalty redemption; paid total $40.14",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-06-05",
+      "date": "2026-07-04",
       "itemCode": null,
-      "store": "Natural Body Hicksville",
-      "item": "1st Phorm B-Complex 60 Capsules",
+      "store": "Natural Body Ozone Park",
+      "item": "NutraBio Whey Protein Isolate - Raspberry Strudel",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 45.0,
+      "servings": 20,
+      "costPerServing": 2.25,
+      "notes": "List $49.99, saved $4.99 - 3x Rewards July 4th, rcpt #9821",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-04",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Axe and Sledge The Grind V2 EAAs - Cluster Candies",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 36.0,
+      "servings": 30,
+      "costPerServing": 1.2,
+      "notes": "List $39.99, saved $3.99 - 3x Rewards, rcpt #9821",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-04",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Axe and Sledge The Grind V2 EAAs - Dead Golf Guy",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 36.0,
+      "servings": 30,
+      "costPerServing": 1.2,
+      "notes": "List $39.99, saved $3.99 - 3x Rewards, rcpt #9821",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-04",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "1st Phorm B-Complex (60 caps)",
       "category": "Supplement",
       "type": "Supplement",
       "cost": 30.0,
       "servings": 60,
       "costPerServing": 0.5,
-      "notes": "Receipt #9060",
+      "notes": "3x Rewards July 4th, rcpt #9821",
       "storeType": "supplement"
     },
     {
-      "date": "2026-06-13",
+      "date": "2026-07-04",
       "itemCode": null,
       "store": "Natural Body Ozone Park",
-      "item": "Gorilla Mind Energy Drink Case - Root Beer",
+      "item": "Bum Energy RTD - Iced Tea Lemonade",
       "category": "Beverages",
       "type": "Supplement",
-      "cost": 40.0,
-      "servings": 12,
-      "costPerServing": 3.3333,
-      "notes": "Receipt #8620; case of 12",
+      "cost": 2.99,
+      "servings": 1,
+      "costPerServing": 2.99,
+      "notes": "12oz can, rcpt #9821",
       "storeType": "supplement"
     },
     {
-      "date": "2026-06-13",
+      "date": "2026-07-04",
       "itemCode": null,
       "store": "Natural Body Ozone Park",
-      "item": "Ghost Energy Drink RTD Case - Welch's Grape",
+      "item": "Bum Energy RTD - Dr. Bum",
       "category": "Beverages",
       "type": "Supplement",
-      "cost": 27.0,
-      "servings": 12,
-      "costPerServing": 2.25,
-      "notes": "Receipt #8620; list $44.99, saved $17.99",
+      "cost": 2.99,
+      "servings": 1,
+      "costPerServing": 2.99,
+      "notes": "12oz can, rcpt #9821",
       "storeType": "supplement"
     },
     {
-      "date": "2026-06-13",
+      "date": "2026-07-04",
       "itemCode": null,
       "store": "Natural Body Ozone Park",
-      "item": "Core Nutritionals Fury Black Pre-Workout - Red Alert",
+      "item": "ABE Performance Energy RTD - Chiquita Pineapple Strawberry",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 3.0,
+      "servings": 1,
+      "costPerServing": 3.0,
+      "notes": "12oz can, rcpt #9821",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Gorilla Mind Energy - Root Beer",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 15.96,
+      "servings": 4,
+      "costPerServing": 3.99,
+      "notes": "16oz x4, rcpt #10737",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Gorilla Mind Energy - Fruit Punch",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 15.96,
+      "servings": 4,
+      "costPerServing": 3.99,
+      "notes": "16oz x4, rcpt #10737",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Gorilla Mind Energy - Black Cherry Vanilla",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 7.98,
+      "servings": 2,
+      "costPerServing": 3.99,
+      "notes": "16oz x2, rcpt #10737",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Gorilla Mind Energy - Wild Grape",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 7.98,
+      "servings": 2,
+      "costPerServing": 3.99,
+      "notes": "16oz x2, rcpt #10737",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "NutraBio Leg Day - Grape Berry Crush",
       "category": "Supplement",
       "type": "Supplement",
-      "cost": 48.0,
+      "cost": 60.0,
       "servings": 20,
-      "costPerServing": 2.4,
-      "notes": "Receipt #8620; list $54.99, saved $6.99",
+      "costPerServing": 3.0,
+      "notes": "List $64.99, saved $4.99 (7.68%), rcpt #10737",
       "storeType": "supplement"
     },
     {
-      "date": "2026-06-13",
+      "date": "2026-07-20",
       "itemCode": null,
-      "store": "Amazon Grocery",
-      "item": "365 by Whole Foods Market Organic Ground Cinnamon 1.9oz",
-      "category": "Staples",
-      "type": "Food",
-      "cost": 3.99,
-      "servings": 1,
-      "costPerServing": 3.99,
-      "notes": "Amazon order #114-8826587-1301034",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-06-13",
-      "itemCode": null,
-      "store": "Amazon Grocery",
-      "item": "Amazon Grocery Sliced Almonds 12oz",
-      "category": "Staples",
-      "type": "Food",
-      "cost": 5.4,
-      "servings": 12,
-      "costPerServing": 0.45,
-      "notes": "Amazon order #114-8826587-1301034",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-06-13",
-      "itemCode": null,
-      "store": "Amazon Grocery",
-      "item": "365 by Whole Foods Market Organic White Chia Seed 15oz (x3)",
-      "category": "Staples",
-      "type": "Food",
-      "cost": 28.47,
-      "servings": 45,
-      "costPerServing": 0.6327,
-      "notes": "Amazon order #114-8826587-1301034; email unit line $9.49 x3",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-06-13",
-      "itemCode": "ADJUSTMENT",
-      "store": "Amazon Grocery",
-      "item": "Order Discount / Adjustment",
-      "category": "Other",
-      "type": "Food",
-      "cost": -3.79,
+      "store": "Natural Body Ozone Park",
+      "item": "Flavor Gang Hot Cereal Bowl O' Gainz - Strawberry Wafer Biscoff",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 23.99,
       "servings": null,
       "costPerServing": null,
-      "notes": "Reconciles visible item lines to $34.07 grand total",
-      "storeType": "grocery"
-    },
-    {
-      "date": "2026-06-22",
-      "itemCode": null,
-      "store": "Natural Body Ozone Park",
-      "item": "Gorilla Mind Energy Drink Case - Root Beer",
-      "category": "Beverages",
-      "type": "Supplement",
-      "cost": 40.0,
-      "servings": 12,
-      "costPerServing": 3.3333,
-      "notes": "Receipt #3942; case of 12",
+      "notes": "24oz, rcpt #10737",
       "storeType": "supplement"
     },
     {
-      "date": "2026-06-22",
+      "date": "2026-07-20",
       "itemCode": null,
       "store": "Natural Body Ozone Park",
-      "item": "Ghost Energy Drink RTD Case - Welch's Grape",
-      "category": "Beverages",
-      "type": "Supplement",
-      "cost": 27.0,
-      "servings": 12,
-      "costPerServing": 2.25,
-      "notes": "Receipt #3942; list $44.99, saved $17.99",
-      "storeType": "supplement"
-    },
-    {
-      "date": "2026-06-22",
-      "itemCode": null,
-      "store": "Natural Body Ozone Park",
-      "item": "Core Nutritionals Fury Black Pre-Workout - Red Alert",
+      "item": "Flavor Gang Hot Cereal Bowl O' Gainz - Gooby's Pieces PB Choc",
       "category": "Supplement",
       "type": "Supplement",
-      "cost": 48.0,
-      "servings": 20,
-      "costPerServing": 2.4,
-      "notes": "Receipt #3942; list $54.99, saved $6.99",
+      "cost": 23.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "24oz, rcpt #10737",
       "storeType": "supplement"
     },
     {
-      "date": "2026-06-22",
+      "date": "2026-07-20",
       "itemCode": null,
       "store": "Natural Body Ozone Park",
-      "item": "Legendary Foods Protein Pasta Plus Mac & Cheese",
-      "category": "Food",
+      "item": "Phorm Energy RTD - Grape Smash",
+      "category": "Beverages",
       "type": "Supplement",
-      "cost": 7.0,
+      "cost": 3.0,
       "servings": 1,
-      "costPerServing": 7.0,
-      "notes": "Receipt #3942",
+      "costPerServing": 3.0,
+      "notes": "16oz can, rcpt #10737",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": null,
+      "store": "Natural Body Ozone Park",
+      "item": "Enhanced Labs Top T (120 caps)",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 60.0,
+      "servings": 60,
+      "costPerServing": 1.0,
+      "notes": "List $69.99, saved $9.99 (14.27%), rcpt #10737",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": "DISCOUNT",
+      "store": "Natural Body Ozone Park",
+      "item": "Additional discount",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -7.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Applied at checkout, rcpt #10737",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-20",
+      "itemCode": "LOYALTY",
+      "store": "Natural Body Ozone Park",
+      "item": "Loyalty Redemption Credit",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -30.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "rcpt #10737 - paid $180.87",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-30",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Hydration Welchs Grape 12pk",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 29.99,
+      "servings": 12,
+      "costPerServing": 2.5,
+      "notes": "Garden City #0324, txn 82954",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-30",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Barebells Cookies & Cream Bar",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 3.49,
+      "servings": 1,
+      "costPerServing": 3.49,
+      "notes": "Garden City #0324, txn 82954",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-30",
+      "itemCode": "TAX",
+      "store": "The Vitamin Shoppe",
+      "item": "Tax (NY 8.7%)",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": 2.59,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Total paid $36.07, AmEx ****0043",
       "storeType": "supplement"
     }
   ],
@@ -2520,212 +2914,6 @@
     "online": []
   },
   "watch": "Gmail/local receipt sweep added seven missing May-June purchases: Vitamin Shoppe 5/24, Costco.com 5/25, Natural Body online 5/25, Natural Body 6/5, Natural Body + Amazon Grocery 6/13, and Natural Body 6/22. BJ's 6/22 was already filed from screenshots.",
-  "shoppingList": {
-    "needNow": [
-      {
-        "store": "Costco",
-        "items": [
-          {
-            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy) \u2014 carried over from 4/26 (we got Chobani drinks instead)",
-            "done": false
-          }
-        ]
-      },
-      {
-        "store": "Natural Body \u2014 confirm stock + hours",
-        "items": [
-          {
-            "name": "Fiducia supplement \u2014 carried over from 4/26",
-            "done": false
-          }
-        ]
-      }
-    ],
-    "restockSoon": [
-      {
-        "name": "Wyman's Frozen Wild Blueberries 4lb \u2014 last bought 6/22 ($13.99)",
-        "done": false
-      },
-      {
-        "name": "BJ's proteins \u2014 Verde Farms beef + Harvestland chicken last bought 6/22 ($58.17 combined)",
-        "done": false
-      },
-      {
-        "name": "Fairlife Chocolate Milk 18pk \u2014 last bought 4/17 ($39.99)",
-        "done": false
-      },
-      {
-        "name": "Coke Zero 35pk \u2014 last bought 4/17 ($21.29)",
-        "done": false
-      },
-      {
-        "name": "Natural Body Ghost/Gorilla Mind cases - last bought 6/22 ($67.00 combined)",
-        "done": false
-      },
-      {
-        "name": "Premier 30g Protein PLUS shakes - Costco.com last bought 5/25 ($56.98 for 2 x 18-pack)",
-        "done": false
-      },
-      {
-        "name": "Amazon pantry seeds/nuts - chia and almonds last bought 6/13 ($34.07 order)",
-        "done": false
-      }
-    ],
-    "momList": [],
-    "trip": {
-      "stops": [],
-      "route": [],
-      "estimates": [],
-      "totalEstimate": "",
-      "notes": []
-    }
-  },
-  "tripHistory": [
-    {
-      "date": "2026-06-22",
-      "title": "BJ's same-day delivery \u2014 produce + protein restock",
-      "stores": [
-        "BJ's"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 108.71,
-      "groceryActual": 108.71,
-      "supplementActual": 0,
-      "momActual": 0,
-      "itemsBought": 7,
-      "status": "closed",
-      "body": "# 2026-06-22 \u2014 BJ's same-day delivery produce + protein restock\n\n## How it went\n\nBJ's order **#287150669** was delivered on **June 22, 2026**. The app receipt showed **$98.42 item subtotal**, **$0.00 tax**, **$0.00 delivery fee**, **$10.29 driver tip**, and **$108.71 paid total**.\n\nThis order has been filed in `Grocery_Tracker.xlsx`, `Food_Spending_Split.xlsx`, `Finance/receipts/BJs/`, the Finance wiki, and this grocery dashboard data bundle.\n\n## What was bought\n\n**Protein**\n- Verde Farms Organic Grass Fed Beef \u2014 quantity 2, **$41.58** total\n- Harvestland by Perdue Organic Chicken \u2014 quantity 2, **$16.59** total\n\n**Produce / carbs**\n- Wyman's Frozen Wild Blueberries 4lb \u2014 **$13.99**\n- Wellsley Farms Sweet Potatoes 3lb \u2014 **$3.29**\n- The Little Potato Co. Little Duo \u2014 **$6.99**\n- Wellsley Farms Red Potatoes \u2014 **$6.99**\n\n**Snacks / fats**\n- Wellsley Farms Macadamia Nuts \u2014 **$8.99**\n\n## Price notes\n\n- Wyman's blueberries stayed flat at **$13.99** versus the April BJ's receipt.\n- Wellsley Farms sweet potatoes moved from **$2.99** on April 26 to **$3.29** on June 22.\n- The shared-expense settlement source uses the paid total: **$108.71**, split as **$54.36 each** in `Food_Spending_Split.xlsx`.\n",
-      "filename": "2026-06-22_bjs-same-day-delivery.md"
-    },
-    {
-      "date": "2026-05-24",
-      "title": "Natural Body Hicksville \u2014 MDW supplement restock",
-      "stores": [
-        "Natural Body Hicksville"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 228.0,
-      "supplementActual": 228.0,
-      "itemsBought": 6,
-      "status": "closed",
-      "body": "# 2026-05-24 \u2014 Natural Body Hicksville MDW supplement restock\n\n## How it went\n\nTwo Natural Body Hicksville receipts were filed from Downloads and logged into `Grocery_Tracker.xlsx`. Total paid was **$228.00** across receipt **#8301** (`$198.00`) and receipt **#8303** (`$30.00` after `$15.00` loyalty redemption).\n\n## What was bought\n\n**Workout / intra-workout**\n- Core Nutritionals Fury Black Pre-Workout \u2014 Red Alert, 20 servings, **$48.00**\n- NutraBio Intra Blast \u2014 Strawberry Lemon Bomb, 30 servings, **$45.00**, paid **$30.00 net** after loyalty\n\n**Protein / prep support**\n- Musclesport Lean Whey 2 lb \u2014 Mom's Peanut Butter & Jelly, **$55.00**\n- Musclesport Lean Whey 2 lb \u2014 Monster Cookie, **$55.00**\n\n**Fat burner**\n- Musclesport CarniShred + Mitoburn Liquid \u2014 Rainbow Candy, 31 servings, **$30.00**\n\n**Other**\n- Hicksville Smoothies \u2014 Chocolate Banana Nut, 20 oz, **$9.21**\n- Sales tax on smoothie receipt: **$0.79**\n- Loyalty redemption on Intra Blast receipt: **-$15.00**\n\n## Notes\n\n- MDW 4x Rewards promo applied to receipt #8301.\n- Hicksville was open and usable on this run, so the older \"Hicksville closed\" warning should be treated as a location-hours reminder, not a hard rule to avoid the store.\n- Fiducia supplement is still not resolved from the shopping list.",
-      "filename": "2026-05-24_natural-body-hicksville-mdw-restock.md"
-    },
-    {
-      "date": "2026-04-27",
-      "title": "Natural Body Ozone Park \u2014 bulk supplement restock",
-      "stores": [
-        "Natural Body Ozone Park"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 352.87,
-      "supplementActual": 352.87,
-      "status": "closed",
-      "body": "# 2026-04-27 \u2014 Natural Body Ozone Park bulk restock\n\n## How it went\n\nMade up for the closed-store miss from 4/26 by going to **Ozone Park** instead of Hicksville. Sumaiya served you. Big planned restock \u2014 6-10 weeks of supplement supply locked in. Total **$352.87 paid** ($409 list, saved $56.13 loyalty + $55.92 promos = **$112 in savings**).\n\n## What was bought\n\n**Whey \u00d7 3 ($135)** \u2014 Musclesport Lean Whey Gourmet\n- Strawberry Banana Royale\n- Peanut Butter Cookies & Cream\n- Chocolate Chocolate Chip\n- 25 servings each = **75 servings total** \u2248 10-12 weeks of post-workout\n\n**Test booster \u00d7 2 ($120)** \u2014 Enhanced Labs Top T (120 caps each = 240 caps total)\n\n**Pre-workouts ($93)**\n- Core Pump Black \u2014 Red Alert (20 servings)\n- Core Fury Black \u2014 Tropical Storm (20 servings)\n- = 40 sessions\n\n**Fat burner ($30)** \u2014 Musclesport CarniShred + Mitoburn (Baja Splash, 31 servings)\n\n**Energy drinks ($31, 12 cans)** \u2014 Ghost RTD variety: 7UP Lemon Lime, Sour Patch Kids Redberry, Raspberry Cream, Swedish Fish, Welch's Grape Cran, Welch's Grape\n\n## Best-price find \ud83c\udfc6\n\n**Ghost Energy at Natural Body \u2014 $2.50/can on the 2-for-$5 promo** (vs $3.42/can singles at Vitamin Shoppe = 27% less). Plus full 12-pack cases at $2.25/can on prior trips.\n\n## Carry forward to next trip\n\n- **Fiducia supplement** \u2014 still pending from 4/26",
-      "filename": "2026-04-27_natural-body-bulk-restock.md"
-    },
-    {
-      "date": "2026-04-26",
-      "title": "Two-store run + Vitamin Shoppe stop",
-      "stores": [
-        "BJ's",
-        "Costco",
-        "The Vitamin Shoppe"
-      ],
-      "plannedSpend": 135,
-      "actualSpend": 177.85,
-      "groceryActual": 155.54,
-      "supplementActual": 22.31,
-      "momActual": 13.98,
-      "itemsPlanned": 11,
-      "itemsBought": 17,
-      "status": "closed",
-      "body": "# 2026-04-26 \u2014 Two-store run + Vitamin Shoppe stop\n\n## How it went\n\nSolid trip, bigger than planned. Hit BJ's and Costco in the wrong order from the planned route, then made a side stop at Vitamin Shoppe Oceanside for some Ghost flavors not at Natural Body's Costco-friendly variety. **Natural Body Hicksville was the last stop on the original plan \u2014 but it was closed by the time we got there.** Fiducia supplement carries forward.\n\n## Route \u2014 actual vs planned\n\n| | Planned | Actual |\n|---|---|---|\n| 1st stop | BJ's (Garden City) | **Costco (Westbury)** |\n| 2nd stop | Costco (Westbury) | **BJ's (Garden City)** |\n| 3rd stop | Natural Body (Hicksville) | **Natural Body (Hicksville) \u2014 CLOSED** |\n| Side stop | \u2014 | The Vitamin Shoppe (Oceanside) |\n\n**Lesson:** check Natural Body Hicksville hours before next trip. Or default to Ozone Park location, which has been the reliable one (4/27 worked fine).\n\n## Spend \u2014 planned vs actual\n\n| | Planned | Actual | Delta |\n|---|---:|---:|---:|\n| Natural Body | $80 | $0 (closed) | \u2212$80 |\n| BJ's | $15-20 | $119.88 | +$100 |\n| Costco | $30-40 | $35.66 | even |\n| Vitamin Shoppe | \u2014 | $22.31 | new |\n| Mom care package | \u2014 | $13.98 | new (separate) |\n| **Your total** | **~$135** | **$177.85** | **+$43** |\n\nBJ's overshot because of impulse adds (turkey, Chobani drinks, tomatoes, Dash cooker). Costco came in under because we skipped avocados and bought potatoes at BJ's instead. Net: still well under monthly budget.\n\n## What went well \u2705\n\n- **Avocados \u2192 KS Guacamole Singles ($11.99) swap** \u2014 better $/serving and pre-portioned. Smart.\n- **Got the Dash 16-Pc Egg Cooker ($19.98)** \u2014 already in heavy rotation by Tuesday.\n- **Spinach restock + iceberg lettuce** \u2014 caught the price bump on lettuce ($1.99 \u2192 $2.49) so we know about it now.\n- **Mom's care package handled cleanly** ($13.98 kept separate from your budget).\n\n## What got missed \u274c \u2014 carry forward\n\n- **Fage Greek Yogurt 48oz** ($7.79 at Costco) \u2014 Tiffany asked for actual yogurt, we came home with Chobani protein drinks instead. Not the same thing.\n- **Fiducia supplement** \u2014 Natural Body Hicksville closed. Carries to next supplement run.\n\n## Off-list buys (better breakdown \ud83d\udcb0)\n\n| Item | Cost | Type | Note |\n|------|-----:|------|------|\n| Butterball Lean Turkey 48oz | $15.99 | **Staple** | Regular protein for prep \u2014 should be on the standing list |\n| Angel Sweet Grape Tomatoes 2lbs | $6.99 | **Staple** | Salad base \u2014 recurring buy |\n| Green Onions (Costco) | $5.99 | **Staple** | Meal prep regular |\n| Chobani 20g Protein Drinks 8ct | $13.99 | **Misalignment** | Got this when Tiffany asked for Fage Greek Yogurt 48oz \u2014 different thing |\n| Dash 16-Pc Egg Cooker | $19.98 | **One-time / capital** | Durable good, not recurring \u2014 actively using it |\n\n**Takeaway:** the \"staples\" pattern means I need to add a *Standing Items* section to the shopping list \u2014 recurring buys that always need restocking but rarely get explicitly added each trip. Turkey, tomatoes, green onions are perfect candidates.\n\n## Price moves caught \ud83d\udd0d\n\n- **Iceberg Lettuce: $1.99 \u2192 $2.49 at BJ's** (+25%) \u2014 flagged\n- **ACE Sourdough Bistro: $5.69** \u2014 stable since 3/8\n- **Almond Breeze Vanilla 96oz: $4.69** \u2014 same as baseline\n\n## For next trip\n\n- Add **Fage Greek Yogurt 48oz** (Costco) to Need Now\n- Add **Fiducia supplement** to Natural Body list \u2014 verify Ozone Park hours\n- Bryan/Tiffany check: confirm whether Chobani drinks vs Fage yogurt was the actual ask",
-      "filename": "2026-04-26_two-store-run.md"
-    },
-    {
-      "date": "2026-06-22",
-      "title": "Natural Body Ozone Park - receipt #3942 restock",
-      "stores": [
-        "Natural Body Ozone Park"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 122.0,
-      "groceryActual": 0,
-      "supplementActual": 122.0,
-      "momActual": 0,
-      "itemsBought": 4,
-      "status": "closed",
-      "filename": "2026-06-22_natural-body-ozone-park-3942.md",
-      "body": "# 2026-06-22 - Natural Body Ozone Park receipt #3942\n\n## How it went\n\nReceipt **#3942** was found in Gmail from Lightspeed and logged locally. Paid total was **$122.00** across 4 items, with **$24.98 total savings**.\n\n## What was bought\n\n- Gorilla Mind Energy Drink Case - Root Beer, **$40.00**\n- Ghost Energy Drink RTD Case - Welch's Grape, **$27.00** after $17.99 discount\n- Core Nutritionals Fury Black Pre-Workout - Red Alert, **$48.00** after $6.99 discount\n- Legendary Foods Protein Pasta Plus Mac & Cheese, **$7.00**\n\n## Notes\n\nThis was the same energy/pre-workout pattern as receipt #8620 on June 13, with a $7 protein pasta add-on. Payment/card identifiers stay in local email only, not in the public data bundle."
-    },
-    {
-      "date": "2026-06-13",
-      "title": "June 13 supplement and pantry restock",
-      "stores": [
-        "Natural Body Ozone Park",
-        "Amazon Grocery"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 149.07,
-      "groceryActual": 34.07,
-      "supplementActual": 115.0,
-      "momActual": 0,
-      "itemsBought": 8,
-      "status": "closed",
-      "filename": "2026-06-13_supplement-and-amazon-pantry-restock.md",
-      "body": "# 2026-06-13 - Supplement and pantry restock\n\n## How it went\n\nTwo receipt sources were found in Gmail: Natural Body Ozone Park receipt **#8620** and Amazon order **#114-8826587-1301034**. Combined spend was **$149.07**.\n\n## What was bought\n\n**Natural Body - $115.00**\n- Gorilla Mind Energy Drink Case - Root Beer, **$40.00**\n- Ghost Energy Drink RTD Case - Welch's Grape, **$27.00** after $17.99 discount\n- Core Nutritionals Fury Black Pre-Workout - Red Alert, **$48.00** after $6.99 discount\n\n**Amazon Grocery - $34.07**\n- 365 Organic Ground Cinnamon, **$3.99**\n- Amazon Grocery Sliced Almonds, **$5.40**\n- 365 Organic White Chia Seed, quantity 3, visible item subtotal **$28.47**\n- Order adjustment **-$3.79** to match the receipt grand total\n\n## Notes\n\nNatural Body repeated the same case + pre-workout pattern later on June 22. Amazon was filed as grocery/pantry, not supplement spend."
-    },
-    {
-      "date": "2026-05-25",
-      "title": "Costco.com protein shakes + Natural Body online Top T",
-      "stores": [
-        "Costco.com",
-        "Natural Body Online"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 97.12,
-      "groceryActual": 56.98,
-      "supplementActual": 40.14,
-      "momActual": 0,
-      "itemsBought": 4,
-      "status": "closed",
-      "filename": "2026-05-25_costco-natural-body-online.md",
-      "body": "# 2026-05-25 - Costco.com protein shakes + Natural Body online Top T\n\n## How it went\n\nGmail contained both Costco.com order **1287533602** and Natural Body online order **#117094**. Combined spend was **$97.12**.\n\n## What was bought\n\n**Costco.com - $56.98**\n- Premier 30g Protein PLUS Energy and Immune Support Shakes, Chocolate Peanut Butter, 18-pack, quantity 2\n- Checkout subtotal was **$73.98** with **$17.00** order discount and **$56.98** total paid\n\n**Natural Body Online - $40.14**\n- Enhanced Labs Top T, 120 capsules, quantity 2\n- Item subtotal **$99.98**, order discount **-$20.00**, loyalty redemption **-$39.84**, paid total **$40.14**\n\n## Notes\n\nThe Costco order was delivered May 27. The Natural Body order was shipped May 28. Private shipping/contact details stay out of the public dashboard."
-    },
-    {
-      "date": "2026-05-24",
-      "title": "Vitamin Shoppe energy drink receipt",
-      "stores": [
-        "The Vitamin Shoppe"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 56.44,
-      "groceryActual": 0,
-      "supplementActual": 56.44,
-      "momActual": 0,
-      "itemsBought": 5,
-      "status": "closed",
-      "filename": "2026-05-24_vitamin-shoppe-energy-drinks.md",
-      "body": "# 2026-05-24 - Vitamin Shoppe energy drink receipt\n\n## How it went\n\nVitamin Shoppe e-receipt **01002900107135020260524** was found in Gmail and added to the local tracker plus public grocery data. Paid total was **$56.44**.\n\n## What was bought\n\n- Gorilla Mind Root Beer Energy Drink 1ct, **$3.49**\n- Ghost Energy Grape Cran single, **$3.49**\n- Ghost Energy Warheads Apple, **$29.99**\n- Ghost Energy BOGO 50% item, **$14.99**\n- Sales tax, **$4.48**\n\n## Notes\n\nThis supports the existing price pattern: Natural Body cases are cheaper per can, while Vitamin Shoppe remains useful for individual flavors and promos."
-    },
-    {
-      "date": "2026-06-05",
-      "title": "Natural Body Hicksville - B-Complex receipt #9060",
-      "stores": [
-        "Natural Body Hicksville"
-      ],
-      "plannedSpend": null,
-      "actualSpend": 30.0,
-      "groceryActual": 0,
-      "supplementActual": 30.0,
-      "momActual": 0,
-      "itemsBought": 1,
-      "status": "closed",
-      "filename": "2026-06-05_natural-body-hicksville-9060.md",
-      "body": "# 2026-06-05 - Natural Body Hicksville receipt #9060\n\n## How it went\n\nReceipt **#9060** was found in Gmail from Lightspeed. Paid total was **$30.00**.\n\n## What was bought\n\n- 1st Phorm B-Complex, 60 capsules, **$30.00**\n\n## Notes\n\nSmall single-item supplement run, now filed in the workbook, shared split, local receipt evidence, and public grocery data."
-    }
-  ],
   "insights": [
     {
       "color": "blue",
@@ -2899,9 +3087,214 @@
       "verdict": "Repeated promo case price on 6/13 and 6/22; strong Natural Body default"
     }
   ],
+  "shoppingList": {
+    "needNow": [
+      {
+        "store": "Costco",
+        "items": [
+          {
+            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy) \u2014 carried over from 4/26 (we got Chobani drinks instead)",
+            "done": false
+          }
+        ]
+      },
+      {
+        "store": "Natural Body \u2014 confirm stock + hours",
+        "items": [
+          {
+            "name": "Fiducia supplement \u2014 carried over from 4/26",
+            "done": false
+          }
+        ]
+      }
+    ],
+    "restockSoon": [
+      {
+        "name": "Wyman's Frozen Wild Blueberries 4lb \u2014 last bought 6/22 ($13.99)",
+        "done": false
+      },
+      {
+        "name": "BJ's proteins \u2014 Verde Farms beef + Harvestland chicken last bought 6/22 ($58.17 combined)",
+        "done": false
+      },
+      {
+        "name": "Fairlife Chocolate Milk 18pk \u2014 last bought 4/17 ($39.99)",
+        "done": false
+      },
+      {
+        "name": "Coke Zero 35pk \u2014 last bought 4/17 ($21.29)",
+        "done": false
+      },
+      {
+        "name": "Natural Body Ghost/Gorilla Mind cases - last bought 6/22 ($67.00 combined)",
+        "done": false
+      },
+      {
+        "name": "Premier 30g Protein PLUS shakes - Costco.com last bought 5/25 ($56.98 for 2 x 18-pack)",
+        "done": false
+      },
+      {
+        "name": "Amazon pantry seeds/nuts - chia and almonds last bought 6/13 ($34.07 order)",
+        "done": false
+      }
+    ],
+    "momList": [],
+    "trip": {
+      "stops": [],
+      "route": [],
+      "estimates": [],
+      "totalEstimate": "",
+      "notes": []
+    }
+  },
+  "tripHistory": [
+    {
+      "date": "2026-06-22",
+      "title": "Natural Body Ozone Park - receipt #3942 restock",
+      "stores": [
+        "Natural Body Ozone Park"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 122.0,
+      "groceryActual": 0,
+      "supplementActual": 122.0,
+      "momActual": 0,
+      "itemsBought": 4,
+      "status": "closed",
+      "body": "# 2026-06-22 - Natural Body Ozone Park receipt #3942\n\n## How it went\n\nReceipt **#3942** was found in Gmail from Lightspeed and logged locally. Paid total was **$122.00** across 4 items, with **$24.98 total savings**.\n\n## What was bought\n\n- Gorilla Mind Energy Drink Case - Root Beer, **$40.00**\n- Ghost Energy Drink RTD Case - Welch's Grape, **$27.00** after $17.99 discount\n- Core Nutritionals Fury Black Pre-Workout - Red Alert, **$48.00** after $6.99 discount\n- Legendary Foods Protein Pasta Plus Mac & Cheese, **$7.00**\n\n## Notes\n\nThis was the same energy/pre-workout pattern as receipt #8620 on June 13, with a $7 protein pasta add-on. Payment/card identifiers stay in local email only, not in the public data bundle.",
+      "filename": "2026-06-22_natural-body-ozone-park-3942.md"
+    },
+    {
+      "date": "2026-06-22",
+      "title": "BJ's same-day delivery \u2014 produce + protein restock",
+      "stores": [
+        "BJ's"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 108.71,
+      "groceryActual": 108.71,
+      "supplementActual": 0,
+      "momActual": 0,
+      "itemsBought": 7,
+      "status": "closed",
+      "body": "# 2026-06-22 \u2014 BJ's same-day delivery produce + protein restock\n\n## How it went\n\nBJ's order **#287150669** was delivered on **June 22, 2026**. The app receipt showed **$98.42 item subtotal**, **$0.00 tax**, **$0.00 delivery fee**, **$10.29 driver tip**, and **$108.71 paid total**.\n\nThis order has been filed in `Grocery_Tracker.xlsx`, `Food_Spending_Split.xlsx`, `Finance/receipts/BJs/`, the Finance wiki, and this grocery dashboard data bundle.\n\n## What was bought\n\n**Protein**\n- Verde Farms Organic Grass Fed Beef \u2014 quantity 2, **$41.58** total\n- Harvestland by Perdue Organic Chicken \u2014 quantity 2, **$16.59** total\n\n**Produce / carbs**\n- Wyman's Frozen Wild Blueberries 4lb \u2014 **$13.99**\n- Wellsley Farms Sweet Potatoes 3lb \u2014 **$3.29**\n- The Little Potato Co. Little Duo \u2014 **$6.99**\n- Wellsley Farms Red Potatoes \u2014 **$6.99**\n\n**Snacks / fats**\n- Wellsley Farms Macadamia Nuts \u2014 **$8.99**\n\n## Price notes\n\n- Wyman's blueberries stayed flat at **$13.99** versus the April BJ's receipt.\n- Wellsley Farms sweet potatoes moved from **$2.99** on April 26 to **$3.29** on June 22.\n- The shared-expense settlement source uses the paid total: **$108.71**, split as **$54.36 each** in `Food_Spending_Split.xlsx`.",
+      "filename": "2026-06-22_bjs-same-day-delivery.md"
+    },
+    {
+      "date": "2026-06-13",
+      "title": "June 13 supplement and pantry restock",
+      "stores": [
+        "Natural Body Ozone Park",
+        "Amazon Grocery"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 149.07,
+      "groceryActual": 34.07,
+      "supplementActual": 115.0,
+      "momActual": 0,
+      "itemsBought": 8,
+      "status": "closed",
+      "body": "# 2026-06-13 - Supplement and pantry restock\n\n## How it went\n\nTwo receipt sources were found in Gmail: Natural Body Ozone Park receipt **#8620** and Amazon order **#114-8826587-1301034**. Combined spend was **$149.07**.\n\n## What was bought\n\n**Natural Body - $115.00**\n- Gorilla Mind Energy Drink Case - Root Beer, **$40.00**\n- Ghost Energy Drink RTD Case - Welch's Grape, **$27.00** after $17.99 discount\n- Core Nutritionals Fury Black Pre-Workout - Red Alert, **$48.00** after $6.99 discount\n\n**Amazon Grocery - $34.07**\n- 365 Organic Ground Cinnamon, **$3.99**\n- Amazon Grocery Sliced Almonds, **$5.40**\n- 365 Organic White Chia Seed, quantity 3, visible item subtotal **$28.47**\n- Order adjustment **-$3.79** to match the receipt grand total\n\n## Notes\n\nNatural Body repeated the same case + pre-workout pattern later on June 22. Amazon was filed as grocery/pantry, not supplement spend.",
+      "filename": "2026-06-13_supplement-and-amazon-pantry-restock.md"
+    },
+    {
+      "date": "2026-06-05",
+      "title": "Natural Body Hicksville - B-Complex receipt #9060",
+      "stores": [
+        "Natural Body Hicksville"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 30.0,
+      "groceryActual": 0,
+      "supplementActual": 30.0,
+      "momActual": 0,
+      "itemsBought": 1,
+      "status": "closed",
+      "body": "# 2026-06-05 - Natural Body Hicksville receipt #9060\n\n## How it went\n\nReceipt **#9060** was found in Gmail from Lightspeed. Paid total was **$30.00**.\n\n## What was bought\n\n- 1st Phorm B-Complex, 60 capsules, **$30.00**\n\n## Notes\n\nSmall single-item supplement run, now filed in the workbook, shared split, local receipt evidence, and public grocery data.",
+      "filename": "2026-06-05_natural-body-hicksville-9060.md"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Costco.com protein shakes + Natural Body online Top T",
+      "stores": [
+        "Costco.com",
+        "Natural Body Online"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 97.12,
+      "groceryActual": 56.98,
+      "supplementActual": 40.14,
+      "momActual": 0,
+      "itemsBought": 4,
+      "status": "closed",
+      "body": "# 2026-05-25 - Costco.com protein shakes + Natural Body online Top T\n\n## How it went\n\nGmail contained both Costco.com order **1287533602** and Natural Body online order **#117094**. Combined spend was **$97.12**.\n\n## What was bought\n\n**Costco.com - $56.98**\n- Premier 30g Protein PLUS Energy and Immune Support Shakes, Chocolate Peanut Butter, 18-pack, quantity 2\n- Checkout subtotal was **$73.98** with **$17.00** order discount and **$56.98** total paid\n\n**Natural Body Online - $40.14**\n- Enhanced Labs Top T, 120 capsules, quantity 2\n- Item subtotal **$99.98**, order discount **-$20.00**, loyalty redemption **-$39.84**, paid total **$40.14**\n\n## Notes\n\nThe Costco order was delivered May 27. The Natural Body order was shipped May 28. Private shipping/contact details stay out of the public dashboard.",
+      "filename": "2026-05-25_costco-natural-body-online.md"
+    },
+    {
+      "date": "2026-05-24",
+      "title": "Vitamin Shoppe energy drink receipt",
+      "stores": [
+        "The Vitamin Shoppe"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 56.44,
+      "groceryActual": 0,
+      "supplementActual": 56.44,
+      "momActual": 0,
+      "itemsBought": 5,
+      "status": "closed",
+      "body": "# 2026-05-24 - Vitamin Shoppe energy drink receipt\n\n## How it went\n\nVitamin Shoppe e-receipt **01002900107135020260524** was found in Gmail and added to the local tracker plus public grocery data. Paid total was **$56.44**.\n\n## What was bought\n\n- Gorilla Mind Root Beer Energy Drink 1ct, **$3.49**\n- Ghost Energy Grape Cran single, **$3.49**\n- Ghost Energy Warheads Apple, **$29.99**\n- Ghost Energy BOGO 50% item, **$14.99**\n- Sales tax, **$4.48**\n\n## Notes\n\nThis supports the existing price pattern: Natural Body cases are cheaper per can, while Vitamin Shoppe remains useful for individual flavors and promos.",
+      "filename": "2026-05-24_vitamin-shoppe-energy-drinks.md"
+    },
+    {
+      "date": "2026-05-24",
+      "title": "Natural Body Hicksville \u2014 MDW supplement restock",
+      "stores": [
+        "Natural Body Hicksville"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 228.0,
+      "supplementActual": 228.0,
+      "itemsBought": 6,
+      "status": "closed",
+      "body": "# 2026-05-24 \u2014 Natural Body Hicksville MDW supplement restock\n\n## How it went\n\nTwo Natural Body Hicksville receipts were filed from Downloads and logged into `Grocery_Tracker.xlsx`. Total paid was **$228.00** across receipt **#8301** (`$198.00`) and receipt **#8303** (`$30.00` after `$15.00` loyalty redemption).\n\n## What was bought\n\n**Workout / intra-workout**\n- Core Nutritionals Fury Black Pre-Workout \u2014 Red Alert, 20 servings, **$48.00**\n- NutraBio Intra Blast \u2014 Strawberry Lemon Bomb, 30 servings, **$45.00**, paid **$30.00 net** after loyalty\n\n**Protein / prep support**\n- Musclesport Lean Whey 2 lb \u2014 Mom's Peanut Butter & Jelly, **$55.00**\n- Musclesport Lean Whey 2 lb \u2014 Monster Cookie, **$55.00**\n\n**Fat burner**\n- Musclesport CarniShred + Mitoburn Liquid \u2014 Rainbow Candy, 31 servings, **$30.00**\n\n**Other**\n- Hicksville Smoothies \u2014 Chocolate Banana Nut, 20 oz, **$9.21**\n- Sales tax on smoothie receipt: **$0.79**\n- Loyalty redemption on Intra Blast receipt: **-$15.00**\n\n## Notes\n\n- MDW 4x Rewards promo applied to receipt #8301.\n- Hicksville was open and usable on this run, so the older \"Hicksville closed\" warning should be treated as a location-hours reminder, not a hard rule to avoid the store.\n- Fiducia supplement is still not resolved from the shopping list.",
+      "filename": "2026-05-24_natural-body-hicksville-mdw-restock.md"
+    },
+    {
+      "date": "2026-04-27",
+      "title": "Natural Body Ozone Park \u2014 bulk supplement restock",
+      "stores": [
+        "Natural Body Ozone Park"
+      ],
+      "plannedSpend": null,
+      "actualSpend": 352.87,
+      "supplementActual": 352.87,
+      "status": "closed",
+      "body": "# 2026-04-27 \u2014 Natural Body Ozone Park bulk restock\n\n## How it went\n\nMade up for the closed-store miss from 4/26 by going to **Ozone Park** instead of Hicksville. Sumaiya served you. Big planned restock \u2014 6-10 weeks of supplement supply locked in. Total **$352.87 paid** ($409 list, saved $56.13 loyalty + $55.92 promos = **$112 in savings**).\n\n## What was bought\n\n**Whey \u00d7 3 ($135)** \u2014 Musclesport Lean Whey Gourmet\n- Strawberry Banana Royale\n- Peanut Butter Cookies & Cream\n- Chocolate Chocolate Chip\n- 25 servings each = **75 servings total** \u2248 10-12 weeks of post-workout\n\n**Test booster \u00d7 2 ($120)** \u2014 Enhanced Labs Top T (120 caps each = 240 caps total)\n\n**Pre-workouts ($93)**\n- Core Pump Black \u2014 Red Alert (20 servings)\n- Core Fury Black \u2014 Tropical Storm (20 servings)\n- = 40 sessions\n\n**Fat burner ($30)** \u2014 Musclesport CarniShred + Mitoburn (Baja Splash, 31 servings)\n\n**Energy drinks ($31, 12 cans)** \u2014 Ghost RTD variety: 7UP Lemon Lime, Sour Patch Kids Redberry, Raspberry Cream, Swedish Fish, Welch's Grape Cran, Welch's Grape\n\n## Best-price find \ud83c\udfc6\n\n**Ghost Energy at Natural Body \u2014 $2.50/can on the 2-for-$5 promo** (vs $3.42/can singles at Vitamin Shoppe = 27% less). Plus full 12-pack cases at $2.25/can on prior trips.\n\n## Carry forward to next trip\n\n- **Fiducia supplement** \u2014 still pending from 4/26",
+      "filename": "2026-04-27_natural-body-bulk-restock.md"
+    },
+    {
+      "date": "2026-04-26",
+      "title": "Two-store run + Vitamin Shoppe stop",
+      "stores": [
+        "BJ's",
+        "Costco",
+        "The Vitamin Shoppe"
+      ],
+      "plannedSpend": 135,
+      "actualSpend": 177.85,
+      "groceryActual": 155.54,
+      "supplementActual": 22.31,
+      "momActual": 13.98,
+      "itemsPlanned": 11,
+      "itemsBought": 17,
+      "status": "closed",
+      "body": "# 2026-04-26 \u2014 Two-store run + Vitamin Shoppe stop\n\n## How it went\n\nSolid trip, bigger than planned. Hit BJ's and Costco in the wrong order from the planned route, then made a side stop at Vitamin Shoppe Oceanside for some Ghost flavors not at Natural Body's Costco-friendly variety. **Natural Body Hicksville was the last stop on the original plan \u2014 but it was closed by the time we got there.** Fiducia supplement carries forward.\n\n## Route \u2014 actual vs planned\n\n| | Planned | Actual |\n|---|---|---|\n| 1st stop | BJ's (Garden City) | **Costco (Westbury)** |\n| 2nd stop | Costco (Westbury) | **BJ's (Garden City)** |\n| 3rd stop | Natural Body (Hicksville) | **Natural Body (Hicksville) \u2014 CLOSED** |\n| Side stop | \u2014 | The Vitamin Shoppe (Oceanside) |\n\n**Lesson:** check Natural Body Hicksville hours before next trip. Or default to Ozone Park location, which has been the reliable one (4/27 worked fine).\n\n## Spend \u2014 planned vs actual\n\n| | Planned | Actual | Delta |\n|---|---:|---:|---:|\n| Natural Body | $80 | $0 (closed) | \u2212$80 |\n| BJ's | $15-20 | $119.88 | +$100 |\n| Costco | $30-40 | $35.66 | even |\n| Vitamin Shoppe | \u2014 | $22.31 | new |\n| Mom care package | \u2014 | $13.98 | new (separate) |\n| **Your total** | **~$135** | **$177.85** | **+$43** |\n\nBJ's overshot because of impulse adds (turkey, Chobani drinks, tomatoes, Dash cooker). Costco came in under because we skipped avocados and bought potatoes at BJ's instead. Net: still well under monthly budget.\n\n## What went well \u2705\n\n- **Avocados \u2192 KS Guacamole Singles ($11.99) swap** \u2014 better $/serving and pre-portioned. Smart.\n- **Got the Dash 16-Pc Egg Cooker ($19.98)** \u2014 already in heavy rotation by Tuesday.\n- **Spinach restock + iceberg lettuce** \u2014 caught the price bump on lettuce ($1.99 \u2192 $2.49) so we know about it now.\n- **Mom's care package handled cleanly** ($13.98 kept separate from your budget).\n\n## What got missed \u274c \u2014 carry forward\n\n- **Fage Greek Yogurt 48oz** ($7.79 at Costco) \u2014 Tiffany asked for actual yogurt, we came home with Chobani protein drinks instead. Not the same thing.\n- **Fiducia supplement** \u2014 Natural Body Hicksville closed. Carries to next supplement run.\n\n## Off-list buys (better breakdown \ud83d\udcb0)\n\n| Item | Cost | Type | Note |\n|------|-----:|------|------|\n| Butterball Lean Turkey 48oz | $15.99 | **Staple** | Regular protein for prep \u2014 should be on the standing list |\n| Angel Sweet Grape Tomatoes 2lbs | $6.99 | **Staple** | Salad base \u2014 recurring buy |\n| Green Onions (Costco) | $5.99 | **Staple** | Meal prep regular |\n| Chobani 20g Protein Drinks 8ct | $13.99 | **Misalignment** | Got this when Tiffany asked for Fage Greek Yogurt 48oz \u2014 different thing |\n| Dash 16-Pc Egg Cooker | $19.98 | **One-time / capital** | Durable good, not recurring \u2014 actively using it |\n\n**Takeaway:** the \"staples\" pattern means I need to add a *Standing Items* section to the shopping list \u2014 recurring buys that always need restocking but rarely get explicitly added each trip. Turkey, tomatoes, green onions are perfect candidates.\n\n## Price moves caught \ud83d\udd0d\n\n- **Iceberg Lettuce: $1.99 \u2192 $2.49 at BJ's** (+25%) \u2014 flagged\n- **ACE Sourdough Bistro: $5.69** \u2014 stable since 3/8\n- **Almond Breeze Vanilla 96oz: $4.69** \u2014 same as baseline\n\n## For next trip\n\n- Add **Fage Greek Yogurt 48oz** (Costco) to Need Now\n- Add **Fiducia supplement** to Natural Body list \u2014 verify Ozone Park hours\n- Bryan/Tiffany check: confirm whether Chobani drinks vs Fage yogurt was the actual ask",
+      "filename": "2026-04-26_two-store-run.md"
+    }
+  ],
   "totals": {
-    "itemCount": 162,
-    "tripCount": 21,
-    "monthlyEstimate": 409.78
+    "itemCount": 188,
+    "tripCount": 25
   }
 }
