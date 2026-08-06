@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T18:07:13.161595-04:00",
+  "generatedAt": "2026-08-06T07:59:24.559982-04:00",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -341,6 +341,104 @@
       "supplementCount": 11
     },
     {
+      "date": "2026-07-24",
+      "store": "Amazon",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 39.51,
+      "mom": 0,
+      "total": 39.51,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 1
+    },
+    {
+      "date": "2026-07-25",
+      "store": "Amazon",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 49.98,
+      "mom": 0,
+      "total": 49.98,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 2
+    },
+    {
+      "date": "2026-07-26",
+      "store": "The Vitamin Shoppe",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 8.48,
+      "supplement": 8.77,
+      "mom": 0,
+      "total": 17.25,
+      "groceryTotal": 8.48,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 7
+    },
+    {
+      "date": "2026-07-27",
+      "store": "Amazon",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 77.85,
+      "mom": 0,
+      "total": 77.85,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 2
+    },
+    {
+      "date": "2026-07-29",
+      "store": "Stop & Shop (Uber Eats)",
+      "storeType": "grocery",
+      "food": 59.1,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 59.1,
+      "groceryTotal": 59.1,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 0
+    },
+    {
+      "date": "2026-07-30",
+      "store": "Amazon",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 43.98,
+      "mom": 0,
+      "total": 43.98,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 1
+    },
+    {
+      "date": "2026-07-30",
+      "store": "Amazon Grocery",
+      "storeType": "grocery",
+      "food": 27.3,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 27.3,
+      "groceryTotal": 27.3,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 0
+    },
+    {
       "date": "2026-07-30",
       "store": "The Vitamin Shoppe",
       "storeType": "supplement",
@@ -353,6 +451,118 @@
       "itemCount": 0,
       "momCount": 0,
       "supplementCount": 3
+    },
+    {
+      "date": "2026-07-31",
+      "store": "Amazon",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 28.95,
+      "mom": 0,
+      "total": 28.95,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 1
+    },
+    {
+      "date": "2026-08-01",
+      "store": "Amazon",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 58.91,
+      "mom": 0,
+      "total": 58.91,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 2
+    },
+    {
+      "date": "2026-08-02",
+      "store": "Amazon Grocery",
+      "storeType": "grocery",
+      "food": 14.99,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 14.99,
+      "groceryTotal": 14.99,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 0
+    },
+    {
+      "date": "2026-08-03",
+      "store": "Amazon Fresh",
+      "storeType": "grocery",
+      "food": 5.0,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 5.0,
+      "groceryTotal": 5.0,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 0
+    },
+    {
+      "date": "2026-08-04",
+      "store": "Amazon Grocery",
+      "storeType": "grocery",
+      "food": 7.34,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 7.34,
+      "groceryTotal": 7.34,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 0
+    },
+    {
+      "date": "2026-08-05",
+      "store": "Amazon Fresh",
+      "storeType": "grocery",
+      "food": 31.39,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 31.39,
+      "groceryTotal": 31.39,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 0
+    },
+    {
+      "date": "2026-08-06",
+      "store": "Amazon",
+      "storeType": "supplement",
+      "food": 0,
+      "hh": 0,
+      "supplement": 87.14,
+      "mom": 0,
+      "total": 87.14,
+      "groceryTotal": 0,
+      "itemCount": 0,
+      "momCount": 0,
+      "supplementCount": 1
+    },
+    {
+      "date": "2026-08-06",
+      "store": "Amazon Grocery",
+      "storeType": "grocery",
+      "food": 3.86,
+      "hh": 0,
+      "supplement": 0,
+      "mom": 0,
+      "total": 3.86,
+      "groceryTotal": 3.86,
+      "itemCount": 1,
+      "momCount": 0,
+      "supplementCount": 0
     }
   ],
   "items": [
@@ -2799,6 +3009,331 @@
       "costPerServing": null,
       "notes": "Total paid $36.07, AmEx ****0043",
       "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Gorilla Mind Energy - Bombsicle",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 2.0,
+      "servings": 2,
+      "costPerServing": 1.0,
+      "notes": "$1 promo (reg $2.49/ea) - Oceanside #0029 txn 78312",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Energy Fruit Punch 1ct",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 4.0,
+      "servings": 4,
+      "costPerServing": 1.0,
+      "notes": "$1 promo (reg $2.49/ea) - Oceanside #0029 txn 78312",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": "TAX",
+      "store": "The Vitamin Shoppe",
+      "item": "Tax (NY 8.7%) - txn 78312",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": 0.52,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Total paid $6.52, AmEx ****0043",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Strada Tritan Water Bottle 28oz White",
+      "category": "Household",
+      "type": "Household",
+      "cost": 8.48,
+      "servings": 1,
+      "costPerServing": 8.48,
+      "notes": "Oceanside #0029 txn 78313",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Gorilla Mind Energy - Citrus RN",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 2.0,
+      "servings": 2,
+      "costPerServing": 1.0,
+      "notes": "$1 promo (reg $2.49/ea) - txn 78313",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": null,
+      "store": "The Vitamin Shoppe",
+      "item": "Gorilla Mind Energy - Red Gummy",
+      "category": "Beverages",
+      "type": "Supplement",
+      "cost": 4.0,
+      "servings": 4,
+      "costPerServing": 1.0,
+      "notes": "$1 promo (reg $2.49/ea) - txn 78313",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": "TAX",
+      "store": "The Vitamin Shoppe",
+      "item": "Tax (NY 8.7%) - txn 78313",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": 1.25,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Subtotal $14.48",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-26",
+      "itemCode": "REWARD",
+      "store": "The Vitamin Shoppe",
+      "item": "Cash Back Award VALSJSPA",
+      "category": "Other",
+      "type": "Supplement",
+      "cost": -5.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Total paid $15.73 ($10.73 card + $5 reward)",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-29",
+      "itemCode": null,
+      "store": "Stop & Shop (Uber Eats)",
+      "item": "Grocery delivery order - items + fees + tip",
+      "category": "Grocery",
+      "type": "Food",
+      "cost": 59.1,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Order-level only; Uber Eats does not itemize in the receipt email. Includes service fee and tip.",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-07-30",
+      "itemCode": "112-9254223-9889826",
+      "store": "Amazon Grocery",
+      "item": "Grocery + protein order (10 items)",
+      "category": "Grocery",
+      "type": "Food",
+      "cost": 27.3,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Verified in Amazon order history",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-08-02",
+      "itemCode": null,
+      "store": "Amazon Grocery",
+      "item": "Yogi Ginger Organic Variety Sampler 16ct (3pk)",
+      "category": "Grocery",
+      "type": "Food",
+      "cost": 14.99,
+      "servings": 48,
+      "costPerServing": 0.31,
+      "notes": "Verified in Amazon order history",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-08-03",
+      "itemCode": null,
+      "store": "Amazon Fresh",
+      "item": "Fresh delivery (2 items)",
+      "category": "Grocery",
+      "type": "Food",
+      "cost": 5.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Amazon Fresh - item names not exposed in order list",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-08-04",
+      "itemCode": null,
+      "store": "Amazon Grocery",
+      "item": "Kinder's Organic Lemon Pepper Seasoning 3.5oz",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 7.34,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Verified in Amazon order history",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-08-05",
+      "itemCode": null,
+      "store": "Amazon Fresh",
+      "item": "Fresh delivery (3 items)",
+      "category": "Grocery",
+      "type": "Food",
+      "cost": 31.39,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Amazon Fresh - item names not exposed in order list",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-08-06",
+      "itemCode": null,
+      "store": "Amazon Grocery",
+      "item": "365 Whole Foods Organic Ground Cinnamon 1.9oz",
+      "category": "Staples",
+      "type": "Food",
+      "cost": 3.86,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Verified in Amazon order history",
+      "storeType": "grocery"
+    },
+    {
+      "date": "2026-07-25",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Doctor's Best High Absorption Magnesium Glycinate",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 13.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Verified in Amazon order history",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-25",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Trace Minerals ZeroLyte Electrolyte Mix - Salty B",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 35.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Verified in Amazon order history",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-27",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "NuEthix Formulations Thyro-Boost Essentials",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 41.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Verified in Amazon order history",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-30",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "VMI Sports L-Carnitine 1500 Heat Stim-Free (x2)",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 43.98,
+      "servings": 2,
+      "costPerServing": 21.99,
+      "notes": "Verified in Amazon order history",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-31",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Life Extension N-Acetyl-L-Cysteine (NAC) 600mg",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 28.95,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Verified in Amazon order history",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-08-01",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Life Extension Glycine 1000mg (100 caps)",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 12.0,
+      "servings": 100,
+      "costPerServing": 0.12,
+      "notes": "Verified in Amazon order history",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-08-06",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Supplement bundle: Nutricost Vit C, Life Ext D+K, RAW Creatine 100srv, Doctor's Best Magnesium, pill organizer",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 87.14,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "5-item order; verified in Amazon order history",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-24",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "MIXED order - Nutricost Omega 3 2500mg + flour sifter",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 39.51,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "MIXED: supplement + kitchen. Needs split confirmation.",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-07-27",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "MIXED order - Life Ext Selenium + 365 Taco Seasoning + Nutricost",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 35.86,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "MIXED: supplement + grocery. Needs split confirmation.",
+      "storeType": "supplement"
+    },
+    {
+      "date": "2026-08-01",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "MIXED order - Life Ext Zinc Lozenges + fridge magnets + Mueller",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 46.91,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "MIXED: supplement + household. Needs split confirmation.",
+      "storeType": "supplement"
     }
   ],
   "winners": {
@@ -2869,76 +3404,97 @@
     ],
     "supplement": [
       {
-        "store": "Natural Body",
-        "badge": "nb",
+        "store": "Vitamin Shoppe",
+        "badge": "vs",
         "wins": [
           {
-            "item": "Ghost Energy 12pk case",
-            "detail": "$27.00/case on 6/13 and 6/22 = $2.25/can",
-            "savings": "35% vs VS singles"
+            "item": "Energy drinks on promo",
+            "detail": "$1.00/can vs $2.49 shelf (7/26)",
+            "savings": "best price on record"
           },
           {
-            "item": "Gorilla Mind 12pk case",
-            "detail": "$40.00/case = $3.33/can",
+            "item": "Bum Energy",
+            "detail": "$3.29/can \u2014 limited online distribution",
             "savings": null
           },
           {
-            "item": "Core Fury Black",
-            "detail": "$48.00 after $6.99 promo on 6/13 and 6/22",
+            "item": "Healthy Awards",
+            "detail": "Cash Back Awards apply at register ($5 on 7/26)",
             "savings": null
           }
         ]
       },
       {
-        "store": "The Vitamin Shoppe",
-        "badge": "vs",
+        "store": "Natural Body",
+        "badge": "nb",
         "wins": [
           {
-            "item": "Single flavor coverage",
-            "detail": "5/24 receipt captured singles/promos when you wanted flavor variety",
+            "item": "Ghost Energy 12pk case",
+            "detail": "$2.25/can in cases",
+            "savings": "best non-promo price"
+          },
+          {
+            "item": "Holiday 3x Rewards",
+            "detail": "July 4th + Presidents' Day stack with % discounts",
             "savings": null
           },
           {
-            "item": "Ghost BOGO 50% promo",
-            "detail": "$29.99 + $14.99 pair before tax",
+            "item": "Loyalty redemptions",
+            "detail": "$30 off on 7/20 \u2014 scaling over time",
+            "savings": null
+          }
+        ]
+      },
+      {
+        "store": "Amazon",
+        "badge": "az",
+        "wins": [
+          {
+            "item": "Life Extension / Nutricost",
+            "detail": "Brands Natural Body doesn't carry",
             "savings": null
           },
           {
-            "item": "Healthy Awards points",
-            "detail": "Useful secondary source, not the default case source",
+            "item": "RAW Creatine 100 srv",
+            "detail": "Bundled into a $87.14 5-item order",
             "savings": null
+          },
+          {
+            "item": "Subscribe & Save eligible",
+            "detail": "Not yet enabled \u2014 potential 5-15% off",
+            "savings": "opportunity"
           }
         ]
       }
     ],
     "online": []
   },
-  "watch": "Gmail/local receipt sweep added seven missing May-June purchases: Vitamin Shoppe 5/24, Costco.com 5/25, Natural Body online 5/25, Natural Body 6/5, Natural Body + Amazon Grocery 6/13, and Natural Body 6/22. BJ's 6/22 was already filed from screenshots.",
+  "watch": "Amazon is now a major untracked-until-now supplement channel (~$304 since 7/24). Three Amazon orders mix supplements with grocery/household and need a split. Energy drink pricing swings 4x between sources \u2014 Vitamin Shoppe promos beat everything.",
   "insights": [
     {
       "color": "blue",
-      "label": "Sweep complete",
-      "text": "Receipt search from 2026-05-24 forward added 7 missing purchase groups plus kept BJ's 6/22 intact."
+      "label": "Best deal on record",
+      "text": "Vitamin Shoppe ran $1 energy drinks on 7/26 (shelf $2.49). 12 cans cost $12 \u2014 the same 12 cans at Gorilla Mind shelf price six days earlier cost $47.88. The promo reappeared in the 8/1 newsletter."
+    },
+    {
+      "color": "red",
+      "label": "Priciest per-can",
+      "text": "Gorilla Mind at Natural Body is $3.99/can \u2014 77% above Ghost cases ($2.25) and 4x the Vitamin Shoppe promo. If the brand is interchangeable, this is the easiest win available."
+    },
+    {
+      "color": "purple",
+      "label": "New spending channel",
+      "text": "Amazon has quietly become a top supplement source: ~$304 across Jul 24 - Aug 6 (Nutricost, Life Extension, Doctor's Best, Trace Minerals, RAW, VMI, NuEthix). None of it was tracked before this sweep."
     },
     {
       "color": "amber",
-      "label": "June supplements",
-      "text": "June Natural Body spend now shows $267.00 across 6/5, 6/13, and 6/22."
+      "label": "List price creep",
+      "text": "Enhanced Labs Top T list went $64.99 to $69.99, but shelf price held at $60 \u2014 the discount absorbed it. Watch whether that holds on the next restock."
     },
     {
       "color": "green",
-      "label": "Case price",
-      "text": "Natural Body Ghost cases repeated at $27.00 for 12 cans on both 6/13 and 6/22 after promo discount."
-    },
-    {
-      "color": "blue",
-      "label": "Pantry add",
-      "text": "Amazon Grocery 6/13 added cinnamon, almonds, and chia seed with a $34.07 grand total."
-    },
-    {
-      "color": "amber",
-      "label": "Formula range",
-      "text": "Grocery_Tracker summary formulas were extended to row 100 so new receipt rows are counted."
+      "label": "Loyalty working",
+      "text": "Natural Body loyalty redemptions are scaling: $5 in Jan/Feb/Mar, $10 in May, $30 on 7/20. Roughly $112 in promos + loyalty banked on the 4/27 trip alone."
     }
   ],
   "supplementAnalysis": [
@@ -3093,7 +3649,7 @@
         "store": "Costco",
         "items": [
           {
-            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy) \u2014 carried over from 4/26 (we got Chobani drinks instead)",
+            "name": "Fage Greek Yogurt 48oz \u2014 Tiffany's pick ($7.79 last buy) \u2014 carried over since 4/26",
             "done": false
           }
         ]
@@ -3102,7 +3658,7 @@
         "store": "Natural Body \u2014 confirm stock + hours",
         "items": [
           {
-            "name": "Fiducia supplement \u2014 carried over from 4/26",
+            "name": "Fiducia supplement \u2014 carried over since 4/26",
             "done": false
           }
         ]
@@ -3114,7 +3670,7 @@
         "done": false
       },
       {
-        "name": "BJ's proteins \u2014 Verde Farms beef + Harvestland chicken last bought 6/22 ($58.17 combined)",
+        "name": "BJ's proteins \u2014 Verde Farms beef + Harvestland chicken, last bought 6/22 ($58.17 combined)",
         "done": false
       },
       {
@@ -3126,28 +3682,70 @@
         "done": false
       },
       {
-        "name": "Natural Body Ghost/Gorilla Mind cases - last bought 6/22 ($67.00 combined)",
+        "name": "Premier 30g Protein PLUS shakes \u2014 Costco.com, last bought 5/25 ($56.98 for 2 x 18-pack)",
         "done": false
       },
       {
-        "name": "Premier 30g Protein PLUS shakes - Costco.com last bought 5/25 ($56.98 for 2 x 18-pack)",
-        "done": false
-      },
-      {
-        "name": "Amazon pantry seeds/nuts - chia and almonds last bought 6/13 ($34.07 order)",
+        "name": "Amazon pantry seeds/nuts \u2014 chia and almonds, last bought 6/13 ($34.07 order)",
         "done": false
       }
     ],
     "momList": [],
     "trip": {
-      "stops": [],
+      "stops": [
+        "Natural Body Ozone Park \u2014 primary supplement source, best promos (3x Rewards on holidays)",
+        "The Vitamin Shoppe Oceanside / Garden City \u2014 energy drink promos, Bum Energy",
+        "Amazon \u2014 brands Natural Body doesn't carry; now ~$300/mo of supplements",
+        "BJ's / Costco / Amazon Fresh \u2014 groceries"
+      ],
       "route": [],
       "estimates": [],
       "totalEstimate": "",
-      "notes": []
+      "notes": [
+        "** Gorilla Mind at $3.99/can (7/20) is the most expensive energy drink tracked \u2014 4x the Vitamin Shoppe promo price. Worth checking case pricing or substituting Ghost."
+      ]
     }
   },
   "tripHistory": [
+    {
+      "date": "2026-07-26",
+      "title": "Vitamin Shoppe Oceanside \u2014 $1 energy drink promo (2 transactions)",
+      "stores": [
+        "The Vitamin Shoppe"
+      ],
+      "actualSpend": 22.25,
+      "supplementActual": 22.25,
+      "itemsBought": 13,
+      "status": "closed",
+      "body": "# 2026-07-26 \u2014 Vitamin Shoppe Oceanside (txns 78312 + 78313)\n\n## How it went\n\nTwo back-to-back transactions one minute apart (1:56 PM and 1:57 PM) \u2014 likely a cart split to work the promo limit. **Every energy drink rang up at $1.00 against a $2.49 shelf price.**\n\n## Transaction 78312 \u2014 $6.52\n\n- Gorilla Mind Bombsicle \u00d72 @ $1.00\n- Energy Fruit Punch 1ct \u00d74 @ $1.00\n- Subtotal $6.00 + $0.52 tax\n\n## Transaction 78313 \u2014 $15.73\n\n- Strada Tritan Water Bottle 28oz White \u2014 $8.48\n- Gorilla Mind Citrus RN \u00d72 @ $1.00\n- Gorilla Red Gummy ED \u00d74 @ $1.00\n- Subtotal $14.48 + $1.25 tax\n- **$5.00 Cash Back Award applied** \u2192 $10.73 on card\n\n## \ud83c\udfc6 Best per-can price on record\n\n**$1.00/can.** Full ranking of every energy drink price tracked in 2026:\n\n| Price/can | Source | Date |\n|---:|---|---|\n| **$1.00** | **Vitamin Shoppe promo** | **7/26** |\n| $2.25 | Natural Body 12pk case | 2/16 |\n| $2.25 | Natural Body (Jan promo) | 1/8 |\n| $2.50 | Natural Body 2-for-$5 | 4/27, 5/2 |\n| $2.99 | Bum @ Natural Body | 7/4 |\n| $3.00 | Ghost Welch's Grape (no promo) | 4/27 |\n| $3.29 | Bum @ Vitamin Shoppe | 4/26 |\n| $3.42 | Ghost singles @ Vitamin Shoppe | 4/26 |\n| $3.99 | Gorilla Mind @ Natural Body | 7/20 |\n\n**Takeaway:** buying 12 cans at the $1 promo cost $12 \u2014 the same 12 cans at Gorilla Mind shelf price on 7/20 cost $47.88. Watch Vitamin Shoppe email for \"$1 Drinks in-store\" \u2014 it ran again in the 8/1 newsletter.",
+      "filename": "2026-07-26_vitamin-shoppe-dollar-drinks.md"
+    },
+    {
+      "date": "2026-07-20",
+      "title": "Natural Body Ozone Park \u2014 energy case run + Top T restock",
+      "stores": [
+        "Natural Body Ozone Park"
+      ],
+      "actualSpend": 180.87,
+      "supplementActual": 180.87,
+      "itemsBought": 17,
+      "status": "closed",
+      "body": "# 2026-07-20 \u2014 Natural Body Ozone Park (receipt #10737)\n\n## How it went\n\nBiggest single loyalty redemption yet \u2014 **$30 off**. Subtotal $218.86, an extra $7.99 discount applied at checkout, then $30 loyalty, landing at **$180.87 paid**. Served by Erik A.\n\n## What was bought\n\n**Gorilla Mind energy \u2014 12 cans, $47.88**\n- Root Beer \u00d74, Fruit Punch \u00d74, Black Cherry Vanilla \u00d72, Wild Grape \u00d72 \u2014 all @ $3.99/can\n\n**Supplements ($120)**\n- NutraBio Leg Day \u2014 Grape Berry Crush, 20 srv, $60 (list $64.99)\n- Enhanced Labs Top T, 120 caps, $60 (list $69.99, **$9.99 off \u2014 best Top T discount to date**)\n\n**Carbs ($47.98)**\n- The Flavor Gang Hot Cereal Bowl O' Gainz \u00d72 \u2014 Strawberry Wafer w/ Biscoff, and Gooby's Pieces PB Choc, 24oz each @ $23.99\n\n**Single ($3)**\n- Phorm Energy RTD \u2014 Grape Smash\n\n## Price note \u26a0\ufe0f\n\n**Gorilla Mind at $3.99/can is the most expensive energy drink per-can on record** \u2014 vs Ghost cases at $2.25/can and the Vitamin Shoppe $1 promo six days later. If Gorilla Mind is the preferred brand, watch for case pricing; if it's interchangeable, Ghost cases are 44% cheaper.\n\n## Top T price history\n\n| Date | Store | Paid | List | Discount |\n|---|---|---:|---:|---|\n| 2026-03-24 | NB Ozone Park | $60.00 | $64.99 | 7.68% |\n| 2026-04-27 | NB Ozone Park | $60.00 (\u00d72) | $64.99 | 7.68% |\n| 2026-07-20 | NB Ozone Park | $60.00 | $69.99 | **14.27%** |\n\nList price rose $5 but the shelf price held at $60 \u2014 the discount absorbed the increase.",
+      "filename": "2026-07-20_natural-body-energy-case-run.md"
+    },
+    {
+      "date": "2026-07-04",
+      "title": "Natural Body Ozone Park \u2014 July 4th 3x Rewards run",
+      "stores": [
+        "Natural Body Ozone Park"
+      ],
+      "actualSpend": 155.98,
+      "supplementActual": 155.98,
+      "itemsBought": 7,
+      "status": "closed",
+      "body": "# 2026-07-04 \u2014 Natural Body Ozone Park (receipt #9821)\n\n## How it went\n\nCaught the **3x Rewards for 4th of July** promo. Served by Steve C. Everything on the receipt carried the promo flag, and two items also had percentage discounts stacked on top. Paid $155.98, saved $12.97 off list, banked $23.40 in rewards.\n\n## What was bought\n\n**Protein / aminos ($117)**\n- NutraBio Whey Protein Isolate \u2014 Raspberry Strudel, 20 srv, $45 (list $49.99)\n- Axe & Sledge The Grind V2 EAAs \u2014 Cluster Candies, 30 srv, $36 (list $39.99)\n- Axe & Sledge The Grind V2 EAAs \u2014 Dead Golf Guy, 30 srv, $36 (list $39.99)\n\n**Micros ($30)**\n- 1st Phorm B-Complex, 60 caps, $30\n\n**Energy singles ($8.98)**\n- Bum Energy RTD \u2014 Iced Tea Lemonade, $2.99\n- Bum Energy RTD \u2014 Dr. Bum, $2.99\n- ABE Performance Energy RTD \u2014 Chiquita Pineapple Strawberry, $3.00\n\n## Notes\n\n- **First EAA purchase of the year** \u2014 two flavors bought together, so this was a deliberate trial not a restock.\n- Bum Energy at $2.99/can here vs $3.29 at Vitamin Shoppe in April. Natural Body still cheaper on Bum.\n- 3x Rewards is the strongest promo mechanic at Natural Body \u2014 worth timing bulk buys around holidays.",
+      "filename": "2026-07-04_natural-body-july4-promo.md"
+    },
     {
       "date": "2026-06-22",
       "title": "Natural Body Ozone Park - receipt #3942 restock",
@@ -3294,7 +3892,7 @@
     }
   ],
   "totals": {
-    "itemCount": 188,
-    "tripCount": 25
+    "itemCount": 213,
+    "tripCount": 40
   }
 }
