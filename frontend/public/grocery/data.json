@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T08:01:08.983401-04:00",
+  "generatedAt": "2026-08-06T10:37:17.168854-04:00",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -3643,6 +3643,154 @@
       "verdict": "Repeated promo case price on 6/13 and 6/22; strong Natural Body default"
     }
   ],
+  "supplementInventory": {
+    "_comment": "Supplement inventory vs OCB prep timeline. Hand-maintained. 'confidence' = how sure we are of the burn rate: 'coach' (Bryan prescribed it explicitly), 'label' (label-directed dose), 'estimate' (inferred from purchase cadence).",
+    "showDate": "2026-09-06",
+    "asOf": "2026-08-06",
+    "planVersion": "V8 (effective 2026-08-02, 5 weeks out)",
+    "items": [
+      {
+        "name": "NuEthix Thyro-Boost Essentials",
+        "role": "Thyroid support \u2014 Bryan: 1 serving before Meal 1, after cardio",
+        "lastBought": "2026-07-27",
+        "source": "Amazon",
+        "cost": 41.99,
+        "servingsPerUnit": 30,
+        "unitsOnHand": 1,
+        "dailyUse": 1,
+        "startedOn": "2026-07-28",
+        "confidence": "coach",
+        "status": "critical",
+        "note": "Bryan prescribed this on Jul 28. A standard 30-serving tub started Jul 28 empties around Aug 27 \u2014 nine days before the show. Reorder before ~Aug 20."
+      },
+      {
+        "name": "Yohimbine HCl (Nutricost)",
+        "role": "Fasted fat loss \u2014 Bryan: 10 mg every day before cardio",
+        "lastBought": "2026-07-27",
+        "source": "Amazon (inside MIXED order $35.86)",
+        "cost": null,
+        "servingsPerUnit": null,
+        "unitsOnHand": 1,
+        "dailyUse": null,
+        "startedOn": "2026-07-28",
+        "confidence": "coach",
+        "status": "verify",
+        "note": "Bryan prescribes 10 mg/day. Nutricost yohimbine is commonly sold as 2.5 mg capsules \u2014 that would be 4 caps/day and a 100-count bottle would last only 25 days, i.e. out around Aug 22. Confirm the bottle's mg-per-cap and count."
+      },
+      {
+        "name": "Life Extension Super Selenium Complex 200 mcg",
+        "role": "Thyroid support \u2014 Bryan: 200 mcg fasted every day before cardio",
+        "lastBought": "2026-07-27",
+        "source": "Amazon (inside MIXED order $35.86)",
+        "cost": null,
+        "servingsPerUnit": 100,
+        "unitsOnHand": 1,
+        "dailyUse": 1,
+        "startedOn": "2026-07-28",
+        "confidence": "coach",
+        "status": "ok",
+        "note": "Standard bottle is 100 capsules at 1/day \u2014 covers well past the show."
+      },
+      {
+        "name": "Musclesport CarniShred + Mitoburn",
+        "role": "Carnitine / fat oxidation support",
+        "lastBought": "2026-06-23",
+        "source": "Natural Body Ozone Park",
+        "cost": 30.0,
+        "servingsPerUnit": 31,
+        "unitsOnHand": 1,
+        "dailyUse": 1,
+        "startedOn": "2026-06-23",
+        "confidence": "estimate",
+        "status": "critical",
+        "note": "Bought roughly every 4-6 weeks all year (1/8, 2/16, 4/27, 5/24, 6/23) \u2014 then nothing for 44 days. At 1 serving/day a 31-serving bottle ran out around Jul 24. Longest gap of the year on the most consistently repurchased item."
+      },
+      {
+        "name": "Core Nutritionals Fury Black Pre-Workout",
+        "role": "Training-day pre-workout",
+        "lastBought": "2026-06-22",
+        "source": "Natural Body Ozone Park",
+        "cost": 48.0,
+        "servingsPerUnit": 20,
+        "unitsOnHand": 1,
+        "dailyUse": 0.71,
+        "startedOn": "2026-06-22",
+        "confidence": "estimate",
+        "status": "low",
+        "note": "Bought 4/27, 5/24, 6/13, 6/22 \u2014 then nothing for 45 days. At ~5 training days/week a 20-serving tub lasts about 4 weeks, so the 6/22 tub likely emptied around Jul 20. NutraBio Leg Day (7/20, 20 srv) may be covering the gap."
+      },
+      {
+        "name": "Axe & Sledge The Grind V2 EAAs",
+        "role": "Intra-workout aminos",
+        "lastBought": "2026-07-04",
+        "source": "Natural Body Ozone Park",
+        "cost": 72.0,
+        "servingsPerUnit": 30,
+        "unitsOnHand": 2,
+        "dailyUse": 1,
+        "startedOn": "2026-07-04",
+        "confidence": "label",
+        "status": "ok",
+        "note": "Two tubs bought together = 60 servings from Jul 4. At 1/day that reaches Sept 2 \u2014 four days before the show. Tight but sufficient if usage stays at one scoop."
+      },
+      {
+        "name": "Enhanced Labs Top T",
+        "role": "Test support",
+        "lastBought": "2026-07-20",
+        "source": "Natural Body Ozone Park",
+        "cost": 60.0,
+        "servingsPerUnit": 120,
+        "unitsOnHand": 1,
+        "dailyUse": 4,
+        "startedOn": "2026-07-20",
+        "confidence": "label",
+        "status": "ok",
+        "note": "720 capsules bought across 3/24, 4/27 (x2), 5/25 (x2), 7/20. At 4 caps/day the 7/20 bottle alone covers 30 days \u2014 through Aug 19 \u2014 and prior bottles likely overlap. Comfortable through the show."
+      },
+      {
+        "name": "Whey protein (Musclesport Lean Whey / NutraBio Isolate)",
+        "role": "Daily protein",
+        "lastBought": "2026-07-04",
+        "source": "Natural Body Ozone Park",
+        "cost": 45.0,
+        "servingsPerUnit": 20,
+        "unitsOnHand": 1,
+        "dailyUse": 1.5,
+        "startedOn": "2026-07-04",
+        "confidence": "estimate",
+        "status": "low",
+        "note": "About 205 servings bought since 4/27 (5 Lean Whey Gourmet, 2 Lean Whey 2lb, 1 NutraBio Isolate). At 1-2 servings/day that stock is largely spent. No whey purchased in 33 days \u2014 the longest gap since prep began."
+      },
+      {
+        "name": "1st Phorm B-Complex",
+        "role": "Daily micros",
+        "lastBought": "2026-07-04",
+        "source": "Natural Body Ozone Park",
+        "cost": 30.0,
+        "servingsPerUnit": 60,
+        "unitsOnHand": 1,
+        "dailyUse": 1,
+        "startedOn": "2026-07-04",
+        "confidence": "label",
+        "status": "ok",
+        "note": "60 capsules from Jul 4 reaches Sept 2. Covered."
+      },
+      {
+        "name": "Amazon micro stack",
+        "role": "Omega-3, Magnesium Glycinate, NAC, Glycine, Zinc, Vitamin C, D+K, ZeroLyte electrolytes, RAW Creatine",
+        "lastBought": "2026-08-06",
+        "source": "Amazon",
+        "cost": 304.31,
+        "servingsPerUnit": null,
+        "unitsOnHand": 1,
+        "dailyUse": null,
+        "startedOn": "2026-07-24",
+        "confidence": "estimate",
+        "status": "ok",
+        "note": "All purchased in the last two weeks \u2014 freshly stocked. Creatine is 100 servings. Electrolytes and glycine align with peak-week water and sleep management."
+      }
+    ]
+  },
   "shoppingList": {
     "needNow": [
       {
