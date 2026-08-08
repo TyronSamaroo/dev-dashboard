@@ -334,10 +334,25 @@ function renderRange(range) {
   document.getElementById('m-supp').textContent = '$' + supp.toFixed(2);
   document.getElementById('m-mom').textContent = '$' + mom.toFixed(2);
   document.getElementById('m-trips').textContent = trips.length;
-  const gPct = (grocery / gTarget * 100).toFixed(0);
-  const sPct = (supp / sTarget * 100).toFixed(0);
-  document.getElementById('m-grocery-sub').textContent = `/ $${gTarget} (${gPct}%)`;
-  document.getElementById('m-supp-sub').textContent = `/ $${sTarget} (${sPct}%)`;
+  // Only compare against the monthly target for single-month ranges; otherwise show a monthly average.
+  const monthsSpanned = new Set(trips.map(t => String(t.date).slice(0, 7))).size || 1;
+  const singleMonth = range === 'month' || range === 'lastmonth';
+  const sub = (val, target) => {
+    if (singleMonth) {
+      const pct = (val / target * 100).toFixed(0);
+      return `/ $${target} target (${pct}%)`;
+    }
+    const avg = val / monthsSpanned;
+    const pct = (avg / target * 100).toFixed(0);
+    return `avg $${avg.toFixed(0)}/mo vs $${target} (${pct}%)`;
+  };
+  const gEl = document.getElementById('m-grocery-sub');
+  const sEl = document.getElementById('m-supp-sub');
+  gEl.textContent = sub(grocery, gTarget);
+  sEl.textContent = sub(supp, sTarget);
+  const over = (val, target) => singleMonth ? val > target : (val / monthsSpanned) > target;
+  gEl.style.color = over(grocery, gTarget) ? 'var(--danger)' : '';
+  sEl.style.color = over(supp, sTarget) ? 'var(--danger)' : '';
   const labels = { month: 'this month', lastmonth: 'last month', quarter: 'this quarter', year: 'this year', all: 'all time' };
   document.getElementById('m-trips-sub').textContent = labels[range] || '';
   // table
