@@ -91,6 +91,35 @@ tr:hover td { background: var(--surface-alt); }
 .store-pill.az { background: #b45309; }
 [data-theme="dark"] .store-pill.az { background: #f59e0b; color: #1a1a1a; }
 .results-meta { font-size: 12px; color: var(--text-faint); margin-top: 12px; text-align: right; }
+
+/* Amazon vs warehouse unit-price comparison */
+.cmp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-bottom: 10px; }
+.cmp { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); }
+.cmp.worst { border-left-color: #dc2626; }
+.cmp.bad   { border-left-color: #f59e0b; }
+.cmp.ok    { border-left-color: var(--text-faint); }
+.cmp.good  { border-left-color: var(--accent); }
+.cmp.unknown { border-left-color: var(--border); border-left-style: dashed; }
+.cmp h4 { font-size: 14px; font-weight: 650; margin-bottom: 10px; }
+.cmp-row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 12.5px; padding: 3px 0; }
+.cmp-row span:first-child { color: var(--text-muted); }
+.cmp-row b { font-variant-numeric: tabular-nums; }
+.cmp-verdict { margin-top: 9px; padding-top: 9px; border-top: 1px dashed var(--border); font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.cmp-delta { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px; margin-left: 6px; }
+.cmp-delta.up { background: rgba(220,38,38,0.12); color: #dc2626; }
+.cmp-delta.down { background: var(--accent-bg); color: var(--accent); }
+.cmp-delta.flat { background: var(--surface-alt); color: var(--text-muted); }
+.cmp-note { font-size: 12px; color: var(--text-faint); margin-bottom: 14px; line-height: 1.55; }
+
+/* type chips */
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.chip { padding: 5px 11px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); font-size: 11.5px; font-weight: 500; cursor: pointer; font-family: inherit; }
+.chip.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+.chip:hover:not(.active) { color: var(--text); }
+.chip .n { opacity: 0.55; margin-left: 5px; font-variant-numeric: tabular-nums; }
+tfoot td { border-top: 2px solid var(--border); font-weight: 700; background: var(--surface-alt); }
+.date-input { padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font-size: 12px; font-family: inherit; }
+.subtype-cell { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
 .empty { color: var(--text-muted); font-size: 14px; padding: 40px 16px; text-align: center; }
 .footer { text-align: center; margin-top: 32px; color: var(--text-faint); font-size: 12px; }
 </style>
@@ -128,6 +157,11 @@ tr:hover td { background: var(--surface-alt); }
       <a href="/grocery/prices/" class="nav-link active">Prices</a>
     </nav>
 
+    <div class="section-title">Amazon vs. warehouse <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint);font-size:11px;">— same staple, normalized to a common unit</span></div>
+    <div class="cmp-note" id="cmp-note"></div>
+    <div class="cmp-grid" id="cmp-grid"></div>
+    <div class="cmp-note" id="cmp-total" style="margin-bottom:26px;"></div>
+
     <div class="section-title">Grocery winners</div>
     <div class="wins" id="wins-grocery"></div>
 
@@ -152,7 +186,18 @@ tr:hover td { background: var(--surface-alt); }
 
     <div class="section-title">All items</div>
     <div class="controls">
-      <input class="search-input" id="search" placeholder="Search items, brands, categories…">
+      <input class="search-input" id="search" placeholder="Search items, brands, types…">
+      <button class="filter-pill kind active" data-kind="all">Everything</button>
+      <button class="filter-pill kind" data-kind="grocery">Groceries</button>
+      <button class="filter-pill kind" data-kind="supplement">Supplements</button>
+      <button class="filter-pill kind" data-kind="household">Household</button>
+      <input class="date-input" id="from" type="date" title="From">
+      <input class="date-input" id="to" type="date" title="To">
+      <button class="text-btn" id="reset-btn">Reset</button>
+      <button class="text-btn" id="csv-btn">Export CSV</button>
+    </div>
+    <div class="chips" id="type-chips"></div>
+    <div class="controls">
       <button class="filter-pill active" data-store="all">All stores</button>
       <button class="filter-pill" data-store="Costco">Costco</button>
       <button class="filter-pill" data-store="BJ's">BJ's</button>
@@ -163,8 +208,9 @@ tr:hover td { background: var(--surface-alt); }
     </div>
     <div class="items-table">
       <table>
-        <thead><tr><th data-sort="date">Date</th><th data-sort="store">Store</th><th data-sort="item">Item</th><th data-sort="category">Category</th><th class="right" data-sort="cost">Cost</th><th class="right" data-sort="costPerServing">$/Srv</th></tr></thead>
+        <thead><tr><th data-sort="date">Date</th><th data-sort="store">Store</th><th data-sort="item">Item</th><th data-sort="subType">Type</th><th class="right" data-sort="cost">Cost</th><th class="right" data-sort="costPerServing">$/Srv</th></tr></thead>
         <tbody id="rows"></tbody>
+        <tfoot id="rows-foot"></tfoot>
       </table>
     </div>
     <div class="results-meta" id="meta"></div>
@@ -210,9 +256,21 @@ document.getElementById('signout-btn').addEventListener('click', () => signOut(a
 let allItems = [];
 let winners = [];
 let filterStore = 'all';
+let filterKind = 'all';
+let filterType = 'all';
+let dateFrom = '';
+let dateTo = '';
 let searchQ = '';
 let sortKey = 'date';
 let sortDir = -1;
+
+const kindOf = it => {
+  const t = String(it.type || '').toLowerCase();
+  const st = String(it.subType || '');
+  if (t === 'supplement' || String(it.category) === 'Supplement') return 'supplement';
+  if (st === 'Household') return 'household';
+  return 'grocery';
+};
 
 const escape = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const storeClass = s => {
@@ -251,9 +309,52 @@ async function loadAndRender() {
     footer.textContent = `${allItems.length} line items across ${tripCount} trips since January`;
   }
   renderWinners();
+  renderCompare(data.unitCompare);
   renderSuppAnalysis(data.supplementAnalysis || []);
   renderCatalog();
+  renderChips();
   renderTable();
+}
+
+function renderCompare(uc) {
+  const grid = document.getElementById('cmp-grid');
+  const note = document.getElementById('cmp-note');
+  const tot = document.getElementById('cmp-total');
+  if (!grid) return;
+  if (!uc || !Array.isArray(uc.rows) || !uc.rows.length) {
+    grid.innerHTML = '<div class="empty">No unit comparisons yet.</div>';
+    note.textContent = ''; tot.textContent = '';
+    return;
+  }
+  note.textContent = uc.note || '';
+  const order = { worst: 0, bad: 1, ok: 2, good: 3, unknown: 4 };
+  const rows = [...uc.rows].sort((a, b) => (order[a.verdict] ?? 9) - (order[b.verdict] ?? 9));
+  grid.innerHTML = rows.map(r => {
+    const line = (label, o) => o
+      ? `<div class="cmp-row"><span>${escape(o.label)}</span><b>$${o.unitPrice.toFixed(o.unitPrice < 1 ? 3 : 2)} <span style="color:var(--text-faint);font-weight:400;">${escape(r.unit)}</span></b></div>`
+      : '';
+    let delta = '';
+    if (r.deltaPct != null) {
+      const cls = r.deltaPct > 5 ? 'up' : (r.deltaPct < -5 ? 'down' : 'flat');
+      const sign = r.deltaPct > 0 ? '+' : '';
+      const word = r.deltaPct > 0 ? 'Amazon costs' : 'Amazon saves';
+      delta = `<span class="cmp-delta ${cls}">${word} ${sign}${r.deltaPct}%</span>`;
+    } else {
+      delta = '<span class="cmp-delta flat">no comparison</span>';
+    }
+    return `<div class="cmp ${escape(r.verdict)}">
+      <h4>${escape(r.item)}${delta}</h4>
+      ${line('amazon', r.amazon)}
+      ${line('alt', r.alt)}
+      ${line('alt2', r.alt2)}
+      <div class="cmp-verdict">${escape(r.detail)}</div>
+    </div>`;
+  }).join('');
+  const waste = rows.reduce((s, r) => s + (r.annualWaste || 0), 0);
+  const known = rows.filter(r => r.annualWaste != null && r.deltaPct != null && r.deltaPct > 5).length;
+  tot.innerHTML = waste
+    ? `Across the ${known} staples where Amazon is the more expensive option, buying them at the warehouse instead would save roughly <b style="color:var(--accent);">$${waste.toLocaleString()}/year</b> at the current purchase cadence. Two rows have no in-store price on record yet.`
+    : '';
 }
 
 function renderSuppAnalysis(rows) {
@@ -377,20 +478,47 @@ function renderCatalog() {
   `).join('') : '<tr><td colspan="5" class="empty">No items bought 2+ times yet — log more trips to populate.</td></tr>';
 }
 
-function renderTable() {
+function matches(it, ignoreType) {
   const q = searchQ.toLowerCase();
-  let rows = allItems.filter(it => {
-    if (filterStore !== 'all') {
-      if (filterStore === 'Natural Body') {
-        if (!String(it.store).startsWith('Natural Body')) return false;
-      } else if (it.store !== filterStore) return false;
-    }
-    if (q) {
-      const hay = (it.item + ' ' + it.category + ' ' + it.store).toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
+  if (filterStore !== 'all') {
+    if (filterStore === 'Natural Body') {
+      if (!String(it.store).startsWith('Natural Body')) return false;
+    } else if (it.store !== filterStore) return false;
+  }
+  if (filterKind !== 'all' && kindOf(it) !== filterKind) return false;
+  if (!ignoreType && filterType !== 'all' && it.subType !== filterType) return false;
+  const d = String(it.date).slice(0, 10);
+  if (dateFrom && d < dateFrom) return false;
+  if (dateTo && d > dateTo) return false;
+  if (q) {
+    const hay = (it.item + ' ' + it.category + ' ' + it.store + ' ' + (it.subType || '')).toLowerCase();
+    if (!hay.includes(q)) return false;
+  }
+  return true;
+}
+
+function renderChips() {
+  const el = document.getElementById('type-chips');
+  if (!el) return;
+  const counts = new Map();
+  for (const it of allItems) {
+    if (!matches(it, true)) continue;
+    const k = it.subType || 'Uncategorized';
+    counts.set(k, (counts.get(k) || 0) + 1);
+  }
+  const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  const total = [...counts.values()].reduce((a, b) => a + b, 0);
+  if (filterType !== 'all' && !counts.has(filterType)) filterType = 'all';
+  el.innerHTML = `<button class="chip ${filterType === 'all' ? 'active' : ''}" data-type="all">All types<span class="n">${total}</span></button>` +
+    sorted.map(([k, n]) => `<button class="chip ${filterType === k ? 'active' : ''}" data-type="${escape(k)}">${escape(k)}<span class="n">${n}</span></button>`).join('');
+  el.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
+    filterType = b.dataset.type;
+    renderChips(); renderTable();
+  }));
+}
+
+function renderTable() {
+  let rows = allItems.filter(it => matches(it, false));
   rows.sort((a, b) => {
     let av = a[sortKey] ?? '';
     let bv = b[sortKey] ?? '';
@@ -407,11 +535,17 @@ function renderTable() {
       <td style="white-space:nowrap;color:var(--text-muted);">${date}</td>
       <td><span class="store-pill ${storeClass(it.store)}">${escape(it.store).replace('Natural Body ','NB ').replace('The Vitamin Shoppe','VS').replace('Stop & Shop','S&S')}</span></td>
       <td>${escape(it.item)}</td>
-      <td style="color:var(--text-muted);font-size:12px;">${escape(it.category)}</td>
+      <td class="subtype-cell">${escape(it.subType || it.category)}</td>
       <td class="right">$${Number(it.cost).toFixed(2)}</td>
       <td class="right" style="color:var(--text-muted);">${cps}</td>
     </tr>`;
   }).join('') : '<tr><td colspan="6" class="empty">No matches</td></tr>';
+  const sum = rows.reduce((s, it) => s + Number(it.cost || 0), 0);
+  const foot = document.getElementById('rows-foot');
+  if (foot) foot.innerHTML = rows.length
+    ? `<tr><td colspan="4">${rows.length} item${rows.length === 1 ? '' : 's'} shown</td><td class="right">$${sum.toFixed(2)}</td><td></td></tr>`
+    : '';
+  window.__visibleRows = rows;
   document.getElementById('meta').textContent = `Showing ${rows.length} of ${allItems.length} items`;
   document.querySelectorAll('th').forEach(th => {
     th.classList.remove('sort-asc', 'sort-desc');
@@ -419,13 +553,43 @@ function renderTable() {
   });
 }
 
-document.getElementById('search').addEventListener('input', e => { searchQ = e.target.value; renderTable(); });
-document.querySelectorAll('.filter-pill').forEach(b => b.addEventListener('click', () => {
-  document.querySelectorAll('.filter-pill').forEach(x => x.classList.remove('active'));
+document.getElementById('search').addEventListener('input', e => { searchQ = e.target.value; renderChips(); renderTable(); });
+document.querySelectorAll('.filter-pill[data-store]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filter-pill[data-store]').forEach(x => x.classList.remove('active'));
   b.classList.add('active');
   filterStore = b.dataset.store;
-  renderTable();
+  renderChips(); renderTable();
 }));
+document.querySelectorAll('.filter-pill[data-kind]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filter-pill[data-kind]').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  filterKind = b.dataset.kind;
+  filterType = 'all';
+  renderChips(); renderTable();
+}));
+document.getElementById('from').addEventListener('change', e => { dateFrom = e.target.value; renderChips(); renderTable(); });
+document.getElementById('to').addEventListener('change', e => { dateTo = e.target.value; renderChips(); renderTable(); });
+document.getElementById('reset-btn').addEventListener('click', () => {
+  filterStore = 'all'; filterKind = 'all'; filterType = 'all'; dateFrom = ''; dateTo = ''; searchQ = '';
+  document.getElementById('search').value = '';
+  document.getElementById('from').value = '';
+  document.getElementById('to').value = '';
+  document.querySelectorAll('.filter-pill[data-store]').forEach(x => x.classList.toggle('active', x.dataset.store === 'all'));
+  document.querySelectorAll('.filter-pill[data-kind]').forEach(x => x.classList.toggle('active', x.dataset.kind === 'all'));
+  renderChips(); renderTable();
+});
+document.getElementById('csv-btn').addEventListener('click', () => {
+  const rows = window.__visibleRows || [];
+  const esc = v => `"${String(v == null ? '' : v).replace(/"/g, '""')}"`;
+  const csv = ['Date,Store,Item,Type,Category,Cost,CostPerServing']
+    .concat(rows.map(r => [String(r.date).slice(0, 10), r.store, r.item, r.subType || '', r.category,
+                           Number(r.cost || 0).toFixed(2), r.costPerServing ?? ''].map(esc).join(',')))
+    .join('\n');
+  const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  const a = document.createElement('a');
+  a.href = url; a.download = `grocery-items-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click(); URL.revokeObjectURL(url);
+});
 document.querySelectorAll('th').forEach(th => th.addEventListener('click', () => {
   const k = th.dataset.sort;
   if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = 1; }

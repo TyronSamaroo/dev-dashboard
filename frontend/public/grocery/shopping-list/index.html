@@ -58,6 +58,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 .store-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--accent-bg); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
 .item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 18px; border-top: 1px solid var(--border); cursor: pointer; transition: background 0.1s; }
 .item:hover { background: var(--bg); }
+.hint { display: block; font-size: 11.5px; font-weight: 500; margin-top: 3px; letter-spacing: 0.1px; }
+.hint.good { color: var(--accent); }
+.hint.warn { color: #b45309; }
+.hint.plain { color: var(--text-faint); }
+[data-theme="dark"] .hint.warn { color: #f59e0b; }
+.item.done .hint { opacity: 0.4; }
 .item input[type="checkbox"] { margin-top: 2px; cursor: pointer; accent-color: var(--accent); width: 18px; height: 18px; flex-shrink: 0; }
 .item label { flex: 1; cursor: pointer; font-size: 15px; line-height: 1.4; }
 .item.done label { text-decoration: line-through; color: var(--text-muted); }
@@ -194,6 +200,20 @@ onAuthStateChanged(auth, async (user) => {
 
 const escapeHtml = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+// Cheapest-place hint. Only rendered when the exact same size was bought in more
+// than one store, so it never compares a 5 oz cup to a 48 oz tub.
+function priceHint(h, currentStore) {
+  if (!h) return '';
+  const cheapestHere = currentStore && h.bestStore === currentStore;
+  const save = h.lastPrice - h.bestPrice;
+  const cls = cheapestHere ? 'good' : (save > 0.75 ? 'warn' : 'plain');
+  const txt = cheapestHere
+    ? `cheapest here — $${h.bestPrice.toFixed(2)}`
+    : `$${h.bestPrice.toFixed(2)} at ${h.bestStore}` +
+      (save > 0.75 ? ` · save $${save.toFixed(2)}` : '');
+  return `<span class="hint ${cls}" title="Last paid $${h.lastPrice.toFixed(2)} at ${h.lastStore} on ${String(h.lastDate).slice(0,10)} · bought ${h.times}×">${escapeHtml(txt)}</span>`;
+}
+
 async function loadAndRender() {
   try {
     const res = await fetch('/grocery/data.json', { cache: 'no-cache' });
@@ -219,7 +239,7 @@ async function loadAndRender() {
               const id = 'n-' + s.store.replace(/\W/g, '') + '-' + i;
               return `<div class="item${it.done ? ' done' : ''}" onclick="document.getElementById('${id}').click()">
                 <input type="checkbox" id="${id}" ${it.done ? 'checked' : ''} onclick="event.stopPropagation();this.closest('.item').classList.toggle('done', this.checked)">
-                <label for="${id}" onclick="event.stopPropagation()">${escapeHtml(it.name)}</label>
+                <label for="${id}" onclick="event.stopPropagation()">${escapeHtml(it.name)}${priceHint(it.hint, s.store)}</label>
               </div>`;
             }).join('')}
           </div>
@@ -232,7 +252,7 @@ async function loadAndRender() {
       <div class="store-card">
         ${restock.map((it, i) => `<div class="item${it.done ? ' done' : ''}" onclick="document.getElementById('r-${i}').click()">
           <input type="checkbox" id="r-${i}" ${it.done ? 'checked' : ''} onclick="event.stopPropagation();this.closest('.item').classList.toggle('done', this.checked)">
-          <label for="r-${i}" onclick="event.stopPropagation()">${escapeHtml(it.name)}</label>
+          <label for="r-${i}" onclick="event.stopPropagation()">${escapeHtml(it.name)}${priceHint(it.hint, null)}</label>
         </div>`).join('')}
       </div>` : '<div class="empty">Nothing flagged for restock.</div>';
 

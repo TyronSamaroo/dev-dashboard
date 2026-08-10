@@ -98,6 +98,22 @@ tr:last-child td { border-bottom: none; }
 .watch { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 12px; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: var(--warn-text); }
 .watch strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; font-weight: 700; }
 .insights { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+
+/* Needs attention — deliberately capped and collapsible so it never becomes wallpaper */
+.att { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; margin-bottom: 20px; }
+.att-head { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 650; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; cursor: pointer; user-select: none; }
+.att-head .count { background: #dc2626; color: #fff; border-radius: 999px; font-size: 10px; padding: 1px 7px; letter-spacing: 0; }
+.att-head .count.calm { background: var(--text-faint); }
+.att-head .caret { margin-left: auto; transition: transform .15s; font-size: 10px; }
+.att.collapsed .caret { transform: rotate(-90deg); }
+.att.collapsed .att-body { display: none; }
+.att-body { margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+.att-item { display: flex; gap: 9px; align-items: baseline; font-size: 13px; line-height: 1.45; }
+.att-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.att-dot.high { background: #dc2626; }
+.att-dot.med { background: #f59e0b; }
+.att-item b { font-weight: 600; }
+.att-item span { color: var(--text-muted); }
 .insight { display: flex; gap: 12px; align-items: flex-start; padding: 12px 16px; border-radius: 10px; font-size: 13px; line-height: 1.5; border: 1px solid transparent; }
 .insight-pill { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; white-space: nowrap; }
 .insight.red    { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
@@ -158,6 +174,8 @@ tr:last-child td { border-bottom: none; }
       <a href="/grocery/trips/" class="nav-link">Trips</a>
       <a href="/grocery/prices/" class="nav-link">Prices</a>
     </nav>
+
+    <div id="attention"></div>
 
     <div class="tabs">
       <div class="tab active" data-range="month">This Month</div>
@@ -294,6 +312,7 @@ async function loadData() {
   try {
     const res = await fetch('/grocery/data.json', { cache: 'no-cache' });
     data = await res.json();
+    renderAttention();
     renderWins();
     renderWatch();
     renderInsights();
@@ -453,6 +472,38 @@ function renderWins() {
       `).join('')}
     </div>
   `).join('');
+}
+
+function renderAttention() {
+  const el = document.getElementById('attention');
+  if (!el) return;
+  const rows = data?.attention || [];
+  if (!rows.length) { el.innerHTML = ''; return; }
+  const high = rows.filter(r => r.level === 'high').length;
+  // remember the open/closed choice, but always open when something is urgent
+  let collapsed = false;
+  try { collapsed = localStorage.getItem('grocery_att') === 'closed'; } catch (e) {}
+  if (high) collapsed = false;
+  const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  el.innerHTML = `
+    <div class="att${collapsed ? ' collapsed' : ''}" id="att-box">
+      <div class="att-head" id="att-toggle">
+        Needs attention
+        <span class="count${high ? '' : ' calm'}">${rows.length}</span>
+        <span class="caret">▼</span>
+      </div>
+      <div class="att-body">
+        ${rows.map(r => `<div class="att-item">
+          <span class="att-dot ${esc(r.level)}"></span>
+          <div><b>${esc(r.title)}</b> — <span>${esc(r.detail)}</span></div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  document.getElementById('att-toggle').addEventListener('click', () => {
+    const box = document.getElementById('att-box');
+    box.classList.toggle('collapsed');
+    try { localStorage.setItem('grocery_att', box.classList.contains('collapsed') ? 'closed' : 'open'); } catch (e) {}
+  });
 }
 
 function renderInsights() {
