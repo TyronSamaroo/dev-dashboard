@@ -1,0 +1,30 @@
+rules_version = '2';
+
+// Security rules for the grocery review decisions.
+//
+// Only the two allowlisted accounts can read or write, and they can only touch
+// the single shared document the review page uses. No purchase data is stored
+// here — only { rowId: { include, forWhom } } decisions.
+//
+// Paste into Firebase console -> Firestore Database -> Rules -> Publish.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isHousehold() {
+      return request.auth != null && request.auth.token.email in [
+        'tyronsamaroo828@gmail.com',
+        'tiffanysamaroo721@gmail.com'
+      ];
+    }
+
+    match /shared/groceryReview {
+      allow read, write: if isHousehold();
+    }
+
+    // Everything else stays closed.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

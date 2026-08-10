@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review — Tyron &amp; Tiffany</title>
+<style>
+:root {
+  --bg: #fafafa; --surface: #ffffff; --surface-alt: #f3f4f6; --border: #e5e7eb;
+  --text: #111827; --text-muted: #6b7280; --text-faint: #9ca3af;
+  --accent: #059669; --accent-bg: #d1fae5;
+  --c-costco: #2563eb; --c-bjs: #7c3aed; --c-ss: #d97706; --c-vs: #0891b2; --c-nb: #db2777;
+  --shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+[data-theme="dark"] {
+  --bg: #0a0a0f; --surface: #12121a; --surface-alt: #1a1a26; --border: #2a2a3a;
+  --text: #e8e8f0; --text-muted: #8888a0; --text-faint: #6b6b80;
+  --accent: #34d399; --accent-bg: rgba(52,211,153,0.15);
+  --c-costco: #4f8fff; --c-bjs: #9d6fff; --c-ss: #f59e0b; --c-vs: #22d3ee; --c-nb: #f472b6;
+  --shadow: none;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.container { max-width: 900px; margin: 0 auto; padding: 28px 20px 80px; }
+
+#gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+.gate-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; max-width: 360px; width: 100%; text-align: center; box-shadow: var(--shadow); }
+.gate-card h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.gate-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+.google-btn { width: 100%; padding: 12px; background: #fff; color: #1f2937; border: 1px solid #d1d5db; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: inherit; }
+.google-btn svg { width: 18px; height: 18px; }
+.err { color: #dc2626; font-size: 13px; margin-top: 14px; min-height: 18px; }
+
+#app { display: none; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+.topbar h1 { font-size: 22px; font-weight: 700; }
+.user-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); }
+.icon-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+.icon-btn svg { width: 14px; height: 14px; }
+.text-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; font-family: inherit; }
+.text-btn:hover { color: var(--text); border-color: var(--text-muted); }
+
+.nav { display: inline-flex; gap: 4px; background: var(--surface-alt); padding: 4px; border-radius: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.nav-link { padding: 8px 16px; border-radius: 8px; color: var(--text-muted); font-size: 13px; font-weight: 500; text-decoration: none; }
+.nav-link.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+
+.bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.mode { display: inline-flex; gap: 3px; background: var(--surface-alt); padding: 3px; border-radius: 9px; }
+.mode button { padding: 7px 13px; border: none; background: transparent; color: var(--text-muted); font-size: 12.5px; font-weight: 500; border-radius: 7px; cursor: pointer; font-family: inherit; }
+.mode button.on { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
+.search { flex: 1; min-width: 170px; padding: 9px 13px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font-size: 13px; font-family: inherit; }
+.search:focus { outline: none; border-color: var(--accent); }
+.sync { font-size: 11.5px; color: var(--text-faint); margin-bottom: 16px; min-height: 16px; }
+.sync.saving { color: var(--accent); }
+.sync.error { color: #dc2626; }
+
+.progress { height: 6px; border-radius: 999px; background: var(--surface-alt); overflow: hidden; margin-bottom: 6px; }
+.progress i { display: block; height: 100%; background: var(--accent); transition: width .3s; }
+
+.trip { background: var(--surface); border: 1px solid var(--border); border-radius: 13px; margin-bottom: 12px; overflow: hidden; box-shadow: var(--shadow); }
+.trip-head { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: var(--surface-alt); font-size: 13px; }
+.trip-head .d { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.trip-head .s { font-weight: 650; }
+.trip-head .t { margin-left: auto; font-weight: 650; font-variant-numeric: tabular-nums; }
+.store-pill { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; color: #fff; }
+.store-pill.costco { background: var(--c-costco); } .store-pill.bjs { background: var(--c-bjs); }
+.store-pill.ss { background: var(--c-ss); } .store-pill.vs { background: var(--c-vs); }
+.store-pill.nb { background: var(--c-nb); } .store-pill.az { background: #b45309; }
+[data-theme="dark"] .store-pill.az { background: #f59e0b; color: #1a1a1a; }
+
+.row { display: flex; align-items: flex-start; gap: 11px; padding: 11px 15px; border-top: 1px solid var(--border); }
+.row.excluded { background: repeating-linear-gradient(45deg, transparent, transparent 9px, var(--surface-alt) 9px, var(--surface-alt) 18px); }
+.row input[type=checkbox] { width: 18px; height: 18px; margin-top: 2px; cursor: pointer; accent-color: var(--accent); flex-shrink: 0; }
+.row .body { flex: 1; min-width: 0; }
+.row .nm { font-size: 13.5px; font-weight: 500; }
+.row.excluded .nm { text-decoration: line-through; color: var(--text-muted); }
+.row .meta { font-size: 11.5px; color: var(--text-faint); margin-top: 2px; }
+.row .cost { font-weight: 650; font-variant-numeric: tabular-nums; font-size: 13.5px; white-space: nowrap; }
+.flag { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; }
+.flag.est { background: rgba(245,158,11,.16); color: #b45309; }
+.flag.lump { background: rgba(220,38,38,.13); color: #dc2626; }
+[data-theme="dark"] .flag.est { color: #f59e0b; } [data-theme="dark"] .flag.lump { color: #f87171; }
+.who { margin-top: 7px; display: flex; gap: 5px; flex-wrap: wrap; }
+.who button { font-size: 11px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-muted); cursor: pointer; font-family: inherit; }
+.who button.on { background: var(--c-nb); border-color: var(--c-nb); color: #fff; }
+.empty { padding: 44px 18px; text-align: center; color: var(--text-muted); font-size: 14px; }
+.empty b { display: block; font-size: 17px; color: var(--text); margin-bottom: 6px; }
+.totals { position: sticky; bottom: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 15px; margin-top: 16px; display: flex; gap: 18px; flex-wrap: wrap; font-size: 12.5px; box-shadow: 0 -2px 12px rgba(0,0,0,.06); }
+.totals div span { color: var(--text-muted); } .totals div b { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body data-theme="light">
+
+<div id="gate">
+  <div class="gate-card">
+    <h1>Review</h1>
+    <p>Tyron &amp; Tiffany only — sign in with your Google account.</p>
+    <button class="google-btn" id="signin-btn">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      Sign in with Google
+    </button>
+    <div class="err" id="login-err"></div>
+  </div>
+</div>
+
+<div id="app">
+  <div class="container">
+    <div class="topbar">
+      <h1>Review</h1>
+      <div class="user-row">
+        <span id="user-email"></span>
+        <button class="icon-btn" id="theme-toggle" title="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24" fill="currentColor"></svg></button>
+        <button class="text-btn" id="signout-btn">Sign out</button>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="/grocery/" class="nav-link">Spending</a>
+      <a href="/grocery/shopping-list/" class="nav-link">Shopping list</a>
+      <a href="/grocery/supplements/" class="nav-link">Supplements</a>
+      <a href="/grocery/trips/" class="nav-link">Trips</a>
+      <a href="/grocery/prices/" class="nav-link">Prices</a>
+      <a href="/grocery/review/" class="nav-link active">Review</a>
+    </nav>
+
+    <div class="progress"><i id="prog" style="width:0%"></i></div>
+    <div class="bar">
+      <div class="mode">
+        <button data-mode="queue" class="on">Needs review</button>
+        <button data-mode="excluded">Not mine</button>
+        <button data-mode="all">Everything</button>
+      </div>
+      <input class="search" id="q" placeholder="Search item or store…">
+    </div>
+    <div class="sync" id="sync"></div>
+
+    <div id="list"></div>
+    <div class="totals" id="totals"></div>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* ---- all state declared before any function runs ---- */
+let data = null;
+let items = [];
+let decisions = {};          // rowId -> { include:bool, forWhom:string }
+let people = [];
+let mode = 'queue';
+let searchQ = '';
+let db = null, unsub = null, saveTimer = null, ready = false;
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD3OoGfTpHI7Ht0_q6fxpuF6ELIijYOGKs",
+  authDomain: "tyron-personal.firebaseapp.com",
+  projectId: "tyron-personal",
+  appId: "1:904054560395:web:fe39d677cacaf0eb05a68e"
+};
+const ALLOWED_EMAILS = ["tyronsamaroo828@gmail.com", "tiffanysamaroo721@gmail.com"];
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+// One shared document so Tyron and Tiffany see each other's decisions.
+const DOC = "shared/groceryReview";
+
+const SUN='<path d="M12 17.5a5.5 5.5 0 110-11 5.5 5.5 0 010 11zM12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>';
+const MOON='<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+function applyTheme(t) {
+  document.body.setAttribute('data-theme', t);
+  document.getElementById('theme-icon').innerHTML = t === 'light' ? MOON : SUN;
+  try { localStorage.setItem('grocery_theme', t); } catch(e) {}
+}
+let savedTheme = 'light';
+try { savedTheme = localStorage.getItem('grocery_theme') || 'light'; } catch(e) {}
+applyTheme(savedTheme);
+document.getElementById('theme-toggle').addEventListener('click',
+  () => applyTheme(document.body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+
+document.getElementById('signin-btn').addEventListener('click', async () => {
+  document.getElementById('login-err').textContent = '';
+  try { await signInWithPopup(auth, provider); }
+  catch (e) { document.getElementById('login-err').textContent = 'Sign-in failed: ' + (e.message || e.code); }
+});
+document.getElementById('signout-btn').addEventListener('click', () => signOut(auth));
+
+const esc = s => String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const storeClass = s => s === 'Costco' ? 'costco' : s === "BJ's" ? 'bjs'
+  : String(s).startsWith('Stop & Shop') ? 'ss' : s === 'The Vitamin Shoppe' ? 'vs'
+  : String(s).startsWith('Natural Body') ? 'nb' : String(s).startsWith('Amazon') ? 'az' : '';
+const shortStore = s => esc(s).replace('Natural Body ','NB ').replace('The Vitamin Shoppe','VS').replace('Stop & Shop','S&S');
+
+function setSync(msg, cls) {
+  const el = document.getElementById('sync');
+  el.textContent = msg; el.className = 'sync' + (cls ? ' ' + cls : '');
+}
+
+onAuthStateChanged(auth, async (user) => {
+  if (user && ALLOWED_EMAILS.includes(user.email)) {
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    document.getElementById('user-email').textContent = user.email;
+    await loadData();
+    startSync();
+  } else if (user) {
+    document.getElementById('login-err').textContent = `${user.email} is not authorized`;
+    setTimeout(() => signOut(auth), 1500);
+  } else {
+    if (unsub) { unsub(); unsub = null; }
+    document.getElementById('gate').style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+  }
+});
+
+async function loadData() {
+  const res = await fetch('/grocery/data.json', { cache: 'no-cache' });
+  data = await res.json();
+  items = (data.items || []).filter(i => i.subType !== 'Fees & credits');
+  people = data.people || ['Me','Tiffany','Mom','Diana','Mark','Guest','Other'];
+  render();
+}
+
+/* Firestore holds only the decisions, never the purchase data itself. If it is
+   unreachable the page still works read-only against localStorage. */
+function startSync() {
+  try {
+    db = getFirestore(app);
+    const ref = doc(db, DOC);
+    unsub = onSnapshot(ref, snap => {
+      decisions = (snap.exists() ? snap.data().decisions : null) || {};
+      ready = true;
+      setSync('Synced — changes appear on Tiffany’s devices too.');
+      render();
+    }, err => {
+      console.warn('firestore', err);
+      loadLocal();
+      setSync('Offline — saving to this device only (' + (err.code || 'error') + ')', 'error');
+    });
+  } catch (e) {
+    loadLocal();
+    setSync('Offline — saving to this device only.', 'error');
+  }
+}
+function loadLocal() {
+  try { decisions = JSON.parse(localStorage.getItem('grocery_decisions') || '{}'); } catch(e) { decisions = {}; }
+  ready = true; render();
+}
+function save() {
+  try { localStorage.setItem('grocery_decisions', JSON.stringify(decisions)); } catch(e) {}
+  if (!db) return;
+  setSync('Saving…', 'saving');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    try {
+      await setDoc(doc(db, DOC), { decisions, updatedAt: new Date().toISOString(),
+                                   updatedBy: auth.currentUser?.email || '' }, { merge: true });
+      setSync('Saved ' + new Date().toLocaleTimeString());
+    } catch (e) {
+      setSync('Could not save to the cloud — kept on this device. ' + (e.code || ''), 'error');
+    }
+  }, 600);
+}
+
+const decOf = it => {
+  const d = decisions[it.rowId];
+  // default: included, and pre-seeded with whatever the tracker already knew
+  return { include: d?.include !== false, forWhom: d?.forWhom ?? (it.forWhom || '') };
+};
+
+function visible() {
+  const q = searchQ.toLowerCase();
+  return items.filter(it => {
+    const d = decOf(it);
+    if (mode === 'queue') {
+      // still needs a look, and hasn't been touched yet
+      if (!it.needsReview || decisions[it.rowId]) return false;
+    } else if (mode === 'excluded') {
+      if (d.include) return false;
+    }
+    if (q) {
+      const hay = (it.item + ' ' + it.store + ' ' + (it.subType || '')).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function render() {
+  const list = document.getElementById('list');
+  if (!list) return;
+  const rows = visible();
+
+  // progress across the whole queue, not just what's on screen
+  const queue = items.filter(i => i.needsReview);
+  const done = queue.filter(i => decisions[i.rowId]).length;
+  document.getElementById('prog').style.width =
+    (queue.length ? Math.round(done / queue.length * 100) : 100) + '%';
+
+  if (!rows.length) {
+    list.innerHTML = mode === 'queue'
+      ? `<div class="empty"><b>Queue is clear</b>All ${queue.length} flagged items have been reviewed. Switch to Everything to browse the rest.</div>`
+      : `<div class="empty"><b>Nothing here</b>${mode === 'excluded' ? 'You haven’t excluded anything yet.' : 'No matches.'}</div>`;
+    renderTotals();
+    return;
+  }
+
+  // group into receipts
+  const groups = new Map();
+  for (const it of rows) {
+    const k = it.date + '|' + it.store;
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(it);
+  }
+  const ordered = [...groups.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+
+  list.innerHTML = ordered.map(([k, rs]) => {
+    const [date, store] = k.split('|');
+    const sum = rs.reduce((s, i) => s + (decOf(i).include ? i.cost : 0), 0);
+    return `<div class="trip">
+      <div class="trip-head">
+        <span class="d">${esc(date)}</span>
+        <span class="store-pill ${storeClass(store)}">${shortStore(store)}</span>
+        <span class="s">${rs.length} item${rs.length === 1 ? '' : 's'}</span>
+        <span class="t">$${sum.toFixed(2)}</span>
+      </div>
+      ${rs.map(it => {
+        const d = decOf(it);
+        const flags = (it.reviewReasons || []).map(r =>
+          /estimate/.test(r) ? '<span class="flag est">est. price</span>'
+          : /lump/.test(r) ? '<span class="flag lump">not itemized</span>' : '').join('');
+        const who = !d.include ? `<div class="who">${
+          people.map(p => `<button data-who="${esc(it.rowId)}|${esc(p)}" class="${d.forWhom === p ? 'on' : ''}">${esc(p)}</button>`).join('')
+        }</div>` : '';
+        return `<div class="row${d.include ? '' : ' excluded'}">
+          <input type="checkbox" data-id="${esc(it.rowId)}" ${d.include ? 'checked' : ''}>
+          <div class="body">
+            <div class="nm">${esc(it.item)}${flags}</div>
+            <div class="meta">${esc(it.subType || it.category)}${d.forWhom ? ' · for ' + esc(d.forWhom) : ''}${(it.reviewReasons||[]).length ? ' · ' + esc(it.reviewReasons[0]) : ''}</div>
+            ${who}
+          </div>
+          <div class="cost">$${Number(it.cost).toFixed(2)}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }).join('');
+
+  list.querySelectorAll('input[type=checkbox]').forEach(cb =>
+    cb.addEventListener('change', () => {
+      const id = cb.dataset.id;
+      const cur = decisions[id] || {};
+      decisions[id] = { ...cur, include: cb.checked, forWhom: cb.checked ? '' : (cur.forWhom || '') };
+      save(); render();
+    }));
+  list.querySelectorAll('button[data-who]').forEach(b =>
+    b.addEventListener('click', () => {
+      const [id, p] = b.dataset.who.split('|');
+      const cur = decisions[id] || { include: false };
+      decisions[id] = { ...cur, forWhom: cur.forWhom === p ? '' : p };
+      save(); render();
+    }));
+
+  renderTotals();
+}
+
+function renderTotals() {
+  const el = document.getElementById('totals');
+  if (!el) return;
+  let mine = 0, out = 0;
+  const byPerson = {};
+  for (const it of items) {
+    const d = decOf(it);
+    if (d.include) { mine += it.cost; }
+    else {
+      out += it.cost;
+      const who = d.forWhom || 'Untagged';
+      byPerson[who] = (byPerson[who] || 0) + it.cost;
+    }
+  }
+  const parts = Object.entries(byPerson).sort((a, b) => b[1] - a[1])
+    .map(([p, v]) => `<div><span>${esc(p)}</span> <b>$${v.toFixed(2)}</b></div>`).join('');
+  el.innerHTML = `<div><span>Counts as mine</span> <b>$${mine.toFixed(2)}</b></div>
+    <div><span>Excluded</span> <b>$${out.toFixed(2)}</b></div>${parts}`;
+}
+
+document.getElementById('q').addEventListener('input', e => { searchQ = e.target.value; render(); });
+document.querySelectorAll('.mode button').forEach(b =>
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.mode button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on'); mode = b.dataset.mode; render();
+  }));
+</script>
+</body>
+</html>

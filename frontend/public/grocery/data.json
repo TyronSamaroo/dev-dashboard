@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T18:38:22.413846-04:00",
+  "generatedAt": "2026-08-10T18:50:09.732393-04:00",
   "targetMonthly": 900,
   "targetGroceryMonthly": 900,
   "targetSupplementMonthly": 300,
@@ -821,14 +821,14 @@
       "store": "Amazon",
       "storeType": "supplement",
       "food": 0,
-      "hh": 0,
-      "supplement": 122.16,
+      "hh": 12.99,
+      "supplement": 108.69,
       "mom": 0,
-      "total": 122.16,
-      "groceryTotal": 0,
-      "itemCount": 0,
+      "total": 121.68,
+      "groceryTotal": 12.99,
+      "itemCount": 1,
       "momCount": 0,
-      "supplementCount": 2
+      "supplementCount": 7
     },
     {
       "date": "2026-07-04",
@@ -1017,12 +1017,12 @@
       "store": "Amazon",
       "storeType": "supplement",
       "food": 0,
-      "hh": 0,
-      "supplement": 39.51,
+      "hh": 12.44,
+      "supplement": 25.6,
       "mom": 0,
-      "total": 39.51,
-      "groceryTotal": 0,
-      "itemCount": 0,
+      "total": 38.04,
+      "groceryTotal": 12.44,
+      "itemCount": 1,
       "momCount": 0,
       "supplementCount": 1
     },
@@ -1100,15 +1100,15 @@
       "date": "2026-07-27",
       "store": "Amazon",
       "storeType": "supplement",
-      "food": 0,
+      "food": 2.48,
       "hh": 0,
-      "supplement": 77.85,
+      "supplement": 76.86,
       "mom": 0,
-      "total": 77.85,
-      "groceryTotal": 0,
-      "itemCount": 0,
+      "total": 79.34,
+      "groceryTotal": 2.48,
+      "itemCount": 1,
       "momCount": 0,
-      "supplementCount": 2
+      "supplementCount": 3
     },
     {
       "date": "2026-07-27",
@@ -1199,12 +1199,12 @@
       "store": "Amazon",
       "storeType": "supplement",
       "food": 0,
-      "hh": 0,
-      "supplement": 58.91,
+      "hh": 32.47,
+      "supplement": 23.25,
       "mom": 0,
-      "total": 58.91,
-      "groceryTotal": 0,
-      "itemCount": 0,
+      "total": 55.72,
+      "groceryTotal": 32.47,
+      "itemCount": 2,
       "momCount": 0,
       "supplementCount": 2
     },
@@ -1348,7 +1348,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "b757d33916f0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1362,7 +1367,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "37ff693d79df",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1376,7 +1386,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "b87c39c59250",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1390,7 +1405,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "7d8cdab87ea8",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1404,7 +1424,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "817ba5b01119",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1418,7 +1443,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "134151c741e1",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1432,7 +1462,12 @@
       "costPerServing": null,
       "notes": "$2.50 instant savings",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "da05d9202d40",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1446,7 +1481,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "786a616f93a5",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1460,7 +1500,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "2cf4f87ca781",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1474,7 +1519,12 @@
       "costPerServing": null,
       "notes": "40.6 oz loaf",
       "storeType": "grocery",
-      "subType": "Bakery"
+      "subType": "Bakery",
+      "rowId": "4fe1e009cf55",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1488,7 +1538,12 @@
       "costPerServing": null,
       "notes": "$3.00 instant savings",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "8b1ff72841fa",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1502,7 +1557,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "10af6b8654f9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1516,7 +1576,12 @@
       "costPerServing": null,
       "notes": "$7.00 instant savings",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "e3b539209caf",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1530,7 +1595,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "d16d83752bea",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1544,7 +1614,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "c64c405ea5b0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1558,7 +1633,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "bf377c39497b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1572,7 +1652,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "91db2ccaf8f4",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1586,7 +1671,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "915b8b929951",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1600,7 +1690,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "75e7ad5b14eb",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1614,7 +1709,12 @@
       "costPerServing": null,
       "notes": "$4.00 instant savings",
       "storeType": "grocery",
-      "subType": "Grocery (other)"
+      "subType": "Grocery (other)",
+      "rowId": "c369d1e4bd16",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1628,7 +1728,12 @@
       "costPerServing": null,
       "notes": "$4.00 instant savings",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "0efdccdf6a8c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1642,7 +1747,12 @@
       "costPerServing": null,
       "notes": "$4.00 instant savings",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "afacf7180224",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1656,7 +1766,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "171be3701252",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1670,7 +1785,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "0f3cd53b38f6",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-08",
@@ -1684,7 +1804,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "0bcb508aa4c9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1698,7 +1823,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Bakery"
+      "subType": "Bakery",
+      "rowId": "571d52771ba9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1712,7 +1842,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "9efe0c5c4471",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1726,7 +1861,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "234dd7545600",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1740,7 +1880,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "1bcd8ffd4aa2",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1754,7 +1899,12 @@
       "costPerServing": null,
       "notes": "Tortillas",
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "afb1f75546b7",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1768,7 +1918,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "4e2e058d2221",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1782,7 +1937,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "2aa1be0ac0cf",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1796,7 +1956,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "f362ccccaf66",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1810,7 +1975,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "a0866ec5a3cf",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-02",
@@ -1824,7 +1994,12 @@
       "costPerServing": null,
       "notes": "2 x $1.99",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "e8c249d5d680",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -1838,7 +2013,12 @@
       "costPerServing": null,
       "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "a69c2e29988a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -1852,7 +2032,12 @@
       "costPerServing": null,
       "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "59a8cc38d1f9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -1866,7 +2051,12 @@
       "costPerServing": null,
       "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
       "storeType": "grocery",
-      "subType": "Snack"
+      "subType": "Snack",
+      "rowId": "b57f383782a9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -1880,7 +2070,12 @@
       "costPerServing": null,
       "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "a701419de871",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -1894,7 +2089,12 @@
       "costPerServing": null,
       "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 1",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "fc220b96466d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -1908,7 +2108,12 @@
       "costPerServing": null,
       "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 2 at $20.79 each",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "b6ac9468aea3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -1922,7 +2127,12 @@
       "costPerServing": null,
       "notes": "BJ's order #287150669; screenshots filed in Finance/receipts/BJs; qty 2 weighted item, item price shown $5.99, total $16.59",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "a74926627075",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -1936,7 +2146,12 @@
       "costPerServing": null,
       "notes": "Receipt #8301; list $54.99, saved $6.99; MDW 4x Rewards",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "999a7c3c107d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -1950,7 +2165,12 @@
       "costPerServing": null,
       "notes": "Receipt #8301; list $34.99, saved $4.99; MDW 4x Rewards",
       "storeType": "supplement",
-      "subType": "Fat burner"
+      "subType": "Fat burner",
+      "rowId": "ddececc0fa08",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -1964,7 +2184,12 @@
       "costPerServing": null,
       "notes": "Receipt #8301; list $59.99, saved $4.99; MDW 4x Rewards",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "c946f5d71136",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -1978,7 +2203,12 @@
       "costPerServing": null,
       "notes": "Receipt #8301; list $59.99, saved $4.99; MDW 4x Rewards",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "25ae79835774",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -1992,7 +2222,12 @@
       "costPerServing": null,
       "notes": "Receipt #8301; taxable smoothie line",
       "storeType": "supplement",
-      "subType": "Ready-to-drink"
+      "subType": "Ready-to-drink",
+      "rowId": "952dd2f0d29e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2006,7 +2241,12 @@
       "costPerServing": null,
       "notes": "Receipt #8301; tax on smoothie line",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "38864050df30",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2020,7 +2260,12 @@
       "costPerServing": null,
       "notes": "Receipt #8303; list $49.99, saved $4.99",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "efb0e1a531d9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2034,7 +2279,12 @@
       "costPerServing": null,
       "notes": "Receipt #8303; paid $30.00 net after loyalty",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "42b2dbffb868",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2048,7 +2298,12 @@
       "costPerServing": null,
       "notes": "E-receipt 01002900107135020260524",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "8d81b96717e5",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2062,7 +2317,12 @@
       "costPerServing": null,
       "notes": "E-receipt 01002900107135020260524",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "2c947f09fb5e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2076,7 +2336,12 @@
       "costPerServing": null,
       "notes": "E-receipt; BOGO 50% promo applied across Ghost energy lines",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "2559f6e4eefc",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2090,7 +2355,12 @@
       "costPerServing": null,
       "notes": "E-receipt line name clipped in Gmail body; paired with Ghost Energy promo",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "704e719e2427",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-24",
@@ -2104,7 +2374,12 @@
       "costPerServing": null,
       "notes": "E-receipt tax; total paid $56.44",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "b96a11f2d5d1",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-25",
@@ -2118,7 +2393,12 @@
       "costPerServing": null,
       "notes": "Costco.com order #1287533602; subtotal $73.98, discount $17.00, delivered 2026-05-27",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "bbb104888c07",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-25",
@@ -2132,7 +2412,12 @@
       "costPerServing": null,
       "notes": "Order #117094; shipped 2026-05-28; list item total before credits",
       "storeType": "supplement",
-      "subType": "Hormonal"
+      "subType": "Hormonal",
+      "rowId": "c3bc8956af68",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-25",
@@ -2146,7 +2431,12 @@
       "costPerServing": null,
       "notes": "Order #117094 discount",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "23eb96f7b939",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-25",
@@ -2160,7 +2450,12 @@
       "costPerServing": null,
       "notes": "Order #117094 loyalty redemption; paid total $40.14",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "904e7046dc2e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-05",
@@ -2174,7 +2469,12 @@
       "costPerServing": null,
       "notes": "Receipt #9060",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "723c1fef7b29",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-13",
@@ -2188,7 +2488,12 @@
       "costPerServing": null,
       "notes": "Receipt #8620; case of 12",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "e6271115ce28",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-13",
@@ -2202,7 +2507,12 @@
       "costPerServing": null,
       "notes": "Receipt #8620; list $44.99, saved $17.99",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "928c886e594e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-13",
@@ -2216,7 +2526,12 @@
       "costPerServing": null,
       "notes": "Receipt #8620; list $54.99, saved $6.99",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "7679717187f2",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -2230,7 +2545,12 @@
       "costPerServing": null,
       "notes": "Receipt #3942; case of 12",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "41a599b190ac",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -2244,7 +2564,12 @@
       "costPerServing": null,
       "notes": "Receipt #3942; list $44.99, saved $17.99",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "3eb308766b05",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -2258,7 +2583,12 @@
       "costPerServing": null,
       "notes": "Receipt #3942; list $54.99, saved $6.99",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "af3674cd58c7",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -2272,7 +2602,12 @@
       "costPerServing": null,
       "notes": "Receipt #3942",
       "storeType": "supplement",
-      "subType": "Bar"
+      "subType": "Bar",
+      "rowId": "bc8ed4a3a84a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2286,7 +2621,12 @@
       "costPerServing": 0.6082857142857142,
       "notes": "Was 23.04 on 3/8 - dropped",
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "dbcf57d7f3c1",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2300,7 +2640,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "c8f35d12008e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2314,7 +2659,12 @@
       "costPerServing": null,
       "notes": "$4.00 coupon applied",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "73e38be87a30",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2328,7 +2678,12 @@
       "costPerServing": 2.221666666666667,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "f5d2275e1316",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2342,7 +2697,12 @@
       "costPerServing": null,
       "notes": "$3.50 coupon applied",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "29fa174fd33e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2356,7 +2716,12 @@
       "costPerServing": null,
       "notes": "New item",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "6206422efe94",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2370,7 +2735,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "22b8480db296",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2384,7 +2754,14 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "2ae47203615c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-04-17",
@@ -2398,7 +2775,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "942a5b1db4ff",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2412,7 +2794,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "2666dfdadb82",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2426,7 +2813,12 @@
       "costPerServing": 0.1622916666666667,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "efe99ac201a6",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2440,7 +2832,12 @@
       "costPerServing": null,
       "notes": "Swap candidate vs Laura Lean",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "1ca462876b4b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2454,7 +2851,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "bec7325fe446",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2468,7 +2870,12 @@
       "costPerServing": 0.05465625,
       "notes": "$4.50 coupon. FSA eligible",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "3a009bf32a5f",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2482,7 +2889,12 @@
       "costPerServing": 0.07410344827586206,
       "notes": "FSA eligible",
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "b171734e075c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2496,7 +2908,12 @@
       "costPerServing": 4.663333333333333,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "4779fa9c1e6a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2510,7 +2927,12 @@
       "costPerServing": 2.142142857142857,
       "notes": "Biggest line item",
       "storeType": "grocery",
-      "subType": "Bakery"
+      "subType": "Bakery",
+      "rowId": "45460a0a277f",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2524,7 +2946,12 @@
       "costPerServing": 3.495,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "485a0dcb87a4",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2538,7 +2965,12 @@
       "costPerServing": 0.1041304347826087,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "5125438a17fa",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2552,7 +2984,12 @@
       "costPerServing": 0.2268181818181818,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "c84ff7890611",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2566,7 +3003,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "e132ba14bc72",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2580,7 +3022,12 @@
       "costPerServing": 0.280625,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "a99d90e95092",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2594,7 +3041,12 @@
       "costPerServing": 0.280625,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "1f90f45f9de4",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2608,7 +3060,12 @@
       "costPerServing": 0.04885416666666667,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "4435622c41d2",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2622,7 +3079,12 @@
       "costPerServing": 0.1809375,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "1241f50e5cab",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2636,7 +3098,12 @@
       "costPerServing": 3.4975,
       "notes": "$1.50 coupon applied; net $12.49",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "ed439f7eba8c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2650,7 +3117,12 @@
       "costPerServing": 7.495,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "31d49dec20c1",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-17",
@@ -2664,7 +3136,12 @@
       "costPerServing": 0.06919230769230769,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "28329c5be350",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2678,7 +3155,12 @@
       "costPerServing": 6.7475,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "c64c4d60216d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2692,7 +3174,12 @@
       "costPerServing": 7.995,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "5d4a205a00ab",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2706,7 +3193,12 @@
       "costPerServing": 0.333125,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "376b03b1fcf3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2720,7 +3212,12 @@
       "costPerServing": 2.33,
       "notes": "Mom care pkg",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "73126bafc541",
+      "estimate": false,
+      "forWhom": "Mom",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2734,7 +3231,12 @@
       "costPerServing": 0.529,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "efc77b446474",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2748,7 +3250,12 @@
       "costPerServing": null,
       "notes": "Was $1.99 on 4/17 \u2014 +25% price increase",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "d59f70942fc7",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2762,7 +3269,12 @@
       "costPerServing": 3.495,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "c9d197eb0d04",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2776,7 +3288,12 @@
       "costPerServing": 0.9967,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "87fe0abb6ce5",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2790,7 +3307,12 @@
       "costPerServing": 0.280625,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "f0cb60e5e4ee",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2804,7 +3326,12 @@
       "costPerServing": 0.048854,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "be79c02b77ea",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2818,7 +3345,12 @@
       "costPerServing": 1.74875,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "1e8861c14ec9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2832,7 +3364,12 @@
       "costPerServing": 0.436875,
       "notes": "Mom care pkg",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "c76cb84e0a84",
+      "estimate": false,
+      "forWhom": "Mom",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2846,7 +3383,12 @@
       "costPerServing": 19.98,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "6e6861d41de8",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2860,7 +3402,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Bakery"
+      "subType": "Bakery",
+      "rowId": "3c8596fdafe4",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2874,7 +3421,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "7493950c7535",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2888,7 +3440,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "d0d773c68a5c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2902,7 +3459,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "2498cd94a99d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2916,7 +3478,12 @@
       "costPerServing": null,
       "notes": "Energy drink, qty 1 of 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "7908e3eca349",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2930,7 +3497,12 @@
       "costPerServing": null,
       "notes": "Energy drink, qty 2 of 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "7908e3eca349-2",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2944,7 +3516,12 @@
       "costPerServing": null,
       "notes": "Energy drink, qty 1 of 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "146caf4d0380",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2958,7 +3535,12 @@
       "costPerServing": null,
       "notes": "Energy drink, qty 2 of 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "146caf4d0380-2",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2972,7 +3554,12 @@
       "costPerServing": null,
       "notes": "Energy drink, qty 1 of 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "88eb18eb190e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -2986,7 +3573,12 @@
       "costPerServing": null,
       "notes": "Energy drink, qty 2 of 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "88eb18eb190e-2",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-26",
@@ -3000,7 +3592,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "4d69457a9bc3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3014,7 +3611,12 @@
       "costPerServing": 2.5,
       "notes": "Promo 2 for $5 (saved $1) - 16oz",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "868dd4ba7908",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3028,7 +3630,12 @@
       "costPerServing": 2.5,
       "notes": "Promo 2 for $5 (saved $1) - 16oz",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "f3bbcb910890",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3042,7 +3649,12 @@
       "costPerServing": 2.5,
       "notes": "Promo 2 for $5 (saved $1) - 16oz",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "3708701511f6",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3056,7 +3668,12 @@
       "costPerServing": 2.5,
       "notes": "Promo 2 for $5 (saved $1) - 16oz",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "2235c7e2315a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3070,7 +3687,12 @@
       "costPerServing": 2.5,
       "notes": "Promo 2 for $5 (saved $1) - 16oz",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "2b81754afb4b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3084,7 +3706,12 @@
       "costPerServing": 3.0,
       "notes": "Full price (no promo) - 16oz",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "3b1b0c84cdae",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3098,7 +3725,12 @@
       "costPerServing": 1.8,
       "notes": "List $52.99, saved $7.99 (15.08%)",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "392248f57520",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3112,7 +3744,12 @@
       "costPerServing": 1.8,
       "notes": "List $52.99, saved $7.99 (15.08%)",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "d56563452026",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3126,7 +3763,12 @@
       "costPerServing": 1.8,
       "notes": "List $52.99, saved $7.99 (15.08%)",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "24ecc8e305b8",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3140,7 +3782,12 @@
       "costPerServing": 60.0,
       "notes": "Qty 2 @ $60 each, list $64.99 ea, saved $4.99 ea (7.68%)",
       "storeType": "supplement",
-      "subType": "Hormonal"
+      "subType": "Hormonal",
+      "rowId": "9e558faf1ebf",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3154,7 +3801,12 @@
       "costPerServing": 2.25,
       "notes": "List $49.99, saved $4.99 (9.98%)",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "f5c550fdeb3a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3168,7 +3820,12 @@
       "costPerServing": 2.4,
       "notes": "List $54.99, saved $6.99 (12.71%)",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "21ade7ec762f",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3182,7 +3839,12 @@
       "costPerServing": 0.97,
       "notes": "List $34.99, saved $4.99 (14.26%) - Baja Splash",
       "storeType": "supplement",
-      "subType": "Fat burner"
+      "subType": "Fat burner",
+      "rowId": "bf646fee381e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-27",
@@ -3196,7 +3858,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "696771c3ad46",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3210,7 +3877,12 @@
       "costPerServing": 2.25,
       "notes": "Promo 24.75% off (saved $0.74) - 16oz, qty 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "1be5015d582d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3224,7 +3896,12 @@
       "costPerServing": 2.25,
       "notes": "Promo 24.75% off (saved $0.74/can) - 16oz, qty 4",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "a5f77d14e2e5",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3238,7 +3915,12 @@
       "costPerServing": 2.25,
       "notes": "Promo 24.75% off - 16oz, qty 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "779756754d04",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3252,7 +3934,12 @@
       "costPerServing": 2.25,
       "notes": "Promo 24.75% off - 16oz, qty 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "37741fe3c9f0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3266,7 +3953,12 @@
       "costPerServing": 2.25,
       "notes": "Promo 24.75% off - 16oz, qty 2",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "e6ac797d3291",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3280,7 +3972,12 @@
       "costPerServing": 1.0,
       "notes": "Hot rice cereal",
       "storeType": "supplement",
-      "subType": "Carb / food"
+      "subType": "Carb / food",
+      "rowId": "073922919be6",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3294,7 +3991,12 @@
       "costPerServing": 0.92,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Carb / food"
+      "subType": "Carb / food",
+      "rowId": "b66f8f11b6fd",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3308,7 +4010,12 @@
       "costPerServing": 1.67,
       "notes": "List $54.99, saved $5.00 (9.09%)",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "fcbb1fda4623",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3322,7 +4029,12 @@
       "costPerServing": 2.5,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "8202e1d11919",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3336,7 +4048,12 @@
       "costPerServing": 0.73,
       "notes": "Qty 2 @ $22.50 ea, list $34.99 ea, saved $12.49 (35.7%) - Note: short",
       "storeType": "supplement",
-      "subType": "Fat burner"
+      "subType": "Fat burner",
+      "rowId": "149078250cca",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-08",
@@ -3350,7 +4067,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "283dee51a4b0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-16",
@@ -3364,7 +4086,12 @@
       "costPerServing": 2.25,
       "notes": "Qty 2 cases @ $26.99 \u2014 3x Rewards Presidents' Day promo",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "f7bb97fc1590",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-16",
@@ -3378,7 +4105,12 @@
       "costPerServing": 1.67,
       "notes": "List $54.99, saved $5.00 (9.09%) - 3x Rewards",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "5023b3824d19",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-16",
@@ -3392,7 +4124,12 @@
       "costPerServing": null,
       "notes": "2lb tub - 3x Rewards Presidents' Day",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "11d0c04457f7",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-16",
@@ -3406,7 +4143,12 @@
       "costPerServing": 0.41,
       "notes": "3x Rewards Presidents' Day",
       "storeType": "supplement",
-      "subType": "Hormonal"
+      "subType": "Hormonal",
+      "rowId": "65f9762d4752",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-16",
@@ -3420,7 +4162,12 @@
       "costPerServing": 0.97,
       "notes": "List $34.99, saved $5.00 (14.29%) - 3x Rewards",
       "storeType": "supplement",
-      "subType": "Fat burner"
+      "subType": "Fat burner",
+      "rowId": "0572b5c9ac17",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-16",
@@ -3434,7 +4181,12 @@
       "costPerServing": 2.99,
       "notes": "1 bar - 3x Rewards",
       "storeType": "supplement",
-      "subType": "Bar"
+      "subType": "Bar",
+      "rowId": "c280afad9ed8",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-16",
@@ -3448,7 +4200,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "599027354b01",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-24",
@@ -3462,7 +4219,12 @@
       "costPerServing": 2.25,
       "notes": "List $49.99, saved $4.99 (9.98%)",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "81e8f06dc801",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-24",
@@ -3476,7 +4238,12 @@
       "costPerServing": 0.5,
       "notes": "List $64.99, saved $4.99 (7.68%)",
       "storeType": "supplement",
-      "subType": "Hormonal"
+      "subType": "Hormonal",
+      "rowId": "24d95099d07c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-24",
@@ -3490,7 +4257,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "1904fd07c52e",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-02",
@@ -3504,7 +4276,12 @@
       "costPerServing": 1.8,
       "notes": "List $52.99, saved $7.99 (15.08%)",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "c3fa05be8112",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-02",
@@ -3518,7 +4295,12 @@
       "costPerServing": 1.8,
       "notes": "List $52.99, saved $7.99 (15.08%)",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "be93b7ba4d8b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-02",
@@ -3532,7 +4314,12 @@
       "costPerServing": 2.5,
       "notes": "Promo 2 for $5 (saved $1) - 16oz",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "06a3d8e27029",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-02",
@@ -3546,7 +4333,12 @@
       "costPerServing": null,
       "notes": null,
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "f2a1febaa59c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -3560,7 +4352,12 @@
       "costPerServing": 3.4975,
       "notes": "Order #287150669; same-day delivery; repeat price from 4/17",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "06d3118e113d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -3574,7 +4371,12 @@
       "costPerServing": 1.0967,
       "notes": "Was $2.99 on 4/26; now $3.29",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "9b8d12e2e371",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -3588,7 +4390,12 @@
       "costPerServing": 20.79,
       "notes": "Quantity 2 at $20.79 each",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "3d3dc06936d3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-22",
@@ -3602,7 +4409,12 @@
       "costPerServing": 8.295,
       "notes": "Quantity 2; weighted receipt line showed $5.99 item price and $16.59 total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "da88e49bde36",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-23",
@@ -3616,7 +4428,12 @@
       "costPerServing": 0.97,
       "notes": "List $34.99, saved $4.99 (14.26%) - AmEx, rcpt #9203",
       "storeType": "supplement",
-      "subType": "Fat burner"
+      "subType": "Fat burner",
+      "rowId": "40a96ac480d9",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -3630,7 +4447,12 @@
       "costPerServing": 2.25,
       "notes": "List $49.99, saved $4.99 - 3x Rewards July 4th, rcpt #9821",
       "storeType": "supplement",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "cba18fdcd5e3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -3644,7 +4466,12 @@
       "costPerServing": 1.2,
       "notes": "List $39.99, saved $3.99 - 3x Rewards, rcpt #9821",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "ea680f659c58",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -3658,7 +4485,12 @@
       "costPerServing": 1.2,
       "notes": "List $39.99, saved $3.99 - 3x Rewards, rcpt #9821",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "0669baf7891f",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -3672,7 +4504,12 @@
       "costPerServing": 0.5,
       "notes": "3x Rewards July 4th, rcpt #9821",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "75411db8b8b3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -3686,7 +4523,12 @@
       "costPerServing": 2.99,
       "notes": "12oz can, rcpt #9821",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "b3c45ed548a0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -3700,7 +4542,12 @@
       "costPerServing": 2.99,
       "notes": "12oz can, rcpt #9821",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "a1c9965b480b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -3714,7 +4561,12 @@
       "costPerServing": 3.0,
       "notes": "12oz can, rcpt #9821",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "5798eeff7e8b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3728,7 +4580,12 @@
       "costPerServing": 3.99,
       "notes": "16oz x4, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "104469097bfd",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3742,7 +4599,12 @@
       "costPerServing": 3.99,
       "notes": "16oz x4, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "761e29d0f1dc",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3756,7 +4618,12 @@
       "costPerServing": 3.99,
       "notes": "16oz x2, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "970592fab9d4",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3770,7 +4637,12 @@
       "costPerServing": 3.99,
       "notes": "16oz x2, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "57d83dc0c166",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3784,7 +4656,12 @@
       "costPerServing": 3.0,
       "notes": "List $64.99, saved $4.99 (7.68%), rcpt #10737",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "bb2e8fc5ea48",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3798,7 +4675,12 @@
       "costPerServing": null,
       "notes": "24oz, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Carb / food"
+      "subType": "Carb / food",
+      "rowId": "ceeaacd5a9ee",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3812,7 +4694,12 @@
       "costPerServing": null,
       "notes": "24oz, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Carb / food"
+      "subType": "Carb / food",
+      "rowId": "2ae403012807",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3826,7 +4713,12 @@
       "costPerServing": 3.0,
       "notes": "16oz can, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "80990031d124",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3840,7 +4732,12 @@
       "costPerServing": 1.0,
       "notes": "List $69.99, saved $9.99 (14.27%), rcpt #10737",
       "storeType": "supplement",
-      "subType": "Hormonal"
+      "subType": "Hormonal",
+      "rowId": "7fd82bc7bf27",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3854,7 +4751,12 @@
       "costPerServing": null,
       "notes": "Applied at checkout, rcpt #10737",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "851636daf4ed",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -3868,7 +4770,12 @@
       "costPerServing": null,
       "notes": "rcpt #10737 - paid $180.87",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "0ad2d52f059a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -3882,7 +4789,12 @@
       "costPerServing": 2.5,
       "notes": "Garden City #0324, txn 82954",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "8b9b3d4dcc84",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -3896,7 +4808,12 @@
       "costPerServing": 3.49,
       "notes": "Garden City #0324, txn 82954",
       "storeType": "supplement",
-      "subType": "Bar"
+      "subType": "Bar",
+      "rowId": "8a9f414fdda1",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -3910,7 +4827,12 @@
       "costPerServing": null,
       "notes": "Total paid $36.07, AmEx ****0043",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "2dd2564c0d5c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -3924,7 +4846,12 @@
       "costPerServing": 1.0,
       "notes": "$1 promo (reg $2.49/ea) - Oceanside #0029 txn 78312",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "837f9e38b436",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -3938,7 +4865,12 @@
       "costPerServing": 1.0,
       "notes": "$1 promo (reg $2.49/ea) - Oceanside #0029 txn 78312",
       "storeType": "supplement",
-      "subType": "Ready-to-drink"
+      "subType": "Ready-to-drink",
+      "rowId": "cb351e8ece52",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -3952,7 +4884,12 @@
       "costPerServing": null,
       "notes": "Total paid $6.52, AmEx ****0043",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "015abf3d02ab",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -3966,7 +4903,12 @@
       "costPerServing": 8.48,
       "notes": "Oceanside #0029 txn 78313",
       "storeType": "supplement",
-      "subType": "Household"
+      "subType": "Household",
+      "rowId": "1b35f9e5b688",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -3980,7 +4922,12 @@
       "costPerServing": 1.0,
       "notes": "$1 promo (reg $2.49/ea) - txn 78313",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "48198e5903ed",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -3994,7 +4941,12 @@
       "costPerServing": 1.0,
       "notes": "$1 promo (reg $2.49/ea) - txn 78313",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "9d76904f1a3f",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -4008,7 +4960,12 @@
       "costPerServing": null,
       "notes": "Subtotal $14.48",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "a9df21beb447",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-26",
@@ -4022,7 +4979,12 @@
       "costPerServing": null,
       "notes": "Total paid $15.73 ($10.73 card + $5 reward)",
       "storeType": "supplement",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "1ccc83bb83e7",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-29",
@@ -4036,7 +4998,14 @@
       "costPerServing": null,
       "notes": "Order-level only; Uber Eats does not itemize in the receipt email. Includes service fee and tip.",
       "storeType": "grocery",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "964eb7274ad6",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-01-01",
@@ -4050,7 +5019,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "57e42bc51d39",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-05",
@@ -4064,7 +5038,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "5a0e2a007515",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-10",
@@ -4078,7 +5057,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "e2bf77b7873d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-11",
@@ -4092,7 +5076,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "76cb8ad1ff93",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-13",
@@ -4106,7 +5095,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Adaptogen"
+      "subType": "Adaptogen",
+      "rowId": "83f405cf1bc7",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-14",
@@ -4120,7 +5114,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "25f3bd17ca82",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-18",
@@ -4134,7 +5133,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "0f6c20ebb389",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-01-19",
@@ -4148,7 +5152,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Omega / fat"
+      "subType": "Omega / fat",
+      "rowId": "690b24ca4670",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-02",
@@ -4162,7 +5171,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Pre-workout"
+      "subType": "Pre-workout",
+      "rowId": "92f0e0d9f16a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-09",
@@ -4176,7 +5190,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "9fa7305e9219",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-10",
@@ -4190,7 +5209,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "7e186bf6e595",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-02-12",
@@ -4204,7 +5228,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "77a4fdebfa7d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-01",
@@ -4218,7 +5247,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Omega / fat"
+      "subType": "Omega / fat",
+      "rowId": "ac01beed6ce6",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-04",
@@ -4232,7 +5266,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "143586347ade",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-06",
@@ -4246,7 +5285,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "559097b300ff",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-13",
@@ -4260,7 +5304,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "6327905b85a0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-13",
@@ -4274,7 +5323,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "04e68d8684b3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-15",
@@ -4288,7 +5342,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "bffa95b4ab33",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-15",
@@ -4302,7 +5361,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "db4364771be0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-16",
@@ -4316,7 +5380,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "8507205c8247",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-19",
@@ -4330,7 +5399,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "28a65e5d67c4",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-20",
@@ -4344,7 +5418,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "eebb92c44053",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-26",
@@ -4358,7 +5437,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "e0426e068125",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-03-31",
@@ -4372,7 +5456,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Adaptogen"
+      "subType": "Adaptogen",
+      "rowId": "82ec428c2421",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-02",
@@ -4386,7 +5475,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Creatine"
+      "subType": "Creatine",
+      "rowId": "124d02e7edfa",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-12",
@@ -4400,7 +5494,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "e174c7d3acbc",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-12",
@@ -4414,7 +5513,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "6629625dfbf8",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-04-19",
@@ -4428,7 +5532,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Vitamin"
+      "subType": "Vitamin",
+      "rowId": "8fa8a6179cc3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-09",
@@ -4442,7 +5551,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "071d66518a07",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-10",
@@ -4456,7 +5570,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Creatine"
+      "subType": "Creatine",
+      "rowId": "f9e8b0ce3d7b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-10",
@@ -4470,7 +5589,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "3067231e83f8",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-10",
@@ -4484,7 +5608,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "2d96ce964b8c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-17",
@@ -4498,7 +5627,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Creatine"
+      "subType": "Creatine",
+      "rowId": "8cf5d88cd505",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-05-21",
@@ -4512,7 +5646,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "80c5b33e5916",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-02",
@@ -4526,7 +5665,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Collagen"
+      "subType": "Collagen",
+      "rowId": "c4f4f4880552",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-12",
@@ -4540,7 +5684,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "4e168cad1453",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-12",
@@ -4554,7 +5703,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "76d6b11fa109",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-14",
@@ -4568,7 +5722,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "27d59891645b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-23",
@@ -4582,7 +5741,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Creatine"
+      "subType": "Creatine",
+      "rowId": "c52f44305668",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-24",
@@ -4596,7 +5760,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Energy drink"
+      "subType": "Energy drink",
+      "rowId": "f570529519f5",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-06-26",
@@ -4610,21 +5779,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Adaptogen"
-    },
-    {
-      "date": "2026-06-26",
-      "itemCode": null,
-      "store": "Amazon",
-      "item": "Nutricost L-Theanine 200mg (multi-item order)",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 110.2,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
-      "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Adaptogen",
+      "rowId": "c9dfc49d78e6",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -4638,7 +5798,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "e5b3f4f92a53",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-04",
@@ -4652,7 +5817,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Omega / fat"
+      "subType": "Omega / fat",
+      "rowId": "fd9765be9850",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-15",
@@ -4666,7 +5836,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "f2885d9d7961",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-17",
@@ -4680,7 +5855,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "56fe79872448",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -4694,7 +5874,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "097931cbb11f",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-20",
@@ -4708,21 +5893,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Collagen"
-    },
-    {
-      "date": "2026-07-24",
-      "itemCode": null,
-      "store": "Amazon",
-      "item": "MIXED \u2014 Nutricost Omega 3 + flour sifter",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 39.51,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
-      "storeType": "supplement",
-      "subType": "Omega / fat"
+      "subType": "Collagen",
+      "rowId": "79e9ad253b09",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-25",
@@ -4736,7 +5912,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Mineral",
+      "rowId": "76646f54b210",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-25",
@@ -4750,21 +5931,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Electrolyte"
-    },
-    {
-      "date": "2026-07-27",
-      "itemCode": null,
-      "store": "Amazon",
-      "item": "MIXED \u2014 Life Ext Selenium 200mcg + taco seasoning",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 35.86,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
-      "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Electrolyte",
+      "rowId": "8f9ebbdf4fbd",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-27",
@@ -4778,7 +5950,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Hormonal"
+      "subType": "Hormonal",
+      "rowId": "6a9497550ee3",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -4792,7 +5969,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "304bea670143",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-31",
@@ -4806,7 +5988,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "f0f84fde5862",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-01",
@@ -4820,21 +6007,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
-    },
-    {
-      "date": "2026-08-01",
-      "itemCode": null,
-      "store": "Amazon",
-      "item": "MIXED \u2014 Life Ext Zinc Lozenges + magnets",
-      "category": "Supplement",
-      "type": "Supplement",
-      "cost": 46.91,
-      "servings": null,
-      "costPerServing": null,
-      "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
-      "storeType": "supplement",
-      "subType": "Mineral"
+      "subType": "Amino acid",
+      "rowId": "3f1631c9306b",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-02",
@@ -4848,7 +6026,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "c3c7bdb06f19",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-04",
@@ -4862,7 +6045,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "b4d961fd0bcc",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-06",
@@ -4876,7 +6064,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "supplement",
-      "subType": "Creatine"
+      "subType": "Creatine",
+      "rowId": "1b9030c5716a",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-06",
@@ -4890,7 +6083,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-06; ship-to verified",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "824b03d70fc0",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-09",
@@ -4904,7 +6102,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "2e365ce43b25",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -4918,7 +6123,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "18af291aa62c",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -4932,7 +6144,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "5cc2bafbb1e0",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -4946,7 +6165,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "supplement",
-      "subType": "Adaptogen"
+      "subType": "Adaptogen",
+      "rowId": "81c82352dc68",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-09",
@@ -4960,7 +6184,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "supplement",
-      "subType": "Amino acid"
+      "subType": "Amino acid",
+      "rowId": "6e6a1253d6d7",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-09",
@@ -4974,7 +6203,12 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "supplement",
-      "subType": "Omega / fat"
+      "subType": "Omega / fat",
+      "rowId": "4140f59dbde1",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-09",
@@ -4988,7 +6222,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "e420fa81e9b7",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -5002,7 +6243,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "ddf6ec9960b5",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -5016,7 +6264,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "903d57b9c2a3",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -5030,7 +6285,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "2f8d8d4e0660",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -5044,7 +6306,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "f0f6a4140049",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -5058,7 +6327,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "5cc2bafbb1e0-2",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -5072,7 +6348,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Snack"
+      "subType": "Snack",
+      "rowId": "d52c0e174bea",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-09",
@@ -5086,7 +6369,14 @@
       "costPerServing": null,
       "notes": "Amazon order history sweep 2026-08-10; ship-to verified",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "76fd7ec68570",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-06-23",
@@ -5100,7 +6390,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "7adcfe04f10b",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-06-23",
@@ -5114,7 +6411,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Frozen"
+      "subType": "Frozen",
+      "rowId": "4134e6d145c0",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-06-23",
@@ -5128,7 +6432,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "f1a0b4d7a1d4",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-06-23",
@@ -5142,7 +6453,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "db9328de9f06",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-06-23",
@@ -5156,7 +6474,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "7fb3516be4f4",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-06-23",
@@ -5170,7 +6495,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "ebc03f5241b2",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-04",
@@ -5184,7 +6516,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "b20e583c593e",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-04",
@@ -5198,7 +6537,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "b652144c4597",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-04",
@@ -5212,7 +6558,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "a277372d262b",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-08",
@@ -5226,7 +6579,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "083511c3a913",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-08",
@@ -5240,7 +6600,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "ef0f0942b245",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-08",
@@ -5254,7 +6621,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "7c99c7a3833d",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-16",
@@ -5268,7 +6642,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "fb82fe5311f1",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-16",
@@ -5282,7 +6663,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "8aeeeafe4756",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-16",
@@ -5296,7 +6684,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "dfddefef1c67",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-16",
@@ -5310,7 +6705,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "01a126e89132",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-20",
@@ -5324,7 +6726,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "2638b0e35b3a",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-20",
@@ -5338,7 +6747,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "ce6847b38d9d",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-22",
@@ -5352,7 +6768,15 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "e45927b60b63",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-22",
@@ -5366,7 +6790,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "f68fbac54a08",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-22",
@@ -5380,7 +6811,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "db00c313f515",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-22",
@@ -5394,7 +6832,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "b9410398259c",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-22",
@@ -5408,7 +6853,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "21d1ed60a4f8",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-22",
@@ -5422,7 +6874,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "f4aa507a2944",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-22",
@@ -5436,7 +6895,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "1d0fac1cbec1",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-24",
@@ -5450,7 +6916,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "12e079e01e90",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-24",
@@ -5464,7 +6937,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "fa4e84d6f7da",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-25",
@@ -5478,7 +6958,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "868b30551e96",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-25",
@@ -5492,7 +6979,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "11a19664ba28",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-26",
@@ -5506,7 +7000,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "869b1ddfe2c8",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-26",
@@ -5520,7 +7021,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "15064d11ba6d",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-27",
@@ -5534,7 +7042,15 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "9d020bc75b24",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-27",
@@ -5548,7 +7064,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "ce36c3339fb1",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-07-30",
@@ -5562,7 +7085,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "266a52fa6288",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -5576,7 +7104,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "894bd7cf9c15",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -5590,7 +7123,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "e40f56886a9d",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -5604,7 +7142,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "44240e962dce",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -5618,7 +7161,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Dairy"
+      "subType": "Dairy",
+      "rowId": "7b87846d8e75",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-02",
@@ -5632,7 +7180,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "ae15074e46c6",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-02",
@@ -5646,7 +7201,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "db36989c46f3",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-02",
@@ -5660,7 +7222,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "80cce2527366",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-02",
@@ -5674,7 +7243,14 @@
       "costPerServing": null,
       "notes": "Itemized from Amazon order history 2026-08-10; ship-to verified. est \u2014 unit price scaled so items sum to the verified order total",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "e2f8c0fe8dca",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure"
+      ],
+      "needsReview": true
     },
     {
       "date": "2026-08-03",
@@ -5688,7 +7264,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "5e19fcbadbde",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-03",
@@ -5702,7 +7283,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "858b3b5f011c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-03",
@@ -5716,7 +7302,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Protein"
+      "subType": "Protein",
+      "rowId": "f0cf2868dd04",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-03",
@@ -5730,7 +7321,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "2df4845902f2",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-05",
@@ -5744,7 +7340,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "26bf22f9e552",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-05",
@@ -5758,7 +7359,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Beverage"
+      "subType": "Beverage",
+      "rowId": "45f9c3e9329c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-05",
@@ -5772,7 +7378,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Produce"
+      "subType": "Produce",
+      "rowId": "c6af611786bc",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-05",
@@ -5786,7 +7397,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Staple"
+      "subType": "Staple",
+      "rowId": "3cc43ac62c25",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-03",
@@ -5800,7 +7416,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "fe40b7fb1e5c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-07-30",
@@ -5814,7 +7435,12 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "7993752c982c",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
     },
     {
       "date": "2026-08-05",
@@ -5828,8 +7454,420 @@
       "costPerServing": null,
       "notes": "Corrected 2026-08-10 from the Amazon order-detail page. Card 'total' was the amount charged (net of gift card, plus tip); this is the true item subtotal.",
       "storeType": "grocery",
-      "subType": "Fees & credits"
+      "subType": "Fees & credits",
+      "rowId": "44f200967042",
+      "estimate": false,
+      "forWhom": "",
+      "reviewReasons": [],
+      "needsReview": false
+    },
+    {
+      "date": "2026-07-27",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Life Extension Super Selenium Complex 200 mcg (3-pack)",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 17.96,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Mineral",
+      "rowId": "5aaa80f511c5",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-07-27",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "365 Organic Spicy Taco Seasoning",
+      "category": "Staple",
+      "type": "Food",
+      "cost": 2.48,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Staple",
+      "rowId": "f6140979f57e",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-07-27",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Nutricost Yohimbine HCl 5mg, 120 Capsules",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 16.91,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Fat burner",
+      "rowId": "8c34f5246b39",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-07-24",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Nutricost Omega 3 Fish Oil 2500mg, 120 Softgels",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 25.6,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Omega / fat",
+      "rowId": "e4afda31e9c4",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-07-24",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Bellemain 3-Cup Flour Sifter",
+      "category": "Household",
+      "type": "Household",
+      "cost": 12.44,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Household",
+      "rowId": "0b5f5a756528",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-08-01",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "LOVIMAG Fridge Magnets 12pc",
+      "category": "Household",
+      "type": "Household",
+      "cost": 9.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Household",
+      "rowId": "aa90919ff7d3",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-08-01",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Life Extension Zinc Lozenges Citrus-Orange",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 11.25,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Mineral",
+      "rowId": "fa5fd313b8b0",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-08-01",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Mueller Pro Vegetable Chopper & Mandoline",
+      "category": "Household",
+      "type": "Household",
+      "cost": 22.48,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Household",
+      "rowId": "6a21a996e6c7",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-06-26",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Nutricost L-Theanine 200mg, 120 Capsules",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 15.95,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Amino acid",
+      "rowId": "91c547e64dd8",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-06-26",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "NATURE TARGET Multi Collagen Peptides Powder",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 22.98,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Collagen",
+      "rowId": "99154b55fa40",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-06-26",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "THORNE Iron Bisglycinate 25mg",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 19.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Mineral",
+      "rowId": "48882eb194d3",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-06-26",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "MTINEAPS Gold Bangle Bracelets",
+      "category": "Household",
+      "type": "Household",
+      "cost": 12.99,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review. \u2014 likely bought for someone else, confirm recipient.",
+      "storeType": "supplement",
+      "subType": "Household",
+      "rowId": "14260e2e9f7b",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "may have been bought for someone else",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-06-26",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Life Extension Vitamins D and K with Sea-Iodine",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 14.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Vitamin",
+      "rowId": "d6f4591091fd",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-06-26",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Life Extension Glycine 1000mg",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 12.0,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Amino acid",
+      "rowId": "3194745fbcf6",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
+    },
+    {
+      "date": "2026-06-26",
+      "itemCode": null,
+      "store": "Amazon",
+      "item": "Nutricost Psyllium Husk 1500mg, 500 Capsules",
+      "category": "Supplement",
+      "type": "Supplement",
+      "cost": 12.8,
+      "servings": null,
+      "costPerServing": null,
+      "notes": "Split from a MIXED Amazon order 2026-08-10 using the order-detail page. Order subtotal is verified; per-item price is an estimate scaled to it \u2014 confirm on review.",
+      "storeType": "supplement",
+      "subType": "Other supplement",
+      "rowId": "31aabb375673",
+      "estimate": true,
+      "forWhom": "",
+      "reviewReasons": [
+        "price is an estimate, not a receipt figure",
+        "still logged as one lump, not itemized"
+      ],
+      "needsReview": true
     }
+  ],
+  "people": [
+    "Me",
+    "Tiffany",
+    "Mom",
+    "Diana",
+    "Mark",
+    "Guest",
+    "Other"
+  ],
+  "reviewQueue": [
+    "01a126e89132",
+    "083511c3a913",
+    "0b5f5a756528",
+    "11a19664ba28",
+    "12e079e01e90",
+    "14260e2e9f7b",
+    "15064d11ba6d",
+    "18af291aa62c",
+    "1d0fac1cbec1",
+    "21d1ed60a4f8",
+    "2638b0e35b3a",
+    "2ae47203615c",
+    "2e365ce43b25",
+    "2f8d8d4e0660",
+    "3194745fbcf6",
+    "31aabb375673",
+    "4134e6d145c0",
+    "48882eb194d3",
+    "5aaa80f511c5",
+    "5cc2bafbb1e0",
+    "5cc2bafbb1e0-2",
+    "6a21a996e6c7",
+    "76fd7ec68570",
+    "7adcfe04f10b",
+    "7c99c7a3833d",
+    "7fb3516be4f4",
+    "80cce2527366",
+    "868b30551e96",
+    "869b1ddfe2c8",
+    "8aeeeafe4756",
+    "8c34f5246b39",
+    "903d57b9c2a3",
+    "91c547e64dd8",
+    "964eb7274ad6",
+    "99154b55fa40",
+    "9d020bc75b24",
+    "a277372d262b",
+    "aa90919ff7d3",
+    "ae15074e46c6",
+    "b20e583c593e",
+    "b652144c4597",
+    "b9410398259c",
+    "ce36c3339fb1",
+    "ce6847b38d9d",
+    "d52c0e174bea",
+    "d6f4591091fd",
+    "db00c313f515",
+    "db36989c46f3",
+    "db9328de9f06",
+    "ddf6ec9960b5",
+    "dfddefef1c67",
+    "e2f8c0fe8dca",
+    "e420fa81e9b7",
+    "e45927b60b63",
+    "e4afda31e9c4",
+    "ebc03f5241b2",
+    "ef0f0942b245",
+    "f0f6a4140049",
+    "f1a0b4d7a1d4",
+    "f4aa507a2944",
+    "f6140979f57e",
+    "f68fbac54a08",
+    "fa4e84d6f7da",
+    "fa5fd313b8b0",
+    "fb82fe5311f1"
   ],
   "winners": {
     "grocery": [
@@ -6208,14 +8246,14 @@
         "lastBought": "2026-07-27",
         "source": "Amazon (inside MIXED order $35.86)",
         "cost": null,
-        "servingsPerUnit": 100,
+        "servingsPerUnit": 120,
         "unitsOnHand": 1,
         "dailyUse": 2,
         "startedOn": "2026-07-28",
         "confidence": "coach",
         "status": "ok",
-        "runsOut": "2026-09-16",
-        "note": "Confirmed by Tyron 2026-08-10: the bottle is 5 mg per capsule, so Bryan's 10 mg/day is 2 caps. A 100-count bottle started Jul 28 runs to about Sep 16 \u2014 ten days past the show. Covered. (Supersedes the earlier 2.5 mg assumption, which was wrong.)"
+        "runsOut": "2026-09-26",
+        "note": "Verified 2026-08-10 from the Amazon order-detail page: Nutricost Yohimbine HCl 5 mg, 120 capsules. Bryan's 10 mg/day = 2 caps, so 60 days from Jul 28 \u2014 runs to about Sep 26, three weeks past the show. Comfortably covered."
       },
       {
         "name": "Life Extension Super Selenium Complex 200 mcg",
@@ -6259,7 +8297,7 @@
         "startedOn": "2026-08-09",
         "confidence": "label",
         "status": "ok",
-        "note": "New \u2014 bought Aug 9. 240 capsules; no chance of running short before the show."
+        "note": "New \u2014 bought Aug 9. 240 capsules; no chance of running short before the show. A second 120-count bottle was also bought Jun 26, so stock is deeper than this row alone."
       },
       {
         "name": "Nutricost Omega 3 Fish Oil 2500 mg (120 softgels)",
@@ -8908,14 +10946,14 @@
       "spread": 0
     },
     "nutricost l theanine mg|120ct": {
-      "display": "Nutricost L-Theanine 200mg 120ct",
+      "display": "Nutricost L-Theanine 200mg, 120 Capsules",
       "bestStore": "Amazon",
       "bestPrice": 9.47,
       "bestDate": "2026-05-21",
       "lastStore": "Amazon",
-      "lastPrice": 9.47,
-      "lastDate": "2026-05-21",
-      "times": 1,
+      "lastPrice": 15.95,
+      "lastDate": "2026-06-26",
+      "times": 2,
       "stores": [
         "Amazon"
       ],
@@ -8930,7 +10968,7 @@
       "lastStore": "Amazon",
       "lastPrice": 22.98,
       "lastDate": "2026-07-20",
-      "times": 2,
+      "times": 3,
       "stores": [
         "Amazon"
       ],
@@ -8997,35 +11035,21 @@
       "subType": "Energy drink",
       "spread": 0
     },
-    "nutricost l theanine mg": {
-      "display": "Nutricost L-Theanine 200mg (multi-item order)",
-      "bestStore": "Amazon",
-      "bestPrice": 110.2,
-      "bestDate": "2026-06-26",
-      "lastStore": "Amazon",
-      "lastPrice": 110.2,
-      "lastDate": "2026-06-26",
-      "times": 1,
-      "stores": [
-        "Amazon"
-      ],
-      "subType": "Amino acid",
-      "spread": 0
-    },
     "spicy taco seasoning": {
-      "display": "365 Whole Foods Organic Spicy Taco Seasoning",
-      "bestStore": "Amazon Grocery",
-      "bestPrice": 6.7,
-      "bestDate": "2026-07-04",
-      "lastStore": "Amazon Grocery",
-      "lastPrice": 6.7,
-      "lastDate": "2026-07-04",
-      "times": 1,
+      "display": "365 Organic Spicy Taco Seasoning",
+      "bestStore": "Amazon",
+      "bestPrice": 2.48,
+      "bestDate": "2026-07-27",
+      "lastStore": "Amazon",
+      "lastPrice": 2.48,
+      "lastDate": "2026-07-27",
+      "times": 2,
       "stores": [
+        "Amazon",
         "Amazon Grocery"
       ],
       "subType": "Staple",
-      "spread": 0
+      "spread": 4.22
     },
     "nutricost omega fish oil": {
       "display": "Nutricost Omega 3 Fish Oil 2500mg",
@@ -9072,21 +11096,6 @@
       "subType": "Protein",
       "spread": 0
     },
-    "mixed nutricost omega flour": {
-      "display": "MIXED \u2014 Nutricost Omega 3 + flour sifter",
-      "bestStore": "Amazon",
-      "bestPrice": 39.51,
-      "bestDate": "2026-07-24",
-      "lastStore": "Amazon",
-      "lastPrice": 39.51,
-      "lastDate": "2026-07-24",
-      "times": 1,
-      "stores": [
-        "Amazon"
-      ],
-      "subType": "Omega / fat",
-      "spread": 0
-    },
     "trace minerals zerolyte electrolyte": {
       "display": "Trace Minerals ZeroLyte Electrolyte Mix",
       "bestStore": "Amazon",
@@ -9100,21 +11109,6 @@
         "Amazon"
       ],
       "subType": "Electrolyte",
-      "spread": 0
-    },
-    "mixed life ext selenium": {
-      "display": "MIXED \u2014 Life Ext Selenium 200mcg + taco seasoning",
-      "bestStore": "Amazon",
-      "bestPrice": 35.86,
-      "bestDate": "2026-07-27",
-      "lastStore": "Amazon",
-      "lastPrice": 35.86,
-      "lastDate": "2026-07-27",
-      "times": 1,
-      "stores": [
-        "Amazon"
-      ],
-      "subType": "Mineral",
       "spread": 0
     },
     "nuethix thyro boost essentials": {
@@ -9160,21 +11154,6 @@
         "Amazon"
       ],
       "subType": "Amino acid",
-      "spread": 0
-    },
-    "mixed life ext zinc": {
-      "display": "MIXED \u2014 Life Ext Zinc Lozenges + magnets",
-      "bestStore": "Amazon",
-      "bestPrice": 46.91,
-      "bestDate": "2026-08-01",
-      "lastStore": "Amazon",
-      "lastPrice": 46.91,
-      "lastDate": "2026-08-01",
-      "times": 1,
-      "stores": [
-        "Amazon"
-      ],
-      "subType": "Mineral",
       "spread": 0
     },
     "yogi ginger variety tea|16ct": {
@@ -9305,7 +11284,7 @@
       "lastStore": "Amazon",
       "lastPrice": 25.6,
       "lastDate": "2026-08-09",
-      "times": 1,
+      "times": 2,
       "stores": [
         "Amazon"
       ],
@@ -9806,6 +11785,171 @@
       ],
       "subType": "Staple",
       "spread": 0
+    },
+    "life extension super selenium": {
+      "display": "Life Extension Super Selenium Complex 200 mcg (3-pack)",
+      "bestStore": "Amazon",
+      "bestPrice": 17.96,
+      "bestDate": "2026-07-27",
+      "lastStore": "Amazon",
+      "lastPrice": 17.96,
+      "lastDate": "2026-07-27",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Mineral",
+      "spread": 0
+    },
+    "nutricost yohimbine hcl mg|120ct": {
+      "display": "Nutricost Yohimbine HCl 5mg, 120 Capsules",
+      "bestStore": "Amazon",
+      "bestPrice": 16.91,
+      "bestDate": "2026-07-27",
+      "lastStore": "Amazon",
+      "lastPrice": 16.91,
+      "lastDate": "2026-07-27",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Fat burner",
+      "spread": 0
+    },
+    "bellemain cup flour sifter": {
+      "display": "Bellemain 3-Cup Flour Sifter",
+      "bestStore": "Amazon",
+      "bestPrice": 12.44,
+      "bestDate": "2026-07-24",
+      "lastStore": "Amazon",
+      "lastPrice": 12.44,
+      "lastDate": "2026-07-24",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Household",
+      "spread": 0
+    },
+    "lovimag fridge magnets pc": {
+      "display": "LOVIMAG Fridge Magnets 12pc",
+      "bestStore": "Amazon",
+      "bestPrice": 9.99,
+      "bestDate": "2026-08-01",
+      "lastStore": "Amazon",
+      "lastPrice": 9.99,
+      "lastDate": "2026-08-01",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Household",
+      "spread": 0
+    },
+    "life extension zinc lozenges": {
+      "display": "Life Extension Zinc Lozenges Citrus-Orange",
+      "bestStore": "Amazon",
+      "bestPrice": 11.25,
+      "bestDate": "2026-08-01",
+      "lastStore": "Amazon",
+      "lastPrice": 11.25,
+      "lastDate": "2026-08-01",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Mineral",
+      "spread": 0
+    },
+    "mueller pro vegetable chopper": {
+      "display": "Mueller Pro Vegetable Chopper & Mandoline",
+      "bestStore": "Amazon",
+      "bestPrice": 22.48,
+      "bestDate": "2026-08-01",
+      "lastStore": "Amazon",
+      "lastPrice": 22.48,
+      "lastDate": "2026-08-01",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Household",
+      "spread": 0
+    },
+    "thorne iron bisglycinate mg": {
+      "display": "THORNE Iron Bisglycinate 25mg",
+      "bestStore": "Amazon",
+      "bestPrice": 19.0,
+      "bestDate": "2026-06-26",
+      "lastStore": "Amazon",
+      "lastPrice": 19.0,
+      "lastDate": "2026-06-26",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Mineral",
+      "spread": 0
+    },
+    "mtineaps gold bangle bracelets": {
+      "display": "MTINEAPS Gold Bangle Bracelets",
+      "bestStore": "Amazon",
+      "bestPrice": 12.99,
+      "bestDate": "2026-06-26",
+      "lastStore": "Amazon",
+      "lastPrice": 12.99,
+      "lastDate": "2026-06-26",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Household",
+      "spread": 0
+    },
+    "life extension vitamins d": {
+      "display": "Life Extension Vitamins D and K with Sea-Iodine",
+      "bestStore": "Amazon",
+      "bestPrice": 14.0,
+      "bestDate": "2026-06-26",
+      "lastStore": "Amazon",
+      "lastPrice": 14.0,
+      "lastDate": "2026-06-26",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Vitamin",
+      "spread": 0
+    },
+    "life extension glycine mg": {
+      "display": "Life Extension Glycine 1000mg",
+      "bestStore": "Amazon",
+      "bestPrice": 12.0,
+      "bestDate": "2026-06-26",
+      "lastStore": "Amazon",
+      "lastPrice": 12.0,
+      "lastDate": "2026-06-26",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Amino acid",
+      "spread": 0
+    },
+    "nutricost psyllium husk mg|500ct": {
+      "display": "Nutricost Psyllium Husk 1500mg, 500 Capsules",
+      "bestStore": "Amazon",
+      "bestPrice": 12.8,
+      "bestDate": "2026-06-26",
+      "lastStore": "Amazon",
+      "lastPrice": 12.8,
+      "lastDate": "2026-06-26",
+      "times": 1,
+      "stores": [
+        "Amazon"
+      ],
+      "subType": "Other supplement",
+      "spread": 0
     }
   },
   "attention": [
@@ -9834,7 +11978,7 @@
       "kind": "budget",
       "level": "med",
       "title": "Supplement spend is running hot",
-      "detail": "$223 by day 10 projects to ~$669 for the month against a $300 target."
+      "detail": "$187 by day 10 projects to ~$562 for the month against a $300 target."
     }
   ],
   "shoppingList": {
@@ -10086,7 +12230,7 @@
     }
   ],
   "totals": {
-    "itemCount": 321,
+    "itemCount": 332,
     "tripCount": 95
   }
 }
