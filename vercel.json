@@ -5,6 +5,15 @@
   "installCommand": "cd frontend && npm install",
   "headers": [
     {
+      "source": "/site/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
       "source": "/prep-runway/:path*",
       "headers": [
         {
@@ -132,8 +141,12 @@
       "destination": "/summer/:path*"
     },
     {
+      "source": "/site/:path*",
+      "destination": "/site/:path*"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/app.html"
     }
   ],
   "experimentalServices": {

@@ -1,0 +1,1598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tyron Samaroo — Reliability Engineer</title>
+<meta name="description" content="Tyron Samaroo — AVP, Reliability Engineer at Synchrony. Software engineer and ML engineer on Long Island, New York.">
+<meta name="theme-color" content="#F4F6F9">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230D1320'/%3E%3Cpath d='M8 10l6 6-6 6' stroke='%2334D399' stroke-width='3' fill='none' stroke-linecap='square'/%3E%3Cpath d='M16 23h8' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Martian+Mono:wdth,wght@75..112.5,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F4F6F9;
+  --ground-a:rgba(244,246,249,0);
+  --pane:#FFFFFF;
+  --ink:#0D1320;
+  --ink-2:#2E3846;
+  --label:#434D5D;
+  --muted:#5B6576;
+  --faint:#9AA3B2;
+  --rule:#D5DBE3;
+  --rule-2:#E6E9EE;
+  --green:#08774A;
+  --green-bg:#DDF1E5;
+  --blue:#1A55C9;
+  --cyan:#0A6C84;
+  --amber:#8F5500;
+  --red:#B42318;
+  --hl:#FFE27A;
+
+  --mono:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --display:'Martian Mono', 'IBM Plex Mono', ui-monospace, monospace;
+  --serif:'Source Serif 4', 'Source Serif Pro', Charter, 'Iowan Old Style', Georgia, serif;
+
+  --label-w:168px;
+  --gap:48px;
+  --pad:48px;
+  --maxw:1280px;
+  --top:57px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--top) + 20px);color-scheme:light}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 15px/24px var(--mono);padding-bottom:33px;-webkit-font-smoothing:antialiased;font-variant-ligatures:none}
+::selection{background:#CFE0FF;color:var(--ink)}
+a{color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--ink);text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:1px}
+b,strong{font-weight:600}
+kbd{font:inherit}
+p{margin:0}
+h1,h2,h3{margin:0}
+ul,ol{margin:0;padding:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:8px 12px;text-decoration:none}
+.skip:focus{top:12px;color:#fff}
+[tabindex="-1"]:focus{outline:none}
+.mut{color:var(--muted)}
+.ok{color:var(--green)}
+.serif{font-family:var(--serif)}
+
+/* ---------- man header:  TYRON(1)   nav   User Commands ---------- */
+.top{position:sticky;top:0;z-index:40;background:var(--ground);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:56px}
+.mid{font-weight:700;letter-spacing:.02em;text-decoration:none;color:var(--ink);white-space:nowrap}
+.mid:hover{color:var(--ink);text-decoration:none}
+.mid-r{color:var(--label);font-weight:500;letter-spacing:0;white-space:nowrap}
+.nav-wrap{position:relative;min-width:0}
+.nav{display:flex;gap:2px;min-width:0}
+.nav a{display:inline-flex;align-items:baseline;gap:7px;padding:4px 10px;color:var(--ink-2);text-decoration:none;font-size:13.5px;line-height:24px;white-space:nowrap}
+.nav a kbd{color:var(--muted);font-size:12px}
+.nav a:hover{color:var(--ink);background:var(--rule-2)}
+.nav a[aria-current="true"]{background:var(--ink);color:#fff}
+.nav a[aria-current="true"] kbd{color:#9FE3C1}
+
+/* ---------- labels & section scaffolding ---------- */
+.lbl{font-weight:700;font-size:14px;line-height:24px;letter-spacing:.07em;color:var(--ink)}
+.sec{border-top:1px solid var(--rule);padding:44px 0 72px}
+.sec-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 32px;margin-bottom:34px}
+.sec-t{font-family:var(--display);font-weight:700;font-stretch:112.5%;letter-spacing:-.025em;line-height:.92;color:var(--ink);font-size:clamp(28px,2.9vw,40px)}
+.major .sec-t{font-weight:800;font-size:clamp(50px,7.4vw,108px);letter-spacing:-.045em;line-height:.84;margin-left:-.04em}
+.sec-meta{display:flex;align-items:baseline;gap:14px;font-size:13px;line-height:20px;color:var(--label);padding-bottom:2px}
+.sec-meta .al{font-weight:600;color:var(--ink)}
+.key{display:inline-block;min-width:24px;text-align:center;font:600 13px/22px var(--mono);color:var(--ink);border:1px solid var(--rule);border-bottom-width:2px;background:var(--pane);padding:0 6px}
+.sec-grid{display:grid;grid-template-columns:var(--label-w) minmax(0,1fr);column-gap:var(--gap)}
+.gutter{min-width:0}
+.gutter-in{position:sticky;top:calc(var(--top) + 28px)}
+.body{min-width:0}
+.cmdline{margin:0 0 28px;color:var(--label);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmdline .ps{color:var(--green);font-weight:700;margin-right:10px}
+.cmdline .c{color:var(--ink-2)}
+.sub{font:700 13px/24px var(--mono);letter-spacing:.08em;color:var(--ink);margin:0 0 12px}
+.note{font-size:13px;line-height:20px;color:var(--label)}
+
+/* ---------- hero ---------- */
+.hero{padding:44px 0 56px}
+.hero-grid{display:grid;grid-template-columns:var(--label-w) minmax(0,1fr) minmax(0,480px);column-gap:var(--gap);row-gap:34px;align-items:start}
+.hero .lbl{grid-column:1}
+.h-name-l{grid-row:1;padding-top:12px}
+.h-name{grid-column:2/4;grid-row:1}
+.h-syn-l{grid-row:2}
+.h-syn{grid-column:2;grid-row:2}
+.h-see-l{grid-row:3}
+.h-see{grid-column:2;grid-row:3}
+.h-keys-l{grid-row:4}
+.h-keys{grid-column:2;grid-row:4}
+.shell{grid-column:3;grid-row:2/6;margin-top:4px}
+h1.name{font-family:var(--display);font-weight:600;font-stretch:87.5%;font-size:clamp(44px,7.3vw,110px);line-height:.96;letter-spacing:-.045em;word-spacing:-.2em;color:var(--ink)}
+.role{margin-top:20px;font-size:19px;line-height:30px;color:var(--ink)}
+.role .dash{color:var(--muted);margin-right:.6ch}
+.role-2{color:var(--label);font-size:15px;margin-top:2px;padding-left:2.6ch}
+.syn{font-size:16px;line-height:28px;color:var(--ink-2)}
+.syn b{color:var(--ink)}
+.syn .br{color:var(--faint)}
+.syn .o{white-space:nowrap}
+.syn .arg{color:var(--green);font-style:italic;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.syn-d{margin-top:14px;font:400 18.5px/29px var(--serif);color:var(--ink-2);max-width:42ch}
+.see{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:16px}
+.see a{font-weight:600;color:var(--ink);text-decoration-color:var(--faint)}
+.see a:hover{text-decoration-color:var(--ink)}
+.see .sep{color:var(--faint);margin-left:-18px}
+.h-keys{list-style:none;display:grid;grid-template-columns:repeat(2,max-content);gap:8px 28px;font-size:13.5px;line-height:24px;color:var(--label)}
+.h-keys kbd,.kb{display:inline-block;min-width:22px;text-align:center;font:600 13px/20px var(--mono);color:var(--ink);background:var(--pane);border:1px solid var(--rule);border-bottom-width:2px;padding:0 5px;margin-right:8px}
+.h-keys .dash{margin:0 4px 0 -4px;color:var(--faint)}
+
+/* ---------- panes (TUI) ---------- */
+.pane{position:relative;background:var(--pane);border:1px solid var(--ink)}
+.pane-t{position:absolute;top:-11px;left:14px;padding:0 7px;font-size:12px;line-height:20px;color:var(--ink);background:linear-gradient(var(--ground) 50%,var(--pane) 50%);white-space:nowrap;z-index:1}
+.pane-t.r{left:auto;right:14px;color:var(--muted)}
+.pane-t .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px;vertical-align:1px}
+
+/* ---------- shell ---------- */
+.shell{cursor:text}
+.shell:has(.field input:focus){border-color:var(--green);box-shadow:0 0 0 4px rgba(8,119,74,.2)}
+.shell:has(.field input:focus) .pane-t:not(.r){color:var(--green);font-weight:600}
+.sh-scroll{height:296px;overflow:auto;padding:20px 18px 10px;-webkit-mask-image:linear-gradient(transparent 0,#000 16px);mask-image:linear-gradient(transparent 0,#000 16px);font-size:14px;line-height:22px;scrollbar-width:thin;scrollbar-color:var(--rule) transparent;overscroll-behavior:contain}
+.ln{white-space:pre-wrap;overflow-wrap:anywhere;min-height:22px}
+.ln.kv{padding-left:10ch;text-indent:-10ch}
+.sh-log .gap,.d-log .gap{height:8px}
+.ps1{color:var(--green);font-weight:600;white-space:nowrap}
+.ps1 .p-at,.ps1 .p-sig{color:var(--muted);font-weight:400}
+.ps1 .p-dir{color:var(--blue)}
+.c-cmd{color:var(--ink);font-weight:500}
+.c-mut{color:var(--muted)}
+.c-com{color:var(--muted);font-style:italic}
+.c-b{font-weight:600;color:var(--ink)}
+.c-key{color:var(--blue)}
+.c-str{color:var(--amber)}
+.c-num{color:var(--cyan)}
+.c-ok{color:var(--green)}
+.c-okb{color:var(--green);font-weight:600}
+.c-err{color:var(--red)}
+.c-dir{color:var(--blue);font-weight:600}
+.c-h{color:var(--cyan);font-weight:700}
+.c-br{color:var(--green);font-weight:700}
+.c-y{color:var(--amber)}
+.sh-log a,.d-log a{color:var(--blue)}
+.prompt{display:flex;align-items:flex-start;gap:1ch;margin:0}
+.field{position:relative;flex:1;min-width:0;min-height:22px}
+.field input{position:absolute;inset:0;width:100%;height:100%;border:0;margin:0;padding:0;background:transparent;color:transparent;caret-color:transparent;font:500 16px/22px var(--mono);outline:none;opacity:.01}
+.field input::selection{background:transparent}
+.mirror{display:block;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink);font-weight:500;pointer-events:none}
+.cur{display:inline-block;min-width:1ch;height:22px;vertical-align:top;box-shadow:inset 0 0 0 1.5px var(--ink);color:var(--ink)}
+.shell:has(.field input:focus) .cur{background:var(--green);box-shadow:none;color:#fff;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{background:transparent;color:var(--ink)}}
+.sh-foot{display:flex;flex-wrap:wrap;align-items:center;gap:5px;padding:11px 14px 12px;border-top:1px dashed var(--rule);cursor:default}
+.sh-foot .t{font-size:12px;color:var(--label);margin-right:4px}
+.chip{font:500 13px/20px var(--mono);padding:4px 8px;border:1px solid var(--rule);border-bottom-width:2px;background:var(--ground);color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--ink);background:var(--pane)}
+.chip:active{background:var(--ink);color:#fff}
+
+/* ---------- DESCRIPTION ---------- */
+.lead{font:400 clamp(21px,2.05vw,29px)/1.42 var(--serif);color:var(--ink);max-width:36em;letter-spacing:-.006em}
+.lead em{font-style:normal;background:linear-gradient(transparent 64%,var(--green-bg) 64%)}
+.lead i{font-style:italic}
+.envh{margin-top:48px}
+.env{margin:0;border-top:1px solid var(--rule)}
+.env dd{margin:0}
+.env .row{display:grid;grid-template-columns:max-content 118px minmax(0,1fr);align-items:baseline;column-gap:0;padding:14px 0 13px;border-bottom:1px dashed var(--rule)}
+.env dt{font:500 14px/24px var(--mono);color:var(--cyan);text-align:right;min-width:17ch}
+.env dt::after{content:'=';color:var(--muted);font-weight:400;margin:0 6px 0 2px}
+.env .v{font:800 40px/1 var(--display);font-stretch:112.5%;letter-spacing:-.04em;color:var(--ink)}
+.env .v small{font-size:.5em;letter-spacing:0;color:var(--green);margin-left:2px;vertical-align:.7em}
+.env .d{margin:0;font:400 17px/26px var(--serif);color:var(--ink-2)}
+.env .d a{color:var(--ink-2)}
+
+/* ---------- HISTORY (git log) ---------- */
+.log{list-style:none}
+.commit{display:grid;grid-template-columns:var(--label-w) minmax(0,1fr);column-gap:var(--gap)}
+.c-date{padding-top:9px;text-align:right;font-size:14px;line-height:22px;color:var(--ink-2);white-space:nowrap}
+.c-date span{display:block}
+.c-date .now{color:var(--green);font-weight:600}
+.c-date .dur{color:var(--muted);font-size:13px}
+.c-main{position:relative;min-width:0;padding:0 0 52px 48px}
+.commit:last-child .c-main{padding-bottom:0}
+.g{position:absolute;left:0;top:0;bottom:0;width:24px}
+.g b{display:block;text-align:center;font:700 26px/40px var(--mono);color:var(--ink)}
+.g i{position:absolute;left:11px;top:40px;bottom:6px;width:2px;background:repeating-linear-gradient(to bottom,var(--faint) 0 12px,transparent 12px 20px)}
+.commit:last-child .g i{display:none}
+.commit.head .g b{color:var(--green)}
+.c-co{font:700 34px/40px var(--display);letter-spacing:-.035em;color:var(--ink)}
+.c-co .aka{font-weight:400;color:var(--muted);font-size:.6em;letter-spacing:-.02em}
+.deco{font:500 14px/24px var(--mono);letter-spacing:0;margin-left:14px;color:var(--amber);white-space:nowrap;vertical-align:.35em}
+.deco .h{color:var(--cyan);font-weight:700}
+.deco .br{color:var(--green);font-weight:700}
+.c-role{margin:6px 0 16px;font-weight:600;color:var(--ink-2)}
+.c-msg{font:400 18px/28px var(--serif);color:var(--ink-2)}
+.c-body{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.c-body.has-aside{grid-template-columns:minmax(0,1fr) 250px;gap:44px}
+.adds{list-style:none}
+.adds li{position:relative;padding-left:28px;font:400 17.5px/27px var(--serif);color:var(--ink-2);max-width:40em}
+.adds li+li{margin-top:7px}
+.adds li::before{content:'+';position:absolute;left:0;top:1px;font:700 15px/26px var(--mono);color:var(--green)}
+.trailer{margin-top:18px;color:var(--label);font-size:14px}
+.trailer b{color:var(--ink);font-weight:600}
+.diff{align-self:start;border:1px solid var(--rule);background:var(--pane);font-size:13.5px;line-height:24px}
+.diff .dh{color:var(--label);padding:6px 12px;border-bottom:1px solid var(--rule);font-size:12.5px}
+.diff .dh span{color:var(--cyan)}
+.diff .del,.diff .add,.diff .ctx{display:block;padding:0 12px;white-space:pre}
+.diff .ctx{color:var(--label)}
+.diff .del{background:#FCEDEC;color:#9B1C15;margin-top:4px}
+.diff .add{background:#E4F4EA;color:#07653F;font-weight:600}
+
+/* ---------- OPTIONS (skills) ---------- */
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 64px}
+.opt-list{list-style:none}
+.opt{display:grid;grid-template-columns:auto minmax(12px,1fr) auto;align-items:baseline;column-gap:10px;padding:3px 0}
+.opt .f{font-weight:600;color:var(--ink);white-space:nowrap}
+.opt .f::before{content:'--';color:var(--muted);font-weight:400}
+.opt .lead-dots{border-bottom:1.5px dotted #B3BBC7;transform:translateY(-5px)}
+.opt .lv{display:inline-flex;align-items:center;gap:10px;color:var(--label);font-size:13.5px;white-space:nowrap}
+.pips{display:inline-flex;gap:3px;transform:translateY(-1px)}
+.pips i{display:block;width:9px;height:9px;border:1.5px solid var(--ink)}
+.pips i.on{background:var(--ink)}
+.lv.cert{color:var(--green);font-weight:600}
+.lv.cert .pips i{border-color:var(--green)}
+.lv.cert .pips i.on{background:var(--green)}
+.exp-row{margin-top:36px;padding-top:20px;border-top:1px dashed var(--rule);display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 24px;align-items:baseline}
+.exp-row .f{font-weight:600}
+.exp-row .f .d{color:var(--muted);font-weight:400}
+.legend{list-style:none;display:grid;gap:6px;font-size:13px;line-height:20px;color:var(--label)}
+.legend li{display:flex;align-items:center;gap:10px}
+.legend .ok{font-weight:600}
+
+/* ---------- EXAMPLES (projects) ---------- */
+.news{display:grid;grid-template-columns:132px minmax(0,1fr);gap:36px;padding:36px 36px 30px;margin-bottom:28px}
+.news .tag{color:var(--green);font-weight:700}
+.news svg{display:block;width:100%;height:auto;max-width:132px}
+.news h3{font:700 27px/34px var(--display);letter-spacing:-.035em;margin:0 0 12px}
+.news p.d{font:400 19px/29px var(--serif);color:var(--ink-2);max-width:36em}
+.news .stk{margin-top:14px;font-size:13.5px;color:var(--label)}
+.news .go{display:inline-block;margin-top:16px;font-weight:600}
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;list-style:none}
+.proj{display:flex;flex-direction:column;background:var(--pane);border:1px solid var(--rule);padding:18px 22px 16px;transition:border-color .15s ease}
+.proj:hover,.proj:focus-within{border-color:var(--ink)}
+.p-meta{display:flex;justify-content:space-between;gap:12px;font-size:13px;line-height:20px;color:var(--label);margin-bottom:12px}
+.p-meta .slug{color:var(--blue);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.p-meta .slug .ix{color:var(--muted);margin-right:10px}
+.st{white-space:nowrap}
+.st.on{color:var(--green);font-weight:600}
+.st.on::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px;vertical-align:1px}
+.st.done::before{content:'\2713';margin-right:6px}
+.proj h3{font:600 20px/28px var(--display);letter-spacing:-.035em;color:var(--ink);margin:0 0 8px}
+.proj p{font:400 16.5px/25px var(--serif);color:var(--ink-2)}
+.p-stk{margin-top:auto;padding-top:16px;font:400 12.5px/20px var(--mono)!important;color:var(--label)!important}
+.p-links{display:flex;gap:18px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--rule);font-size:14px}
+.p-links a{font-weight:500}
+
+/* ---------- STANDARDS (education) ---------- */
+.edu{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px}
+.deg{display:grid;grid-template-columns:84px minmax(0,1fr);gap:0 20px;list-style:none}
+.deg li{display:contents}
+.deg .yr{font:700 26px/34px var(--display);letter-spacing:-.04em;color:var(--ink)}
+.deg .yr small{display:block;font:400 12.5px/18px var(--mono);letter-spacing:0;color:var(--label)}
+.deg .what{padding-bottom:24px}
+.deg .what b{display:block;font-size:16px;line-height:26px;color:var(--ink);padding-top:4px}
+.deg .what span{font:400 16.5px/25px var(--serif);color:var(--ink-2)}
+.certs{list-style:none}
+.certs li{position:relative;padding:13px 16px 13px 44px;background:var(--pane);border:1px solid var(--rule)}
+.certs li+li{margin-top:10px}
+.certs li::before{content:'\2713';position:absolute;left:16px;top:13px;color:var(--green);font-weight:700}
+.certs b{display:block;color:var(--ink)}
+.certs span{color:var(--label);font-size:13.5px}
+.conform{color:var(--label);margin-bottom:12px;font-size:14px}
+
+/* ---------- API ---------- */
+.api{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:start}
+.api-d{font:400 18px/28px var(--serif);color:var(--ink-2);max-width:32em;margin-bottom:22px}
+.base{display:block;margin-bottom:20px;font-size:14px;color:var(--label)}
+.base code{color:var(--ink);font:inherit;overflow-wrap:anywhere}
+.eps{width:100%;border-collapse:collapse;font-size:14px}
+.eps th{text-align:left;font-weight:700;font-size:12.5px;letter-spacing:.06em;color:var(--label);padding:0 0 8px;border-bottom:1px solid var(--rule)}
+.eps td{padding:10px 0;border-bottom:1px solid var(--rule-2);vertical-align:baseline}
+.eps td:first-child{color:var(--green);font-weight:700;width:52px}
+.eps td.path{color:var(--ink);font-weight:500}
+.eps td.ret{color:var(--label)}
+.eps td:last-child{text-align:right;width:64px}
+.eps button{font:500 12.5px/20px var(--mono);padding:1px 8px;border:1px solid var(--rule);border-bottom-width:2px;background:var(--pane);color:var(--ink);cursor:pointer}
+.eps button:hover{border-color:var(--ink)}
+.docs{display:inline-block;margin-top:20px;font-weight:600}
+.api-pane .code{padding:24px 20px 16px;font-size:14px;line-height:22px;border-bottom:1px dashed var(--rule)}
+.api-bar{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px}
+.btn{font:600 13px/20px var(--mono);padding:6px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer}
+.btn:hover{background:#1f2a3d}
+.btn.ghost{background:var(--pane);color:var(--ink)}
+.btn.ghost:hover{background:var(--ground)}
+.api-out{height:176px;overflow:auto;padding:16px 20px;font-size:13px;line-height:20px;border-top:1px solid var(--rule-2);background:#FBFCFD;scrollbar-width:thin}
+.api-out .ln{min-height:20px}
+
+/* ---------- SEE ALSO (contact) ---------- */
+.mail{display:inline-block;font:600 clamp(26px,4.2vw,58px)/1.12 var(--display);font-stretch:87.5%;letter-spacing:-.045em;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ink);padding-bottom:6px;overflow-wrap:anywhere}
+.mail:hover{color:var(--green);border-color:var(--green)}
+.mail-k{color:var(--label);font-size:14px;margin-bottom:12px}
+.xref{margin-top:40px;list-style:none;border-top:1px solid var(--rule)}
+.xref li{border-bottom:1px solid var(--rule)}
+.xref a{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:13px 4px;color:var(--ink);text-decoration:none}
+.xref a:hover{background:var(--pane)}
+.xref a:hover .arr{color:var(--green);transform:translate(2px,-2px)}
+.xref .nm{font-weight:700}
+.xref .nm span{color:var(--muted);font-weight:400}
+.xref .url{color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.xref .arr{color:var(--muted);transition:transform .15s ease}
+.rows{margin-top:44px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px 32px;align-items:baseline}
+.rows dt{font-weight:700;font-size:13.5px;letter-spacing:.07em}
+.rows dd{margin:0;font:400 17px/27px var(--serif);color:var(--ink-2);max-width:40em}
+
+/* ---------- man footer ---------- */
+.foot{border-top:1px solid var(--rule);padding:20px 0 26px;font-size:14px;color:var(--ink-2)}
+.foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot b{color:var(--ink)}
+
+/* ---------- less(1) status line + command line ---------- */
+.less{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--pane);border-top:1px solid var(--rule);font-size:13px;line-height:20px}
+.less .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:32px}
+.less-st{min-width:0;overflow:hidden}
+.rv{background:var(--ink);color:#fff;padding:1px 7px;white-space:nowrap}
+.rv .sect{color:#9FE3C1}
+.st-short{display:none}
+.less-ctl{display:flex;gap:2px;flex:none}
+.less-ctl button{font:inherit;background:none;border:0;color:var(--label);cursor:pointer;padding:4px 8px}
+.less-ctl button:hover{color:var(--ink);background:var(--ground)}
+.less-ctl button.run{color:var(--ink);font-weight:600}
+.less-ctl kbd{display:inline-block;min-width:16px;text-align:center;color:var(--ink);font-weight:700;border:1px solid var(--rule);border-bottom-width:2px;padding:0 3px;margin-right:4px;line-height:16px}
+.less-q{display:flex;align-items:center;flex:1;min-width:0;gap:4px;margin:0}
+.less-q label{font-weight:700;color:var(--green)}
+.less-q input{flex:1;min-width:0;border:0;background:transparent;font:500 16px/20px var(--mono);color:var(--ink);padding:0;outline:none;caret-color:var(--green)}
+.less-q input::placeholder{color:var(--faint)}
+.less-q[hidden]{display:none}
+.keys{position:fixed;right:max(16px,calc((100vw - var(--maxw))/2 + var(--pad)));bottom:44px;z-index:49;background:var(--pane);border:1px solid var(--ink);padding:24px 20px 16px;font-size:13.5px;line-height:24px;min-width:300px}
+.keys[hidden]{display:none}
+.keys .pane-t{background:var(--pane)}
+.keys dl{display:grid;grid-template-columns:auto 1fr;gap:0 20px;margin:0}
+.keys dt{font-weight:700;white-space:nowrap}
+.keys dd{margin:0;color:var(--ink-2)}
+.drawer{position:fixed;z-index:48;bottom:44px;right:max(16px,calc((100vw - var(--maxw))/2 + var(--pad)));width:min(560px,calc(100vw - 32px));max-height:min(440px,58vh);display:flex;flex-direction:column;box-shadow:0 18px 40px -18px rgba(13,19,32,.28)}
+.drawer[hidden]{display:none}
+.drawer .pane-t{background:var(--pane);font-weight:600}
+.drawer-x{position:absolute;top:-12px;right:12px;z-index:2;font:500 12px/20px var(--mono);color:var(--ink);background:var(--pane);border:1px solid var(--ink);padding:0 7px;cursor:pointer}
+.drawer-x:hover{background:var(--ink);color:#fff}
+.d-log{overflow:auto;padding:20px 18px 14px;font-size:13.5px;line-height:21px;overscroll-behavior:contain;scrollbar-width:thin}
+.d-log .ln{min-height:21px}
+::highlight(less-match){background-color:var(--hl);color:var(--ink)}
+::highlight(less-cur){background-color:var(--ink);color:#fff}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  :root{--label-w:132px;--gap:36px;--pad:36px}
+  .hero-grid{grid-template-columns:var(--label-w) minmax(0,1fr)}
+  .h-name{grid-column:2}
+  .shell{grid-column:2;grid-row:5;margin-top:6px}
+  .c-body.has-aside{grid-template-columns:minmax(0,1fr)}
+  .diff{max-width:300px}
+  .nav a{padding:4px 7px}
+  .nav a kbd{display:none}
+}
+@media (max-width:960px){
+  .opts{gap:36px}
+  .opts,.edu,.api{grid-template-columns:minmax(0,1fr)}
+  .top .mid-r{display:none}
+}
+@media (max-width:860px){
+  :root{--pad:16px;--top:0px}
+  body{font-size:15px}
+  .top{position:static}
+  .top .wrap{height:auto;flex-wrap:wrap;gap:0;padding:0}
+  .top .mid{order:0;padding:14px 16px 8px}
+  .top .mid-r{display:block;order:1;padding:14px 16px 8px;font-size:14px}
+  .nav-wrap{order:2;flex:0 0 100%}
+  .nav{overflow-x:auto;scrollbar-width:none;padding:0 44px 10px 12px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{padding:5px 9px;font-size:14px}
+  .nav-wrap::after{content:'\203A';position:absolute;right:0;top:0;bottom:10px;width:64px;display:flex;align-items:center;justify-content:flex-end;padding-right:14px;background:linear-gradient(90deg,var(--ground-a),var(--ground) 62%);color:var(--ink);font:700 20px/1 var(--mono);pointer-events:none;transition:opacity .2s ease}
+  .nav-wrap.at-end::after{opacity:0}
+  .nav-wrap::before{content:'';position:absolute;left:0;top:0;bottom:10px;width:28px;z-index:1;background:linear-gradient(270deg,var(--ground-a),var(--ground) 70%);pointer-events:none;transition:opacity .2s ease}
+  .nav-wrap.at-start::before{opacity:0}
+  .hero{padding:26px 0 48px}
+  .hero-grid{grid-template-columns:minmax(0,1fr);row-gap:0}
+  .hero .lbl,.h-name,.h-syn,.h-see,.shell{grid-column:1;grid-row:auto}
+  .h-name-l{order:0}.h-name{order:1}.shell{order:2}.h-syn-l{order:3}.h-syn{order:4}.h-see-l{order:5}.h-see{order:6}
+  .h-keys-l,.h-keys{display:none}
+  .hero .lbl{font-size:13px;color:var(--label);padding-top:0;margin-bottom:4px}
+  h1.name{font-size:clamp(40px,15.4vw,72px);line-height:.9}
+  .name .l2{display:block}
+  .role{font-size:17px;line-height:25px;margin-top:14px}
+  .role-2{padding-left:0;font-size:14px;line-height:22px;margin-top:4px}
+  .shell{margin:28px 0 36px}
+  .h-syn{margin-bottom:28px}
+  .syn-d{font-size:18px;line-height:28px}
+  .sec{padding:36px 0 56px}
+  .sec-h{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:24px}
+  .major .sec-t{font-size:clamp(46px,14.6vw,76px)}
+  .sec-meta .key{display:none}
+  .sec-grid{grid-template-columns:minmax(0,1fr)}
+  .gutter-in{position:static}
+  .gutter.opt-g{order:2;margin-top:28px}
+  .cmdline{margin-bottom:22px}
+  .lead{font-size:21px;line-height:31px}
+  .envh{margin-top:36px}
+  .env .row{grid-template-columns:max-content minmax(0,1fr);row-gap:4px;padding:12px 0}
+  .env dt{text-align:left;min-width:0}
+  .env .v{font-size:30px}
+  .env .d{grid-column:1/-1;font-size:16px;line-height:24px}
+  .commit{grid-template-columns:minmax(0,1fr)}
+  .c-date{grid-row:1;text-align:left;padding:0 0 4px 38px;display:flex;flex-wrap:wrap;gap:0 8px;font-size:13.5px}
+  .c-date span{display:inline}
+  .c-date .dur{display:none}
+  .c-main{padding:0 0 40px 38px}
+  .commit:not(:last-child) .c-main{padding-bottom:40px}
+  .g{top:-26px}
+  .g b{font-size:22px;line-height:34px}
+  .g i{left:11px;top:34px}
+  .commit .g{top:-26px}
+  .c-co{font-size:25px;line-height:32px}
+  .deco{display:block;margin:2px 0 0;vertical-align:0;font-size:13px}
+  .adds li{font-size:17px;line-height:26px;padding-left:24px}
+  .opt .lv .w{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .exp-row{grid-template-columns:minmax(0,1fr)}
+  .news{grid-template-columns:minmax(0,1fr);gap:18px;padding:30px 18px 22px}
+  .news svg{max-width:92px}
+  .news h3{font-size:22px;line-height:29px}
+  .news p.d{font-size:17.5px;line-height:27px}
+  .projects{grid-template-columns:minmax(0,1fr);gap:14px}
+  .proj{padding:16px 16px 14px}
+  .proj h3{font-size:18px;line-height:26px}
+  .deg{grid-template-columns:64px minmax(0,1fr);gap:0 14px}
+  .deg .yr{font-size:22px}
+  .eps td.ret{display:none}
+  .api-out{height:150px}
+  .mail{font-size:clamp(22px,7.6vw,44px)}
+  .xref a{grid-template-columns:minmax(0,1fr) auto;gap:2px 12px}
+  .xref .url{grid-column:1;grid-row:2;font-size:13.5px}
+  .xref .arr{grid-row:1/3;grid-column:2;align-self:center}
+  .rows{grid-template-columns:minmax(0,1fr);gap:2px}
+  .rows dd{margin-bottom:16px}
+  .sh-scroll{height:282px;padding:18px 12px 8px;font-size:13px;line-height:21px}
+  .sh-foot{padding:10px 12px 11px}
+  .ln{min-height:21px}
+  .st-long{display:none}
+  .st-short{display:inline}
+  .less .wrap{padding:0 6px 0 16px}
+  .less-ctl .k-keys{display:none}
+  .keys{left:16px;right:16px;min-width:0}
+  .drawer{left:16px;right:16px;width:auto}
+}
+@media (max-width:520px){
+  .chip{flex:1 1 auto}
+}
+@media (max-width:420px){
+  .sh-foot .t{display:none}
+  .chip{padding:4px 8px;font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media print{
+  .top,.less,.keys,.drawer,.shell,.api-pane,.skip{display:none!important}
+  body{background:#fff;padding:0}
+  .gutter-in{position:static}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mid" href="#top" aria-label="Tyron Samaroo, back to top">TYRON(1)</a>
+    <div class="nav-wrap" data-navwrap>
+      <nav class="nav" aria-label="Sections" data-nav>
+        <a href="#about"><kbd>1</kbd>about</a>
+        <a href="#experience"><kbd>2</kbd>experience</a>
+        <a href="#skills"><kbd>3</kbd>skills</a>
+        <a href="#projects"><kbd>4</kbd>projects</a>
+        <a href="#education"><kbd>5</kbd>education</a>
+        <a href="#api"><kbd>6</kbd>api</a>
+        <a href="#contact"><kbd>7</kbd>contact</a>
+      </nav>
+    </div>
+    <span class="mid-r">User Commands</span>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= NAME / SYNOPSIS ================= -->
+<section class="hero" id="top" aria-label="Introduction">
+  <div class="wrap hero-grid">
+    <p class="lbl h-name-l" aria-hidden="true">NAME</p>
+    <div class="h-name">
+      <h1 class="name">Tyron <span class="l2">Samaroo</span></h1>
+      <p class="role"><span class="dash" aria-hidden="true">—</span>AVP, Reliability Engineer at <b>Synchrony</b></p>
+      <p class="role-2">Software Engineer · ML Engineer · Long Island, New York</p>
+    </div>
+
+    <p class="lbl h-syn-l" aria-hidden="true">SYNOPSIS</p>
+    <div class="h-syn">
+      <p class="syn"><b>tyron</b> <span class="o"><span class="br">[</span><b>--reliability</b><span class="br">]</span></span> <span class="o"><span class="br">[</span><b>--event-driven</b><span class="br">]</span></span> <span class="o"><span class="br">[</span><b>--ml-pipelines</b><span class="br">]</span></span> <span class="o"><span class="br">[</span><b>--web</b><span class="br">]</span></span> <span class="arg">problem</span></p>
+      <p class="syn-d">Reliability engineering at Synchrony. Before that: high-scale backend services and 24x7 on-call at Capital One, and ML pipelines at PicoPortal.</p>
+    </div>
+
+    <p class="lbl h-see-l" aria-hidden="true">SEE ALSO</p>
+    <p class="h-see see">
+      <a href="https://github.com/tyronsamaroo" target="_blank" rel="noopener">github(1)</a><span class="sep" aria-hidden="true">,</span>
+      <a href="https://linkedin.com/in/tyronsamaroo" target="_blank" rel="noopener">linkedin(1)</a><span class="sep" aria-hidden="true">,</span>
+      <a href="mailto:tyronsamaroo828@gmail.com">mail(1)</a>
+    </p>
+
+    <p class="lbl h-keys-l" aria-hidden="true">KEY BINDINGS</p>
+    <ul class="h-keys" aria-label="Keyboard shortcuts">
+      <li><kbd>:</kbd>run a command</li>
+      <li><kbd>/</kbd>search the page</li>
+      <li><kbd>1</kbd><span class="dash">–</span><kbd>7</kbd>jump to a section</li>
+      <li><kbd>q</kbd>back to this shell</li>
+    </ul>
+
+    <!-- interactive shell -->
+    <div class="pane shell" id="shell" data-shell>
+      <span class="pane-t" aria-hidden="true">bash — tyron@dev</span>
+      <span class="pane-t r" aria-hidden="true" data-dims>80×24</span>
+      <div class="sh-scroll" data-scroll>
+        <div class="sh-log" role="log" aria-live="polite" aria-label="Shell output" data-log>
+          <div class="ln c-mut" data-login>Last login on ttys001</div>
+          <div class="ln"><span class="ps1"><span>tyron</span><span class="p-at">@</span><span>dev</span> <span class="p-dir">~</span> <span class="p-sig">$</span></span> <span class="c-cmd">systemctl status tyron</span></div>
+          <div class="ln"><span class="c-ok">●</span> <span class="c-b">tyron.service</span> <span class="c-mut">—</span> Tyron Samaroo</div>
+          <div class="ln kv"><span class="c-mut">  Active:</span> <span class="c-okb">active (running)</span> since Jun 2026</div>
+          <div class="ln kv"><span class="c-mut">    Role:</span> AVP, Reliability Engineer</div>
+          <div class="ln kv"><span class="c-mut">  CGroup:</span> /synchrony.slice/tyron.service</div>
+          <div class="ln kv"><span class="c-mut">    Also:</span> Software Engineer · ML Engineer</div>
+          <div class="ln kv"><span class="c-mut">    Prev:</span> Capital One, Jan 2022 – 2026</div>
+          <div class="ln kv"><span class="c-mut">    Home:</span> Long Island, New York</div>
+          <div class="gap"></div>
+          <div class="ln c-com"># type help, or tap a command ↓</div>
+        </div>
+        <form class="prompt" data-form>
+          <label class="ps1" for="sh-in"><span>tyron</span><span class="p-at">@</span><span>dev</span> <span class="p-dir">~</span> <span class="p-sig">$</span></label>
+          <span class="field">
+            <input id="sh-in" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-label="Shell command. Type help for a list of commands." data-input>
+            <span class="mirror" aria-hidden="true" data-mirror><span data-pre></span><span class="cur" data-cur> </span><span data-post></span></span>
+          </span>
+        </form>
+      </div>
+      <div class="sh-foot">
+        <button class="chip" type="button" data-run="help">help</button>
+        <button class="chip" type="button" data-run="experience">experience</button>
+        <button class="chip" type="button" data-run="projects">projects</button>
+        <button class="chip" type="button" data-run="contact">contact</button>
+        <button class="chip" type="button" data-run="curl /api/me">curl /api/me</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DESCRIPTION ================= -->
+<section class="sec minor" id="about" aria-labelledby="h-about" data-sect="DESCRIPTION">
+  <div class="wrap">
+    <header class="sec-h">
+      <h2 class="sec-t" id="h-about">DESCRIPTION<span class="sr"> — about</span></h2>
+      <p class="sec-meta" aria-hidden="true"><span class="al">about</span><kbd class="key">1</kbd></p>
+    </header>
+    <div class="sec-grid">
+      <div class="gutter"></div>
+      <div class="body">
+        <p class="cmdline" aria-hidden="true"><span class="ps">$</span><span class="c">cat about.txt</span></p>
+        <p class="lead">Reliability engineer with 6+ years building <em>high-scale cloud-native microservices</em>, ML pipelines, and polished web experiences. Focused on reliability, event-driven architectures, and <i>shipping real projects.</i></p>
+
+        <h3 class="sub envh">ENVIRONMENT</h3>
+        <dl class="env">
+          <div class="row"><dt>TYRON_YEARS</dt><dd class="v">6<small>+</small></dd><dd class="d">years building cloud-native microservices, ML pipelines, and web experiences</dd></div>
+          <div class="row"><dt>TYRON_DEGREE</dt><dd class="v">MS</dd><dd class="d">Data Science &amp; Engineering, City College of New York (CUNY), 2023</dd></div>
+          <div class="row"><dt>TYRON_AWS_CERTS</dt><dd class="v">2</dd><dd class="d">AWS Certified Developer and Solutions Architect, both Associate</dd></div>
+          <div class="row"><dt>TYRON_SHIPPED</dt><dd class="v">8</dd><dd class="d">projects shipped, the recent ones listed under <a href="#projects">EXAMPLES</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HISTORY ================= -->
+<section class="sec major" id="experience" aria-labelledby="h-exp" data-sect="HISTORY">
+  <div class="wrap">
+    <header class="sec-h">
+      <h2 class="sec-t" id="h-exp">HISTORY<span class="sr"> — experience</span></h2>
+      <p class="sec-meta" aria-hidden="true"><span class="al">experience</span><span>4 commits · 2020 → now</span><kbd class="key">2</kbd></p>
+    </header>
+    <div class="sec-grid">
+      <div class="gutter"></div>
+      <div class="body"><p class="cmdline" aria-hidden="true"><span class="ps">$</span><span class="c">git log --graph career</span></p></div>
+    </div>
+    <ol class="log">
+      <li class="commit head">
+        <p class="c-date"><span>Jun 2026</span><span class="now">– Present</span></p>
+        <div class="c-main">
+          <span class="g" aria-hidden="true"><b>*</b><i></i></span>
+          <h3 class="c-co">Synchrony<span class="sr"> (current role)</span><span class="deco" aria-hidden="true">(<span class="h">HEAD</span> -&gt; <span class="br">main</span>)</span></h3>
+          <p class="c-role">AVP, Reliability Engineer</p>
+          <p class="c-msg">Reliability engineering.</p>
+        </div>
+      </li>
+      <li class="commit">
+        <p class="c-date"><span>Jan 2022</span><span>– 2026</span></p>
+        <div class="c-main">
+          <span class="g" aria-hidden="true"><b>*</b><i></i></span>
+          <h3 class="c-co">Capital One</h3>
+          <p class="c-role">Software Engineer</p>
+          <div class="c-body has-aside">
+            <div>
+              <ul class="adds">
+                <li>Engineered high-scale backend services on AWS powering millions of monthly requests</li>
+                <li>Owned production reliability and 24x7 on-call support; cut MTTR from ~2h to &lt;30min</li>
+                <li>Replatformed legacy batch processes into event-driven pipelines (Lambda, Step Functions, SNS/SQS)</li>
+                <li>Led infrastructure migration across 100+ repositories as sole SME with zero outages</li>
+                <li>Wrote 300+ unit/integration tests achieving 85%+ code coverage</li>
+              </ul>
+              <p class="trailer"><b>Stack:</b> Go, Python, AWS, Kafka, Redis, Docker, Terraform</p>
+            </div>
+            <div class="diff" aria-hidden="true">
+              <div class="dh">on-call.diff <span>@@ mttr @@</span></div>
+              <span class="del">- mttr ≈ 2h</span>
+              <span class="add">+ mttr &lt; 30min</span>
+              <span class="ctx">  repos: 100+ · outages: 0</span>
+              <span class="ctx">  tests: 300+ · cov: 85%+</span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="commit">
+        <p class="c-date"><span>Dec 2020</span><span>– Dec 2021</span></p>
+        <div class="c-main">
+          <span class="g" aria-hidden="true"><b>*</b><i></i></span>
+          <h3 class="c-co">PicoPortal <span class="aka">(IDOC)</span></h3>
+          <p class="c-role">ML Engineer / SWE</p>
+          <ul class="adds">
+            <li>Automated ML pipeline with Azure DevOps, Kubernetes, Docker, and Celery</li>
+            <li>Built inference APIs with FastAPI; integrated OCR + ML models</li>
+            <li>Managed PostgreSQL + Redis for data storage and caching</li>
+          </ul>
+        </div>
+      </li>
+      <li class="commit">
+        <p class="c-date"><span>Jan 2020</span><span>– Aug 2020</span></p>
+        <div class="c-main">
+          <span class="g" aria-hidden="true"><b>*</b><i></i></span>
+          <h3 class="c-co">Research Foundation of CUNY</h3>
+          <p class="c-role">Software Engineer</p>
+          <ul class="adds">
+            <li>Built admin tool with Ruby on Rails serving 500+ users</li>
+            <li>Automated browser testing with Selenium; reduced manual QA by 40%</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= OPTIONS ================= -->
+<section class="sec minor" id="skills" aria-labelledby="h-skills" data-sect="OPTIONS">
+  <div class="wrap">
+    <header class="sec-h">
+      <h2 class="sec-t" id="h-skills">OPTIONS<span class="sr"> — skills</span></h2>
+      <p class="sec-meta" aria-hidden="true"><span class="al">skills</span><span>16 flags</span><kbd class="key">3</kbd></p>
+    </header>
+    <div class="sec-grid">
+      <div class="gutter opt-g">
+        <div class="gutter-in">
+          <p class="sub" style="margin-bottom:8px">LEVELS</p>
+          <ul class="legend">
+            <li><span class="pips" aria-hidden="true"><i class="on"></i><i></i><i></i></span>familiar</li>
+            <li><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span>proficient</li>
+            <li><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span>advanced</li>
+            <li class="ok"><span class="pips lv cert" aria-hidden="true" style="display:inline-flex"><i class="on" style="background:var(--green);border-color:var(--green)"></i><i class="on" style="background:var(--green);border-color:var(--green)"></i><i class="on" style="background:var(--green);border-color:var(--green)"></i></span>certified</li>
+          </ul>
+        </div>
+      </div>
+      <div class="body">
+        <p class="cmdline" aria-hidden="true"><span class="ps">$</span><span class="c">tyron --help</span></p>
+        <div class="opts">
+          <div>
+            <h3 class="sub">LANGUAGES</h3>
+            <ul class="opt-list">
+              <li class="opt"><span class="f">python</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">go</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">java</span><span class="lead-dots"></span><span class="lv"><span class="w">proficient</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></span></li>
+              <li class="opt"><span class="f">typescript</span><span class="lead-dots"></span><span class="lv"><span class="w">proficient</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub">FRAMEWORKS</h3>
+            <ul class="opt-list">
+              <li class="opt"><span class="f">react</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">fastapi</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">spring-boot</span><span class="lead-dots"></span><span class="lv"><span class="w">proficient</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></span></li>
+              <li class="opt"><span class="f">ruby-on-rails</span><span class="lead-dots"></span><span class="lv"><span class="w">familiar</span><span class="pips" aria-hidden="true"><i class="on"></i><i></i><i></i></span></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub">TOOLS</h3>
+            <ul class="opt-list">
+              <li class="opt"><span class="f">aws</span><span class="lead-dots"></span><span class="lv cert"><span class="w">certified</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">docker</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">kubernetes</span><span class="lead-dots"></span><span class="lv"><span class="w">proficient</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></span></li>
+              <li class="opt"><span class="f">terraform</span><span class="lead-dots"></span><span class="lv"><span class="w">proficient</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub">DATA &amp; INFRA</h3>
+            <ul class="opt-list">
+              <li class="opt"><span class="f">kafka</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">redis</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+              <li class="opt"><span class="f">postgresql</span><span class="lead-dots"></span><span class="lv"><span class="w">proficient</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i></i></span></span></li>
+              <li class="opt"><span class="f">ci-cd</span><span class="lead-dots"></span><span class="lv"><span class="w">advanced</span><span class="pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-row">
+          <h3 class="sub" style="margin:0">EXPERIMENTAL</h3>
+          <p><span class="f"><span class="d">--</span>swiftui</span>, <span class="f"><span class="d">--</span>healthkit</span> <span class="mut">— newer; iOS side projects.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXAMPLES ================= -->
+<section class="sec major" id="projects" aria-labelledby="h-proj" data-sect="EXAMPLES">
+  <div class="wrap">
+    <header class="sec-h">
+      <h2 class="sec-t" id="h-proj">EXAMPLES<span class="sr"> — projects</span></h2>
+      <p class="sec-meta" aria-hidden="true"><span class="al">projects</span><span>6 repos · 1 new build</span><kbd class="key">4</kbd></p>
+    </header>
+    <div class="sec-grid">
+      <div class="gutter"></div>
+      <div class="body">
+        <p class="cmdline" aria-hidden="true"><span class="ps">$</span><span class="c">ls -l ~/projects</span></p>
+
+        <article class="pane news" aria-labelledby="h-news">
+          <span class="pane-t"><span class="tag">NEWS</span> · June 2026</span>
+          <svg viewBox="0 0 132 200" role="img" aria-label="Illustration: an iPhone Lock Screen with an activity progress ring">
+            <rect x="6" y="4" width="120" height="192" rx="22" fill="#fff" stroke="#0D1320" stroke-width="2"/>
+            <rect x="46" y="14" width="40" height="10" rx="5" fill="#0D1320"/>
+            <text x="66" y="62" text-anchor="middle" font-family="Martian Mono, IBM Plex Mono, monospace" font-size="22" font-weight="600" fill="#0D1320" letter-spacing="-1">9:41</text>
+            <circle cx="66" cy="118" r="28" fill="none" stroke="#E6E9EE" stroke-width="8"/>
+            <circle cx="66" cy="118" r="28" fill="none" stroke="#08774A" stroke-width="8" stroke-linecap="round" stroke-dasharray="130 176" transform="rotate(-90 66 118)"/>
+            <path d="M60 118l4 4 8-9" fill="none" stroke="#0D1320" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="28" y="164" width="76" height="6" rx="3" fill="#E6E9EE"/>
+            <rect x="28" y="164" width="52" height="6" rx="3" fill="#0D1320"/>
+            <rect x="52" y="182" width="28" height="4" rx="2" fill="#0D1320"/>
+          </svg>
+          <div>
+            <h3 id="h-news">StrideSlip — iOS build notes</h3>
+            <p class="d">An iPhone activity companion for daily steps, workout receipts, Lock Screen progress, and smarter Apple Health insights.</p>
+            <p class="stk">SwiftUI · HealthKit · ActivityKit · CloudKit</p>
+            <a class="go" href="https://tyronsamaroo.dev/projects/stride-slip">Read the build notes →</a>
+          </div>
+        </article>
+
+        <ul class="projects">
+          <li class="proj">
+            <div class="p-meta"><span class="slug"><span class="ix">01</span>dev-dashboard/</span><span class="st on">active</span></div>
+            <h3>Personal Developer Dashboard</h3>
+            <p>Full-stack portfolio dashboard with a FastAPI backend and a React frontend. Showcases projects, skills, and coding stats.</p>
+            <p class="p-stk">FastAPI · React · DynamoDB · AWS Lambda · Tailwind</p>
+            <div class="p-links"><a href="https://github.com/tyronsamaroo/dev-dashboard" target="_blank" rel="noopener">source ↗<span class="sr"> Personal Developer Dashboard on GitHub</span></a></div>
+          </li>
+          <li class="proj">
+            <div class="p-meta"><span class="slug"><span class="ix">02</span>summer/</span><span class="st on">active</span></div>
+            <h3>Summer in New York Finder</h3>
+            <p>Mobile-first public map for Nassau, Suffolk, and NYC summer programs with a questionnaire flow, filters, source links, and location drawers.</p>
+            <p class="p-stk">HTML · Leaflet · OpenStreetMap · public data</p>
+            <div class="p-links"><a href="https://tyronsamaroo.dev/summer/">live ↗<span class="sr"> Summer in New York Finder</span></a></div>
+          </li>
+          <li class="proj">
+            <div class="p-meta"><span class="slug"><span class="ix">03</span>daily-command-center/</span><span class="st on">active</span></div>
+            <h3>Daily Command Center</h3>
+            <p>Unified daily planner combining work block tracking, contest prep, and household coordination in one Next.js app.</p>
+            <p class="p-stk">Next.js · TypeScript · Turso · Drizzle ORM · Tailwind</p>
+            <div class="p-links"><a href="https://github.com/tyronsamaroo/daily-command-center" target="_blank" rel="noopener">source ↗<span class="sr"> Daily Command Center on GitHub</span></a></div>
+          </li>
+          <li class="proj">
+            <div class="p-meta"><span class="slug"><span class="ix">04</span>ml-pipeline-toolkit/</span><span class="st on">active</span></div>
+            <h3>ML Pipeline Toolkit</h3>
+            <p>Reusable Python library for end-to-end ML pipelines with data validation, feature engineering, and model evaluation.</p>
+            <p class="p-stk">Python · PyTorch · scikit-learn · Pandas · Docker</p>
+            <div class="p-links"><a href="https://github.com/tyronsamaroo/ml-pipeline-toolkit" target="_blank" rel="noopener">source ↗<span class="sr"> ML Pipeline Toolkit on GitHub</span></a></div>
+          </li>
+          <li class="proj">
+            <div class="p-meta"><span class="slug"><span class="ix">05</span>ocb-debut-dashboard/</span><span class="st done">completed</span></div>
+            <h3>OCB Debut Dashboard</h3>
+            <p>Bodybuilding contest-prep tracker with calorie/macro analysis, weight trend visualizations, and progress photo timeline.</p>
+            <p class="p-stk">React · Vite · Express · SQLite · Recharts</p>
+            <div class="p-links"><a href="https://github.com/tyronsamaroo/ocb-debut-dashboard" target="_blank" rel="noopener">source ↗<span class="sr"> OCB Debut Dashboard on GitHub</span></a></div>
+          </li>
+          <li class="proj">
+            <div class="p-meta"><span class="slug"><span class="ix">06</span>smart-chore-scheduler/</span><span class="st done">completed</span></div>
+            <h3>Smart Chore Scheduler</h3>
+            <p>Household task scheduler with fairness scoring, calendar views, and recurring chore management.</p>
+            <p class="p-stk">React · Vite · FastAPI · Python</p>
+            <div class="p-links"><a href="https://github.com/tyronsamaroo/smart-chore-scheduler" target="_blank" rel="noopener">source ↗<span class="sr"> Smart Chore Scheduler on GitHub</span></a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STANDARDS ================= -->
+<section class="sec minor" id="education" aria-labelledby="h-edu" data-sect="STANDARDS">
+  <div class="wrap">
+    <header class="sec-h">
+      <h2 class="sec-t" id="h-edu">STANDARDS<span class="sr"> — education</span></h2>
+      <p class="sec-meta" aria-hidden="true"><span class="al">education</span><span>2 degrees · 2 certs</span><kbd class="key">5</kbd></p>
+    </header>
+    <div class="sec-grid">
+      <div class="gutter"></div>
+      <div class="body">
+        <p class="cmdline" aria-hidden="true"><span class="ps">$</span><span class="c">cat education.txt certifications.txt</span></p>
+        <div class="edu">
+          <div>
+            <h3 class="sub">EDUCATION</h3>
+            <ul class="deg">
+              <li>
+                <span class="yr">2023<small>May</small></span>
+                <span class="what"><b>MS Data Science &amp; Engineering</b><span>City College of New York (CUNY)</span></span>
+              </li>
+              <li>
+                <span class="yr">2020<small>May</small></span>
+                <span class="what"><b>BS Computer Science, Minor in Mathematics</b><span>Queens College (CUNY)</span></span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="sub">CERTIFICATIONS</h3>
+            <p class="conform">Conforms to:</p>
+            <ul class="certs">
+              <li><b>AWS Certified Developer – Associate</b><span>Amazon Web Services · 2024</span></li>
+              <li><b>AWS Certified Solutions Architect – Associate</b><span>Amazon Web Services</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= API ================= -->
+<section class="sec minor" id="api" aria-labelledby="h-api" data-sect="API">
+  <div class="wrap">
+    <header class="sec-h">
+      <h2 class="sec-t" id="h-api">API<span class="sr"> — public JSON</span></h2>
+      <p class="sec-meta" aria-hidden="true"><span class="al">public json</span><span>3 endpoints · live</span><kbd class="key">6</kbd></p>
+    </header>
+    <div class="sec-grid">
+      <div class="gutter"></div>
+      <div class="body">
+        <p class="cmdline" aria-hidden="true"><span class="ps">$</span><span class="c">curl api</span></p>
+        <div class="api">
+          <div>
+            <p class="api-d">A small public JSON API serves the profile, projects, and stats. Run an endpoint and the live response prints in the pane.</p>
+            <span class="base">base <code>https://dev-dashboard-api.onrender.com</code></span>
+            <table class="eps">
+              <thead><tr><th scope="col">VERB</th><th scope="col">PATH</th><th scope="col" class="ret">RETURNS</th><th scope="col"><span class="sr">Action</span></th></tr></thead>
+              <tbody>
+                <tr><td>GET</td><td class="path">/api/me</td><td class="ret">profile</td><td><button type="button" data-ep="/api/me">run<span class="sr"> GET /api/me</span></button></td></tr>
+                <tr><td>GET</td><td class="path">/api/projects</td><td class="ret">all projects</td><td><button type="button" data-ep="/api/projects">run<span class="sr"> GET /api/projects</span></button></td></tr>
+                <tr><td>GET</td><td class="path">/api/stats</td><td class="ret">stats &amp; skills</td><td><button type="button" data-ep="/api/stats">run<span class="sr"> GET /api/stats</span></button></td></tr>
+              </tbody>
+            </table>
+            <a class="docs" href="https://dev-dashboard-api.onrender.com/docs" target="_blank" rel="noopener">Interactive docs ↗</a>
+          </div>
+          <div class="pane api-pane">
+            <span class="pane-t" aria-hidden="true">api.sh</span>
+            <div class="code">
+              <div class="ln"><span class="c-com"># fetch the profile</span></div>
+              <div class="ln"><span class="ps1" style="font-weight:600">$</span> <span class="c-cmd" data-api-cmd>curl https://dev-dashboard-api.onrender.com/api/me</span></div>
+            </div>
+            <div class="api-bar">
+              <button class="btn" type="button" data-api-run>Run live request</button>
+              <button class="btn ghost" type="button" data-api-copy>Copy command</button>
+            </div>
+            <div class="api-out" role="log" aria-live="polite" aria-label="API response" data-api-out>
+              <div class="ln c-com"># response prints here.</div>
+              <div class="ln c-com"># free-tier host: the first call may take a moment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEE ALSO ================= -->
+<section class="sec minor" id="contact" aria-labelledby="h-contact" data-sect="SEE ALSO">
+  <div class="wrap">
+    <header class="sec-h">
+      <h2 class="sec-t" id="h-contact">SEE ALSO<span class="sr"> — contact</span></h2>
+      <p class="sec-meta" aria-hidden="true"><span class="al">contact</span><span>3 links</span><kbd class="key">7</kbd></p>
+    </header>
+    <div class="sec-grid">
+      <div class="gutter"></div>
+      <div class="body">
+        <p class="cmdline" aria-hidden="true"><span class="ps">$</span><span class="c">finger tyron</span></p>
+        <p class="mail-k">Get in touch</p>
+        <a class="mail" href="mailto:tyronsamaroo828@gmail.com">tyronsamaroo828<wbr>@gmail.com</a>
+        <ul class="xref">
+          <li><a href="https://github.com/tyronsamaroo" target="_blank" rel="noopener"><span class="nm">github<span>(1)</span></span><span class="url">github.com/tyronsamaroo</span><span class="arr" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://linkedin.com/in/tyronsamaroo" target="_blank" rel="noopener"><span class="nm">linkedin<span>(1)</span></span><span class="url">linkedin.com/in/tyronsamaroo</span><span class="arr" aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:tyronsamaroo828@gmail.com"><span class="nm">mail<span>(1)</span></span><span class="url">tyronsamaroo828@gmail.com</span><span class="arr" aria-hidden="true">↗</span></a></li>
+        </ul>
+        <dl class="rows">
+          <dt>NOTES</dt>
+          <dd>Off the keyboard: competed in his first OCB natural bodybuilding show (Men’s Physique) in September 2026, which is why the OCB Debut Dashboard exists.</dd>
+          <dt>BUGS</dt>
+          <dd>Probably a few. Report them to <a href="mailto:tyronsamaroo828@gmail.com">mail(1)</a>.</dd>
+          <dt>AUTHOR</dt>
+          <dd>Tyron Samaroo, Long Island, New York.</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>tyronsamaroo.dev</span>
+    <span>September 2026</span>
+    <b>TYRON(1)</b>
+  </div>
+</footer>
+
+<!-- less(1) status line: position, search (/) and command line (:) -->
+<div class="less" data-less>
+  <div class="wrap">
+    <p class="less-st" data-status aria-live="off"><span class="rv" data-rv><span class="st-long">Manual page tyron(1) line 1 (press : to run a command, / to search)</span><span class="st-short">tyron(1) line 1</span></span></p>
+    <form class="less-q" data-qform hidden>
+      <label for="less-in" data-qmode>/</label>
+      <input id="less-in" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-label="Search this page" data-qin>
+    </form>
+    <div class="less-ctl">
+      <button type="button" class="run" data-open-cmd aria-controls="drawer"><kbd>:</kbd>run</button>
+      <button type="button" data-open-search aria-label="Search this page"><kbd>/</kbd>search</button>
+      <button type="button" class="k-keys" data-open-keys aria-expanded="false" aria-controls="keys"><kbd>h</kbd>keys</button>
+    </div>
+  </div>
+</div>
+<div class="pane drawer" id="drawer" role="region" aria-label="Command output" data-drawer hidden>
+  <span class="pane-t" aria-hidden="true">: tyron(1) — command output</span>
+  <button type="button" class="drawer-x" data-drawer-x>esc ×<span class="sr"> close command output</span></button>
+  <div class="d-log" role="log" aria-live="polite" data-dlog></div>
+</div>
+<div class="keys pane" id="keys" role="dialog" aria-label="Keyboard shortcuts" hidden>
+  <span class="pane-t">less(1) keys</span>
+  <dl>
+    <dt>:cmd</dt><dd>run a command from anywhere</dd>
+    <dt>/text</dt><dd>search this page</dd>
+    <dt>n &nbsp;N</dt><dd>next / previous match</dd>
+    <dt>1 – 7</dt><dd>jump to a section</dd>
+    <dt>j &nbsp;k</dt><dd>scroll down / up</dd>
+    <dt>g &nbsp;G</dt><dd>top / bottom</dd>
+    <dt>q</dt><dd>back to the shell</dd>
+    <dt>h &nbsp;?</dt><dd>toggle this help</dd>
+    <dt>esc</dt><dd>close</dd>
+  </dl>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const API = 'https://dev-dashboard-api.onrender.com';
+  const L = {
+    github: 'https://github.com/tyronsamaroo',
+    linkedin: 'https://linkedin.com/in/tyronsamaroo',
+    email: 'mailto:tyronsamaroo828@gmail.com'
+  };
+  const SECTIONS = ['about', 'experience', 'skills', 'projects', 'education', 'api', 'contact'];
+  const SECT_NAME = { top: 'NAME', about: 'DESCRIPTION', experience: 'HISTORY', skills: 'OPTIONS', projects: 'EXAMPLES', education: 'STANDARDS', api: 'API', contact: 'SEE ALSO' };
+
+  /* ---------- tiny DOM line builder ----------
+     a line is an array of segments:
+       'text' | ['class','text'] | {a:href,t:text} | {go:'#id',t:text} */
+  function line(segs, cls) {
+    const d = document.createElement('div');
+    d.className = 'ln' + (cls ? ' ' + cls : '');
+    (Array.isArray(segs) ? segs : [segs]).forEach(s => {
+      if (s == null) return;
+      if (typeof s === 'string') { d.append(s); return; }
+      if (Array.isArray(s)) { const sp = document.createElement('span'); sp.className = s[0]; sp.textContent = s[1]; d.append(sp); return; }
+      if (s.a) {
+        const a = document.createElement('a'); a.href = s.a; a.textContent = s.t;
+        if (/^https?:/.test(s.a)) { a.target = '_blank'; a.rel = 'noopener'; }
+        d.append(a); return;
+      }
+      if (s.go) {
+        const a = document.createElement('a'); a.href = s.go; a.textContent = s.t; d.append(a); return;
+      }
+    });
+    return d;
+  }
+  const gap = () => { const g = document.createElement('div'); g.className = 'gap'; return g; };
+  const pad = (s, n) => s + ' '.repeat(Math.max(1, n - s.length));
+
+  /* ---------- JSON pretty-printer with syntax colours ---------- */
+  function jsonLines(obj, max = 90) {
+    const txt = JSON.stringify(obj, null, 2).split('\n');
+    const out = [];
+    const re = /("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b|(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g;
+    txt.slice(0, max).forEach(t => {
+      const segs = []; let last = 0, m;
+      re.lastIndex = 0;
+      while ((m = re.exec(t))) {
+        if (m.index > last) segs.push(t.slice(last, m.index));
+        if (m[1]) { segs.push([m[2] ? 'c-key' : 'c-str', m[1]]); if (m[2]) segs.push(m[2]); }
+        else if (m[3]) segs.push(['c-num', m[3]]);
+        else if (m[4]) segs.push(['c-num', m[4]]);
+        last = re.lastIndex;
+      }
+      if (last < t.length) segs.push(t.slice(last));
+      out.push(line(segs));
+    });
+    if (txt.length > max) out.push(line([['c-com', '# … ' + (txt.length - max) + ' more lines (see /docs)']]));
+    return out;
+  }
+
+  /* ---------- live curl (user-initiated only) ---------- */
+  async function curl(path, print) {
+    const url = API + path;
+    print([line([['c-mut', '> GET ' + path + ' HTTP/1.1']]), line([['c-mut', '> Host: dev-dashboard-api.onrender.com']])]);
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 20000);
+    const waking = setTimeout(() => print([line([['c-com', '# waking the free-tier server…']])]), 2500);
+    const t0 = performance.now();
+    try {
+      const r = await fetch(url, { signal: ctl.signal, headers: { Accept: 'application/json' } });
+      const body = await r.text();
+      const ms = Math.round(performance.now() - t0);
+      clearTimeout(waking);
+      print([line([['c-mut', '< HTTP ' + r.status + ' '], [r.ok ? 'c-ok' : 'c-err', r.ok ? 'OK' : (r.statusText || 'error')], ['c-mut', ' · ' + ms + 'ms']]), gap()]);
+      let data; try { data = JSON.parse(body); } catch (_) { data = null; }
+      if (data !== null) print(jsonLines(data));
+      else print(body.slice(0, 1200).split('\n').map(t => line(t)));
+    } catch (e) {
+      clearTimeout(waking);
+      const timeout = e && e.name === 'AbortError';
+      print([
+        line([['c-err', timeout ? 'curl: (28) Operation timed out' : 'curl: (7) Failed to connect to dev-dashboard-api.onrender.com']]),
+        line([['c-com', timeout ? '# the free-tier API may still be waking up — try again' : '# blocked from this origin or offline; the docs work anywhere:']]),
+        line([{ a: API + '/docs', t: API.replace('https://', '') + '/docs' }])
+      ]);
+    } finally { clearTimeout(timer); }
+  }
+
+  /* ---------- shell ---------- */
+  const shellEl = $('[data-shell]');
+  const log = $('[data-log]', shellEl);
+  const scroller = $('[data-scroll]', shellEl);
+  const form = $('[data-form]', shellEl);
+  const input = $('[data-input]', shellEl);
+  const mPre = $('[data-pre]', shellEl), mCur = $('[data-cur]', shellEl), mPost = $('[data-post]', shellEl);
+  const hist = []; let hIdx = 0; let busy = false;
+
+  const ps1 = () => [['ps1', 'tyron@dev ~ $']];
+  function print(nodes) { nodes.forEach(n => log.append(n)); scroller.scrollTop = scroller.scrollHeight; }
+
+  function renderMirror() {
+    const v = input.value, p = input.selectionStart == null ? v.length : input.selectionStart;
+    mPre.textContent = v.slice(0, p);
+    mCur.textContent = v.charAt(p) || ' ';
+    mPost.textContent = v.slice(p + 1);
+  }
+  ['input', 'keyup', 'click', 'select', 'focus'].forEach(ev => input.addEventListener(ev, renderMirror));
+  document.addEventListener('selectionchange', () => { if (document.activeElement === input) renderMirror(); });
+
+  shellEl.addEventListener('click', e => {
+    if (e.target.closest('a,button')) return;
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed) return;
+    input.focus({ preventScroll: true });
+  });
+
+  const help = () => {
+    const rows = [
+      ['whoami', 'who this is'],
+      ['status', 'systemctl status tyron'],
+      ['experience', 'work history   (git log)'],
+      ['projects', 'things shipped (ls)'],
+      ['skills', 'languages & tools'],
+      ['education', 'degrees & certs'],
+      ['contact', 'reach me      (finger)'],
+      ['curl api', 'public JSON API'],
+      ['curl /api/me', 'live request'],
+      ['open <name>', 'github | linkedin | email'],
+      ['goto <section>', 'scroll the page there'],
+      ['clear', 'clear the screen'],
+    ];
+    return [line([['c-b', 'available commands']]), ...rows.map(([c, d]) => line([['c-ok', pad(c, 16)], ['c-mut', d]])), gap(),
+      line([['c-com', '# ↑↓ history · tab completes · ctrl+l clears']]),
+      line([['c-com', '# press : anywhere on the page to run these too']])];
+  };
+
+  const whoami = () => [
+    line([['c-b', 'Tyron Samaroo']]),
+    line(['AVP, Reliability Engineer ', ['c-mut', '@'], ' Synchrony']),
+    line([['c-mut', 'Software Engineer · ML Engineer']]),
+    line([['c-mut', 'Long Island, New York']]),
+    line([['c-mut', '6+ yrs · MS Data Science · AWS ×2 · 8 shipped']])
+  ];
+
+  const sysStatus = () => [
+    line([['c-ok', '●'], ' ', ['c-b', 'tyron.service'], ' ', ['c-mut', '—'], ' Tyron Samaroo']),
+    line([['c-mut', '  Active:'], ' ', ['c-okb', 'active (running)'], ' since Jun 2026'], 'kv'),
+    line([['c-mut', '    Role:'], ' AVP, Reliability Engineer'], 'kv'),
+    line([['c-mut', '  CGroup:'], ' /synchrony.slice/tyron.service'], 'kv'),
+    line([['c-mut', '    Also:'], ' Software Engineer · ML Engineer'], 'kv'),
+    line([['c-mut', '    Prev:'], ' Capital One, Jan 2022 – 2026'], 'kv'),
+    line([['c-mut', '    Home:'], ' Long Island, New York'], 'kv')
+  ];
+
+  const experience = () => [
+    line([['c-y', '*'], ' ', ['c-b', 'Synchrony'], ' ', ['c-y', '('], ['c-h', 'HEAD'], ' -> ', ['c-br', 'main'], ['c-y', ')']]),
+    line([['c-mut', '|   '], 'AVP, Reliability Engineer']),
+    line([['c-mut', '|   Jun 2026 – Present']]),
+    line([['c-y', '*'], ' ', ['c-b', 'Capital One']]),
+    line([['c-mut', '|   '], 'Software Engineer']),
+    line([['c-mut', '|   Jan 2022 – 2026']]),
+    line([['c-mut', '|   '], ['c-ok', '+ '], 'MTTR ~2h → <30min']),
+    line([['c-mut', '|   '], ['c-ok', '+ '], '100+ repos migrated, zero outages']),
+    line([['c-y', '*'], ' ', ['c-b', 'PicoPortal (IDOC)']]),
+    line([['c-mut', '|   '], 'ML Engineer / SWE']),
+    line([['c-mut', '|   Dec 2020 – Dec 2021']]),
+    line([['c-y', '*'], ' ', ['c-b', 'Research Foundation of CUNY']]),
+    line([['c-mut', '    '], 'Software Engineer']),
+    line([['c-mut', '    Jan 2020 – Aug 2020']]),
+    gap(), line([['c-com', '# full log → '], { go: '#experience', t: 'HISTORY' }])
+  ];
+
+  const projects = () => {
+    const P = [
+      ['new', 'stride-slip/', 'Jun 2026', 'https://tyronsamaroo.dev/projects/stride-slip'],
+      ['●', 'dev-dashboard/', 'active', 'https://github.com/tyronsamaroo/dev-dashboard'],
+      ['●', 'summer/', 'active', 'https://tyronsamaroo.dev/summer/'],
+      ['●', 'daily-command-center/', 'active', 'https://github.com/tyronsamaroo/daily-command-center'],
+      ['●', 'ml-pipeline-toolkit/', 'active', 'https://github.com/tyronsamaroo/ml-pipeline-toolkit'],
+      ['✓', 'ocb-debut-dashboard/', 'completed', 'https://github.com/tyronsamaroo/ocb-debut-dashboard'],
+      ['✓', 'smart-chore-scheduler/', 'completed', 'https://github.com/tyronsamaroo/smart-chore-scheduler']
+    ];
+    return [line([['c-mut', 'total ' + (P.length - 1) + ' + 1 new']]),
+      ...P.map(([m, n, s, u]) => line([[m === '✓' ? 'c-mut' : 'c-ok', pad(m, 5)], { a: u, t: n }, ' '.repeat(Math.max(1, 24 - n.length)), ['c-mut', s]])),
+      gap(), line([['c-com', '# details → '], { go: '#projects', t: 'EXAMPLES' }])];
+  };
+
+  const skills = () => [
+    line([['c-key', pad('languages', 12)], 'python go java typescript']),
+    line([['c-key', pad('frameworks', 12)], 'react fastapi spring-boot rails']),
+    line([['c-key', pad('tools', 12)], 'aws', ['c-ok', '*'], ' docker kubernetes terraform']),
+    line([['c-key', pad('data/infra', 12)], 'kafka redis postgresql ci/cd']),
+    line([['c-key', pad('newer', 12)], 'swiftui healthkit']),
+    line([['c-com', pad('', 12) + '* certified']]),
+    gap(), line([['c-com', '# levels → '], { go: '#skills', t: 'OPTIONS' }])
+  ];
+
+  const education = () => [
+    line([['c-b', 'MS Data Science & Engineering'], ['c-mut', ' · May 2023']]),
+    line([['c-mut', '  City College of New York (CUNY)']]),
+    line([['c-b', 'BS Computer Science, Minor in Math'], ['c-mut', ' · May 2020']]),
+    line([['c-mut', '  Queens College (CUNY)']]),
+    line([['c-ok', '✓ '], 'AWS Certified Developer – Associate (2024)']),
+    line([['c-ok', '✓ '], 'AWS Certified Solutions Architect – Associate'])
+  ];
+
+  const contact = () => [
+    line([['c-mut', 'Login: '], 'tyron', ['c-mut', '            Name: '], 'Tyron Samaroo']),
+    line([['c-mut', 'Directory: /home/tyron   Shell: /bin/bash']]),
+    line([['c-mut', pad('Mail:', 10)], { a: L.email, t: 'tyronsamaroo828@gmail.com' }]),
+    line([['c-mut', pad('GitHub:', 10)], { a: L.github, t: 'github.com/tyronsamaroo' }]),
+    line([['c-mut', pad('LinkedIn:', 10)], { a: L.linkedin, t: 'linkedin.com/in/tyronsamaroo' }]),
+    line([['c-mut', 'Plan: reliability, event-driven systems,']]),
+    line([['c-mut', '      and shipping real projects.']])
+  ];
+
+  const apiInfo = () => [
+    line([['c-b', 'GET'], ' ', ['c-mut', API.replace('https://', '')]]),
+    line(['  ', ['c-ok', pad('/api/me', 15)], ['c-mut', 'profile']]),
+    line(['  ', ['c-ok', pad('/api/projects', 15)], ['c-mut', 'all projects']]),
+    line(['  ', ['c-ok', pad('/api/stats', 15)], ['c-mut', 'stats & skills']]),
+    line([['c-mut', 'docs  '], { a: API + '/docs', t: '/docs ↗' }]),
+    gap(), line([['c-com', '# try: curl /api/me   (live request)']])
+  ];
+
+  const FILES = { 'about.txt': 'about', 'experience.log': 'experience', 'skills.txt': 'skills', 'education.txt': 'education', 'api.md': 'curl api', 'contact.vcf': 'contact' };
+
+  function goto(id) {
+    const el = document.getElementById(id);
+    if (!el) return false;
+    el.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
+    return true;
+  }
+
+  const secAlias = { about: 'about', description: 'about', experience: 'experience', history: 'experience', work: 'experience', skills: 'skills', options: 'skills', projects: 'projects', examples: 'projects', education: 'education', certs: 'education', standards: 'education', api: 'api', contact: 'contact', 'see-also': 'contact', 'see also': 'contact', top: 'top', '~': 'top', home: 'top', name: 'top' };
+
+  function exec(raw, out) {
+    const cmd = raw.trim().replace(/\s+/g, ' ');
+    const low = cmd.toLowerCase();
+    const [head, ...rest] = low.split(' ');
+    const arg = rest.join(' ');
+    if (!cmd) return [];
+    switch (true) {
+      case low === 'help' || low === '?' || low === 'man' || low === '--help': return help();
+      case low === 'whoami' || low === 'id' || low === 'about' || low === 'cat about.txt': return whoami();
+      case ['status', 'systemctl status', 'systemctl status tyron', 'systemctl status tyron.service', 'tyron --status', 'uptime'].includes(low): return sysStatus();
+      case ['experience', 'work', 'jobs', 'git log', 'git log --graph', 'git log --graph career', 'log'].includes(low): return experience();
+      case ['projects', 'ls projects', 'ls ~/projects', 'ls -l ~/projects', 'ls -l projects', 'ls projects/'].includes(low): return projects();
+      case ['skills', 'stack', 'tyron --help', 'tyron -h'].includes(low): return skills();
+      case ['education', 'certs', 'certifications', 'cat education.txt', 'cat education.txt certifications.txt'].includes(low): return education();
+      case ['contact', 'finger', 'finger tyron', 'mail', 'email'].includes(low): return contact();
+      case low === 'curl' || low === 'curl api' || low === 'api': return apiInfo();
+      case head === 'curl': {
+        const m = low.match(/(\/api\/(me|projects|stats))\/?$/) || low.match(/^curl (?:api\/)?(me|projects|stats)$/);
+        if (!m) return [line([['c-err', 'curl: (6) Could not resolve host: ' + arg.replace(/^-\S+\s*/, '')]]), line([['c-com', '# try: curl /api/me · curl /api/projects · curl /api/stats']])];
+        const path = m[1].startsWith('/') ? m[1] : '/api/' + m[1];
+        return curl(path, out);
+      }
+      case low === 'man tyron': goto('top'); return [line([['c-com', '# you are reading it. scroll ↓']])];
+      case head === 'open': {
+        const k = arg.replace(/\(1\)$/, '');
+        const url = L[k === 'mail' ? 'email' : k];
+        if (!url) return [line([['c-err', 'open: ' + (arg || '(nothing)') + ': try github, linkedin or email']])];
+        window.open(url, url.startsWith('mailto:') ? '_self' : '_blank', 'noopener');
+        return [line([['c-mut', 'opening '], { a: url, t: url.replace(/^mailto:|https:\/\//, '') }])];
+      }
+      case head === 'goto' || head === 'cd': {
+        const id = secAlias[arg.replace(/^\.?\/?|\/$/g, '')] || (arg === '' && head === 'cd' ? 'top' : null);
+        if (id && goto(id)) return [line([['c-mut', '→ ' + (id === 'top' ? '~' : SECT_NAME[id] || id)]])];
+        return [line([['c-err', head + ': no such section: ' + arg]]), line([['c-com', '# ' + SECTIONS.join(' ')]])];
+      }
+      case low === 'ls' || low === 'ls -l' || low === 'ls -la' || low === 'ls ~': return [line(Object.keys(FILES).map(f => f + '  ').concat([['c-dir', 'projects/']]))];
+      case head === 'cat': {
+        if (/^projects\/?$/.test(arg)) return [line([['c-err', 'cat: projects/: Is a directory']])];
+        if (FILES[arg]) return exec(FILES[arg], out);
+        return [line([['c-err', 'cat: ' + (arg || '') + ': No such file or directory']])];
+      }
+      case low === 'pwd': return [line('/home/tyron')];
+      case low === 'date': return [line(new Date().toString().replace(/\s\(.*\)$/, ''))];
+      case head === 'echo': return [line(cmd.slice(5))];
+      case low === 'history': return hist.map((h, i) => line([['c-mut', String(i + 1).padStart(4) + '  '], h]));
+      case head === 'sudo': return [line('tyron is not in the sudoers file. This incident will be reported.'), line([['c-com', '# (it won’t. try: contact)']])];
+      case low === 'exit' || low === 'logout' || low === 'quit': return [line([['c-com', '# no exit — but the manual continues below ↓']])];
+      case low === 'hello' || low === 'hi' || low === 'hey': return [line('hello. try help, or say hi properly: '), line([{ a: L.email, t: 'tyronsamaroo828@gmail.com' }])];
+      default: return [line([['c-err', 'bash: ' + head + ': command not found']]), line([['c-com', '# try help']])];
+    }
+  }
+
+  async function run(raw, echo = true) {
+    if (echo) print([line([...ps1(), ' ', ['c-cmd', raw]])]);
+    if (raw.trim()) { hist.push(raw.trim()); }
+    hIdx = hist.length;
+    if (/^clear$/i.test(raw.trim())) { log.textContent = ''; return; }
+    const out = exec(raw, print);
+    if (out && typeof out.then === 'function') { busy = true; await out; busy = false; print([gap()]); return; }
+    if (out.length) print([...out, gap()]);
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (busy) return;
+    const v = input.value; input.value = ''; renderMirror();
+    run(v);
+  });
+
+  const COMPLETIONS = ['help', 'whoami', 'status', 'systemctl status tyron', 'experience', 'projects', 'skills', 'education', 'contact', 'curl api', 'curl /api/me', 'curl /api/projects', 'curl /api/stats', 'open github', 'open linkedin', 'open email', 'goto ', 'clear', 'ls', 'cat ', 'finger tyron', 'git log', 'history', 'date', 'pwd', 'man tyron'];
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowUp') { if (hIdx > 0) { hIdx--; input.value = hist[hIdx]; } e.preventDefault(); requestAnimationFrame(() => { input.setSelectionRange(input.value.length, input.value.length); renderMirror(); }); }
+    else if (e.key === 'ArrowDown') { if (hIdx < hist.length) { hIdx++; input.value = hist[hIdx] || ''; } e.preventDefault(); renderMirror(); }
+    else if (e.key === 'Tab') {
+      const v = input.value.toLowerCase(); if (!v) return;
+      e.preventDefault();
+      const m = COMPLETIONS.filter(c => c.startsWith(v));
+      if (m.length === 1) input.value = m[0];
+      else if (m.length > 1) {
+        let p = m[0]; m.forEach(c => { while (!c.startsWith(p)) p = p.slice(0, -1); });
+        if (p.length > v.length) input.value = p;
+        else print([line([...ps1(), ' ', ['c-cmd', input.value]]), line([['c-mut', m.join('   ')]])]);
+      }
+      renderMirror();
+    }
+    else if (e.key.toLowerCase() === 'l' && e.ctrlKey) { e.preventDefault(); log.textContent = ''; }
+    else if (e.key.toLowerCase() === 'c' && e.ctrlKey && !window.getSelection().toString()) { e.preventDefault(); print([line([...ps1(), ' ', ['c-cmd', input.value + '^C']])]); input.value = ''; renderMirror(); }
+    else if (e.key === 'Escape') { input.blur(); }
+  });
+
+  async function typeAndRun(cmd) {
+    if (busy) return;
+    busy = true;
+    input.value = '';
+    if (!reduced()) {
+      for (const ch of cmd) { input.value += ch; renderMirror(); await new Promise(r => setTimeout(r, 24)); }
+      await new Promise(r => setTimeout(r, 110));
+    }
+    input.value = ''; renderMirror();
+    busy = false;
+    await run(cmd);
+  }
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  $$('[data-run]', shellEl).forEach(b => b.addEventListener('click', async () => {
+    if (finePointer.matches) input.focus({ preventScroll: true });
+    await typeAndRun(b.dataset.run);
+  }));
+
+  // login line + terminal dimensions
+  const now = new Date();
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'], mons = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  $('[data-login]').textContent = `Last login: ${days[now.getDay()]} ${mons[now.getMonth()]} ${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')} on ttys001`;
+  const dims = $('[data-dims]');
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:pre;font:inherit';
+  probe.textContent = 'MMMMMMMMMM';
+  function sizeTerm() {
+    log.append(probe);
+    const cw = probe.getBoundingClientRect().width / 10;
+    probe.remove();
+    const cs = getComputedStyle(scroller);
+    const w = scroller.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const lh = parseFloat(cs.lineHeight) || 22;
+    if (cw > 0) dims.textContent = Math.floor(w / cw) + '×' + Math.floor(scroller.clientHeight / lh);
+    scroller.scrollTop = scroller.scrollHeight;
+  }
+  renderMirror();
+
+  /* ---------- API pane ---------- */
+  const apiOut = $('[data-api-out]'), apiCmd = $('[data-api-cmd]');
+  let apiPath = '/api/me', apiBusy = false;
+  const apiPrint = nodes => { nodes.forEach(n => apiOut.append(n)); apiOut.scrollTop = apiOut.scrollHeight; };
+  async function apiRun(path) {
+    if (apiBusy) return;
+    apiBusy = true;
+    apiPath = path;
+    apiCmd.textContent = 'curl ' + API + path;
+    apiOut.textContent = '';
+    await curl(path, apiPrint);
+    apiBusy = false;
+  }
+  $('[data-api-run]').addEventListener('click', () => apiRun(apiPath));
+  $$('[data-ep]').forEach(b => b.addEventListener('click', () => apiRun(b.dataset.ep)));
+  $('[data-api-copy]').addEventListener('click', async e => {
+    const b = e.currentTarget, txt = 'curl ' + API + apiPath;
+    try { await navigator.clipboard.writeText(txt); b.textContent = 'Copied ✓'; }
+    catch (_) {
+      const r = document.createRange(); r.selectNodeContents(apiCmd);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected — ⌘C';
+    }
+    setTimeout(() => { b.textContent = 'Copy command'; }, 1600);
+  });
+
+  /* ---------- mobile nav: edge fade until scrolled to the end ---------- */
+  const navWrap = $('[data-navwrap]'), navEl = $('[data-nav]');
+  function navEdge() {
+    navWrap.classList.toggle('at-end', navEl.scrollLeft + navEl.clientWidth >= navEl.scrollWidth - 4);
+    navWrap.classList.toggle('at-start', navEl.scrollLeft <= 4);
+  }
+  navEl.addEventListener('scroll', navEdge, { passive: true });
+
+  /* ---------- less(1): status line, active section, search, command line ---------- */
+  const rvLong = $('.st-long'), rvShort = $('.st-short');
+  const navLinks = $$('.nav a');
+  const secs = $$('main section[id]');
+  let touched = false;
+  const msgState = { on: false, timer: 0 };
+  function status() {
+    const LH = 24;
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const y = Math.max(0, scrollY);
+    const lnNo = Math.floor(y / LH) + 1;
+    const total = Math.ceil(document.documentElement.scrollHeight / LH);
+    const pct = Math.min(100, Math.round(y / max * 100));
+    let cur = null;
+    for (const s of secs) { if (s.getBoundingClientRect().top <= innerHeight * 0.35) cur = s; }
+    const id = cur ? cur.id : 'top';
+    if (id === 'top' && navEl.scrollLeft) navEl.scrollLeft = 0;
+    navLinks.forEach(a => {
+      const on = a.getAttribute('href') === '#' + id;
+      a.setAttribute('aria-current', on ? 'true' : 'false');
+      if (on && navEl.scrollWidth > navEl.clientWidth + 4) {
+        const l = a.offsetLeft - 12, r = a.offsetLeft + a.offsetWidth - navEl.clientWidth + 48;
+        if (navEl.scrollLeft > l) navEl.scrollLeft = l; else if (navEl.scrollLeft < r) navEl.scrollLeft = r;
+      }
+    });
+    if (msgState.on) return;
+    const sect = cur && cur.dataset.sect ? cur.dataset.sect : 'NAME';
+    if (y >= max - 2 && touched) {
+      rvLong.textContent = 'Manual page tyron(1) (END)  press g for top';
+      rvShort.textContent = 'tyron(1) (END)';
+    } else if (!touched) {
+      rvLong.textContent = 'Manual page tyron(1) line 1 (press : to run a command, / to search)';
+      rvShort.textContent = 'tyron(1) NAME 1/' + total;
+    } else {
+      rvLong.textContent = `Manual page tyron(1) · ${sect} · line ${lnNo}/${total} ${pct}%`;
+      rvShort.textContent = `${sect} ${lnNo}/${total} ${pct}%`;
+    }
+  }
+  let ticking = false;
+  addEventListener('scroll', () => {
+    if (scrollY > 4) touched = true;
+    if (!ticking) { ticking = true; requestAnimationFrame(() => { status(); ticking = false; }); }
+  }, { passive: true });
+  addEventListener('resize', () => { status(); sizeTerm(); navEdge(); });
+
+  function showMsg(txt, ms) {
+    msgState.on = true;
+    clearTimeout(msgState.timer);
+    rvLong.textContent = txt; rvShort.textContent = txt;
+    if (ms) msgState.timer = setTimeout(() => { msgState.on = false; status(); }, ms);
+  }
+  function clearMsg() { clearTimeout(msgState.timer); msgState.on = false; status(); }
+
+  // search
+  const qForm = $('[data-qform]'), qIn = $('[data-qin]'), qMode = $('[data-qmode]'), stEl = $('[data-status]');
+  const searchState = { ranges: [], i: -1, term: '' };
+  let mode = '/';
+  const hasHL = typeof CSS !== 'undefined' && CSS.highlights && typeof Highlight !== 'undefined';
+  function clearHL() { if (hasHL) { CSS.highlights.delete('less-match'); CSS.highlights.delete('less-cur'); } }
+  function findAll(term) {
+    const out = [];
+    const t = term.toLowerCase();
+    const walker = document.createTreeWalker($('main'), NodeFilter.SHOW_TEXT, {
+      acceptNode(n) {
+        if (!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const p = n.parentElement;
+        if (!p || p.closest('[aria-hidden="true"],script,style,.sr,[data-shell],.api-pane')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    let n;
+    while ((n = walker.nextNode())) {
+      const v = n.nodeValue.toLowerCase();
+      let i = 0;
+      while ((i = v.indexOf(t, i)) !== -1) { const r = document.createRange(); r.setStart(n, i); r.setEnd(n, i + t.length); out.push(r); i += t.length; }
+    }
+    return out;
+  }
+  function focusMatch(i) {
+    const R = searchState.ranges;
+    if (!R.length) return;
+    searchState.i = (i + R.length) % R.length;
+    const r = R[searchState.i];
+    if (hasHL) CSS.highlights.set('less-cur', new Highlight(r));
+    else { const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    const rect = r.getBoundingClientRect();
+    window.scrollTo({ top: scrollY + rect.top - innerHeight * 0.38, behavior: reduced() ? 'auto' : 'smooth' });
+    showMsg(`/${searchState.term} — match ${searchState.i + 1} of ${R.length} · n next · N prev`);
+  }
+  function search(term) {
+    clearHL();
+    searchState.term = term; searchState.ranges = term ? findAll(term) : []; searchState.i = -1;
+    if (!term) { clearMsg(); return; }
+    if (!searchState.ranges.length) { showMsg('Pattern not found  (press RETURN)'); return; }
+    if (hasHL) CSS.highlights.set('less-match', new Highlight(...searchState.ranges));
+    let idx = searchState.ranges.findIndex(r => r.getBoundingClientRect().top > 80);
+    focusMatch(idx === -1 ? 0 : idx);
+  }
+
+  function openPrompt(m) {
+    closeKeys();
+    mode = m;
+    qMode.textContent = m;
+    qIn.setAttribute('aria-label', m === ':' ? 'Run a command, for example help, experience or curl /api/me' : 'Search this page');
+    qIn.placeholder = m === ':' ? 'help · experience · curl /api/me …' : 'search text';
+    stEl.hidden = true; qForm.hidden = false; qIn.value = ''; qIn.focus();
+  }
+  function closePrompt() { qForm.hidden = true; stEl.hidden = false; }
+  qForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const t = qIn.value.trim();
+    closePrompt();
+    if (mode === ':') pagerRun(t); else search(t);
+  });
+  qIn.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); closePrompt(); } });
+  qIn.addEventListener('blur', () => setTimeout(() => { if (!qForm.hidden && document.activeElement !== qIn) closePrompt(); }, 150));
+  $('[data-open-search]').addEventListener('click', () => openPrompt('/'));
+  $('[data-open-cmd]').addEventListener('click', () => openPrompt(':'));
+
+  // ":" command line → drawer output (the shell, available on every screen)
+  const drawer = $('[data-drawer]'), dlog = $('[data-dlog]');
+  let dBusy = false;
+  const dprint = nodes => { nodes.forEach(n => dlog.append(n)); dlog.scrollTop = dlog.scrollHeight; };
+  function openDrawer() { drawer.hidden = false; }
+  function closeDrawer() { drawer.hidden = true; }
+  $('[data-drawer-x]').addEventListener('click', closeDrawer);
+  const pagerHelp = () => [
+    line([['c-b', ':commands'], ['c-mut', ' — run from anywhere on the page']]),
+    line([['c-ok', pad('1 … 7', 16)], ['c-mut', 'jump to a section']]),
+    line([['c-ok', pad('goto <section>', 16)], ['c-mut', 'about, experience, skills, projects …']]),
+    line([['c-ok', pad('status', 16)], ['c-mut', 'systemctl status tyron']]),
+    line([['c-ok', pad('experience', 16)], ['c-mut', 'git log, summarised']]),
+    line([['c-ok', pad('projects', 16)], ['c-mut', 'ls -l ~/projects']]),
+    line([['c-ok', pad('curl /api/me', 16)], ['c-mut', 'live JSON request']]),
+    line([['c-ok', pad('open github', 16)], ['c-mut', 'github | linkedin | email']]),
+    line([['c-ok', pad('clear', 16)], ['c-mut', 'clear this pane']]),
+    gap(), line([['c-com', '# esc or q closes this pane']])
+  ];
+  async function pagerRun(raw) {
+    const cmd = raw.replace(/^[:!]\s*/, '').trim();
+    const low = cmd.toLowerCase();
+    if (!cmd) return;
+    if (/^[1-7]$/.test(low)) { goto(SECTIONS[+low - 1]); showMsg('→ ' + SECT_NAME[SECTIONS[+low - 1]], 1600); return; }
+    if (low === 'q' || low === 'quit' || low === 'exit') { closeDrawer(); return; }
+    if (low === 'g' || low === 'top') { goto('top'); showMsg('→ NAME', 1600); return; }
+    if (low === 'clear') { dlog.textContent = ''; return; }
+    if (dBusy) return;
+    openDrawer();
+    dprint([line([['c-okb', ':'], ' ', ['c-cmd', cmd]])]);
+    const out = (low === 'help' || low === '?') ? pagerHelp() : exec(cmd, dprint);
+    if (out && typeof out.then === 'function') { dBusy = true; await out; dBusy = false; dprint([gap()]); return; }
+    if (out.length) dprint([...out, gap()]);
+  }
+
+  // keys panel
+  const keys = $('#keys'), keysBtn = $('[data-open-keys]');
+  function closeKeys() { keys.hidden = true; keysBtn.setAttribute('aria-expanded', 'false'); }
+  function toggleKeys() { keys.hidden = !keys.hidden; keysBtn.setAttribute('aria-expanded', String(!keys.hidden)); }
+  keysBtn.addEventListener('click', toggleKeys);
+
+  addEventListener('keydown', e => {
+    const t = e.target;
+    const typing = t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+    if (e.key === 'Escape') {
+      closeKeys();
+      if (!drawer.hidden) { closeDrawer(); return; }
+      if (msgState.on) { clearHL(); getSelection().removeAllRanges(); searchState.ranges = []; clearMsg(); }
+      return;
+    }
+    if (typing || e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key;
+    if (k === ':') { e.preventDefault(); openPrompt(':'); return; }
+    if (k === '/') { e.preventDefault(); openPrompt('/'); return; }
+    if (k === 'n' && searchState.ranges.length) { focusMatch(searchState.i + 1); return; }
+    if (k === 'N' && searchState.ranges.length) { focusMatch(searchState.i - 1); return; }
+    if (k === 'Enter' && msgState.on && !searchState.ranges.length) { clearMsg(); return; }
+    if (/^[1-7]$/.test(k)) { goto(SECTIONS[+k - 1]); return; }
+    if (k === '0' || k === 'g') { goto('top'); return; }
+    if (k === 'G') { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: reduced() ? 'auto' : 'smooth' }); return; }
+    if (k === 'j') { window.scrollBy({ top: 72 }); return; }
+    if (k === 'k') { window.scrollBy({ top: -72 }); return; }
+    if (k === 'h' || k === '?') { toggleKeys(); return; }
+    if (k === 'q') {
+      closeKeys();
+      if (!drawer.hidden) { closeDrawer(); return; }
+      shellEl.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'center' });
+      setTimeout(() => input.focus({ preventScroll: true }), reduced() ? 0 : 350);
+    }
+  });
+
+  // in-page links: smooth (unless reduced motion) + move focus for keyboard users
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const id = a.getAttribute('href').slice(1);
+    const el = id && document.getElementById(id);
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: reduced() ? 'auto' : 'smooth', block: 'start' });
+    try { history.replaceState(null, '', '#' + id); } catch (_) {}
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll: true });
+  });
+
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { sizeTerm(); navEdge(); });
+  sizeTerm();
+  navEdge();
+  status();
+})();
+</script>
+</body>
+</html>

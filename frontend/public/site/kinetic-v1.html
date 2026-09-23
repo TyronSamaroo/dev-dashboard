@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tyron Samaroo — Reliability Engineer</title>
+<meta name="description" content="Tyron Samaroo — AVP, Reliability Engineer at Synchrony. Software engineer and ML engineer on Long Island, New York.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FFE500'/%3E%3Crect x='3' y='3' width='58' height='58' fill='none' stroke='%230B0B0D' stroke-width='6'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='28' text-anchor='middle' fill='%230B0B0D'%3ETS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* ============================================================
+   KINETIC TYPE — tokens
+   white base · ink · electric yellow · cobalt · signal orange
+   ============================================================ */
+:root{
+  --white:#ffffff;
+  --ink:#0B0B0D;
+  --ink-2:#3A3B42;
+  --ink-3:#5A5B64;
+  --yellow:#FFE500;
+  --cobalt:#2340FF;
+  --orange:#FF5A1F;
+  --g:clamp(16px,3.9vw,56px);
+  --bleed:min(24px,var(--g));
+  --maxw:1480px;
+  --L:calc(min(100vw,var(--maxw)) - 2 * var(--g));
+  --display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --focus:var(--cobalt);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:84px}
+[tabindex="-1"]:focus{outline:none}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--display);font-size:17px;line-height:1.55;font-weight:400;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+svg{display:block}
+a{color:inherit}
+p,h1,h2,h3,figure{margin:0}
+ul,ol,dl,dd{margin:0;padding:0}
+ul,ol{list-style:none}
+::selection{background:var(--yellow);color:var(--ink)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--g)}
+.mono{font-family:var(--mono);font-size:12.5px;line-height:1.45;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.skip{position:absolute;left:12px;top:-120px;z-index:100;background:var(--yellow);color:var(--ink);padding:12px 16px;border:2px solid var(--ink);font-weight:800;text-decoration:none}
+.skip:focus{top:12px}
+
+/* ---------- flex lines (the kinetic type) ---------- */
+.fl{display:block;white-space:nowrap;font-weight:900;text-transform:uppercase;line-height:.8;letter-spacing:0;font-variation-settings:"wdth" var(--wx,100),"wght" 900}
+.fl .ch{display:inline-block;white-space:pre;font-variation-settings:"wdth" 100,"wght" 900}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:2px solid var(--ink)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;font-variation-settings:"wdth" 108,"wght" 800;text-transform:uppercase;font-size:15px;letter-spacing:.02em;white-space:nowrap}
+.brand-mark{display:grid;place-items:center;width:38px;height:38px;background:var(--yellow);border:2px solid var(--ink);font-size:17px;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;letter-spacing:0;transition:font-variation-settings .45s var(--ease)}
+.brand:hover .brand-mark{font-variation-settings:"wdth" 125,"wght" 900}
+.nav-list{display:flex;gap:2px}
+.nav-list a{display:block;padding:9px 11px;text-decoration:none;font-weight:700;font-variation-settings:"wdth" 106,"wght" 700;text-transform:uppercase;font-size:13.5px;letter-spacing:.04em;line-height:1;border:2px solid transparent}
+.nav-list a:hover{background:var(--yellow)}
+.nav-list a[aria-current]{border-color:var(--ink);background:var(--yellow)}
+.menu-btn{display:none;align-items:center;gap:10px;min-height:44px;padding:0 14px;background:var(--white);color:var(--ink);border:2px solid var(--ink);font:700 13px/1 var(--display);font-variation-settings:"wdth" 110,"wght" 700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.menu-btn i{display:block;width:16px;height:2px;background:currentColor;box-shadow:0 5px 0 currentColor,0 -5px 0 currentColor}
+.progress{position:absolute;left:0;right:0;bottom:-2px;height:4px;pointer-events:none}
+.progress i{display:block;height:100%;background:var(--orange);transform-origin:0 50%;transform:scaleX(0)}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(18px,2vw,28px);overflow-x:clip}
+.hero-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;color:var(--ink-2)}
+.roles{display:flex;flex-wrap:wrap;gap:6px 26px}
+.roles b{font-weight:700;color:var(--ink)}
+.name{margin-top:clamp(16px,1.7vw,24px);position:relative}
+.name .fl{font-size:calc(var(--L) / 4.52)}
+.name .l1{--wx:114}
+.name .l2{--wx:74;margin-top:.035em}
+.hero-info{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:24px clamp(24px,3vw,48px);align-items:stretch;margin-top:clamp(20px,2.2vw,30px);padding-top:clamp(16px,1.3vw,18px);border-top:2px solid var(--ink)}
+.now{background:var(--yellow);border:2px solid var(--ink);padding:14px 18px 16px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
+.now-k{display:flex;align-items:center;gap:10px}
+.now-dot{width:10px;height:10px;background:var(--ink);animation:blink 1.4s steps(2,jump-none) infinite}
+@keyframes blink{50%{opacity:.15}}
+.now-role{font-size:clamp(22px,2vw,28px);line-height:1.02;font-weight:800;font-variation-settings:"wdth" 96,"wght" 800;letter-spacing:-.01em}
+.now-co{margin-top:6px}
+.hero-lead{font-size:clamp(19px,1.55vw,23px);line-height:1.38;font-weight:500;font-variation-settings:"wdth" 100,"wght" 500;color:var(--ink);text-wrap:pretty;align-self:start}
+.hero-lead em{font-style:normal;background:linear-gradient(transparent 58%,var(--yellow) 58%)}
+.jump{display:flex;flex-direction:column;border-top:2px solid var(--ink)}
+.jump a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:42px;padding:0 4px;border-bottom:2px solid var(--ink);text-decoration:none;font-weight:800;font-variation-settings:"wdth" 110,"wght" 800;text-transform:uppercase;letter-spacing:.03em;font-size:15px;transition:background-color .18s,padding .25s var(--ease)}
+.jump a:hover{background:var(--yellow);padding-inline:12px 8px}
+.jump svg{width:18px;height:18px;flex:none}
+
+/* ---------- crossing tapes ---------- */
+.tapes{position:relative;height:clamp(112px,13vw,196px);overflow:hidden;margin-top:clamp(14px,1.2vw,18px)}
+.tape{position:absolute;left:-6%;width:112%;top:50%;border-block:2px solid var(--ink);white-space:nowrap;overflow:hidden}
+.tape--y{background:var(--yellow);color:var(--ink);transform:translateY(-50%) rotate(-2.4deg);z-index:2}
+.tape--b{background:var(--cobalt);color:#fff;transform:translateY(-50%) rotate(2.1deg)}
+.tape-track{display:inline-flex;will-change:transform}
+.tape-g{display:inline-flex;align-items:center;flex:none;padding-block:.17em .13em;font-weight:900;text-transform:uppercase;line-height:1;font-size:clamp(28px,4.6vw,68px)}
+.tape--y .tape-g{font-variation-settings:"wdth" 125,"wght" 900}
+.tape--b .tape-g{font-variation-settings:"wdth" 62,"wght" 900;font-size:clamp(30px,5vw,74px)}
+.sep{display:inline-block;flex:none;width:.3em;height:.3em;margin-inline:.55em;background:currentColor;transform:rotate(45deg)}
+.tape--b .sep{background:var(--yellow)}
+
+/* ---------- sections ---------- */
+.sec{padding-block:clamp(72px,9vw,136px)}
+.sec-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding-top:12px;border-top:2px solid currentColor}
+.sec-meta .ix{font-weight:700}
+.kh{margin:clamp(18px,2.4vw,34px) 0 clamp(40px,5.5vw,84px)}
+.kh .fl{--wx:90;font-size:min(215px,calc(var(--L) / var(--em) * .97))}
+
+/* ---------- 01 overview ---------- */
+.ov{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(36px,5vw,88px);align-items:start}
+.big{font-size:clamp(30px,3.7vw,56px);line-height:1.02;font-weight:800;font-variation-settings:"wdth" 88,"wght" 800;letter-spacing:-.018em;text-wrap:balance}
+.big .hl{background:var(--yellow);box-decoration-break:clone;-webkit-box-decoration-break:clone;padding-inline:.06em}
+.ov-body{margin-top:clamp(22px,2.4vw,32px);max-width:40em;font-size:18px;color:var(--ink-2);text-wrap:pretty}
+.offclock{margin-top:clamp(28px,3vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 20px;align-items:start;padding:18px 20px;border:2px solid var(--ink);max-width:40em;position:relative}
+.offclock::before{content:"";position:absolute;left:-2px;top:-2px;bottom:-2px;width:10px;background:var(--orange);border:2px solid var(--ink)}
+.offclock .mono{padding-left:10px;padding-top:2px;white-space:nowrap}
+.offclock p:last-child{font-size:16px;line-height:1.5;color:var(--ink-2)}
+.offclock a{font-weight:700;color:var(--ink);text-decoration-thickness:2px;text-underline-offset:3px}
+.offclock a:hover{background:var(--yellow)}
+.stats{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink)}
+.stat{position:relative;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:14px;padding:30px 18px 18px;min-height:clamp(170px,15vw,230px)}
+.stat:nth-child(odd){border-right:2px solid var(--ink)}
+.stat:nth-child(-n+2){border-bottom:2px solid var(--ink)}
+.stat::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--c);border-bottom:2px solid var(--ink)}
+.stat dd{font-size:clamp(76px,8.6vw,138px);line-height:.8;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;letter-spacing:-.01em;margin-top:8px;transition:font-variation-settings .6s var(--ease)}
+.stat:hover dd{font-variation-settings:"wdth" 88,"wght" 900}
+.stat dt{color:var(--ink-2);max-width:18ch}
+.stat sup{font-size:.34em;vertical-align:.95em;margin-left:.06em;font-variation-settings:"wdth" 100,"wght" 900}
+
+/* ---------- 02 experience ---------- */
+.jobs{border-bottom:2px solid var(--ink)}
+.job{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,4fr) minmax(0,5fr);gap:22px clamp(24px,3vw,48px);padding-block:clamp(28px,3.4vw,48px);border-top:2px solid var(--ink)}
+.job-when .mono{display:block;color:var(--ink-3)}
+.job-yr{display:block;margin-top:14px;font-size:clamp(52px,5.8vw,94px);line-height:.8;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;letter-spacing:-.005em;white-space:nowrap}
+.job-co{font-size:clamp(30px,3.2vw,50px);line-height:.9;font-weight:900;font-variation-settings:"wdth" 100,"wght" 900;text-transform:uppercase;letter-spacing:-.012em;text-wrap:balance}
+.job-role{margin-top:12px;font-weight:700;font-variation-settings:"wdth" 100,"wght" 700;font-size:18px;line-height:1.3}
+.job-pts li{position:relative;padding-left:22px;color:var(--ink-2)}
+.job-pts li+li{margin-top:9px}
+.job-pts li::before{content:"";position:absolute;left:0;top:.6em;width:9px;height:9px;background:var(--ink)}
+.job-pts strong{color:var(--ink);font-weight:700}
+.job--now{background:var(--yellow);margin-inline:calc(-1 * var(--bleed));padding-inline:var(--bleed);border-top-width:2px}
+.job--now .job-when .mono{color:var(--ink)}
+.job-now-line{font-size:clamp(22px,2vw,28px);font-weight:800;font-variation-settings:"wdth" 96,"wght" 800;line-height:1.1;margin-top:16px}
+.tag{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--yellow);padding:6px 10px 5px}
+.tag i{width:8px;height:8px;background:var(--yellow);animation:blink 1.4s steps(2,jump-none) infinite}
+.prs{grid-column:2 / -1;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:2px solid var(--ink);margin-top:14px}
+.prs-k{position:absolute;left:14px;top:-13px;background:var(--orange);color:var(--ink);border:2px solid var(--ink);padding:2px 8px 1px;font-size:11.5px}
+.pr{padding:24px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.pr+.pr{border-left:2px solid var(--ink)}
+.pr b{display:block;font-size:clamp(44px,4.4vw,70px);line-height:.8;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;color:var(--cobalt);white-space:nowrap}
+.pr span{font-size:11.5px;color:var(--ink-2)}
+.job-stack{grid-column:2 / -1}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font-family:var(--mono);font-size:11.5px;font-weight:500;line-height:1;letter-spacing:.05em;text-transform:uppercase;padding:7px 9px 6px;border:1.5px solid currentColor}
+
+/* ---------- 03 skills (cobalt block) ---------- */
+.skills{background:var(--cobalt);color:#fff;--focus:var(--yellow)}
+.skills ::selection{background:var(--yellow);color:var(--ink)}
+.sk-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid #fff;border-bottom:2px solid #fff}
+.sk{padding:22px clamp(16px,1.8vw,28px) 28px}
+.sk+.sk{border-left:2px solid #fff}
+.sk:first-child{padding-left:0}
+.sk-h{display:flex;justify-content:space-between;gap:12px;padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid rgba(255,255,255,.45)}
+.sk-h span{color:var(--yellow)}
+.sk li{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.28)}
+.sk li:last-child{border-bottom:0}
+.sk-n{font-size:clamp(22px,2vw,30px);line-height:1;font-weight:800;font-variation-settings:"wdth" 100,"wght" 800;letter-spacing:-.01em;grid-column:1 / -1;transition:font-variation-settings .45s var(--ease)}
+.sk li:hover .sk-n{font-variation-settings:"wdth" 125,"wght" 800}
+.lv{display:flex;gap:4px}
+.lv i{width:15px;height:10px;border:2px solid rgba(255,255,255,.6)}
+.lv[data-l="4"] i,.lv[data-l="3"] i:nth-child(-n+3),.lv[data-l="2"] i:nth-child(-n+2){background:var(--yellow);border-color:var(--yellow)}
+.sk-l{font-size:11.5px;color:#fff}
+.sk-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;padding-top:22px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.newer{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.newer .chips li{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+
+/* ---------- 04 projects ---------- */
+.latest{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:center;background:var(--orange);color:var(--ink);border:2px solid var(--ink);padding:clamp(24px,4vw,60px);margin-bottom:clamp(56px,7vw,104px);overflow:hidden;--focus:var(--ink)}
+.kicker{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.flag{background:var(--ink);color:#fff;padding:5px 9px 4px}
+.latest-title{margin-top:clamp(18px,2vw,28px);font-size:clamp(56px,9vw,150px);line-height:.8;font-weight:900;font-variation-settings:"wdth" 100,"wght" 900;letter-spacing:-.02em;white-space:nowrap}
+.latest-sub{margin-top:14px;font-size:clamp(22px,2.2vw,32px);font-weight:800;font-variation-settings:"wdth" 88,"wght" 800;text-transform:uppercase;letter-spacing:.005em}
+.latest-desc{margin-top:18px;max-width:34em;font-size:18px;line-height:1.5;text-wrap:pretty}
+.latest .chips{margin-top:20px}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 20px;margin-top:28px;background:var(--ink);color:#fff;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--white);text-decoration:none;font-weight:800;font-variation-settings:"wdth" 110,"wght" 800;text-transform:uppercase;letter-spacing:.04em;font-size:15px;transition:transform .15s var(--ease),box-shadow .15s var(--ease),background-color .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--white);background:var(--cobalt);border-color:var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--white)}
+.btn svg{width:18px;height:18px}
+.latest-art{display:flex;justify-content:center;padding-block:8px 22px}
+.slip{width:min(300px,100%);transform:rotate(3.5deg);filter:drop-shadow(2px 0 0 var(--ink)) drop-shadow(-2px 0 0 var(--ink)) drop-shadow(0 2px 0 var(--ink)) drop-shadow(0 -2px 0 var(--ink)) drop-shadow(9px 9px 0 var(--ink));transition:transform .5s var(--ease)}
+.latest:hover .slip{transform:rotate(0deg) translateY(-6px)}
+.slip-in{background:#fff;padding:22px 22px 36px;-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 14px 100%;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% / 14px 100%}
+.slip-brand{font-size:40px;line-height:.85;font-weight:900;font-variation-settings:"wdth" 70,"wght" 900;text-transform:uppercase;letter-spacing:.005em}
+.slip-sub{margin-top:8px;font-size:11px}
+.slip hr{border:0;border-top:2px dashed var(--ink);margin:16px 0}
+.slip-rows li{display:grid;grid-template-columns:minmax(0,1fr) 92px;align-items:center;gap:12px;padding:6px 0;font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.slip-rows i{display:block;height:10px;width:calc(var(--v) * 100%);background:repeating-linear-gradient(90deg,var(--ink) 0 4px,transparent 4px 6px)}
+.ring{width:34px;height:34px;justify-self:start;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke:#DADBE0;stroke-width:6}
+.ring .on{stroke:var(--cobalt);stroke-linecap:butt}
+.slip-stack{font-size:11px;line-height:1.6}
+.barcode{height:44px;margin-top:14px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 5px,var(--ink) 5px 6px,transparent 6px 9px,var(--ink) 9px 13px,transparent 13px 15px,var(--ink) 15px 16px,transparent 16px 19px)}
+.slip-foot{margin-top:10px;font-size:10.5px;display:flex;justify-content:space-between}
+
+.plist{border-top:2px solid var(--ink)}
+.proj{position:relative;display:grid;grid-template-columns:clamp(72px,9vw,140px) minmax(0,6fr) minmax(0,4fr) minmax(0,2fr);gap:14px clamp(18px,2.4vw,36px);align-items:start;padding:clamp(24px,2.6vw,36px) var(--bleed);margin-inline:calc(-1 * var(--bleed));border-bottom:2px solid var(--ink);transition:background-color .22s,color .22s}
+.proj:nth-child(3n+1){--acc:var(--yellow);--on:var(--ink)}
+.proj:nth-child(3n+2){--acc:var(--orange);--on:var(--ink)}
+.proj:nth-child(3n){--acc:var(--cobalt);--on:#fff}
+.proj:hover,.proj:focus-within{background:var(--acc);color:var(--on)}
+.proj:nth-child(3n):focus-within{--focus:var(--yellow)}
+.p-num{font-size:clamp(46px,5vw,82px);line-height:.8;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;transition:font-variation-settings .55s var(--ease)}
+.proj:hover .p-num,.proj:focus-within .p-num{font-variation-settings:"wdth" 125,"wght" 900}
+.p-title{font-size:clamp(26px,2.5vw,40px);line-height:1;font-weight:800;font-variation-settings:"wdth" 96,"wght" 800;letter-spacing:-.015em;text-wrap:balance}
+.p-title a{text-decoration:none}
+.p-title a::after{content:"";position:absolute;inset:0}
+.p-title a:focus-visible{outline:none}
+.proj:has(a:focus-visible){outline:3px solid var(--ink);outline-offset:-5px}
+.p-desc{margin-top:12px;font-size:16.5px;line-height:1.5;color:var(--ink-2);max-width:40em;transition:color .22s}
+.p-stack{padding-top:6px;font-size:11.5px;line-height:1.75;color:var(--ink-2);transition:color .22s}
+.proj:hover .p-desc,.proj:hover .p-stack,.proj:focus-within .p-desc,.proj:focus-within .p-stack{color:inherit}
+.p-meta{display:flex;flex-direction:column;align-items:flex-end;gap:14px;padding-top:6px;text-align:right}
+.st{display:inline-flex;align-items:center;gap:8px}
+.st::before{content:"";width:10px;height:10px;border:2px solid currentColor;background:var(--orange)}
+.st--done::before{background:transparent}
+.p-go{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-variation-settings:"wdth" 110,"wght" 800;text-transform:uppercase;font-size:14px;letter-spacing:.04em}
+.p-go svg{width:16px;height:16px;transition:transform .25s var(--ease)}
+.proj:hover .p-go svg{transform:translate(3px,-3px)}
+
+/* ---------- 05 education ---------- */
+.edu{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,5vw,88px);align-items:start}
+.sub-h{display:flex;justify-content:space-between;padding-bottom:12px}
+.deg{display:grid;grid-template-columns:clamp(116px,13vw,200px) minmax(0,1fr);gap:18px clamp(18px,2.4vw,36px);padding-block:clamp(22px,2.6vw,34px);border-top:2px solid var(--ink)}
+.deg:last-child{border-bottom:2px solid var(--ink)}
+.deg-yr{font-size:clamp(64px,7.6vw,122px);line-height:.8;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;color:var(--cobalt);letter-spacing:-.01em}
+.deg-name{font-size:clamp(22px,2vw,30px);line-height:1.08;font-weight:800;font-variation-settings:"wdth" 94,"wght" 800;letter-spacing:-.01em;text-wrap:balance}
+.deg-sch{margin-top:12px;color:var(--ink-2)}
+.bibs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,28px);align-items:start;padding-top:18px}
+.bib{position:relative;container-type:inline-size;background:#fff;border:2px solid var(--ink);box-shadow:7px 7px 0 var(--ink);transform:rotate(-2deg);text-align:center;transition:transform .35s var(--ease)}
+.bib+.bib{transform:rotate(1.6deg);margin-top:34px}
+.bib:hover{transform:rotate(0deg) translateY(-4px)}
+.hole{position:absolute;width:11px;height:11px;border-radius:50%;background:#fff;border:2px solid var(--ink);z-index:1}
+.hole:nth-child(1){top:8px;left:8px}.hole:nth-child(2){top:8px;right:8px}.hole:nth-child(3){bottom:8px;left:8px}.hole:nth-child(4){bottom:8px;right:8px}
+.bib-top{background:var(--yellow);border-bottom:2px solid var(--ink);padding:26px 12px 10px}
+.bib+.bib .bib-top{background:var(--orange)}
+.bib-body{padding:20px 12px 30px}
+.bib-t{font-size:min(66px,18.5cqi);line-height:.84;font-weight:900;font-variation-settings:"wdth" 62,"wght" 900;text-transform:uppercase;letter-spacing:.005em}
+.bib-s{margin-top:12px}
+.bib-y{display:inline-block;margin-top:14px;background:var(--ink);color:#fff;padding:4px 8px 3px}
+.bib-y--none{background:transparent;color:var(--ink-3);border:1.5px dashed var(--ink-3)}
+
+/* ---------- 06 api (yellow block) ---------- */
+.api{background:var(--yellow);color:var(--ink);--focus:var(--ink)}
+.api-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,5vw,80px);align-items:start}
+.api-lead{font-size:clamp(22px,2vw,28px);line-height:1.2;font-weight:700;font-variation-settings:"wdth" 94,"wght" 700;letter-spacing:-.01em;text-wrap:balance}
+.eps{margin-top:clamp(24px,3vw,36px);border-bottom:2px solid var(--ink)}
+.eps li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:baseline;padding-block:16px;border-top:2px solid var(--ink)}
+.verb{grid-row:span 2;align-self:start;background:var(--cobalt);color:#fff;font:700 12px/1 var(--mono);letter-spacing:.06em;padding:7px 8px 6px}
+.ep-path{font:700 clamp(18px,1.7vw,23px)/1.2 var(--mono);text-decoration:none;overflow-wrap:anywhere}
+.ep-path:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.ep-d{font-size:15.5px;color:var(--ink-2)}
+.api-links{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:26px}
+.api-links a{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-variation-settings:"wdth" 108,"wght" 800;text-transform:uppercase;letter-spacing:.04em;font-size:14.5px;text-decoration:none;border-bottom:2px solid var(--ink);padding-bottom:3px}
+.api-links a:hover{background:var(--ink);color:var(--yellow)}
+.api-links svg{width:15px;height:15px}
+.term{background:var(--ink);color:#fff;border:2px solid var(--ink);box-shadow:12px 12px 0 var(--cobalt)}
+.term-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 16px;border-bottom:1px solid rgba(255,255,255,.2);color:#C9CAD1}
+.term-dots{display:flex;gap:6px}
+.term-dots i{width:10px;height:10px;background:#fff;opacity:.28}
+.term-dots i:first-child{background:var(--orange);opacity:1}
+.copy{font:700 11.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:var(--yellow);color:var(--ink);border:0;padding:8px 11px 7px;cursor:pointer;min-width:74px}
+.copy:hover{background:#fff}
+.copy:focus-visible{outline-color:var(--yellow)}
+.term pre{margin:0;padding:clamp(18px,2.4vw,32px);font:500 clamp(13.5px,1.2vw,16px)/1.75 var(--mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.term .pr-s{color:var(--yellow);user-select:none}
+.term .cm{color:#9C9DA6}
+.term .hl-u{color:#fff;border-bottom:2px solid var(--cobalt)}
+
+/* ---------- 07 contact (cobalt block) ---------- */
+.contact{background:var(--cobalt);color:#fff;--focus:var(--yellow);padding-bottom:clamp(64px,8vw,120px)}
+.contact .sec-meta{margin-bottom:clamp(28px,4vw,56px)}
+.c-list{border-top:2px solid #fff}
+.c-row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px 32px;padding-block:clamp(16px,2vw,26px);border-bottom:2px solid #fff;text-decoration:none;color:#fff;transition:background-color .2s,color .2s}
+.c-big{display:block;white-space:nowrap;font-size:calc(var(--L) / 5.2);line-height:.8;font-weight:900;text-transform:uppercase;font-variation-settings:"wdth" 62,"wght" 900;transition:font-variation-settings .7s var(--ease)}
+.c-side{display:flex;align-items:center;gap:18px;padding-bottom:.3em}
+.c-side svg{width:clamp(28px,3vw,44px);height:clamp(28px,3vw,44px);flex:none;transition:transform .35s var(--ease)}
+.c-row:hover,.c-row:focus-visible{background:var(--yellow);color:var(--ink);box-shadow:0 0 0 100vmax var(--yellow);clip-path:inset(0 -100vmax)}
+.c-row:focus-visible{outline:3px solid var(--ink);outline-offset:-6px}
+.c-row:hover .c-side svg{transform:translate(6px,-6px)}
+@media (hover:hover) and (pointer:fine) and (min-width:761px){
+  .c-row:hover .c-big,.c-row:focus-visible .c-big{font-variation-settings:"wdth" 125,"wght" 900}
+}
+
+/* ---------- footer ---------- */
+.foot{padding-block:clamp(40px,6vw,84px) 28px;overflow-x:clip}
+.foot-name .fl{--wx:78;font-size:calc(var(--L) / 7.75)}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:clamp(18px,2.6vw,32px);padding-top:14px;border-top:2px solid var(--ink);color:var(--ink-2)}
+.foot-row a{text-decoration:none;color:var(--ink);font-weight:700}
+.foot-row a:hover{background:var(--yellow)}
+
+/* ============================================================
+   responsive
+   ============================================================ */
+@media (max-width:1120px){
+  .nav-list a{padding:9px 7px;font-size:12.5px}
+  .hero-info{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .hero-lead{grid-column:1 / -1;order:-1}
+  .ov{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stat:nth-child(n){border-right:2px solid var(--ink);border-bottom:0}
+  .stat:last-child{border-right:0}
+  .job{grid-template-columns:minmax(0,3fr) minmax(0,7fr)}
+  .job-what,.prs,.job-stack{grid-column:2 / -1}
+  .sk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sk:nth-child(3){border-left:0;padding-left:0}
+  .sk:nth-child(-n+2){border-bottom:2px solid #fff}
+  .proj{grid-template-columns:clamp(64px,9vw,120px) minmax(0,1fr) auto}
+  .p-stack{grid-column:2 / 3;padding-top:0}
+  .p-meta{grid-column:3;grid-row:1}
+  .edu{grid-template-columns:1fr}
+  .bibs{max-width:640px}
+  .api-grid{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .js .nav-list{display:none}
+  .js .menu-btn{display:inline-flex}
+  .nav.is-open .nav-list{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:var(--white);border-bottom:2px solid var(--ink);padding:10px var(--g) 18px;gap:0}
+  .nav.is-open .nav-list a{font-size:22px;padding:14px 0;border:0;border-bottom:2px solid var(--ink);font-variation-settings:"wdth" 120,"wght" 900}
+  .nav.is-open .nav-list li:last-child a{border-bottom:0}
+  .nav-list{flex-wrap:wrap}
+  .latest{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .mono{font-size:11.5px}
+  .roles{gap:4px 16px}
+  .hero-info{grid-template-columns:1fr;gap:18px}
+  .jump{border-top:2px solid var(--ink)}
+  .tape--b .tape-g{font-size:34px}
+  .tape--y .tape-g{font-size:28px}
+  .kh .fl{--wx:80}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(n){border-right:0;border-bottom:0}
+  .stat:nth-child(odd){border-right:2px solid var(--ink)}
+  .stat:nth-child(-n+2){border-bottom:2px solid var(--ink)}
+  .stat{min-height:150px;padding:26px 14px 14px}
+  .offclock{grid-template-columns:1fr;padding:16px 16px 16px 26px}
+  .offclock .mono{padding-left:0}
+  .job{grid-template-columns:1fr;gap:16px}
+  .job-what,.prs,.job-stack{grid-column:1}
+  .job-when{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-direction:row-reverse}
+  .job-yr{margin-top:0;font-size:52px}
+  .prs{grid-template-columns:1fr}
+  .pr{flex-direction:row;align-items:baseline;gap:14px;padding:16px 14px 14px}
+  .pr:first-of-type{padding-top:22px}
+  .pr+.pr{border-left:0;border-top:2px solid var(--ink)}
+  .pr b{font-size:44px;min-width:3.1em}
+  .sk-grid{grid-template-columns:1fr}
+  .sk{padding:18px 0 14px!important;border-left:0!important}
+  .sk-h{padding-bottom:12px;margin-bottom:0}
+  .sk li{grid-template-columns:minmax(0,1fr) auto 82px;gap:10px;padding:11px 0}
+  .sk-n{grid-column:auto;font-size:21px}
+  .sk-l{text-align:right}
+  .sk+.sk{border-top:2px solid #fff}
+  .sk:nth-child(-n+2){border-bottom:0}
+  .latest{padding:22px 18px 26px}
+  .proj{grid-template-columns:minmax(0,1fr) auto;gap:10px 16px}
+  .p-num{grid-column:1;grid-row:1;font-size:46px}
+  .p-meta{grid-column:2;grid-row:1;flex-direction:row;align-items:center}
+  .p-main{grid-column:1 / -1}
+  .p-stack{grid-column:1 / -1}
+  .deg{grid-template-columns:1fr;gap:10px}
+  .deg-yr{font-size:72px}
+  .bibs{grid-template-columns:1fr;gap:26px;padding-inline:8px}
+  .bib+.bib{margin-top:0}
+  .eps li{grid-template-columns:1fr}
+  .verb{grid-row:auto;justify-self:start}
+  .term{box-shadow:8px 8px 0 var(--cobalt);margin-right:8px}
+  .c-row{grid-template-columns:1fr}
+  .c-side{justify-content:space-between;padding-bottom:0}
+  .foot-row{flex-direction:column}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media print{
+  .nav,.tapes{display:none}
+  .skills,.api,.contact,.latest{background:#fff!important;color:#000!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-ne" viewBox="0 0 24 24"><path d="M6 18 18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></symbol>
+  <symbol id="i-e" viewBox="0 0 24 24"><path d="M3 12h16.5M13 5.5 19.5 12 13 18.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 21V4.5M5.5 11 12 4.5 18.5 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="nav-in wrap">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">TS</span><span>Tyron Samaroo</span></a>
+    <nav aria-label="Primary">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list"><i aria-hidden="true"></i>Menu</button>
+      <ul class="nav-list" id="nav-list">
+        <li><a href="#about">Overview</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"><i></i></div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="name">
+  <div class="wrap">
+    <div class="hero-meta mono">
+      <ol class="roles">
+        <li><b>01</b> Reliability Engineer</li>
+        <li><b>02</b> Software Engineer</li>
+        <li><b>03</b> ML Engineer</li>
+      </ol>
+      <p>Long Island, New York</p>
+    </div>
+
+    <h1 class="name" id="name">
+      <span class="sr">Tyron Samaroo</span>
+      <span class="fl l1" aria-hidden="true">Tyron</span>
+      <span class="fl l2" aria-hidden="true">Samaroo</span>
+    </h1>
+
+    <div class="hero-info">
+      <div class="now">
+        <p class="mono now-k"><span class="now-dot" aria-hidden="true"></span>Now</p>
+        <div>
+          <p class="now-role">AVP, Reliability Engineer</p>
+          <p class="mono now-co">Synchrony &middot; since Jun 2026</p>
+        </div>
+      </div>
+      <p class="hero-lead">Reliability engineer with <em>6+ years</em> building high-scale cloud-native microservices, ML pipelines, and polished web experiences.</p>
+      <nav class="jump" aria-label="Elsewhere">
+        <a href="mailto:tyronsamaroo828@gmail.com">Email <svg aria-hidden="true"><use href="#i-e"/></svg></a>
+        <a href="https://github.com/tyronsamaroo" target="_blank" rel="noopener">GitHub <svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+        <a href="https://linkedin.com/in/tyronsamaroo" target="_blank" rel="noopener">LinkedIn <svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="tapes" aria-hidden="true">
+    <div class="tape tape--b" data-dir="1"><div class="tape-track"><span class="tape-g">Python<i class="sep"></i>Go<i class="sep"></i>Java<i class="sep"></i>TypeScript<i class="sep"></i>React<i class="sep"></i>FastAPI<i class="sep"></i>AWS<i class="sep"></i>Kafka<i class="sep"></i>Redis<i class="sep"></i>Kubernetes<i class="sep"></i>Terraform<i class="sep"></i>Docker<i class="sep"></i>PostgreSQL<i class="sep"></i></span><span class="tape-g">Python<i class="sep"></i>Go<i class="sep"></i>Java<i class="sep"></i>TypeScript<i class="sep"></i>React<i class="sep"></i>FastAPI<i class="sep"></i>AWS<i class="sep"></i>Kafka<i class="sep"></i>Redis<i class="sep"></i>Kubernetes<i class="sep"></i>Terraform<i class="sep"></i>Docker<i class="sep"></i>PostgreSQL<i class="sep"></i></span></div></div>
+    <div class="tape tape--y" data-dir="-1"><div class="tape-track"><span class="tape-g">Reliability Engineer<i class="sep"></i>Software Engineer<i class="sep"></i>ML Engineer<i class="sep"></i>AWS Certified<i class="sep"></i>MS Data Science<i class="sep"></i></span><span class="tape-g">Reliability Engineer<i class="sep"></i>Software Engineer<i class="sep"></i>ML Engineer<i class="sep"></i>AWS Certified<i class="sep"></i>MS Data Science<i class="sep"></i></span></div></div>
+  </div>
+</section>
+
+<!-- ============ 01 OVERVIEW ============ -->
+<section class="sec" id="about" aria-labelledby="about-h" style="padding-top:clamp(48px,6vw,92px)">
+  <div class="wrap">
+    <div class="sec-meta mono"><span class="ix">01 / 07</span><span>Overview</span><span>Reliability &middot; Backend &middot; ML</span></div>
+    <h2 class="kh" id="about-h"><span class="sr">Overview</span><span class="fl" aria-hidden="true" style="--em:5.43">Overview</span></h2>
+
+    <div class="ov">
+      <div>
+        <p class="big">Focused on <span class="hl">reliability</span>, event-driven architectures, and shipping real projects.</p>
+        <p class="ov-body">Backend services on AWS, event-driven pipelines, ML inference APIs, and the occasional iOS side project. Now AVP, Reliability Engineer at Synchrony; previously a software engineer at Capital One.</p>
+        <aside class="offclock" aria-label="Off the clock">
+          <p class="mono">Off the clock</p>
+          <p>Sept 2026: competed in my first OCB natural bodybuilding show, Men&rsquo;s Physique. The prep ran on a dashboard I built &mdash; <a href="#p-ocb">OCB Debut Dashboard</a>.</p>
+        </aside>
+      </div>
+
+      <dl class="stats">
+        <div class="stat" style="--c:var(--yellow)"><dt class="mono">Years of experience</dt><dd>6<sup>+</sup></dd></div>
+        <div class="stat" style="--c:var(--cobalt)"><dt class="mono">Data Science</dt><dd>MS</dd></div>
+        <div class="stat" style="--c:var(--orange)"><dt class="mono">Certified &middot; Developer + Solutions Architect</dt><dd>AWS</dd></div>
+        <div class="stat" style="--c:var(--ink)"><dt class="mono">Projects shipped</dt><dd>8</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 EXPERIENCE ============ -->
+<section class="sec" id="experience" aria-labelledby="exp-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-meta mono"><span class="ix">02 / 07</span><span>Experience</span><span>2020 &mdash; Present &middot; 4 roles</span></div>
+    <h2 class="kh" id="exp-h"><span class="sr">Experience</span><span class="fl" aria-hidden="true" style="--em:6.48">Experience</span></h2>
+
+    <ol class="jobs">
+      <li class="job job--now">
+        <div class="job-when"><span class="mono">Jun 2026 &mdash; Present</span><span class="job-yr" aria-hidden="true">&rsquo;26&ndash;NOW</span></div>
+        <div class="job-who"><h3 class="job-co">Synchrony</h3><p class="job-role">AVP, Reliability Engineer</p></div>
+        <div class="job-what"><span class="tag mono"><i aria-hidden="true"></i>Current role</span><p class="job-now-line">Reliability engineering.</p></div>
+      </li>
+
+      <li class="job">
+        <div class="job-when"><span class="mono">Jan 2022 &mdash; 2026</span><span class="job-yr" aria-hidden="true">&rsquo;22&ndash;&rsquo;26</span></div>
+        <div class="job-who"><h3 class="job-co">Capital One</h3><p class="job-role">Software Engineer</p></div>
+        <ul class="job-what job-pts">
+          <li>Engineered high-scale backend services on AWS powering <strong>millions of monthly requests</strong>.</li>
+          <li>Owned production reliability and 24x7 on-call support; cut MTTR from ~2h to &lt;30min.</li>
+          <li>Replatformed legacy batch processes into event-driven pipelines (Lambda, Step Functions, SNS/SQS).</li>
+          <li>Led infrastructure migration across 100+ repositories as sole SME with zero outages.</li>
+          <li>Wrote 300+ unit/integration tests achieving 85%+ code coverage.</li>
+        </ul>
+        <div class="prs" role="group" aria-label="Personal records at Capital One">
+          <p class="prs-k mono" aria-hidden="true">Personal records</p>
+          <div class="pr"><b>&lt;30m</b><span class="mono">MTTR, down from ~2h</span></div>
+          <div class="pr"><b>100+</b><span class="mono">Repos migrated, zero outages</span></div>
+          <div class="pr"><b>85%+</b><span class="mono">Coverage from 300+ tests</span></div>
+        </div>
+        <ul class="chips job-stack" aria-label="Stack">
+          <li>Go</li><li>Python</li><li>AWS</li><li>Kafka</li><li>Redis</li><li>Docker</li><li>Terraform</li>
+        </ul>
+      </li>
+
+      <li class="job">
+        <div class="job-when"><span class="mono">Dec 2020 &mdash; Dec 2021</span><span class="job-yr" aria-hidden="true">&rsquo;20&ndash;&rsquo;21</span></div>
+        <div class="job-who"><h3 class="job-co">PicoPortal <span style="font-variation-settings:'wdth' 62,'wght' 900">(IDOC)</span></h3><p class="job-role">ML Engineer / SWE</p></div>
+        <ul class="job-what job-pts">
+          <li>Automated the ML pipeline with Azure DevOps, Kubernetes, Docker, and Celery.</li>
+          <li>Built inference APIs with FastAPI; integrated OCR + ML models.</li>
+          <li>Managed PostgreSQL + Redis for data storage and caching.</li>
+        </ul>
+      </li>
+
+      <li class="job">
+        <div class="job-when"><span class="mono">Jan 2020 &mdash; Aug 2020</span><span class="job-yr" aria-hidden="true">&rsquo;20</span></div>
+        <div class="job-who"><h3 class="job-co">Research Foundation of CUNY</h3><p class="job-role">Software Engineer</p></div>
+        <ul class="job-what job-pts">
+          <li>Built an admin tool with Ruby on Rails serving 500+ users.</li>
+          <li>Automated browser testing with Selenium; reduced manual QA by 40%.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 03 SKILLS ============ -->
+<section class="sec skills" id="skills" aria-labelledby="sk-h">
+  <div class="wrap">
+    <div class="sec-meta mono"><span class="ix">03 / 07</span><span>Skillset</span><span>Languages &middot; Frameworks &middot; Tools &middot; Data &amp; infra</span></div>
+    <h2 class="kh" id="sk-h"><span class="sr">Skillset</span><span class="fl" aria-hidden="true" style="--em:4.92">Skillset</span></h2>
+
+    <div class="sk-grid">
+      <div class="sk">
+        <h3 class="sk-h mono"><span>A</span>Languages</h3>
+        <ul>
+          <li><span class="sk-n">Python</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+          <li><span class="sk-n">Go</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+          <li><span class="sk-n">Java</span><span class="lv" data-l="3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Proficient</span></li>
+          <li><span class="sk-n">TypeScript</span><span class="lv" data-l="3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Proficient</span></li>
+        </ul>
+      </div>
+      <div class="sk">
+        <h3 class="sk-h mono"><span>B</span>Frameworks</h3>
+        <ul>
+          <li><span class="sk-n">React</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+          <li><span class="sk-n">FastAPI</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+          <li><span class="sk-n">Spring Boot</span><span class="lv" data-l="3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Proficient</span></li>
+          <li><span class="sk-n">Ruby on Rails</span><span class="lv" data-l="2" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Familiar</span></li>
+        </ul>
+      </div>
+      <div class="sk">
+        <h3 class="sk-h mono"><span>C</span>Tools</h3>
+        <ul>
+          <li><span class="sk-n">AWS</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Certified</span></li>
+          <li><span class="sk-n">Docker</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+          <li><span class="sk-n">Kubernetes</span><span class="lv" data-l="3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Proficient</span></li>
+          <li><span class="sk-n">Terraform</span><span class="lv" data-l="3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Proficient</span></li>
+        </ul>
+      </div>
+      <div class="sk">
+        <h3 class="sk-h mono"><span>D</span>Data &amp; infra</h3>
+        <ul>
+          <li><span class="sk-n">Kafka</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+          <li><span class="sk-n">Redis</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+          <li><span class="sk-n">PostgreSQL</span><span class="lv" data-l="3" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Proficient</span></li>
+          <li><span class="sk-n">CI/CD</span><span class="lv" data-l="4" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sk-l mono">Advanced</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sk-foot">
+      <div class="newer"><span class="mono">Newer &mdash; iOS side projects</span><ul class="chips"><li>SwiftUI</li><li>HealthKit</li></ul></div>
+      <p class="legend mono" aria-hidden="true">
+        <span><span class="lv" data-l="4"><i></i><i></i><i></i><i></i></span>Advanced / Certified</span>
+        <span><span class="lv" data-l="3"><i></i><i></i><i></i><i></i></span>Proficient</span>
+        <span><span class="lv" data-l="2"><i></i><i></i><i></i><i></i></span>Familiar</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 PROJECTS ============ -->
+<section class="sec" id="projects" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="sec-meta mono"><span class="ix">04 / 07</span><span>Projects</span><span>8 shipped &middot; latest update June 2026</span></div>
+    <h2 class="kh" id="pr-h"><span class="sr">Projects</span><span class="fl" aria-hidden="true" style="--em:5.39">Projects</span></h2>
+
+    <article class="latest" aria-labelledby="ss-h">
+      <div class="latest-copy">
+        <p class="kicker mono"><span class="flag">Latest update</span><span>June 2026</span></p>
+        <h3 class="latest-title" id="ss-h"><span class="kin-in">StrideSlip</span></h3>
+        <p class="latest-sub">iOS build notes</p>
+        <p class="latest-desc">An iPhone activity companion for daily steps, workout receipts, Lock Screen progress, and smarter Apple Health insights.</p>
+        <ul class="chips" aria-label="Stack"><li>SwiftUI</li><li>HealthKit</li><li>ActivityKit</li><li>CloudKit</li></ul>
+        <a class="btn" href="https://tyronsamaroo.dev/projects/stride-slip">Read the build notes <svg aria-hidden="true"><use href="#i-e"/></svg></a>
+      </div>
+      <div class="latest-art" aria-hidden="true">
+        <div class="slip">
+          <div class="slip-in">
+            <p class="slip-brand">StrideSlip</p>
+            <p class="slip-sub mono">Workout receipt</p>
+            <hr>
+            <ul class="slip-rows">
+              <li><span>Daily steps</span><i style="--v:.86"></i></li>
+              <li><span>Workout</span><i style="--v:.58"></i></li>
+              <li><span>Lock Screen</span><svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15"/><circle class="on" cx="20" cy="20" r="15" pathLength="100" stroke-dasharray="72 100"/></svg></li>
+              <li><span>Health insights</span><i style="--v:.7"></i></li>
+            </ul>
+            <hr>
+            <p class="slip-stack mono">SwiftUI &middot; HealthKit<br>ActivityKit &middot; CloudKit</p>
+            <div class="barcode"></div>
+            <p class="slip-foot mono"><span>Build notes</span><span>06 / 2026</span></p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <ol class="plist">
+      <li class="proj">
+        <span class="p-num" aria-hidden="true">01</span>
+        <div class="p-main">
+          <h3 class="p-title"><a href="https://github.com/tyronsamaroo/dev-dashboard" target="_blank" rel="noopener">Personal Developer Dashboard</a></h3>
+          <p class="p-desc">Full-stack portfolio dashboard with a FastAPI backend and a React frontend. Showcases projects, skills, and coding stats.</p>
+        </div>
+        <p class="p-stack mono">FastAPI / React / DynamoDB / AWS Lambda / Tailwind</p>
+        <div class="p-meta"><span class="st mono">Active</span><span class="p-go">Source <svg aria-hidden="true"><use href="#i-ne"/></svg></span></div>
+      </li>
+      <li class="proj">
+        <span class="p-num" aria-hidden="true">02</span>
+        <div class="p-main">
+          <h3 class="p-title"><a href="https://tyronsamaroo.dev/summer/">Summer in New York Finder</a></h3>
+          <p class="p-desc">Mobile-first public map for Nassau, Suffolk, and NYC summer programs with a questionnaire flow, filters, source links, and location drawers.</p>
+        </div>
+        <p class="p-stack mono">HTML / Leaflet / OpenStreetMap / Public data</p>
+        <div class="p-meta"><span class="st mono">Active</span><span class="p-go">Live <svg aria-hidden="true"><use href="#i-ne"/></svg></span></div>
+      </li>
+      <li class="proj">
+        <span class="p-num" aria-hidden="true">03</span>
+        <div class="p-main">
+          <h3 class="p-title"><a href="https://github.com/tyronsamaroo/daily-command-center" target="_blank" rel="noopener">Daily Command Center</a></h3>
+          <p class="p-desc">Unified daily planner combining work block tracking, contest prep, and household coordination in one Next.js app.</p>
+        </div>
+        <p class="p-stack mono">Next.js / TypeScript / Turso / Drizzle ORM / Tailwind</p>
+        <div class="p-meta"><span class="st mono">Active</span><span class="p-go">Source <svg aria-hidden="true"><use href="#i-ne"/></svg></span></div>
+      </li>
+      <li class="proj">
+        <span class="p-num" aria-hidden="true">04</span>
+        <div class="p-main">
+          <h3 class="p-title"><a href="https://github.com/tyronsamaroo/ml-pipeline-toolkit" target="_blank" rel="noopener">ML Pipeline Toolkit</a></h3>
+          <p class="p-desc">Reusable Python library for end-to-end ML pipelines with data validation, feature engineering, and model evaluation.</p>
+        </div>
+        <p class="p-stack mono">Python / PyTorch / scikit-learn / Pandas / Docker</p>
+        <div class="p-meta"><span class="st mono">Active</span><span class="p-go">Source <svg aria-hidden="true"><use href="#i-ne"/></svg></span></div>
+      </li>
+      <li class="proj" id="p-ocb">
+        <span class="p-num" aria-hidden="true">05</span>
+        <div class="p-main">
+          <h3 class="p-title"><a href="https://github.com/tyronsamaroo/ocb-debut-dashboard" target="_blank" rel="noopener">OCB Debut Dashboard</a></h3>
+          <p class="p-desc">Bodybuilding contest-prep tracker with calorie/macro analysis, weight trend visualizations, and progress photo timeline.</p>
+        </div>
+        <p class="p-stack mono">React / Vite / Express / SQLite / Recharts</p>
+        <div class="p-meta"><span class="st st--done mono">Completed</span><span class="p-go">Source <svg aria-hidden="true"><use href="#i-ne"/></svg></span></div>
+      </li>
+      <li class="proj">
+        <span class="p-num" aria-hidden="true">06</span>
+        <div class="p-main">
+          <h3 class="p-title"><a href="https://github.com/tyronsamaroo/smart-chore-scheduler" target="_blank" rel="noopener">Smart Chore Scheduler</a></h3>
+          <p class="p-desc">Household task scheduler with fairness scoring, calendar views, and recurring chore management.</p>
+        </div>
+        <p class="p-stack mono">React / Vite / FastAPI / Python</p>
+        <div class="p-meta"><span class="st st--done mono">Completed</span><span class="p-go">Source <svg aria-hidden="true"><use href="#i-ne"/></svg></span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 05 EDUCATION ============ -->
+<section class="sec" id="education" aria-labelledby="ed-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-meta mono"><span class="ix">05 / 07</span><span>Education + Certifications</span><span>CUNY &times;2 &middot; AWS &times;2</span></div>
+    <h2 class="kh" id="ed-h"><span class="sr">Education and certifications</span><span class="fl" aria-hidden="true" style="--em:5.94">Education</span></h2>
+
+    <div class="edu">
+      <div>
+        <h3 class="sub-h mono"><span>Degrees</span><span>City University of New York</span></h3>
+        <div class="deg">
+          <p class="deg-yr">2023</p>
+          <div><p class="deg-name">MS Data Science &amp; Engineering</p><p class="deg-sch mono">City College of New York (CUNY) &middot; May 2023</p></div>
+        </div>
+        <div class="deg">
+          <p class="deg-yr">2020</p>
+          <div><p class="deg-name">BS Computer Science, Minor in Mathematics</p><p class="deg-sch mono">Queens College (CUNY) &middot; May 2020</p></div>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub-h mono"><span>Certifications</span><span>Amazon Web Services</span></h3>
+        <div class="bibs">
+          <article class="bib" aria-label="AWS Certified Developer – Associate, 2024">
+            <i class="hole" aria-hidden="true"></i><i class="hole" aria-hidden="true"></i><i class="hole" aria-hidden="true"></i><i class="hole" aria-hidden="true"></i>
+            <p class="bib-top mono">AWS Certified</p>
+            <div class="bib-body"><p class="bib-t">Developer</p><p class="bib-s mono">Associate</p><p class="bib-y mono">2024</p></div>
+          </article>
+          <article class="bib" aria-label="AWS Certified Solutions Architect – Associate">
+            <i class="hole" aria-hidden="true"></i><i class="hole" aria-hidden="true"></i><i class="hole" aria-hidden="true"></i><i class="hole" aria-hidden="true"></i>
+            <p class="bib-top mono">AWS Certified</p>
+            <div class="bib-body"><p class="bib-t">Solutions Architect</p><p class="bib-s mono">Associate</p></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 API ============ -->
+<section class="sec api" id="api" aria-labelledby="api-h">
+  <div class="wrap">
+    <div class="sec-meta mono"><span class="ix">06 / 07</span><span>Public API</span><span>Live &middot; JSON over HTTPS</span></div>
+    <h2 class="kh" id="api-h"><span class="sr">Public API</span><span class="fl" aria-hidden="true" style="--em:5.64">Public API</span></h2>
+
+    <div class="api-grid">
+      <div>
+        <p class="api-lead">Profile, projects, and stats &mdash; served live as JSON. Point a terminal at it.</p>
+        <ul class="eps">
+          <li><span class="verb">GET</span><a class="ep-path" href="https://dev-dashboard-api.onrender.com/api/me" target="_blank" rel="noopener">/api/me</a><span class="ep-d">Profile</span></li>
+          <li><span class="verb">GET</span><a class="ep-path" href="https://dev-dashboard-api.onrender.com/api/projects" target="_blank" rel="noopener">/api/projects</a><span class="ep-d">All projects</span></li>
+          <li><span class="verb">GET</span><a class="ep-path" href="https://dev-dashboard-api.onrender.com/api/stats" target="_blank" rel="noopener">/api/stats</a><span class="ep-d">Stats &amp; skills</span></li>
+        </ul>
+        <div class="api-links">
+          <a href="https://dev-dashboard-api.onrender.com/docs" target="_blank" rel="noopener">Read the docs <svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+          <a href="https://dev-dashboard-api.onrender.com" target="_blank" rel="noopener">Base URL <svg aria-hidden="true"><use href="#i-ne"/></svg></a>
+        </div>
+      </div>
+
+      <figure class="term" aria-labelledby="term-cap">
+        <div class="term-bar">
+          <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="mono" id="term-cap">Try it &middot; bash</span>
+          <button class="copy" type="button" data-copy="curl-cmd">Copy</button>
+        </div>
+<pre><span class="cm"># profile</span>
+<span class="pr-s">$ </span><span id="curl-cmd">curl https://dev-dashboard-api.onrender.com/api/me</span>
+
+<span class="cm"># all projects</span>
+<span class="pr-s">$ </span>curl https://dev-dashboard-api.onrender.com/api/projects
+
+<span class="cm"># stats &amp; skills</span>
+<span class="pr-s">$ </span>curl https://dev-dashboard-api.onrender.com/api/stats</pre>
+        <span class="sr" aria-live="polite" id="copy-status"></span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 CONTACT ============ -->
+<section class="sec contact" id="contact" aria-labelledby="ct-h">
+  <div class="wrap">
+    <div class="sec-meta mono"><span class="ix">07 / 07</span><span id="ct-h">Contact</span><span>Long Island, New York</span></div>
+    <ul class="c-list">
+      <li><a class="c-row" href="mailto:tyronsamaroo828@gmail.com"><span class="c-big"><span class="kin-in">Email</span></span><span class="c-side"><span class="mono">tyronsamaroo828@gmail.com</span><svg aria-hidden="true"><use href="#i-e"/></svg></span></a></li>
+      <li><a class="c-row" href="https://github.com/tyronsamaroo" target="_blank" rel="noopener"><span class="c-big"><span class="kin-in">GitHub</span></span><span class="c-side"><span class="mono">github.com/tyronsamaroo</span><svg aria-hidden="true"><use href="#i-ne"/></svg></span></a></li>
+      <li><a class="c-row" href="https://linkedin.com/in/tyronsamaroo" target="_blank" rel="noopener"><span class="c-big"><span class="kin-in">LinkedIn</span></span><span class="c-side"><span class="mono">linkedin.com/in/tyronsamaroo</span><svg aria-hidden="true"><use href="#i-ne"/></svg></span></a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-name" aria-hidden="true"><span class="fl">Tyron Samaroo</span></p>
+    <div class="foot-row mono">
+      <span>&copy; 2026 Tyron Samaroo</span>
+      <span>tyronsamaroo.dev</span>
+      <span>Set in Archivo &amp; JetBrains Mono</span>
+      <a href="#top">Back to top &uarr;</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  root.classList.add('js');
+
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FINE = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const HOVER = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const NARROW = window.matchMedia('(max-width: 760px)');
+  const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
+  const easeInOut = t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  /* ================= nav: menu, active section, progress ================= */
+  const nav = document.getElementById('nav');
+  const menuBtn = nav.querySelector('.menu-btn');
+  const setMenu = open => { menuBtn.setAttribute('aria-expanded', String(open)); nav.classList.toggle('is-open', open); };
+  menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+  nav.querySelectorAll('.nav-list a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); menuBtn.focus(); } });
+
+  const navLinks = [...nav.querySelectorAll('.nav-list a')];
+  const byId = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window) {
+    const secIO = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(a => a.removeAttribute('aria-current'));
+        const a = byId.get(e.target.id);
+        if (a) a.setAttribute('aria-current', 'location');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach(s => secIO.observe(s));
+  }
+  const bar = nav.querySelector('.progress i');
+  const onScroll = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? clamp(window.scrollY / max, 0, 1) : 0).toFixed(4) + ')';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ================= in-page links: smooth scroll + move focus ================= */
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const id = decodeURIComponent(a.getAttribute('href').slice(1));
+    const target = id ? document.getElementById(id) : null;
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' });
+    if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+    if (history.pushState) history.pushState(null, '', '#' + id);
+  });
+
+  /* ================= copy curl ================= */
+  const copyBtn = document.querySelector('[data-copy]');
+  const copyStatus = document.getElementById('copy-status');
+  if (copyBtn) copyBtn.addEventListener('click', async () => {
+    const node = document.getElementById(copyBtn.dataset.copy);
+    const text = node.textContent.trim();
+    let ok = false;
+    try { await navigator.clipboard.writeText(text); ok = true; } catch (err) {
+      const r = document.createRange(); r.selectNodeContents(node);
+      const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    copyBtn.textContent = ok ? 'Copied' : 'Selected';
+    copyStatus.textContent = ok ? 'Command copied to clipboard' : 'Command selected, press Ctrl+C to copy';
+    clearTimeout(copyBtn._t);
+    copyBtn._t = setTimeout(() => { copyBtn.textContent = 'Copy'; copyStatus.textContent = ''; }, 1800);
+  });
+
+  /* =====================================================================
+     THE FLEX — width-justified type on Archivo's wdth axis (62–125).
+     Every line fills its measure exactly. A "bulge" widens some letters;
+     the solver compresses the others so the total never changes.
+     ===================================================================== */
+  const XMIN = 62, XMAX = 125, AMP = 74, SIG = 1.05;
+  const XS = [62, 100, 125];
+  const probe = document.createElement('div');
+  probe.setAttribute('aria-hidden', 'true');
+  probe.style.cssText = 'position:absolute;left:-20000px;top:0;visibility:hidden;pointer-events:none;white-space:pre;font-family:var(--display);font-size:100px;font-weight:900;line-height:1;letter-spacing:0;text-transform:none';
+  document.body.appendChild(probe);
+
+  // Per-character advance (kerning attributed to glyph origins) at 62/100/125, in px @100px.
+  function measureWord(text) {
+    const n = text.length, P = [], A = [];
+    const mk = (str, x) => {
+      const s = document.createElement('span');
+      s.style.cssText = 'display:inline-block;font-variation-settings:"wdth" ' + x + ',"wght" 900';
+      s.textContent = str; probe.appendChild(s); probe.appendChild(document.createElement('br'));
+      return s;
+    };
+    for (let i = 1; i <= n; i++) P.push(XS.map(x => mk(text.slice(0, i), x)));
+    for (let j = 0; j < n; j++) A.push(XS.map(x => mk(text[j], x)));
+    const pw = P.map(r => r.map(s => s.getBoundingClientRect().width));
+    const aw = A.map(r => r.map(s => s.getBoundingClientRect().width));
+    probe.textContent = '';
+    const origin = (j, k) => (j === 0 ? 0 : j >= n ? pw[n - 1][k] : pw[j][k] - aw[j][k]);
+    const u = [];
+    for (let j = 0; j < n; j++) u.push(XS.map((_, k) => Math.max(1, origin(j + 1, k) - origin(j, k))));
+    return u;
+  }
+  const uAt = (u, x) => (x <= 100 ? u[0] + (u[1] - u[0]) * (x - 62) / 38 : u[1] + (u[2] - u[1]) * (x - 100) / 25);
+  const widthAt = (text, x) => { const u = measureWord(text); let s = 0; for (const c of u) s += uAt(c, x); return s; };
+
+  class FlexLine {
+    constructor(el) {
+      this.el = el;
+      this.text = el.textContent.replace(/\s+/g, ' ').trim().toUpperCase();
+      this.n = this.text.length;
+      this.x = new Array(this.n).fill(100);
+      this.last = new Array(this.n).fill(-1);
+      this.g = new Array(this.n).fill(0);
+      this.A = 0; this.mu = -3; this.size = 100; this.L = 0; this.rest = false; this.visible = true;
+      this.chars = null; this.u = null;
+    }
+    build() {
+      this.el.textContent = '';
+      this.chars = [...this.text].map(c => {
+        const s = document.createElement('span'); s.className = 'ch'; s.textContent = c; this.el.appendChild(s); return s;
+      });
+    }
+    measure() { this.u = measureWord(this.text); }
+    sizeFor(L, base) { let s = 0; for (const u of this.u) s += uAt(u, base); return 100 * L / s; }
+    setSize(s, L) { this.size = s; this.L = L; this.el.style.fontSize = s.toFixed(2) + 'px'; this.last.fill(-1); }
+    solve(A, mu) {
+      const n = this.n, g = this.g, u = this.u, k = this.size / 100, L = this.L;
+      for (let i = 0; i < n; i++) { const d = (i - mu) / SIG; g[i] = A > 0.01 ? A * Math.exp(-d * d) : 0; }
+      const tot = c => { let s = 0; for (let i = 0; i < n; i++) s += uAt(u[i], clamp(c + g[i], XMIN, XMAX)); return s * k; };
+      let lo = XMIN - AMP, hi = XMAX;
+      if (tot(hi) <= L) lo = hi;
+      else for (let it = 0; it < 26; it++) { const m = (lo + hi) / 2; if (tot(m) < L) lo = m; else hi = m; }
+      for (let i = 0; i < n; i++) this.x[i] = clamp(lo + g[i], XMIN, XMAX);
+    }
+    paint() {
+      for (let i = 0; i < this.n; i++) {
+        const x = this.x[i];
+        if (Math.abs(x - this.last[i]) < 0.04) continue;
+        this.last[i] = x;
+        const st = this.chars[i].style;
+        st.width = (uAt(this.u[i], x) / 100).toFixed(5) + 'em';
+        st.fontVariationSettings = '"wdth" ' + x.toFixed(2) + ', "wght" 900';
+      }
+    }
+    settle() { this.solve(0, -9); this.paint(); this.A = 0; this.rest = true; }
+    indexAt(clientX) {
+      const r = this.el.getBoundingClientRect();
+      let px = clientX - r.left; const k = this.size / 100;
+      if (px < 0) return px / (this.size * .6) - .5;
+      for (let i = 0; i < this.n; i++) { const w = uAt(this.u[i], this.x[i]) * k; if (px < w) return i + px / w - .5; px -= w; }
+      return this.n - .5 + px / (this.size * .6);
+    }
+  }
+
+  const hero = document.querySelector('.hero');
+  const nameEl = document.querySelector('.name');
+  const heroLines = [...document.querySelectorAll('.name .fl')].map(el => new FlexLine(el));
+  const heads = [...document.querySelectorAll('.kh .fl')].map(el => new FlexLine(el));
+  const footEl = document.querySelector('.foot-name');
+  const footLine = new FlexLine(document.querySelector('.foot-name .fl'));
+  const allLines = [...heroLines, ...heads, footLine];
+
+  const cBig = [...document.querySelectorAll('.c-big')];
+  const ssTitle = document.querySelector('.latest-title');
+
+  const tapes = [...document.querySelectorAll('.tape')].map(el => ({
+    el, track: el.querySelector('.tape-track'), dir: +el.dataset.dir || 1, x: 0, gw: 0, visible: true
+  }));
+
+  let ready = false;
+
+  function fitAll() {
+    // hero: both lines share one size; TYRON rests wide, SAMAROO rests condensed
+    const Lh = heroLines[0].el.clientWidth - 1;
+    const sh = NARROW.matches
+      ? Math.min(heroLines[0].sizeFor(Lh, 100), heroLines[1].sizeFor(Lh, 67))
+      : Math.min(heroLines[0].sizeFor(Lh, 114), heroLines[1].sizeFor(Lh, 74));
+    heroLines.forEach(l => { l.setSize(sh, Lh); l.settle(); });
+    // section headings
+    const base = NARROW.matches ? 80 : 92;
+    const cap = NARROW.matches ? 400 : 215;
+    heads.forEach(l => { const L = l.el.clientWidth - 1; l.setSize(Math.min(cap, l.sizeFor(L, base)), L); l.settle(); });
+    // footer sign-off
+    const Lf = footLine.el.clientWidth - 1;
+    footLine.setSize(footLine.sizeFor(Lf, 78), Lf); footLine.settle();
+    // contact rows: sized so the widest word fits at its hover width
+    const wfin = (HOVER.matches && !NARROW.matches) ? 125 : 62;
+    let sc = Infinity;
+    cBig.forEach(el => { const w = widthAt(el.textContent.trim().toUpperCase(), wfin); sc = Math.min(sc, 100 * (el.clientWidth - 2) / w); });
+    if (isFinite(sc)) cBig.forEach(el => { el.style.fontSize = Math.min(sc, 230).toFixed(2) + 'px'; });
+    // StrideSlip title fits its column
+    if (ssTitle) { const w = widthAt(ssTitle.textContent.trim(), 100); ssTitle.style.fontSize = Math.min(168, 100 * (ssTitle.clientWidth - 2) / w * .98).toFixed(2) + 'px'; }
+    // tapes
+    tapes.forEach(tp => {
+      const groups = tp.track.querySelectorAll('.tape-g');
+      tp.gw = groups[0].offsetWidth;
+      if (!tp.gw) return;
+      const need = Math.ceil(tp.el.offsetWidth / tp.gw) + 2;
+      for (let have = groups.length; have < need; have++) tp.track.appendChild(groups[0].cloneNode(true));
+    });
+  }
+
+  function init() {
+    if (ready) return;
+    ready = true;
+    allLines.forEach(l => { l.build(); l.measure(); });
+    fitAll();
+    if (!RM) startMotion();
+  }
+
+  let rz;
+  window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if (ready) fitAll(); }, 120); });
+
+  /* ================= motion ================= */
+  function startMotion() {
+    let ptrHero = null, ptrFoot = null;
+    if (FINE.matches) {
+      nameEl.addEventListener('pointermove', e => { ptrHero = e.clientX; });
+      nameEl.addEventListener('pointerleave', () => { ptrHero = null; });
+      footEl.addEventListener('pointermove', e => { ptrFoot = e.clientX; });
+      footEl.addEventListener('pointerleave', () => { ptrFoot = null; });
+    }
+    let heroVisible = true, footVisible = false;
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        const t = e.target;
+        if (t === hero) heroVisible = e.isIntersecting;
+        else if (t === footEl) footVisible = e.isIntersecting;
+        else { const l = heads.find(h => h.el === t); if (l) l.visible = e.isIntersecting; const tp = tapes.find(p => p.el === t); if (tp) tp.visible = e.isIntersecting; }
+      }), { rootMargin: '80px 0px' });
+      io.observe(hero); io.observe(footEl);
+      heads.forEach(l => io.observe(l.el));
+      tapes.forEach(tp => io.observe(tp.el));
+    }
+
+    let lastY = window.scrollY, vel = 0, dir = 1, lastT = performance.now();
+    const t0 = performance.now() + 250;
+
+    const drive = (l, A, mu, rateA, rateMu) => {
+      l.A += (A - l.A) * rateA;
+      l.mu += (mu - l.mu) * rateMu;
+      if (l.A < 0.004) { if (!l.rest) l.settle(); return; }
+      l.rest = false;
+      l.solve(l.A * AMP, l.mu);
+      l.paint();
+    };
+
+    function frame(t) {
+      const dt = Math.min(0.05, (t - lastT) / 1000); lastT = t;
+      const y = window.scrollY, dy = y - lastY; lastY = y;
+      if (dy) dir = dy > 0 ? 1 : -1;
+      vel += (dy - vel) * 0.18;
+      const speed = Math.abs(vel);
+      const motion = clamp(speed / 11, 0, 1);
+      const vh = window.innerHeight;
+
+      // HERO: load sweep -> pointer -> scroll velocity
+      if (heroVisible) {
+        const hr = hero.getBoundingClientRect();
+        const hp = clamp(-hr.top / Math.max(1, hr.height * .75), 0, 1);
+        heroLines.forEach((l, li) => {
+          const ti = (t - t0 - li * 140) / 1500;
+          if (ti < 1) {
+            const e = easeInOut(clamp(ti, 0, 1));
+            l.mu = -2.5 + e * (l.n + 5);
+            drive(l, ti < 0 ? 0 : 1, l.mu, 0.2, 1);
+          } else if (ptrHero !== null) {
+            drive(l, 1, l.indexAt(ptrHero), 0.12, 0.2);
+          } else {
+            drive(l, motion, -2.5 + hp * (l.n + 5), 0.1, 0.25);
+          }
+        });
+      }
+
+      // HEADINGS: bulge position = where the heading sits in the viewport; strength = scroll speed
+      heads.forEach(l => {
+        if (!l.visible) return;
+        const r = l.el.getBoundingClientRect();
+        const p = clamp((vh - r.top) / (vh + r.height), 0, 1);
+        drive(l, motion, -2 + p * (l.n + 3), 0.09, 0.3);
+      });
+
+      // FOOTER sign-off: pointer or scroll velocity
+      if (footVisible) {
+        const r = footLine.el.getBoundingClientRect();
+        const p = clamp((vh - r.top) / (vh * .9), 0, 1);
+        if (ptrFoot !== null) drive(footLine, 1, footLine.indexAt(ptrFoot), 0.12, 0.2);
+        else drive(footLine, motion, -2 + p * (footLine.n + 3), 0.09, 0.3);
+      }
+
+      // TAPES: base drift + scroll velocity; scroll direction flips them
+      tapes.forEach(tp => {
+        if (!tp.visible || !tp.gw) return;
+        tp.x += tp.dir * dir * (48 + speed * 10) * dt;
+        if (tp.x <= -tp.gw) tp.x += tp.gw;
+        if (tp.x > 0) tp.x -= tp.gw;
+        tp.track.style.transform = 'translate3d(' + tp.x.toFixed(2) + 'px,0,0)';
+      });
+
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Wait for Archivo before measuring (with a safety timeout).
+  const fontsReady = (document.fonts && document.fonts.load)
+    ? Promise.all([document.fonts.load('900 100px "Archivo"'), document.fonts.load('500 16px "JetBrains Mono"')]).then(() => document.fonts.ready)
+    : Promise.resolve();
+  fontsReady.then(init, init);
+  setTimeout(init, 3000);
+})();
+</script>
+</body>
+</html>

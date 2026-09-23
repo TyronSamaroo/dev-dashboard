@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tyron Samaroo · Reliability Engineer</title>
+<meta name="description" content="Tyron Samaroo, AVP, Reliability Engineer at Synchrony. Reliability engineer with 6+ years building high-scale cloud-native microservices, ML pipelines, and polished web experiences.">
+<meta name="theme-color" content="#E6E9EA">
+<script>(function(){var r=document.documentElement;r.classList.add('js');try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.setAttribute('data-boot','pre');setTimeout(function(){if(!window.__cr)r.removeAttribute('data-boot')},2200);setTimeout(function(){r.removeAttribute('data-boot')},6000);}}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#D3D8DA;
+  --panel-hi:#F2F4F4;
+  --panel:#E8EBEB;
+  --panel-lo:#DEE2E3;
+  --recess:#D2D7D9;
+  --recess-2:#C9CFD1;
+  --plate:#F7F8F8;
+  --rule:#A9B0B3;
+  --rule-2:#C4CACC;
+  --edge:#7C868A;
+  --ink:#111416;
+  --ink-2:#2B3236;
+  --ink-3:#4D565B;
+  --bezel:#262B2E;
+  --bezel-2:#16191B;
+  --orange:#F25A0F;
+  --orange-hi:#FF7B39;
+  --orange-lo:#B8430A;
+  --green:#22D36C;
+  --green-d:#0B6F34;
+  --flow:#1BB35C;
+  --amber:#FFB21C;
+  --amber-d:#9E5C00;
+  --red:#F2392B;
+  --red-d:#8E150C;
+  --lcd:#BCC9C1;
+  --lcd-2:#AFBDB4;
+  --lcd-ink:#12201A;
+  --f-disp:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  --f-body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'B612 Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --rivet:radial-gradient(circle at 42% 38%,#fdfefe 0 1.1px,#b3babd 2.1px,#727b7f 4.4px,#465054 5.1px,rgba(70,80,84,0) 5.7px);
+  --noise:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .07  0 0 0 0 .09  0 0 0 0 .1  0 0 0 .11 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:88px;background:var(--ground)}
+body{margin:0;font:400 17px/1.6 var(--f-body);color:var(--ink);background-color:var(--ground);background-image:var(--noise),linear-gradient(180deg,#DADEE0 0,var(--ground) 600px)}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3,h4{margin:0}
+button{font:inherit;color:inherit}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:10px 14px;border-radius:4px;font:600 14px var(--f-body);text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 7px rgba(242,90,15,.55);border-radius:3px}
+.wrap{width:100%;max-width:1328px;margin:0 auto;padding:0 24px}
+mark{background:none;color:inherit;box-shadow:inset 0 -.32em 0 rgba(242,90,15,.32)}
+
+/* ---------- shared hardware ---------- */
+.panel{position:relative;background:linear-gradient(180deg,var(--panel-hi),var(--panel) 42%,var(--panel-lo));border:1px solid var(--edge);border-radius:8px;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.05),0 1px 0 rgba(255,255,255,.55),0 22px 34px -26px rgba(16,26,31,.55);padding:clamp(22px,3.2vw,44px)}
+.panel::before{content:"";position:absolute;inset:9px;pointer-events:none;background:var(--rivet) left top/12px 12px no-repeat,var(--rivet) right top/12px 12px no-repeat,var(--rivet) left bottom/12px 12px no-repeat,var(--rivet) right bottom/12px 12px no-repeat}
+.sec{margin-top:28px;scroll-margin-top:84px}
+
+.ph{display:flex;align-items:center;gap:14px;margin-bottom:clamp(22px,3vw,34px);min-width:0}
+.ptag{flex:none;font:700 12px/1 var(--f-mono);letter-spacing:.06em;background:linear-gradient(var(--orange-hi),var(--orange));color:#111;padding:8px 9px 7px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.35),0 1px 0 #fff}
+.plate{flex:none;font:700 clamp(28px,3.3vw,44px)/1 var(--f-disp);text-transform:uppercase;letter-spacing:.045em;color:var(--ink);background:linear-gradient(#fbfcfc,#eff1f1);padding:.2em .5em .14em;border:1px solid #535c60;border-radius:3px;box-shadow:inset 0 0 0 3px #f8f9f9,inset 0 0 0 4px #c2c8ca,0 1px 0 #fff,0 3px 5px -2px rgba(0,0,0,.28);text-shadow:0 1px 0 #fff}
+.ph .sub{flex:none;font:600 13px/1.2 var(--f-disp);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.ph .line{flex:1 1 20px;height:1px;min-width:20px;background:linear-gradient(90deg,var(--rule),var(--rule-2))}
+.ph .meta{flex:none;font:400 11.5px/1.3 var(--f-mono);letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase}
+
+.mp{display:inline-block;font:600 11.5px/1 var(--f-disp);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:linear-gradient(#fbfcfc,#eceff0);border:1px solid #6b7478;border-radius:2px;padding:5px 8px 4px;box-shadow:0 1px 0 #fff,inset 0 1px 0 #fff}
+.mono{font-family:var(--f-mono)}
+.fine{font:400 11.5px/1.5 var(--f-mono);color:var(--ink-3);letter-spacing:.01em}
+
+.lamp{--c:var(--green);--cd:var(--green-d);--glow:rgba(34,211,108,.75);position:relative;display:inline-block;width:12px;height:12px;border-radius:50%;flex:none;vertical-align:middle;background:radial-gradient(circle at 38% 32%,#8d969a,#475054 62%,#2b3134);box-shadow:0 0 0 2px #c6cccf,0 0 0 3px #687175,inset 0 1px 2px rgba(0,0,0,.55)}
+.lamp::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 38% 32%,#fff 0 12%,var(--c) 45%,var(--cd) 100%);box-shadow:0 0 10px 1px var(--glow);opacity:1;transition:opacity .14s ease-out}
+.lamp.a{--c:var(--amber);--cd:var(--amber-d);--glow:rgba(255,178,28,.8)}
+.lamp.r{--c:var(--red);--cd:var(--red-d);--glow:rgba(242,57,43,.75)}
+.lamp.w{--c:#fbfcf7;--cd:#aeb6b3;--glow:rgba(255,255,250,.95)}
+.lamp.off::after{opacity:0}
+.lamp.lg{width:16px;height:16px}
+
+.lcd{display:inline-flex;align-items:baseline;gap:9px;font:700 13px/1 var(--f-mono);color:var(--lcd-ink);background:linear-gradient(var(--lcd),var(--lcd-2));border-radius:3px;padding:8px 10px 7px;box-shadow:inset 0 1px 3px rgba(0,0,0,.38),inset 0 0 0 1px rgba(0,0,0,.28),0 1px 0 #fff;letter-spacing:.04em;white-space:nowrap}
+.lcd small{font-weight:400;font-size:10px;letter-spacing:.12em;opacity:.8}
+
+.key{--k1:#fcfdfd;--k2:#dce1e2;--kb:#6a7377;--ks:#7f888c;position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 14px/1 var(--f-disp);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:14px 18px 13px;border-radius:5px;border:1px solid var(--kb);background:linear-gradient(var(--k1),var(--k2));box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -3px 0 rgba(0,0,0,.1),0 3px 0 var(--ks),0 5px 9px -3px rgba(0,0,0,.35);transition:transform .07s ease-out,box-shadow .07s ease-out;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.key .lamp{width:8px;height:8px;box-shadow:0 0 0 1.5px #c6cccf,0 0 0 2.5px #687175}
+.key .lamp::after{opacity:0}
+.key:hover .lamp::after,.key:focus-visible .lamp::after{opacity:1}
+.key:active{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(0,0,0,.1),0 0 0 var(--ks),0 1px 3px -1px rgba(0,0,0,.35)}
+.key.o{--k1:var(--orange-hi);--k2:#EE5810;--kb:#8A3305;--ks:#A8430C;color:#0d0f10;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -3px 0 rgba(0,0,0,.16),0 3px 0 var(--ks),0 5px 9px -3px rgba(0,0,0,.35)}
+.key.o .lamp{box-shadow:0 0 0 1.5px #ffb28a,0 0 0 2.5px #7a2d04}
+.key.sm{font-size:12px;padding:10px 12px 9px;letter-spacing:.14em}
+.key svg{width:16px;height:16px;flex:none}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.chip{font:600 12px/1 var(--f-disp);letter-spacing:.1em;text-transform:uppercase;padding:5px 7px 4px;background:linear-gradient(#fbfcfc,#eef0f1);border:1px solid #7f888c;border-radius:2px;box-shadow:0 1px 0 #fff;color:var(--ink-2)}
+
+/* ---------- console top bar ---------- */
+.top{position:sticky;top:0;z-index:50;background:linear-gradient(#EFF1F1,#E0E4E5);border-bottom:1px solid var(--edge);box-shadow:inset 0 1px 0 #fff,0 8px 18px -12px rgba(0,0,0,.4)}
+.top .wrap{display:flex;align-items:center;gap:18px;height:70px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);flex:none}
+.brand .mk{display:grid;place-items:center;width:38px;height:38px;border-radius:3px;background:linear-gradient(#2b3134,#15181a);color:#f3f5f5;font:800 17px/1 var(--f-disp);letter-spacing:.04em;box-shadow:inset 0 0 0 2px #15181a,inset 0 0 0 3px #50595d,0 1px 0 #fff}
+.brand .bt{display:flex;flex-direction:column;gap:3px}
+.brand b{font:700 16px/1 var(--f-body);letter-spacing:-.005em}
+.brand small{font:400 10.5px/1 var(--f-mono);letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase}
+.toggles{margin-left:auto;display:flex;gap:2px;min-width:0}
+.tg{--i:0;display:flex;flex-direction:column;align-items:center;gap:4px;padding:4px 8px 4px;min-width:66px;text-decoration:none;color:var(--ink-2);border-radius:4px}
+.tg:hover{background:rgba(255,255,255,.55)}
+.tg .sw{position:relative;width:26px;height:36px;border-radius:3px;background:linear-gradient(#fbfcfc,#dfe3e4);box-shadow:inset 0 0 0 1px #6f787c,inset 0 0 0 2px #fff,0 1px 0 #fff}
+.tg .nut{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#eef1f2,#98a1a5 60%,#59626a);box-shadow:0 0 0 1.5px #4a5357,0 1px 2px rgba(0,0,0,.4);z-index:2}
+.tg .lev{position:absolute;left:50%;bottom:50%;width:5px;height:13px;margin-left:-2.5px;border-radius:2px;background:linear-gradient(90deg,#5c666a,#f5f7f7 45%,#7d878b);transform-origin:50% 100%;transform:scaleY(-.72);transition:transform .2s cubic-bezier(.5,-.6,.5,1.6);z-index:3;filter:drop-shadow(1px 1px 1px rgba(0,0,0,.35))}
+.tg .lev::before{content:"";position:absolute;left:-2.5px;top:-5px;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 38% 30%,#fff,#c4cbce 45%,#5f686c);box-shadow:0 0 0 .5px #3d4549}
+.tg .lamp{position:absolute;right:-12px;top:3px;width:7px;height:7px;box-shadow:0 0 0 1.5px #c6cccf,0 0 0 2.5px #687175}
+.tg .lamp::after{opacity:0}
+.tg .lbl{font:600 11.5px/1 var(--f-disp);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.tg[aria-current="true"] .lev{transform:scaleY(1)}
+.tg[aria-current="true"] .lamp::after{opacity:1}
+.tg[aria-current="true"] .lbl{color:var(--ink)}
+.top-stat{display:flex;align-items:center;gap:10px;flex:none}
+.prog{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-hi));transform-origin:0 50%;transform:scaleX(var(--p,0))}
+
+/* ---------- hero ---------- */
+.hero{padding-top:26px}
+.hero .panel{padding-top:30px}
+.hp-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.hp-row .fine{letter-spacing:.1em;text-transform:uppercase}
+.hp-row .sp{flex:1}
+.nameplate{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:clamp(16px,2.4vw,30px);background:repeating-linear-gradient(0deg,rgba(0,0,0,.017) 0 1px,transparent 1px 3px),linear-gradient(#fbfcfc,#eceff0);border:1px solid #485155;border-radius:4px;box-shadow:inset 0 0 0 6px #f5f7f7,inset 0 0 0 7px #b3babd,0 1px 0 #fff,0 3px 0 rgba(0,0,0,.07),0 14px 22px -16px rgba(0,0,0,.45);padding:14px 30px 14px 14px}
+.nameplate::before{content:"";position:absolute;inset:14px;pointer-events:none;background:var(--rivet) right top/12px 12px no-repeat,var(--rivet) right bottom/12px 12px no-repeat}
+.np-tab{align-self:stretch;display:flex;align-items:center;justify-content:center;width:40px;background:linear-gradient(90deg,var(--orange-hi),var(--orange));border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.35);font:700 12px/1 var(--f-mono);letter-spacing:.24em;color:#111;writing-mode:vertical-rl;transform:rotate(180deg)}
+.nameplate h1{font:800 clamp(56px,9.1vw,134px)/.86 var(--f-disp);text-transform:uppercase;letter-spacing:.012em;color:#101315;text-shadow:0 1.5px 0 #fff,0 -1px 0 rgba(0,0,0,.2);padding:.06em 0 .02em;white-space:nowrap}
+.nameplate h1 span{display:inline-block}
+.np-meta{margin:0;display:grid;gap:9px;border-left:1px solid var(--rule);padding:4px 0 4px 22px;margin-right:12px}
+.np-meta div{display:grid;gap:2px}
+.np-meta dt{font:400 10px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.np-meta dd{margin:0;font:600 17px/1.15 var(--f-disp);letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(24px,3.4vw,44px);margin-top:26px}
+.hero-l{display:flex;flex-direction:column;gap:26px;justify-content:space-between;min-width:0;padding-top:4px}
+.hl-top{display:grid;gap:0}
+.hl-top .lede{margin-top:20px}
+.hl-top .keys{margin-top:26px}
+.role{display:flex;align-items:center;gap:14px;font:500 clamp(21px,2vw,27px)/1.2 var(--f-body);letter-spacing:-.005em}
+.role strong{font-weight:700}
+.role2{margin-top:9px;font:600 13.5px/1.4 var(--f-disp);letter-spacing:.17em;text-transform:uppercase;color:var(--ink-3);padding-left:30px}
+.lede{font:400 clamp(18px,1.7vw,23px)/1.52 var(--f-body);color:var(--ink-2);max-width:31em}
+.lede strong{color:var(--ink);font-weight:600}
+.keys{display:flex;flex-wrap:wrap;gap:12px}
+.evlog{background:linear-gradient(#f3f5f5,#e9ecec);border:1px solid #9aa2a6;border-radius:4px;box-shadow:inset 0 1px 3px rgba(0,0,0,.12),0 1px 0 #fff;padding:10px 14px 4px}
+.ev-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--rule-2)}
+.ev-head .fine{text-transform:uppercase;letter-spacing:.12em;font-size:10px}
+.evlog ol{list-style:none;margin:0;padding:0}
+.evlog li{display:grid;grid-template-columns:62px 12px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px dashed #b3babd}
+.evlog li:last-child{border-bottom:0}
+.evlog time{font:700 12px/1 var(--f-mono);letter-spacing:.02em}
+.evlog .lamp{width:9px;height:9px;box-shadow:0 0 0 1.5px #c6cccf,0 0 0 2.5px #687175}
+.evlog a{font:500 15.5px/1.3 var(--f-body);color:var(--ink);text-decoration:none;min-width:0}
+.evlog a:hover{text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:3px}
+.evlog em{font:400 10px/1 var(--f-mono);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+
+.cluster{background:linear-gradient(#d7dcdd,#cdd3d5);border:1px solid #969ea2;border-radius:6px;padding:16px;box-shadow:inset 0 2px 7px rgba(0,0,0,.16),inset 0 0 0 1px rgba(255,255,255,.35),0 1px 0 #fff;min-width:0}
+.cl-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.cl-head .mp{margin-right:auto}
+.cl-head .key.sm{padding:8px 10px 7px;font-size:11.5px}
+.bezel{background:linear-gradient(#2b3134,#1a1e20);padding:6px;border-radius:5px;box-shadow:inset 0 1px 0 rgba(255,255,255,.13),inset 0 0 0 1px #0b0d0e,0 1px 0 rgba(255,255,255,.8),0 4px 9px -3px rgba(0,0,0,.45)}
+.ann{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.ann-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+.win{--c1:#f1fff6;--c2:#57e592;--i:0;position:relative;background:linear-gradient(#b3babd,#9ea6a9);border-radius:2px;padding:9px 10px 8px;color:#1a1f21;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.4),inset 0 2px 6px rgba(0,0,0,.28);min-width:0}
+.win::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 95% at 50% 42%,var(--c1),var(--c2));box-shadow:inset 0 0 0 1px rgba(0,0,0,.3),inset 0 0 16px rgba(255,255,255,.6);opacity:1;transition:opacity .13s ease-out}
+.win::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.4),rgba(255,255,255,0) 38%);pointer-events:none}
+.win>*{position:relative;z-index:1}
+.win.w{--c1:#ffffff;--c2:#e9efec}
+.win.a{--c1:#fff5d6;--c2:#ffc446}
+.win.off::before{opacity:0}
+.win b{display:block;font:700 16px/1.05 var(--f-disp);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win small{display:block;margin-top:4px;font:400 9.5px/1.1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gauges{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.gauges figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:9px;min-width:0}
+.gauge{width:100%;max-width:184px;height:auto;filter:drop-shadow(0 6px 7px rgba(0,0,0,.22))}
+.gauges figcaption{text-align:center;display:grid;gap:5px;justify-items:center}
+.gauges figcaption .fine{font-size:10.5px;line-height:1.4;max-width:38ch}
+
+/* gauge internals */
+.g-num{font:400 11px var(--f-mono);fill:#15191b}
+.g-title{font:700 9.5px var(--f-disp);letter-spacing:.2em;fill:#3b4448;text-transform:uppercase}
+.g-unit{font:400 8.5px var(--f-mono);letter-spacing:.14em;fill:#4b5458}
+.g-lcd{font:700 11px var(--f-mono);fill:var(--lcd-ink);letter-spacing:.03em}
+.g-lcd.t{opacity:0}
+[data-boot="test"] .g-lcd.t{opacity:1}
+[data-boot="test"] .g-lcd.v{opacity:0}
+.needle{transform-box:view-box;transform-origin:100px 100px;transform:rotate(var(--a));transition:transform 1s cubic-bezier(.28,1.5,.52,1)}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.big{font:600 clamp(26px,2.7vw,36px)/1.18 var(--f-body);letter-spacing:-.012em;color:var(--ink);max-width:22em}
+.about-copy{display:grid;gap:18px}
+.about-copy>p:not(.big){color:var(--ink-2);max-width:38em}
+.logline{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:14px 16px;border:1px dashed #8f989c;border-radius:4px;background:rgba(255,255,255,.35)}
+.logline p{font-size:15.5px;line-height:1.5;color:var(--ink-2)}
+.inst-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inst{display:flex;flex-direction:column;gap:12px;align-items:flex-start;background:linear-gradient(var(--recess),var(--recess-2));border:1px solid #9aa2a6;border-radius:6px;padding:14px 16px 16px;box-shadow:inset 0 2px 6px rgba(0,0,0,.13),0 1px 0 #fff;min-width:0}
+.inst .cap{font-size:14px;line-height:1.4;color:var(--ink-2)}
+.drums{display:inline-flex;align-items:flex-end;gap:3px;font:800 64px/1 var(--f-disp);color:var(--ink)}
+.drum{position:relative;display:inline-block;height:1em;width:.62em;overflow:hidden;text-align:center;background:linear-gradient(#aeb5b8,#fff 32%,#fff 68%,#aeb5b8);border:1px solid #59626a;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25),0 1px 0 #fff}
+.drum::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(242,90,15,.5)}
+.reel{display:flex;flex-direction:column;transform:translateY(calc(var(--d) * -5%));transition:transform 1.5s cubic-bezier(.2,.85,.25,1)}
+.reel span{display:block;height:1em;line-height:1.02}
+.drums .u{font:700 22px/1 var(--f-disp);letter-spacing:.08em;margin:0 0 6px 6px;color:var(--ink-3)}
+.drums .pl{font:800 44px/1 var(--f-disp);margin-bottom:10px;color:var(--ink)}
+.engr{font:800 64px/1 var(--f-disp);letter-spacing:.02em;color:var(--ink);text-shadow:0 1.5px 0 #fff,0 -1px 0 rgba(0,0,0,.18)}
+.certlamps{display:grid;gap:9px;width:100%}
+.certlamps div{display:flex;align-items:center;gap:10px;font:600 15px/1.2 var(--f-disp);letter-spacing:.06em;text-transform:uppercase}
+.certlamps .lcd{margin-left:auto;padding:5px 7px 4px;font-size:11px}
+
+/* ---------- career / mimic ---------- */
+.mimic{position:relative;background:linear-gradient(90deg,rgba(255,255,255,.28) 1px,transparent 1px) 0 0/30px 30px,linear-gradient(rgba(255,255,255,.28) 1px,transparent 1px) 0 0/30px 30px,linear-gradient(#d9dedf,#d0d6d8);border:1px solid #939ba0;border-radius:6px;padding:18px clamp(10px,1.6vw,22px) 12px;box-shadow:inset 0 2px 8px rgba(0,0,0,.14),0 1px 0 #fff}
+.mimic svg{width:100%;height:auto}
+.mimic .mob{display:none}
+.m-pipe-o{fill:none;stroke:#262c2f;stroke-width:11}
+.m-pipe-i{fill:none;stroke:#8e979b;stroke-width:5}
+.flow{fill:none;stroke:var(--flow);stroke-width:5;stroke-dasharray:1 1;stroke-dashoffset:0;transition:stroke-dashoffset var(--d,300ms) linear}
+.amb{fill:none;stroke:#d9fde6;stroke-width:2;stroke-dasharray:3 13;opacity:0;transition:opacity .4s}
+.mimic.live .amb{opacity:.95;animation:amb 1.4s linear infinite}
+@keyframes amb{to{stroke-dashoffset:-16}}
+.sig{fill:none;stroke:#39434a;stroke-width:1.4;stroke-dasharray:6 4}
+.st-box{fill:#f6f7f7;stroke:#262c2f;stroke-width:2}
+.st-hd{fill:#e0e4e5}
+.st.cur .st-hd{fill:var(--orange)}
+.st.cur .st-box{stroke:#262c2f;stroke-width:2.5}
+.st-sep{stroke:#262c2f;stroke-width:1.2}
+.m-tag{font-family:var(--f-mono);font-size:11px;font-weight:700;fill:#111;letter-spacing:.04em}
+.m-state{font-family:var(--f-mono);font-size:9.5px;fill:#2b3236;letter-spacing:.1em}
+.st.cur .m-state{fill:#111;font-weight:700}
+.m-name{font-family:var(--f-disp);font-weight:700;font-size:21px;fill:#111;letter-spacing:.03em}
+.m-name.sm{font-size:15.5px;letter-spacing:.015em}
+.m-role{font-family:var(--f-disp);font-weight:500;font-size:14.5px;fill:#2b3236;letter-spacing:.02em}
+.m-date{font-family:var(--f-mono);font-size:10.5px;fill:#39434a;letter-spacing:.02em}
+.m-note{font-family:var(--f-mono);font-size:10px;fill:#2b3236;letter-spacing:.06em}
+.m-note b{font-weight:700}
+.m-cap{font-family:var(--f-disp);font-weight:600;font-size:12px;fill:#2b3236;letter-spacing:.16em}
+.m-feed{fill:#eef1f1;stroke:#262c2f;stroke-width:2}
+.m-feed-t{font-family:var(--f-disp);font-weight:700;font-size:14px;fill:#111;letter-spacing:.05em}
+.m-feed-s{font-family:var(--f-mono);font-size:9.5px;fill:#39434a;letter-spacing:.04em}
+.glass{fill:#e3e8ea;stroke:#262c2f;stroke-width:1.3}
+.glass-fill{fill:var(--flow);transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(var(--lv,1));transition:transform .6s cubic-bezier(.3,.8,.3,1)}
+.glass-tk{stroke:#262c2f;stroke-width:1}
+.sl-off{fill:#434b4f;stroke:#b8bfc2;stroke-width:2}
+.sl-on{transition:opacity .15s}
+.valve .v-body{fill:#f6f7f7;stroke:#262c2f;stroke-width:2;transition:fill .25s}
+.bub{fill:#f6f7f7;stroke:#262c2f;stroke-width:2}
+.bub-t{font-family:var(--f-mono);font-weight:700;font-size:10.5px;fill:#111}
+.st{cursor:pointer}
+.st:hover .st-box,.st:focus-visible .st-box{stroke:var(--orange);stroke-width:3}
+.st:focus{outline:none}
+.mimic.pre .flow:not(.go){stroke-dashoffset:1}
+.mimic.pre .st:not(.go) .sl-on{opacity:0}
+.mimic.pre .st:not(.go) .glass-fill{transform:scaleY(0)}
+.mimic.pre .valve:not(.go) .v-body{fill:#1a1e20}
+.mimic.pre .sig:not(.go){opacity:0}
+.sig{transition:opacity .4s}
+.legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:14px;padding:0 4px}
+.legend li{display:flex;align-items:center;gap:9px;font:400 11px/1.35 var(--f-mono);color:var(--ink-2);letter-spacing:.02em}
+.legend{list-style:none}
+.legend svg{flex:none}
+
+.log-wrap{margin-top:clamp(24px,3vw,36px)}
+.log{position:relative;list-style:none;margin:0;padding:0}
+.log::before,.log::after{content:"";position:absolute;left:12px;top:40px;bottom:46px;width:10px;border-radius:2px}
+.log::before{background:#8e979b;box-shadow:0 0 0 2.5px #262c2f}
+.log::after{background:var(--flow);transform-origin:50% 0;transform:scaleY(var(--p,1))}
+.station{position:relative;display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(18px,3vw,40px);padding:30px 0 30px 0;border-top:1px solid var(--rule-2);scroll-margin-top:92px}
+.station:first-child{border-top:0;padding-top:12px}
+.st-side{position:relative;padding-left:46px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.st-side .lamp{position:absolute;left:10px;top:4px;width:14px;height:14px}
+.st-side .st-tag{font:700 13px/1 var(--f-mono);letter-spacing:.06em;margin-top:4px}
+.st-side .st-state{font:600 12px/1 var(--f-disp);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.station.cur .st-state{color:var(--ink)}
+.st-main{min-width:0;display:grid;gap:12px}
+.st-main h3{font:800 clamp(34px,3.4vw,46px)/.95 var(--f-disp);text-transform:uppercase;letter-spacing:.02em}
+.st-main .st-role{font:600 18px/1.3 var(--f-body);color:var(--ink-2)}
+.st-main .pend{font-size:14.5px;color:var(--ink-3)}
+.bul{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:48em}
+.bul li{position:relative;padding-left:24px;color:var(--ink-2)}
+.bul li::before{content:"";position:absolute;left:0;top:.72em;width:12px;height:3px;background:var(--orange);border-radius:1px}
+.bul strong{color:var(--ink);font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:4px 0 2px;max-width:780px}
+.kpi{display:flex;flex-direction:column;align-items:stretch;gap:6px;background:linear-gradient(var(--lcd),var(--lcd-2));border-radius:4px;padding:10px 12px 10px;box-shadow:inset 0 1px 3px rgba(0,0,0,.38),inset 0 0 0 1px rgba(0,0,0,.28),0 1px 0 #fff;color:var(--lcd-ink);min-width:0}
+.kpi small{font:400 9.5px/1.2 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.kpi b{font:700 23px/1 var(--f-mono);letter-spacing:-.01em;white-space:nowrap}
+.kpi b .n{display:inline-block;min-width:3ch;text-align:right}
+.kpi b .n.w2{min-width:2ch}
+.kpi em{font:400 10px/1.2 var(--f-mono);font-style:normal;opacity:.85;letter-spacing:.04em}
+
+/* ---------- skills annunciator ---------- */
+.sk-top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;margin-bottom:16px}
+.sk-legend{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:0;padding:0}
+.sk-legend li{display:flex;align-items:center;gap:8px;font:600 12px/1 var(--f-disp);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.sw-win{width:26px;height:16px;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.45)}
+.sw-win.g{background:radial-gradient(#f1fff6,#57e592)}
+.sw-win.w{background:radial-gradient(#fff,#e2e9e6)}
+.sw-win.a{background:radial-gradient(#fff5d6,#ffc446)}
+.sw-win.o{background:linear-gradient(#b3babd,#9ea6a9)}
+.sk-ctl{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ann-board{padding:10px;border-radius:7px}
+.ann-groups{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.grp{display:flex;flex-direction:column;gap:8px;min-width:0}
+.grp h3{align-self:flex-start;font:600 12px/1 var(--f-disp);letter-spacing:.18em;text-transform:uppercase;color:#e9eced;padding:4px 2px 2px;display:flex;gap:10px;align-items:center;width:100%}
+.grp h3 span{font:400 10px/1 var(--f-mono);letter-spacing:.08em;color:#9aa4a8}
+.grp h3::after{content:"";flex:1;height:1px;background:#4a5357}
+.grp .ann{grid-template-columns:1fr}
+.ann-skills .win{padding:12px 14px 11px;cursor:default;transition:transform .08s}
+.ann-skills .win b{font-size:22px;letter-spacing:.04em;margin-top:2px}
+.ann-skills .win small{font-size:10px;margin-top:6px}
+.win .code{display:block;font:400 9.5px/1 var(--f-mono);letter-spacing:.1em;opacity:.7}
+.win .ackt{position:absolute;right:8px;top:8px;font:700 9px/1 var(--f-mono);letter-spacing:.1em;padding:3px 4px 2px;border:1px solid currentColor;border-radius:2px;opacity:0;transform:scale(.7);transition:opacity .15s,transform .15s}
+.win.ack .ackt{opacity:.8;transform:none}
+.win.ack::before{animation:ackf .45s steps(1,end)}
+.win.pressed{transform:translateY(1px)}
+@keyframes ackf{0%{opacity:.25}25%{opacity:1}50%{opacity:.35}75%{opacity:1}}
+.ann-skills .win::before{transition:opacity .12s ease-out calc(var(--i) * var(--st,0ms))}
+.ann-board[data-state="pre"] .win::before{opacity:0}
+.ann-board[data-state="test"] .win::before{opacity:1}
+.ann-board[data-state="dark"] .win::before{opacity:0;transition-delay:0s}
+.win.n .newt{color:var(--orange-lo);font-weight:700}
+.sk-newer{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;margin-top:14px}
+.sk-newer .ann{grid-template-columns:repeat(2,minmax(0,220px))}
+.sk-newer .bezel{justify-self:start}
+.sk-sum{margin-top:14px}
+
+/* ---------- projects ---------- */
+.feature{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(20px,4vw,48px);align-items:center;background:linear-gradient(var(--recess),var(--recess-2));border:1px solid #939ba0;border-radius:6px;padding:clamp(20px,3vw,36px);box-shadow:inset 0 2px 7px rgba(0,0,0,.14),0 1px 0 #fff;position:relative;overflow:hidden}
+.feature::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:repeating-linear-gradient(-45deg,var(--orange) 0 9px,#15181a 9px 18px)}
+.ft-copy{display:grid;gap:14px;justify-items:start;padding-left:8px}
+.ft-tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ft-copy h3{font:800 clamp(44px,5vw,68px)/.9 var(--f-disp);text-transform:uppercase;letter-spacing:.015em}
+.ft-copy h3 small{display:block;font:600 15px/1.3 var(--f-disp);letter-spacing:.18em;color:var(--ink-3);margin-top:8px}
+.ft-copy p{max-width:36em;color:var(--ink-2);font-size:18px}
+.ft-art{display:flex;flex-direction:column;align-items:center;gap:10px}
+.ft-art svg{width:100%;max-width:220px}
+.phone-ring{transition:stroke-dashoffset 1.4s cubic-bezier(.3,.8,.3,1)}
+.rack{position:relative;margin-top:22px;padding:10px 40px;border-radius:6px;background:linear-gradient(90deg,#1f2426 0 34px,#383f43 34px calc(100% - 34px),#1f2426 calc(100% - 34px));box-shadow:inset 0 0 0 1px #0d0f10,0 1px 0 #fff,0 12px 20px -14px rgba(0,0,0,.5)}
+.rack::before,.rack::after{content:"";position:absolute;top:10px;bottom:10px;width:8px;background:repeating-linear-gradient(180deg,transparent 0 9px,#070809 9px 15px);border-radius:1px}
+.rack::before{left:13px}
+.rack::after{right:13px}
+.unit{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:24px;align-items:center;background:linear-gradient(#f2f4f4,#e1e5e6);border-radius:3px;padding:20px 24px 20px 26px;box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.35)}
+.unit+.unit{margin-top:7px}
+.unit::before{content:"";position:absolute;inset:0 8px;pointer-events:none;background:var(--rivet) left top 7px/12px 12px no-repeat,var(--rivet) left bottom 7px/12px 12px no-repeat,var(--rivet) right top 7px/12px 12px no-repeat,var(--rivet) right bottom 7px/12px 12px no-repeat}
+.u-side{display:grid;gap:8px;padding-left:10px}
+.u-stat{display:flex;align-items:center;gap:10px;font:600 12.5px/1 var(--f-disp);letter-spacing:.18em;text-transform:uppercase}
+.u-tag{font:700 12px/1 var(--f-mono);color:var(--ink-3);letter-spacing:.06em}
+.u-main{display:grid;gap:8px;min-width:0}
+.u-main h3{font:700 clamp(23px,2.1vw,28px)/1.05 var(--f-disp);letter-spacing:.02em}
+.u-main p{color:var(--ink-2);font-size:16px;line-height:1.5;max-width:52em}
+.u-act{display:flex;gap:8px;padding-right:8px}
+.unit:hover .u-stat .lamp::after{animation:blink .9s steps(2,jump-none) 2}
+@keyframes blink{50%{opacity:.15}}
+
+/* ---------- education ---------- */
+.edu-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(22px,4vw,52px);align-items:start}
+.dplate{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;background:repeating-linear-gradient(0deg,rgba(0,0,0,.016) 0 1px,transparent 1px 3px),linear-gradient(#fbfcfc,#eceff0);border:1px solid #535c60;border-radius:3px;padding:20px 22px;box-shadow:inset 0 0 0 4px #f6f7f7,inset 0 0 0 5px #bfc5c8,0 1px 0 #fff,0 10px 16px -12px rgba(0,0,0,.4)}
+.dplate+.dplate{margin-top:14px}
+.dplate .ptag{align-self:start}
+.dplate h3{font:700 clamp(22px,2.2vw,28px)/1.08 var(--f-disp);text-transform:uppercase;letter-spacing:.03em}
+.dplate p{margin-top:6px;color:var(--ink-2);font-size:15.5px;line-height:1.45}
+.tags-rail{position:relative;padding-top:14px}
+.tags-rail::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;border-radius:6px;background:linear-gradient(#f4f6f6,#9aa3a7 60%,#6f787c);box-shadow:0 2px 3px rgba(0,0,0,.25),inset 0 0 0 1px rgba(0,0,0,.25)}
+.tags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:0 6px}
+.ctag{position:relative;transform-origin:50% -26px;transform:rotate(var(--r,0deg));margin-top:26px}
+.ctag::before{content:"";position:absolute;left:50%;top:-26px;width:1.5px;height:40px;margin-left:-.75px;background:#3a4246;z-index:2}
+.ctag .body{position:relative;background:linear-gradient(#fdfefe,#f1f3f3);border:1px solid #6d767a;padding:34px 16px 18px;clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%,0 18px);box-shadow:0 8px 12px -8px rgba(0,0,0,.35)}
+.ctag .hole{position:absolute;left:50%;top:10px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--ground);box-shadow:0 0 0 3px #aab2b5,0 0 0 4px #5b6468,inset 0 1px 2px rgba(0,0,0,.4);z-index:1}
+.ctag .band{display:block;margin:0 -16px 12px;padding:6px 16px 5px;background:var(--orange);font:700 12px/1 var(--f-disp);letter-spacing:.24em;text-transform:uppercase;color:#111;text-align:center}
+.ctag h3{font:700 19px/1.15 var(--f-disp);letter-spacing:.03em;text-transform:uppercase}
+.ctag dl{margin:12px 0 0;display:grid;gap:6px}
+.ctag dl div{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed #9aa2a6;padding-top:6px}
+.ctag dt{font:400 10px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.ctag dd{margin:0;font:700 12px/1.2 var(--f-mono);text-align:right}
+.ctag.swing{animation:swing 1.6s cubic-bezier(.3,.6,.4,1)}
+@keyframes swing{0%{transform:rotate(calc(var(--r,0deg) + 9deg))}25%{transform:rotate(calc(var(--r,0deg) - 6deg))}50%{transform:rotate(calc(var(--r,0deg) + 3deg))}75%{transform:rotate(calc(var(--r,0deg) - 1deg))}100%{transform:rotate(var(--r,0deg))}}
+
+/* ---------- api ---------- */
+.api-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(22px,4vw,48px);align-items:start}
+.api-copy{display:grid;gap:18px;min-width:0}
+.api-copy .big{font-size:clamp(24px,2.3vw,31px)}
+.eps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.eps li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 12px;background:rgba(255,255,255,.45);border:1px solid var(--rule-2);border-radius:4px}
+.eps .verb{font:700 11px/1 var(--f-mono);letter-spacing:.08em;background:#1b1f21;color:#e9eced;padding:5px 6px 4px;border-radius:2px}
+.eps code{font:700 14px/1.2 var(--f-mono);overflow-wrap:anywhere}
+.eps span:last-child{font:600 13px/1 var(--f-disp);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.api-links{display:grid;gap:6px;font:400 13px/1.45 var(--f-mono)}
+.api-links a{overflow-wrap:anywhere}
+.curl{font:400 13px/1.5 var(--f-mono);background:var(--plate);border:1px solid #7f888c;border-radius:3px;padding:12px 14px;overflow-wrap:anywhere;box-shadow:inset 0 1px 2px rgba(0,0,0,.12)}
+.curl .pr{color:var(--orange-lo);font-weight:700;user-select:none}
+.api-tip{max-width:46ch;padding-left:12px;border-left:3px solid var(--orange)}
+.console{background:linear-gradient(var(--recess),var(--recess-2));border:1px solid #8e979b;border-radius:6px;padding:16px;box-shadow:inset 0 2px 7px rgba(0,0,0,.15),0 1px 0 #fff;min-width:0}
+.con-ctl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px 22px;align-items:center}
+.rotary{border:0;margin:0;padding:0;min-width:0}
+.rotary legend{padding:5px 8px 4px;margin-bottom:6px}
+.dial{position:relative;width:190px;height:138px}
+.knob{position:absolute;left:55px;top:52px;width:80px;height:80px;transform:rotate(var(--kr,-52deg));transition:transform .35s cubic-bezier(.3,1.5,.5,1);filter:drop-shadow(0 4px 4px rgba(0,0,0,.35))}
+.pos{position:absolute;transform:translate(-50%,-50%);cursor:pointer}
+.pos input{position:absolute;opacity:0;width:1px;height:1px}
+.pos span{display:block;font:700 11.5px/1 var(--f-mono);letter-spacing:.02em;padding:4px 5px 3px;border-radius:2px;color:var(--ink-3)}
+.pos input:checked+span{color:#111;background:var(--plate);box-shadow:0 0 0 1px #535c60}
+.pos input:focus-visible+span{outline:3px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 1px #535c60,0 0 0 7px rgba(242,90,15,.55)}
+.pos.p1{left:26px;top:48px}
+.pos.p2{left:95px;top:16px}
+.pos.p3{left:166px;top:48px}
+.dial .tick{position:absolute;width:5px;height:5px;border-radius:50%;background:#262c2f}
+.con-right{display:grid;gap:12px;justify-items:start;min-width:0}
+.linklamps{display:flex;flex-wrap:wrap;gap:8px 16px}
+.linklamps span{display:flex;align-items:center;gap:8px;font:600 12px/1 var(--f-disp);letter-spacing:.16em;text-transform:uppercase}
+.screen{margin-top:16px;background:linear-gradient(#141819,#0e1112);border-radius:6px;padding:14px 16px 16px;box-shadow:inset 0 0 0 1px #000,inset 0 0 26px rgba(40,220,120,.06),0 0 0 5px #2b3134,0 0 0 6px #111,0 1px 0 6px rgba(255,255,255,.5);color:#d3e6da;min-width:0}
+.scr-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;font:400 11px/1.4 var(--f-mono);letter-spacing:.06em;color:#8fa59a;border-bottom:1px solid #26302c;padding-bottom:9px;margin-bottom:10px}
+.scr-head b{color:#e9f3ee;font-weight:700}
+.scr-head .st{color:var(--amber)}
+.scr-head .st.ok{color:#5fe89a}
+.scr-head .st.bad{color:#ff8a7a}
+#apiOut{margin:0;font:400 12.5px/1.55 var(--f-mono);white-space:pre-wrap;overflow-wrap:anywhere;max-height:320px;overflow:auto;color:#cfe3d7;min-height:220px}
+#apiOut .k{color:#ffc65c}
+#apiOut .s{color:#7ff0aa}
+#apiOut .n{color:#e9f3ee}
+#apiOut .b{color:#8fd3ff}
+.scr-note{margin-top:10px;font:400 10.5px/1.45 var(--f-mono);color:#8fa59a}
+
+/* ---------- contact ---------- */
+.callout{overflow:hidden}
+.callout .haz{position:absolute;left:0;right:0;top:0;height:10px;background:repeating-linear-gradient(-45deg,var(--orange) 0 12px,#15181a 12px 24px);border-bottom:1px solid #15181a}
+.callout{padding-top:calc(clamp(22px,3.2vw,44px) + 12px)}
+.co-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(22px,4vw,56px);align-items:center}
+.co-big{font:800 clamp(52px,6.4vw,92px)/.88 var(--f-disp);text-transform:uppercase;letter-spacing:.01em;text-shadow:0 1px 0 rgba(255,255,255,.7)}
+.co-copy p:not(.co-big){margin-top:18px;color:var(--ink-2);max-width:30em;font-size:18px}
+.co-keys{display:grid;gap:12px}
+.bigkey{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;padding:18px 20px 17px;justify-content:stretch;text-align:left;white-space:normal}
+.bigkey .lamp{width:12px;height:12px}
+.bigkey .kl{display:grid;gap:5px;min-width:0}
+.bigkey .kl b{font:800 20px/1 var(--f-disp);letter-spacing:.16em}
+.bigkey .kl span{font:400 13px/1.2 var(--f-mono);letter-spacing:0;text-transform:none;overflow-wrap:anywhere;color:var(--ink-2)}
+.bigkey.o .kl span{color:#1a0c04}
+.bigkey .ar{font:700 20px/1 var(--f-body)}
+.rating{margin:28px 0 40px;position:relative;background:repeating-linear-gradient(0deg,rgba(0,0,0,.016) 0 1px,transparent 1px 3px),linear-gradient(#f7f8f8,#e9ecec);border:1px solid #535c60;border-radius:4px;box-shadow:inset 0 0 0 5px #f4f5f5,inset 0 0 0 6px #bfc5c8,0 1px 0 #fff,0 16px 26px -20px rgba(0,0,0,.5);padding:24px 28px}
+.rating::before{content:"";position:absolute;inset:12px;pointer-events:none;background:var(--rivet) left top/12px 12px no-repeat,var(--rivet) right top/12px 12px no-repeat,var(--rivet) left bottom/12px 12px no-repeat,var(--rivet) right bottom/12px 12px no-repeat}
+.rt-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;padding:0 10px 14px;border-bottom:2px solid var(--ink)}
+.rt-head b{font:800 26px/1 var(--f-disp);letter-spacing:.08em;text-transform:uppercase}
+.rt-head span{font:400 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.rt-grid{margin:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;padding:0 10px}
+.rt-grid div{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule-2)}
+.rt-grid dt{font:400 9.5px/1.2 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.rt-grid dd{margin:5px 0 0;font:600 15.5px/1.25 var(--f-disp);letter-spacing:.04em;text-transform:uppercase}
+.rt-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 20px;padding:14px 10px 0}
+.rt-foot p{font:400 11.5px/1.4 var(--f-mono);color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- boot / lamp test (page load) ---------- */
+[data-boot] :is(.top,.hero) .lamp::after{transition:opacity .12s ease-out calc(var(--i,0) * 22ms)}
+[data-boot="pre"] :is(.top,.hero) .lamp::after,[data-boot="dark"] :is(.top,.hero) .lamp::after{opacity:0}
+[data-boot="dark"] :is(.top,.hero) .lamp::after{transition-delay:0s}
+[data-boot="test"] :is(.top,.hero) .lamp::after{opacity:1}
+[data-boot] .hero .win::before{transition:opacity .12s ease-out calc(var(--i,0) * 22ms)}
+[data-boot="pre"] .hero .win::before,[data-boot="dark"] .hero .win::before{opacity:0;transition-delay:0s}
+[data-boot="test"] .hero .win::before{opacity:1}
+[data-boot="pre"] .needle{transform:rotate(var(--a0))}
+[data-boot="test"] .needle,[data-boot="dark"] .needle{transform:rotate(var(--apk));transition:transform .62s cubic-bezier(.45,0,.4,1)}
+[data-boot="test"] .tg .lev{transform:scaleY(1);transition-delay:calc(var(--i,0) * 45ms)}
+[data-boot="test"] .tg .lamp::after{opacity:1}
+.inst-grid.pre .reel{transform:translateY(0)}
+.key .lamp.corner{position:absolute;right:6px;top:6px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .toggles .tg{min-width:56px;padding:5px 5px 4px}
+  .top-stat .lcd{display:none}
+}
+@media (max-width:1020px){
+  .hero-grid{grid-template-columns:1fr}
+  .about-grid,.api-grid,.edu-grid,.co-grid{grid-template-columns:1fr}
+  .feature{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ann-groups{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rt-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .top-stat{display:none}
+}
+@media (max-width:1000px){
+  .mimic .desk{display:none}
+  .mimic .mob{display:block;max-width:420px;margin:0 auto}
+}
+@media (max-width:860px){
+  .nameplate{grid-template-columns:auto minmax(0,1fr)}
+  .np-meta{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr));border-left:0;border-top:1px solid var(--rule);padding:12px 0 2px;margin:0 0 0 0}
+  .np-meta dd{white-space:normal}
+  .unit{grid-template-columns:1fr;gap:14px}
+  .u-side{grid-auto-flow:column;justify-content:start;align-items:center;gap:16px}
+}
+@media (max-width:760px){
+  .wrap{padding:0 14px}
+  .top .wrap{height:60px;gap:10px}
+  .brand .bt{display:none}
+  .brand .mk{width:34px;height:34px}
+  .toggles{overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:24px;scroll-snap-type:x proximity}
+  .toggles::-webkit-scrollbar{display:none}
+  .tg{min-width:72px;padding:4px 6px;scroll-snap-align:start}
+  .tg .lbl{font-size:11px;letter-spacing:.08em}
+  .toggles{gap:4px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 82%,transparent);padding-left:6px}
+  .bigkey .kl span{font-size:12px}
+  .hero{padding-top:14px}
+  .panel{border-radius:6px}
+  .nameplate{padding:10px 14px 10px 10px;gap:12px}
+  .nameplate h1{font-size:clamp(44px,15.6vw,84px);line-height:.86;white-space:normal}
+  .nameplate::before{display:none}
+  .hp-row .rev{display:none}
+  .nameplate h1 span{display:block}
+  .np-tab{width:28px;font-size:10.5px}
+  .np-meta dd{font-size:14px}
+  .role{font-size:21px;align-items:flex-start}
+  .role .lamp{margin-top:6px}
+  .role2{padding-left:0;letter-spacing:.12em;font-size:12.5px}
+  .keys .key{flex:1 1 auto}
+  .ann-6{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gauges{gap:8px}
+  .ph{flex-wrap:wrap;gap:10px}
+  .ph .line{display:none}
+  .ph .meta{width:100%}
+  .inst-grid{grid-template-columns:1fr 1fr}
+  .drums{font-size:52px}
+  .engr{font-size:52px}
+  .inst{padding:12px}
+  .station{grid-template-columns:1fr;gap:14px;padding:24px 0}
+  .log::before,.log::after{left:6px}
+  .st-side{flex-direction:row;flex-wrap:wrap;align-items:center;padding-left:36px;gap:10px 14px}
+  .st-side .lamp{left:4px;top:1px}
+  .st-side .st-tag{margin-top:0}
+  .st-main{padding-left:36px}
+  .kpi b{font-size:20px}
+  .sk-ctl{margin-left:0}
+  .ann-groups{gap:8px}
+  .ann-skills .win{padding:10px 10px 9px}
+  .ann-skills .win b{font-size:18px}
+  .sk-newer{grid-template-columns:1fr}
+  .sk-newer .ann{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sk-newer .bezel{justify-self:stretch}
+  .rack{padding:6px;background:#383f43}
+  .rack::before,.rack::after{display:none}
+  .unit{padding:18px 18px 18px 20px}
+  .u-act{padding-right:0;flex-wrap:wrap}
+  .tags{grid-template-columns:1fr 1fr;gap:12px;padding:0}
+  .ctag .body{padding:32px 12px 14px}
+  .ctag .band{margin:0 -12px 10px}
+  .ctag h3{font-size:16px}
+  .dplate{grid-template-columns:auto minmax(0,1fr);padding:16px}
+  .dplate .lcd{grid-column:2}
+  .con-ctl{grid-template-columns:1fr}
+  .rt-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rating{padding:18px 16px}
+  .bigkey{padding:16px}
+}
+@media (max-width:420px){
+  .gauges figcaption .fine{display:none}
+  .evlog em{display:none}
+  .evlog li{grid-template-columns:54px 10px minmax(0,1fr)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:0s!important;transition-delay:0s!important;animation:none!important}
+  .amb{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false"><defs>
+<radialGradient id="gFace" cx="50%" cy="40%" r="64%"><stop offset="0" stop-color="#ffffff"/><stop offset=".75" stop-color="#f1f3f2"/><stop offset="1" stop-color="#dfe4e3"/></radialGradient>
+<linearGradient id="gBezel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbfcfc"/><stop offset=".4" stop-color="#b3bbbe"/><stop offset="1" stop-color="#4c5559"/></linearGradient>
+<radialGradient id="gCap" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#7a8488"/><stop offset="1" stop-color="#101314"/></radialGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2=".7" y2=".9"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".42" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<radialGradient id="lampG" cx="38%" cy="32%" r="72%"><stop offset="0" stop-color="#ffffff"/><stop offset=".28" stop-color="#8ff3b5"/><stop offset=".62" stop-color="#22D36C"/><stop offset="1" stop-color="#0B6F34"/></radialGradient>
+<radialGradient id="lampW" cx="38%" cy="32%" r="72%"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#f6f8f2"/><stop offset="1" stop-color="#aeb6b3"/></radialGradient>
+<filter id="glow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs></svg>
+<header class="top" id="consoleTop">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="tyronsamaroo.dev, back to top">
+      <span class="mk" aria-hidden="true">TS</span>
+      <span class="bt"><b>tyronsamaroo.dev</b><small>Control room · Unit TS-01</small></span>
+    </a>
+    <nav class="toggles" aria-label="Sections">
+      <a class="tg" href="#about"><span class="sw" aria-hidden="true"><span class="lev"></span><span class="nut"></span><span class="lamp"></span></span><span class="lbl">About</span></a>
+      <a class="tg" href="#career"><span class="sw" aria-hidden="true"><span class="lev"></span><span class="nut"></span><span class="lamp"></span></span><span class="lbl">Career</span></a>
+      <a class="tg" href="#skills"><span class="sw" aria-hidden="true"><span class="lev"></span><span class="nut"></span><span class="lamp"></span></span><span class="lbl">Skills</span></a>
+      <a class="tg" href="#projects"><span class="sw" aria-hidden="true"><span class="lev"></span><span class="nut"></span><span class="lamp"></span></span><span class="lbl">Projects</span></a>
+      <a class="tg" href="#education"><span class="sw" aria-hidden="true"><span class="lev"></span><span class="nut"></span><span class="lamp"></span></span><span class="lbl">Education</span></a>
+      <a class="tg" href="#api"><span class="sw" aria-hidden="true"><span class="lev"></span><span class="nut"></span><span class="lamp"></span></span><span class="lbl">API</span></a>
+      <a class="tg" href="#contact"><span class="sw" aria-hidden="true"><span class="lev"></span><span class="nut"></span><span class="lamp"></span></span><span class="lbl">Contact</span></a>
+    </nav>
+    <div class="top-stat">
+      <span class="lamp g" aria-hidden="true"></span>
+      <span class="lcd" aria-live="off"><small>NY</small><span class="clock" data-lcd>--:--</span></span>
+    </div>
+  </div>
+  <span class="prog" aria-hidden="true"></span>
+</header>
+
+<main id="main">
+<section class="hero wrap" id="top" aria-label="Introduction">
+  <div class="panel">
+    <div class="hp-row">
+      <span class="ptag">P-01</span>
+      <span class="mp">Main control board</span>
+      <span class="sp"></span>
+      <span class="fine rev">Rev 2026.09</span>
+    </div>
+
+    <div class="nameplate">
+      <span class="np-tab" aria-hidden="true">TS-01</span>
+      <h1><span>Tyron</span> <span>Samaroo</span></h1>
+      <dl class="np-meta">
+        <div><dt>Station</dt><dd>Synchrony</dd></div>
+        <div><dt>Site</dt><dd>Long Island, NY</dd></div>
+        <div><dt>In service</dt><dd>Since Jan 2020</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-l">
+        <div class="hl-top">
+          <p class="role"><span class="lamp g lg" aria-hidden="true"></span><span><strong>AVP, Reliability Engineer</strong> at Synchrony</span></p>
+          <p class="role2">Software Engineer · ML Engineer · Long Island, New York</p>
+          <p class="lede">Reliability engineer with <strong>6+ years</strong> building high-scale cloud-native microservices, ML pipelines, and polished web experiences. Focused on reliability, event-driven architectures, and shipping real projects.</p>
+        <div class="keys">
+          <a class="key o" href="mailto:tyronsamaroo828@gmail.com"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2 4.2l6 4.8 6-4.8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Email<span class="lamp w" aria-hidden="true"></span></a>
+          <a class="key" href="https://github.com/tyronsamaroo"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub<span class="lamp" aria-hidden="true"></span></a>
+          <a class="key" href="https://linkedin.com/in/tyronsamaroo"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4.6 7v4.6M4.6 4.4v.2M7.6 11.6V7m0 2.1c0-1.3.9-2.1 2-2.1s1.9.8 1.9 2.1v2.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>LinkedIn<span class="lamp" aria-hidden="true"></span></a>
+        </div>
+        </div>
+        <div class="evlog" aria-labelledby="ev-h">
+          <div class="ev-head"><span class="mp" id="ev-h">Event log</span><span class="fine">Latest first</span></div>
+          <ol>
+            <li><time datetime="2026-06">2026.06</time><span class="lamp g" aria-hidden="true"></span><a href="#st-04">Joined Synchrony as AVP, Reliability Engineer</a><em>Station</em></li>
+            <li><time datetime="2026-06">2026.06</time><span class="lamp w" aria-hidden="true"></span><a href="#projects">StrideSlip iOS build notes</a><em>Project</em></li>
+            <li><time datetime="2024">2024</time><span class="lamp w" aria-hidden="true"></span><a href="#education">AWS Certified Developer – Associate</a><em>Cert</em></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="cluster" aria-label="Instrument cluster">
+        <div class="cl-head">
+          <span class="mp">Master annunciator</span>
+          <span class="lcd" id="bootStatus" role="status" aria-live="polite">ALL POINTS NORMAL</span>
+          <button class="key sm" type="button" id="lampTest" title="Re-run the power-on lamp test"><span class="lamp a" aria-hidden="true"></span>Lamp test</button>
+        </div>
+        <div class="bezel">
+          <ul class="ann ann-6">
+            <li class="win"><b>Synchrony</b><small>AVP · in service</small></li>
+            <li class="win"><b>Reliability</b><small>Primary focus</small></li>
+            <li class="win"><b>Event-driven</b><small>Architectures</small></li>
+            <li class="win"><b>Cloud-native</b><small>Microservices</small></li>
+            <li class="win"><b>ML pipelines</b><small>ML engineer</small></li>
+            <li class="win"><b>Shipping</b><small>8 projects</small></li>
+          </ul>
+        </div>
+        <div class="gauges">
+          <figure>
+            <svg class="gauge" viewBox="0 0 200 200" role="img" aria-label="Service years gauge: 6+ years. Needle derived from job dates, January 2020 to today."><circle cx="100" cy="100" r="99" fill="url(#gBezel)"/><circle cx="100" cy="100" r="92.6" fill="#171b1d"/><circle cx="100" cy="100" r="91" fill="url(#gFace)"/><path d="M26.39 142.5 A85 85 0 1 1 173.61 142.5" fill="none" stroke="#cfd6d8" stroke-width="4.5"/><g stroke="#15191b"><line x1="23.79" y1="144" x2="36.78" y2="136.5" stroke-width="2.4"/><line x1="16.31" y1="127.19" x2="23.92" y2="124.72" stroke-width="1.1"/><line x1="12.48" y1="109.2" x2="20.44" y2="108.36" stroke-width="1.1"/><line x1="12.48" y1="90.8" x2="20.44" y2="91.64" stroke-width="1.1"/><line x1="16.31" y1="72.81" x2="30.57" y2="77.44" stroke-width="2.4"/><line x1="23.79" y1="56" x2="30.72" y2="60" stroke-width="1.1"/><line x1="34.6" y1="41.12" x2="40.55" y2="46.47" stroke-width="1.1"/><line x1="48.27" y1="28.81" x2="52.98" y2="35.28" stroke-width="1.1"/><line x1="64.21" y1="19.61" x2="70.31" y2="33.31" stroke-width="2.4"/><line x1="81.7" y1="13.92" x2="83.37" y2="21.75" stroke-width="1.1"/><line x1="100" y1="12" x2="100" y2="20" stroke-width="1.1"/><line x1="118.3" y1="13.92" x2="116.63" y2="21.75" stroke-width="1.1"/><line x1="135.79" y1="19.61" x2="129.69" y2="33.31" stroke-width="2.4"/><line x1="151.73" y1="28.81" x2="147.02" y2="35.28" stroke-width="1.1"/><line x1="165.4" y1="41.12" x2="159.45" y2="46.47" stroke-width="1.1"/><line x1="176.21" y1="56" x2="169.28" y2="60" stroke-width="1.1"/><line x1="183.69" y1="72.81" x2="169.43" y2="77.44" stroke-width="2.4"/><line x1="187.52" y1="90.8" x2="179.56" y2="91.64" stroke-width="1.1"/><line x1="187.52" y1="109.2" x2="179.56" y2="108.36" stroke-width="1.1"/><line x1="183.69" y1="127.19" x2="176.08" y2="124.72" stroke-width="1.1"/><line x1="176.21" y1="144" x2="163.22" y2="136.5" stroke-width="2.4"/></g><g class="g-num" text-anchor="middle"><text x="47.17" y="134.5">0</text><text x="41.99" y="85.15">2</text><text x="75.19" y="48.27">4</text><text x="124.81" y="48.27">6</text><text x="158.01" y="85.15">8</text><text x="152.83" y="134.5">10</text></g><path d="M133.18 8.85 L145.54 14.35 L136.4 18.24Z" fill="#F25A0F"/><text class="g-title" x="100" y="74" text-anchor="middle">SERVICE</text><text class="g-unit" x="100" y="128" text-anchor="middle">YEARS</text><rect x="66" y="142" width="68" height="21" rx="2.5" fill="#b8c5bd" stroke="#5f6a64" stroke-width="1"/><text class="g-lcd v" x="100" y="156.5" text-anchor="middle">6+ YRS</text><text class="g-lcd t" x="100" y="156.5" text-anchor="middle" aria-hidden="true">88888</text><g class="needle" id="needleYrs" style="--a:40.8deg;--a0:-120deg;--apk:120deg"><path d="M100 118 L97.3 100 L100 19 L102.7 100Z" fill="#F25A0F" stroke="#9c3a08" stroke-width=".6"/><path d="M96.6 100 L100 124 L103.4 100Z" fill="#1b1f21"/></g><circle cx="100" cy="100" r="9" fill="url(#gCap)"/><circle cx="100" cy="100" r="2.6" fill="#aab2b5"/><circle cx="100" cy="100" r="90" fill="url(#gGlass)"/></svg>
+            <figcaption><span class="mp">M-1 · Service years</span><span class="fine">Derived from job dates, Jan 2020 → today</span></figcaption>
+          </figure>
+          <figure>
+            <svg class="gauge" viewBox="0 0 200 200" role="img" aria-label="MTTR gauge: about 2 hours before, under 30 minutes after, from Capital One on-call."><circle cx="100" cy="100" r="99" fill="url(#gBezel)"/><circle cx="100" cy="100" r="92.6" fill="#171b1d"/><circle cx="100" cy="100" r="91" fill="url(#gFace)"/><path d="M26.39 142.5 A85 85 0 0 1 26.39 57.5" fill="none" stroke="#1BB35C" stroke-width="5"/><path d="M26.39 57.5 A85 85 0 0 1 100 15" fill="none" stroke="#FFB21C" stroke-width="5"/><path d="M100 15 A85 85 0 0 1 173.61 142.5" fill="none" stroke="#F2392B" stroke-width="5"/><g stroke="#15191b"><line x1="23.79" y1="144" x2="36.78" y2="136.5" stroke-width="2.4"/><line x1="17.31" y1="130.1" x2="24.82" y2="127.36" stroke-width="1.1"/><line x1="13.34" y1="115.28" x2="21.22" y2="113.89" stroke-width="1.1"/><line x1="12" y1="100" x2="20" y2="100" stroke-width="1.1"/><line x1="13.34" y1="84.72" x2="21.22" y2="86.11" stroke-width="1.1"/><line x1="17.31" y1="69.9" x2="24.82" y2="72.64" stroke-width="1.1"/><line x1="23.79" y1="56" x2="36.78" y2="63.5" stroke-width="2.4"/><line x1="32.59" y1="43.43" x2="38.72" y2="48.58" stroke-width="1.1"/><line x1="43.43" y1="32.59" x2="48.58" y2="38.72" stroke-width="1.1"/><line x1="56" y1="23.79" x2="60" y2="30.72" stroke-width="1.1"/><line x1="69.9" y1="17.31" x2="72.64" y2="24.82" stroke-width="1.1"/><line x1="84.72" y1="13.34" x2="86.11" y2="21.22" stroke-width="1.1"/><line x1="100" y1="12" x2="100" y2="27" stroke-width="2.4"/><line x1="115.28" y1="13.34" x2="113.89" y2="21.22" stroke-width="1.1"/><line x1="130.1" y1="17.31" x2="127.36" y2="24.82" stroke-width="1.1"/><line x1="144" y1="23.79" x2="140" y2="30.72" stroke-width="1.1"/><line x1="156.57" y1="32.59" x2="151.42" y2="38.72" stroke-width="1.1"/><line x1="167.41" y1="43.43" x2="161.28" y2="48.58" stroke-width="1.1"/><line x1="176.21" y1="56" x2="163.22" y2="63.5" stroke-width="2.4"/><line x1="182.69" y1="69.9" x2="175.18" y2="72.64" stroke-width="1.1"/><line x1="186.66" y1="84.72" x2="178.78" y2="86.11" stroke-width="1.1"/><line x1="188" y1="100" x2="180" y2="100" stroke-width="1.1"/><line x1="186.66" y1="115.28" x2="178.78" y2="113.89" stroke-width="1.1"/><line x1="182.69" y1="130.1" x2="175.18" y2="127.36" stroke-width="1.1"/><line x1="176.21" y1="144" x2="163.22" y2="136.5" stroke-width="2.4"/></g><g class="g-num" text-anchor="middle"><text x="47.17" y="134.5">0</text><text x="47.17" y="73.5">30</text><text x="100" y="43">60</text><text x="152.83" y="73.5">90</text><text x="152.83" y="134.5">120</text></g><text class="g-title" x="100" y="74" text-anchor="middle">MTTR</text><text class="g-unit" x="100" y="128" text-anchor="middle">MINUTES</text><rect x="66" y="142" width="68" height="21" rx="2.5" fill="#b8c5bd" stroke="#5f6a64" stroke-width="1"/><text class="g-lcd v" x="100" y="156.5" text-anchor="middle">&lt;30 MIN</text><text class="g-lcd t" x="100" y="156.5" text-anchor="middle" aria-hidden="true">88888</text><g transform="rotate(120 100 100)"><line x1="100" y1="100" x2="100" y2="27" stroke="#C62619" stroke-width="1.8"/><path d="M95.5 32 L100 17 L104.5 32Z" fill="#fff" stroke="#C62619" stroke-width="1.6"/></g><g class="needle" id="needleMttr" style="--a:-72deg;--a0:120deg;--apk:120deg"><path d="M100 118 L97.3 100 L100 19 L102.7 100Z" fill="#F25A0F" stroke="#9c3a08" stroke-width=".6"/><path d="M96.6 100 L100 124 L103.4 100Z" fill="#1b1f21"/></g><circle cx="100" cy="100" r="9" fill="url(#gCap)"/><circle cx="100" cy="100" r="2.6" fill="#aab2b5"/><circle cx="100" cy="100" r="90" fill="url(#gGlass)"/></svg>
+            <figcaption><span class="mp">M-2 · MTTR, minutes</span><span class="fine">Capital One on-call. Red: before, ~2h</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="about" aria-labelledby="h-about">
+  <div class="panel">
+    <div class="ph">
+      <span class="ptag">P-02</span>
+      <h2 class="plate" id="h-about">About</h2>
+      <span class="sub">Unit data</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="meta">4 instruments</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p class="big">Focused on <mark>reliability</mark>, event-driven architectures, and shipping real projects.</p>
+        <p>Tyron is a reliability engineer with 6+ years building high-scale cloud-native microservices, ML pipelines, and polished web experiences. He is now AVP, Reliability Engineer at Synchrony. Before that he spent 2022–2026 at Capital One, where he owned production reliability and 24x7 on-call for backend services on AWS, after ML engineering at PicoPortal and a first software role at the Research Foundation of CUNY.</p>
+        <div class="logline">
+          <span class="mp">Off-shift log</span>
+          <p>Sept 2026: competed in his first OCB natural bodybuilding show (Men’s Physique). That prep is why the OCB Debut Dashboard exists.</p>
+        </div>
+      </div>
+      <div class="inst-grid">
+        <div class="inst">
+          <span class="mp">I-1 · Experience</span>
+          <span class="drums" aria-label="6+ years"><span class="drum" aria-hidden="true"><span class="reel" style="--d:16"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="pl" aria-hidden="true">+</span><span class="u" aria-hidden="true">YRS</span></span>
+          <p class="cap">Building production software since Jan 2020.</p>
+        </div>
+        <div class="inst">
+          <span class="mp">I-2 · Degree</span>
+          <span class="engr">MS</span>
+          <p class="cap">Data Science &amp; Engineering, City College of New York (CUNY), 2023.</p>
+        </div>
+        <div class="inst">
+          <span class="mp">I-3 · AWS certified</span>
+          <div class="certlamps">
+            <div><span class="lamp g" aria-hidden="true"></span>Developer<span class="lcd">2024</span></div>
+            <div><span class="lamp g" aria-hidden="true"></span>Solutions Architect</div>
+          </div>
+          <p class="cap">Both at Associate level.</p>
+        </div>
+        <div class="inst">
+          <span class="mp">I-4 · Shipped</span>
+          <span class="drums" aria-label="8 projects"><span class="drum" aria-hidden="true"><span class="reel" style="--d:10"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="drum" aria-hidden="true"><span class="reel" style="--d:18"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><span class="u" aria-hidden="true">PROJ</span></span>
+          <p class="cap">Projects shipped, from iOS apps to APIs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="career" aria-labelledby="h-career">
+  <div class="panel">
+    <div class="ph">
+      <span class="ptag">P-03</span>
+      <h2 class="plate" id="h-career">Experience</h2>
+      <span class="sub">Process mimic · career line</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="meta">Jan 2020 → now · 4 stations</span>
+    </div>
+
+    <div class="mimic pre-able" id="mimic">
+      <svg class="desk" viewBox="0 0 1200 284" role="group" aria-label="Career mimic diagram: four stations connected by one flow line, oldest to newest."><text class="m-cap" x="185" y="14" text-anchor="middle">F-01 · FEED</text><rect class="m-feed" x="80" y="22" width="210" height="62" rx="31"/><text class="m-feed-t" x="185" y="46" text-anchor="middle">BS COMPUTER SCIENCE</text><text class="m-feed-s" x="185" y="61" text-anchor="middle">MINOR IN MATHEMATICS</text><text class="m-feed-s" x="185" y="74" text-anchor="middle">QUEENS COLLEGE · MAY 2020</text><text class="m-cap" x="760" y="14" text-anchor="middle">F-02 · FEED</text><rect class="m-feed" x="655" y="22" width="210" height="62" rx="31"/><text class="m-feed-t" x="760" y="46" text-anchor="middle">MS DATA SCIENCE &amp; ENG.</text><text class="m-feed-s" x="760" y="61" text-anchor="middle">CITY COLLEGE (CUNY)</text><text class="m-feed-s" x="760" y="74" text-anchor="middle">MAY 2023</text><path class="m-pipe-o" d="M185 84 V148"/><path class="m-pipe-i" d="M185 84 V148"/><path class="flow" pathLength="1" d="M185 84 V148" data-t="0" style="--d:240ms"/><path class="m-pipe-o" d="M760 84 V148"/><path class="m-pipe-i" d="M760 84 V148"/><path class="flow" pathLength="1" d="M760 84 V148" data-t="1060" style="--d:220ms"/><text class="m-cap" x="1040" y="14" text-anchor="middle">INSTRUMENTS · AWS</text><path class="sig" d="M1000 82 V112 H1040 V148" data-t="1560"/><path class="sig" d="M1080 82 V112 H1040" data-t="1560"/><circle class="bub" cx="1000" cy="56" r="25"/><line x1="975" y1="56" x2="1025" y2="56" stroke="#262c2f" stroke-width="1.4"/><text class="bub-t" x="1000" y="50" text-anchor="middle">AWS</text><text class="bub-t" x="1000" y="72" text-anchor="middle">DVA</text><circle class="bub" cx="1080" cy="56" r="25"/><line x1="1055" y1="56" x2="1105" y2="56" stroke="#262c2f" stroke-width="1.4"/><text class="bub-t" x="1080" y="50" text-anchor="middle">AWS</text><text class="bub-t" x="1080" y="72" text-anchor="middle">SAA</text><text class="m-date" x="962" y="60" text-anchor="end">2024</text><circle cx="30" cy="206" r="11" fill="#f6f7f7" stroke="#262c2f" stroke-width="2"/><circle cx="30" cy="206" r="4" fill="#262c2f"/><text class="m-cap" x="30" y="238" text-anchor="middle">START</text><text class="m-date" x="30" y="252" text-anchor="middle">2020.01</text><path class="m-pipe-o" d="M41 206 H70"/><path class="m-pipe-i" d="M41 206 H70"/><path class="flow" pathLength="1" d="M41 206 H70" data-t="40" style="--d:200ms"/><path class="m-pipe-o" d="M270 206 H303"/><path class="m-pipe-i" d="M270 206 H303"/><path class="flow" pathLength="1" d="M270 206 H303" data-t="380" style="--d:150ms"/><path class="m-pipe-o" d="M327 206 H360"/><path class="m-pipe-i" d="M327 206 H360"/><path class="flow" pathLength="1" d="M327 206 H360" data-t="840" style="--d:140ms"/><path class="m-pipe-o" d="M560 206 H650"/><path class="m-pipe-i" d="M560 206 H650"/><path class="flow" pathLength="1" d="M560 206 H650" data-t="1080" style="--d:200ms"/><path class="m-pipe-o" d="M850 206 H940"/><path class="m-pipe-i" d="M850 206 H940"/><path class="flow" pathLength="1" d="M850 206 H940" data-t="1360" style="--d:200ms"/><path class="m-pipe-o" d="M1140 206 H1176"/><path class="m-pipe-i" d="M1140 206 H1176"/><path class="flow" pathLength="1" d="M1140 206 H1176" data-t="1640" style="--d:140ms"/><path class="amb" d="M850 206 H940"/><path class="amb" d="M1140 206 H1176"/><path d="M1174 195 L1194 206 L1174 217Z" fill="#262c2f"/><text class="m-cap" x="1180" y="238" text-anchor="middle">NOW</text><text class="m-date" x="605" y="192" text-anchor="middle">2022.01</text><text class="m-date" x="895" y="192" text-anchor="middle">2026.06</text><g class="valve" data-t="800"><line x1="315" y1="206" x2="315" y2="186" stroke="#262c2f" stroke-width="2"/><rect x="305" y="180" width="20" height="7" rx="1.5" fill="#262c2f"/><path class="v-body" d="M303 194 V218 L315 206Z M327 194 V218 L315 206Z"/></g><path d="M315 179 V112 H330" fill="none" stroke="#39434a" stroke-width="1" stroke-dasharray="3 3"/><text class="m-note" x="336" y="108"><tspan font-weight="700">V-01 · HELD CLOSED</tspan></text><text class="m-note" x="336" y="122">AUG – DEC 2020</text><text class="m-note" x="336" y="136">No flow between roles.</text><text class="m-date" x="315" y="238" text-anchor="middle">V-01</text><a class="st" href="#st-01" data-t="240" aria-label="Station 1: Research Foundation of CUNY, Software Engineer, Jan 2020 to Aug 2020"><rect class="st-box" x="70" y="148" width="200" height="116" rx="5"/><path class="st-hd" d="M71 176 V154 Q71 149 76 149 H264 Q269 149 269 154 V176Z"/><line class="st-sep" x1="70" y1="176" x2="270" y2="176"/><circle class="sl-off" cx="86" cy="162.5" r="6.5"/><circle class="sl-on" cx="86" cy="162.5" r="5.2" fill="url(#lampW)" filter="url(#glow)"/><text class="m-tag" x="100" y="167">ST-01</text><text class="m-state" x="258" y="166.5" text-anchor="end">COMPLETE</text><text class="m-name sm" x="84" y="200">RESEARCH FOUNDATION</text><text class="m-name sm" x="84" y="218">OF CUNY</text><text class="m-role" x="84" y="238">Software Engineer</text><text class="m-date" x="84" y="255">2020.01 – 2020.08</text><rect class="glass" x="244" y="186" width="12" height="68" rx="5"/><rect class="glass-fill" x="246" y="188" width="8" height="64" rx="3" style="--lv:0.133"/><line class="glass-tk" x1="239" y1="188" x2="243" y2="188"/><line class="glass-tk" x1="239" y1="204" x2="243" y2="204"/><line class="glass-tk" x1="239" y1="220" x2="243" y2="220"/><line class="glass-tk" x1="239" y1="236" x2="243" y2="236"/><line class="glass-tk" x1="239" y1="252" x2="243" y2="252"/></a><a class="st" href="#st-02" data-t="980" aria-label="Station 2: PicoPortal (IDOC), ML Engineer and SWE, Dec 2020 to Dec 2021"><rect class="st-box" x="360" y="148" width="200" height="116" rx="5"/><path class="st-hd" d="M361 176 V154 Q361 149 366 149 H554 Q559 149 559 154 V176Z"/><line class="st-sep" x1="360" y1="176" x2="560" y2="176"/><circle class="sl-off" cx="376" cy="162.5" r="6.5"/><circle class="sl-on" cx="376" cy="162.5" r="5.2" fill="url(#lampW)" filter="url(#glow)"/><text class="m-tag" x="390" y="167">ST-02</text><text class="m-state" x="548" y="166.5" text-anchor="end">COMPLETE</text><text class="m-name sm" x="374" y="200">PICOPORTAL</text><text class="m-name sm" x="374" y="218">(IDOC)</text><text class="m-role" x="374" y="238">ML Engineer / SWE</text><text class="m-date" x="374" y="255">2020.12 – 2021.12</text><rect class="glass" x="534" y="186" width="12" height="68" rx="5"/><rect class="glass-fill" x="536" y="188" width="8" height="64" rx="3" style="--lv:0.217"/><line class="glass-tk" x1="529" y1="188" x2="533" y2="188"/><line class="glass-tk" x1="529" y1="204" x2="533" y2="204"/><line class="glass-tk" x1="529" y1="220" x2="533" y2="220"/><line class="glass-tk" x1="529" y1="236" x2="533" y2="236"/><line class="glass-tk" x1="529" y1="252" x2="533" y2="252"/></a><a class="st" href="#st-03" data-t="1280" aria-label="Station 3: Capital One, Software Engineer, Jan 2022 to 2026"><rect class="st-box" x="650" y="148" width="200" height="116" rx="5"/><path class="st-hd" d="M651 176 V154 Q651 149 656 149 H844 Q849 149 849 154 V176Z"/><line class="st-sep" x1="650" y1="176" x2="850" y2="176"/><circle class="sl-off" cx="666" cy="162.5" r="6.5"/><circle class="sl-on" cx="666" cy="162.5" r="5.2" fill="url(#lampW)" filter="url(#glow)"/><text class="m-tag" x="680" y="167">ST-03</text><text class="m-state" x="838" y="166.5" text-anchor="end">COMPLETE</text><text class="m-name" x="664" y="212">CAPITAL ONE</text><text class="m-role" x="664" y="238">Software Engineer</text><text class="m-date" x="664" y="255">2022.01 – 2026</text><rect class="glass" x="824" y="186" width="12" height="68" rx="5"/><rect class="glass-fill" x="826" y="188" width="8" height="64" rx="3" style="--lv:0.850"/><line class="glass-tk" x1="819" y1="188" x2="823" y2="188"/><line class="glass-tk" x1="819" y1="204" x2="823" y2="204"/><line class="glass-tk" x1="819" y1="220" x2="823" y2="220"/><line class="glass-tk" x1="819" y1="236" x2="823" y2="236"/><line class="glass-tk" x1="819" y1="252" x2="823" y2="252"/></a><a class="st cur" href="#st-04" data-t="1560" aria-label="Station 4, current: Synchrony, AVP Reliability Engineer, since June 2026"><rect class="st-box" x="940" y="148" width="200" height="116" rx="5"/><path class="st-hd" d="M941 176 V154 Q941 149 946 149 H1134 Q1139 149 1139 154 V176Z"/><line class="st-sep" x1="940" y1="176" x2="1140" y2="176"/><circle class="sl-off" cx="956" cy="162.5" r="6.5"/><circle class="sl-on" cx="956" cy="162.5" r="5.2" fill="url(#lampG)" filter="url(#glow)"/><text class="m-tag" x="970" y="167">ST-04</text><text class="m-state" x="1128" y="166.5" text-anchor="end">ONLINE</text><text class="m-name" x="954" y="212">SYNCHRONY</text><text class="m-role" x="954" y="238">AVP, Reliability Engineer</text><text class="m-date" x="954" y="255">2026.06 – NOW</text><rect class="glass" x="1114" y="186" width="12" height="68" rx="5"/><rect class="glass-fill" x="1116" y="188" width="8" height="64" rx="3" style="--lv:0.067" data-live="1"/><line class="glass-tk" x1="1109" y1="188" x2="1113" y2="188"/><line class="glass-tk" x1="1109" y1="204" x2="1113" y2="204"/><line class="glass-tk" x1="1109" y1="220" x2="1113" y2="220"/><line class="glass-tk" x1="1109" y1="236" x2="1113" y2="236"/><line class="glass-tk" x1="1109" y1="252" x2="1113" y2="252"/></a></svg>
+      <svg class="mob" viewBox="0 0 360 744" role="group" aria-label="Career mimic diagram: four stations connected by one flow line, oldest to newest."><circle cx="180" cy="18" r="10" fill="#f6f7f7" stroke="#262c2f" stroke-width="2"/><circle cx="180" cy="18" r="3.6" fill="#262c2f"/><text class="m-date" x="198" y="22">START · 2020.01</text><path class="m-pipe-o" d="M180 28 V58"/><path class="m-pipe-i" d="M180 28 V58"/><path class="flow" pathLength="1" d="M180 28 V58" data-t="40" style="--d:200ms"/><path class="m-pipe-o" d="M180 170 V192"/><path class="m-pipe-i" d="M180 170 V192"/><path class="flow" pathLength="1" d="M180 170 V192" data-t="380" style="--d:150ms"/><g class="valve" data-t="800"><line x1="180" y1="204" x2="158" y2="204" stroke="#262c2f" stroke-width="2"/><rect x="152" y="194" width="7" height="20" rx="1.5" fill="#262c2f"/><path class="v-body" d="M168 192 H192 L180 204Z M168 216 H192 L180 204Z"/></g><text class="m-note" x="202" y="201"><tspan font-weight="700">V-01 · HELD CLOSED</tspan></text><text class="m-note" x="202" y="215">AUG–DEC 2020 · GAP</text><path class="m-pipe-o" d="M180 216 V236"/><path class="m-pipe-i" d="M180 216 V236"/><path class="flow" pathLength="1" d="M180 216 V236" data-t="840" style="--d:140ms"/><path class="m-pipe-o" d="M180 348 V406"/><path class="m-pipe-i" d="M180 348 V406"/><path class="flow" pathLength="1" d="M180 348 V406" data-t="1080" style="--d:200ms"/><text class="m-date" x="194" y="381">2022.01</text><path class="m-pipe-o" d="M180 518 V578"/><path class="m-pipe-i" d="M180 518 V578"/><path class="flow" pathLength="1" d="M180 518 V578" data-t="1360" style="--d:200ms"/><text class="m-date" x="194" y="552">2026.06</text><path class="m-pipe-o" d="M180 690 V716"/><path class="m-pipe-i" d="M180 690 V716"/><path class="flow" pathLength="1" d="M180 690 V716" data-t="1640" style="--d:140ms"/><path class="amb" d="M180 518 V578"/><path class="amb" d="M180 690 V716"/><path d="M169 714 L180 734 L191 714Z" fill="#262c2f"/><text class="m-cap" x="200" y="728">NOW</text><a class="st" href="#st-01" data-t="240" aria-label="Station 1: Research Foundation of CUNY, Software Engineer, Jan 2020 to Aug 2020"><rect class="st-box" x="30" y="58" width="300" height="112" rx="5"/><path class="st-hd" d="M31 86 V64 Q31 59 36 59 H324 Q329 59 329 64 V86Z"/><line class="st-sep" x1="30" y1="86" x2="330" y2="86"/><circle class="sl-off" cx="46" cy="72.5" r="6.5"/><circle class="sl-on" cx="46" cy="72.5" r="5.2" fill="url(#lampW)" filter="url(#glow)"/><text class="m-tag" x="60" y="77">ST-01</text><text class="m-state" x="318" y="76.5" text-anchor="end">COMPLETE</text><text class="m-name sm" x="44" y="116">RESEARCH FOUNDATION OF CUNY</text><text class="m-role" x="44" y="138">Software Engineer</text><text class="m-date" x="44" y="155">2020.01 – 2020.08</text><rect class="glass" x="304" y="96" width="12" height="64" rx="5"/><rect class="glass-fill" x="306" y="98" width="8" height="60" rx="3" style="--lv:0.133"/><line class="glass-tk" x1="299" y1="98" x2="303" y2="98"/><line class="glass-tk" x1="299" y1="113" x2="303" y2="113"/><line class="glass-tk" x1="299" y1="128" x2="303" y2="128"/><line class="glass-tk" x1="299" y1="143" x2="303" y2="143"/><line class="glass-tk" x1="299" y1="158" x2="303" y2="158"/></a><a class="st" href="#st-02" data-t="980" aria-label="Station 2: PicoPortal (IDOC), ML Engineer and SWE, Dec 2020 to Dec 2021"><rect class="st-box" x="30" y="236" width="300" height="112" rx="5"/><path class="st-hd" d="M31 264 V242 Q31 237 36 237 H324 Q329 237 329 242 V264Z"/><line class="st-sep" x1="30" y1="264" x2="330" y2="264"/><circle class="sl-off" cx="46" cy="250.5" r="6.5"/><circle class="sl-on" cx="46" cy="250.5" r="5.2" fill="url(#lampW)" filter="url(#glow)"/><text class="m-tag" x="60" y="255">ST-02</text><text class="m-state" x="318" y="254.5" text-anchor="end">COMPLETE</text><text class="m-name" x="44" y="294">PICOPORTAL (IDOC)</text><text class="m-role" x="44" y="316">ML Engineer / SWE</text><text class="m-date" x="44" y="333">2020.12 – 2021.12</text><rect class="glass" x="304" y="274" width="12" height="64" rx="5"/><rect class="glass-fill" x="306" y="276" width="8" height="60" rx="3" style="--lv:0.217"/><line class="glass-tk" x1="299" y1="276" x2="303" y2="276"/><line class="glass-tk" x1="299" y1="291" x2="303" y2="291"/><line class="glass-tk" x1="299" y1="306" x2="303" y2="306"/><line class="glass-tk" x1="299" y1="321" x2="303" y2="321"/><line class="glass-tk" x1="299" y1="336" x2="303" y2="336"/></a><a class="st" href="#st-03" data-t="1280" aria-label="Station 3: Capital One, Software Engineer, Jan 2022 to 2026"><rect class="st-box" x="30" y="406" width="300" height="112" rx="5"/><path class="st-hd" d="M31 434 V412 Q31 407 36 407 H324 Q329 407 329 412 V434Z"/><line class="st-sep" x1="30" y1="434" x2="330" y2="434"/><circle class="sl-off" cx="46" cy="420.5" r="6.5"/><circle class="sl-on" cx="46" cy="420.5" r="5.2" fill="url(#lampW)" filter="url(#glow)"/><text class="m-tag" x="60" y="425">ST-03</text><text class="m-state" x="318" y="424.5" text-anchor="end">COMPLETE</text><text class="m-name" x="44" y="464">CAPITAL ONE</text><text class="m-role" x="44" y="486">Software Engineer</text><text class="m-date" x="44" y="503">2022.01 – 2026</text><rect class="glass" x="304" y="444" width="12" height="64" rx="5"/><rect class="glass-fill" x="306" y="446" width="8" height="60" rx="3" style="--lv:0.850"/><line class="glass-tk" x1="299" y1="446" x2="303" y2="446"/><line class="glass-tk" x1="299" y1="461" x2="303" y2="461"/><line class="glass-tk" x1="299" y1="476" x2="303" y2="476"/><line class="glass-tk" x1="299" y1="491" x2="303" y2="491"/><line class="glass-tk" x1="299" y1="506" x2="303" y2="506"/></a><a class="st cur" href="#st-04" data-t="1560" aria-label="Station 4, current: Synchrony, AVP Reliability Engineer, since June 2026"><rect class="st-box" x="30" y="578" width="300" height="112" rx="5"/><path class="st-hd" d="M31 606 V584 Q31 579 36 579 H324 Q329 579 329 584 V606Z"/><line class="st-sep" x1="30" y1="606" x2="330" y2="606"/><circle class="sl-off" cx="46" cy="592.5" r="6.5"/><circle class="sl-on" cx="46" cy="592.5" r="5.2" fill="url(#lampG)" filter="url(#glow)"/><text class="m-tag" x="60" y="597">ST-04</text><text class="m-state" x="318" y="596.5" text-anchor="end">ONLINE</text><text class="m-name" x="44" y="636">SYNCHRONY</text><text class="m-role" x="44" y="658">AVP, Reliability Engineer</text><text class="m-date" x="44" y="675">2026.06 – NOW</text><rect class="glass" x="304" y="616" width="12" height="64" rx="5"/><rect class="glass-fill" x="306" y="618" width="8" height="60" rx="3" style="--lv:0.067" data-live="1"/><line class="glass-tk" x1="299" y1="618" x2="303" y2="618"/><line class="glass-tk" x1="299" y1="633" x2="303" y2="633"/><line class="glass-tk" x1="299" y1="648" x2="303" y2="648"/><line class="glass-tk" x1="299" y1="663" x2="303" y2="663"/><line class="glass-tk" x1="299" y1="678" x2="303" y2="678"/></a></svg>
+    </div>
+    <ul class="legend" aria-label="Mimic legend">
+      <li><svg width="34" height="12" aria-hidden="true"><line x1="0" y1="6" x2="34" y2="6" stroke="#262c2f" stroke-width="10"/><line x1="0" y1="6" x2="34" y2="6" stroke="#1BB35C" stroke-width="4.5"/></svg>Flow: the career line, oldest to newest</li>
+      <li><svg width="26" height="16" aria-hidden="true"><path d="M2 2v12l11-6zM24 2v12L13 8z" fill="#f6f7f7" stroke="#262c2f" stroke-width="1.6"/></svg>V-01: gap between roles, Aug–Dec 2020</li>
+      <li><svg width="12" height="18" aria-hidden="true"><rect x="1" y="1" width="10" height="16" rx="4" fill="#e3e8ea" stroke="#262c2f" stroke-width="1.3"/><rect x="3" y="9" width="6" height="7" rx="2" fill="#1BB35C"/></svg>Sight glass: months in role, derived from dates (approx., full scale 60)</li>
+      <li><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#f4f6f4" stroke="#aeb6b3" stroke-width="2"/></svg>White lamp: complete · <svg width="16" height="16" aria-hidden="true" style="display:inline"><circle cx="8" cy="8" r="6" fill="#22D36C" stroke="#0B6F34" stroke-width="2"/></svg>green: online</li>
+    </ul>
+
+    <div class="log-wrap">
+      <ol class="log" id="log" reversed>
+        <li class="station cur" id="st-04">
+          <div class="st-side">
+            <span class="lamp lg" aria-hidden="true"></span>
+            <span class="st-tag">ST-04</span>
+            <span class="st-state">Online · current</span>
+            <span class="lcd">2026.06 → NOW</span>
+          </div>
+          <div class="st-main">
+            <h3>Synchrony</h3>
+            <p class="st-role">AVP, Reliability Engineer</p>
+            <p>Reliability engineering.</p>
+            <p class="pend fine">Station commissioned June 2026. Log entries pending.</p>
+          </div>
+        </li>
+        <li class="station" id="st-03">
+          <div class="st-side">
+            <span class="lamp w lg" aria-hidden="true"></span>
+            <span class="st-tag">ST-03</span>
+            <span class="st-state">Complete</span>
+            <span class="lcd">2022.01 → 2026</span>
+          </div>
+          <div class="st-main">
+            <h3>Capital One</h3>
+            <p class="st-role">Software Engineer</p>
+            <div class="kpis" id="kpis">
+              <div class="kpi"><small>MTTR</small><b>~2h→&lt;30m</b><em>before → after</em></div>
+              <div class="kpi"><small>Repos migrated</small><b><span class="n" data-to="100">100</span>+</b><em>sole SME · zero outages</em></div>
+              <div class="kpi"><small>Tests written</small><b><span class="n" data-to="300">300</span>+</b><em>unit + integration</em></div>
+              <div class="kpi"><small>Code coverage</small><b><span class="n w2" data-to="85">85</span>%+</b><em>achieved</em></div>
+            </div>
+            <ul class="bul">
+              <li>Engineered high-scale backend services on AWS powering <strong>millions of monthly requests</strong>.</li>
+              <li>Owned production reliability and 24x7 on-call support; <strong>cut MTTR from ~2h to &lt;30min</strong>.</li>
+              <li>Replatformed legacy batch processes into event-driven pipelines (Lambda, Step Functions, SNS/SQS).</li>
+              <li>Led infrastructure migration across <strong>100+ repositories</strong> as sole SME with <strong>zero outages</strong>.</li>
+              <li>Wrote <strong>300+ unit/integration tests</strong> achieving 85%+ code coverage.</li>
+            </ul>
+            <ul class="chips" aria-label="Stack"><li class="chip">Go</li><li class="chip">Python</li><li class="chip">AWS</li><li class="chip">Kafka</li><li class="chip">Redis</li><li class="chip">Docker</li><li class="chip">Terraform</li></ul>
+          </div>
+        </li>
+        <li class="station" id="st-02">
+          <div class="st-side">
+            <span class="lamp w lg" aria-hidden="true"></span>
+            <span class="st-tag">ST-02</span>
+            <span class="st-state">Complete</span>
+            <span class="lcd">2020.12 → 2021.12</span>
+          </div>
+          <div class="st-main">
+            <h3>PicoPortal (IDOC)</h3>
+            <p class="st-role">ML Engineer / SWE</p>
+            <ul class="bul">
+              <li>Automated the ML pipeline with Azure DevOps, Kubernetes, Docker, and Celery.</li>
+              <li>Built inference APIs with FastAPI; integrated OCR + ML models.</li>
+              <li>Managed PostgreSQL + Redis for data storage and caching.</li>
+            </ul>
+            <ul class="chips" aria-label="Stack"><li class="chip">FastAPI</li><li class="chip">Kubernetes</li><li class="chip">Docker</li><li class="chip">Celery</li><li class="chip">Azure DevOps</li><li class="chip">PostgreSQL</li><li class="chip">Redis</li></ul>
+          </div>
+        </li>
+        <li class="station" id="st-01">
+          <div class="st-side">
+            <span class="lamp w lg" aria-hidden="true"></span>
+            <span class="st-tag">ST-01</span>
+            <span class="st-state">Complete</span>
+            <span class="lcd">2020.01 → 2020.08</span>
+          </div>
+          <div class="st-main">
+            <h3>Research Foundation of CUNY</h3>
+            <p class="st-role">Software Engineer</p>
+            <ul class="bul">
+              <li>Built an admin tool with Ruby on Rails serving <strong>500+ users</strong>.</li>
+              <li>Automated browser testing with Selenium; <strong>reduced manual QA by 40%</strong>.</li>
+            </ul>
+            <ul class="chips" aria-label="Stack"><li class="chip">Ruby on Rails</li><li class="chip">Selenium</li></ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="skills" aria-labelledby="h-skills">
+  <div class="panel">
+    <div class="ph">
+      <span class="ptag">P-04</span>
+      <h2 class="plate" id="h-skills">Skills</h2>
+      <span class="sub">Annunciator</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="meta">16 points + 2 newer</span>
+    </div>
+    <div class="sk-top">
+      <ul class="sk-legend" aria-label="Window colours">
+        <li><span class="sw-win g" aria-hidden="true"></span>Advanced / certified</li>
+        <li><span class="sw-win w" aria-hidden="true"></span>Proficient</li>
+        <li><span class="sw-win a" aria-hidden="true"></span>Familiar</li>
+        <li><span class="sw-win o" aria-hidden="true"></span>Newer</li>
+      </ul>
+      <div class="sk-ctl">
+        <span class="lcd" id="ackCount" aria-live="polite">ACK 00/18</span>
+        <button class="key sm" type="button" id="skTest"><span class="lamp a" aria-hidden="true"></span>Lamp test</button>
+        <button class="key sm" type="button" id="ackAll"><span class="lamp" aria-hidden="true"></span>Ack all</button>
+      </div>
+    </div>
+    <div class="bezel ann-board" id="annBoard">
+      <div class="ann-groups"><div class="grp"><h3>Languages <span>L-1…4</span></h3><ul class="ann ann-skills"><li class="win "><span class="code">L-1</span><b>Python</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win "><span class="code">L-2</span><b>Go</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win w"><span class="code">L-3</span><b>Java</b><small>Proficient</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win w"><span class="code">L-4</span><b>TypeScript</b><small>Proficient</small><i class="ackt" aria-hidden="true">ACK</i></li></ul></div><div class="grp"><h3>Frameworks <span>F-1…4</span></h3><ul class="ann ann-skills"><li class="win "><span class="code">F-1</span><b>React</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win "><span class="code">F-2</span><b>FastAPI</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win w"><span class="code">F-3</span><b>Spring Boot</b><small>Proficient</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win a"><span class="code">F-4</span><b>Ruby on Rails</b><small>Familiar</small><i class="ackt" aria-hidden="true">ACK</i></li></ul></div><div class="grp"><h3>Tools <span>T-1…4</span></h3><ul class="ann ann-skills"><li class="win "><span class="code">T-1</span><b>AWS</b><small>Certified ×2</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win "><span class="code">T-2</span><b>Docker</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win w"><span class="code">T-3</span><b>Kubernetes</b><small>Proficient</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win w"><span class="code">T-4</span><b>Terraform</b><small>Proficient</small><i class="ackt" aria-hidden="true">ACK</i></li></ul></div><div class="grp"><h3>Data &amp; infra <span>D-1…4</span></h3><ul class="ann ann-skills"><li class="win "><span class="code">D-1</span><b>Kafka</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win "><span class="code">D-2</span><b>Redis</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win w"><span class="code">D-3</span><b>PostgreSQL</b><small>Proficient</small><i class="ackt" aria-hidden="true">ACK</i></li><li class="win "><span class="code">D-4</span><b>CI/CD</b><small>Advanced</small><i class="ackt" aria-hidden="true">ACK</i></li></ul></div></div>
+    </div>
+    <div class="sk-newer">
+      <span class="mp">Newer · iOS side projects</span>
+      <div class="bezel ann-board" id="annNew">
+        <ul class="ann ann-skills">
+          <li class="win w off n"><span class="code">N-1 · <span class="newt">NEW</span></span><b>SwiftUI</b><small>iOS side projects</small><i class="ackt" aria-hidden="true">ACK</i></li>
+          <li class="win w off n"><span class="code">N-2 · <span class="newt">NEW</span></span><b>HealthKit</b><small>iOS side projects</small><i class="ackt" aria-hidden="true">ACK</i></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine sk-sum">Hover a window to acknowledge it. 8 advanced · 1 certified (AWS) · 6 proficient · 1 familiar.</p>
+  </div>
+</section>
+
+<section class="sec wrap" id="projects" aria-labelledby="h-projects">
+  <div class="panel">
+    <div class="ph">
+      <span class="ptag">P-05</span>
+      <h2 class="plate" id="h-projects">Projects</h2>
+      <span class="sub">Equipment rack</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="meta">1 update · 6 units</span>
+    </div>
+
+    <article class="feature" aria-labelledby="h-stride">
+      <div class="ft-copy">
+        <div class="ft-tags"><span class="ptag">Update · June 2026</span><span class="mp">New unit commissioned</span></div>
+        <h3 id="h-stride">StrideSlip<small>iOS build notes</small></h3>
+        <p>An iPhone activity companion for daily steps, workout receipts, Lock Screen progress, and smarter Apple Health insights.</p>
+        <ul class="chips" aria-label="Stack"><li class="chip">SwiftUI</li><li class="chip">HealthKit</li><li class="chip">ActivityKit</li><li class="chip">CloudKit</li></ul>
+        <a class="key o" href="https://tyronsamaroo.dev/projects/stride-slip">Read the build notes <span aria-hidden="true">↗</span><span class="lamp w" aria-hidden="true"></span></a>
+      </div>
+      <div class="ft-art">
+        <svg viewBox="0 0 240 372" aria-hidden="true"><rect x="40" y="6" width="160" height="340" rx="30" fill="#f7f8f8" stroke="#262c2f" stroke-width="2.5"/><rect x="36.5" y="86" width="3.5" height="26" rx="1" fill="#262c2f"/><rect x="36.5" y="120" width="3.5" height="26" rx="1" fill="#262c2f"/><rect x="200" y="104" width="3.5" height="40" rx="1" fill="#262c2f"/><rect x="49" y="15" width="142" height="322" rx="22" fill="#e4e9ea" stroke="#9aa3a7"/><rect x="98" y="25" width="44" height="13" rx="6.5" fill="#262c2f"/><text class="m-cap" x="120" y="62" text-anchor="middle" style="font-size:10px">LOCK SCREEN</text><circle cx="120" cy="118" r="40" fill="none" stroke="#c5ccce" stroke-width="11"/><circle class="phone-ring" cx="120" cy="118" r="40" fill="none" stroke="#1BB35C" stroke-width="11" stroke-linecap="round" pathLength="100" stroke-dasharray="100" style="stroke-dashoffset:34" transform="rotate(-90 120 118)"/><text class="m-cap" x="120" y="122" text-anchor="middle" style="font-size:11px">STEPS</text><path d="M70 180 H170 V300 L165 307 L160 300 L155 307 L150 300 L145 307 L140 300 L135 307 L130 300 L125 307 L120 300 L115 307 L110 300 L105 307 L100 300 L95 307 L90 300 L85 307 L80 300 L75 307 L70 300Z" fill="#ffffff" stroke="#262c2f" stroke-width="1.6"/><text class="m-cap" x="120" y="198" text-anchor="middle" style="font-size:10px">WORKOUT RECEIPT</text><line x1="80" y1="207" x2="160" y2="207" stroke="#262c2f" stroke-dasharray="3 3"/><rect x="80" y="220" width="46" height="5" rx="1" fill="#aab2b5"/><rect x="142" y="220" width="18" height="5" rx="1" fill="#6f797d"/><rect x="80" y="234" width="38" height="5" rx="1" fill="#aab2b5"/><rect x="138" y="234" width="22" height="5" rx="1" fill="#6f797d"/><rect x="80" y="248" width="52" height="5" rx="1" fill="#aab2b5"/><rect x="146" y="248" width="14" height="5" rx="1" fill="#6f797d"/><rect x="80" y="262" width="30" height="5" rx="1" fill="#aab2b5"/><rect x="140" y="262" width="20" height="5" rx="1" fill="#6f797d"/><rect x="80" y="276" width="44" height="5" rx="1" fill="#aab2b5"/><rect x="144" y="276" width="16" height="5" rx="1" fill="#6f797d"/><line x1="80" y1="292" x2="160" y2="292" stroke="#262c2f" stroke-width="1.4"/><rect x="100" y="320" width="40" height="4" rx="2" fill="#262c2f"/></svg>
+        <span class="fine">Illustration, not app data.</span>
+      </div>
+    </article>
+
+    <div class="rack" aria-label="Projects">
+      <article class="unit">
+        <div class="u-side"><span class="u-stat"><span class="lamp" aria-hidden="true"></span>Active</span><span class="u-tag">U-01</span></div>
+        <div class="u-main">
+          <h3>Personal Developer Dashboard</h3>
+          <p>Full-stack portfolio dashboard with a FastAPI backend and a React frontend. Showcases projects, skills, and coding stats.</p>
+          <ul class="chips" aria-label="Stack"><li class="chip">FastAPI</li><li class="chip">React</li><li class="chip">DynamoDB</li><li class="chip">AWS Lambda</li><li class="chip">Tailwind</li></ul>
+        </div>
+        <div class="u-act"><a class="key sm" href="https://github.com/tyronsamaroo/dev-dashboard">Source <span aria-hidden="true">↗</span></a></div>
+      </article>
+      <article class="unit">
+        <div class="u-side"><span class="u-stat"><span class="lamp" aria-hidden="true"></span>Active</span><span class="u-tag">U-02</span></div>
+        <div class="u-main">
+          <h3>Summer in New York Finder</h3>
+          <p>Mobile-first public map for Nassau, Suffolk, and NYC summer programs with a questionnaire flow, filters, source links, and location drawers.</p>
+          <ul class="chips" aria-label="Stack"><li class="chip">HTML</li><li class="chip">Leaflet</li><li class="chip">OpenStreetMap</li><li class="chip">Public data</li></ul>
+        </div>
+        <div class="u-act"><a class="key sm o" href="https://tyronsamaroo.dev/summer/">Live <span aria-hidden="true">↗</span></a></div>
+      </article>
+      <article class="unit">
+        <div class="u-side"><span class="u-stat"><span class="lamp" aria-hidden="true"></span>Active</span><span class="u-tag">U-03</span></div>
+        <div class="u-main">
+          <h3>Daily Command Center</h3>
+          <p>Unified daily planner combining work block tracking, contest prep, and household coordination in one Next.js app.</p>
+          <ul class="chips" aria-label="Stack"><li class="chip">Next.js</li><li class="chip">TypeScript</li><li class="chip">Turso</li><li class="chip">Drizzle ORM</li><li class="chip">Tailwind</li></ul>
+        </div>
+        <div class="u-act"><a class="key sm" href="https://github.com/tyronsamaroo/daily-command-center">Source <span aria-hidden="true">↗</span></a></div>
+      </article>
+      <article class="unit">
+        <div class="u-side"><span class="u-stat"><span class="lamp" aria-hidden="true"></span>Active</span><span class="u-tag">U-04</span></div>
+        <div class="u-main">
+          <h3>ML Pipeline Toolkit</h3>
+          <p>Reusable Python library for end-to-end ML pipelines with data validation, feature engineering, and model evaluation.</p>
+          <ul class="chips" aria-label="Stack"><li class="chip">Python</li><li class="chip">PyTorch</li><li class="chip">scikit-learn</li><li class="chip">Pandas</li><li class="chip">Docker</li></ul>
+        </div>
+        <div class="u-act"><a class="key sm" href="https://github.com/tyronsamaroo/ml-pipeline-toolkit">Source <span aria-hidden="true">↗</span></a></div>
+      </article>
+      <article class="unit">
+        <div class="u-side"><span class="u-stat"><span class="lamp w" aria-hidden="true"></span>Complete</span><span class="u-tag">U-05</span></div>
+        <div class="u-main">
+          <h3>OCB Debut Dashboard</h3>
+          <p>Bodybuilding contest-prep tracker with calorie/macro analysis, weight trend visualizations, and a progress photo timeline.</p>
+          <ul class="chips" aria-label="Stack"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">Express</li><li class="chip">SQLite</li><li class="chip">Recharts</li></ul>
+        </div>
+        <div class="u-act"><a class="key sm" href="https://github.com/tyronsamaroo/ocb-debut-dashboard">Source <span aria-hidden="true">↗</span></a></div>
+      </article>
+      <article class="unit">
+        <div class="u-side"><span class="u-stat"><span class="lamp w" aria-hidden="true"></span>Complete</span><span class="u-tag">U-06</span></div>
+        <div class="u-main">
+          <h3>Smart Chore Scheduler</h3>
+          <p>Household task scheduler with fairness scoring, calendar views, and recurring chore management.</p>
+          <ul class="chips" aria-label="Stack"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">FastAPI</li><li class="chip">Python</li></ul>
+        </div>
+        <div class="u-act"><a class="key sm" href="https://github.com/tyronsamaroo/smart-chore-scheduler">Source <span aria-hidden="true">↗</span></a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="education" aria-labelledby="h-edu">
+  <div class="panel">
+    <div class="ph">
+      <span class="ptag">P-06</span>
+      <h2 class="plate" id="h-edu">Education</h2>
+      <span class="sub">Qualifications &amp; certification</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="meta">2 degrees · 2 certs</span>
+    </div>
+    <div class="edu-grid">
+      <div>
+        <div class="dplate">
+          <span class="ptag">Q-02</span>
+          <div><h3>MS, Data Science &amp; Engineering</h3><p>City College of New York (CUNY)</p></div>
+          <span class="lcd">2023.05</span>
+        </div>
+        <div class="dplate">
+          <span class="ptag">Q-01</span>
+          <div><h3>BS, Computer Science</h3><p>Minor in Mathematics · Queens College (CUNY)</p></div>
+          <span class="lcd">2020.05</span>
+        </div>
+      </div>
+      <div class="tags-rail">
+        <div class="tags">
+          <div class="ctag" style="--r:-2.5deg"><span class="hole" aria-hidden="true"></span><div class="body"><span class="band">Certified</span><h3>AWS Certified Developer – Associate</h3><dl><div><dt>Issued</dt><dd>2024</dd></div><div><dt>Tag</dt><dd>C-01</dd></div></dl></div></div>
+          <div class="ctag" style="--r:2deg"><span class="hole" aria-hidden="true"></span><div class="body"><span class="band">Certified</span><h3>AWS Certified Solutions Architect – Associate</h3><dl><div><dt>Level</dt><dd>Associate</dd></div><div><dt>Tag</dt><dd>C-02</dd></div></dl></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="api" aria-labelledby="h-api">
+  <div class="panel">
+    <div class="ph">
+      <span class="ptag">P-07</span>
+      <h2 class="plate" id="h-api">Public API</h2>
+      <span class="sub">Telemetry link</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="meta">3 endpoints · GET</span>
+    </div>
+    <div class="api-grid">
+      <div class="api-copy">
+        <p class="big">A real, live API. Profile, projects and stats, one request away.</p>
+        <ul class="eps">
+          <li><span class="verb">GET</span><code>/api/me</code><span>Profile</span></li>
+          <li><span class="verb">GET</span><code>/api/projects</code><span>All projects</span></li>
+          <li><span class="verb">GET</span><code>/api/stats</code><span>Stats &amp; skills</span></li>
+        </ul>
+        <div class="api-links">
+          <span>Base <a href="https://dev-dashboard-api.onrender.com">https://dev-dashboard-api.onrender.com</a></span>
+          <span>Docs <a href="https://dev-dashboard-api.onrender.com/docs">dev-dashboard-api.onrender.com/docs</a></span>
+        </div>
+        <p class="curl"><span class="pr">$ </span>curl https://dev-dashboard-api.onrender.com/api/me</p>
+        <p class="fine api-tip">Turn the selector to pick an endpoint, then press Transmit. The Link lamp goes green on a live 200; if the request fails, the Fault lamp lights and the screen falls back to a clearly marked cached sample.</p>
+      </div>
+      <div class="console">
+        <div class="con-ctl">
+          <fieldset class="rotary">
+            <legend class="mp">Endpoint select</legend>
+            <div class="dial">
+              <svg class="knob" id="knob" viewBox="0 0 100 100" aria-hidden="true">
+                <defs><radialGradient id="kn" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#5b6468"/><stop offset=".6" stop-color="#262c2f"/><stop offset="1" stop-color="#121516"/></radialGradient></defs>
+                <circle cx="50" cy="50" r="47" fill="#9aa3a7"/>
+                <g fill="url(#kn)" stroke="#0d0f10" stroke-width="1"><polygon points="50,4 53.33,7.63 57.2,4.57 59.92,8.67 64.21,6.25 66.26,10.74 70.88,9.01 72.21,13.76 77.04,12.79 77.6,17.68 82.53,17.47 82.32,22.4 87.21,22.96 86.24,27.79 90.99,29.12 89.26,33.74 93.75,35.79 91.33,40.08 95.43,42.8 92.37,46.67 96,50 92.37,53.33 95.43,57.2 91.33,59.92 93.75,64.21 89.26,66.26 90.99,70.88 86.24,72.21 87.21,77.04 82.32,77.6 82.53,82.53 77.6,82.32 77.04,87.21 72.21,86.24 70.88,90.99 66.26,89.26 64.21,93.75 59.92,91.33 57.2,95.43 53.33,92.37 50,96 46.67,92.37 42.8,95.43 40.08,91.33 35.79,93.75 33.74,89.26 29.12,90.99 27.79,86.24 22.96,87.21 22.4,82.32 17.47,82.53 17.68,77.6 12.79,77.04 13.76,72.21 9.01,70.88 10.74,66.26 6.25,64.21 8.67,59.92 4.57,57.2 7.63,53.33 4,50 7.63,46.67 4.57,42.8 8.67,40.08 6.25,35.79 10.74,33.74 9.01,29.12 13.76,27.79 12.79,22.96 17.68,22.4 17.47,17.47 22.4,17.68 22.96,12.79 27.79,13.76 29.12,9.01 33.74,10.74 35.79,6.25 40.08,8.67 42.8,4.57 46.67,7.63"/></g>
+                <circle cx="50" cy="50" r="30" fill="url(#kn)" stroke="#0d0f10"/>
+                <rect x="47.5" y="8" width="5" height="34" rx="2" fill="#F25A0F"/>
+              </svg>
+              <label class="pos p1"><input type="radio" name="ep" value="me" checked><span>/me</span></label>
+              <label class="pos p2"><input type="radio" name="ep" value="projects"><span>/projects</span></label>
+              <label class="pos p3"><input type="radio" name="ep" value="stats"><span>/stats</span></label>
+            </div>
+          </fieldset>
+          <div class="con-right">
+            <button class="key o" type="button" id="tx"><span class="lamp w" aria-hidden="true"></span>Transmit</button>
+            <div class="linklamps" aria-hidden="true">
+              <span><span class="lamp a off" id="lTx"></span>TX</span>
+              <span><span class="lamp off" id="lLink"></span>Link</span>
+              <span><span class="lamp r off" id="lFault"></span>Fault</span>
+            </div>
+            <p class="fine">Select an endpoint, then transmit for a live response. The server may take a moment to wake.</p>
+          </div>
+        </div>
+        <div class="screen">
+          <div class="scr-head"><span><b id="scrReq">GET /api/me</b></span><span class="st" id="scrSt">CACHED SAMPLE</span></div>
+          <pre id="apiOut" tabindex="0" aria-live="polite" aria-label="API response">{
+  "name": "Tyron Samaroo",
+  "title": "AVP, Reliability Engineer",
+  "company": "Synchrony",
+  "location": "Long Island, New York"
+}</pre>
+          <p class="scr-note" id="scrNote">Cached sample composed from this page’s content; field names are illustrative. Press Transmit for the real response.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec wrap" id="contact" aria-labelledby="h-contact">
+  <div class="panel callout">
+    <span class="haz" aria-hidden="true"></span>
+    <div class="ph">
+      <span class="ptag">P-08</span>
+      <h2 class="plate" id="h-contact">Contact</h2>
+      <span class="sub">Call-out panel</span>
+      <span class="line" aria-hidden="true"></span>
+      <span class="meta">3 channels</span>
+    </div>
+    <div class="co-grid">
+      <div class="co-copy">
+        <p class="co-big">Open a<br>channel.</p>
+        <p>Email reaches Tyron directly. The code lives on GitHub, and the career history on LinkedIn.</p>
+      </div>
+      <div class="co-keys">
+        <a class="key o bigkey" href="mailto:tyronsamaroo828@gmail.com"><span class="lamp w" aria-hidden="true"></span><span class="kl"><b>Email</b><span>tyronsamaroo828@gmail.com</span></span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="key bigkey" href="https://github.com/tyronsamaroo"><span class="lamp" aria-hidden="true"></span><span class="kl"><b>GitHub</b><span>github.com/tyronsamaroo</span></span><span class="ar" aria-hidden="true">↗</span></a>
+        <a class="key bigkey" href="https://linkedin.com/in/tyronsamaroo"><span class="lamp" aria-hidden="true"></span><span class="kl"><b>LinkedIn</b><span>linkedin.com/in/tyronsamaroo</span></span><span class="ar" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="rating" aria-label="Site footer">
+    <div class="rt-head"><b>Tyron Samaroo</b><span>Rating plate · tyronsamaroo.dev</span></div>
+    <dl class="rt-grid">
+      <div><dt>Model</dt><dd>AVP, Reliability Engineer</dd></div>
+      <div><dt>Station</dt><dd>Synchrony</dd></div>
+      <div><dt>Site</dt><dd>Long Island, New York</dd></div>
+      <div><dt>In service</dt><dd>Since Jan 2020</dd></div>
+      <div><dt>Certs</dt><dd>AWS Developer · AWS Solutions Architect</dd></div>
+      <div><dt>Degree</dt><dd>MS Data Science</dd></div>
+    </dl>
+    <div class="rt-foot">
+      <p>© 2026 Tyron Samaroo. Built as a single HTML file.</p>
+      <a class="key sm" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+</section>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, c) { return (c || d).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); };
+  var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+  window.__cr = 1;
+
+  /* ---------- derived values (from job dates) ---------- */
+  var now = new Date();
+  var monthsSince = function (y, m) { return (now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m); };
+  var yrs = Math.max(0, monthsSince(2020, 1) / 12);
+  var yNeedle = $('#needleYrs');
+  if (yNeedle) yNeedle.style.setProperty('--a', (-120 + 240 * Math.min(yrs, 10) / 10).toFixed(1) + 'deg');
+  var syncMonths = Math.max(1, monthsSince(2026, 6) + 1);
+  $$('.glass-fill[data-live]').forEach(function (el) { el.style.setProperty('--lv', Math.min(syncMonths / 60, 1).toFixed(3)); });
+
+  /* ---------- clock (base: New York) ---------- */
+  var fmt = null;
+  try { fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' }); } catch (e) {}
+  function tick() {
+    if (!fmt) return;
+    var parts = fmt.formatToParts(new Date()), h = '', m = '', z = '';
+    parts.forEach(function (p) { if (p.type === 'hour') h = p.value; if (p.type === 'minute') m = p.value; if (p.type === 'timeZoneName') z = p.value; });
+    if (h === '24') h = '00';
+    $$('.clock').forEach(function (el) { if (!el.dataset.hold) el.textContent = h + ':' + m; });
+    $$('.clock2').forEach(function (el) { if (!el.dataset.hold) el.textContent = h + ':' + m + ' ' + z; });
+  }
+  tick(); setInterval(tick, 15000);
+
+  /* ---------- lamp indices for the boot sweep ---------- */
+  $$('.top .lamp, .hero .lamp, .hero .win').forEach(function (el, i) { el.style.setProperty('--i', i); });
+  $$('.tg').forEach(function (el, i) { el.style.setProperty('--i', i); });
+
+  /* ---------- boot: lamp test ---------- */
+  var status = $('#bootStatus');
+  var lcds = $$('.hero [data-lcd], .top [data-lcd]');
+  function lcdTest(on) {
+    lcds.forEach(function (el) {
+      if (on) { el.dataset.hold = '1'; el.dataset.txt = el.textContent; el.textContent = el.textContent.replace(/[^\s·:.→]/g, '8'); }
+      else if (el.dataset.hold) { el.textContent = el.dataset.txt; delete el.dataset.hold; }
+    });
+    if (!on) tick();
+  }
+  var booting = false;
+  function lampTest(first) {
+    if (RM || booting) return Promise.resolve();
+    booting = true;
+    if (!first) { root.setAttribute('data-boot', 'pre'); }
+    return wait(first ? 140 : 60).then(function () {
+      root.setAttribute('data-boot', 'test');
+      if (status) status.textContent = 'LAMP TEST ▮▮▮▮';
+      lcdTest(true);
+      return wait(640);
+    }).then(function () {
+      root.setAttribute('data-boot', 'dark');
+      lcdTest(false);
+      return wait(150);
+    }).then(function () {
+      root.removeAttribute('data-boot');
+      if (status) status.textContent = 'ALL POINTS NORMAL';
+      booting = false;
+    });
+  }
+  if (RM) { root.removeAttribute('data-boot'); }
+  else if (root.getAttribute('data-boot') === 'pre') { lampTest(true); }
+  var lt = $('#lampTest');
+  if (lt) lt.addEventListener('click', function () { if (RM) { if (status) status.textContent = 'LAMP TEST OK'; return; } lampTest(false); });
+
+  /* ---------- in-page anchors: smooth scroll (JS so it never fights programmatic scrolls) ---------- */
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute('href').slice(1), t = id && d.getElementById(id);
+    if (!t) return;
+    e.preventDefault();
+    t.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' });
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+    if (id === 'main' || id === 'top') { t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true }); }
+  });
+
+  /* ---------- nav toggles: scroll-linked ---------- */
+  var toggles = $$('.tg');
+  var map = {};
+  toggles.forEach(function (t) { map[t.getAttribute('href').slice(1)] = t; });
+  function setActive(id) {
+    toggles.forEach(function (t) { if (t === map[id]) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current'); });
+    var t = map[id], nav = $('.toggles');
+    if (!t && nav && nav.scrollLeft > 0) nav.scrollTo({ left: 0, behavior: RM ? 'auto' : 'smooth' });
+    if (t && nav && nav.scrollWidth > nav.clientWidth) {
+      var l = t.offsetLeft - nav.offsetLeft - 12;
+      nav.scrollTo({ left: l, behavior: RM ? 'auto' : 'smooth' });
+    }
+  }
+  var secs = ['top'].concat(Object.keys(map)).map(function (id) { return d.getElementById(id); }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-42% 0px -52% 0px' });
+    secs.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---------- scroll progress + career log fill ---------- */
+  var prog = $('.prog'), log = $('#log'), ticking = false, logMax = 0;
+  function onScroll() {
+    ticking = false;
+    var h = root.scrollHeight - innerHeight;
+    if (prog) prog.style.setProperty('--p', h > 0 ? (scrollY / h).toFixed(4) : 0);
+    if (log && !RM) {
+      var r = log.getBoundingClientRect();
+      var p = (innerHeight * 0.62 - r.top) / r.height;
+      logMax = Math.max(logMax, Math.max(0, Math.min(1, p)));
+      log.style.setProperty('--p', logMax.toFixed(4));
+    }
+  }
+  addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---------- reveal helpers ---------- */
+  function inView(el) { var r = el.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; }
+  function whenSeen(el, fn, threshold) {
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { fn(); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { io.disconnect(); fn(); } });
+    }, { threshold: threshold || 0.25 });
+    io.observe(el);
+  }
+
+  /* ---------- mimic: flow through the career line ---------- */
+  var mimic = $('#mimic');
+  if (mimic && !RM && !inView(mimic)) {
+    mimic.classList.add('pre');
+    whenSeen(mimic, function () {
+      $$('[data-t]', mimic).forEach(function (el) {
+        setTimeout(function () { el.classList.add('go'); }, +el.dataset.t);
+      });
+      setTimeout(function () { mimic.classList.add('live'); }, 1800);
+    }, 0.3);
+  } else if (mimic) { mimic.classList.add('live'); }
+
+  /* ---------- about: drum counters ---------- */
+  var inst = $('.inst-grid');
+  if (inst && !RM && !inView(inst)) {
+    inst.classList.add('pre');
+    whenSeen(inst, function () { requestAnimationFrame(function () { inst.classList.remove('pre'); }); }, 0.35);
+  }
+
+  /* ---------- capital one KPI counters ---------- */
+  var kpis = $('#kpis');
+  if (kpis && !RM && !inView(kpis)) {
+    var nums = $$('.n[data-to]', kpis);
+    nums.forEach(function (n) { n.textContent = '0'; });
+    whenSeen(kpis, function () {
+      var t0 = performance.now(), dur = 1200;
+      (function step(t) {
+        var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        nums.forEach(function (n) { n.textContent = Math.round(+n.dataset.to * e); });
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
+    }, 0.5);
+  }
+
+  /* ---------- skills annunciator ---------- */
+  var boards = $$('.ann-board');
+  var wins = $$('.ann-skills .win');
+  wins.forEach(function (w, i) { w.style.setProperty('--i', i); });
+  function boardTest(board) {
+    if (RM) return Promise.resolve();
+    board.style.setProperty('--st', '26ms');
+    board.setAttribute('data-state', 'pre');
+    return wait(40).then(function () {
+      board.setAttribute('data-state', 'test');
+      return wait(26 * wins.length + 420);
+    }).then(function () {
+      board.setAttribute('data-state', 'dark');
+      return wait(160);
+    }).then(function () {
+      board.style.setProperty('--st', '30ms');
+      board.removeAttribute('data-state');
+    });
+  }
+  var main = $('#annBoard');
+  if (main && !RM && !inView(main)) {
+    boards.forEach(function (b) { b.setAttribute('data-state', 'pre'); });
+    whenSeen(main, function () { boards.forEach(boardTest); }, 0.3);
+  }
+  var skt = $('#skTest');
+  if (skt) skt.addEventListener('click', function () { boards.forEach(boardTest); });
+
+  var acked = 0, total = wins.length, ackOut = $('#ackCount'), ackAllBtn = $('#ackAll');
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function ack(w) {
+    if (w.classList.contains('ack')) return;
+    w.classList.add('ack', 'pressed');
+    setTimeout(function () { w.classList.remove('pressed'); }, 120);
+    acked++;
+    if (ackOut) ackOut.textContent = acked === total ? 'ALL ACKNOWLEDGED' : 'ACK ' + pad(acked) + '/' + total;
+    if (acked === total && ackAllBtn) { var l = $('.lamp', ackAllBtn); if (l) l.classList.add('steady'); }
+  }
+  wins.forEach(function (w) { w.addEventListener('pointerenter', function () { ack(w); }); });
+  if (ackAllBtn) ackAllBtn.addEventListener('click', function () {
+    wins.forEach(function (w, i) { setTimeout(function () { ack(w); }, RM ? 0 : i * 35); });
+  });
+
+  /* ---------- StrideSlip ring ---------- */
+  var ring = $('.phone-ring');
+  if (ring && !RM && !inView(ring)) {
+    var fin = ring.style.strokeDashoffset;
+    ring.style.strokeDashoffset = '100';
+    whenSeen(ring, function () { requestAnimationFrame(function () { ring.style.strokeDashoffset = fin; }); }, 0.5);
+  }
+
+  /* ---------- certification tags swing when first seen ---------- */
+  var tags = $$('.ctag');
+  if (!RM) {
+    whenSeen($('.tags'), function () { tags.forEach(function (t, i) { setTimeout(function () { t.classList.add('swing'); }, i * 140); }); }, 0.4);
+    tags.forEach(function (t) {
+      t.addEventListener('pointerenter', function () { t.classList.remove('swing'); void t.offsetWidth; t.classList.add('swing'); });
+    });
+  }
+
+  /* ---------- API telemetry console ---------- */
+  var BASE = 'https://dev-dashboard-api.onrender.com';
+  var LINKS = { github: 'https://github.com/tyronsamaroo', linkedin: 'https://linkedin.com/in/tyronsamaroo', email: 'tyronsamaroo828@gmail.com' };
+  var SAMPLES = {
+    me: { name: 'Tyron Samaroo', title: 'AVP, Reliability Engineer', company: 'Synchrony', location: 'Long Island, New York', summary: 'Reliability engineer with 6+ years building high-scale cloud-native microservices, ML pipelines, and polished web experiences.', links: LINKS },
+    projects: [
+      { name: 'Personal Developer Dashboard', status: 'active', stack: ['FastAPI', 'React', 'DynamoDB', 'AWS Lambda', 'Tailwind'] },
+      { name: 'Summer in New York Finder', status: 'active', stack: ['HTML', 'Leaflet', 'OpenStreetMap'] },
+      { name: 'Daily Command Center', status: 'active', stack: ['Next.js', 'TypeScript', 'Turso', 'Drizzle ORM'] },
+      { name: 'ML Pipeline Toolkit', status: 'active', stack: ['Python', 'PyTorch', 'scikit-learn', 'Pandas'] },
+      { name: 'OCB Debut Dashboard', status: 'completed', stack: ['React', 'Vite', 'Express', 'SQLite'] },
+      { name: 'Smart Chore Scheduler', status: 'completed', stack: ['React', 'Vite', 'FastAPI', 'Python'] }
+    ],
+    stats: { years_experience: '6+', degree: 'MS Data Science', certifications: ['AWS Certified Developer – Associate', 'AWS Certified Solutions Architect – Associate'], projects_shipped: 8, skills: { languages: ['Python', 'Go', 'Java', 'TypeScript'], frameworks: ['React', 'FastAPI', 'Spring Boot', 'Ruby on Rails'], tools: ['AWS', 'Docker', 'Kubernetes', 'Terraform'], data_infra: ['Kafka', 'Redis', 'PostgreSQL', 'CI/CD'] } }
+  };
+  var out = $('#apiOut'), req = $('#scrReq'), st = $('#scrSt'), note = $('#scrNote');
+  var knob = $('#knob'), lTx = $('#lTx'), lLink = $('#lLink'), lFault = $('#lFault'), txBtn = $('#tx');
+  var ANG = { me: -52, projects: 0, stats: 52 };
+  var ep = 'me', inflight = null;
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function hl(obj) {
+    var s = typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2);
+    var lines = s.split('\n');
+    if (lines.length > 90) s = lines.slice(0, 90).join('\n') + '\n  … (truncated for display)';
+    s = esc(s);
+    if (typeof obj === 'string') return s;
+    return s.replace(/("(?:\\.|[^"\\])*")(\s*:)?|\b(-?\d+(?:\.\d+)?)\b|\b(true|false|null)\b/g, function (m, str, colon, num, kw) {
+      if (str) return colon ? '<span class="k">' + str + '</span>' + colon : '<span class="s">' + str + '</span>';
+      if (num) return '<span class="n">' + num + '</span>';
+      return '<span class="b">' + kw + '</span>';
+    });
+  }
+  function lamps(tx, link, fault) {
+    lTx.classList.toggle('off', !tx); lLink.classList.toggle('off', !link); lFault.classList.toggle('off', !fault);
+  }
+  function showSample(msg) {
+    req.textContent = 'GET /api/' + ep;
+    out.innerHTML = hl(SAMPLES[ep]);
+    st.textContent = msg || 'CACHED SAMPLE'; st.className = 'st' + (msg ? ' bad' : '');
+    note.textContent = 'Cached sample composed from this page’s content; field names are illustrative. Press Transmit for the real response.';
+  }
+  function select(v) {
+    ep = v; if (knob) knob.style.setProperty('--kr', ANG[v] + 'deg');
+    if (inflight) { inflight.abort(); inflight = null; }
+    lamps(false, false, false);
+    showSample();
+  }
+  $$('input[name="ep"]').forEach(function (r) { r.addEventListener('change', function () { if (r.checked) select(r.value); }); });
+  if (txBtn) txBtn.addEventListener('click', function () {
+    if (inflight) inflight.abort();
+    var ctl = new AbortController(); inflight = ctl;
+    var which = ep, t0 = performance.now();
+    lamps(true, false, false);
+    req.textContent = 'GET ' + BASE + '/api/' + which;
+    st.textContent = 'TRANSMITTING…'; st.className = 'st';
+    var slow = setTimeout(function () { if (inflight === ctl) st.textContent = 'WAITING · SERVER WAKING'; }, 3500);
+    var kill = setTimeout(function () { ctl.abort(); }, 45000);
+    fetch(BASE + '/api/' + which, { signal: ctl.signal, headers: { Accept: 'application/json' } })
+      .then(function (r) {
+        return r.text().then(function (txt) {
+          var data; try { data = JSON.parse(txt); } catch (e) { data = txt; }
+          if (inflight !== ctl) return;
+          out.innerHTML = hl(data);
+          var ms = Math.round(performance.now() - t0);
+          st.textContent = r.status + (r.ok ? ' OK' : '') + ' · ' + ms + ' MS · LIVE';
+          st.className = 'st ' + (r.ok ? 'ok' : 'bad');
+          note.textContent = 'Live response from ' + BASE + '/api/' + which + '.';
+          lamps(false, r.ok, !r.ok);
+        });
+      })
+      .catch(function () {
+        if (inflight !== ctl) return;
+        showSample('NO LINK · SHOWING CACHED SAMPLE');
+        lamps(false, false, true);
+      })
+      .then(function () { clearTimeout(slow); clearTimeout(kill); if (inflight === ctl) inflight = null; });
+  });
+  if (out) showSample();
+})();
+</script>
+</body>
+</html>

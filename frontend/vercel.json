@@ -40,6 +40,7 @@
     { "source": "/coding-review/:path*", "destination": "/coding-review/:path*" },
     { "source": "/love/:path*", "destination": "/love/:path*" },
     { "source": "/summer/:path*", "destination": "/summer/:path*" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/site/:path*", "destination": "/site/:path*" },
+    { "source": "/(.*)", "destination": "/app.html" }
   ]
 }
